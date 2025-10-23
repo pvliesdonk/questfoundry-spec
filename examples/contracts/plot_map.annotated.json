@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "nodes": [
+    { "id": "B-001", "kind": "beat" },
+    { "id": "CH-01", "kind": "choice" },
+    { "id": "B-006", "kind": "beat" },
+    { "id": "B-009", "kind": "beat" }
+  ],
+  "edges": [
+    { "from": "B-001", "to": "CH-01", "kind": "progress" },
+    { "from": "CH-01", "to": "B-006", "kind": "choice" },
+    { "from": "CH-01", "to": "B-009", "kind": "choice" }
+  ],
+  "invariants": {
+    "dead_ends_allowed": false,
+    "max_soft_rejoin_distance": 2
+  }
+}

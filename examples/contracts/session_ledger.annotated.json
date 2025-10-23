@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "session_id": "SES-NEB-001",
+  "entries": [
+    {
+      "timestamp": "2025-10-23T09:58:00Z",
+      "actor": "orchestrator",
+      "action": "session_created",
+      "data": { "seed": 44291 }
+    },
+    {
+      "timestamp": "2025-10-23T10:05:00Z",
+      "actor": "plot_drafter",
+      "action": "plot_outline_saved",
+      "data": { "path": "examples/workflow/nebula-relay/plot_outline.json" }
+    },
+    {
+      "timestamp": "2025-10-23T10:08:30Z",
+      "actor": "scene_smith",
+      "action": "section_drafted",
+      "data": { "section_id": "S-089" }
+    }
+  ],
+  "stable": false,
+  "cycle": 0,
+  "state": "drafting"
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "relations": [
+    {
+      "from": "CHAR-CAPTAIN",
+      "to": "CHAR-NAV",
+      "type": "ally_of",
+      "notes": "Long-running trust, untested under fire."
+    },
+    {
+      "from": "ORG-DOCK-MASTER",
+      "to": "LOC-RELAY",
+      "type": "controls",
+      "notes": "Gatekeeps maintenance bay access."
+    }
+  ]
+}

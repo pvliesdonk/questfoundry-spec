@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "entities": [
+    {
+      "id": "CHAR-CAPTAIN",
+      "kind": "character",
+      "name": "Rhea Calder",
+      "summary": "Smuggler-captain with a personal code.",
+      "tags": ["crew", "pilot"],
+      "traits": {
+        "edge": "calculating",
+        "tell": "thumb on old coin"
+      },
+      "motivation": "Keep crew alive and independent"
+    },
+    {
+      "id": "CHAR-NAV",
+      "kind": "character",
+      "name": "Ix Tal",
+      "summary": "Navigator obsessed with relic tech.",
+      "tags": ["crew", "nav"],
+      "traits": {
+        "edge": "curious",
+        "gear": "sensor wand"
+      }
+    },
+    {
+      "id": "LOC-RELAY",
+      "kind": "location",
+      "name": "Kestrel Station",
+      "summary": "Derelict relay hub on the nebula rim.",
+      "tags": ["relay", "derelict"]
+    }
+  ]
+}

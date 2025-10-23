@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "title": "Nebula Relay",
+  "chapters": [
+    {
+      "id": "CH1",
+      "title": "Into the Relay",
+      "section_path": "examples/workflow/nebula-relay/sections/S-089/current.json",
+      "art_ids": ["IMG-RELAY-B006"]
+    }
+  ],
+  "plot_index": {
+    "main": ["B-001", "CH-01", "B-006", "B-009"]
+  },
+  "wordcount": 104,
+  "art_ratio": 0.15
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "ART-PLAN-01",
+      "subject": "Kestrel Station maintenance bay during Approach (B-006)",
+      "ref": "B-006",
+      "priority": 2,
+      "framing": "wide establishing shot from overhead catwalk",
+      "style": "retro-futurism",
+      "set_id": "SET-RELAY"
+    }
+  ]
+}
