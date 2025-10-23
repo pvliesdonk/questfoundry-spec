@@ -7,7 +7,7 @@
   "properties": {
     "acts": {
       "type": "array",
-      "minItems": 3,
+      "minItems": 1,
       "items": {
         "type": "object",
         "required": ["id", "title", "sequences"],
@@ -17,7 +17,7 @@
           "title": {"type": "string"},
           "sequences": {
             "type": "array",
-            "minItems": 2,
+            "minItems": 1,
             "items": {
               "type": "object",
               "required": ["id", "goal", "beats", "stakes"],
