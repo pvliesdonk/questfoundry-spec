@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "entities": [
+    {"id": "CHAR-INV", "kind": "character", "name": "Marin Vale", "summary": "Ex-cop turned docklands PI."},
+    {"id": "LOC-DOCKS", "kind": "location", "name": "Docklands Warehouse 17", "summary": "Leaky roof, shadowed crates, bad news."}
+  ]
+}
