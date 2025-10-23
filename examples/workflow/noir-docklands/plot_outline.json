@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "acts": [{
+    "id": "ACT1",
+    "title": "The Case Opens",
+    "sequences": [{
+      "id": "SEQ-CASE",
+      "goal": "Identify the dockyard thief",
+      "beats": ["B-100", "CH-CASE-01", "B-C02"],
+      "stakes": {"personal": 1, "interpersonal": 2, "external": 2}
+    }]
+  }],
+  "threads": {
+    "main": {
+      "beats": {
+        "B-100": {"title": "Night at Pier 9"},
+        "CH-CASE-01": {
+          "title": "Follow the dockhand or stake out the warehouse?",
+          "type": "choice",
+          "choice": {
+            "prompt": "Choose an immediate lead",
+            "options": [
+              {"id": "O1", "label": "Follow the dockhand", "consequence": {"next": "B-C02"}, "rejoin": "soft"},
+              {"id": "O2", "label": "Stake out", "consequence": {"next": "B-C02"}, "rejoin": "fail-forward"}
+            ]
+          }
+        },
+        "B-C02": {"title": "Warehouse Confrontation"}
+      }
+    },
+    "case": {
+      "beats": {
+        "B-C02": {"title": "Warehouse Confrontation"}
+      }
+    }
+  },
+  "setups": [],
+  "payoffs": [],
+  "pacing": {"target_wordcount": 12000, "sequence_bands": [{"seq_id": "SEQ-CASE", "min": 1500, "max": 2500}]}
+}

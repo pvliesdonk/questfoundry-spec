@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "session_id": "noir-docklands-demo",
+  "entries": [
+    {"timestamp": "2025-10-23T10:05:00Z", "actor": "orchestrator", "action": "init", "data": {"seed": 13}},
+    {"timestamp": "2025-10-23T10:06:00Z", "actor": "plot_drafter", "action": "outline", "data": {"file": "plot_outline.json"}},
+    {"timestamp": "2025-10-23T10:07:00Z", "actor": "scene_smith", "action": "section", "data": {"id": "S-201", "beat": "B-C02"}}
+  ],
+  "stable": false,
+  "cycle": 1,
+  "state": "drafting"
+}

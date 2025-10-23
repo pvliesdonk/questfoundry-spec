@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "id": "S-201",
+  "beat_ref": {"thread_id": "case", "beat_id": "B-C02"},
+  "text": "Rain drummed on the corrugated roof like a metronome keeping time for the guilty.",
+  "meta": {"wordcount": 140, "pov": "1st", "tense": "present", "characters_present": ["CHAR-INV"], "continuity": ["clue:bootprints"]}
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "images": [
+    {
+      "id": "IMG-NOIR-001",
+      "path": "art/IMG-NOIR-001.png",
+      "subject": "Rain-slicked warehouse exterior at night",
+      "plan_id": "IMG-NOIR-001",
+      "meta": {
+        "prompt": "Rain-slicked warehouse exterior at night; sodium lamps; reflections; moody noir framing",
+        "seed": "13",
+        "model": "sdxl-1.0",
+        "resolution": "1024x1024"
+      }
+    }
+  ]
+}

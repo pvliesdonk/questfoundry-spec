@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "nodes": [
+    {"id": "B-100", "kind": "beat"},
+    {"id": "CH-CASE-01", "kind": "choice"},
+    {"id": "B-C02", "kind": "beat"}
+  ],
+  "edges": [
+    {"from": "B-100", "to": "CH-CASE-01", "kind": "progress"},
+    {"from": "CH-CASE-01", "to": "B-C02", "kind": "choice"}
+  ],
+  "invariants": {
+    "dead_ends_allowed": false,
+    "max_soft_rejoin_distance": 1
+  }
+}
