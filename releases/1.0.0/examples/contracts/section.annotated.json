@@ -1,6 +1,21 @@
 {
   "id": "S-089",
-  "beat_ref": {"thread_id": "main", "beat_id": "B-023"},
+  "beat_ref": {
+    "thread_id": "main",
+    "beat_id": "B-023"
+  },
   "text": "The Relay hummed like a cathedral pipe—faithful and dangerous.",
-  "meta": {"wordcount": 104, "pov": "3rd-limited", "tense": "past", "characters_present": ["CHAR-CAPTAIN", "CHAR-NAV"], "continuity": ["prop:access-card-present"]}
+  "meta": {
+    "wordcount": 104,
+    "pov": "3rd-limited",
+    "tense": "past",
+    "characters_present": [
+      "CHAR-CAPTAIN",
+      "CHAR-NAV"
+    ],
+    "continuity": [
+      "prop:access-card-present"
+    ]
+  },
+  "version": "1.0.0"
 }

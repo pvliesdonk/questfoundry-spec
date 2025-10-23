@@ -23,5 +23,6 @@
     "wordcount": 20110,
     "art_ratio": 0.19
   },
-  "notes": "All invariants met within cycle budget; cosmetic notes deferred."
+  "notes": "All invariants met within cycle budget; cosmetic notes deferred.",
+  "version": "1.0.0"
 }

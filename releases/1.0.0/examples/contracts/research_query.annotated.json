@@ -13,5 +13,6 @@
       "must_cite": true,
       "min_sources": 2
     }
-  ]
+  ],
+  "version": "1.0.0"
 }
