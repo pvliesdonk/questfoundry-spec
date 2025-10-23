@@ -7,14 +7,14 @@ Inputs:
 
 Outputs (with soft art budget):
 - Soft target: images ≈ target_sections/5 (no hard cap). Prioritize: 1=must-have; 2=strong; 3–5=optional.
-1) art/art_plan.csv  (CSV ONLY) with columns:
-   section,slug,canonical_filename,placement_hint,prompt,alt_caption,style_preset,negative_prompt,size,priority,seed,tags,dominant_colors,lighting_mood
-   Rules:
-   - canonical_filename = art_{{section}}_{{slug}}.png
-   - prompt: NO meta camera/render/seed words (diegetic description only)
-   - alt_caption: diegetic; matches POV/tense/tone; obey lexicon (avoid forbidden terms)
-   - default budget ≈ 1 image per 10 sections; extras allowed with lower priority (3–5)
-   - use IMAGE_SIZE_DEFAULT unless a strong reason exists
+1) art/art_plan.json  (JSON conforming to schemas/art_plan.schema.json)
+   Guidance:
+   - id format: IMG-### (stable; align with section refs)
+   - subject: concise diegetic description (no camera jargon)
+   - ref: section anchor (e.g., S-123, or S-123#choice-b) to link prose context
+   - priority: 1 (must) → 5 (nice-to-have); target ≈ 1 per 5 sections overall
+   - framing/style/set_id: optional helpers for Renderer; omit if redundant
+   - note any stretched priorities or multi-panel ideas in subject or framing
 
 2) art/Continuity_Bible.md  (visual invariants and cross-scene consistency)
 3) art/Placement_Map.md     (which image appears in which section and where)

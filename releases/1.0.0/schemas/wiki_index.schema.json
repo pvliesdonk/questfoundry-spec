@@ -1,9 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/wiki_index.schema.json",
   "title": "Wiki Index",
   "type": "object",
-  "required": ["entities"],
+  "required": ["version","entities"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "entities": {
       "type": "array",
       "items": {

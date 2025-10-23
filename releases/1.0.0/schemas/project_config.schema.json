@@ -1,17 +1,32 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/project_config.schema.json",
   "title": "Project Config",
   "type": "object",
   "additionalProperties": false,
-  "required": ["title","genre","themes","rating","length_goal_words","art_ratio","threads"],
+  "required": ["version","title","genre","themes","rating","length_goal_words","art_ratio","threads"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "title": {"type": "string"},
     "genre": {"type": "string"},
+    "setting": {"type": "string"},
     "themes": {"type": "array", "items": {"type": "string"}},
+    "tone": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "player_role": {"type": "string"},
     "rating": {"type": "string"},
+    "style_tokens": {"type": "array", "items": {"type": "string"}},
+    "visual_style": {"type": "array", "items": {"type": "string"}},
     "length_goal_words": {"type": "integer", "minimum": 1000},
     "art_ratio": {"type": "number", "minimum": 0, "maximum": 1},
     "threads": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "target_sections": {"type": "integer", "minimum": 1},
+    "target_endings": {"type": "integer", "minimum": 1},
+    "choices_per_section": {"type": "number", "minimum": 1},
+    "branch_density": {"type": "number", "minimum": 0},
+    "chapters": {"type": "integer", "minimum": 1},
+    "render_mode": {"type": "string", "enum": ["inline", "offline plan"]},
+    "art_mode": {"type": "string", "enum": ["ai", "human", "none"]},
+    "seed": {"type": "integer"},
     "genre_pack": {"type": "string"}
   }
 }

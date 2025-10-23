@@ -4,7 +4,7 @@ Inputs:
 - world/canon.json
 - codex.glossary
 - build/manifest.json (graph_index.entity_to_sections)
-- art/art_plan.csv (for image references)
+- art/art_plan.json (for image references)
 - STYLE_GUIDE.md (tone/lexicon)
 
 Goal:

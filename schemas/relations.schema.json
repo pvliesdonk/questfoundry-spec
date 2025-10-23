@@ -1,9 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/relations.schema.json",
   "title": "World Relations",
   "type": "object",
-  "required": ["relations"],
+  "required": ["version","relations"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "relations": {
       "type": "array",
       "items": {

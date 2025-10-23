@@ -1,14 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/session_line.schema.json",
   "title": "CYOA Session Recorder Line",
   "type": "object",
-  "required": ["ts","section","choice","codewords","detour"],
+  "required": ["version","ts","section","choice","codewords","detour"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "ts": {"type": "string"},
     "section": {"type": "integer"},
     "choice": {"type": "string"},
     "micro_choice": {"type": ["string","null"]},
     "codewords": {"type": "array", "items": {"type": "string"}},
     "detour": {"type": "boolean"}
-  }
+  },
+  "additionalProperties": false
 }

@@ -1,10 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/research_packet.schema.json",
   "title": "Research Packet",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "session_id", "issued_at", "answers"],
+  "required": ["version","id", "session_id", "issued_at", "answers"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "id": {"type": "string"},
     "session_id": {"type": "string"},
     "issued_at": {"type": "string", "format": "date-time"},

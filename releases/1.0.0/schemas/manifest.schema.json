@@ -1,9 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/manifest.schema.json",
   "title": "Build Manifest",
   "type": "object",
-  "required": ["title", "chapters", "plot_index"],
+  "required": ["version","title", "chapters", "plot_index"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "title": {"type": "string"},
     "chapters": {
       "type": "array",

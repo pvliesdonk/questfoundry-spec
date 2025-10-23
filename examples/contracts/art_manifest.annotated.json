@@ -1,5 +1,0 @@
-{
-  "images": [
-    {"id": "IMG-001", "path": "art/images/IMG-001.png", "subject": "LOC-NEBULA-RELAY", "plan_id": "ART-001", "meta": {"prompt": "wide shot of nebula relay", "seed": "42", "model": "v5", "resolution": "2048x1024"}}
-  ]
-}

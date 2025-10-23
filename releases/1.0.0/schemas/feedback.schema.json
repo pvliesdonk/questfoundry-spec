@@ -241,14 +241,13 @@
           "description": "Guided prose rewrite. Obeys ttl_cycles if provided.",
           "properties": {
             "instructions": { "type": "string", "description": "Targeted rewrite guidance tied to refs.section and/or refs.plot." },
-            "constraints": { "type": "object" }
-          },
-          "constraints": {
-            "type": "object",
-            "properties": {
-              "max_word_delta": { "type": "integer" }
-            },
-            "additionalProperties": false
+            "constraints": {
+              "type": "object",
+              "properties": {
+                "max_word_delta": { "type": "integer" }
+              },
+              "additionalProperties": false
+            }
           },
           "required": ["instructions"],
           "additionalProperties": false

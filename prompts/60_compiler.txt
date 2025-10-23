@@ -4,7 +4,7 @@ Inputs:
 - world/canon.json
 - plot_outline.json (for beat mapping)
 - sections/*/current.json
-- art/art_plan.csv
+- art/art_plan.json
 - art/images/* (if rendered)
 - STYLE_GUIDE.md
 

@@ -18,7 +18,7 @@ A modular, agent-based pipeline for building choose-your-own-adventure fiction. 
 ## Key artifacts & where to look
 - Schemas: `schemas/*.schema.json` (JSON Schema Draft 2020-12).
 - Examples: `examples/contracts/*.annotated.json` (one per schema).
-- End-to-end runs: `examples/workflow/`.
+- End-to-end runs: `examples/workflow/` (placeholder while refreshed runs are generated).
 - Feedback & research docs: `README_FEEDBACK.md`, `README_RESEARCH.md`.
 - **New:** Chat-ops how-to: `README_CHAT.md` (step-by-step guide for using these prompts and files with a chatbot).
 
@@ -31,7 +31,7 @@ Agents send events to request targeted changes: beat revisions, section rewrites
 
 ## Start here
 - Skim `examples/contracts/` to see each contract in context.
-- Use `examples/workflow/` to understand pacing across genres.
+- Check `examples/workflow/` after regeneration for pacing across genres (placeholder today).
 - Read `README_CHAT.md` to run the system via chat.
 - Copy the schemas you need and validate your artifacts against them.
 

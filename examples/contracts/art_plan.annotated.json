@@ -1,6 +1,0 @@
-{
-  "items": [
-    {"id": "ART-001", "subject": "Nebula Relay", "ref": "LOC-NEBULA-RELAY", "priority": 1, "framing": "wide establishing shot", "style": "retro-sci-fi poster"},
-    {"id": "ART-002", "subject": "Kestrel silhouette", "ref": "SHIP-KESTREL", "priority": 3, "framing": "three-quarter view"}
-  ]
-}

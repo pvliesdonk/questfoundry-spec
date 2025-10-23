@@ -1,10 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/claim_registry.schema.json",
   "title": "Claim Registry",
   "type": "object",
   "additionalProperties": false,
-  "required": ["claims"],
+  "required": ["version","claims"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "claims": {
       "type": "array",
       "items": {

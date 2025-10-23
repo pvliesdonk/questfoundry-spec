@@ -13,7 +13,7 @@ This guide explains how to run the CYOA v1.x.y workflow entirely by chat, with c
 2. Plot Drafter: create plot_outline.json and plot_map.json.
 3. World Architect: curate canon.json.
 4. Scene Smith: write sections/S-###/current.json.
-5. Vision Director → Renderer: plan art (art_plan, artlist) and produce art_manifest.
+5. Vision Director → Renderer: plan art (`art_plan.json`, artlist) and produce art_manifest.
 6. Compiler: produce build/book.md and build/manifest.json.
 
 Feedback events can be sent at any time to request changes.
@@ -45,8 +45,8 @@ Paste prompts/10_world_architect.txt. Provide current canon.json. Ask for append
 Paste prompts/20_scene_smith.txt. Provide plot_outline.json, canon.json, and a beat id. Request a section object matching schemas/section.schema.json. Save to sections/S-###/current.json.
 
 ## Art planning and rendering
-Vision Director: produce art_plan (and optionally artlist rows) from sections.
-Renderer: take artlist rows and produce art_manifest entries that reference art/images/*.
+Vision Director: produce art_plan.json (and optionally artlist rows) from sections.
+Renderer: take art_plan.json + artlist rows and produce art_manifest entries that reference art/images/*.
 
 ## Feedback loop (core of iteration)
 - Use prompts/snippets/feedback_envelope_template.json + feedback_type_templates.json to build events.

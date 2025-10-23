@@ -23,6 +23,6 @@
       "wiki_index.schema.json"
     ],
     "examples_contracts": "examples/contracts/*",
-    "docs": ["README.md", "README_FEEDBACK.md", "README_RESEARCH.md", "CHANGES.md"]
+    "docs": ["README.md", "README_CHAT.md", "README_FEEDBACK.md", "README_RESEARCH.md", "CHANGES.md"]
   }
 }

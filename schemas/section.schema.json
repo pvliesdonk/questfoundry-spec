@@ -1,10 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/section.schema.json",
   "title": "Section",
   "type": "object",
-  "required": ["id", "beat_ref", "text"],
+  "required": ["version","id", "beat_ref", "text"],
   "additionalProperties": false,
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "id": {"type": "string"},
     "beat_ref": {
       "type": "object",
@@ -12,7 +14,8 @@
       "properties": {
         "thread_id": {"type": "string"},
         "beat_id": {"type": "string"}
-      }
+      },
+      "additionalProperties": false
     },
     "text": {"type": "string"},
     "meta": {

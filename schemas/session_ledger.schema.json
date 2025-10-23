@@ -1,9 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/session_ledger.schema.json",
   "title": "Session Ledger",
   "type": "object",
-  "required": ["session_id", "entries"],
+  "required": ["version","session_id", "entries"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "session_id": {"type": "string"},
     "entries": {
       "type": "array",

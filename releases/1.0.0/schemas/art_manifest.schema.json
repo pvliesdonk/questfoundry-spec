@@ -1,9 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/art_manifest.schema.json",
   "title": "Art Manifest",
   "type": "object",
-  "required": ["images"],
+  "required": ["version","images"],
   "properties": {
+    "version": {"type": "string", "const": "1.0.0"},
     "images": {
       "type": "array",
       "items": {
@@ -23,6 +25,11 @@
               "resolution": {"type": "string"}
             },
             "additionalProperties": false
+          },
+          "provider_meta": {
+            "type": "object",
+            "description": "Provider-specific metadata (e.g., SDXL, Comfy, Imagen, DALL·E).",
+            "additionalProperties": true
           }
         }
       }
