@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "images": [
+    {"id": "IMG-CM-001", "path": "art/IMG-CM-001.png", "subject": "Aerial view of the Clockwork Market", "plan_id": "IMG-CM-001", "meta": {"prompt": "Aerial view of the Clockwork Market", "seed": "713", "model": "sdxl-1.0", "resolution": "1024x1024"}}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "session_id": "clockwork-market-demo",
+  "entries": [
+    {"timestamp": "2025-10-23T11:00:00Z", "actor": "orchestrator", "action": "init"},
+    {"timestamp": "2025-10-23T11:02:00Z", "actor": "plot_drafter", "action": "outline", "data": {"file": "plot_outline.json"}}
+  ],
+  "stable": false,
+  "cycle": 1,
+  "state": "drafting"
+}

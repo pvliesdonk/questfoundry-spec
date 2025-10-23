@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "entities": [
+    {"id": "CHAR-TINKER", "kind": "character", "name": "Mira Gearwright", "summary": "Street tinker with a knack for unjamming timepieces."},
+    {"id": "CHAR-GUILD", "kind": "character", "name": "Agent Bellamy", "summary": "Auction fixer for the Guild of Hours."},
+    {"id": "LOC-MARKET", "kind": "location", "name": "Clockwork Market", "summary": "Bazaar of springs, brass, and rumors."}
+  ]
+}
