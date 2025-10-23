@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "id": "S-101",
+  "beat_ref": {"thread_id": "main", "beat_id": "B-105"},
+  "text": "Brass bells tolled as bids climbed; gears in Mira's sleeve counted risks, not coins.",
+  "meta": {"wordcount": 120, "pov": "3rd-limited", "tense": "past", "characters_present": ["CHAR-TINKER", "CHAR-GUILD"], "continuity": ["prop:lot-token-seen"]}
+}

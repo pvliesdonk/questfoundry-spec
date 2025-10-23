@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "acts": [{
+    "id": "ACT1",
+    "title": "Whirring Promises",
+    "sequences": [{
+      "id": "SEQ-A",
+      "goal": "Win the auction for the chronometer key",
+      "reversal": "Guild agent rigs the bidding",
+      "beats": ["B-101", "CH-CK-01", "B-105"],
+      "stakes": {"personal": 3, "interpersonal": 2, "external": 1},
+      "cadence": {"reveal_per_1k": 1.0, "cliffhangers": 1, "quiet_scenes": 1}
+    }]
+  }],
+  "threads": {
+    "main": {
+      "arcs": [{
+        "id": "ARC-CLOCK",
+        "type": "goal",
+        "promise": "Secure the key before the bell",
+        "crisis": "Pay the guild or stage a diversion",
+        "resolution": "Key in hand, reputation dented"
+      }],
+      "beats": {
+        "B-101": {"title": "Arrival at the Clockwork Market"},
+        "CH-CK-01": {
+          "title": "The Bid", "type": "choice",
+          "choice": {
+            "prompt": "Outbid the guild or steal the lot token?",
+            "options": [
+              {"id": "O1", "label": "Outbid", "consequence": {"next": "B-105", "stakes_delta": {"personal": 1}}, "rejoin": "soft"},
+              {"id": "O2", "label": "Steal token", "consequence": {"next": "B-110"}, "rejoin": "hard"}
+            ]
+          }
+        },
+        "B-105": {"title": "Underclock Alley Negotiation"}
+      }
+    }
+  },
+  "setups": [{"id": "S-GUILD", "beat_id": "B-101", "targets": ["P-DEBT"]}],
+  "payoffs": [{"id": "P-DEBT", "beat_id": "B-205", "from": ["S-GUILD"], "satisfaction": "medium"}],
+  "pacing": {"target_wordcount": 12000, "sequence_bands": [{"seq_id": "SEQ-A", "min": 1500, "max": 2500}]}
+}
