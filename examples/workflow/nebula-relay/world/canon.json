@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "entities": [
+    {"id": "CHAR-CAPTAIN", "kind": "character", "name": "Rhea Calder", "summary": "Smuggler-captain with a code."},
+    {"id": "CHAR-NAV", "kind": "character", "name": "Ix Tal", "summary": "Navigator obsessed with relic tech."},
+    {"id": "LOC-RELAY", "kind": "location", "name": "Kestrel Station", "summary": "Derelict relay hub on the nebula rim."}
+  ]
+}

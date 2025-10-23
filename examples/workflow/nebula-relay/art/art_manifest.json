@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "images": [
+    {"id": "IMG-001", "path": "art/IMG-001.png", "subject": "Kestrel Station exterior in nebula glow", "plan_id": "IMG-001", "meta": {"prompt": "Kestrel Station exterior in nebula glow", "seed": "42", "model": "sdxl-1.0", "resolution": "1024x1024"}}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "acts": [{
+    "id": "ACT1",
+    "title": "Promise",
+    "sequences": [{
+      "id": "SEQ1",
+      "goal": "Enter the Nebula Relay and secure access codes",
+      "reversal": "Rival controls the maintenance bay",
+      "beats": ["B-001", "CH-01", "B-006"],
+      "stakes": {"personal": 2, "interpersonal": 1, "external": 2},
+      "cadence": {"reveal_per_1k": 1.2, "cliffhangers": 1, "quiet_scenes": 1}
+    }]
+  }],
+  "threads": {
+    "main": {
+      "arcs": [{
+        "id": "ARC_PRIMARY",
+        "type": "goal",
+        "promise": "Breach without casualties",
+        "crisis": "Buy access from rival or risk crew",
+        "resolution": "Breach at cost of trust"
+      }],
+      "beats": {
+        "B-001": {"title": "Raid on Kestrel Station", "setup_tags": ["rival-introduced"]},
+        "B-006": {"title": "Maintenance Bay Infiltration"},
+        "CH-01": {
+          "title": "Approach", "type": "choice",
+          "choice": {
+            "prompt": "Forged credentials or maintenance shafts?",
+            "options": [
+              {"id": "O1", "label": "Forged credentials", "guards": ["has_contact:ORG-DOCK-MASTER"], "consequence": {"next": "B-006", "stakes_delta": {"external": 1}}, "rejoin": "soft"},
+              {"id": "O2", "label": "Maintenance shafts", "consequence": {"next": "B-009"}, "rejoin": "hard"}
+            ]
+          }
+        }
+      }
+    }
+  },
+  "setups": [{"id": "S-RIVAL", "beat_id": "B-001", "targets": ["P-EXTORTION"]}],
+  "payoffs": [{"id": "P-EXTORTION", "beat_id": "B-026", "from": ["S-RIVAL"], "satisfaction": "high"}],
+  "pacing": {"target_wordcount": 20000, "sequence_bands": [{"seq_id": "SEQ1", "min": 2500, "max": 3500}]}
+}

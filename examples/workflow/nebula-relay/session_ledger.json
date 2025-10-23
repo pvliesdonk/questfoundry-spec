@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "session_id": "nebula-relay-demo",
+  "entries": [
+    {"timestamp": "2025-10-23T10:00:00Z", "actor": "orchestrator", "action": "init", "data": {"seed": 42}},
+    {"timestamp": "2025-10-23T10:01:00Z", "actor": "plot_drafter", "action": "outline", "data": {"file": "plot_outline.json"}}
+  ],
+  "stable": false,
+  "cycle": 1,
+  "state": "drafting"
+}
