@@ -1,9 +1,22 @@
 {
   "title": "Echoes of the Nebula Relay",
   "chapters": [
-    {"id": "S-089", "title": "Confrontation at the Relay", "section_path": "sections/S-089/current.json", "art_ids": ["IMG-001"]}
+    {
+      "id": "S-089",
+      "title": "Confrontation at the Relay",
+      "section_path": "sections/S-089/current.json",
+      "art_ids": [
+        "IMG-001"
+      ]
+    }
   ],
-  "plot_index": {"main": ["B-001", "B-023"]},
+  "plot_index": {
+    "main": [
+      "B-001",
+      "B-023"
+    ]
+  },
   "wordcount": 20340,
-  "art_ratio": 0.19
+  "art_ratio": 0.19,
+  "version": "1.0.0"
 }

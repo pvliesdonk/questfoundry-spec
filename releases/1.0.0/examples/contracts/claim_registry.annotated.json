@@ -5,8 +5,11 @@
       "text": "The Nebula Relay predates the Empire by centuries.",
       "support": "invented-but-consistent",
       "confidence": 0.7,
-      "sources": ["lore"],
+      "sources": [
+        "lore"
+      ],
       "status": "approved"
     }
-  ]
+  ],
+  "version": "1.0.0"
 }

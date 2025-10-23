@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "CHANGES.md",
-      "sha256": "737da3b2d82ca984668bce0e075a863495519cc735a9f624dff5128af47742ce"
+      "sha256": "7bdb4578440085f3efed0cf2bda1c8bb5192a2d3610a5c1422b3268a9cea39bb"
     },
     {
       "path": "README.md",
@@ -159,7 +159,7 @@
     },
     {
       "path": "release_manifest.json",
-      "sha256": "10d00a252468f7377e40f0d4301bf3002e2d5d0839c542c02c3141be843f605b"
+      "sha256": "d7b2104c063696ab16473b33d9be00e2406230addce28379adaa03995e672b36"
     },
     {
       "path": "schemas/art_manifest.schema.json",

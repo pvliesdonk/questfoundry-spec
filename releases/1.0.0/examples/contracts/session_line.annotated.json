@@ -3,6 +3,9 @@
   "section": 89,
   "choice": "Forged credentials",
   "micro_choice": null,
-  "codewords": ["has_contact:ORG-DOCK-MASTER"],
-  "detour": false
+  "codewords": [
+    "has_contact:ORG-DOCK-MASTER"
+  ],
+  "detour": false,
+  "version": "1.0.0"
 }

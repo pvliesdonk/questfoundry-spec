@@ -11,16 +11,28 @@
       "confidence": 0.6,
       "evidence": [
         {
-          "source": {"title": "Industrial Control System Lockouts", "url": "https://example.test/ics-lockouts", "publisher": "Tech Journal", "date": "2018"},
+          "source": {
+            "title": "Industrial Control System Lockouts",
+            "url": "https://example.test/ics-lockouts",
+            "publisher": "Tech Journal",
+            "date": "2018"
+          },
           "support": "supports",
           "quote": "Lockouts are often centralized in maintenance hubs on older platforms."
         }
       ],
       "resolution": "use",
-      "routing": ["plot_drafter", "scene_smith"]
+      "routing": [
+        "plot_drafter",
+        "scene_smith"
+      ]
     }
   ],
   "bibliography": [
-    {"title": "Modular Station Designs", "url": "https://example.test/modular-stations"}
-  ]
+    {
+      "title": "Modular Station Designs",
+      "url": "https://example.test/modular-stations"
+    }
+  ],
+  "version": "1.0.0"
 }

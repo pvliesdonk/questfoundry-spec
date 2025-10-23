@@ -1,8 +1,20 @@
 {
   "session_id": "run-2025-10-22-so-a",
   "entries": [
-    {"timestamp": "2025-10-22T10:00:00Z", "actor": "orchestrator", "action": "init", "data": {"genre_pack": "genre_space_opera_v1"}},
-    {"timestamp": "2025-10-22T10:05:00Z", "actor": "plot_drafter", "action": "outline_created"}
+    {
+      "timestamp": "2025-10-22T10:00:00Z",
+      "actor": "orchestrator",
+      "action": "init",
+      "data": {
+        "genre_pack": "genre_space_opera_v1"
+      }
+    },
+    {
+      "timestamp": "2025-10-22T10:05:00Z",
+      "actor": "plot_drafter",
+      "action": "outline_created"
+    }
   ],
-  "stable": false
+  "stable": false,
+  "version": "1.0.0"
 }

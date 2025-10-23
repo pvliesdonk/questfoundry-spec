@@ -8,5 +8,9 @@
   "style_preset": "retro-sci-fi poster",
   "size": "2048x1024",
   "priority": 1,
-  "tags": ["establishing", "space"]
+  "tags": [
+    "establishing",
+    "space"
+  ],
+  "version": "1.0.0"
 }

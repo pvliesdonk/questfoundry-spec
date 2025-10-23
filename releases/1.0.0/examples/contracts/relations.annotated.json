@@ -1,6 +1,15 @@
 {
   "relations": [
-    {"from": "ORG-EMPIRE", "to": "LOC-NEBULA-RELAY", "type": "controls"},
-    {"from": "SHIP-KESTREL", "to": "ORG-EMPIRE", "type": "opposes"}
-  ]
+    {
+      "from": "ORG-EMPIRE",
+      "to": "LOC-NEBULA-RELAY",
+      "type": "controls"
+    },
+    {
+      "from": "SHIP-KESTREL",
+      "to": "ORG-EMPIRE",
+      "type": "opposes"
+    }
+  ],
+  "version": "1.0.0"
 }
