@@ -1,0 +1,9 @@
+# editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# build outputs
+build/
+dist/
+*.log

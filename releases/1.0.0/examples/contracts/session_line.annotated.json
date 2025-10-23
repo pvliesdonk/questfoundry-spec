@@ -1,0 +1,8 @@
+{
+  "ts": "2025-10-22T10:07:30Z",
+  "section": 89,
+  "choice": "Forged credentials",
+  "micro_choice": null,
+  "codewords": ["has_contact:ORG-DOCK-MASTER"],
+  "detour": false
+}

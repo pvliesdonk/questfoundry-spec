@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "World Canon",
+  "type": "object",
+  "required": ["entities"],
+  "additionalProperties": false,
+  "properties": {
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "name"],
+        "properties": {
+          "id": {"type": "string"},
+          "kind": {"type": "string", "enum": ["character", "faction", "location", "relic", "ship", "infrastructure", "organization", "object"]},
+          "name": {"type": "string"},
+          "summary": {"type": "string"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "traits": {"type": "object"},
+          "motivation": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

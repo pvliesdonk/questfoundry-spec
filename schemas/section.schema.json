@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Section",
+  "type": "object",
+  "required": ["id", "beat_ref", "text"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string"},
+    "beat_ref": {
+      "type": "object",
+      "required": ["thread_id", "beat_id"],
+      "properties": {
+        "thread_id": {"type": "string"},
+        "beat_id": {"type": "string"}
+      }
+    },
+    "text": {"type": "string"},
+    "meta": {
+      "type": "object",
+      "properties": {
+        "wordcount": {"type": "integer"},
+        "pov": {"type": "string"},
+        "tense": {"type": "string"},
+        "characters_present": {"type": "array", "items": {"type": "string"}},
+        "continuity": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

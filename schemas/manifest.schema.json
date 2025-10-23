@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Build Manifest",
+  "type": "object",
+  "required": ["title", "chapters", "plot_index"],
+  "properties": {
+    "title": {"type": "string"},
+    "chapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "section_path": {"type": "string"},
+          "art_ids": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "plot_index": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "wordcount": {"type": "integer"},
+    "art_ratio": {"type": "number"}
+  },
+  "additionalProperties": false
+}

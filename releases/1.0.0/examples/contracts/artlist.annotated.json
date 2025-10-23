@@ -1,0 +1,12 @@
+{
+  "section": 89,
+  "slug": "nebula-relay-wide",
+  "canonical_filename": "IMG-001.png",
+  "placement_hint": "S-089:top",
+  "prompt": "Wide establishing shot of an ancient relay looming in a teal nebula; small freighter in foreground for scale",
+  "alt_caption": "The Nebula Relay dwarfs the crew's freighter.",
+  "style_preset": "retro-sci-fi poster",
+  "size": "2048x1024",
+  "priority": 1,
+  "tags": ["establishing", "space"]
+}

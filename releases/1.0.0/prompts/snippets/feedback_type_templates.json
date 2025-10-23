@@ -1,0 +1,33 @@
+{
+  "beat_revision_request": {
+    "payload": {
+      "proposal": {
+        "summary": "<one-line change>",
+        "changes": [
+          { "op": "replace", "path": "/threads/<thread>/beats/<beat>/title", "value": "<new-title>" }
+        ],
+        "impact": "<narrative impact>"
+      }
+    }
+  },
+  "beat_revision_response": {
+    "payload": { "accepted": true, "applied_diff_ref": "<ref>" }
+  },
+  "world_extension_proposal": {
+    "payload": { "extension": { "entities": [ { "id": "<ID>", "kind": "<kind>", "name": "<name>" } ], "links": [] } }
+  },
+  "world_extension_decision": {
+    "payload": { "decision": "approved", "notes": "<reason>" }
+  },
+  "plot_push_update": {
+    "payload": { "diff": [ { "op": "add", "path": "/threads/<thread>/beats/-", "value": { "id": "<id>", "title": "<title>" } } ], "reason": "<why>" }
+  },
+  "section_rewrite_request": {
+    "payload": { "instructions": "<targeted rewrite>", "constraints": { "style": "<guide>" } }
+  },
+  "section_rewrite_response": {
+    "payload": { "result_path": "sections/<id>/current.json", "delta_summary": "<what changed>" }
+  },
+  "note": { "payload": { "message": "<text>" } },
+  "error": { "payload": { "message": "<text>", "kind": "<category>" } }
+}

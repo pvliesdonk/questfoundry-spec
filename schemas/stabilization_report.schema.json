@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stabilization Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["session_id", "issued_at", "state", "checks"],
+  "properties": {
+    "session_id": {"type": "string"},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "state": {"type": "string", "enum": ["drafting", "revision", "stabilizing", "stable"]},
+    "cycle": {"type": "integer", "minimum": 0},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["open_requests", "plot_invariants", "world_integrity", "section_coverage", "continuity", "compiler", "pacing", "research_pass"],
+      "properties": {
+        "open_requests": {"type": "boolean"},
+        "plot_invariants": {"type": "boolean"},
+        "world_integrity": {"type": "boolean"},
+        "section_coverage": {"type": "boolean"},
+        "continuity": {"type": "boolean"},
+        "compiler": {"type": "boolean"},
+        "pacing": {"type": "boolean"},
+        "research_pass": {"type": "boolean"}
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "beats_total": {"type": "integer"},
+        "setups": {"type": "integer"},
+        "payoffs": {"type": "integer"},
+        "unpaired_setups": {"type": "integer"},
+        "unpaired_payoffs": {"type": "integer"},
+        "wordcount": {"type": "integer"},
+        "art_ratio": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "claims_unresolved": {"type": "integer", "minimum": 0},
+    "notes": {"type": "string"}
+  }
+}

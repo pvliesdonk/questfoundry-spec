@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Session Ledger",
+  "type": "object",
+  "required": ["session_id", "entries"],
+  "properties": {
+    "session_id": {"type": "string"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "actor", "action"],
+        "properties": {
+          "timestamp": {"type": "string", "format": "date-time"},
+          "actor": {"type": "string"},
+          "action": {"type": "string"},
+          "data": {}
+        }
+      }
+    },
+    "stable": {"type": "boolean"},
+    "cycle": {"type": "integer", "minimum": 0},
+    "state": {"type": "string", "enum": ["drafting", "revision", "stabilizing", "stable"]}
+  },
+  "additionalProperties": false
+}

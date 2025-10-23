@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Plot Outline v3.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["acts", "threads", "setups", "payoffs", "pacing"],
+  "properties": {
+    "acts": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "sequences"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "sequences": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": ["id", "goal", "beats", "stakes"],
+              "additionalProperties": false,
+              "properties": {
+                "id": {"type": "string"},
+                "goal": {"type": "string"},
+                "reversal": {"type": "string"},
+                "beats": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "stakes": {
+                  "type": "object",
+                  "properties": {
+                    "personal": {"type": "integer", "minimum": 0, "maximum": 5},
+                    "interpersonal": {"type": "integer", "minimum": 0, "maximum": 5},
+                    "external": {"type": "integer", "minimum": 0, "maximum": 5}
+                  }
+                },
+                "cadence": {
+                  "type": "object",
+                  "properties": {
+                    "reveal_per_1k": {"type": "number"},
+                    "cliffhangers": {"type": "integer"},
+                    "quiet_scenes": {"type": "integer"}
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "threads": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["beats"],
+        "properties": {
+          "arcs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "type", "promise", "crisis", "resolution"],
+              "properties": {
+                "id": {"type": "string"},
+                "type": {"type": "string", "enum": ["goal", "relationship", "mystery"]},
+                "promise": {"type": "string"},
+                "crisis": {"type": "string"},
+                "resolution": {"type": "string"}
+              }
+            }
+          },
+          "beats": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["title"],
+              "properties": {
+                "title": {"type": "string"},
+                "type": {"type": "string", "enum": ["beat", "choice"], "default": "beat"},
+                "obligation": {"type": "boolean"},
+                "contract": {
+                  "type": "object",
+                  "properties": {
+                    "requires": {"type": "array", "items": {"type": "string"}},
+                    "forbids": {"type": "array", "items": {"type": "string"}}
+                  }
+                },
+                "setup_tags": {"type": "array", "items": {"type": "string"}},
+                "payoff_refs": {"type": "array", "items": {"type": "string"}},
+                "choice": {
+                  "type": "object",
+                  "properties": {
+                    "prompt": {"type": "string"},
+                    "options": {
+                      "type": "array",
+                      "minItems": 2,
+                      "items": {
+                        "type": "object",
+                        "required": ["id", "label", "consequence"],
+                        "properties": {
+                          "id": {"type": "string"},
+                          "label": {"type": "string"},
+                          "guards": {"type": "array", "items": {"type": "string"}},
+                          "consequence": {
+                            "type": "object",
+                            "properties": {
+                              "next": {"type": "string"},
+                              "stakes_delta": {
+                                "type": "object",
+                                "properties": {
+                                  "personal": {"type": "integer"},
+                                  "interpersonal": {"type": "integer"},
+                                  "external": {"type": "integer"}
+                                },
+                                "additionalProperties": false
+                              },
+                              "injury_risk": {"type": "string"}
+                            },
+                            "required": ["next"]
+                          },
+                          "rejoin": {"type": "string", "enum": ["hard", "soft", "fail-forward"], "default": "soft"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "setups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "beat_id", "targets"],
+        "properties": {
+          "id": {"type": "string"},
+          "beat_id": {"type": "string"},
+          "targets": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "payoffs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "beat_id", "from"],
+        "properties": {
+          "id": {"type": "string"},
+          "beat_id": {"type": "string"},
+          "from": {"type": "array", "items": {"type": "string"}},
+          "satisfaction": {"type": "string"}
+        }
+      }
+    },
+    "pacing": {
+      "type": "object",
+      "required": ["target_wordcount", "sequence_bands"],
+      "properties": {
+        "target_wordcount": {"type": "integer"},
+        "sequence_bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["seq_id", "min", "max"],
+            "properties": {
+              "seq_id": {"type": "string"},
+              "min": {"type": "integer"},
+              "max": {"type": "integer"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

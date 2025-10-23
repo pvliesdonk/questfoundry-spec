@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Art Plan",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "subject", "priority"],
+        "properties": {
+          "id": {"type": "string"},
+          "subject": {"type": "string"},
+          "ref": {"type": "string"},
+          "priority": {"type": "integer", "minimum": 1, "maximum": 5},
+          "framing": {"type": "string"},
+          "style": {"type": "string"},
+          "set_id": {"type": "string"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

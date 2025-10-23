@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title","genre","themes","rating","length_goal_words","art_ratio","threads"],
+  "properties": {
+    "title": {"type": "string"},
+    "genre": {"type": "string"},
+    "themes": {"type": "array", "items": {"type": "string"}},
+    "rating": {"type": "string"},
+    "length_goal_words": {"type": "integer", "minimum": 1000},
+    "art_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "threads": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "genre_pack": {"type": "string"}
+  }
+}

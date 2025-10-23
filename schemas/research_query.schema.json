@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research Query",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "session_id", "origin", "questions"],
+  "properties": {
+    "id": {"type": "string"},
+    "session_id": {"type": "string"},
+    "origin": {"type": "string", "description": "agent that asked for research (plot_drafter, scene_smith, etc.)"},
+    "loop_state": {"type": "string", "enum": ["drafting", "revision", "stabilizing", "stable"]},
+    "cycle": {"type": "integer", "minimum": 0},
+    "priority": {"type": "integer", "minimum": 1, "maximum": 5, "default": 3},
+    "ttl_cycles": {"type": "integer", "minimum": 1},
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["q"],
+        "properties": {
+          "q": {"type": "string"},
+          "scope": {"type": "string", "enum": ["factual", "genre-convention", "world-consistency", "sensitivity", "naming"], "description": "classification"},
+          "must_cite": {"type": "boolean", "default": true},
+          "min_sources": {"type": "integer", "minimum": 1, "default": 2}
+        }
+      }
+    }
+  }
+}

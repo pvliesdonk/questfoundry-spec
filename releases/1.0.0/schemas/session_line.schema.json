@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CYOA Session Recorder Line",
+  "type": "object",
+  "required": ["ts","section","choice","codewords","detour"],
+  "properties": {
+    "ts": {"type": "string"},
+    "section": {"type": "integer"},
+    "choice": {"type": "string"},
+    "micro_choice": {"type": ["string","null"]},
+    "codewords": {"type": "array", "items": {"type": "string"}},
+    "detour": {"type": "boolean"}
+  }
+}

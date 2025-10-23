@@ -1,0 +1,6 @@
+{
+  "entities": [
+    {"id": "LOC-NEBULA-RELAY", "name": "Nebula Relay", "path": "wiki/LOC-NEBULA-RELAY.md"},
+    {"id": "SHIP-KESTREL", "name": "Kestrel", "path": "wiki/SHIP-KESTREL.md"}
+  ]
+}

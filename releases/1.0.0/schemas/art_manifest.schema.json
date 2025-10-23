@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Art Manifest",
+  "type": "object",
+  "required": ["images"],
+  "properties": {
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "subject"],
+        "properties": {
+          "id": {"type": "string"},
+          "path": {"type": "string"},
+          "subject": {"type": "string"},
+          "plan_id": {"type": "string"},
+          "meta": {
+            "type": "object",
+            "properties": {
+              "prompt": {"type": "string"},
+              "seed": {"type": "string"},
+              "model": {"type": "string"},
+              "resolution": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

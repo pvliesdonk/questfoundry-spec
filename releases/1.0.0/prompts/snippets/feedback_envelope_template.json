@@ -1,0 +1,19 @@
+{
+  "id": "<uuid-v4>",
+  "version": "3.2",
+  "timestamp": "<UTC RFC3339>",
+  "session_id": "<run-id>",
+  "correlation_id": "<prior-event-id>",
+  "actor": "<scene_smith|plot_drafter|world_architect|...>",
+  "target": "<agent|any>",
+  "type": "<message-type>",
+  "priority": 3,
+  "refs": {
+    "plot": { "thread_id": "<thread>", "beat_id": "<beat>" },
+    "section": { "section_id": "<section>", "path": "sections/<id>/current.json" },
+    "canon": { "entity_id": "<entity>" }
+  },
+  "status": "open",
+  "rationale": "<why this matters>",
+  "payload": { /* see type-specific templates */ }
+}

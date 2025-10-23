@@ -1,0 +1,6 @@
+{
+  "entities": [
+    {"id": "SHIP-KESTREL", "kind": "ship", "name": "Kestrel", "tags": ["rustbucket", "fast"], "summary": "Refitted freighter."},
+    {"id": "LOC-NEBULA-RELAY", "kind": "location", "name": "Nebula Relay", "tags": ["ancient", "hazard"]}
+  ]
+}

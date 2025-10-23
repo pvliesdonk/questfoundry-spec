@@ -1,0 +1,54 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  jsonschema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema
+      - name: Validate example contracts against schemas
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          import json, sys, pathlib
+          from jsonschema import Draft202012Validator as V
+
+          SCHEMAS_DIR = pathlib.Path("schemas")
+          EX_DIR = pathlib.Path("examples/contracts")
+
+          def load(p): 
+              with open(p, "r", encoding="utf-8") as f: 
+                  return json.load(f)
+
+          # Pair each *.annotated.json with {name}.schema.json
+          pairs, errors = [], 0
+          for ex in sorted(EX_DIR.glob("*.annotated.json")):
+              base = ex.stem.replace(".annotated","")
+              sch = SCHEMAS_DIR / f"{base}.schema.json"
+              if sch.exists(): pairs.append((ex, sch))
+              else: print(f"::warning file={ex}::No matching schema {sch.name}; skipped")
+
+          for ex, sch in pairs:
+              data, schema = load(ex), load(sch)
+              v = V(schema)
+              errs = sorted(v.iter_errors(data), key=lambda e: e.path)
+              if errs:
+                  errors += 1
+                  print(f"::error file={ex}::Validation failed against {sch.name}")
+                  for e in errs[:10]:
+                      path = "/".join(map(str, e.path)) or "<root>"
+                      print(f"  - at {path}: {e.message}")
+              else:
+                  print(f"OK: {ex} ✓")
+          if errors: sys.exit(1)
+          PY

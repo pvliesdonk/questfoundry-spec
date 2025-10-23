@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CYOA Art List (row)",
+  "type": "object",
+  "required": ["section","slug","canonical_filename","placement_hint","prompt","alt_caption"],
+  "properties": {
+    "section": {"type": "integer"},
+    "slug": {"type": "string"},
+    "canonical_filename": {"type": "string"},
+    "placement_hint": {"type": "string"},
+    "prompt": {"type": "string"},
+    "alt_caption": {"type": "string"},
+    "style_preset": {"type": "string"},
+    "negative_prompt": {"type": "string"},
+    "size": {"type": "string"},
+    "priority": {"type": "integer", "minimum": 1, "maximum": 5},
+    "seed": {"type": "integer"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "dominant_colors": {"type": "array", "items": {"type": "string"}},
+    "lighting_mood": {"type": "string"},
+    "extras": {"type": "object", "description": "Freeform art notes or arbitrary fields", "additionalProperties": true}
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/cyoa/v3.2/schemas/feedback.schema.json",
+  "title": "CYOA Feedback Event",
+  "description": "Lightweight message used by agents to coordinate targeted revisions during the v3.2 feedback loop. One event per line in events/feedback.jsonl.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "timestamp",
+    "session_id",
+    "actor",
+    "type",
+    "payload"
+  ],
+  "properties": {
+    "loop_state": {
+      "type": "string",
+      "enum": ["drafting", "revision", "stabilizing", "stable"],
+      "description": "Lifecycle state of the feedback loop at emission time. Set by Orchestrator or inferred by agents."
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic revision cycle counter for this session. Incremented by Orchestrator at the start of each review round."
+    },
+    "id": {
+      "type": "string",
+      "description": "Stable unique identifier (UUID v4 recommended)."
+    },
+    "version": {
+      "type": "string",
+      "const": "3.2",
+      "description": "Protocol version of the feedback event."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC3339 timestamp in UTC."
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Execution/session correlation id tying events to a specific run."
+    },
+    "correlation_id": {
+      "type": "string",
+      "description": "Optional id used to thread related events (e.g., request ↔ response)."
+    },
+    "actor": {
+      "type": "string",
+      "enum": [
+        "orchestrator",
+        "plot_drafter",
+        "world_architect",
+        "scene_smith",
+        "vision_director",
+        "renderer",
+        "compiler",
+        "lore_weaver",
+        "player_narrator"
+      ],
+      "description": "Agent emitting the event."
+    },
+    "target": {
+      "type": "string",
+      "enum": [
+        "orchestrator",
+        "plot_drafter",
+        "world_architect",
+        "scene_smith",
+        "vision_director",
+        "renderer",
+        "compiler",
+        "lore_weaver",
+        "player_narrator",
+        "any"
+      ],
+      "default": "any",
+      "description": "Intended recipient. Use 'any' for broadcast."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "beat_revision_request",
+        "beat_revision_response",
+        "world_extension_proposal",
+        "world_extension_decision",
+        "plot_push_update",
+        "section_rewrite_request",
+        "section_rewrite_response",
+        "research_request",
+        "research_response",
+        "note",
+        "error"
+      ],
+      "description": "Message class. Determines payload shape."
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 3,
+      "description": "1 (highest) – 5 (lowest)."
+    },
+    "refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "plot": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "thread_id": { "type": "string" },
+            "beat_id": { "type": "string" }
+          }
+        },
+        "section": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "section_id": { "type": "string" },
+            "path": { "type": "string", "description": "Filesystem path to section current.json if relevant." }
+          }
+        },
+        "canon": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "entity_id": { "type": "string" }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "ack",
+        "applied",
+        "rejected",
+        "superseded"
+      ],
+      "default": "open",
+      "description": "Lifecycle marker for request/decision events."
+    },
+    "rationale": {
+      "type": "string",
+      "description": "Brief human-readable explanation or reasoning."
+    },
+    "payload": {
+      "type": "object",
+      "description": "Type-specific body. See “oneOf”.",
+      "oneOf": [
+        {
+          "title": "Beat Revision Request",
+          "description": "Request to modify one or more beats. Optionally bounded by ttl_cycles.",
+          "properties": {
+            "proposal": {
+              "type": "object",
+              "description": "Suggested changes to a beat.",
+              "properties": {
+                "summary": { "type": "string" },
+                "changes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "op": { "type": "string", "enum": ["add", "remove", "replace"] },
+                      "path": { "type": "string", "description": "JSON Pointer into plot_outline for the beat." },
+                      "value": {}
+                    },
+                    "required": ["op", "path"]
+                  }
+                },
+                "impact": { "type": "string", "description": "Narrative impact assessment." }
+              },
+              "required": ["summary", "changes"]
+            },
+            "ttl_cycles": { "type": "integer", "minimum": 1, "description": "Optional iteration budget for this request; after this many cycles, the Orchestrator auto-supersedes." }
+            }
+          },
+          "required": ["proposal"]
+        },
+        {
+          "title": "Beat Revision Response",
+          "properties": {
+            "accepted": { "type": "boolean" },
+            "applied_diff_ref": { "type": "string", "description": "Path or id of applied diff/commit." }
+          },
+          "required": ["accepted"]
+        },
+        {
+          "title": "World Extension Proposal",
+          "properties": {
+            "extension": {
+              "type": "object",
+              "description": "Proposed canonical additions.",
+              "properties": {
+                "entities": { "type": "array", "items": { "type": "object" } },
+                "links": { "type": "array", "items": { "type": "object" } }
+              }
+            }
+          },
+          "required": ["extension"]
+        },
+        {
+          "title": "World Extension Decision",
+          "properties": {
+            "decision": { "type": "string", "enum": ["approved", "rejected", "needs_revision"] },
+            "notes": { "type": "string" }
+          },
+          "required": ["decision"]
+        },
+        {
+          "title": "Plot Push Update",
+          "properties": {
+            "diff": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "op": { "type": "string", "enum": ["add", "remove", "replace"] },
+                  "path": { "type": "string" },
+                  "value": {}
+                },
+                "required": ["op", "path"]
+              }
+            },
+            "reason": { "type": "string" }
+          },
+          "required": ["diff"]
+        },
+        {
+          "title": "Section Rewrite Request",
+          "description": "Guided prose rewrite. Obeys ttl_cycles if provided.",
+          "properties": {
+            "instructions": { "type": "string", "description": "Targeted rewrite guidance tied to refs.section and/or refs.plot." },
+            "constraints": { "type": "object" }
+          },
+          "required": ["instructions"]
+        },
+        {
+          "title": "Section Rewrite Response",
+          "properties": {
+            "result_path": { "type": "string", "description": "Filesystem path to updated section current.json." },
+            "delta_summary": { "type": "string" }
+          }
+        },
+        {
+          "title": "Research Request",
+          "properties": {
+            "questions": { "$ref": "#/definitions/questionsList" },
+            "ttl_cycles": { "type": "integer", "minimum": 1 }
+          },
+          "required": ["questions"]
+        },
+        {
+          "title": "Research Response",
+          "properties": {
+            "packet_path": { "type": "string", "description": "Filesystem path to a research_packet.json summarizing sources/evidence." },
+            "accepted": { "type": "boolean" }
+          },
+          "required": ["packet_path"]
+        },
+        {
+          "title": "Note",
+          "properties": {
+            "message": { "type": "string" }
+          },
+          "required": ["message"]
+        },
+        {
+          "title": "Error",
+          "properties": {
+            "message": { "type": "string" },
+            "kind": { "type": "string" },
+            "data": {}
+          },
+          "required": ["message"]
+        }
+      ]
+    }
+  }
+}

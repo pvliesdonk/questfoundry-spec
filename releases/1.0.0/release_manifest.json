@@ -1,0 +1,28 @@
+{
+  "version": "3.3-qa",
+  "date": "2025-10-22",
+  "includes": {
+    "schemas": [
+      "art_manifest.schema.json",
+      "art_plan.schema.json",
+      "artlist.schema.json",
+      "canon.schema.json",
+      "claim_registry.schema.json",
+      "feedback.schema.json",
+      "manifest.schema.json",
+      "plot_map.schema.json",
+      "plot_outline.schema.json",
+      "project_config.schema.json",
+      "relations.schema.json",
+      "research_packet.schema.json",
+      "research_query.schema.json",
+      "section.schema.json",
+      "session_ledger.schema.json",
+      "session_line.schema.json",
+      "stabilization_report.schema.json",
+      "wiki_index.schema.json"
+    ],
+    "examples_contracts": "examples/contracts/*",
+    "docs": ["README.md", "README_FEEDBACK.md", "README_RESEARCH.md", "CHANGES.md"]
+  }
+}

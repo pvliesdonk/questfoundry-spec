@@ -1,0 +1,6 @@
+{
+  "relations": [
+    {"from": "ORG-EMPIRE", "to": "LOC-NEBULA-RELAY", "type": "controls"},
+    {"from": "SHIP-KESTREL", "to": "ORG-EMPIRE", "type": "opposes"}
+  ]
+}

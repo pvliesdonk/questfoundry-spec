@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "World Relations",
+  "type": "object",
+  "required": ["relations"],
+  "properties": {
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "type": {"type": "string", "enum": ["belongs_to", "controls", "opposes", "located_in", "ally_of", "uses"]},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,26 @@
+{
+  "id": "EVT-0001",
+  "version": "3.2",
+  "timestamp": "2025-10-22T10:15:00Z",
+  "session_id": "run-2025-10-22-so-a",
+  "actor": "plot_drafter",
+  "target": "scene_smith",
+  "type": "section_rewrite_request",
+  "priority": 2,
+  "refs": {
+    "section": {
+      "section_id": "S-089",
+      "path": "sections/S-089/current.json"
+    },
+    "plot": {
+      "thread_id": "main",
+      "beat_id": "B-023"
+    }
+  },
+  "status": "open",
+  "rationale": "Tighten the approach to emphasize the rival's leverage.",
+  "payload": {
+    "instructions": "Raise external stakes by foregrounding station lockdown protocols; preserve character beats; target +80 to +120 words.",
+    "constraints": {"max_word_delta": 150}
+  }
+}
