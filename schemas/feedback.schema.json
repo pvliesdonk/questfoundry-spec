@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.org/cyoa/v3.2/schemas/feedback.schema.json",
+  "$id": "https://liesdonk.nl/questfoundry/v1.0.0/schemas/feedback.schema.json",
   "title": "CYOA Feedback Event",
-  "description": "Lightweight message used by agents to coordinate targeted revisions during the v3.2 feedback loop. One event per line in events/feedback.jsonl.",
+  "description": "Lightweight message used by agents to coordinate targeted revisions during the v1.0.0 feedback loop. One event per line in events/feedback.jsonl.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -31,7 +31,7 @@
     },
     "version": {
       "type": "string",
-      "const": "3.2",
+      "const": "1.0.0",
       "description": "Protocol version of the feedback event."
     },
     "timestamp": {
@@ -155,33 +155,38 @@
         {
           "title": "Beat Revision Request",
           "description": "Request to modify one or more beats. Optionally bounded by ttl_cycles.",
-          "properties": {
-            "proposal": {
-              "type": "object",
-              "description": "Suggested changes to a beat.",
-              "properties": {
-                "summary": { "type": "string" },
-                "changes": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "op": { "type": "string", "enum": ["add", "remove", "replace"] },
-                      "path": { "type": "string", "description": "JSON Pointer into plot_outline for the beat." },
-                      "value": {}
-                    },
-                    "required": ["op", "path"]
-                  }
+          "type": "object",
+            "properties": {
+              "proposal": {
+                "type": "object",
+                "description": "Suggested changes to a beat.",
+                "properties": {
+                  "summary": { "type": "string" },
+                  "changes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "op": { "type": "string", "enum": ["add", "remove", "replace"] },
+                        "path": { "type": "string", "description": "JSON Pointer into plot_outline for the beat." },
+                        "value": {}
+                      },
+                      "required": ["op", "path"]
+                    }
+                  },
+                  "impact": { "type": "string", "description": "Narrative impact assessment." }
                 },
-                "impact": { "type": "string", "description": "Narrative impact assessment." }
+                "required": ["summary", "changes"]
               },
-              "required": ["summary", "changes"]
+              "ttl_cycles": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Optional iteration budget for this request; after this many cycles, the Orchestrator auto-supersedes."
+              }
             },
-            "ttl_cycles": { "type": "integer", "minimum": 1, "description": "Optional iteration budget for this request; after this many cycles, the Orchestrator auto-supersedes." }
-            }
+            "required": ["proposal"],
+            "additionalProperties": true
           },
-          "required": ["proposal"]
-        },
         {
           "title": "Beat Revision Response",
           "properties": {

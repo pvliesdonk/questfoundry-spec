@@ -1,6 +1,6 @@
-# Using CYOA v3.x with a Chatbot
+# Using CYOA v1.x.y with a Chatbot
 
-This guide explains how to run the CYOA v3.x workflow entirely by chat, with copy/paste and files.
+This guide explains how to run the CYOA v1.x.y workflow entirely by chat, with copy/paste and files.
 
 ## Folder map
 - prompts/ — agent role prompts to paste into chat.
@@ -24,7 +24,7 @@ Feedback events can be sent at any time to request changes.
 - Use stable ids: B-###, S-###, IMG-###, LOC-…, SHIP-….
 - Validate outputs against schemas and examples before proceeding.
 - Append all feedback events to events/feedback.jsonl (one JSON per line).
-- Feedback protocol version is 3.2.
+- Feedback protocol version is 1.0.0.
 
 ## Kickoff (Orchestrator)
 1) Paste prompts/00_orchestrator_conductor.txt.
@@ -50,12 +50,12 @@ Renderer: take artlist rows and produce art_manifest entries that reference art/
 
 ## Feedback loop (core of iteration)
 - Use prompts/snippets/feedback_envelope_template.json + feedback_type_templates.json to build events.
-- Required fields include: id, version (3.2), timestamp, session_id, actor, target, type, refs, payload.
+- Required fields include: id, version (1.0.0), timestamp, session_id, actor, target, type, refs, payload.
 - Keep the log at events/feedback.jsonl.
 
 Example: section rewrite request (fields abbreviated):
 {
-  "id": "EVT-0001", "version": "3.2", "session_id": "run-demo",
+  "id": "EVT-0001", "version": "1.0.0", "session_id": "run-demo",
   "actor": "plot_drafter", "target": "scene_smith", "type": "section_rewrite_request",
   "refs": {"section": {"section_id": "S-089", "path": "sections/S-089/current.json"}},
   "payload": {"instructions": "tighten approach"}
@@ -63,7 +63,7 @@ Example: section rewrite request (fields abbreviated):
 
 Response example: section rewrite response
 {
-  "id": "EVT-0002", "version": "3.2", "correlation_id": "EVT-0001",
+  "id": "EVT-0002", "version": "1.0.0", "correlation_id": "EVT-0001",
   "actor": "scene_smith", "target": "plot_drafter", "type": "section_rewrite_response",
   "status": "applied", "payload": {"result_path": "sections/S-089/current.json"}
 }
@@ -94,4 +94,4 @@ Generate stabilization_report.json and ensure checks are green (open_requests, p
 4) Emit a rewrite request and response via the feedback log.
 5) Compiler: build book and manifest.
 
-This is the quickest way to exercise CYOA v3.x with any competent chatbot.
+This is the quickest way to exercise CYOA v1.x.y with any competent chatbot.

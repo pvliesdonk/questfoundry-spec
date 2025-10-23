@@ -1,6 +1,6 @@
-# Feedback Loop — v3.3-qa (Protocol 3.2)
+# Feedback Loop — v1.0.0 (Protocol 1.0.0)
 
-This release keeps the 3.2 feedback protocol but cleans examples and docs. See `schemas/feedback.schema.json` and `examples/contracts/feedback.annotated.json`.
+This release keeps the 1.0.0 feedback protocol but cleans examples and docs. See `schemas/feedback.schema.json` and `examples/contracts/feedback.annotated.json`.
 
 **Lifecycle:** drafting → revision → stabilizing → stable. Orchestrator increments `cycle` and enforces `ttl_cycles`.
 

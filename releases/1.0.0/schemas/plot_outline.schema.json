@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Plot Outline v3.2",
+  "title": "Plot Outline v1.0.0",
   "type": "object",
   "additionalProperties": false,
   "required": ["acts", "threads", "setups", "payoffs", "pacing"],

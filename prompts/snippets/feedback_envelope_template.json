@@ -1,6 +1,6 @@
 {
   "id": "<uuid-v4>",
-  "version": "3.2",
+  "version": "1.0.0",
   "timestamp": "<UTC RFC3339>",
   "session_id": "<run-id>",
   "correlation_id": "<prior-event-id>",

@@ -1,4 +1,4 @@
-# Agent Prompt Addenda — Feedback Loop v3.2
+# Agent Prompt Addenda — Feedback Loop v1.0.0
 
 Each agent must integrate the feedback protocol into its prompt.
 

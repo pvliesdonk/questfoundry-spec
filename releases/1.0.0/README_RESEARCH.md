@@ -1,4 +1,4 @@
-# Deep Research — v3.3-qa (Protocol 3.2)
+# Deep Research — v1.0.0 (Protocol 1.0.0)
 
 Research is integrated via feedback events and two contracts: `research_query` and `research_packet`. See annotated examples in `examples/contracts/`.
 

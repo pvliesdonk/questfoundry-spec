@@ -1,6 +1,6 @@
-# CYOA Framework — v3.3-qa
+# CYOA Framework — v1.0.0
 
-This is a cleaned, self-contained snapshot of the v3.x workflow system. It’s aimed at new users who want a quick grasp, and power users who want stable contracts.
+This is a cleaned, self-contained snapshot of the v1.x.y workflow system. It’s aimed at new users who want a quick grasp, and power users who want stable contracts.
 
 ## What it is
 A modular, agent-based pipeline for building choose-your-own-adventure fiction. Agents exchange **structured artifacts** (JSON) and **lightweight feedback events** to converge on a coherent story with art.
@@ -26,8 +26,8 @@ A modular, agent-based pipeline for building choose-your-own-adventure fiction. 
 Agents send events to request targeted changes: beat revisions, section rewrites, world extensions, plot diffs, and research. Each event is a single JSON object carrying refs to plot/section/canon and a type-specific payload. The Orchestrator enforces loop **state** (drafting → revision → stabilizing → stable) and **iteration budgets** (TTL cycles).
 
 ## Versioning
-- Protocol stays at **3.2** for event compatibility.
-- This **v3.3-qa** release cleans names, examples, and docs; no breaking changes.
+- Protocol stays at **1.0.0** for event compatibility.
+- This **v1.0.0** release cleans names, examples, and docs; no breaking changes.
 
 ## Start here
 - Skim `examples/contracts/` to see each contract in context.

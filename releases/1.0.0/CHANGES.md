@@ -1,4 +1,4 @@
-# Change Log — v3.3-qa (2025-10-22)
+# Change Log — v1.0.0 (2025-10-22)
 
 ### Added
 - Annotated examples for **every schema** under `examples/contracts/`: `artlist`, `claim_registry`, `feedback`, `project_config`, `research_query`, `research_packet`, `session_line` (new).
@@ -13,5 +13,5 @@
 - Feedback loop docs (`README_FEEDBACK.md`, `README_RESEARCH.md`) match `schemas/feedback.schema.json` enums and fields.
 
 ### Notes
-- Protocol version for feedback events remains **3.2** to preserve compatibility.
+- Protocol version for feedback events remains **1.0.0** to preserve compatibility.
 - No schema-breaking changes were made.

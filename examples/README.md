@@ -1,4 +1,4 @@
-# Examples (v3.3-qa snapshot)
+# Examples (v1.0.0 snapshot)
 
 This folder contains:
 - `contracts/` — one annotated example per schema.
