@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "title": "Nebula Relay",
+  "genre": "light sci-fi",
+  "themes": ["trust under pressure", "extortion vs. autonomy"],
+  "rating": "PG-13",
+  "length_goal_words": 20000,
+  "art_ratio": 0.15,
+  "threads": ["main"],
+  "setting": "Kestrel Station at the nebula rim",
+  "player_role": "Crew lead navigating an infiltration"
+}

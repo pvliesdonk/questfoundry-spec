@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "images": [
+    {
+      "id": "IMG-RELAY-B006",
+      "path": "art/relay-b006.webp",
+      "subject": "Maintenance Bay Infiltration",
+      "plan_id": "ART-PLAN-01",
+      "meta": {
+        "prompt": "Nebula Relay maintenance bay, catwalks over coolant vapor, smuggler captain and navigator silhouettes, tense, cinematic",
+        "seed": "99284711",
+        "model": "SDXL-1.0",
+        "resolution": "1024x768"
+      }
+    }
+  ]
+}

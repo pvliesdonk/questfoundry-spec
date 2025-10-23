@@ -1,0 +1,28 @@
+{
+  "id": "fb-8b5c3a6e-3d1d-4d2e-8a7d-4f7b9f39c2a1",
+  "version": "1.0.0",
+  "timestamp": "2025-10-23T10:12:00Z",
+  "session_id": "SES-NEB-001",
+  "actor": "orchestrator",
+  "target": "scene_smith",
+  "type": "section_rewrite_request",
+  "priority": 2,
+  "refs": {
+    "plot": {
+      "thread_id": "main",
+      "beat_id": "B-006"
+    },
+    "section": {
+      "section_id": "S-089",
+      "path": "examples/workflow/nebula-relay/sections/S-089/current.json"
+    }
+  },
+  "status": "open",
+  "rationale": "Sharpen sensory detail; maintain continuity with access card prop.",
+  "payload": {
+    "instructions": "Tighten the opening two sentences to foreground the hum of the Relay and the hazard strobes; keep the access-card continuity tag intact.",
+    "constraints": {
+      "max_word_delta": 25
+    }
+  }
+}

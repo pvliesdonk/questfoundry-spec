@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "id": "RP-NEB-001",
+  "session_id": "SES-NEB-001",
+  "issued_at": "2025-10-23T10:10:00Z",
+  "loop_state": "drafting",
+  "cycle": 0,
+  "answers": [
+    {
+      "q": "Could forged credentials plausibly bypass a derelict relay's maintenance bay checks?",
+      "claim": "Legacy stations often retain offline badge fallbacks that accept format-correct magstrips without live directory checks.",
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "source": {
+            "title": "Outpost Maintenance Protocols (Rev 3)",
+            "url": "https://example.org/docs/outpost-maintenance-protocols",
+            "publisher": "Orbital Safety Guild",
+            "date": "2019-02-11"
+          },
+          "support": "supports",
+          "quote": "Sites in low-connectivity zones rely on cached badge formats when directory sync fails."
+        },
+        {
+          "source": {
+            "title": "Relay Blackouts: A Field Report",
+            "url": "https://example.org/reports/relay-blackouts",
+            "publisher": "Frontier Logistics",
+            "date": "2021-07-03"
+          },
+          "support": "neutral"
+        }
+      ],
+      "resolution": "use",
+      "routing": ["plot_drafter", "scene_smith"]
+    }
+  ],
+  "bibliography": [
+    {
+      "title": "Outpost Maintenance Protocols (Rev 3)",
+      "url": "https://example.org/docs/outpost-maintenance-protocols",
+      "publisher": "Orbital Safety Guild",
+      "date": "2019-02-11"
+    }
+  ]
+}

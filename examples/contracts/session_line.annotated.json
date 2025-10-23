@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "ts": "2025-10-23T10:20:00Z",
+  "section": 89,
+  "choice": "O1",
+  "micro_choice": null,
+  "codewords": ["has_contact:ORG-DOCK-MASTER"],
+  "detour": false
+}

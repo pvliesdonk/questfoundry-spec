@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "entities": [
+    { "id": "CHAR-CAPTAIN", "name": "Rhea Calder", "path": "examples/workflow/nebula-relay/world/canon.json#CHAR-CAPTAIN" },
+    { "id": "CHAR-NAV", "name": "Ix Tal", "path": "examples/workflow/nebula-relay/world/canon.json#CHAR-NAV" },
+    { "id": "LOC-RELAY", "name": "Kestrel Station", "path": "examples/workflow/nebula-relay/world/canon.json#LOC-RELAY" }
+  ]
+}

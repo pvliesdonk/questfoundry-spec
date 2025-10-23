@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "id": "RQ-NEB-001",
+  "session_id": "SES-NEB-001",
+  "origin": "plot_drafter",
+  "loop_state": "drafting",
+  "cycle": 0,
+  "priority": 2,
+  "ttl_cycles": 2,
+  "questions": [
+    {
+      "q": "What gas mix could plausibly obscure lidar inside a nebula-bathed maintenance bay?",
+      "scope": "factual",
+      "must_cite": true,
+      "min_sources": 2
+    }
+  ]
+}

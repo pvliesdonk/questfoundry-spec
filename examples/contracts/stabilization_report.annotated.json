@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "session_id": "SES-NEB-001",
+  "issued_at": "2025-10-23T10:30:00Z",
+  "state": "stabilizing",
+  "cycle": 1,
+  "checks": {
+    "open_requests": false,
+    "plot_invariants": true,
+    "world_integrity": true,
+    "section_coverage": true,
+    "continuity": true,
+    "compiler": true,
+    "pacing": true,
+    "research_pass": true
+  },
+  "metrics": {
+    "beats_total": 4,
+    "setups": 1,
+    "payoffs": 1,
+    "unpaired_setups": 0,
+    "unpaired_payoffs": 0,
+    "wordcount": 104,
+    "art_ratio": 0.15
+  },
+  "claims_unresolved": 0,
+  "notes": "Ready to mark stable after copyedit pass."
+}
