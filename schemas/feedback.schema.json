@@ -243,14 +243,24 @@
             "instructions": { "type": "string", "description": "Targeted rewrite guidance tied to refs.section and/or refs.plot." },
             "constraints": { "type": "object" }
           },
-          "required": ["instructions"]
+          "constraints": {
+            "type": "object",
+            "properties": {
+              "max_word_delta": { "type": "integer" }
+            },
+            "additionalProperties": false
+          },
+          "required": ["instructions"],
+          "additionalProperties": false
         },
         {
           "title": "Section Rewrite Response",
           "properties": {
             "result_path": { "type": "string", "description": "Filesystem path to updated section current.json." },
             "delta_summary": { "type": "string" }
-          }
+          },
+          "required": ["result_path"],
+          "additionalProperties": false
         },
         {
           "title": "Research Request",
