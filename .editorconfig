@@ -1,0 +1,47 @@
+# .editorconfig — QuestFoundry (docs-first)
+
+# Top-most EditorConfig file
+root = true
+
+# Defaults — keep docs readable and diffs clean
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+# Markdown: allow deliberate double-space line breaks; keep wrapping soft
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# YAML (playbooks, configs)
+[*.yml]
+indent_size = 2
+
+[*.yaml]
+indent_size = 2
+
+# JSON / JSONC (future layers, config)
+[*.json]
+indent_size = 2
+
+# Git attributes & ignore files
+[.gitattributes]
+indent_style = space
+indent_size = 2
+
+[.gitignore]
+indent_style = space
+indent_size = 2
+
+# Text files (licenses, ADRs, TUs)
+[*.txt]
+trim_trailing_whitespace = false
+
+# Shell / Make (future)
+[*.sh]
+indent_size = 2
+end_of_line = lf

@@ -1,0 +1,55 @@
+# .gitattributes — QuestFoundry (docs-first)
+
+# ── Normalize line endings ─────────────────────────────────────────────────────
+# Ensure LF in repo; let Git convert to platform-specific in working tree if needed
+* text=auto eol=lf
+
+# ── Diff/merge hints for common docs ──────────────────────────────────────────
+*.md     diff=markdown
+*.mdx    diff=markdown
+*.txt    diff=text
+*.yml    diff=yaml
+*.yaml   diff=yaml
+*.json   diff=json
+
+# Treat these as binary (no diffs, avoid merge conflicts)
+*.pdf    binary
+*.epub   binary
+*.zip    binary
+*.tar    binary
+*.tar.gz binary
+*.tgz    binary
+*.7z     binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.mp3    binary
+*.wav    binary
+*.flac   binary
+
+# ── Linguist hints (GitHub language stats & code navigation) ──────────────────
+# The spec is documentation-first; mark these directories as docs
+00-north-star/** linguist-documentation
+01-roles/**      linguist-documentation
+02-dictionary/** linguist-documentation
+DECISIONS/**     linguist-documentation
+
+# Generated or bulky outputs shouldn't skew stats
+exports/**              linguist-generated
+artifacts/**            linguist-generated
+media/generated/**      linguist-generated
+media/renders/**        linguist-generated
+media/audio/**          linguist-generated
+
+# ── Useful patterns for stability ─────────────────────────────────────────────
+# Keep diff noise low for lockfiles or pinned configs (future layers)
+package-lock.json -diff
+pnpm-lock.yaml    -diff
+yarn.lock         -diff
+poetry.lock       -diff
+Pipfile.lock      -diff
+
+# Ensure shell scripts stay LF and executable bits are respected (future use)
+*.sh text eol=lf
