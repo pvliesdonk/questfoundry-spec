@@ -1,6 +1,3 @@
-```markdown
-# CODE_OF_CONDUCT.md
-
 # QuestFoundry Code of Conduct
 
 QuestFoundry is a collaborative studio space. We build strange, delightful, nonlinear books—without making the people involved feel strange or unsafe. This document sets expectations for behavior in all project spaces (issues, PRs, discussions, chats, events).
@@ -16,12 +13,14 @@ We pledge to make participation in this project a harassment-free experience for
 ## Our standards
 
 **Be excellent to each other**
+
 - Be respectful. Disagree with ideas without attacking people.
 - Be specific and constructive. Proposals beat put-downs.
 - Credit sources. Cite influences and prior work.
 - Keep spoilers clearly marked in Hot; never put them on player surfaces.
 
 **Unacceptable behavior**
+
 - Harassment, discrimination, or personal attacks.
 - Doxing, threats, or sustained disruption.
 - Sexualized language or imagery; unwelcome advances.
@@ -41,7 +40,7 @@ This Code applies in all project spaces and when an individual is representing t
 
 If you experience or witness unacceptable behavior:
 
-- **Email:** conduct@questfoundry.example (or contact a maintainer privately)
+- **Email:** <conduct@questfoundry.example> (or contact a maintainer privately)
 - **Private issue:** open a ticket titled “Conduct (private)” with minimal details; a maintainer will move it to a confidential channel.
 
 Provide as much detail as possible: what happened, where, when, who was involved, and whether you feel safe for follow-up.
@@ -87,4 +86,3 @@ This Code is informed by common open-source community standards and adapted for 
 
 **TL;DR**  
 Be kind. Be specific. Keep spoilers contained. If something goes wrong, tell us and we’ll fix it.
-```

@@ -1,0 +1,199 @@
+# Quality Bars — What Must Be True Before We Merge to Cold
+
+These are human-level checks the **Gatekeeper** applies before any Hot change merges to Cold. No tooling required (yet). Bars are written so creators can self-check; the Gatekeeper formalizes the pass/fail with notes.
+
+> Cold = export/play-safe. If a bar fails, we don’t merge.
+
+---
+
+## The Bars (overview)
+
+1. **Integrity** — References resolve; no unintended dead ends.  
+2. **Reachability** — Critical beats can be reached via at least one viable path.  
+3. **Nonlinearity** — Hubs/loops/gateways/codewords are deliberate and meaningful.  
+4. **Gateways** — Conditions are consistent, enforceable, and spoiler-safe on the surface.  
+5. **Style** — Voice, register, motifs, and visual guardrails hold.  
+6. **Determinism** — Promised assets are reproducible from recorded parameters.  
+7. **Presentation Safety** — Player-facing surfaces (manuscript/codex/PN) reveal no spoilers or internals.
+
+Each bar has quick checks, common failures, and remediation hints.
+
+---
+
+## 1) Integrity
+
+**What it means**  
+
+- All links/section references resolve.  
+- No accidental dead ends (only intentional terminals).  
+- Codeword/state effects don’t create contradictions downstream.
+
+**Quick checks**  
+
+- “Every choice leads somewhere” scan.  
+- “Any section referenced must exist” scan.  
+- If terminal: marked clearly as *The End* (or equivalent).
+
+**Common failures & fixes**  
+
+- *Dangling link*: create the section or retarget the choice.  
+- *Forgotten return from a loop*: add a return path or mark deliberately terminal.
+
+---
+
+## 2) Reachability
+
+**What it means**  
+
+- “Must-see” beats (plot keystones, required items) are reachable from at least one path without paradoxes.
+
+**Quick checks**  
+
+- List the keystones → demonstrate at least one viable route to each.  
+- If a gateway is required, ensure at least one route to obtain its condition.
+
+**Common failures & fixes**  
+
+- *Locked content with no key*: add an alternative key path or remove the lock.  
+- *Unrealistic chain*: reduce dependency depth or provide a second route.
+
+---
+
+## 3) Nonlinearity
+
+**What it means**  
+
+- Hubs, loops, and gateways exist where intended and matter to play (not decorative).
+
+**Quick checks**  
+
+- Identify planned hubs/loops/gateways → show them in the current topology.  
+- For loops: show at least one meaningful “return with difference” (usually via codeword/state).
+
+**Common failures & fixes**  
+
+- *Cosmetic loop*: have the return alter stakes, tone, or options.  
+- *Hub too thin*: add branches with distinct outcomes or merge if unnecessary.
+
+---
+
+## 4) Gateways
+
+**What it means**  
+
+- Conditions (codewords, items, states) are consistent across sections and can be enforced by the PN without leaks.
+
+**Quick checks**  
+
+- Each gateway states a single clear condition.  
+- There exists a plausible in-world way the PN can enforce it without exposing internals.  
+- Negative conditions (“unless you have…”) don’t contradict positive checks elsewhere.
+
+**Common failures & fixes**  
+
+- *Ambiguous condition wording*: rewrite condition and surface phrasing.  
+- *Hidden unwinnable state*: add catch-up or fail-forward beats.
+
+---
+
+## 5) Style
+
+**What it means**  
+
+- Prose voice, register, motifs align with the **Style Lead**’s guardrails.  
+- Visual/aesthetic cues (captions, composition intent) align with style.  
+- PN remains in-voice.
+
+**Quick checks**  
+
+- Read a random triad of sections aloud: does the voice shift?  
+- Captions feel like the same book?  
+- PN phrasing matches the agreed register (e.g., dry, sardonic, earnest).
+
+**Common failures & fixes**  
+
+- *Tone wobble*: run a **Style Tune-up** loop.  
+- *Over-exposition*: move detail to codex; keep player surface lean.
+
+---
+
+## 6) Determinism (when promised)
+
+**What it means**  
+
+- Visual/audio assets can be reproduced from recorded parameters (seed, prompt version, model, aspect, chain).  
+- If determinism is *not* promised, this bar is N/A.
+
+**Quick checks**  
+
+- Parameters logged and sufficient to re-render/re-generate.  
+- If plan-only (no execution yet), marked `deferred:<asset>` with constraints reviewed.
+
+**Common failures & fixes**  
+
+- *Missing seeds/versions*: regenerate with logging or accept as non-deterministic (explicitly).  
+- *Plan contradicts style*: adjust constraints with Style Lead.
+
+---
+
+## 7) Presentation Safety
+
+**What it means**  
+
+- Player-facing surfaces (manuscript, codex, PN) contain **no spoilers** or internal plumbing.  
+- Navigation is clear; accessibility basics respected.
+
+**Quick checks**  
+
+- Manuscript choices are clear, not meta.  
+- Codex omits hidden gate logic, reveals only player-safe summaries.  
+- PN lines never mention codewords/state directly; uses in-world wording.  
+- Accessibility: alt text present for images; avoid sensory overload; headings and link text informative.
+
+**Common failures & fixes**  
+
+- *Spoiler in codex*: move detail to canon notes; keep player-safe summary.  
+- *PN leaks plumbing*: rephrase to diegetic checks (“If the foreman vouched for you, proceed…”).  
+- *Ambiguous navigation*: revise link text; add section headers or breadcrumbs.
+
+---
+
+## Gatekeeper’s Checklist (per change/batch)
+
+- [ ] **Integrity**: No unresolved refs; terminals are intentional.  
+- [ ] **Reachability**: Keystone beats reachable; gateway keys obtainable.  
+- [ ] **Nonlinearity**: Planned hubs/loops/gateways are present and alter outcomes.  
+- [ ] **Gateways**: Conditions clear, consistent, enforceable by PN.  
+- [ ] **Style**: Voice/guardrails hold; captions aligned; PN in-voice.  
+- [ ] **Determinism** *(if promised)*: Params logged; plan-only items deferred & reviewed.  
+- [ ] **Presentation Safety**: No spoilers; codex/manuscript/PN player-safe; basic accessibility.
+
+**Outcome**: `pass` or `fail` with **specific remediation notes**. The Showrunner can only merge on `pass` (or on an explicitly documented exception).
+
+---
+
+## Exceptions (rare, explicit)
+
+- A bar may be **temporarily waived** only if:
+  - The Showrunner records a rationale and time-boxed remediation plan, **and**
+  - The Gatekeeper logs the exact scope and player impact, **and**
+  - The waiver is visible in the change record and scheduled for a follow-up loop.
+
+Examples:
+
+- Temporarily shipping a plan-only art caption while Illustrator is dormant.  
+- Carrying `uncorroborated:low` factual detail until Researcher returns.
+
+---
+
+## Anti-patterns (don’t)
+
+- Treating Cold as “staging”. Cold is **ship-ready**.  
+- Hiding spoilers in captions or PN side comments.  
+- Using codeword names in text. Use in-world phrasing.  
+- Bundling unrelated changes; large changes should be split so each bar can be judged cleanly.
+
+---
+
+**TL;DR**  
+If it’s going to **Cold**, it must be reachable, intentional, consistent, in-voice, spoiler-safe, and—when we promise it—deterministic. The Gatekeeper guards the door so the player never sees the duct tape.

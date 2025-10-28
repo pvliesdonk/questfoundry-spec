@@ -1,5 +1,3 @@
-# SECURITY.md
-
 # Security & Responsible Disclosure
 
 QuestFoundry is a **docs-first spec**. We don’t ship executables here yet, but security still matters—especially around **secrets**, **spoiler leaks**, and **supply-chain hygiene** when this spec is embedded into tools.
@@ -28,7 +26,11 @@ This document explains how to report issues safely and what we treat as a securi
 
 ## How to report
 
+<<<<<<< HEAD
 - **Email (preferred):** security@questfoundry.example  
+=======
+- **Email (preferred):** <security@questfoundry.example>  
+>>>>>>> feat/level0
   Include:
   - A concise description of the issue and why it’s a risk
   - Minimal reproduction steps or the file/line references

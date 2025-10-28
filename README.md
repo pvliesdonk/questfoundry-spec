@@ -1,5 +1,3 @@
-# README.md
-
 # QuestFoundry — A Layered Studio for Nonlinear Gamebooks
 
 QuestFoundry is a **multi-agent, compositional studio** for making interactive, branching gamebooks. It separates *what we do* (roles, loops, quality bars) from *how machines speak* (schemas, protocol) and *how tools run* (prompts, libraries, UI). Humans and AI can both play the roles—as long as they communicate via structured, validated data (lower layers).
