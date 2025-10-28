@@ -26,7 +26,7 @@ This document explains how to report issues safely and what we treat as a securi
 
 ## How to report
 
-- **Email (preferred):** security@questfoundry.example  
+- **Email (preferred):** <security@questfoundry.example>  
   Include:
   - A concise description of the issue and why it’s a risk
   - Minimal reproduction steps or the file/line references
