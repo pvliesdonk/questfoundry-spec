@@ -193,8 +193,8 @@ Accepted
 - [x] Move `01-roles/templates/*.md` → `02-dictionary/artifacts/`
 - [x] Create `02-dictionary/artifacts/README.md` with artifact index
 - [x] Remove empty `01-roles/templates/` directory
-- [ ] Update cross-references in Layer 0 files
-- [ ] Update cross-references in Layer 1 files (charters, briefs, interfaces)
-- [ ] Verify all links resolve
-- [ ] Commit with message referencing this ADR
-- [ ] Push to branch
+- [x] Update cross-references in Layer 0 files
+- [x] Update cross-references in Layer 1 files (charters, briefs, interfaces)
+- [x] Verify all links resolve
+- [x] Commit with message referencing this ADR
+- [x] Push to branch
