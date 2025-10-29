@@ -98,7 +98,7 @@ Layer 2 definitions must align with:
 
 **Cross-reference updates:**
 - Layer 0 and Layer 1 files referencing these locations have been updated
-- See ADR-20251029-01-layer-boundary-clarification.md for rationale
+- See [ADR-20251029-01-layer-boundary-clarification.md](../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for rationale
 
 ---
 
