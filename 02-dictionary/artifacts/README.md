@@ -85,7 +85,7 @@ Layer 4 will define how these artifacts flow between roles:
 **Cross-reference updates needed:**
 - Layer 0 files referencing templates
 - Layer 1 charters/briefs referencing templates
-- See ADR-20251029-01 for full rationale
+- See [ADR-20251029-01](../../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for full rationale
 
 ---
 
