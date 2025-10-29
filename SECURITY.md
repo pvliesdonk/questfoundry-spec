@@ -27,15 +27,18 @@ This document explains how to report issues safely and what we treat as a securi
 ## How to report
 
 <<<<<<< HEAD
-- **Email (preferred):** security@questfoundry.example  
+
+- **Email (preferred):** <security@questfoundry.example>  
 =======
 - **Email (preferred):** <security@questfoundry.example>  
+
 >>>>>>> feat/level0
   Include:
-  - A concise description of the issue and why it’s a risk
-  - Minimal reproduction steps or the file/line references
-  - Impact scope (who is affected; Hot vs Cold)
-  - Suggested mitigation if you have one
+
+- A concise description of the issue and why it’s a risk
+- Minimal reproduction steps or the file/line references
+- Impact scope (who is affected; Hot vs Cold)
+- Suggested mitigation if you have one
 
 - **Private issue:** Open a ticket titled `Security (private)` with just a pointer; a maintainer will move it to a confidential channel.
 
