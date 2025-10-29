@@ -1,6 +1,10 @@
-# Terminology — Common Language (Human-Level)
+# Glossary — Common Language (Layer 2)
 
-Clear words prevent weird bugs. This glossary defines how we use key terms across roles. These are **human** definitions for Layers 0–2; technical codification (schemas/protocol) comes later.
+> **Status:** 🚧 **PARKED — Pending Layer 2 proper draft**
+>
+> This file was moved from `00-north-star/TERMINOLOGY.md` during architectural cleanup (2025-10-29). It contains core system terminology but belongs in Layer 2 (data dictionary) rather than Layer 0 (policy). Content is unchanged pending full Layer 2 review.
+
+Clear words prevent weird bugs. This glossary defines how we use key terms across roles. These are **human** definitions for Layer 2; technical codification (schemas/protocol) comes in Layers 3–4.
 
 ---
 
