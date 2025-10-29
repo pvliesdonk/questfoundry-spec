@@ -14,7 +14,7 @@ Layer 1 defines **who does what** in QuestFoundry. It’s human-readable, implem
 01-roles/
 README.md
 _templates/
-ROLE_CHARTER.template.md
+ROLE_CHARTER.template.md    # Meta-templates for creating new roles
 AGENT_BRIEF.template.md
 charters/
 showrunner.md
@@ -41,9 +41,11 @@ escalation_rules.md
 
 ```
 
-- **Charters** say *why the role exists, what’s in/out of scope, and what it hands off*.  
-- **Briefs** give *how-to heuristics* for day-to-day execution (still human, not prompts).  
+- **Charters** say *why the role exists, what's in/out of scope, and what it hands off*.
+- **Briefs** give *how-to heuristics* for day-to-day execution (still human, not prompts).
 - **Interfaces** describe *the handshake* between specific roles without dictating wire formats.
+
+> **Note on work artifact structures:** Each role produces specific artifacts (hooks, TUs, canon packs, etc.). The **structure** of these artifacts (what fields they have) lives in Layer 2 (`../02-dictionary/artifacts/`). Role charters/briefs reference which artifacts each role produces, but defer to Layer 2 for the actual structure definitions.
 
 ---
 

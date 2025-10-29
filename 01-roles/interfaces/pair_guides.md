@@ -26,9 +26,9 @@
 
 ## Conventions
 
-- **Hot** = private working truth (spoilers allowed).  
-- **Cold** = player-safe surfaces (no spoilers, no internals).  
-- **TU** = a small, timeboxed task unit (see `../templates/tu_brief.md`).  
+- **Hot** = private working truth (spoilers allowed).
+- **Cold** = player-safe surfaces (no spoilers, no internals).
+- **TU** = a small, timeboxed task unit (see `../../02-dictionary/artifacts/tu_brief.md`).
 - **Bars** = Quality Bars (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility).  
 - Normative references:  
   `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md` · `../../00-north-star/TRACEABILITY.md`
