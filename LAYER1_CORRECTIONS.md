@@ -354,21 +354,55 @@ Create canonical abbreviation list in Layer 1.
 
 ---
 
+## 8. Deferral Tag Format Inconsistency (Found in Phase 3)
+
+### Issue
+
+**Current templates** show deferral tags with pipe separator:
+```
+Deferral tags to set now: <deferred:art | deferred:audio | deferred:translation | deferred:research>
+```
+
+**Field registry** (from extraction) specifies:
+```
+Format: Space-separated list (NOT comma-separated)
+```
+
+### Resolution ✅
+
+Use space-separated format (no pipes, no commas).
+
+### Corrected Format:
+```
+Deferral tags to set now: <deferred:art deferred:audio deferred:translation deferred:research>
+```
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/hook_card.md` line 95 — Change `|` to spaces
+- [ ] `01-roles/templates/tu_brief.md` — Check deferral tag format
+- [ ] Any other templates using deferral tags
+
+---
+
 ## Notes
 
 - These contradictions emerged because Layer 1 templates were created before Layer 0 policy was fully settled
 - Field extraction (Phase 2) caught these systematically
 - User decisions align templates with Layer 0 (correct approach)
 - Some items (like Determinism bar) show Layer 0 was always correct, templates just incomplete
+- Phase 3 enrichment is catching additional format inconsistencies
 
 ---
 
 ## Tracking
 
-- [✅] Contradictions identified during Phase 2
+- [✅] Contradictions identified during Phase 2 (7 issues)
 - [✅] User resolutions obtained
 - [🔧] Fixes pending in Layer 0/1
-- [⏳] Layer 2 taxonomy updates pending
-- [⏳] Field registry sync pending
+- [✅] Layer 2 taxonomy updates complete
+- [✅] Field registry created
+- [✅] Phase 3 enrichment started (hook_card enriched with all corrections)
+- [🔧] Additional Phase 3 issues found (1: deferral tag format)
 
 ---
