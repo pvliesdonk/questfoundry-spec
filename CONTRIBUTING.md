@@ -28,6 +28,7 @@ When in doubt: if it’s **how we think/work**, it’s Layer 0/1. If it’s **da
 ## 3) Workflow in practice
 
 ### 3.1 Create a Trace Unit (TU)
+
 <<<<<<< HEAD
 =======
 
@@ -51,22 +52,26 @@ Notes: <spoiler flags if any>
 Place a brief TU note at the top of your PR description.
 
 ### 3.2 Keep Hot vs Cold straight
+
 <<<<<<< HEAD
 =======
 
 >>>>>>> feat/level0
+
 - **Hot**: draft changes, spoilers, internal reasoning, proposed loops.  
 - **Cold**: curated player-safe surfaces, ready for exports; *no spoilers*.  
 Edits to player-facing text must pass **Gatekeeper** checks in `QUALITY_BARS.md`.
 
 ### 3.3 Use small, targeted loops
+
 <<<<<<< HEAD
-Prefer **micro-PRs** that align with a loop:
+Prefer **micro-PRs** that align with a loop
 =======
 
 Prefer **micro-PRs** that align with a loop:
 
 >>>>>>> feat/level0
+
 - Story Spark / Hook Harvest / Lore Deepening / Codex Expansion  
 - Style Tune-up / Art Touch-up / Audio Pass / Translation Pass  
 - Binding Run / Narration Dry-Run (usually coordination docs)
