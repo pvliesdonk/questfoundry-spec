@@ -406,3 +406,153 @@ Deferral tags to set now: <deferred:art deferred:audio deferred:translation defe
 - [🔧] Additional Phase 3 issues found (1: deferral tag format)
 
 ---
+
+## 9. TU Brief Loop List Incomplete (Found in Phase 3)
+
+### Issue
+
+**Current template** (`01-roles/templates/tu_brief.md` line 26):
+```
+Loop: <Story Spark | Style Tune-up | Hook Harvest | Lore Deepening | Codex Expansion | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run>
+```
+(10 loops)
+
+**Should be** (13 loops total):
+```
+Loop: <Story Spark | Hook Harvest | Lore Deepening | Codex Expansion | Style Tune-up | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot>
+```
+
+### Resolution ✅
+
+Add missing 3 export loops: Gatecheck, Post-Mortem, Archive Snapshot.
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/tu_brief.md` line 26 — Add 3 missing loops
+
+---
+
+## 10. TU Brief Bar List Missing Determinism (Found in Phase 3)
+
+### Issue
+
+**Current template** (`01-roles/templates/tu_brief.md` line 37):
+```
+Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility>
+```
+(7 bars)
+
+**Should be** (8 bars):
+```
+Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility>
+```
+
+### Resolution ✅
+
+Add Determinism to bar list.
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/tu_brief.md` line 37 — Add Determinism
+
+---
+
+## 11. TU Brief Deferral Tag Separators Inconsistent (Found in Phase 3)
+
+### Issue
+
+**Template line 33** uses pipe separator:
+```
+Deferral tags: <deferred:art | deferred:audio | deferred:translation | deferred:research>
+```
+
+**Example line 96** uses middle-dot separator:
+```
+Deferral tags: deferred:art · deferred:audio · deferred:translation
+```
+
+**Should be** space-separated:
+```
+Deferral tags: deferred:art deferred:audio deferred:translation deferred:research
+```
+
+### Resolution ✅
+
+Use space-separated format everywhere (no pipes, no middle-dots, no commas).
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/tu_brief.md` line 33 — Change pipes to spaces
+- [ ] `01-roles/templates/tu_brief.md` line 96 (example) — Change middle-dots to spaces
+
+---
+
+## 12. Gatecheck Report Missing Determinism Bar Row (Found in Phase 3)
+
+### Issue
+
+**Current template** (`01-roles/templates/gatecheck_report.md` lines 48-56):
+Bars table only has 7 rows (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility)
+
+**Example** (lines 139-148): Also missing Determinism row
+
+**Should be** (8 bars):
+Add Determinism row between Style and Presentation
+
+### Resolution ✅
+
+Add Determinism as 8th row in bars table.
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/gatecheck_report.md` lines 48-56 — Add Determinism row
+- [ ] `01-roles/templates/gatecheck_report.md` lines 139-148 (example) — Add Determinism row
+
+---
+
+## 13. Gatecheck Report Deferral Format Issues (Found in Phase 3)
+
+### Issue
+
+**Template line 26** uses question marks:
+```
+Dormancy state: <deferred:art? deferred:audio? deferred:translation? deferred:research?>
+```
+
+**Example line 132** uses middle-dot separator:
+```
+Dormancy: deferred:art · deferred:audio · deferred:translation
+```
+
+**Should be** space-separated without question marks:
+```
+Dormancy state: deferred:art deferred:audio deferred:translation deferred:research
+```
+
+### Resolution ✅
+
+Remove question marks, use space-separated format.
+
+### Files to Fix 🔧
+
+- [ ] `01-roles/templates/gatecheck_report.md` line 26 — Remove `?`, use spaces
+- [ ] `01-roles/templates/gatecheck_report.md` line 132 (example) — Change middle-dots to spaces
+
+---
+
+## Updated Tracking
+
+- [✅] Phase 2 contradictions identified (Issues #1-7)
+- [✅] Phase 3 enrichment in progress (Issues #8-13 found during enrichment)
+- [✅] User resolutions obtained for Phase 2
+- [🔧] Fixes pending in Layer 0/1 (13 issues total)
+- [✅] Layer 2 taxonomy updates complete
+- [✅] Layer 2 field registry created
+- [✅] Phase 3: hook_card enriched
+- [✅] Phase 3: tu_brief enriched
+- [🚧] Phase 3: gatecheck_report in progress
+- [⏳] Phase 3: Remaining 14 artifacts pending
+
+**Total issues found:** 13 (7 from Phase 2 extraction, 6 from Phase 3 enrichment)
+
+---
