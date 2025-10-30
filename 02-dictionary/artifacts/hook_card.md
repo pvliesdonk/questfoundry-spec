@@ -18,9 +18,9 @@
 ```
 
 Hook Card — <short name>
-ID: HK-<YYYYMMDD>-<seq>         Status: open | accepted | in-progress | resolved | dropped
+ID: HK-<YYYYMMDD>-<seq>         Status: proposed | accepted | in-progress | resolved | canonized | deferred | rejected
 Raised by: <role>               TU: <origin tu-id>        Edited: <YYYY-MM-DD>
-Slice: <scope, e.g., “Act I — Foreman Gate (3 sections)”>
+Slice: <scope, e.g., "Act I — Foreman Gate (3 sections)">
 Snapshot context: Cold @ <YYYY-MM-DD> (Hot details allowed in §3)
 
 ```
@@ -31,9 +31,9 @@ Snapshot context: Cold @ <YYYY-MM-DD> (Hot details allowed in §3)
 
 > Choose **one primary** and optional **secondary** types.
 
-- **Type (primary):** <structure | canon | terminology | research | style/pn | translation | art | audio | binder/nav | accessibility>
+- **Type (primary):** <narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility>
 - **Secondary (optional):** <…>
-- **Bars affected:** <Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility>
+- **Bars affected:** <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility>
 - **Blocking?:** <no | yes (explain why)>
 
 ---
@@ -68,7 +68,7 @@ Snapshot context: Cold @ <YYYY-MM-DD> (Hot details allowed in §3)
 
 ```
 
-Loop: <Story Spark | Style Tune-up | Lore Deepening | Codex Expansion | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run>
+Loop: <Story Spark | Hook Harvest | Lore Deepening | Codex Expansion | Style Tune-up | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot>
 Owner (R): <role>     Accountable (A): Showrunner
 Consult: <roles>      Dormancy: <keep art/audio/translation/research dormant?> (see §6)
 
@@ -92,7 +92,7 @@ Consult: <roles>      Dormancy: <keep art/audio/translation/research dormant?> (
 
 ```
 
-Deferral tags to set now: <deferred:art | deferred:audio | deferred:translation | deferred:research>
+Deferral tags to set now: <deferred:art deferred:audio deferred:translation deferred:research>
 Fallback: <neutral phrasing | register map only | plan-only | research posture label>
 Revisit: <loop or milestone name/date>
 

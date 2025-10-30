@@ -68,7 +68,7 @@ Why it matters: <gate fairness | safety | terminology | tone>
 > Label certainty; use the strict set. If not **corroborated**, offer **neutral phrasing** (next section).
 
 ```
-Posture: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:med | uncorroborated:high>
+Posture: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
 Caveats: <bullets on gaps, contention, edge cases>
 ```
 

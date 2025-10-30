@@ -32,13 +32,13 @@ Examples (non-exhaustive):
 Each hook note must include:
 
 - **Title** — short, unique.
-- **Type** — `narrative | scene | factual | taxonomy`.
+- **Type** — `narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility`.
 - **Proposed by** — role + person/agent.
 - **Rationale** — why this helps (1–2 sentences).
-- **Evidence** *(factual only)* — citation or `uncorroborated:<risk-level>` (low/med/high).
+- **Evidence** *(factual/research only)* — citation or `uncorroborated:<risk-level>` (low/medium/high).
 - **Upstream refs** — what inspired this (section/brief/lore page).
 - **Potential impacts** — who/what might change downstream.
-- **Status** — `proposed | clustered | accepted | deferred | rejected | canonized`.
+- **Status** — `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`.
 - **Notes** — optional: `deliberate-mystery`, `spoiler`, `accessibility`, etc.
 
 > Keep it lightweight. This is a card you can sort, not a contract.
@@ -47,17 +47,18 @@ Each hook note must include:
 
 ## 4) Lifecycle & loops
 
-1. **Create (Hot SoT)** — any generator writes a hook card.
+1. **Create (Hot SoT)** — any generator writes a hook card with status `proposed`.
 2. **Hook Harvest (loop)** — Showrunner triggers; cluster similar hooks, remove dupes, set **triage tags**:
    - `quick-win` (low risk, clear value)
    - `needs-research` (Researcher active or mark_uncorroborated)
    - `structure-impact` (affects topology/gateways)
    - `style-impact` (tone/voice/aesthetic ramifications)
-3. **Decision** — Mark hooks as `accepted`, `deferred` (parked), or `rejected` (with reason).
-4. **Lore Deepening (loop)** — Lore Weaver turns **accepted** hooks into **canon** (causal backstory, timelines, metaphysics). Conflicts are either resolved or tagged `deliberate-mystery`.
-5. **Codex Expansion (loop)** — Codex Curator publishes **player-safe** entries/cross-refs. Spoilers stay in canon notes, not in the codex.
-6. **Gatekeeper checks** — Quality bars (integrity, reachability, nonlinearity, gateways, style); merge **Hot → Cold** on green.
-7. **Canonized** — Hook status becomes `canonized`; card links to its Cold location.
+3. **Decision** — Mark hooks as `accepted` (proceed), `deferred` (parked for later), or `rejected` (won't do, with reason).
+4. **Work (in-progress)** — Accepted hooks move to `in-progress` when actively being developed.
+5. **Lore Deepening (loop)** — Lore Weaver turns `in-progress` or `accepted` hooks into **canon** (causal backstory, timelines, metaphysics). Conflicts are either `resolved` or tagged `deliberate-mystery`.
+6. **Codex Expansion (loop)** — Codex Curator publishes **player-safe** entries/cross-refs. Spoilers stay in canon notes, not in the codex.
+7. **Gatekeeper checks** — Quality bars (integrity, reachability, nonlinearity, gateways, style, determinism, presentation, accessibility); merge **Hot → Cold** on green.
+8. **Canonized** — Hook status becomes `canonized`; card links to its Cold location.
 
 ---
 
@@ -112,13 +113,13 @@ When **Researcher** is dormant:
 
 ## 9) Good hook hygiene (checklist)
 
-- One idea per card; 8–12 lines max.  
-- Name it like a headline: “Kestrel’s Jaw Scar ⇒ Dock-Fire Backstory Candidate.”  
-- Tag **type** correctly; add `structure-impact` if it touches gateways/loops.  
-- Add at least one **upstream** reference (section ID, plot brief, research memo).  
-- Write a **rationale** that mentions player value (“adds motive for Act II reveal”).  
-- For factual: include a **citation** or `uncorroborated:med`.  
-- Suggest **next loop** (e.g., “Lore Deepening” or “Style Tune-up”).
+- One idea per card; 8–12 lines max.
+- Name it like a headline: "Kestrel's Jaw Scar ⇒ Dock-Fire Backstory Candidate."
+- Tag **type** correctly; add `structure-impact` if it touches gateways/loops.
+- Add at least one **upstream** reference (section ID, plot brief, research memo).
+- Write a **rationale** that mentions player value ("adds motive for Act II reveal").
+- For factual/research: include a **citation** or `uncorroborated:medium`.
+- Suggest **next loop** (e.g., "Lore Deepening" or "Style Tune-up").
 
 ---
 

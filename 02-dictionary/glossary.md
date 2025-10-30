@@ -1,8 +1,8 @@
 # Glossary — Common Language (Layer 2)
 
-> **Status:** 🚧 **PARKED — Pending Layer 2 proper draft**
+> **Status:** ⚠️ **REVIEW NEEDED — Outdated enumerations, update to defer to taxonomies.md**
 >
-> This file was moved from `00-north-star/TERMINOLOGY.md` during architectural cleanup (2025-10-29). It contains core system terminology but belongs in Layer 2 (data dictionary) rather than Layer 0 (policy). Content is unchanged pending full Layer 2 review.
+> This file provides prose definitions of core system terminology. Some enumerations (hook types, hook status, quality bars) are outdated and should defer to `taxonomies.md` as the single source of truth. See LAYER2_AUDIT_PHASE4.md for details.
 
 Clear words prevent weird bugs. This glossary defines how we use key terms across roles. These are **human** definitions for Layer 2; technical codification (schemas/protocol) comes in Layers 3–4.
 
@@ -78,7 +78,7 @@ Clear words prevent weird bugs. This glossary defines how we use key terms acros
 
 ## E. Work units
 
-**Hook** — A compact proposal (idea/uncertainty/tell) small enough to triage. Types: `narrative | scene | factual | taxonomy`. Status: `proposed | accepted | deferred | rejected`.
+**Hook** — A compact proposal (idea/uncertainty/tell) small enough to triage. For hook types (13 total) and status values (7 total), see `taxonomies.md` §1–2.
 
 **Canon** — Spoiler-level truth authored by Lore Weaver (causal, time-anchored). Player-safe summaries live in the **codex**, not here.
 
@@ -90,7 +90,7 @@ Clear words prevent weird bugs. This glossary defines how we use key terms acros
 
 **Player-safe surface** — Text a player can see: manuscript, codex, captions, PN lines. No spoilers, no internal labels, no technique talk.
 
-**Quality Bars** — Merge/expor­t criteria: **Integrity**, **Reachability**, **Nonlinearity**, **Gateways**, **Style**, **Determinism** (when promised), **Presentation** (spoiler & accessibility hygiene).
+**Quality Bars** — Merge/export criteria (8 mandatory checks): **Integrity**, **Reachability**, **Nonlinearity**, **Gateways**, **Style**, **Determinism** (when promised), **Presentation** (spoiler hygiene), **Accessibility** (navigation, alt text, sensory considerations). See `taxonomies.md` §5 and `../00-north-star/QUALITY_BARS.md` for details.
 
 **Determinism (assets)** — If promised, renders/cues carry reproducibility notes (seed/model or DAW/session). Never surface technique to players.
 

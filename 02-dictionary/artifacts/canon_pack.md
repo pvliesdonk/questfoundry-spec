@@ -19,9 +19,9 @@
 
 Canon Pack — <cluster name>
 TU: <id> · Edited: <YYYY-MM-DD> · Owner: Lore Weaver
-Slice: <scope, e.g., “Act I — Dock 7 & Foreman Gate”>
+Slice: <scope, e.g., "Act I — Dock 7 & Foreman Gate">
 Hooks answered: <list of hook IDs/short names>
-Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
+Research posture touched: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
 Sensitivity: <none | content note refs>
 
 ```

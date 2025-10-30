@@ -8,13 +8,14 @@ These are human-level checks the **Gatekeeper** applies before any Hot change me
 
 ## The Bars (overview)
 
-1. **Integrity** — References resolve; no unintended dead ends.  
-2. **Reachability** — Critical beats can be reached via at least one viable path.  
-3. **Nonlinearity** — Hubs/loops/gateways/codewords are deliberate and meaningful.  
-4. **Gateways** — Conditions are consistent, enforceable, and spoiler-safe on the surface.  
-5. **Style** — Voice, register, motifs, and visual guardrails hold.  
-6. **Determinism** — Promised assets are reproducible from recorded parameters.  
-7. **Presentation Safety** — Player-facing surfaces (manuscript/codex/PN) reveal no spoilers or internals.
+1. **Integrity** — References resolve; no unintended dead ends.
+2. **Reachability** — Critical beats can be reached via at least one viable path.
+3. **Nonlinearity** — Hubs/loops/gateways/codewords are deliberate and meaningful.
+4. **Gateways** — Conditions are consistent, enforceable, and spoiler-safe on the surface.
+5. **Style** — Voice, register, motifs, and visual guardrails hold.
+6. **Determinism** — Promised assets are reproducible from recorded parameters.
+7. **Presentation** — Player-facing surfaces (manuscript/codex/PN) reveal no spoilers or internals.
+8. **Accessibility** — Navigation is clear; alt text present; sensory overload avoided.
 
 Each bar has quick checks, common failures, and remediation hints.
 
@@ -136,37 +137,61 @@ Each bar has quick checks, common failures, and remediation hints.
 
 ---
 
-## 7) Presentation Safety
+## 7) Presentation
 
-**What it means**  
+**What it means**
 
-- Player-facing surfaces (manuscript, codex, PN) contain **no spoilers** or internal plumbing.  
-- Navigation is clear; accessibility basics respected.
+- Player-facing surfaces (manuscript, codex, PN) contain **no spoilers** or internal plumbing.
+- All visible text respects spoiler hygiene and uses in-world language.
 
-**Quick checks**  
+**Quick checks**
 
-- Manuscript choices are clear, not meta.  
-- Codex omits hidden gate logic, reveals only player-safe summaries.  
-- PN lines never mention codewords/state directly; uses in-world wording.  
-- Accessibility: alt text present for images; avoid sensory overload; headings and link text informative.
+- Manuscript choices are clear, not meta.
+- Codex omits hidden gate logic, reveals only player-safe summaries.
+- PN lines never mention codewords/state directly; uses in-world wording.
+- No technique talk (seeds, models, DAW sessions) on player surfaces.
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Spoiler in codex*: move detail to canon notes; keep player-safe summary.  
-- *PN leaks plumbing*: rephrase to diegetic checks (“If the foreman vouched for you, proceed…”).  
-- *Ambiguous navigation*: revise link text; add section headers or breadcrumbs.
+- *Spoiler in codex*: move detail to canon notes; keep player-safe summary.
+- *PN leaks plumbing*: rephrase to diegetic checks ("If the foreman vouched for you, proceed…").
+- *Internal labels visible*: replace with player-safe refs or in-world terms.
 
 ---
 
-## Gatekeeper’s Checklist (per change/batch)
+## 8) Accessibility
 
-- [ ] **Integrity**: No unresolved refs; terminals are intentional.  
-- [ ] **Reachability**: Keystone beats reachable; gateway keys obtainable.  
-- [ ] **Nonlinearity**: Planned hubs/loops/gateways are present and alter outcomes.  
-- [ ] **Gateways**: Conditions clear, consistent, enforceable by PN.  
-- [ ] **Style**: Voice/guardrails hold; captions aligned; PN in-voice.  
-- [ ] **Determinism** *(if promised)*: Params logged; plan-only items deferred & reviewed.  
-- [ ] **Presentation Safety**: No spoilers; codex/manuscript/PN player-safe; basic accessibility.
+**What it means**
+
+- Navigation is clear and predictable.
+- Alt text present for all images.
+- Sensory considerations respected (avoid flashing, provide content notes where appropriate).
+
+**Quick checks**
+
+- Alt text present for images; describes composition/intent without spoilers.
+- Headings and link text are informative (not "click here").
+- Navigation breadcrumbs or section markers help orient readers.
+- Content notes flag potentially distressing material.
+
+**Common failures & fixes**
+
+- *Missing alt text*: add descriptive captions (coordinate with Art Director).
+- *Ambiguous navigation*: revise link text; add section headers or breadcrumbs.
+- *Sensory overload risk*: add content note or adjust composition plan.
+
+---
+
+## Gatekeeper's Checklist (per change/batch)
+
+- [ ] **Integrity**: No unresolved refs; terminals are intentional.
+- [ ] **Reachability**: Keystone beats reachable; gateway keys obtainable.
+- [ ] **Nonlinearity**: Planned hubs/loops/gateways are present and alter outcomes.
+- [ ] **Gateways**: Conditions clear, consistent, enforceable by PN.
+- [ ] **Style**: Voice/guardrails hold; captions aligned; PN in-voice.
+- [ ] **Determinism** *(if promised)*: Params logged; plan-only items deferred & reviewed.
+- [ ] **Presentation**: No spoilers; codex/manuscript/PN player-safe; no internal plumbing visible.
+- [ ] **Accessibility**: Alt text present; navigation clear; sensory considerations respected.
 
 **Outcome**: `pass` or `fail` with **specific remediation notes**. The Showrunner can only merge on `pass` (or on an explicitly documented exception).
 

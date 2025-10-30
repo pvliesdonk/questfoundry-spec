@@ -20,7 +20,7 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 **Always active**
 
 - **Showrunner** — production lead; triggers loops; unblocks decisions.
-- **Gatekeeper** — quality bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism (and presentation safety).
+- **Gatekeeper** — quality bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility.
 
 **Active by default**
 
@@ -119,13 +119,14 @@ Exports (Binding Run) record:
 
 ## 8) Quality Bars (conceptual, human-level)
 
-- **Integrity** — No unintended dead ends; references resolve.  
-- **Reachability** — Critical beats reachable through at least one path.  
-- **Nonlinearity** — Planned hubs/loops/gateways exist and matter.  
-- **Gateways** — Conditions (codewords/state) are clear and enforceable.  
-- **Style** — Prose and visuals follow the Style Lead’s guardrails; PN remains in-voice.  
-- **Determinism** — When promised, assets are reproducible from recorded parameters.  
-- **Presentation safety** — Exports are spoiler-safe; navigation is clear.
+- **Integrity** — No unintended dead ends; references resolve.
+- **Reachability** — Critical beats reachable through at least one path.
+- **Nonlinearity** — Planned hubs/loops/gateways exist and matter.
+- **Gateways** — Conditions (codewords/state) are clear and enforceable.
+- **Style** — Prose and visuals follow the Style Lead's guardrails; PN remains in-voice.
+- **Determinism** — When promised, assets are reproducible from recorded parameters.
+- **Presentation** — Exports are spoiler-safe; PN boundaries respected.
+- **Accessibility** — Navigation is clear; alt text present; sensory considerations respected.
 
 Gatekeeper reports pass/fail with concrete remediation notes.
 
@@ -135,7 +136,7 @@ Gatekeeper reports pass/fail with concrete remediation notes.
 
 - The **Showrunner** explicitly marks roles as **active** or **dormant** per run/scope.
 - Loops specify **required** vs **optional** roles. Optional roles may remain dormant.
-- If **Researcher** is dormant, factual claims carry an **uncorroborated** note with a risk level and a reminder to revisit.
+- If **Researcher** is dormant, factual claims carry a research posture flag (uncorroborated:low | uncorroborated:medium | uncorroborated:high) with a reminder to revisit.
 
 ---
 

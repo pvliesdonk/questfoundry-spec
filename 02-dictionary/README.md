@@ -1,10 +1,10 @@
 # Layer 2 — Common Language (Data Dictionary)
 
-> **Status:** 🚧 **PARKED — Pending proper Layer 2 draft**
+> **Status:** ✅ **ACTIVE — Phase 3 enrichment complete (2025-10-30)**
 >
-> This layer currently contains documents moved from Layer 0 and Layer 1 during architectural cleanup (2025-10-29). These documents define data structures and terminology but were misplaced in policy (Layer 0) or role (Layer 1) layers.
+> Layer 2 defines the common language used across all roles and loops. Phase 3 (completed 2025-10-30) enriched all 17 artifact templates with inline field constraints, validation rules, and common error examples to support Layer 3 schema generation.
 >
-> **Next steps:** Full Layer 2 draft will organize, refine, and complete these definitions as human-readable data structures that bridge concepts (Layer 0) and schemas (Layer 3).
+> This layer contains taxonomies, field registry, glossary, and artifact templates that form the data dictionary for QuestFoundry studio operations.
 
 ---
 
