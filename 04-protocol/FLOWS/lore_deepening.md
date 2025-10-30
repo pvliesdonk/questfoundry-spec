@@ -797,7 +797,7 @@ A Lore Deepening flow is successful when:
 
 ### Layer 2 Dictionary
 - `02-dictionary/taxonomies.md` — TU types taxonomy §3
-- `02-dictionary/artifacts/canon_pack_ENRICHED.md` — Canon Pack artifact definition
+- `02-dictionary/artifacts/canon_pack.md` — Canon Pack artifact definition
 
 ### Layer 3 Schemas
 - `03-schemas/tu_brief.schema.json` — TU Brief payload schema
