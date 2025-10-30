@@ -56,9 +56,9 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 |----------------|-------------------------|----------------|-----------------------|-------------------------|----------------------------------------|
 | `pre-gate`     | `gatecheck`             | GK             | `gate.submit`         | gatecheck_report (partial) | Pre-gate passed; ready for full check |
 | `pre-gate`     | `deferred`              | SR or GK       | `gate.defer`          | tu_brief (partial)      | TU deferred before gatecheck          |
-| `gatecheck`    | `decision:pass`         | GK             | `gate.pass`           | gatecheck_report (full) | All bars green                        |
-| `gatecheck`    | `decision:conditional-pass` | GK         | `gate.conditional_pass` | gatecheck_report (full) | Some bars yellow, plan approved      |
-| `gatecheck`    | `decision:block`        | GK             | `gate.block`          | gatecheck_report (full) | One or more bars red                  |
+| `gatecheck`    | `decision:pass`         | GK             | `gate.decision`       | gatecheck_report (full) | All bars green; `decision: "pass"` in payload |
+| `gatecheck`    | `decision:conditional-pass` | GK         | `gate.decision`       | gatecheck_report (full) | Some bars yellow; `decision: "conditional_pass"` in payload |
+| `gatecheck`    | `decision:block`        | GK             | `gate.decision`       | gatecheck_report (full) | One or more bars red; `decision: "block"` in payload |
 
 **Role Abbreviations:**
 - **GK** — Gatekeeper (quality bar enforcement authority)
@@ -153,9 +153,11 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 
 **Sender:** GK (Gatekeeper)
 
-**Intent:** `gate.pass`
+**Intent:** `gate.decision`
 
 **Payload Schema:** `gatecheck_report.schema.json` (full)
+
+**Payload Field:** `decision: "pass"`
 
 **Required Fields:**
 ```json
@@ -213,9 +215,11 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 
 **Sender:** GK (Gatekeeper)
 
-**Intent:** `gate.conditional_pass`
+**Intent:** `gate.decision`
 
 **Payload Schema:** `gatecheck_report.schema.json` (full)
+
+**Payload Field:** `decision: "conditional_pass"`
 
 **Required Fields:**
 ```json
@@ -284,9 +288,11 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 
 **Sender:** GK (Gatekeeper)
 
-**Intent:** `gate.block`
+**Intent:** `gate.decision`
 
 **Payload Schema:** `gatecheck_report.schema.json` (full)
+
+**Payload Field:** `decision: "block"`
 
 **Required Fields:**
 ```json
@@ -635,7 +641,7 @@ If bar failure triggers escalation:
   "time": "2025-10-30T11:00:00Z",
   "sender": { "role": "GK", "agent": "bot:gk-v2.1" },
   "receiver": { "role": "SR" },
-  "intent": "gate.pass",
+  "intent": "gate.decision",
   "context": {
     "hot_cold": "hot",
     "tu": "TU-2025-10-30-SR01",
@@ -731,7 +737,7 @@ If bar failure triggers escalation:
   "time": "2025-10-30T11:30:00Z",
   "sender": { "role": "GK", "agent": "bot:gk-v2.1" },
   "receiver": { "role": "SR" },
-  "intent": "gate.conditional_pass",
+  "intent": "gate.decision",
   "context": {
     "hot_cold": "hot",
     "tu": "TU-2025-10-30-PW02",
@@ -833,7 +839,7 @@ If bar failure triggers escalation:
   "time": "2025-10-30T12:00:00Z",
   "sender": { "role": "GK", "agent": "bot:gk-v2.1" },
   "receiver": { "role": "SR" },
-  "intent": "gate.block",
+  "intent": "gate.decision",
   "context": {
     "hot_cold": "hot",
     "tu": "TU-2025-10-30-SS03",

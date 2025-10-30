@@ -73,7 +73,7 @@ When `receiver.role = "PN"`, the envelope MUST satisfy ALL of:
 
 **Violation Handling:**
 
-Violations MUST generate an `error.business_rule` response with:
+Violations MUST generate an `error` intent response with:
 - `code`: `"business_rule_violation"`
 - `details.rule`: `"PN_SAFETY_INVARIANT"`
 - `details.reference`: `"00-north-star/PN_PRINCIPLES.md"`
@@ -89,29 +89,29 @@ Violations MUST generate an `error.business_rule` response with:
    - Schema path: `03-schemas/{payload.type}.schema.json`
 
 2. **Validation Procedure**
-   - Extract `payload.data` to temporary file
-   - Validate against schema using JSON Schema Draft 2020-12 validator
+   - Use the `qfspec-check-envelope` tool which automates two-pass validation:
+     - **Pass 1:** Validates envelope structure against `envelope.schema.json`
+     - **Pass 2:** Validates `payload.data` against the Layer 3 schema for `payload.type`
    - Examples:
      ```bash
-     # Validate hook_card payload
-     jq '.payload.data' hook.create.json > /tmp/payload.json
-     uv run --directory tools qfspec-check-instance hook_card /tmp/payload.json
-     
-     # Validate gatecheck_report payload
-     jq '.payload.data' gate.report.submit.json > /tmp/payload.json
-     uv run --directory tools qfspec-check-instance gatecheck_report /tmp/payload.json
-     
-     # Validate view_log payload
-     jq '.payload.data' view.export.result.json > /tmp/payload.json
-     uv run --directory tools qfspec-check-instance view_log /tmp/payload.json
-     
-     # Validate pn_playtest_notes payload
-     jq '.payload.data' pn.playtest.submit.json > /tmp/payload.json
-     uv run --directory tools qfspec-check-instance pn_playtest_notes /tmp/payload.json
+     # Validate hook_card envelope and payload
+     uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
+
+     # Validate gatecheck_report envelope and payload
+     uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/gate.report.submit.json
+
+     # Validate view_log envelope and payload
+     uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/view.export.result.json
+
+     # Validate pn_playtest_notes envelope and payload
+     uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/pn.playtest.submit.json
+
+     # Validate all examples at once
+     uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/*.json
      ```
 
 3. **Error Reporting**
-   - Schema validation failures MUST return `error.validation` with:
+   - Schema validation failures MUST return `error` intent with:
      - `code`: `"validation_error"`
      - `details.schema_path`: path to schema
      - `details.validation_errors`: array of specific errors
@@ -160,7 +160,7 @@ Violations MUST generate an `error.business_rule` response with:
 | Test Case | Input | Expected Result |
 |---|---|---|
 | Valid PN message | Cold + player_safe + snapshot | Pass |
-| Hot to PN | `hot_cold="hot"`, `receiver="PN"` | Reject with error.business_rule |
+| Hot to PN | `hot_cold="hot"`, `receiver="PN"` | Reject with error intent |
 | PN without snapshot | Cold + player_safe, no snapshot | Reject |
 | PN not player_safe | Cold + snapshot, player_safe=false | Reject |
 | PN with spoilers | Cold + snapshot + player_safe, spoilers="allowed" | Reject |
@@ -234,9 +234,8 @@ jsonschema -i example.json 04-protocol/envelope.schema.json
 
 **Layer 3 Payload:**
 ```bash
-# Extract and validate payload
-jq '.payload.data' example.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance <schema-name> /tmp/payload.json
+# Validate envelope and payload using automated two-pass validation
+uv run --directory tools qfspec-check-envelope example.json
 ```
 
 ### 5.2 PN Safety Validation
@@ -261,32 +260,29 @@ jq 'select(.receiver.role == "PN") |
 
 ### 5.3 Automated Test Suite
 
-**Run all examples:**
+**Run all examples with two-pass validation:**
 ```bash
-# Validate all example envelopes
-for file in 04-protocol/EXAMPLES/*.json; do
-  echo "Validating $file..."
-  jsonschema -i "$file" 04-protocol/envelope.schema.json || exit 1
-done
+# Validate all example envelopes and payloads using qfspec-check-envelope
+# This performs both envelope structure validation and payload validation automatically
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/*.json
 ```
 
-**Validate payloads:**
+**Validate individual examples:**
 ```bash
-# Validate all example payloads against Layer 3 schemas
-jq '.payload.data' 04-protocol/EXAMPLES/hook.create.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance hook_card /tmp/payload.json
+# Hook creation
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
 
-jq '.payload.data' 04-protocol/EXAMPLES/tu.open.lore.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance tu_brief /tmp/payload.json
+# TU opening
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/tu.open.lore.json
 
-jq '.payload.data' 04-protocol/EXAMPLES/gate.report.submit.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance gatecheck_report /tmp/payload.json
+# Gate report
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/gate.report.submit.json
 
-jq '.payload.data' 04-protocol/EXAMPLES/view.export.request.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance view_log /tmp/payload.json
+# View export
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/view.export.request.json
 
-jq '.payload.data' 04-protocol/EXAMPLES/pn.playtest.submit.json > /tmp/payload.json
-uv run --directory tools qfspec-check-instance pn_playtest_notes /tmp/payload.json
+# PN playtest notes
+uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/pn.playtest.submit.json
 ```
 
 ---
@@ -306,11 +302,11 @@ uv run --directory tools qfspec-check-instance pn_playtest_notes /tmp/payload.js
   - [ ] Sender validates before sending to PN
   - [ ] Transport layer rejects Hot→PN
   - [ ] PN validates safety on receipt
-  - [ ] Generates error.business_rule for violations
+  - [ ] Generates error intent with code "business_rule_violation" for violations
 
 - [ ] **Payload Validation**
   - [ ] Validates payload.data against Layer 3 schema
-  - [ ] Generates error.validation with details
+  - [ ] Generates error intent with code "validation_error" and details
   - [ ] Supports all payload types in envelope schema
 
 - [ ] **Flow Conformance**
