@@ -44,17 +44,17 @@
 
 ## 3) Small-step policy
 
-- **Pick 3–5 cues** from the cue list (`planned → producing`).  
-- **Open a TU:** “Audio Production — <slice>” with plan refs and safety targets.  
-- **Render → review** with Director/Style; adjust micro-timing and levels.  
-- **Pre-gate check** with Gatekeeper on Presentation/Accessibility.  
+- **Pick 3–5 cues** from the cue list (`planned → producing`).
+- **Open a TU:** “Audio Production — <slice>” with plan refs and safety targets.
+- **Render → review** with Director/Style; adjust micro-timing and levels.
+- **Pre-gate check** with Gatekeeper on Presentation/Accessibility.
 - **Finalize & log,** then mark cues `producing → done`.
 
 ---
 
 ## 4) Heuristics (try this first)
 
-- **Timing respect.** If placed *under* lines, duck −6 to −12 LU relative to voice; fade before choice lists.
+- **Timing respect.** If placed _under_ lines, duck −6 to −12 LU relative to voice; fade before choice lists.
 - **Short wins.** 1–4 s cues usually beat long beds; avoid masking prose.
 - **Spectral hygiene.** Favor midband textures that read at laptop/phone speakers; avoid sub-boom and piercing highs.
 - **Consistent loudness.** Normalize families of cues to a shared LUFS target; document in logs.
@@ -94,19 +94,19 @@ Pause and ping Showrunner if:
 
 ## 8) Tiny examples (before → after)
 
-**Technique in caption (bad) → player-safe caption (good)**  
+**Technique in caption (bad) → player-safe caption (good)**
 
 - “LPF @ 200Hz, limiter −1 dB.” → “[A low engine hum rises, then settles.]”
 
-**Overlong bed → purposeful cue**  
+**Overlong bed → purposeful cue**
 
 - 18-second drone under dialogue → 3-second swell between penultimate and final line; fade before choices.
 
-**Feasibility note (to Director)**  
+**Feasibility note (to Director)**
 
 - “Scanner click is buried at phone-speaker bandwidth. Propose adding a brief mechanical ‘tick’ at 2–3 kHz for clarity.”
 
-**Mixdown note (internal, safe)**  
+**Mixdown note (internal, safe)**
 
 - ID: `cue-foreman-gate-hum` · 4.0 s · −16 LUFS · fade-out 400 ms · safe range 60–85 dB SPL
 
@@ -114,12 +114,12 @@ Pause and ping Showrunner if:
 
 ## 9) Done checklist
 
-- [ ] Render matches **purpose/placement/intensity/duration** from plan  
-- [ ] Captions/text equivalents aligned; **no technique** or spoilers  
-- [ ] Loudness normalized; fades clean; no clipping/startle transients  
-- [ ] **Determinism Logs** complete (off-surface) with session lineage  
-- [ ] Safety checklist filled; Translator/Style review done if captions changed  
-- [ ] Gatekeeper Presentation/Accessibility spot-check **green**  
+- [ ] Render matches **purpose/placement/intensity/duration** from plan
+- [ ] Captions/text equivalents aligned; **no technique** or spoilers
+- [ ] Loudness normalized; fades clean; no clipping/startle transients
+- [ ] **Determinism Logs** complete (off-surface) with session lineage
+- [ ] Safety checklist filled; Translator/Style review done if captions changed
+- [ ] Gatekeeper Presentation/Accessibility spot-check **green**
 - [ ] TU closed; cue list updated to `done`
 
 ---

@@ -27,14 +27,14 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 ## 2) Leak Taxonomy (recognize and block)
 
-| Leak type | Example (bad) | Fix (good) |
-|---|---|---|
-| **Twist telegraph** | “The foreman is secretly Syndicate.” | “The foreman eyes your badge; his smile doesn’t reach his eyes.” |
-| **Gate logic** | “Option locked: missing CODEWORD: ASH.” | “No union token on your lapel; the foreman waves you back.” |
-| **Technique** | “Rendered in SDXL, seed 1234; stinger at -10 LUFS.” | *(omit; technique recorded in logs, not on surface)* |
-| **Canon dump in codex** | “Dock 7 fire was sabotage by Toll Syndicate.” | “A refinery accident years ago reshaped safety drills.” |
-| **Meta UI** | “Click here to set FLAG_X.” | “Show your salvage permit.” |
-| **Localization leak** | “Choice A is better for Act II.” | Keep choices neutral; translator preserves contrast, not outcomes. |
+| Leak type               | Example (bad)                                       | Fix (good)                                                         |
+| ----------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
+| **Twist telegraph**     | “The foreman is secretly Syndicate.”                | “The foreman eyes your badge; his smile doesn’t reach his eyes.”   |
+| **Gate logic**          | “Option locked: missing CODEWORD: ASH.”             | “No union token on your lapel; the foreman waves you back.”        |
+| **Technique**           | “Rendered in SDXL, seed 1234; stinger at -10 LUFS.” | _(omit; technique recorded in logs, not on surface)_               |
+| **Canon dump in codex** | “Dock 7 fire was sabotage by Toll Syndicate.”       | “A refinery accident years ago reshaped safety drills.”            |
+| **Meta UI**             | “Click here to set FLAG_X.”                         | “Show your salvage permit.”                                        |
+| **Localization leak**   | “Choice A is better for Act II.”                    | Keep choices neutral; translator preserves contrast, not outcomes. |
 
 ---
 
@@ -74,7 +74,7 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 **Choice clarity**
 
-- “Slip through maintenance.”  
+- “Slip through maintenance.”
 - “Face the foreman.”
 
 **Codex voice**
@@ -83,7 +83,7 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 **Captions**
 
-- “Shadow-side quay under sodium lamps; freight nets breathe.” *(mood/affordance)*
+- “Shadow-side quay under sodium lamps; freight nets breathe.” _(mood/affordance)_
 
 ---
 
@@ -109,11 +109,11 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 ## 8) Workflow hooks (where this applies)
 
-- **Lore Deepening** → produce **player-safe summaries** alongside canon.  
-- **Codex Expansion** → run **spoiler sweep** vs canon.  
-- **Art/Audio Pass** → captions/text equivalents checked here.  
-- **Binding Run** → Gatekeeper spot-checks **Presentation** before export.  
-- **Translation Pass** → translator reviews for meta leakage in target language.  
+- **Lore Deepening** → produce **player-safe summaries** alongside canon.
+- **Codex Expansion** → run **spoiler sweep** vs canon.
+- **Art/Audio Pass** → captions/text equivalents checked here.
+- **Binding Run** → Gatekeeper spot-checks **Presentation** before export.
+- **Translation Pass** → translator reviews for meta leakage in target language.
 - **PN Dry-Run** → tag `leak-risk` issues and route back to loops.
 
 ---
@@ -133,7 +133,7 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 ## 10) Enforcement & remediation
 
-- Gatekeeper flags a **Presentation** failure → work returns to Hot with a note citing this doc.  
+- Gatekeeper flags a **Presentation** failure → work returns to Hot with a note citing this doc.
 - If the leak already reached a release view, Binder adds a **View Log** note and we cut a patched view from the same snapshot after fixing surfaces (no new spoilers added).
 
 ---

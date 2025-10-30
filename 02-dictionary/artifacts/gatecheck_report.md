@@ -68,21 +68,21 @@ Next actions: <smallest viable fixes + owners>
 <!-- Field: Owner (R) | Type: role-name | Conditional | Required if yellow/red -->
 <!-- Field: Notes | Type: markdown | Optional | Brief context -->
 
-| Bar | Status | Evidence (player-safe) | Smallest viable fix | Owner (R) | Notes |
-|---|---|---|---|---|---|
-| Integrity | green/yellow/red | <anchor map, sample paths> | <e.g., normalize 2 slugs> | Binder/Translator/Curator | <brief> |
-| Reachability | green/yellow/red | <choice clarity test> | <sharpen labels on 2 nodes> | Style → Scene | <brief> |
-| Nonlinearity | green/yellow/red | <loop-with-difference sample> | <add state delta line> | Plotwright/Scene | <brief> |
-| Gateways | green/yellow/red | <diegetic check lines> | <swap meta to diegetic> | Style → Scene | <brief> |
-| Style | green/yellow/red | <register/cadence issues> | <apply pattern; 3 lines> | Style | <brief> |
-| Determinism | green/yellow/red | <repro logs present?> | <add seed/session to logs> | AD/AuD | <brief> |
-| Presentation | green/yellow/red | <spoiler/technique leaks?> | <remove technique; revise caption> | Style/AD/AuD | <brief> |
-| Accessibility | green/yellow/red | <alt/caption/readability> | <write alt; shorten lines> | AD/IL/AuD/Style | <brief> |
+| Bar           | Status           | Evidence (player-safe)        | Smallest viable fix                | Owner (R)                 | Notes   |
+| ------------- | ---------------- | ----------------------------- | ---------------------------------- | ------------------------- | ------- |
+| Integrity     | green/yellow/red | <anchor map, sample paths>    | <e.g., normalize 2 slugs>          | Binder/Translator/Curator | <brief> |
+| Reachability  | green/yellow/red | <choice clarity test>         | <sharpen labels on 2 nodes>        | Style → Scene             | <brief> |
+| Nonlinearity  | green/yellow/red | <loop-with-difference sample> | <add state delta line>             | Plotwright/Scene          | <brief> |
+| Gateways      | green/yellow/red | <diegetic check lines>        | <swap meta to diegetic>            | Style → Scene             | <brief> |
+| Style         | green/yellow/red | <register/cadence issues>     | <apply pattern; 3 lines>           | Style                     | <brief> |
+| Determinism   | green/yellow/red | <repro logs present?>         | <add seed/session to logs>         | AD/AuD                    | <brief> |
+| Presentation  | green/yellow/red | <spoiler/technique leaks?>    | <remove technique; revise caption> | Style/AD/AuD              | <brief> |
+| Accessibility | green/yellow/red | <alt/caption/readability>     | <write alt; shorten lines>         | AD/IL/AuD/Style           | <brief> |
 
 **Rubric:**
 
 - **green** = no blocking defects in this slice/export.
-- **yellow** = minor, mergeable with *named* follow-up TU.
+- **yellow** = minor, mergeable with _named_ follow-up TU.
 - **red** = blocks merge/view until fixed.
 
 ---
@@ -247,21 +247,25 @@ Dormancy state: deferred:art deferred:audio deferred:translation
 ## Common Errors
 
 ### ❌ Missing Determinism Bar Row
+
 **Wrong:** Only 7 bars in table
 **Right:** Include all 8 bars (add Determinism between Style and Presentation)
 **Why:** Determinism is 8th mandatory bar per QUALITY_BARS.md
 
 ### ❌ Wrong Deferral Format
+
 **Wrong:** `deferred:art?` or `deferred:art · deferred:audio`
 **Right:** `deferred:art deferred:audio` (space-separated, no punctuation)
 **Why:** Consistent format across all artifacts
 
 ### ❌ Vague Fixes
+
 **Wrong:** "Fix the gate issue"
 **Right:** "Swap 'Option locked' to diegetic refusal: 'The scanner blinks red. Union badge?'"
 **Why:** Smallest viable fix must be specific and actionable
 
 ### ❌ Hot Content in Evidence
+
 **Wrong:** Evidence: "Foreman's guilt about plasma incident drives strictness"
 **Right:** Evidence: "Gate refusal phrasing is diegetic; no meta language"
 **Why:** Gatecheck reports are player-safe; no Hot spoilers
@@ -270,35 +274,35 @@ Dormancy state: deferred:art deferred:audio deferred:translation
 
 ## Field Reference
 
-| Section | Field | Type | Required | Constraint |
-|---------|-------|------|----------|------------|
-| Header | Title | string | yes | TU ID or View name |
-| Header | Checked | date | yes | YYYY-MM-DD |
-| Header | Gatekeeper | name-or-agent | yes | Human or agent |
-| Header | Scope | markdown | yes | Slice or export |
-| Header | Mode | enum | yes | pre-gate \| gatecheck |
-| Header | Cold snapshot | cold-date-ref | yes | cold@YYYY-MM-DD |
-| Header | Artifacts/Samples | path-list | yes | Paths checked |
-| Header | Dormancy state | deferral-list | optional | Space-separated |
-| §1 | Decision | enum | yes | pass \| conditional pass \| block |
-| §1 | Why | markdown | yes | 1-2 lines |
-| §1 | Next actions | markdown | yes | Fixes + owners |
-| §2 | Bar (table) | enum | yes | 8 bars from taxonomies.md §5 |
-| §2 | Status (table) | enum | yes | green \| yellow \| red |
-| §2 | Evidence | markdown | yes | Player-safe |
-| §2 | Smallest viable fix | markdown | conditional | If yellow/red |
-| §2 | Owner (R) | role-name | conditional | If yellow/red |
-| §2 | Notes | markdown | optional | Brief context |
-| §3 | Incidents | markdown-list | optional | Type, location, fix |
-| §4 | Art | enum | optional | none \| plans \| renders |
-| §4 | Audio | enum | optional | none \| plans \| cues |
-| §4 | Locales | markdown | optional | Coverage % |
-| §4 | Accessibility snapshot | markdown | optional | Alt/captions/order |
-| §5 | Handoffs | markdown-list | yes | Bar, fix, owner, TU, due |
-| §6 | Topic | markdown | optional | Escalation decision |
-| §6 | Lane | role-name | optional | Escalation owner |
-| §6 | Level | enum | optional | L1 \| L2 \| L3 |
-| §6 | Bundle attached | enum | optional | yes \| no |
+| Section | Field                  | Type          | Required    | Constraint                        |
+| ------- | ---------------------- | ------------- | ----------- | --------------------------------- |
+| Header  | Title                  | string        | yes         | TU ID or View name                |
+| Header  | Checked                | date          | yes         | YYYY-MM-DD                        |
+| Header  | Gatekeeper             | name-or-agent | yes         | Human or agent                    |
+| Header  | Scope                  | markdown      | yes         | Slice or export                   |
+| Header  | Mode                   | enum          | yes         | pre-gate \| gatecheck             |
+| Header  | Cold snapshot          | cold-date-ref | yes         | cold@YYYY-MM-DD                   |
+| Header  | Artifacts/Samples      | path-list     | yes         | Paths checked                     |
+| Header  | Dormancy state         | deferral-list | optional    | Space-separated                   |
+| §1      | Decision               | enum          | yes         | pass \| conditional pass \| block |
+| §1      | Why                    | markdown      | yes         | 1-2 lines                         |
+| §1      | Next actions           | markdown      | yes         | Fixes + owners                    |
+| §2      | Bar (table)            | enum          | yes         | 8 bars from taxonomies.md §5      |
+| §2      | Status (table)         | enum          | yes         | green \| yellow \| red            |
+| §2      | Evidence               | markdown      | yes         | Player-safe                       |
+| §2      | Smallest viable fix    | markdown      | conditional | If yellow/red                     |
+| §2      | Owner (R)              | role-name     | conditional | If yellow/red                     |
+| §2      | Notes                  | markdown      | optional    | Brief context                     |
+| §3      | Incidents              | markdown-list | optional    | Type, location, fix               |
+| §4      | Art                    | enum          | optional    | none \| plans \| renders          |
+| §4      | Audio                  | enum          | optional    | none \| plans \| cues             |
+| §4      | Locales                | markdown      | optional    | Coverage %                        |
+| §4      | Accessibility snapshot | markdown      | optional    | Alt/captions/order                |
+| §5      | Handoffs               | markdown-list | yes         | Bar, fix, owner, TU, due          |
+| §6      | Topic                  | markdown      | optional    | Escalation decision               |
+| §6      | Lane                   | role-name     | optional    | Escalation owner                  |
+| §6      | Level                  | enum          | optional    | L1 \| L2 \| L3                    |
+| §6      | Bundle attached        | enum          | optional    | yes \| no                         |
 
 **Total fields:** 28 (18 required, 10 optional/conditional)
 

@@ -11,6 +11,7 @@
 **Files Audited:** 5 core files + 34 artifact templates (17 original + 17 enriched)
 
 **Key Findings:**
+
 - ✅ **No major layer boundary violations** - Layer 2 content is appropriately placed
 - ⚠️ **3 internal inconsistencies** found (glossary.md outdated)
 - ⚠️ **Status markers outdated** (still say "PARKED" after Phase 3 completion)
@@ -24,14 +25,17 @@
 ### 1.1 Content That Might Belong in Other Layers
 
 #### Issue #1: Role Definitions in glossary.md
+
 **Location:** `02-dictionary/glossary.md` Section D (lines ~50-76)
 **Current:** Lists all 15 role canon names with one-line definitions
 **Analysis:**
+
 - Role definitions = WHO does work → Layer 1 responsibility
 - glossary.md is meant for general system terminology, not role charters
 - Layer 1 already has `/01-roles/briefs/*.md` for detailed role info
 
 **Recommendation:** **MOVE**
+
 - Create `01-roles/ROLE_INDEX.md` with canonical role names and brief descriptions
 - Remove Section D from glossary.md
 - Update cross-references
@@ -42,12 +46,15 @@
 ---
 
 #### Issue #2: Loop Information Split Across Layers
+
 **Locations:**
+
 - Layer 0: `00-north-star/LOOPS/*.md` (13 loop guides with detailed instructions)
 - Layer 2: `taxonomies.md` §3 (TU Types & Loop Alignment)
 - Layer 2: `taxonomies.md` §10 (Loop Classifications)
 
 **Analysis:** This is **acceptable separation**:
+
 - Layer 0 = HOW to execute loops (process/policy)
 - Layer 2 = WHAT loop types exist (taxonomy/classification)
 - No duplication of content, just references
@@ -58,11 +65,14 @@
 ---
 
 #### Issue #3: Quality Bars Split Across Layers
+
 **Locations:**
+
 - Layer 0: `00-north-star/QUALITY_BARS.md` (8 bars with criteria/examples)
 - Layer 2: `taxonomies.md` §5 (Quality Bar Categories - enumeration only)
 
 **Analysis:** This is **acceptable separation**:
+
 - Layer 0 = Bar definitions, criteria, evaluation guidance (policy)
 - Layer 2 = Bar names and categorization (taxonomy)
 - taxonomies.md §5 just lists the 8 bar names, doesn't redefine them
@@ -90,12 +100,14 @@
 
 **Location B:** `taxonomies.md` §1
 **Content:** Lists 13 hook types (complete as of Phase 3):
+
 - narrative, scene, factual, taxonomy, structure, canon, **research**,
 - style/pn, translation, art, audio, binder/nav, accessibility
 
 **Root Cause:** glossary.md was created before full taxonomy was developed
 
 **Recommendation:** **UPDATE glossary.md**
+
 - Option A: Update Section E to list all 13 types (brief one-liners)
 - Option B: Remove type enumeration from glossary, point to taxonomies.md §1
 - Option C: Keep 4 "primary" types in glossary as examples, note "see taxonomies.md for full list"
@@ -114,11 +126,13 @@
 
 **Location B:** `taxonomies.md` §2
 **Content:** Lists 7 statuses (complete lifecycle):
+
 - proposed, accepted, **in-progress**, **resolved**, **canonized**, deferred, rejected
 
 **Root Cause:** glossary.md predates full lifecycle definition
 
 **Recommendation:** **UPDATE glossary.md**
+
 - Option A: Update to list all 7 statuses
 - Option B: Remove status enumeration, point to taxonomies.md §2
 - Option C: List basic flow only, reference taxonomies.md for full lifecycle
@@ -132,6 +146,7 @@
 **Issue:** Quality Bars count varies across layers
 
 **Layer 0** (`00-north-star/QUALITY_BARS.md`):
+
 ```
 7 bars listed:
 1. Integrity
@@ -142,9 +157,11 @@
 6. Determinism (when promised)
 7. Presentation Safety (includes accessibility as bullet point)
 ```
+
 **Status:** ❌ OUTDATED
 
 **Layer 2** (`02-dictionary/taxonomies.md` §5):
+
 ```
 8 Quality Bar Categories (line 344 explicitly states "8 mandatory checks"):
 1. Integrity
@@ -156,14 +173,17 @@
 7. Presentation
 8. Accessibility
 ```
+
 **Status:** ✅ CURRENT (matches enriched templates)
 
 **Layer 2** (`02-dictionary/glossary.md` Section F):
+
 ```
 7 bars mentioned:
 Integrity, Reachability, Nonlinearity, Gateways, Style,
 Determinism (when promised), Presentation (spoiler & accessibility hygiene)
 ```
+
 **Status:** ❌ OUTDATED (follows old Layer 0 structure)
 
 **Context from Issue #3:**
@@ -172,6 +192,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **All Phase 3 enriched templates use 8 bars** (Presentation and Accessibility separate)
 
 **Recommendation:** **UPDATE Layer 0 and glossary.md to 8-bar structure**
+
 - Update `00-north-star/QUALITY_BARS.md` to split Presentation Safety into:
   - Bar 7: Presentation (spoiler hygiene, meta language, technique leakage)
   - Bar 8: Accessibility (alt text, captions, readability, contrast)
@@ -185,10 +206,12 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **Found:** 4 inconsistencies
 
 **Root Causes:**
+
 1. glossary.md was created earlier and hasn't been updated as taxonomies evolved
 2. Layer 0 QUALITY_BARS.md hasn't been updated to reflect the 8-bar decision (documented in Issue #3)
 
 **Fix Strategy:**
+
 1. Update glossary.md to defer to taxonomies.md for precise enumerations
 2. Update Layer 0 QUALITY_BARS.md to split Presentation Safety into Presentation + Accessibility (8 bars total)
 
@@ -199,16 +222,19 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ### 3.1 glossary.md vs taxonomies.md
 
 **Analysis:**
+
 - **glossary.md (118 lines):** Prose definitions of concepts, organized by domain (A-H sections)
 - **taxonomies.md (979 lines):** Structured controlled vocabularies with validation rules, organized by taxonomy type (10 sections)
 
 **Overlap:** Both define hook types, hook status, quality bars, roles, loops
 
 **Purpose Difference:**
+
 - glossary.md = **Human-friendly reference** (explain concepts in plain language)
 - taxonomies.md = **System-friendly reference** (precise enumerations for validation)
 
 **Recommendation:** **KEEP BOTH** but clarify division of responsibility:
+
 - glossary.md → General definitions, high-level explanations
 - taxonomies.md → Precise controlled vocabularies, allowed values, validation rules
 - glossary.md should **reference** taxonomies.md for precise details, not duplicate them
@@ -220,18 +246,21 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ### 3.2 field_registry.md vs taxonomies.md
 
 **Analysis:**
+
 - **field_registry.md (465 lines):** Catalogs 237 fields across 17 artifacts
 - **taxonomies.md (979 lines):** Defines 10 classification systems
 
 **Overlap:** Both reference hook types, status, bars in field definitions
 
 **Purpose Difference:**
+
 - field_registry.md = **Field catalog** (what fields exist, where used, constraints)
 - taxonomies.md = **Classification systems** (allowed values for enum fields)
 
 **Relationship:** field_registry.md **references** taxonomies.md (many fields link to taxonomy sections)
 
 **Recommendation:** **KEEP BOTH** - No merge needed, they serve different purposes
+
 - field_registry = horizontal (all fields across artifacts)
 - taxonomies = vertical (classification systems depth)
 
@@ -242,19 +271,23 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **Current State:** 17 original + 17 enriched = 34 files in `artifacts/`
 
 **Analysis:**
+
 - Original templates: Human-friendly, prose-heavy, examples
 - Enriched templates: Same content + HTML constraint comments + validation rules + common errors
 
 **Purpose:**
+
 - Original = Human authoring reference (clean, readable)
 - Enriched = Human + machine reference (includes inline schemas for Layer 3)
 
 **Recommendation:** **KEEP BOTH**
+
 - Original templates for human consumption during work
 - Enriched templates as source of truth for Layer 3 schema generation
 - Could eventually deprecate originals once Layer 3 schemas exist
 
 **Future:** Once Layer 3 has formal schemas, consider:
+
 - Option A: Archive original templates
 - Option B: Keep originals as "Quick Reference" versions
 - Option C: Merge (replace originals with enriched, accept extra noise)
@@ -266,16 +299,19 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ### 3.4 README Files (2)
 
 **Files:**
+
 - `02-dictionary/README.md` (128 lines) - Layer 2 overview
 - `02-dictionary/artifacts/README.md` (112 lines) - Artifact index
 
 **Overlap:** Both explain artifact structure and Layer 2 purpose
 
 **Purpose Difference:**
+
 - Layer README = High-level: what Layer 2 is, migration notes, planned structure
 - Artifact README = Focused: artifact index, usage guide, cross-references
 
 **Recommendation:** **KEEP BOTH**
+
 - Layer README = Layer 2 entry point for newcomers
 - Artifact README = Artifact catalog and index
 
@@ -288,6 +324,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **Verdict:** No true duplicates requiring merge. All apparent overlaps serve different purposes.
 
 **Keep:**
+
 - glossary.md AND taxonomies.md (conceptual vs structured)
 - field_registry.md AND taxonomies.md (fields vs classifications)
 - Original AND enriched templates (human vs human+machine)
@@ -302,11 +339,13 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ### 4.1 Status Markers Need Updating
 
 **Files with "PARKED" status:**
+
 1. `02-dictionary/README.md` - Line 3: "Status: 🚧 PARKED — Pending proper Layer 2 draft"
 2. `02-dictionary/glossary.md` - Line 3: "Status: 🚧 PARKED — Pending Layer 2 proper draft"
 3. `02-dictionary/artifacts/README.md` - Line 3: "Status: 🚧 PARKED — Pending Layer 2 proper draft"
 
 **Reality:** Phase 3 just completed:
+
 - ✅ taxonomies.md drafted (Phase 1)
 - ✅ field_registry.md created (Phase 2)
 - ✅ All 17 artifacts enriched (Phase 3)
@@ -314,6 +353,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **Recommendation:** **UPDATE STATUS**
 
 **New status suggestions:**
+
 - **README.md:** "Status: ✅ ACTIVE — Phase 3 enrichment complete (2025-10-30)"
 - **glossary.md:** "Status: ⚠️ REVIEW NEEDED — Outdated enumerations, update to defer to taxonomies.md"
 - **artifacts/README.md:** "Status: ✅ ENRICHED — All 17 templates enriched with constraints (Phase 3)"
@@ -327,6 +367,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 **Context:** This was from earlier architectural cleanup (ADR-20251029-01)
 
 **Recommendation:** **KEEP** migration notes as historical context, but:
+
 - Move to "History" or "Background" section
 - Add current status prominently at top
 - Don't let historical content overshadow current state
@@ -336,6 +377,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ## Part 5: Recommendations Summary
 
 ### Priority 1: Update Status Markers (Quick Wins)
+
 1. Update `02-dictionary/README.md` status to ACTIVE/COMPLETE
 2. Update `02-dictionary/artifacts/README.md` status to reflect Phase 3
 3. Update `glossary.md` status with caveat about needed updates
@@ -346,6 +388,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ---
 
 ### Priority 2: Fix Layer 0 Quality Bars (CRITICAL)
+
 1. Update `00-north-star/QUALITY_BARS.md` to 8-bar structure
 2. Split current "Presentation Safety" (bar 7) into:
    - Bar 7: Presentation (spoiler hygiene, meta, technique)
@@ -359,6 +402,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ---
 
 ### Priority 3: Fix glossary.md Inconsistencies
+
 1. Update Quality Bars count to 8 (defer to taxonomies.md §5)
 2. Remove or update hook type enumeration (defer to taxonomies.md §1)
 3. Remove or update hook status enumeration (defer to taxonomies.md §2)
@@ -370,6 +414,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ---
 
 ### Priority 4: Consider Moving Role Definitions
+
 1. Evaluate if role definitions belong in glossary.md or Layer 1
 2. If moved: Create `01-roles/ROLE_INDEX.md` with canonical names
 3. Update cross-references
@@ -380,6 +425,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ---
 
 ### Priority 5: Clarify Documentation Relationships
+
 1. Add cross-reference notes to each file explaining its relationship to others
 2. Update README files with current structure map
 3. Document that glossary = prose, taxonomies = structured, field_registry = catalog
@@ -420,12 +466,14 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 ## Next Steps
 
 **Option A: Quick Cleanup (2-3 hours)**
+
 - Update 3 status markers
 - **Fix Layer 0 QUALITY_BARS.md to 8-bar structure** (CRITICAL)
 - Fix glossary.md enumerations (defer to taxonomies.md)
 - Commit as "fix: Update Quality Bars to 8-bar structure across layers"
 
 **Option B: Comprehensive Cleanup (4-5 hours)**
+
 - All of Option A
 - Move role definitions to Layer 1
 - Add cross-reference documentation
@@ -433,6 +481,7 @@ LAYER1_CORRECTIONS.md Issue #3 documents that templates were missing Determinism
 - Commit as "refactor: Layer 2 documentation consistency pass"
 
 **Option C: Proceed to Other Work**
+
 - Accept minor inconsistencies as tech debt
 - Focus on higher priority work (Layer 1 corrections, Layer 3 schemas, etc.)
 - Circle back to cleanup later

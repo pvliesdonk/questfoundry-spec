@@ -13,12 +13,14 @@
 **Purpose:** Define the common language — terminology, data structures, and artifact types — used across all roles and loops.
 
 **Scope:**
+
 - Human-readable glossary of all system terms
 - Taxonomies and classification systems (hook types, gate types, loop types, etc.)
 - Artifact structure definitions (what fields/sections each work product has)
 - Non-technical data dictionary (technical schemas come in Layer 3)
 
 **Not here:**
+
 - Policy/principles (Layer 0)
 - Role responsibilities (Layer 1)
 - JSON schemas (Layer 3)
@@ -29,9 +31,11 @@
 ## Current Contents (Parked)
 
 ### Glossary
+
 - `glossary.md` — System terminology (moved from `00-north-star/TERMINOLOGY.md`)
 
 ### Artifacts
+
 - `artifacts/*.md` — 17 work artifact templates (moved from `01-roles/templates/`)
   - Defines structure of hooks, TUs, canon packs, codex entries, style addenda, etc.
   - Currently human-readable templates; will inform Layer 3 schemas
@@ -77,6 +81,7 @@
 ## Normative References (Layer 0)
 
 Layer 2 definitions must align with:
+
 - `../00-north-star/QUALITY_BARS.md` — Quality standards
 - `../00-north-star/SOURCES_OF_TRUTH.md` — Hot/Cold policy
 - `../00-north-star/SPOILER_HYGIENE.md` — Player-safety rules
@@ -88,15 +93,18 @@ Layer 2 definitions must align with:
 ## Migration Notes
 
 **Moved from Layer 0:**
+
 - `00-north-star/TERMINOLOGY.md` → `02-dictionary/glossary.md`
   - Reason: Pure data dictionary, not policy
 
 **Moved from Layer 1:**
+
 - `01-roles/templates/*.md` → `02-dictionary/artifacts/`
   - Reason: Define WHAT artifacts ARE (data structure), not WHO creates them (role responsibility)
   - Layer 1 still defines which roles produce which artifacts (in charters/briefs)
 
 **Cross-reference updates:**
+
 - Layer 0 and Layer 1 files referencing these locations have been updated
 - See [ADR-20251029-01-layer-boundary-clarification.md](../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for rationale
 
@@ -105,12 +113,14 @@ Layer 2 definitions must align with:
 ## Contributing to Layer 2
 
 Until Layer 2 is properly drafted:
+
 1. Treat parked files as **read-only references**
 2. Do not add new artifacts or terms here yet
 3. If you need to reference a structure, point to the parked file but note it's pending review
 4. Layer 2 proper draft should happen after Layer 0/1 stabilize
 
 Once Layer 2 drafting begins:
+
 1. Review all parked content for consistency
 2. Add missing taxonomies
 3. Ensure all terms are player-safe or clearly marked as Hot-only

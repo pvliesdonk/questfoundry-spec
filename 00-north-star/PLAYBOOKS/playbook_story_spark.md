@@ -32,21 +32,15 @@
 3. Draft **section briefs** (intent, stakes, choices, expected state effect—human phrasing).
 4. Generate **narrative hooks** (entities, stakes, affordances).
 
-**Scene Smith (R)**
-5. Draft/adjust **section prose**; make choices legible and distinct.
-6. Generate **scene hooks** (traits, tells, props).
+**Scene Smith (R)** 5. Draft/adjust **section prose**; make choices legible and distinct. 6. Generate **scene hooks** (traits, tells, props).
 
-**Style Lead (C)**
-7. Sample and flag drift; add motif anchors; suggest PN phrasing patterns.
+**Style Lead (C)** 7. Sample and flag drift; add motif anchors; suggest PN phrasing patterns.
 
-**Lore Weaver (C)**
-8. Sanity-check against canon; note where **Lore Deepening** is needed.
+**Lore Weaver (C)** 8. Sanity-check against canon; note where **Lore Deepening** is needed.
 
-**Researcher (C, if active)**
-9. Add **factual hooks** with citations or `uncorroborated:<risk>`.
+**Researcher (C, if active)** 9. Add **factual hooks** with citations or `uncorroborated:<risk>`.
 
-**Gatekeeper (C)**
-10. **Pre-gate**: Integrity (no dangling refs), Reachability (keystones reachable), Nonlinearity (hub/loop not cosmetic).
+**Gatekeeper (C)** 10. **Pre-gate**: Integrity (no dangling refs), Reachability (keystones reachable), Nonlinearity (hub/loop not cosmetic).
 
 ---
 
@@ -68,7 +62,7 @@
 - → **Codex Expansion** (taxonomy/clarity gaps).
 - → **Style Tune-up** (if drift exceeds trivial edits).
 
-*(Story Spark does **not** merge to Cold. Merges happen after deepening + gatecheck.)*
+_(Story Spark does **not** merge to Cold. Merges happen after deepening + gatecheck.)_
 
 ---
 
@@ -93,21 +87,21 @@
 
 ## 8) RACI (micro)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Scope/timebox | Showrunner | Showrunner | Gatekeeper, Leads | All |
-| Topology & briefs | Plotwright | Showrunner | Lore, Style, Gatekeeper | Scene |
-| Draft prose | Scene Smith | Style Lead | Plotwright, Gatekeeper | Binder |
-| Pre-gate | Gatekeeper | Showrunner | Plotwright, Scene, Style | All |
-| Handoffs | Showrunner | Showrunner | Receiving role leads | Gatekeeper |
+| Task              | R           | A          | C                        | I          |
+| ----------------- | ----------- | ---------- | ------------------------ | ---------- |
+| Scope/timebox     | Showrunner  | Showrunner | Gatekeeper, Leads        | All        |
+| Topology & briefs | Plotwright  | Showrunner | Lore, Style, Gatekeeper  | Scene      |
+| Draft prose       | Scene Smith | Style Lead | Plotwright, Gatekeeper   | Binder     |
+| Pre-gate          | Gatekeeper  | Showrunner | Plotwright, Scene, Style | All        |
+| Handoffs          | Showrunner  | Showrunner | Receiving role leads     | Gatekeeper |
 
 ---
 
 ## 9) Anti-patterns to catch
 
-- “Loop” that reads identical after return.  
-- Gateway phrased with internals (“lack CODEWORD: …”).  
-- Dumping twists into codex drafts.  
+- “Loop” that reads identical after return.
+- Gateway phrased with internals (“lack CODEWORD: …”).
+- Dumping twists into codex drafts.
 - Bundling too many unrelated changes into one TU.
 
 ---

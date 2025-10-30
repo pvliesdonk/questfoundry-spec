@@ -3,7 +3,7 @@
 > **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
 > Inline field constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
 
-> **Use:** Book Binder's one-pager for any bound *View* (export). Declares the **Cold** snapshot, **options/coverage**, anchor health, and any `deferred:*` tracks. No spoilers, no Hot content.
+> **Use:** Book Binder's one-pager for any bound _View_ (export). Declares the **Cold** snapshot, **options/coverage**, anchor health, and any `deferred:*` tracks. No spoilers, no Hot content.
 
 ---
 
@@ -93,12 +93,12 @@ Gatekeeper: <name> · Gatecheck ID: <id>
 <!-- Field: Hash/ID | Type: string | Optional: yes | SHA256 or similar -->
 <!-- Validation: Hashes optional but recommended for reproducibility -->
 
-| Kind | Path/Name | Hash/ID (optional) | Notes |
-|---|---|---|---|
-| PDF | /views/<view-name>.pdf | <sha256…> | front-matter present |
-| HTML | /views/<view-name>/index.html | <sha256…> | anchors stable |
-| EPUB | /views/<view-name>.epub | <sha256…> | nav ok |
-| Bundle | /views/<view-name>.zip | <sha256…> | contains View + PN kit |
+| Kind   | Path/Name                     | Hash/ID (optional) | Notes                  |
+| ------ | ----------------------------- | ------------------ | ---------------------- |
+| PDF    | /views/<view-name>.pdf        | <sha256…>          | front-matter present   |
+| HTML   | /views/<view-name>/index.html | <sha256…>          | anchors stable         |
+| EPUB   | /views/<view-name>.epub       | <sha256…>          | nav ok                 |
+| Bundle | /views/<view-name>.zip        | <sha256…>          | contains View + PN kit |
 
 > Hashes are optional but recommended for reproducibility.
 
@@ -107,6 +107,7 @@ Gatekeeper: <name> · Gatecheck ID: <id>
 ## Validation Rules
 
 ### Field-Level
+
 - `Bound`: Required, YYYY-MM-DD format
 - `Binder`: Required, name or agent identifier
 - `TU`: Required, format TU-YYYY-MM-DD-<role><seq>
@@ -121,14 +122,17 @@ Gatekeeper: <name> · Gatecheck ID: <id>
 ### Common Errors
 
 **❌ Using Hot snapshot**
+
 - Wrong: `Cold snapshot: Hot @ 2025-10-28`
 - Right: `Cold snapshot: cold@2025-10-28`
 
 **❌ Pipe-separated deferrals**
+
 - Wrong: `Tag: deferred:art|deferred:audio`
 - Right: `Tag: deferred:art deferred:audio` (space-separated)
 
 **❌ Missing orphan/collision counts**
+
 - Wrong: `Manuscript anchors: 45 (resolved: 45)`
 - Right: `Manuscript anchors: 45 (resolved: 45; orphans: 0)`
 

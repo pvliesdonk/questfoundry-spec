@@ -58,11 +58,11 @@ Bars pressed: <Style | Presentation | Accessibility | …>
 
 > Provide **surgical** replacements. Do not reveal canon or internal logic. One or two lines per item.
 
-| Location (path#anchor) | Issue tag | Before | After | Owner | Rationale |
-|---|---|---|---|---|---|
-| `/manuscript/act1/foreman-gate#entry` | `choice-ambiguity` | "Go / Proceed." | "Slip through maintenance / Face the foreman." | Scene | Make options contrastive. |
-| `/manuscript/act1/foreman-gate#scanner` | `meta-gate` | "Option locked: missing CODEWORD." | "The scanner blinks red. 'Union badge?'" | Scene | Diegetic refusal; PN-safe. |
-| `/codex/union-token` | `register` | "Badge credential is mandated." | "Dock inspections often require a union token." | Curator | Plain, portable phrasing. |
+| Location (path#anchor)                  | Issue tag          | Before                             | After                                           | Owner   | Rationale                  |
+| --------------------------------------- | ------------------ | ---------------------------------- | ----------------------------------------------- | ------- | -------------------------- |
+| `/manuscript/act1/foreman-gate#entry`   | `choice-ambiguity` | "Go / Proceed."                    | "Slip through maintenance / Face the foreman."  | Scene   | Make options contrastive.  |
+| `/manuscript/act1/foreman-gate#scanner` | `meta-gate`        | "Option locked: missing CODEWORD." | "The scanner blinks red. 'Union badge?'"        | Scene   | Diegetic refusal; PN-safe. |
+| `/codex/union-token`                    | `register`         | "Badge credential is mandated."    | "Dock inspections often require a union token." | Curator | Plain, portable phrasing.  |
 
 > **Issue tags (suggested):** `choice-ambiguity`, `meta-gate`, `tone-wobble`, `caption-technique`, `alt-vague`, `label-collision`, `accessibility`.
 
@@ -71,6 +71,7 @@ Bars pressed: <Style | Presentation | Accessibility | …>
 ## Validation Rules
 
 ### Field-Level
+
 - `TU`: Required, format TU-YYYY-MM-DD-<role><seq>
 - `Opened`: Required, YYYY-MM-DD format
 - `Snapshot`: Required, Cold @ YYYY-MM-DD
@@ -83,10 +84,12 @@ Bars pressed: <Style | Presentation | Accessibility | …>
 ### Common Errors
 
 **❌ Spoilers in Before/After**
+
 - Wrong: Before: "The foreman is guilty of the retrofit accident"
 - Right: Before: "Option locked: missing CODEWORD"
 
 **❌ Missing bars from 8 quality bars**
+
 - Wrong: Bars pressed: "Quality | Polish"
 - Right: Bars pressed: "Style | Presentation | Accessibility"
 

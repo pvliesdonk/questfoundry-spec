@@ -34,7 +34,7 @@
 
 - **Renders** that match plan purpose and composition.
 - **Alt Text** (one sentence, concrete nouns/relations; spoiler-safe).
-- **Determinism Logs** *(off-surface)* with lineage and selected variant notes.
+- **Determinism Logs** _(off-surface)_ with lineage and selected variant notes.
 - **Feasibility Notes** when a plan needs adjustment to remain legible, safe, or accessible.
 
 All surfaces remain **player-safe** and follow Accessibility guidance.
@@ -43,10 +43,10 @@ All surfaces remain **player-safe** and follow Accessibility guidance.
 
 ## 3) Small-step policy
 
-- **Pick a slice:** 3–5 slots from the shotlist.  
-- **Open a TU:** “Illustration — <slice>” with target slots and any plan clarifications.  
-- **Timebox:** render → review with Director/Style → finalize or iterate once.  
-- **Pre-gate ping:** quick Presentation sweep with Gatekeeper for alt/caption checks.  
+- **Pick a slice:** 3–5 slots from the shotlist.
+- **Open a TU:** “Illustration — <slice>” with target slots and any plan clarifications.
+- **Timebox:** render → review with Director/Style → finalize or iterate once.
+- **Pre-gate ping:** quick Presentation sweep with Gatekeeper for alt/caption checks.
 - **Log & handoff:** store determinism logs; deliver images + alt; note variants chosen.
 
 ---
@@ -57,7 +57,7 @@ All surfaces remain **player-safe** and follow Accessibility guidance.
 - **Light for affordance.** Use lighting to reveal the **actionable** part of the scene (badge, hatch, gesture).
 - **Motif consistency.** Reuse palette/material motifs per Style; avoid unplanned shifts.
 - **Caption restraint.** One line; no spoilers, no technique; in register.
-- **Alt shape.** *Subject + relation + location*, one sentence. Avoid “image of…”.
+- **Alt shape.** _Subject + relation + location_, one sentence. Avoid “image of…”.
 - **Crop with intent.** Tighten to the affordance when signposting; widen for mood where plan calls for it.
 - **Sensitivity check.** Avoid glamorizing harm; align with Accessibility & Content Notes.
 
@@ -94,19 +94,19 @@ Pause and ping the **Showrunner** if:
 
 ## 8) Tiny examples (before → after)
 
-**Technique leak (bad) → caption (good)**  
+**Technique leak (bad) → caption (good)**
 
 - “SDXL seed 998877; 50mm lens.” → “Sodium lamps smear along wet steel; the scanner’s eye waits.”
 
-**Vague alt → concrete alt**  
+**Vague alt → concrete alt**
 
 - “Image of a guard.” → “A foreman’s shadow falls across a badge scanner at a dock checkpoint.”
 
-**Over-busy → readable crop**  
+**Over-busy → readable crop**
 
 - Wide dock panorama with tiny checkpoint → Tight crop on lapel + scanner, foreman in silhouette.
 
-**Feasibility note (to Director)**  
+**Feasibility note (to Director)**
 
 - “At print size the lapel emblem isn’t readable; propose bumping scanner glow and shifting angle 10°.”
 
@@ -114,12 +114,12 @@ Pause and ping the **Showrunner** if:
 
 ## 9) Done checklist
 
-- [ ] Render matches **plan purpose** (clarify/recall/mood/signpost)  
-- [ ] Composition legible at target sizes; motif consistent with Style  
-- [ ] **Caption** (from plan) reviewed; player-safe; no technique  
-- [ ] **Alt Text** written (one sentence, concrete, spoiler-safe)  
-- [ ] **Determinism Log** stored **off-surface** (if promised)  
-- [ ] Variants/crops delivered where specified; selection noted  
+- [ ] Render matches **plan purpose** (clarify/recall/mood/signpost)
+- [ ] Composition legible at target sizes; motif consistent with Style
+- [ ] **Caption** (from plan) reviewed; player-safe; no technique
+- [ ] **Alt Text** written (one sentence, concrete, spoiler-safe)
+- [ ] **Determinism Log** stored **off-surface** (if promised)
+- [ ] Variants/crops delivered where specified; selection noted
 - [ ] Gatekeeper Presentation check: **green**; handoff complete
 
 ---

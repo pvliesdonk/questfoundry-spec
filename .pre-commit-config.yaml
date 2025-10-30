@@ -1,0 +1,41 @@
+# Pre-commit hooks for QuestFoundry
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # 1. Formatters (run first, auto-fix)
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        name: Format JSON and Markdown (strict)
+        types_or: [json, markdown]
+        exclude: ^(tools/uv\.lock|\.git/)$
+        additional_dependencies:
+          - prettier@3.1.0
+
+  # 2. Schema validation (our tool)
+  - repo: local
+    hooks:
+      - id: validate-schemas
+        name: Validate Layer 3 schemas (Draft 2020-12)
+        entry: bash -c 'cd tools && uv run qfspec-validate'
+        language: system
+        files: ^03-schemas/.*\.schema\.json$
+        pass_filenames: false
+        description: Ensure all Layer 3 schemas are valid JSON Schema Draft 2020-12
+
+  # Note: Markdownlint is intentionally NOT in pre-commit hooks (lenient mode)
+  # It runs in CI with continue-on-error and can be run manually:
+  #   npx markdownlint-cli2 "**/*.md" --config tools/.markdownlint.json
+  # This keeps pre-commit fast and non-blocking for documentation changes
+
+  # Future: Add Layer 4 schema validation when ready
+  # - repo: local
+  #   hooks:
+  #     - id: validate-layer4-schemas
+  #       name: Validate Layer 4 schemas (Draft 2020-12)
+  #       entry: bash -c 'cd tools && uv run qfspec-validate-layer4'
+  #       language: system
+  #       files: ^04-.*\.schema\.json$
+  #       pass_filenames: false

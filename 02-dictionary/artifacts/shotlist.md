@@ -72,12 +72,12 @@ Neighbors: @illustrator @style @translator @binder @gatekeeper
 
 > Keep it short. Link **Slot ID** to the full `Art Plan`. Captions/alt are **player-safe** excerpts.
 
-| Slot ID → Plan | Purpose | Subject (short) | Focal affordance | Caption (1 line, safe) | Alt (1 sentence, safe) | Anchor target | Status |
-|---|---|---|---|---|---|---|---|
-| `foreman-gate-signpost` | signpost | badge vs scanner | badge region | "Sodium lamps smear along wet steel; the scanner's eye waits." | "A foreman's shadow falls across a badge scanner at a dock checkpoint." | `/manuscript/act1/foreman-gate#inspection` | planned |
-| `<slot-2>` | mood | <…> | <…> | "<…>" | "<…>" | `/manuscript/...#...` | planned/rendering/done |
+| Slot ID → Plan          | Purpose  | Subject (short)  | Focal affordance | Caption (1 line, safe)                                         | Alt (1 sentence, safe)                                                  | Anchor target                              | Status                 |
+| ----------------------- | -------- | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------ | ---------------------- |
+| `foreman-gate-signpost` | signpost | badge vs scanner | badge region     | "Sodium lamps smear along wet steel; the scanner's eye waits." | "A foreman's shadow falls across a badge scanner at a dock checkpoint." | `/manuscript/act1/foreman-gate#inspection` | planned                |
+| `<slot-2>`              | mood     | <…>              | <…>              | "<…>"                                                          | "<…>"                                                                   | `/manuscript/...#...`                      | planned/rendering/done |
 
-*Statuses:* `planned` | `rendering` | `done` | `deferred`.
+_Statuses:_ `planned` | `rendering` | `done` | `deferred`.
 
 ---
 
@@ -199,6 +199,7 @@ Hooks
 ## Validation Rules (for Layer 3 schemas)
 
 ### Field-Level Validation
+
 - `Title`: Required, slice name
 - `Edited`: Must be YYYY-MM-DD format, cannot be future date
 - `Owner`: Must be "Art Director"
@@ -211,11 +212,13 @@ Hooks
 - Per row: Slot ID kebab-case, Purpose from 4 values, Caption 1 line, Alt 1 sentence, Status from 4 values
 
 ### Cross-Field Validation
+
 - `Purpose mix` counts must match table row count
 - If `Dormancy` = deferred:art, all statuses should be "planned"
 - All `Caption` and `Alt` text must be player-safe, no technique
 
 ### Cross-Artifact Validation
+
 - Each `Slot ID` must reference existing Art Plan artifact
 - `Anchor targets` should reference existing manuscript sections
 - `Register` must align with Style Addendum
@@ -226,18 +229,22 @@ Hooks
 ## Common Errors
 
 **❌ Dormancy mismatch with status**
+
 - Wrong: Dormancy: deferred:art, Status: rendering
 - Right: Dormancy: deferred:art, Status: planned
 
 **❌ Technique in caption**
+
 - Wrong: Caption: "Rendered with 85mm lens at f/1.8"
 - Right: Caption: "Sodium lamps smear along wet steel; the scanner's eye waits."
 
 **❌ Missing Alt**
+
 - Wrong: Only caption provided, no alt
 - Right: Both caption AND alt required for each slot
 
 **❌ Purpose mix doesn't match table**
+
 - Wrong: Purpose mix: 2 signpost / Table has 3 signpost rows
 - Right: Purpose mix counts must exactly match table row purposes
 

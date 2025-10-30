@@ -21,15 +21,19 @@ During Phase 2 extraction of all 17 artifact templates, **7 contradictions** wer
 ### Issue
 
 **Current template** (`01-roles/templates/hook_card.md` line 34):
+
 ```
 structure | canon | terminology | research | style/pn | translation | art | audio | binder/nav | accessibility
 ```
+
 (10 types)
 
 **Layer 0 HOOKS.md** documents:
+
 ```
 narrative | scene | factual | taxonomy | structure | canon | style/pn | translation | art | audio | binder/nav | accessibility
 ```
+
 (12 types, missing `research`)
 
 ### Resolution ✅
@@ -39,6 +43,7 @@ narrative | scene | factual | taxonomy | structure | canon | style/pn | translat
 3. **Add `narrative`, `scene`, `factual`** — Missing from template, add to hook_card.md
 
 ### Corrected Complete List (13 types):
+
 ```
 narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility
 ```
@@ -56,11 +61,13 @@ narrative | scene | factual | taxonomy | structure | canon | research | style/pn
 ### Issue
 
 **Current template** (`01-roles/templates/hook_card.md` line 21):
+
 ```
 Status: open | accepted | in-progress | resolved | dropped
 ```
 
 **Layer 0 HOOKS.md** and observed usage:
+
 ```
 proposed → accepted → in-progress → resolved → canonized
 Plus: deferred (parked), rejected (won't do)
@@ -74,11 +81,13 @@ Plus: deferred (parked), rejected (won't do)
 4. **Add `deferred`** — Valid state for parked work
 
 ### Corrected Complete List (7 states):
+
 ```
 Status: proposed | accepted | in-progress | resolved | canonized | deferred | rejected
 ```
 
 **Flow:**
+
 ```
 proposed → accepted → in-progress → resolved → canonized
         ↘ deferred (parked, may resume)
@@ -98,11 +107,13 @@ proposed → accepted → in-progress → resolved → canonized
 ### Issue
 
 **Templates list 7 bars:**
+
 ```
 Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility
 ```
 
 **Layer 0 QUALITY_BARS.md defines 8 bars:**
+
 ```
 Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility
 ```
@@ -130,17 +141,21 @@ Add `Determinism` to all template bar lists. It's a mandatory bar.
 ### Issue
 
 **TU Brief** (`01-roles/templates/tu_brief.md` line 26) lists:
+
 ```
 Story Spark | Style Tune-up | Hook Harvest | Lore Deepening | Codex Expansion |
 Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run
 ```
+
 (10 loops)
 
 **Hook Card** (`01-roles/templates/hook_card.md` line 71) lists:
+
 ```
 Story Spark | Style Tune-up | Lore Deepening | Codex Expansion | Art Touch-up |
 Audio Pass | Translation Pass | Binding Run | Narration Dry-Run
 ```
+
 (9 loops)
 
 **Missing:** `Hook Harvest`
@@ -160,6 +175,7 @@ Add `Hook Harvest` to Hook Card template. It's a valid loop.
 ### Issue
 
 **Layer 0 LOOPS/ directory** has 13 loop files:
+
 ```
 Discovery: story-spark, hook-harvest, lore-deepening
 Refinement: codex-expansion, style-tuneup
@@ -174,6 +190,7 @@ Export: binding-run, narration-dry-run, gatecheck, post-mortem, archive-snapshot
 All 13 loops are valid TU loops. Add the 3 missing export loops to templates.
 
 ### Corrected Complete List (13 loops):
+
 ```
 Story Spark | Hook Harvest | Lore Deepening | Codex Expansion | Style Tune-up |
 Art Touch-up | Audio Pass | Translation Pass |
@@ -193,11 +210,13 @@ Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot
 ### Issue
 
 **Layer 0 LOOPS/ directory** uses kebab-case filenames:
+
 - `story-spark.md`
 - `hook-harvest.md`
 - `style-tuneup.md` (note: no hyphen in "tuneup")
 
 **Templates use Title Case:**
+
 - `Story Spark`
 - `Hook Harvest`
 - `Style Tune-up` (note: hyphen in "Tune-up")
@@ -235,6 +254,7 @@ This is intentional (file names vs display names). Document the canonical mappin
 ### Issue
 
 Templates use role abbreviations like:
+
 ```
 PW, SS, ST, LW, CC, AD, IL, AuD, AuP, TR, BB, PN, GK, SR, RS
 ```
@@ -276,6 +296,7 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 0 (North Star) — 2 files
 
 1. **`00-north-star/HOOKS.md`**
+
    - Add `research` as valid hook type in §1
    - Verify hook status lifecycle includes all 7 states
 
@@ -286,23 +307,28 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 1 (Roles) — 5+ files
 
 3. **`01-roles/templates/hook_card.md`** — 3 fixes
+
    - Line 21: Update status to `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
    - Line 34: Update types to include `narrative, scene, factual, taxonomy, research` (13 total)
    - Line 36: Add `Determinism` to bars list
    - Line 71: Add `Hook Harvest | Gatecheck | Post-Mortem | Archive Snapshot` to loops
 
 4. **`01-roles/templates/tu_brief.md`** — 2 fixes
+
    - Line 26: Add `Gatecheck | Post-Mortem | Archive Snapshot` to loops
    - Verify bar lists include Determinism
 
 5. **`01-roles/templates/gatecheck_report.md`** — 1 fix
+
    - §2 Bars Table: Add Determinism row
 
 6. **`01-roles/README.md`** OR new **`01-roles/LOOP_NAMES.md`**
+
    - Document loop name formatting convention (kebab-case files, Title Case display)
    - Canonical mapping table
 
 7. **`01-roles/ROLE_INDEX.md`** OR new **`01-roles/ROLE_ABBREVIATIONS.md`**
+
    - Add canonical abbreviation list
 
 8. **All role briefs** (15 files)
@@ -311,6 +337,7 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 2 (Dictionary) — 2 files
 
 9. **`02-dictionary/taxonomies.md`** — 2 fixes
+
    - §1 Hook Types: Add `research` (13 types total)
    - §5 Quality Bar Categories: Add `Determinism` (8 bars total)
 
@@ -322,28 +349,26 @@ Create canonical abbreviation list in Layer 1.
 ## Recommended Fix Order
 
 **Phase 1: Layer 0 corrections** (source of truth)
+
 1. Update `00-north-star/HOOKS.md` — add `research` type
 2. Verify `00-north-star/QUALITY_BARS.md` — confirm Determinism is 8th bar
 
-**Phase 2: Layer 2 taxonomy corrections** (common language)
-3. Update `02-dictionary/taxonomies.md` §1 and §5
+**Phase 2: Layer 2 taxonomy corrections** (common language) 3. Update `02-dictionary/taxonomies.md` §1 and §5
 
-**Phase 3: Layer 1 template corrections** (role artifacts)
-4. Update `hook_card.md`, `tu_brief.md`, `gatecheck_report.md`
-5. Create/update `LOOP_NAMES.md` and `ROLE_ABBREVIATIONS.md`
-6. Scan all 15 role briefs for bar references
+**Phase 3: Layer 1 template corrections** (role artifacts) 4. Update `hook_card.md`, `tu_brief.md`, `gatecheck_report.md` 5. Create/update `LOOP_NAMES.md` and `ROLE_ABBREVIATIONS.md` 6. Scan all 15 role briefs for bar references
 
-**Phase 4: Field registry sync**
-7. Update `02-dictionary/field_registry.md` constraints
+**Phase 4: Field registry sync** 7. Update `02-dictionary/field_registry.md` constraints
 
 ---
 
 ## Commit Strategy
 
 **Option A: Single correction commit**
+
 - Fix all at once, single commit to Layer 1
 
 **Option B: Separate commits per layer**
+
 - Commit 1: Layer 0 corrections (HOOKS.md)
 - Commit 2: Layer 2 taxonomy updates (taxonomies.md)
 - Commit 3: Layer 1 template corrections (hook_card, tu_brief, gatecheck_report)
@@ -359,11 +384,13 @@ Create canonical abbreviation list in Layer 1.
 ### Issue
 
 **Current templates** show deferral tags with pipe separator:
+
 ```
 Deferral tags to set now: <deferred:art | deferred:audio | deferred:translation | deferred:research>
 ```
 
 **Field registry** (from extraction) specifies:
+
 ```
 Format: Space-separated list (NOT comma-separated)
 ```
@@ -373,6 +400,7 @@ Format: Space-separated list (NOT comma-separated)
 Use space-separated format (no pipes, no commas).
 
 ### Corrected Format:
+
 ```
 Deferral tags to set now: <deferred:art deferred:audio deferred:translation deferred:research>
 ```
@@ -412,12 +440,15 @@ Deferral tags to set now: <deferred:art deferred:audio deferred:translation defe
 ### Issue
 
 **Current template** (`01-roles/templates/tu_brief.md` line 26):
+
 ```
 Loop: <Story Spark | Style Tune-up | Hook Harvest | Lore Deepening | Codex Expansion | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run>
 ```
+
 (10 loops)
 
 **Should be** (13 loops total):
+
 ```
 Loop: <Story Spark | Hook Harvest | Lore Deepening | Codex Expansion | Style Tune-up | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot>
 ```
@@ -437,12 +468,15 @@ Add missing 3 export loops: Gatecheck, Post-Mortem, Archive Snapshot.
 ### Issue
 
 **Current template** (`01-roles/templates/tu_brief.md` line 37):
+
 ```
 Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility>
 ```
+
 (7 bars)
 
 **Should be** (8 bars):
+
 ```
 Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility>
 ```
@@ -462,16 +496,19 @@ Add Determinism to bar list.
 ### Issue
 
 **Template line 33** uses pipe separator:
+
 ```
 Deferral tags: <deferred:art | deferred:audio | deferred:translation | deferred:research>
 ```
 
 **Example line 96** uses middle-dot separator:
+
 ```
 Deferral tags: deferred:art · deferred:audio · deferred:translation
 ```
 
 **Should be** space-separated:
+
 ```
 Deferral tags: deferred:art deferred:audio deferred:translation deferred:research
 ```
@@ -515,16 +552,19 @@ Add Determinism as 8th row in bars table.
 ### Issue
 
 **Template line 26** uses question marks:
+
 ```
 Dormancy state: <deferred:art? deferred:audio? deferred:translation? deferred:research?>
 ```
 
 **Example line 132** uses middle-dot separator:
+
 ```
 Dormancy: deferred:art · deferred:audio · deferred:translation
 ```
 
 **Should be** space-separated without question marks:
+
 ```
 Dormancy state: deferred:art deferred:audio deferred:translation deferred:research
 ```
@@ -564,24 +604,31 @@ Remove question marks, use space-separated format.
 **Three templates have research posture format issues:**
 
 **A) Canon Pack** (`02-dictionary/artifacts/canon_pack.md` line 24):
+
 ```
 Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
 ```
+
 Problems: Nested format + "med" abbreviation
 
 **B) Codex Entry** (`02-dictionary/artifacts/codex_entry.md` line 114):
+
 ```
 Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
 ```
+
 Problems: Nested format + "med" abbreviation
 
 **C) Research Memo** (`02-dictionary/artifacts/research_memo.md` line 71):
+
 ```
 Posture: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:med | uncorroborated:high>
 ```
+
 Problems: "med" abbreviation (format is correct as flat)
 
 **Should all be:**
+
 ```
 Research posture touched: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
 ```

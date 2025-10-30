@@ -1,0 +1,34 @@
+name: Validate Specification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, "claude/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install dependencies
+        run: cd tools && uv sync
+
+      - name: Check formatting (Prettier)
+        run: npx prettier --check "**/*.{json,md}" --ignore-path tools/.prettierignore --config tools/.prettierrc.json
+
+      - name: Lint Markdown
+        run: npx markdownlint-cli2 "**/*.md" --config tools/.markdownlint.json
+        continue-on-error: true # Lenient - don't fail build
+
+      - name: Validate schemas
+        run: uv run --directory tools qfspec-validate

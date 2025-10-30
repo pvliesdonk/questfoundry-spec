@@ -28,12 +28,11 @@ This document explains how to report issues safely and what we treat as a securi
 
 <<<<<<< HEAD
 
-- **Email (preferred):** <security@questfoundry.example>  
-=======
-- **Email (preferred):** <security@questfoundry.example>  
+- # **Email (preferred):** <security@questfoundry.example>
+- **Email (preferred):** <security@questfoundry.example>
 
->>>>>>> feat/level0
-  Include:
+> > > > > > > feat/level0
+> > > > > > > Include:
 
 - A concise description of the issue and why it’s a risk
 - Minimal reproduction steps or the file/line references
@@ -48,27 +47,27 @@ We aim to acknowledge within **72 hours** and provide a remediation plan or next
 
 ## Responsible disclosure policy
 
-- Please **do not** create public issues or PRs containing sensitive details.  
-- Do not share proof-of-concept exploits or spoiler payloads publicly.  
-- Give us a reasonable window to assess and remediate before disclosure.  
+- Please **do not** create public issues or PRs containing sensitive details.
+- Do not share proof-of-concept exploits or spoiler payloads publicly.
+- Give us a reasonable window to assess and remediate before disclosure.
 - We’ll credit reporters in release notes (if desired) once a fix lands.
 
 ---
 
 ## What we do on our side
 
-- Triage as **Showrunner**; assess risk as **Gatekeeper** (Quality Bars + Presentation Safety).  
-- Create a **Trace Unit (TU)** for remediation work (kept private until safe).  
-- Patch the docs/templates; add tests/checklists where applicable.  
+- Triage as **Showrunner**; assess risk as **Gatekeeper** (Quality Bars + Presentation Safety).
+- Create a **Trace Unit (TU)** for remediation work (kept private until safe).
+- Patch the docs/templates; add tests/checklists where applicable.
 - If a **Cold** surface was impacted, we’ll note it in the **View Log** policy and recommend re-exports.
 
 ---
 
 ## Tips for reporters (what helps us fix fast)
 
-- Point to exact files/sections (paths + headings).  
-- Tell us whether it breaks **Hot/Cold boundaries** or **Quality Bars**.  
-- If it involves exports, specify which surfaces (manuscript/codex/captions/PN).  
+- Point to exact files/sections (paths + headings).
+- Tell us whether it breaks **Hot/Cold boundaries** or **Quality Bars**.
+- If it involves exports, specify which surfaces (manuscript/codex/captions/PN).
 - If it’s supply-chain, list commands or scripts that are risky and why.
 
 ---

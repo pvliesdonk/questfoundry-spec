@@ -44,7 +44,7 @@ Why is this change valuable to creators/players? Cite friction found in loops, P
 
 - [ ] All links/anchors resolve across docs (and exports, if applicable)
 
-**Reachability / Nonlinearity / Gateways** *(only if touching topology or PN phrasing)*
+**Reachability / Nonlinearity / Gateways** _(only if touching topology or PN phrasing)_
 
 - [ ] No accidental dead-ends; hubs/loops meaningful
 - [ ] Gate phrasing is **diegetic** (no codeword names or logic on surfaces)
@@ -53,7 +53,7 @@ Why is this change valuable to creators/players? Cite friction found in loops, P
 
 - [ ] Voice/register/motifs align with Style Guide & addenda
 
-**Determinism** *(assets only; plan-only may skip)*
+**Determinism** _(assets only; plan-only may skip)_
 
 - [ ] Reproducibility/seed/DAW notes are in logs, **not** on surfaces
 

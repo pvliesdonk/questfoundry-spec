@@ -121,21 +121,21 @@
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Near-synonym choices** (“Go / Proceed”) that hide intent.  
-- **Meta gates** (“Option locked: missing CODEWORD”).  
-- **Lore dumps** that spill canon onto surfaces.  
-- **Wall-of-text** paragraphs that bury the affordances.  
+- **Near-synonym choices** (“Go / Proceed”) that hide intent.
+- **Meta gates** (“Option locked: missing CODEWORD”).
+- **Lore dumps** that spill canon onto surfaces.
+- **Wall-of-text** paragraphs that bury the affordances.
 - **Tone drift** from the Style register.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] Brief on screen; scope & TU confirmed  
-- [ ] Clear lead, vivid beat(s), clean paragraphing  
-- [ ] **Contrastive choices**; micro-context added if needed  
-- [ ] **Diegetic gate** phrasing; no internals on the page  
-- [ ] Hooks filed (scene/codex/canon/style)  
+- [ ] Brief on screen; scope & TU confirmed
+- [ ] Clear lead, vivid beat(s), clean paragraphing
+- [ ] **Contrastive choices**; micro-context added if needed
+- [ ] **Diegetic gate** phrasing; no internals on the page
+- [ ] Hooks filed (scene/codex/canon/style)
 - [ ] Self-check vs. **Style** and **Presentation**; links/anchors OK
 
 ---
@@ -144,17 +144,17 @@
 
 **Ambiguous → contrastive**
 
-- Before: “Go left / Go right.”  
+- Before: “Go left / Go right.”
 - After: “Slip through maintenance / Face the foreman.”
 
 **Meta → diegetic gate**
 
-- Before: “Locked: CODEWORD missing.”  
+- Before: “Locked: CODEWORD missing.”
 - After: “No union token on your lapel; the guard waves you back.”
 
 **Wall-of-text → readable**
 
-- Before: one 12-line block.  
+- Before: one 12-line block.
 - After: two paragraphs; lead image, then action; choices on their own lines.
 
 ---
