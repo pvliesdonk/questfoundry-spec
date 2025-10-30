@@ -31,7 +31,7 @@
 Audio Plan — <cue id / short name>
 TU: <id> · Edited: <YYYY-MM-DD> · Owner: Audio Director
 Slice: <scope, e.g., "Act I — Dock 7 checkpoint">
-Status: planned | producing | deferred
+Status: planned | producing | done | deferred
 
 ```
 
