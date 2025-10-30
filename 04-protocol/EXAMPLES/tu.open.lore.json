@@ -1,0 +1,65 @@
+{
+  "protocol": {
+    "name": "qf-protocol",
+    "version": "1.0.0"
+  },
+  "id": "urn:uuid:b2c3d4e5-f6a7-4890-b123-4567890abcde",
+  "time": "2025-10-30T14:00:00Z",
+  "sender": {
+    "role": "SR",
+    "agent": "human:alice"
+  },
+  "receiver": {
+    "role": "LW"
+  },
+  "intent": "tu.open",
+  "context": {
+    "hot_cold": "hot",
+    "tu": "TU-2025-10-30-LW01",
+    "snapshot": "Cold @ 2025-10-28",
+    "loop": "Lore Deepening"
+  },
+  "safety": {
+    "player_safe": false,
+    "spoilers": "allowed"
+  },
+  "payload": {
+    "type": "tu_brief",
+    "data": {
+      "id": "TU-2025-10-30-LW01",
+      "opened": "2025-10-30",
+      "owner_a": "SR",
+      "responsible_r": ["LW"],
+      "loop": "Lore Deepening",
+      "slice": "Canon entry for Shadow Toll faction mechanic",
+      "snapshot_context": "Cold @ 2025-10-28",
+      "awake": ["SR", "LW", "GK"],
+      "dormant": ["PN", "BB", "CC"],
+      "press": ["Integrity", "Nonlinearity"],
+      "monitor": ["Presentation Safety"],
+      "pre_gate_risks": [
+        "New faction conflicts with existing lore",
+        "Toll mechanism unclear in manuscript"
+      ],
+      "inputs": [
+        "HK-20251030-01 (accepted hook)",
+        "Cold @ 2025-10-28 snapshot"
+      ],
+      "outputs_committed": [
+        "Canon pack for Shadow Toll faction",
+        "Integration notes for manuscript"
+      ],
+      "closure_criteria": [
+        "Canon pack validates against schema",
+        "GK pre-gate pass for Integrity",
+        "Manuscript integration points documented"
+      ],
+      "state": "hot-proposed"
+    }
+  },
+  "refs": [
+    "HK-20251030-01",
+    "TU-2025-10-30-SR01"
+  ],
+  "correlation_id": "corr-lore-deepening-2025-10-30"
+}
