@@ -43,28 +43,54 @@
         {
           "bar": "Integrity",
           "status": "green",
-          "evidence": "Toll trigger conditions explicit; faction lore complete",
-          "smallest_viable_fix": "None needed"
+          "evidence": "Toll trigger conditions explicit; faction lore complete"
+        },
+        {
+          "bar": "Reachability",
+          "status": "green",
+          "evidence": "All canon entries reachable from hub navigation"
         },
         {
           "bar": "Nonlinearity",
           "status": "green",
-          "evidence": "Toll creates new branch at hub; choices clear",
-          "smallest_viable_fix": "None needed"
+          "evidence": "Toll creates new branch at hub; choices clear"
+        },
+        {
+          "bar": "Gateways",
+          "status": "green",
+          "evidence": "Hub connections properly gated with toll mechanism"
+        },
+        {
+          "bar": "Style",
+          "status": "green",
+          "evidence": "Faction lore matches established voice and tone"
+        },
+        {
+          "bar": "Determinism",
+          "status": "green",
+          "evidence": "Toll mechanics deterministic; no random elements"
         },
         {
           "bar": "Presentation",
           "status": "green",
-          "evidence": "All surfaces player-safe; no spoilers or internals",
-          "smallest_viable_fix": "None needed"
+          "evidence": "All surfaces player-safe; no spoilers or internals"
+        },
+        {
+          "bar": "Accessibility",
+          "status": "green",
+          "evidence": "Faction descriptions include alt text; reading order clear"
         }
       ],
       "handoffs": [
-        {
-          "to_role": "SR",
-          "action": "Approve merge to Cold",
-          "deadline": "2025-10-31"
-        }
+        "SR: Approve merge to Cold for TU-2025-10-30-LW01 by 2025-10-31"
+      ],
+      "checklist": [
+        "Decision pass is consistent with all-green bars",
+        "Smallest viable fixes documented for yellow/red bars (none needed)",
+        "Player safety verified across all content surfaces",
+        "Dormancy state recorded (no deferrals)",
+        "Handoffs documented with owners and deadlines",
+        "Trace links updated in canon_pack lineage"
       ]
     }
   },

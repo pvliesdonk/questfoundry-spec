@@ -37,7 +37,27 @@
       "presentation_status": "green",
       "presentation_notes": "All surfaces player-safe; no spoilers detected",
       "accessibility_status": "green",
-      "accessibility_notes": "Alt text present for all images; heading structure valid; high contrast enabled"
+      "accessibility_notes": "Alt text present for all images; heading structure valid; high contrast enabled",
+      "gatekeeper": "human:charlie",
+      "gatecheck_id": "GATE-2025-10-30-001",
+      "export_artifacts": [
+        {
+          "kind": "markdown",
+          "path": "exports/milestone-chapter-3/manuscript.md"
+        },
+        {
+          "kind": "html",
+          "path": "exports/milestone-chapter-3/index.html"
+        },
+        {
+          "kind": "epub",
+          "path": "exports/milestone-chapter-3/book.epub"
+        },
+        {
+          "kind": "pdf",
+          "path": "exports/milestone-chapter-3/book.pdf"
+        }
+      ]
     }
   },
   "refs": [
