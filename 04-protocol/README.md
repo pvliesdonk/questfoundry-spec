@@ -39,30 +39,30 @@ Layer 4 remains transport-agnostic. Concrete mappings (HTTP, files, events) are 
 
 ---
 
-## Directory Layout (planned)
+## Directory Layout
 
 ```
 04-protocol/
   README.md                  # Overview and pointers (this file)
-  ENVELOPE.md                # Normative envelope spec (fields, versioning, safety)
-  INTENTS.md                 # Message catalog (verbs, required payloads)
-  LIFECYCLES/                # State machines (hooks, TU, gate, view)
+  ENVELOPE.md                # ✅ Normative envelope spec (fields, versioning, safety)
+  INTENTS.md                 # Message catalog (verbs, required payloads) [planned]
+  LIFECYCLES/                # State machines (hooks, TU, gate, view) [planned]
     hooks.md
     tu.md
     gate.md
     view.md
-  FLOWS/                     # End-to-end handshakes per loop
+  FLOWS/                     # End-to-end handshakes per loop [planned]
     hook_harvest.md
     lore_deepening.md
     codex_expansion.md
     gatecheck.md
     binding_run.md
     narration_dry_run.md
-  APPENDIX/                  # Non-normative mappings
+  APPENDIX/                  # Non-normative mappings [planned]
     transport-http.md
     transport-files.md
     transport-events.md
-  EXAMPLES/                  # Player-safe example messages and sequences
+  EXAMPLES/                  # Player-safe example messages and sequences [planned]
 ```
 
 ---
@@ -108,7 +108,37 @@ This is an illustrative example only (the normative spec will live in ENVELOPE.m
 
 ---
 
+## Specifications
+
+### Layer 4 Envelope v1.0
+
+**Location:** [`ENVELOPE.md`](./ENVELOPE.md)
+
+The normative specification for the transport-agnostic message envelope. Defines:
+- Protocol metadata and versioning (semver)
+- Message identity, routing, and intent
+- Hot/Cold context and snapshot tracking
+- PN safety boundaries (non-negotiable)
+- TU traceability requirements
+- Payload structure and schema validation
+- Error handling and correlation
+- Forward compatibility rules
+
+**Status:** ✅ **Complete** — v1.0.0 specification with examples
+
+See `ENVELOPE.md` for full details, field definitions, MUST/SHOULD rules, and JSON examples.
+
+---
+
 ## Status & Next Steps
 
-See `LAYER4_PLAN.md` at repository root for a phased implementation plan, success criteria, and rollout timeline.
+**Completed:**
+- ✅ Phase 1: Envelope v1.0 specification
+
+**Next:**
+- Phase 2: Lifecycles & state machines
+- Phase 3: Message intents & catalogs
+- Phase 4: End-to-end flows per loop
+
+See `LAYER4_PLAN.md` at repository root for the full phased implementation plan, success criteria, and rollout timeline.
 
