@@ -163,7 +163,7 @@ Gatecheck and Merge flows enable:
     {
       "bar": "Determinism",
       "status": "green",
-      "evidence": "Not applicable for canon/prose updates"
+      "evidence": "Not applicable for codex entries"
     },
     {
       "bar": "Presentation",
@@ -994,17 +994,19 @@ A Gatecheck and Merge flow is successful when:
 
 ### 13.2 Bar Applicability
 
-Not all bars apply to all artifact types:
+**All 8 bars MUST be evaluated for every artifact.** However, not all bars are critical for all artifact types.
 
-| Artifact Type | Critical Bars | Optional/N/A Bars |
-|---------------|---------------|-------------------|
+For non-applicable bars, Gatekeeper marks them as green with note "N/A for <artifact type>".
+
+| Artifact Type | Critical Bars (must be substantively evaluated) | Typically N/A (mark green) |
+|---------------|--------------------------------------------------|----------------------------|
 | Canon Pack | Integrity, Presentation | Determinism, Accessibility |
 | Codex Entry | Presentation, Integrity, Style | Reachability, Gateways, Determinism |
 | Topology | Integrity, Reachability, Nonlinearity, Gateways | Determinism |
 | Art/Audio Plan | Determinism, Style | Reachability, Gateways |
 | Translation | Style, Accessibility, Presentation | Reachability, Gateways |
 
-**Gatekeeper judgment:** Mark non-applicable bars as green with note "N/A for <artifact type>"
+**Note:** Even N/A bars must be included in the bar array with status "green" and evidence explaining why they're not applicable.
 
 ### 13.3 Conditional Pass Merge Timing
 

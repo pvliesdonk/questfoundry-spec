@@ -306,7 +306,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 }
 ```
 
-**Note:** The canon's detailed cause of the "refinery incident" (sabotage by Toll Syndicate) stays in canon notes, NOT in the codex entry.
+**Note:** The canon's detailed cause of the incident (whatever it may be) stays in canon notes, NOT in the codex entry. Only player-safe context is included.
 
 ---
 
@@ -815,14 +815,14 @@ SR → Broadcast: tu.close
 **Example:**
 
 **Canon (spoiler-level):**
-> "Eighteen years ago, the Toll Syndicate conducted a sabotage test on Dock 7 by jamming a refinery valve, sparking a flash fire. Kestrel shielded junior tech Ena Roe, catching the brunt — left mandibular burn."
+> "[Character backstory with plot-relevant causal details, faction involvement, and specific motivations that would spoil narrative reveals]"
 
 **Codex entry (player-safe):**
-> "A cargo and repairs quay on the station's shadow side, known for low-bid maintenance and odd-hour shifts. Rumor credits a refinery incident years back with today's strict fire doors."
+> "[Same scenario described with neutral phrasing, general context, and surface-level facts that provide comprehension without revealing plot twists]"
 
-**Masked:** Syndicate involvement, sabotage cause, Kestrel's specific actions
+**Masked:** Faction involvement, causal details, character motivations that spoil plot
 
-**Preserved:** Player-useful context (historical incident, safety protocols, low-traffic dock)
+**Preserved:** Player-useful context (historical incident, current state, environmental details)
 
 ---
 
