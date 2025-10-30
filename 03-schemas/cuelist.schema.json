@@ -197,7 +197,6 @@
     "inclusion_exclusion_rules": {
       "type": "string",
       "description": "Optional notes capturing non-obvious placement rules or masking risks.",
-      "minLength": 0,
       "maxLength": 400
     },
     "localization_style_notes": {
@@ -223,19 +222,16 @@
     "binder_note": {
       "type": "string",
       "description": "Binder instructions covering View updates and cue options.",
-      "minLength": 0,
       "maxLength": 400
     },
     "gatekeeper_note": {
       "type": "string",
       "description": "Gatekeeper guidance for presentation/accessibility spot-checks.",
-      "minLength": 0,
       "maxLength": 400
     },
     "pn_note": {
       "type": "string",
       "description": "PN coordination note on narration cadence and breath timing.",
-      "minLength": 0,
       "maxLength": 400
     },
     "hooks_filed": {

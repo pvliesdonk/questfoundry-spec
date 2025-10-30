@@ -66,19 +66,16 @@
     "where_to_link": {
       "type": "string",
       "description": "Optional guidance on where to link this entry.",
-      "minLength": 0,
       "maxLength": 200
     },
     "when_not_to_link": {
       "type": "string",
       "description": "Optional contexts where linking should be avoided.",
-      "minLength": 0,
       "maxLength": 200
     },
     "pn_cue": {
       "type": "string",
       "description": "Optional one-line in-voice nudge for Player Narrator use.",
-      "minLength": 0,
       "maxLength": 160
     },
     "context": {
@@ -141,19 +138,16 @@
     "alt_guidance": {
       "type": "string",
       "description": "Optional alt-text guidance (subject + relation + location).",
-      "minLength": 0,
       "maxLength": 240
     },
     "caption_guideline": {
       "type": "string",
       "description": "Optional caption guidance; one line, atmospheric, no technique.",
-      "minLength": 0,
       "maxLength": 200
     },
     "link_text": {
       "type": "string",
       "description": "Optional descriptive link text for anchors.",
-      "minLength": 0,
       "maxLength": 200
     },
     "anchor_slug": {
@@ -164,13 +158,11 @@
     "collision_risks": {
       "type": "string",
       "description": "Optional collision risks (diacritics, punctuation).",
-      "minLength": 0,
       "maxLength": 200
     },
     "binder_note": {
       "type": "string",
       "description": "Optional note for Binder about TOC or grouping.",
-      "minLength": 0,
       "maxLength": 200
     },
     "notes_to_avoid": {

@@ -67,7 +67,7 @@
         "properties": {
           "when": {
             "type": "string",
-            "description": "Timestamp within the session (MM:SS or HH:MM).",
+            "description": "Timestamp within the session in format MM:SS or HH:MM:SS.",
             "pattern": "^(\\d{2}:\\d{2})(?::\\d{2})?$"
           },
           "location": {
@@ -127,7 +127,6 @@
           "notes": {
             "type": "string",
             "description": "Optional additional notes for context.",
-            "minLength": 0,
             "maxLength": 400
           }
         },

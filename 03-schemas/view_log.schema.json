@@ -28,8 +28,8 @@
     },
     "cold_snapshot": {
       "type": "string",
-      "description": "Cold snapshot reference in format cold@YYYY-MM-DD.",
-      "pattern": "^cold@\\d{4}-\\d{2}-\\d{2}$"
+      "description": "Cold snapshot reference in format \"Cold @ YYYY-MM-DD\".",
+      "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}$"
     },
     "targets": {
       "type": "array",
@@ -74,7 +74,6 @@
     "presentation_notes": {
       "type": "string",
       "description": "Notes or smallest fixes if presentation status is yellow or red.",
-      "minLength": 0,
       "maxLength": 400
     },
     "accessibility_status": {
@@ -89,7 +88,6 @@
     "accessibility_notes": {
       "type": "string",
       "description": "Notes or smallest fixes if accessibility status is yellow or red.",
-      "minLength": 0,
       "maxLength": 400
     },
     "gatekeeper": {
@@ -131,7 +129,6 @@
           "notes": {
             "type": "string",
             "description": "Optional notes about the artifact.",
-            "minLength": 0,
             "maxLength": 200
           }
         },
@@ -157,6 +154,34 @@
     "gatekeeper",
     "gatecheck_id",
     "export_artifacts"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "presentation_status": {
+            "enum": ["yellow", "red"]
+          }
+        },
+        "required": ["presentation_status"]
+      },
+      "then": {
+        "required": ["presentation_notes"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "accessibility_status": {
+            "enum": ["yellow", "red"]
+          }
+        },
+        "required": ["accessibility_status"]
+      },
+      "then": {
+        "required": ["accessibility_notes"]
+      }
+    }
   ],
   "$defs": {
     "role_name": {

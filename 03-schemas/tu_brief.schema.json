@@ -108,7 +108,6 @@
     "pairing_plan": {
       "type": "string",
       "description": "Optional note on which pair guides will be used.",
-      "minLength": 0,
       "maxLength": 200
     },
     "deliverables": {
@@ -149,13 +148,11 @@
     "handoffs": {
       "type": "string",
       "description": "Optional note on who receives which deliverables and when.",
-      "minLength": 0,
       "maxLength": 240
     },
     "pre_gate": {
       "type": "string",
       "description": "Optional pre-gate sampling instructions for the Gatekeeper.",
-      "minLength": 0,
       "maxLength": 240
     },
     "gatecheck": {
@@ -167,7 +164,6 @@
     "trigger": {
       "type": "string",
       "description": "Optional escalation trigger statement.",
-      "minLength": 0,
       "maxLength": 200
     },
     "lane": {
@@ -177,7 +173,6 @@
     "record": {
       "type": "string",
       "description": "Optional note about where escalation is documented.",
-      "minLength": 0,
       "maxLength": 200
     },
     "tracelog": {

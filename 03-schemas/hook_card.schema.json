@@ -55,7 +55,7 @@
         "snapshot_context": {
           "type": "string",
           "description": "Cold snapshot reference (format: 'Cold @ YYYY-MM-DD')",
-          "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}.*$"
+          "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}$"
         }
       },
       "required": [
@@ -141,7 +141,6 @@
     "hot_details": {
       "type": "string",
       "description": "Optional internal routing details (spoilers allowed, Hot-only, never surfaces to players)",
-      "minLength": 0,
       "maxLength": 500
     },
     "proposed_next_step": {
@@ -228,7 +227,7 @@
           "description": "Related hook IDs",
           "items": {
             "type": "string",
-            "pattern": "^HK-\\d{8}-\\d{2,3}$"
+            "pattern": "^HK-\\d{8}-(0[1-9]|[1-9]\\d{1,2})$"
           }
         },
         "lineage": {
@@ -285,6 +284,32 @@
     "proposed_next_step",
     "acceptance_criteria",
     "locations_links"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "dormancy_deferrals": {
+            "type": "object",
+            "properties": {
+              "deferral_tags": {
+                "type": "array",
+                "minItems": 1
+              }
+            },
+            "required": ["deferral_tags"]
+          }
+        },
+        "required": ["dormancy_deferrals"]
+      },
+      "then": {
+        "properties": {
+          "dormancy_deferrals": {
+            "required": ["fallback", "revisit"]
+          }
+        }
+      }
+    }
   ],
   "$defs": {
     "role_name": {

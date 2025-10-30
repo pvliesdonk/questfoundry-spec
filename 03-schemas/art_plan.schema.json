@@ -108,13 +108,11 @@
     "hierarchy": {
       "type": "string",
       "description": "Optional eye movement order or emphasis notes.",
-      "minLength": 0,
       "maxLength": 240
     },
     "spatial_cues": {
       "type": "string",
       "description": "Optional description of lines, occlusion, or overlap used to guide reading.",
-      "minLength": 0,
       "maxLength": 240
     },
     "legibility_at_size": {
@@ -177,7 +175,6 @@
     "selection_rule": {
       "type": "string",
       "description": "Optional rule for when to choose a given variant.",
-      "minLength": 0,
       "maxLength": 240
     },
     "anchor_targets": {
@@ -199,7 +196,6 @@
     "anchor_stability_risks": {
       "type": "string",
       "description": "Optional coordination notes on anchor stability risks.",
-      "minLength": 0,
       "maxLength": 240
     },
     "accessibility": {
@@ -211,7 +207,6 @@
     "localization": {
       "type": "string",
       "description": "Optional localization notes ensuring captions and terms remain portable.",
-      "minLength": 0,
       "maxLength": 400
     },
     "determinism": {
@@ -231,7 +226,6 @@
     "producer_log_fields": {
       "type": "string",
       "description": "Optional list of producer log fields for off-surface technique notes.",
-      "minLength": 0,
       "maxLength": 400
     },
     "handoffs": {

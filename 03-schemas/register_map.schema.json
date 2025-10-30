@@ -94,13 +94,11 @@
     "formality_switch_rules": {
       "type": "string",
       "description": "Optional rules describing when to switch formality levels.",
-      "minLength": 0,
       "maxLength": 400
     },
     "titles_honorifics": {
       "type": "string",
       "description": "Optional localized titles and honorific conventions.",
-      "minLength": 0,
       "maxLength": 400
     },
     "directness_level": {

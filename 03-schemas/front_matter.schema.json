@@ -36,7 +36,6 @@
     "notes": {
       "type": "string",
       "description": "Optional player-safe notes (1-2 short lines; no spoilers or internal techniques).",
-      "minLength": 0,
       "maxLength": 200
     },
     "edition": {
@@ -51,7 +50,6 @@
     "audience_note": {
       "type": "string",
       "description": "Optional one-line guidance for the intended audience.",
-      "minLength": 0,
       "maxLength": 200
     },
     "changelog": {

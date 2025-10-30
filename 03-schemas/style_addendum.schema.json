@@ -71,7 +71,6 @@
     "cadence": {
       "type": "string",
       "description": "Optional cadence guidance (line length, rhythm near choices).",
-      "minLength": 0,
       "maxLength": 300
     },
     "banned_preferred": {
@@ -106,13 +105,11 @@
     "caption_guideline": {
       "type": "string",
       "description": "Optional caption guidance; one line, atmospheric or clarifying, no technique.",
-      "minLength": 0,
       "maxLength": 200
     },
     "alt_guidance": {
       "type": "string",
       "description": "Optional alt text guidance; one sentence covering subject, relation, and location.",
-      "minLength": 0,
       "maxLength": 240
     },
     "translator_notes": {
@@ -188,7 +185,6 @@
     "hand_offs": {
       "type": "string",
       "description": "Optional hand-off notes describing who applies which patterns.",
-      "minLength": 0,
       "maxLength": 240
     },
     "change_log": {
