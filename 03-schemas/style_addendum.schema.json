@@ -18,9 +18,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the addendum; fixed to Style Lead.",
-      "enum": [
-        "Style Lead"
-      ]
+      "enum": ["Style Lead"]
     },
     "scope": {
       "type": "string",
@@ -50,11 +48,7 @@
     "register": {
       "type": "string",
       "description": "Optional register guidance for this slice.",
-      "enum": [
-        "neutral",
-        "formal",
-        "colloquial"
-      ]
+      "enum": ["neutral", "formal", "colloquial"]
     },
     "voice_and_address": {
       "type": "string",
@@ -156,13 +150,7 @@
             "description": "Role responsible for applying the change."
           }
         },
-        "required": [
-          "location",
-          "issue",
-          "before",
-          "after",
-          "owner"
-        ]
+        "required": ["location", "issue", "before", "after", "owner"]
       }
     },
     "accessibility_nudges": {

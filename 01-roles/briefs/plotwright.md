@@ -30,11 +30,11 @@
 
 **Read:** Hot topology notes, accepted hooks, canon summaries (player-safe), style guardrails, nearby Cold sections and codex anchors.
 
-**Produce:**  
+**Produce:**
 
-- **Topology Notes** (hubs/loops/gateways, keystones, safe returns)  
-- **Section Briefs** (goal • beats • choice intents • expected outcomes • open Qs)  
-- **Gateway Map** (diegetic checks + fairness/qualification notes)  
+- **Topology Notes** (hubs/loops/gateways, keystones, safe returns)
+- **Section Briefs** (goal • beats • choice intents • expected outcomes • open Qs)
+- **Gateway Map** (diegetic checks + fairness/qualification notes)
 - **Hook List** (canon, codex, style, art/audio cues)
 
 All player-touching phrasing remains **player-safe**; internals stay in Hot.
@@ -43,10 +43,10 @@ All player-touching phrasing remains **player-safe**; internals stay in Hot.
 
 ## 3) Small-step policy
 
-- **Pick a slice**: one hub, one loop, or 2–3 related sections.  
-- **Open a TU**: name the loop (Story Spark), state deliverables (briefs + gateway map).  
-- **Timebox**: aim for one sitting; if it sprawls, split by hub or gate.  
-- **Pre-gate ping**: ask Gatekeeper for a quick read on Reachability/Nonlinearity/Gateways before Scene writes.  
+- **Pick a slice**: one hub, one loop, or 2–3 related sections.
+- **Open a TU**: name the loop (Story Spark), state deliverables (briefs + gateway map).
+- **Timebox**: aim for one sitting; if it sprawls, split by hub or gate.
+- **Pre-gate ping**: ask Gatekeeper for a quick read on Reachability/Nonlinearity/Gateways before Scene writes.
 - **Hand off**: when briefs are clear, notify Scene/Style/Lore/Curator and close the TU.
 
 ---
@@ -64,48 +64,48 @@ All player-touching phrasing remains **player-safe**; internals stay in Hot.
 
 ## 5) Safety rails
 
-- **No internals on surfaces.** Never write codeword names, flag IDs, or gate logic text.  
-- **Don’t solve with spoilers.** If structure needs a cause, request a **Lore summary**; don’t reveal canon in briefs.  
-- **Respect voice.** Leave register decisions to Style; provide intent, not prose.  
+- **No internals on surfaces.** Never write codeword names, flag IDs, or gate logic text.
+- **Don’t solve with spoilers.** If structure needs a cause, request a **Lore summary**; don’t reveal canon in briefs.
+- **Respect voice.** Leave register decisions to Style; provide intent, not prose.
 - **Views from Cold.** Don’t plan binds from Hot; keep topology notes separate from export plans.
 
 ---
 
 ## 6) Communication rules
 
-- **Notify neighbors:** Scene (ready to draft), Style (choice phrasing pressure), Lore (causality gaps), Curator (needed anchors), Gatekeeper (pre-gate check).  
-- **Use pair guides:** see `../interfaces/pair_guides.md` for Plot↔Scene and Lore↔Plot handshakes.  
-- **Dormancy signals:** if many accepted hooks require canon, ping Showrunner to wake **Lore** (`../interfaces/dormancy_signals.md`).  
+- **Notify neighbors:** Scene (ready to draft), Style (choice phrasing pressure), Lore (causality gaps), Curator (needed anchors), Gatekeeper (pre-gate check).
+- **Use pair guides:** see `../interfaces/pair_guides.md` for Plot↔Scene and Lore↔Plot handshakes.
+- **Dormancy signals:** if many accepted hooks require canon, ping Showrunner to wake **Lore** (`../interfaces/dormancy_signals.md`).
 - **Escalate:** cross-domain impacts route via Showrunner (`../interfaces/escalation_rules.md`).
 
 ---
 
 ## 7) When to pause & escalate
 
-Pause and call the Showrunner if:  
+Pause and call the Showrunner if:
 
-- Keystones would force major re-routing.  
-- A gate seems unfair without Researcher/Lore input.  
+- Keystones would force major re-routing.
+- A gate seems unfair without Researcher/Lore input.
 - Style/PN pushback suggests choice labels aren’t contrastive even with micro-context.
 
 ---
 
 ## 8) Tiny examples
 
-**Ambiguous → contrastive choice intents**  
+**Ambiguous → contrastive choice intents**
 
-- Before: “Go / Proceed.”  
+- Before: “Go / Proceed.”
 - After: “Slip through maintenance / Face the foreman.”
 
-**Meta → diegetic gate (brief note)**  
+**Meta → diegetic gate (brief note)**
 
 - Note: “Gate checks **union token** visibility or **foreman recognition**; Scene to phrase in-world. Curator: anchor ‘Union Token’.”
 
-**Loop with difference (topology note)**  
+**Loop with difference (topology note)**
 
 - “On return to Dock 7 post-foreman: enable **maintenance hatch** if crew code overheard earlier; else recap + alternative errand unlock.”
 
-**Keystone resilience (map excerpt)**  
+**Keystone resilience (map excerpt)**
 
 - “Keystone: ‘Foreman’s Gate’. Fallback: bribe route with higher risk; soft failure → delay + rumor hook.”
 
@@ -113,11 +113,11 @@ Pause and call the Showrunner if:
 
 ## 9) Done checklist
 
-- [ ] Hubs/loops mapped; **safe returns** defined  
-- [ ] **Gateway Map** notes diegetic checks + at least one fair path  
-- [ ] **Section Briefs** clear enough for Scene to draft without guessing  
-- [ ] **Hooks** filed (canon/codex/style/art/audio)  
-- [ ] Pre-gate self-check vs. **Reachability/Nonlinearity/Gateways/Presentation**  
+- [ ] Hubs/loops mapped; **safe returns** defined
+- [ ] **Gateway Map** notes diegetic checks + at least one fair path
+- [ ] **Section Briefs** clear enough for Scene to draft without guessing
+- [ ] **Hooks** filed (canon/codex/style/art/audio)
+- [ ] Pre-gate self-check vs. **Reachability/Nonlinearity/Gateways/Presentation**
 - [ ] Neighbors notified; TU closed or split for follow-ups
 
 ---

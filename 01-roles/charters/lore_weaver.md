@@ -33,8 +33,8 @@
 
 **Out of scope (SHOULD NOT own):**
 
-- Publishing codex entries (Curator’s job).  
-- Overriding topology (Plotwright) or line-level phrasing (Scene/Style).  
+- Publishing codex entries (Curator’s job).
+- Overriding topology (Plotwright) or line-level phrasing (Scene/Style).
 - Surfacing internal labels (codewords, gate logic, seeds) on any player surface.
 
 **Decisions & authority**
@@ -123,36 +123,36 @@
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Canon dump** into codex/manuscript/captions.  
-- **Retroactive retcon** without documenting invariants and impacts.  
-- **Topology-by-lore** that silently forces structure changes.  
+- **Canon dump** into codex/manuscript/captions.
+- **Retroactive retcon** without documenting invariants and impacts.
+- **Topology-by-lore** that silently forces structure changes.
 - **Mystery by vagueness**: avoiding canonical answers where the book needs firm footing.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] TU scoped; accepted hooks listed  
-- [ ] Canon answers, timeline anchors, and invariants written  
-- [ ] Downstream notes to Plotwright/Scene/Style issued  
-- [ ] Player-safe summaries for Curator included  
-- [ ] Research posture recorded; new hooks filed if needed  
+- [ ] TU scoped; accepted hooks listed
+- [ ] Canon answers, timeline anchors, and invariants written
+- [ ] Downstream notes to Plotwright/Scene/Style issued
+- [ ] Player-safe summaries for Curator included
+- [ ] Research posture recorded; new hooks filed if needed
 - [ ] Self-check vs. **Integrity/Gateways/Presentation** (summaries)
 
 ---
 
 ## 11) Tiny Examples
 
-**Hook → Canon answer (Hot)**  
+**Hook → Canon answer (Hot)**
 
-- Hook: “Foreman’s scar—origin?”  
-- Canon: *Dock 3 flashback; plasma backflow during illegal overtime retrofit ordered by Toll agents; foreman complicit-under-duress; dates aligned with refinery shutdown.*
+- Hook: “Foreman’s scar—origin?”
+- Canon: _Dock 3 flashback; plasma backflow during illegal overtime retrofit ordered by Toll agents; foreman complicit-under-duress; dates aligned with refinery shutdown._
 
-**Canon → Player-safe summary (to Curator)**  
+**Canon → Player-safe summary (to Curator)**
 
 - Summary: “Industrial accident years ago left the foreman cautious about unauthorized work.”
 
-**Topology nudge (note to Plotwright)**  
+**Topology nudge (note to Plotwright)**
 
 - “Return to Dock 7 after foreman encounter should unlock maintenance hatch **only if** overheard crew code earlier.”
 

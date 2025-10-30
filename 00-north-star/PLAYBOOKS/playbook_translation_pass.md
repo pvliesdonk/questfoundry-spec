@@ -8,19 +8,19 @@
 
 ## 1) One-minute scope (Showrunner)
 
-- [ ] Choose **language & slice** (full book, act, codex subset).  
-- [ ] Decide **kit-only** vs **kit+surfaces**.  
-- [ ] Mark roles **active/dormant** (Translator active; PN/Curator/Style consult; others optional).  
+- [ ] Choose **language & slice** (full book, act, codex subset).
+- [ ] Decide **kit-only** vs **kit+surfaces**.
+- [ ] Mark roles **active/dormant** (Translator active; PN/Curator/Style consult; others optional).
 - [ ] Open TU: `tu-translation-<lang>-<scope>`; set coverage target & timebox.
 
 ---
 
 ## 2) Inputs you need on screen
 
-- **Cold snapshot** (player-safe surfaces only).  
-- **Style guardrails** (voice/register/motifs).  
-- **PN Principles** (diegetic gate phrasing patterns).  
-- Existing **glossary/terminology** (if any).  
+- **Cold snapshot** (player-safe surfaces only).
+- **Style guardrails** (voice/register/motifs).
+- **PN Principles** (diegetic gate phrasing patterns).
+- Existing **glossary/terminology** (if any).
 - Known **untranslatables** / culture notes.
 
 ---
@@ -29,39 +29,34 @@
 
 **Translator (R)**
 
-1. **Glossary first** — lock key terms; build **Register Map** (pronouns, formality, honorifics).  
-2. **Motif equivalence** — decide how house motifs render (e.g., “low-G dust”).  
-3. **Idiom strategy** — list idioms → functional equivalents; mark avoid/replace.  
-4. **Localize surfaces** — manuscript choices/paragraphs, codex titles/summaries, captions/alt text; **preserve anchors & links**.  
+1. **Glossary first** — lock key terms; build **Register Map** (pronouns, formality, honorifics).
+2. **Motif equivalence** — decide how house motifs render (e.g., “low-G dust”).
+3. **Idiom strategy** — list idioms → functional equivalents; mark avoid/replace.
+4. **Localize surfaces** — manuscript choices/paragraphs, codex titles/summaries, captions/alt text; **preserve anchors & links**.
 5. **Open issues** — record untranslatables, cultural cautions, glossary gaps.
 
-**Style Lead (C)**
-6. Tone & register pass; flag wording that fights house voice.
+**Style Lead (C)** 6. Tone & register pass; flag wording that fights house voice.
 
-**PN (C)**
-7. Check **diegetic gate phrasing** reads natural; no internal labels.
+**PN (C)** 7. Check **diegetic gate phrasing** reads natural; no internal labels.
 
-**Codex Curator (C)**
-8. Cross-ref audit; ensure **See also** links resolve in target language.
+**Codex Curator (C)** 8. Cross-ref audit; ensure **See also** links resolve in target language.
 
-**Gatekeeper (C)**
-9. **Pre-gate**: Presentation Safety, Integrity (links), Style.
+**Gatekeeper (C)** 9. **Pre-gate**: Presentation Safety, Integrity (links), Style.
 
-**Translator (R)**
-10. Package **Language Pack**; compute **coverage %** (sections & codex entries).
+**Translator (R)** 10. Package **Language Pack**; compute **coverage %** (sections & codex entries).
 
 ---
 
 ## 4) Deliverables (Hot)
 
-- **Language Pack** for `<lang>`  
-  - Glossary (term → approved translation + notes)  
-  - Register Map (pronouns, honorifics, formality policy)  
-  - Motif Equivalence (rendering patterns)  
-  - Idiom Strategy (source → equivalent/rewrites)  
-  - Localized Surfaces (manuscript/codex/captions/alt text)  
-  - Coverage % (by sections & codex entries)  
-  - Open Issues (with suggested upstream rewrites if needed)  
+- **Language Pack** for `<lang>`
+  - Glossary (term → approved translation + notes)
+  - Register Map (pronouns, honorifics, formality policy)
+  - Motif Equivalence (rendering patterns)
+  - Idiom Strategy (source → equivalent/rewrites)
+  - Localized Surfaces (manuscript/codex/captions/alt text)
+  - Coverage % (by sections & codex entries)
+  - Open Issues (with suggested upstream rewrites if needed)
   - Traceability (TU-ID, snapshot ID)
 - **Pre-gate note** (Gatekeeper): pass/fail + remediation.
 
@@ -69,42 +64,42 @@
 
 ## 5) Hand-offs
 
-- → **Binding Run**: include language slice with `complete`/`incomplete` flags.  
-- → **Style Tune-up**: if recurring register mismatches appear.  
-- → **PN**: update phrasing bank patterns for the language.  
+- → **Binding Run**: include language slice with `complete`/`incomplete` flags.
+- → **Style Tune-up**: if recurring register mismatches appear.
+- → **PN**: update phrasing bank patterns for the language.
 - → **Codex Expansion**: terms that need new or renamed entries.
 
 ---
 
 ## 6) Definition of “done” (for this play)
 
-- [ ] Glossary & Register Map approved by Style Lead.  
-- [ ] Motifs carry over; idioms handled or listed with alternatives.  
-- [ ] Localized surfaces keep **anchors/links** intact; choice labels remain distinct.  
-- [ ] PN phrasing enforces gates **diegetically**.  
-- [ ] Gatekeeper **pre-gate green** (Presentation/Integrity/Style).  
+- [ ] Glossary & Register Map approved by Style Lead.
+- [ ] Motifs carry over; idioms handled or listed with alternatives.
+- [ ] Localized surfaces keep **anchors/links** intact; choice labels remain distinct.
+- [ ] PN phrasing enforces gates **diegetically**.
+- [ ] Gatekeeper **pre-gate green** (Presentation/Integrity/Style).
 - [ ] Coverage % computed; **open issues** documented.
 
 ---
 
 ## 7) Fast heuristics
 
-- Prefer **functional equivalents** over literalism when tone would suffer.  
-- If a reveal depends on wording nuance, **mask** in the target language too.  
-- Keep choice labels **short, contrastive**; avoid near-synonyms.  
+- Prefer **functional equivalents** over literalism when tone would suffer.
+- If a reveal depends on wording nuance, **mask** in the target language too.
+- Keep choice labels **short, contrastive**; avoid near-synonyms.
 - When in doubt, add a **glossary usage example**.
 
 ---
 
 ## 8) RACI (micro)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Build glossary & register map | Translator | Showrunner | Style Lead | Gatekeeper |
-| Localize surfaces | Translator | Showrunner | PN, Curator | Gatekeeper |
-| Style/voice pass | Style Lead | Showrunner | Translator | Gatekeeper |
-| Pre-gate | Gatekeeper | Showrunner | Style Lead | All |
-| Merge & export opts | Showrunner | Showrunner | Gatekeeper, Binder | PN |
+| Task                          | R          | A          | C                  | I          |
+| ----------------------------- | ---------- | ---------- | ------------------ | ---------- |
+| Build glossary & register map | Translator | Showrunner | Style Lead         | Gatekeeper |
+| Localize surfaces             | Translator | Showrunner | PN, Curator        | Gatekeeper |
+| Style/voice pass              | Style Lead | Showrunner | Translator         | Gatekeeper |
+| Pre-gate                      | Gatekeeper | Showrunner | Style Lead         | All        |
+| Merge & export opts           | Showrunner | Showrunner | Gatekeeper, Binder | PN         |
 
 ---
 
@@ -143,9 +138,9 @@ Anchors: <keep original IDs/links>
 
 ## 10) Anti-patterns
 
-- Translating **internal labels** (codeword names, schema fields) onto the surface.  
-- “Faithful” translations that wreck **register** or **motifs**.  
-- Breaking anchors/links during line-wrap or punctuation changes.  
+- Translating **internal labels** (codeword names, schema fields) onto the surface.
+- “Faithful” translations that wreck **register** or **motifs**.
+- Breaking anchors/links during line-wrap or punctuation changes.
 - Over-localizing proper nouns against the glossary.
 
 ---

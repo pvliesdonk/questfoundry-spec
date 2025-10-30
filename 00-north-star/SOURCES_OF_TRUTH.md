@@ -19,7 +19,7 @@ Curated, stabilized canon and presentation rules:
 
 - Accepted world canon, stable style guardrails.
 - Export-safe manuscript surface (player-facing wording), codex entries, checklists.
-- Canonical records for assets (art/audio) *if and only if* they passed Gatekeeper checks.
+- Canonical records for assets (art/audio) _if and only if_ they passed Gatekeeper checks.
 - Always export/playable; spoiler hygiene enforced.
 
 > Mindset: **Hot = discover & argue. Cold = agree & ship.**
@@ -28,19 +28,19 @@ Curated, stabilized canon and presentation rules:
 
 ## 2) Ownership & Permissions (human-level)
 
-| Action | Who initiates | Who must agree | Who can block |
-|---|---|---|---|
-| Propose change in Hot | Any role | — | — |
-| Accept hook → deepen lore | Lore Weaver | Showrunner (scope fit) | Gatekeeper (bars) |
-| Publish codex entry | Codex Curator | Lore Weaver (canon source) | Gatekeeper (player-safety) |
-| Topology changes | Plotwright | Showrunner; consult Lore/Style | Gatekeeper |
-| Prose changes | Scene Smith | Style Lead (voice), Plotwright (structure) | Gatekeeper |
-| Art/audio plan | Art/Audio Director | Style Lead | Gatekeeper (determinism/presentation) |
-| Merge Hot → Cold | Showrunner | Gatekeeper (all bars green) | Gatekeeper |
+| Action                    | Who initiates      | Who must agree                             | Who can block                         |
+| ------------------------- | ------------------ | ------------------------------------------ | ------------------------------------- |
+| Propose change in Hot     | Any role           | —                                          | —                                     |
+| Accept hook → deepen lore | Lore Weaver        | Showrunner (scope fit)                     | Gatekeeper (bars)                     |
+| Publish codex entry       | Codex Curator      | Lore Weaver (canon source)                 | Gatekeeper (player-safety)            |
+| Topology changes          | Plotwright         | Showrunner; consult Lore/Style             | Gatekeeper                            |
+| Prose changes             | Scene Smith        | Style Lead (voice), Plotwright (structure) | Gatekeeper                            |
+| Art/audio plan            | Art/Audio Director | Style Lead                                 | Gatekeeper (determinism/presentation) |
+| Merge Hot → Cold          | Showrunner         | Gatekeeper (all bars green)                | Gatekeeper                            |
 
 Dormant roles:
 
-- If **Researcher** is dormant, factual claims may be merged *only if* marked with research posture (uncorroborated:low | uncorroborated:medium | uncorroborated:high) and the Showrunner accepts the risk explicitly.
+- If **Researcher** is dormant, factual claims may be merged _only if_ marked with research posture (uncorroborated:low | uncorroborated:medium | uncorroborated:high) and the Showrunner accepts the risk explicitly.
 - Art/Audio/Translator may remain dormant; their **plans** can live in Cold as **deferred** items (see §6).
 
 ---
@@ -49,14 +49,14 @@ Dormant roles:
 
 Every change destined for Cold must have a lightweight record (no schemas here):
 
-- **Title** (unique)  
-- **Origin** (role + person/agent)  
-- **Type** (topology | prose | style | canon | codex | asset-plan | asset-output | factual)  
-- **Rationale** (1–3 sentences)  
-- **Upstream Refs** (sections/briefs/hooks/notes)  
-- **Downstream Impacts** (who/what consumes it)  
-- **Quality Bars touched** (for Gatekeeper focus)  
-- **Status** (`hot-proposed | stabilizing | gatecheck | cold-merged | deferred | rejected`)  
+- **Title** (unique)
+- **Origin** (role + person/agent)
+- **Type** (topology | prose | style | canon | codex | asset-plan | asset-output | factual)
+- **Rationale** (1–3 sentences)
+- **Upstream Refs** (sections/briefs/hooks/notes)
+- **Downstream Impacts** (who/what consumes it)
+- **Quality Bars touched** (for Gatekeeper focus)
+- **Status** (`hot-proposed | stabilizing | gatecheck | cold-merged | deferred | rejected`)
 - **Notes** (spoilers, accessibility, localization flags)
 
 This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/commit).
@@ -65,10 +65,10 @@ This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/co
 
 ## 4) Stabilization Path (Hot → Cold)
 
-1. **Propose (Hot)**  
+1. **Propose (Hot)**
    - Change unit is opened with minimal record.
-2. **Stabilize**  
-   - Affected roles review; contradictions and style drift surfaced and resolved.  
+2. **Stabilize**
+   - Affected roles review; contradictions and style drift surfaced and resolved.
    - **Hook Harvest** / **Lore Deepening** may run if hooks are involved.
 3. **Gatecheck** (Gatekeeper)
    - Bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility.
@@ -96,7 +96,7 @@ This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/co
 - **Plans** (what/why/how; captions; constraints) may be merged to Cold as **deferred** deliverables:
   - Mark with `deferred:art` / `deferred:audio` / `deferred:translation`.
   - Plans must pass **Style** and **Presentation** bars (no spoilers in captions).
-- **Outputs** (images/audio/localized text) enter Cold *only after* Gatekeeper checks for determinism (if promised) and presentation safety.
+- **Outputs** (images/audio/localized text) enter Cold _only after_ Gatekeeper checks for determinism (if promised) and presentation safety.
 
 This enables a prose-only book with future-ready plans in Cold.
 
@@ -104,7 +104,7 @@ This enables a prose-only book with future-ready plans in Cold.
 
 ## 7) Parallel Tracks & Conflicts
 
-- Multiple Hot branches may explore alternatives. Only **one** becomes Cold.  
+- Multiple Hot branches may explore alternatives. Only **one** becomes Cold.
 - If two accepted Hot changes collide:
   - **Lore Weaver** arbitrates canon; **Plotwright** adjusts topology if needed.
   - If unresolved, mark a **deliberate mystery** with bounds and revisit date.
@@ -163,9 +163,9 @@ Gatekeeper records a short report per change or per batch.
 
 ## 13) Anti-patterns (do not do)
 
-- Merging to Cold without a Gatecheck report.  
-- Publishing codex entries that contain spoilers or unsettle gateway logic.  
-- Silent cross-domain edits; always route through Showrunner.  
+- Merging to Cold without a Gatecheck report.
+- Publishing codex entries that contain spoilers or unsettle gateway logic.
+- Silent cross-domain edits; always route through Showrunner.
 - Treating Cold as a staging area; Cold is for **agreed canon & surfaces** only.
 
 ---

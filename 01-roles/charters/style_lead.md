@@ -132,12 +132,12 @@
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] TU scoped; target slice & owners identified  
-- [ ] Style Addendum updated with live exemplars  
-- [ ] Choices rewritten to be **contrastive**; micro-context added where needed  
-- [ ] PN gate patterns reviewed for diegesis  
-- [ ] Accessibility phrasing checked (links/alt/captions)  
-- [ ] Hooks filed (codex anchors, localization policy, structural ambiguity)  
+- [ ] TU scoped; target slice & owners identified
+- [ ] Style Addendum updated with live exemplars
+- [ ] Choices rewritten to be **contrastive**; micro-context added where needed
+- [ ] PN gate patterns reviewed for diegesis
+- [ ] Accessibility phrasing checked (links/alt/captions)
+- [ ] Hooks filed (codex anchors, localization policy, structural ambiguity)
 - [ ] Self-check vs. **Style** & **Presentation** bars
 
 ---
@@ -146,22 +146,22 @@
 
 **Ambiguous choice → contrastive**
 
-- Before: “Proceed / Continue.”  
+- Before: “Proceed / Continue.”
 - After: “Slip through maintenance / Face the foreman.”
 
 **Meta → diegetic gate**
 
-- Before: “Option locked: missing CODEWORD.”  
+- Before: “Option locked: missing CODEWORD.”
 - After: “No union token on your lapel; the scanner blinks red.”
 
 **Overlong line → tense cadence**
 
-- Before: “You carefully consider the foreman’s words, weighing your options in a moment that seems to stretch.”  
+- Before: “You carefully consider the foreman’s words, weighing your options in a moment that seems to stretch.”
 - After: “The foreman waits. The dock hums. Choose.”
 
 **Caption technique leak → atmospheric caption**
 
-- Before: “Rendered in SDXL seed 998877, cinematic angle.”  
+- Before: “Rendered in SDXL seed 998877, cinematic angle.”
 - After: “Sodium lamps smear along wet steel; the quay breathes.”
 
 ---

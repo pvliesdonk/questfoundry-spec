@@ -75,10 +75,10 @@ Gateways must be enforced **without** exposing internals.
 
 Recaps are in-voice, concise, and spoiler-safe. Use after long detours, before high-stakes choices, or on player request.
 
-**Pattern**:  
+**Pattern**:
 
-- **Where we are** (place/situation),  
-- **What changed** (not the hidden reasons),  
+- **Where we are** (place/situation),
+- **What changed** (not the hidden reasons),
 - **What’s on the table** (current options framed diegetically).
 
 Avoid meta: no section numbers, no internal state labels.
@@ -106,9 +106,9 @@ If ambiguity is accidental (UX bug), PN logs a **playtest note**.
 
 ## 8) Style & Tone Guardrails
 
-- **Show, then name.** Lead with concrete sensory cues; label them sparingly.  
-- **Keep verbs lively.** Avoid static copulas in tense scenes.  
-- **Motif threading.** Reuse agreed motifs (e.g., rust, humming relays, low-G dust) to unify chapters.  
+- **Show, then name.** Lead with concrete sensory cues; label them sparingly.
+- **Keep verbs lively.** Avoid static copulas in tense scenes.
+- **Motif threading.** Reuse agreed motifs (e.g., rust, humming relays, low-G dust) to unify chapters.
 - **Compression under pressure.** Shorten sentences and choices as stakes rise.
 
 Style Lead may trigger a **Style Tune-up** loop if drift appears.
@@ -119,8 +119,8 @@ Style Lead may trigger a **Style Tune-up** loop if drift appears.
 
 When art/audio is present:
 
-- PN references them **in-world** only when diegetically sensible.  
-- **Do not** describe technique (“a 16:9 render”), seeds, or production facts.  
+- PN references them **in-world** only when diegetically sensible.
+- **Do not** describe technique (“a 16:9 render”), seeds, or production facts.
 - Provide alt text equivalents in narration where necessary for accessibility.
 
 Plans without execution must **not** break immersion (e.g., avoid placeholders).
@@ -138,24 +138,24 @@ If **Translator** is active:
 
 ## 11) Failure Modes & Safeguards
 
-- **Leaks plumbing** → Rephrase to diegetic check; Gatekeeper blocks if found on Cold surfaces.  
-- **Tone wobble** → Escalate to Style Lead; run **Style Tune-up**.  
-- **Overlong option lists** → Group or stage choices; keep each option distinct and scannable.  
+- **Leaks plumbing** → Rephrase to diegetic check; Gatekeeper blocks if found on Cold surfaces.
+- **Tone wobble** → Escalate to Style Lead; run **Style Tune-up**.
+- **Overlong option lists** → Group or stage choices; keep each option distinct and scannable.
 - **Ambiguous stakes** → Add a short, in-voice reminder of what’s at risk.
 
 ---
 
 ## 12) PN in Loops
 
-- **Narration Dry-Run**: PN playtests the current Cold view; logs UX issues (not creative rewrites).  
+- **Narration Dry-Run**: PN playtests the current Cold view; logs UX issues (not creative rewrites).
 - **Binding Run**: PN respects the same Cold snapshot as Binder; both record the snapshot ID.
 
 ---
 
 ## 13) What PN Never Does
 
-- Cite section numbers, codeword names, RNG, seeds, models, or schema fields.  
-- Reveal hidden outcomes or author intent.  
+- Cite section numbers, codeword names, RNG, seeds, models, or schema fields.
+- Reveal hidden outcomes or author intent.
 - Modify canon, topology, or style. PN reports issues; **Showrunner** routes changes.
 
 ---

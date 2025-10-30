@@ -144,17 +144,17 @@
 
 ## 11) Tiny Examples
 
-**Ambiguous pair → contrastive choices**  
+**Ambiguous pair → contrastive choices**
 
-- Before: “Go left / Go right.”  
+- Before: “Go left / Go right.”
 - After: “Slip through maintenance / Face the foreman.”
 
-**Meta gate → diegetic gate**  
+**Meta gate → diegetic gate**
 
-- Before: “Locked: missing CODEWORD.”  
+- Before: “Locked: missing CODEWORD.”
 - After: “No union token on your lapel; the guard waves you back.”
 
-**Loop with difference (note)**  
+**Loop with difference (note)**
 
 - Return to Dock 7 after foreman encounter → **new affordance**: access to maintenance hatch if you overheard the crew code earlier.
 

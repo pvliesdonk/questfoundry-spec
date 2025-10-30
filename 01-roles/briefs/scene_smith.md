@@ -29,82 +29,82 @@
 ## 2) Inputs & outputs (quick view)
 
 **Read:** Plotwright briefs, Style Addendum, Lore summaries (player-safe), recent Cold sections, relevant codex entries, pre-gate notes.  
-**Produce:**  
+**Produce:**
 
-- **Draft Sections** with clear, contrastive choices  
-- **Targeted Rewrites** per Style/Gatekeeper feedback  
-- **Edit Notes** (player-safe) for PN phrasing or Curator anchors  
+- **Draft Sections** with clear, contrastive choices
+- **Targeted Rewrites** per Style/Gatekeeper feedback
+- **Edit Notes** (player-safe) for PN phrasing or Curator anchors
 - **Hook List** when structure/canon/terminology is needed
 
 ---
 
 ## 3) Small-step policy
 
-- **Pick a slice:** 1–3 related sections or a single gate scene.  
-- **Open a TU** with the loop (Story Spark/Style Tune-up) and deliverables.  
-- **Timebox** the draft; if you uncover broader needs, ship the slice and file hooks.  
-- **Pre-gate ping** Gatekeeper for Presentation/Style sanity before over-polishing.  
+- **Pick a slice:** 1–3 related sections or a single gate scene.
+- **Open a TU** with the loop (Story Spark/Style Tune-up) and deliverables.
+- **Timebox** the draft; if you uncover broader needs, ship the slice and file hooks.
+- **Pre-gate ping** Gatekeeper for Presentation/Style sanity before over-polishing.
 - **Hand off** to Style/Curator/PN as needed; don’t widen scope mid-pass.
 
 ---
 
 ## 4) Heuristics (try this first)
 
-- **Lead image, then action.** Open with a concrete sensory line, then move.  
-- **Choice labeling:** verb + object that signals intent (“Slip through maintenance / Face the foreman”).  
-- **Micro-context:** add one clarifying line if choices would otherwise blur.  
-- **Loop-with-difference cues:** on returns, hint changed stakes or affordance.  
-- **Gate phrasing:** let the world do the refusal (“No union token? Back of the line.”).  
-- **Paragraph rhythm:** vary length; isolate the choice list for scan-ability.  
+- **Lead image, then action.** Open with a concrete sensory line, then move.
+- **Choice labeling:** verb + object that signals intent (“Slip through maintenance / Face the foreman”).
+- **Micro-context:** add one clarifying line if choices would otherwise blur.
+- **Loop-with-difference cues:** on returns, hint changed stakes or affordance.
+- **Gate phrasing:** let the world do the refusal (“No union token? Back of the line.”).
+- **Paragraph rhythm:** vary length; isolate the choice list for scan-ability.
 - **Codex restraint:** if a term needs definition, ask Curator; don’t exposit.
 
 ---
 
 ## 5) Safety rails
 
-- **No internals on page.** Never print codeword names, flag IDs, seeds/models, or DAW notes.  
-- **No canon leakage.** If a beat requires backstory, request a Lore summary.  
-- **Respect Style.** Don’t fight the register; propose alternatives if needed.  
+- **No internals on page.** Never print codeword names, flag IDs, seeds/models, or DAW notes.
+- **No canon leakage.** If a beat requires backstory, request a Lore summary.
+- **Respect Style.** Don’t fight the register; propose alternatives if needed.
 - **Cold is source for players.** Align to the snapshot; don’t mix Hot into surfaces.
 
 ---
 
 ## 6) Communication rules
 
-- **Notify neighbors:** Style (phrasing pressure), Curator (needed anchors), Lore (cause/effect gaps), PN (phrasing patterns), Gatekeeper (pre-gate).  
-- **Use pair guides:** Plot↔Scene handoff patterns — `../interfaces/pair_guides.md`.  
-- **Dormancy signals:** If many hooks need canon/terms, ping Showrunner to wake Lore/Curator — `../interfaces/dormancy_signals.md`.  
+- **Notify neighbors:** Style (phrasing pressure), Curator (needed anchors), Lore (cause/effect gaps), PN (phrasing patterns), Gatekeeper (pre-gate).
+- **Use pair guides:** Plot↔Scene handoff patterns — `../interfaces/pair_guides.md`.
+- **Dormancy signals:** If many hooks need canon/terms, ping Showrunner to wake Lore/Curator — `../interfaces/dormancy_signals.md`.
 - **Escalate** cross-domain impacts through the Showrunner — `../interfaces/escalation_rules.md`.
 
 ---
 
 ## 7) When to pause & escalate
 
-Pause and call Showrunner if:  
+Pause and call Showrunner if:
 
-- The brief cannot be met without **topology** changes.  
-- Phrasing clarity requires **canon** that doesn’t exist yet.  
+- The brief cannot be met without **topology** changes.
+- Phrasing clarity requires **canon** that doesn’t exist yet.
 - Style requirements conflict with PN performance or translation constraints.
 
 ---
 
 ## 8) Tiny examples
 
-**Ambiguous → contrastive (with micro-context)**  
+**Ambiguous → contrastive (with micro-context)**
 
-- Before: “Go / Proceed.”  
+- Before: “Go / Proceed.”
 - After: “Slip through maintenance—oil slicks blur the hazard stripes. / Face the foreman, badge pocketed.”
 
-**Meta → diegetic gate**  
+**Meta → diegetic gate**
 
-- Before: “Option locked: missing CODEWORD.”  
+- Before: “Option locked: missing CODEWORD.”
 - After: “The scanner blinks red. ‘Union badge?’ the guard asks.”
 
-**Loop-with-difference cue**  
+**Loop-with-difference cue**
 
 - “Back at Dock 7, the foreman watches you now; the maintenance hatch isn’t unattended anymore.”
 
-**Curator hook (note)**  
+**Curator hook (note)**
 
 - “Need codex: **Union Token** (what it looks like, how inspected).”
 
@@ -112,11 +112,11 @@ Pause and call Showrunner if:
 
 ## 9) Done checklist
 
-- [ ] Brief honored (goal, stakes, choice intents)  
-- [ ] Choices are **contrastive**; micro-context added if needed  
-- [ ] Gates phrased **in-world**; no internals leaked  
-- [ ] Rhythm & readability: clean paragraphs; choices isolated  
-- [ ] Hooks filed (canon/codex/style/PN)  
+- [ ] Brief honored (goal, stakes, choice intents)
+- [ ] Choices are **contrastive**; micro-context added if needed
+- [ ] Gates phrased **in-world**; no internals leaked
+- [ ] Rhythm & readability: clean paragraphs; choices isolated
+- [ ] Hooks filed (canon/codex/style/PN)
 - [ ] Self-check vs. **Style** & **Presentation** bars; links/anchors verified
 
 ---

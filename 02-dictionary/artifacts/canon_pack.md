@@ -3,7 +3,7 @@
 > **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
 > This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full research posture values).
 
-> **Use:** Lore Weaver's bundle that turns **accepted hooks** into coherent **canon** (Hot) and exports **player-safe summaries** (Cold) for neighbors. Keep the split explicit: **Hot may contain spoilers; Cold must not.** This is a *human template* (no schemas).
+> **Use:** Lore Weaver's bundle that turns **accepted hooks** into coherent **canon** (Hot) and exports **player-safe summaries** (Cold) for neighbors. Keep the split explicit: **Hot may contain spoilers; Cold must not.** This is a _human template_ (no schemas).
 
 ---
 
@@ -60,7 +60,7 @@ Consequences: <1–3 bullets; what this enables/constrains>
 
 ```
 
-*(Repeat per hook in this cluster.)*
+_(Repeat per hook in this cluster.)_
 
 ---
 
@@ -90,8 +90,8 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > Name the **things that must stay true** (physics, politics, metaphysics, procedures).
 
-- **Invariant:** <short statement> — *Owner:* <Lore/Plot/Curator> — *Why:* <1 line>
-- **Constraint:** <cannot/only if> — *Implication:* <gates, routes, risks>
+- **Invariant:** <short statement> — _Owner:_ <Lore/Plot/Curator> — _Why:_ <1 line>
+- **Constraint:** <cannot/only if> — _Implication:_ <gates, routes, risks>
 
 ---
 
@@ -102,8 +102,8 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > What changed because of these answers? Track deltas to characters, factions, places, items.
 
-| Entity | Before | After | Visibility (who could know) |
-|---|---|---|---|
+| Entity | Before  | After   | Visibility (who could know)        |
+| ------ | ------- | ------- | ---------------------------------- |
 | <name> | <state> | <state> | <crew / foreman / public / nobody> |
 
 ---
@@ -116,9 +116,9 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > **Who knows what, when.** Prevent accidental omniscience.
 
-| Actor | Knows at T0 | Gains at T1/T2 | Notes (how they'd express it) |
-|---|---|---|---|
-| <actor> | <facts> | <new facts> | <speech patterns, euphemisms> |
+| Actor   | Knows at T0 | Gains at T1/T2 | Notes (how they'd express it) |
+| ------- | ----------- | -------------- | ----------------------------- |
+| <actor> | <facts>     | <new facts>    | <speech patterns, euphemisms> |
 
 ---
 
@@ -130,14 +130,14 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > **No spoilers, no internals.** What neighbors may surface to players right now.
 
-- **Summary S-01** *(for Curator/Scene/Style/PN)*
+- **Summary S-01** _(for Curator/Scene/Style/PN)_
   Topic: <concept, place, procedure>
   Player-safe text (2–4 lines):
   "<neutral description that enables choices without revealing causes or twists>"
   Notes to Translator: <register hints/idioms to avoid>
   See-also: <entries/anchors>
 
-*(Repeat per concept needing a surface-safe summary.)*
+_(Repeat per concept needing a surface-safe summary.)_
 
 ---
 
@@ -150,24 +150,29 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 > Give each neighbor the **actionable** next steps—still **player-safe** in phrasing.
 
 - **Plotwright:**
+
   - Gate reason(s): <diegetic checks the world enforces>
   - Loop-with-difference seeds: <small state deltas that justify meaningful returns>
   - Keystone resilience: <fallback route or soft-fail suggestion>
 
 - **Scene Smith:**
-  - Phrasing cues: <what the world would *show/say* at the gate>
+
+  - Phrasing cues: <what the world would _show/say_ at the gate>
   - Micro-context: <one line to clarify choice contrast>
 
 - **Style Lead:**
+
   - Pattern nudge: <banned/preferred forms tied to this canon>
   - Example (player-safe): "<1–2 lines>"
 
 - **Codex Curator:**
+
   - New/updated entries: <list of titles>
   - Crosslink hints: <A ↔ B ↔ C>
   - Anchor slugs: <kebab-case suggestions>
 
 - **Translator:**
+
   - Terminology risks: <polysemy, diacritics, RTL/anchor policy>
   - Register map nudge: <pronouns/formality if relevant>
 
@@ -184,7 +189,7 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > Keep scope tight: what you **did not** answer now—file as hooks.
 
-- `hook://lore/<topic>` — <one-line question> — *Reason to defer:* <not needed for current slice>
+- `hook://lore/<topic>` — <one-line question> — _Reason to defer:_ <not needed for current slice>
 - `hook://curator/<term>` — <needs entry or taxonomy>
 - `hook://plot/<structure>` — <requires topology decision>
 - `hook://research/<claim>` — <needs corroboration; current posture = <…>>
@@ -287,7 +292,7 @@ Sensitivity: workplace injury (see content notes)
 
 ### Cross-Field Validation
 
-- If `Research posture touched` is uncorroborated:*, then Research Memo lineage should be present
+- If `Research posture touched` is uncorroborated:\*, then Research Memo lineage should be present
 - If `Sensitivity` contains content note refs, then those notes must be documented
 - Each hook ID in `Hooks answered` must appear in `Canon Answers (Hot)` section
 - Timeline anchors in `Knowledge Ledger (Hot)` must match `Timeline Anchors (Hot)` section (T0/T1/T2)
@@ -310,42 +315,52 @@ Sensitivity: workplace injury (see content notes)
 ## Common Errors
 
 **❌ Nested research posture format**
+
 - Wrong: `uncorroborated:<low|med|high>`
 - Right: `uncorroborated:low | uncorroborated:medium | uncorroborated:high` (flat, space-separated)
 
 **❌ Using "med" abbreviation**
+
 - Wrong: `uncorroborated:med`
 - Right: `uncorroborated:medium` (full word per taxonomy)
 
 **❌ Spoilers in Player-Safe Summaries**
+
 - Wrong: "The foreman is guilty of causing the retrofit accident."
 - Right: "Dock inspections are stricter than they used to be; badges are checked by sight."
 
 **❌ Missing timeline anchor T2 (now)**
+
 - Wrong: Only T0 and T1 listed
 - Right: Always include T2 (state at start of slice) for present context
 
 **❌ Knowledge ledger allowing omniscience**
+
 - Wrong: All actors know everything at T0
 - Right: Track what each actor knows and gains, preventing accidental omniscience
 
 **❌ Downstream Effects with spoilers**
+
 - Wrong: "Plotwright: Gate reason — foreman guilt from retrofit accident"
 - Right: "Plotwright: Gate reason — visual badge check + foreman recognition plausible"
 
 **❌ Using technique terms in Player-Safe Summaries**
+
 - Wrong: "Set flag RETROFIT_ACCIDENT to true"
 - Right: "Badges are checked by sight, and logs are kept clean."
 
 **❌ Canon Answers too verbose or flowery**
+
 - Wrong: "The foreman's scar, a testament to his troubled past and the weight of his decisions..."
 - Right: "Burn from plasma backflow during unauthorized retrofit; guilt → stricter inspections."
 
 **❌ Missing Checks section ticks before handoff**
+
 - Wrong: Handing off to Showrunner with unchecked items
 - Right: All 7 checklist items must be ticked before handoff
 
 **❌ Hooks answered list doesn't match Canon Answers section**
+
 - Wrong: Header lists H-02, H-03 but §1 only answers H-02
 - Right: Every hook in header must have an answer in §1 or a deferral hook in §8
 
@@ -353,27 +368,27 @@ Sensitivity: workplace injury (see content notes)
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Owner | role-name | yes | Fixed: Lore Weaver |
-| Header | Slice | markdown | yes | 1-2 lines, player-safe scope |
-| Header | Hooks answered | id-list | yes | Hook Card IDs/short names |
-| Header | Research posture touched | enum | yes | Research Posture Levels (§8) - 6 flat values |
-| Header | Sensitivity | markdown | optional | none \| content note refs |
-| §1 | Canon Answers (Hot) | markdown-list | yes | Per hook: Answer (2-6 lines), Evidence, Consequences |
-| §2 | Timeline Anchors (Hot) | markdown-list | yes | T0/T1/T2/T3 with events |
-| §3 | Invariants & Constraints (Hot) | markdown-list | yes | Invariant/Constraint with owner and why |
-| §4 | Entity/State Deltas (Hot) | table | optional | Columns: Entity, Before, After, Visibility |
-| §5 | Knowledge Ledger (Hot) | table | yes | Columns: Actor, Knows at T0, Gains, Notes |
-| §6 | Player-Safe Summary | markdown | yes | 2-4 lines per concept; no spoilers |
-| §7 | Downstream Effects | markdown-list | yes | Per role: actionable next steps |
-| §8 | Hooks filed | markdown-list | optional | Format: hook://<domain>/<topic> |
-| §9 | Checks | markdown-list | yes | 7 items; all must be ticked |
-| §10 | Lineage | markdown | yes | TU, Research Memos, Canon Packs, ADRs |
-| §10 | Neighbors notified | role-list | yes | @role mentions |
-| §10 | Snapshot impact | markdown | yes | Cold update implications |
+| Section | Field                          | Type          | Required | Taxonomy/Constraint                                  |
+| ------- | ------------------------------ | ------------- | -------- | ---------------------------------------------------- |
+| Header  | TU                             | tu-id         | yes      | Format: TU-YYYY-MM-DD-<role><seq>                    |
+| Header  | Edited                         | date          | yes      | Format: YYYY-MM-DD                                   |
+| Header  | Owner                          | role-name     | yes      | Fixed: Lore Weaver                                   |
+| Header  | Slice                          | markdown      | yes      | 1-2 lines, player-safe scope                         |
+| Header  | Hooks answered                 | id-list       | yes      | Hook Card IDs/short names                            |
+| Header  | Research posture touched       | enum          | yes      | Research Posture Levels (§8) - 6 flat values         |
+| Header  | Sensitivity                    | markdown      | optional | none \| content note refs                            |
+| §1      | Canon Answers (Hot)            | markdown-list | yes      | Per hook: Answer (2-6 lines), Evidence, Consequences |
+| §2      | Timeline Anchors (Hot)         | markdown-list | yes      | T0/T1/T2/T3 with events                              |
+| §3      | Invariants & Constraints (Hot) | markdown-list | yes      | Invariant/Constraint with owner and why              |
+| §4      | Entity/State Deltas (Hot)      | table         | optional | Columns: Entity, Before, After, Visibility           |
+| §5      | Knowledge Ledger (Hot)         | table         | yes      | Columns: Actor, Knows at T0, Gains, Notes            |
+| §6      | Player-Safe Summary            | markdown      | yes      | 2-4 lines per concept; no spoilers                   |
+| §7      | Downstream Effects             | markdown-list | yes      | Per role: actionable next steps                      |
+| §8      | Hooks filed                    | markdown-list | optional | Format: hook://<domain>/<topic>                      |
+| §9      | Checks                         | markdown-list | yes      | 7 items; all must be ticked                          |
+| §10     | Lineage                        | markdown      | yes      | TU, Research Memos, Canon Packs, ADRs                |
+| §10     | Neighbors notified             | role-list     | yes      | @role mentions                                       |
+| §10     | Snapshot impact                | markdown      | yes      | Cold update implications                             |
 
 **Total fields: 34** (6 metadata, 11 content, 2 classification, 5 relationships, 1 validation)
 

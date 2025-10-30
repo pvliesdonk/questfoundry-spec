@@ -55,9 +55,9 @@
 **Why now:**  
 <Loops or findings motivating the change; links to prior issues/TUs>
 
-**Consequences:**  
+**Consequences:**
 
-- Positive: <…>  
+- Positive: <…>
 - Risks: <…> (migration plan below)
 
 **Migration plan:**  
@@ -76,6 +76,6 @@
 
 ## References
 
-- Related files/sections: <paths + headings>  
-- Snapshot/TU IDs (if any): <ids>  
+- Related files/sections: <paths + headings>
+- Snapshot/TU IDs (if any): <ids>
 - ADRs (if any): <ADR-YYYYMMDD-…>

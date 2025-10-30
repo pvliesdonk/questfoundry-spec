@@ -69,6 +69,7 @@ Changelog (short): <bullet of what changed since last public version; 1–3 item
 ## Validation Rules
 
 ### Field-Level
+
 - `Title`: Required, player-safe, matches cover/TOC, no code names
 - `Version`: Required, semver or YYYY.MM.DD format, no commit hashes
 - `Snapshot`: Required, format "Cold @ YYYY-MM-DD", never Hot
@@ -79,18 +80,22 @@ Changelog (short): <bullet of what changed since last public version; 1–3 item
 ### Common Errors
 
 **❌ Using Hot snapshot**
+
 - Wrong: `Snapshot: Hot @ 2025-10-28`
 - Right: `Snapshot: Cold @ 2025-10-28`
 
 **❌ Commit hash in version**
+
 - Wrong: `Version: abc123f`
 - Right: `Version: 2025.10.29` or `Version: 1.0.0`
 
 **❌ Spoilers in notes**
+
 - Wrong: `Notes: Includes the twist ending where...`
 - Right: `Notes: Interactive paths with hubs and loops; choices are contrastive.`
 
 **❌ Code names in title**
+
 - Wrong: `Title: PROJ_FG_ACT1_INTERNAL`
 - Right: `Title: Dock Seven — Act I`
 

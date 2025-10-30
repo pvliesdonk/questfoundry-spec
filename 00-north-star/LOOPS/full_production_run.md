@@ -172,28 +172,28 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 
 ## Quick RACI (per phase)
 
-| Phase | R | A | C | I |
-|---|---|---|---|---|
-| Kickoff | Showrunner | Showrunner | Gatekeeper, Leads | All |
-| Story Spark | Plotwright | Showrunner | Scene, Style, Gatekeeper | Lore |
-| Hook Harvest | Showrunner | Showrunner | All generators | Gatekeeper |
-| Lore Deepening | Lore Weaver | Showrunner | Plotwright, Researcher, Style | Codex |
-| Codex Expansion | Codex Curator | Lore Weaver | Style, Gatekeeper | Binder |
-| Style Tune-up | Style Lead | Showrunner | Scene, Art Dir | Gatekeeper |
-| Art/Audio | Art/Audio Directors | Showrunner | Style, Binder | Gatekeeper |
-| Gatecheck | Gatekeeper | Showrunner | All | All |
-| Merge | Showrunner | Showrunner | Gatekeeper | All |
-| Binding Run | Book Binder | Showrunner | Gatekeeper, PN | All |
-| PN Dry-Run | PN | Showrunner | Binder, Style | All |
+| Phase           | R                   | A           | C                             | I          |
+| --------------- | ------------------- | ----------- | ----------------------------- | ---------- |
+| Kickoff         | Showrunner          | Showrunner  | Gatekeeper, Leads             | All        |
+| Story Spark     | Plotwright          | Showrunner  | Scene, Style, Gatekeeper      | Lore       |
+| Hook Harvest    | Showrunner          | Showrunner  | All generators                | Gatekeeper |
+| Lore Deepening  | Lore Weaver         | Showrunner  | Plotwright, Researcher, Style | Codex      |
+| Codex Expansion | Codex Curator       | Lore Weaver | Style, Gatekeeper             | Binder     |
+| Style Tune-up   | Style Lead          | Showrunner  | Scene, Art Dir                | Gatekeeper |
+| Art/Audio       | Art/Audio Directors | Showrunner  | Style, Binder                 | Gatekeeper |
+| Gatecheck       | Gatekeeper          | Showrunner  | All                           | All        |
+| Merge           | Showrunner          | Showrunner  | Gatekeeper                    | All        |
+| Binding Run     | Book Binder         | Showrunner  | Gatekeeper, PN                | All        |
+| PN Dry-Run      | PN                  | Showrunner  | Binder, Style                 | All        |
 
 ---
 
 ## Failure Modes & Safeguards
 
-- **Research dormant drift** → Mark factual items `uncorroborated:<risk>`; schedule revisit.  
-- **Codex spoils twists** → Move detail to canon notes; keep player-safe summaries only.  
-- **Topology regressions** → Gatekeeper blocks on Integrity/Reachability; split changes into smaller TUs.  
-- **Style wobble** → Run **Style Tune-up** before merge.  
+- **Research dormant drift** → Mark factual items `uncorroborated:<risk>`; schedule revisit.
+- **Codex spoils twists** → Move detail to canon notes; keep player-safe summaries only.
+- **Topology regressions** → Gatekeeper blocks on Integrity/Reachability; split changes into smaller TUs.
+- **Style wobble** → Run **Style Tune-up** before merge.
 - **Determinism missing** (when promised) → keep assets in Hot or merge as plan-only with `deferred:<asset>`.
 
 ---

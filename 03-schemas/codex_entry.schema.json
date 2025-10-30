@@ -24,9 +24,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the entry; fixed to Codex Curator.",
-      "enum": [
-        "Codex Curator"
-      ]
+      "enum": ["Codex Curator"]
     },
     "edited": {
       "$ref": "#/$defs/date_string",
@@ -51,11 +49,7 @@
     "register": {
       "type": "string",
       "description": "Optional register aligned with Style guidance.",
-      "enum": [
-        "neutral",
-        "formal",
-        "colloquial"
-      ]
+      "enum": ["neutral", "formal", "colloquial"]
     },
     "overview": {
       "type": "string",
@@ -109,11 +103,7 @@
             "maxLength": 200
           }
         },
-        "required": [
-          "variant",
-          "register_region",
-          "translator_notes"
-        ]
+        "required": ["variant", "register_region", "translator_notes"]
       },
       "minItems": 1
     },
@@ -130,10 +120,7 @@
     "reading_level": {
       "type": "string",
       "description": "Reading level indicator.",
-      "enum": [
-        "plain",
-        "needs glossary link"
-      ]
+      "enum": ["plain", "needs glossary link"]
     },
     "alt_guidance": {
       "type": "string",

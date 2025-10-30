@@ -126,11 +126,7 @@
           "pattern": "^(no|yes \\(.+\\))$"
         }
       },
-      "required": [
-        "type_primary",
-        "bars_affected",
-        "blocking"
-      ]
+      "required": ["type_primary", "bars_affected", "blocking"]
     },
     "player_safe_summary": {
       "type": "string",
@@ -172,11 +168,7 @@
           "description": "Optional note about dormant roles"
         }
       },
-      "required": [
-        "loop",
-        "owner_r",
-        "accountable_a"
-      ]
+      "required": ["loop", "owner_r", "accountable_a"]
     },
     "acceptance_criteria": {
       "type": "array",
@@ -257,10 +249,7 @@
         "view_impact": {
           "type": "string",
           "description": "Impact on views",
-          "enum": [
-            "none",
-            "rebind needed"
-          ]
+          "enum": ["none", "rebind needed"]
         },
         "gatekeeper_result": {
           "type": "string",

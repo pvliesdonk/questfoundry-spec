@@ -23,117 +23,117 @@ Each bar has quick checks, common failures, and remediation hints.
 
 ## 1) Integrity
 
-**What it means**  
+**What it means**
 
-- All links/section references resolve.  
-- No accidental dead ends (only intentional terminals).  
+- All links/section references resolve.
+- No accidental dead ends (only intentional terminals).
 - Codeword/state effects don’t create contradictions downstream.
 
-**Quick checks**  
+**Quick checks**
 
-- “Every choice leads somewhere” scan.  
-- “Any section referenced must exist” scan.  
-- If terminal: marked clearly as *The End* (or equivalent).
+- “Every choice leads somewhere” scan.
+- “Any section referenced must exist” scan.
+- If terminal: marked clearly as _The End_ (or equivalent).
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Dangling link*: create the section or retarget the choice.  
-- *Forgotten return from a loop*: add a return path or mark deliberately terminal.
+- _Dangling link_: create the section or retarget the choice.
+- _Forgotten return from a loop_: add a return path or mark deliberately terminal.
 
 ---
 
 ## 2) Reachability
 
-**What it means**  
+**What it means**
 
 - “Must-see” beats (plot keystones, required items) are reachable from at least one path without paradoxes.
 
-**Quick checks**  
+**Quick checks**
 
-- List the keystones → demonstrate at least one viable route to each.  
+- List the keystones → demonstrate at least one viable route to each.
 - If a gateway is required, ensure at least one route to obtain its condition.
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Locked content with no key*: add an alternative key path or remove the lock.  
-- *Unrealistic chain*: reduce dependency depth or provide a second route.
+- _Locked content with no key_: add an alternative key path or remove the lock.
+- _Unrealistic chain_: reduce dependency depth or provide a second route.
 
 ---
 
 ## 3) Nonlinearity
 
-**What it means**  
+**What it means**
 
 - Hubs, loops, and gateways exist where intended and matter to play (not decorative).
 
-**Quick checks**  
+**Quick checks**
 
-- Identify planned hubs/loops/gateways → show them in the current topology.  
+- Identify planned hubs/loops/gateways → show them in the current topology.
 - For loops: show at least one meaningful “return with difference” (usually via codeword/state).
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Cosmetic loop*: have the return alter stakes, tone, or options.  
-- *Hub too thin*: add branches with distinct outcomes or merge if unnecessary.
+- _Cosmetic loop_: have the return alter stakes, tone, or options.
+- _Hub too thin_: add branches with distinct outcomes or merge if unnecessary.
 
 ---
 
 ## 4) Gateways
 
-**What it means**  
+**What it means**
 
 - Conditions (codewords, items, states) are consistent across sections and can be enforced by the PN without leaks.
 
-**Quick checks**  
+**Quick checks**
 
-- Each gateway states a single clear condition.  
-- There exists a plausible in-world way the PN can enforce it without exposing internals.  
+- Each gateway states a single clear condition.
+- There exists a plausible in-world way the PN can enforce it without exposing internals.
 - Negative conditions (“unless you have…”) don’t contradict positive checks elsewhere.
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Ambiguous condition wording*: rewrite condition and surface phrasing.  
-- *Hidden unwinnable state*: add catch-up or fail-forward beats.
+- _Ambiguous condition wording_: rewrite condition and surface phrasing.
+- _Hidden unwinnable state_: add catch-up or fail-forward beats.
 
 ---
 
 ## 5) Style
 
-**What it means**  
+**What it means**
 
-- Prose voice, register, motifs align with the **Style Lead**’s guardrails.  
-- Visual/aesthetic cues (captions, composition intent) align with style.  
+- Prose voice, register, motifs align with the **Style Lead**’s guardrails.
+- Visual/aesthetic cues (captions, composition intent) align with style.
 - PN remains in-voice.
 
-**Quick checks**  
+**Quick checks**
 
-- Read a random triad of sections aloud: does the voice shift?  
-- Captions feel like the same book?  
+- Read a random triad of sections aloud: does the voice shift?
+- Captions feel like the same book?
 - PN phrasing matches the agreed register (e.g., dry, sardonic, earnest).
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Tone wobble*: run a **Style Tune-up** loop.  
-- *Over-exposition*: move detail to codex; keep player surface lean.
+- _Tone wobble_: run a **Style Tune-up** loop.
+- _Over-exposition_: move detail to codex; keep player surface lean.
 
 ---
 
 ## 6) Determinism (when promised)
 
-**What it means**  
+**What it means**
 
-- Visual/audio assets can be reproduced from recorded parameters (seed, prompt version, model, aspect, chain).  
-- If determinism is *not* promised, this bar is N/A.
+- Visual/audio assets can be reproduced from recorded parameters (seed, prompt version, model, aspect, chain).
+- If determinism is _not_ promised, this bar is N/A.
 
-**Quick checks**  
+**Quick checks**
 
-- Parameters logged and sufficient to re-render/re-generate.  
+- Parameters logged and sufficient to re-render/re-generate.
 - If plan-only (no execution yet), marked `deferred:<asset>` with constraints reviewed.
 
-**Common failures & fixes**  
+**Common failures & fixes**
 
-- *Missing seeds/versions*: regenerate with logging or accept as non-deterministic (explicitly).  
-- *Plan contradicts style*: adjust constraints with Style Lead.
+- _Missing seeds/versions_: regenerate with logging or accept as non-deterministic (explicitly).
+- _Plan contradicts style_: adjust constraints with Style Lead.
 
 ---
 
@@ -153,9 +153,9 @@ Each bar has quick checks, common failures, and remediation hints.
 
 **Common failures & fixes**
 
-- *Spoiler in codex*: move detail to canon notes; keep player-safe summary.
-- *PN leaks plumbing*: rephrase to diegetic checks ("If the foreman vouched for you, proceed…").
-- *Internal labels visible*: replace with player-safe refs or in-world terms.
+- _Spoiler in codex_: move detail to canon notes; keep player-safe summary.
+- _PN leaks plumbing_: rephrase to diegetic checks ("If the foreman vouched for you, proceed…").
+- _Internal labels visible_: replace with player-safe refs or in-world terms.
 
 ---
 
@@ -176,9 +176,9 @@ Each bar has quick checks, common failures, and remediation hints.
 
 **Common failures & fixes**
 
-- *Missing alt text*: add descriptive captions (coordinate with Art Director).
-- *Ambiguous navigation*: revise link text; add section headers or breadcrumbs.
-- *Sensory overload risk*: add content note or adjust composition plan.
+- _Missing alt text_: add descriptive captions (coordinate with Art Director).
+- _Ambiguous navigation_: revise link text; add section headers or breadcrumbs.
+- _Sensory overload risk_: add content note or adjust composition plan.
 
 ---
 
@@ -189,7 +189,7 @@ Each bar has quick checks, common failures, and remediation hints.
 - [ ] **Nonlinearity**: Planned hubs/loops/gateways are present and alter outcomes.
 - [ ] **Gateways**: Conditions clear, consistent, enforceable by PN.
 - [ ] **Style**: Voice/guardrails hold; captions aligned; PN in-voice.
-- [ ] **Determinism** *(if promised)*: Params logged; plan-only items deferred & reviewed.
+- [ ] **Determinism** _(if promised)_: Params logged; plan-only items deferred & reviewed.
 - [ ] **Presentation**: No spoilers; codex/manuscript/PN player-safe; no internal plumbing visible.
 - [ ] **Accessibility**: Alt text present; navigation clear; sensory considerations respected.
 
@@ -206,16 +206,16 @@ Each bar has quick checks, common failures, and remediation hints.
 
 Examples:
 
-- Temporarily shipping a plan-only art caption while Illustrator is dormant.  
+- Temporarily shipping a plan-only art caption while Illustrator is dormant.
 - Carrying `uncorroborated:low` factual detail until Researcher returns.
 
 ---
 
 ## Anti-patterns (don’t)
 
-- Treating Cold as “staging”. Cold is **ship-ready**.  
-- Hiding spoilers in captions or PN side comments.  
-- Using codeword names in text. Use in-world phrasing.  
+- Treating Cold as “staging”. Cold is **ship-ready**.
+- Hiding spoilers in captions or PN side comments.
+- Using codeword names in text. Use in-world phrasing.
 - Bundling unrelated changes; large changes should be split so each bar can be judged cleanly.
 
 ---

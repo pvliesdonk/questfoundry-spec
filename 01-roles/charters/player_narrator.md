@@ -87,9 +87,9 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** never signal twists or behind-the-scenes causes.  
-- **No internals:** no codeword names, gate logic, seeds/models, or tooling mentions.  
-- **Diegetic gates:** enforce access using **in-world** cues (“badge,” “permit,” “ritual phrase”).  
+- **Spoiler Hygiene:** never signal twists or behind-the-scenes causes.
+- **No internals:** no codeword names, gate logic, seeds/models, or tooling mentions.
+- **Diegetic gates:** enforce access using **in-world** cues (“badge,” “permit,” “ritual phrase”).
 - **Accessibility:** steady pacing; pronounceable phrasing; descriptive references; if reading captions/alt, render them **as atmosphere**, not technique.
 
 ---
@@ -115,38 +115,38 @@
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Meta speech:** “Option locked,” “You don’t have FLAG_X,” “Roll a check.”  
-- **Foreshadow by hinting mechanics:** implying outcomes from hidden states.  
-- **Canon leaks:** revealing motives/causes reserved for Lore.  
-- **Over-recapping:** collapsing tension with long summaries.  
+- **Meta speech:** “Option locked,” “You don’t have FLAG_X,” “Roll a check.”
+- **Foreshadow by hinting mechanics:** implying outcomes from hidden states.
+- **Canon leaks:** revealing motives/causes reserved for Lore.
+- **Over-recapping:** collapsing tension with long summaries.
 - **UI-speak:** “click,” “submit,” “go back to page s41.”
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] Confirm **snapshot/view** ID; use that bundle only  
-- [ ] Perform section by section; **diegetic** gates only  
-- [ ] Keep choices **contrastive** and neutral in outcome hints  
-- [ ] Add brief recaps where fatigue/branching warrants it  
-- [ ] Log issues with tags & locations; keep notes player-safe  
+- [ ] Confirm **snapshot/view** ID; use that bundle only
+- [ ] Perform section by section; **diegetic** gates only
+- [ ] Keep choices **contrastive** and neutral in outcome hints
+- [ ] Add brief recaps where fatigue/branching warrants it
+- [ ] Log issues with tags & locations; keep notes player-safe
 - [ ] Hand off notes to Showrunner; no ad-hoc fixes in source
 
 ---
 
 ## 11) Tiny Examples
 
-**Meta → diegetic gate**  
+**Meta → diegetic gate**
 
-- Before: “Access denied without CODEWORD: ASH.”  
+- Before: “Access denied without CODEWORD: ASH.”
 - After: “The scanner blinks red. ‘Union badge?’ the guard asks.”
 
-**Ambiguous choices → contrastive read**  
+**Ambiguous choices → contrastive read**
 
-- Before: “Go left / Go right.”  
+- Before: “Go left / Go right.”
 - After: “Slip through maintenance… / Face the foreman…”
 
-**Recap (two lines max, in-voice)**  
+**Recap (two lines max, in-voice)**
 
 - “You traded words with the foreman and kept your badge pocketed. The docks hum; inspection looms.”
 

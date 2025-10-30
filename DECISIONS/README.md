@@ -34,7 +34,7 @@ All ADRs live in this directory as flat files:
 DECISIONS/
 ADR-YYYYMMDD-<slug>.md
 
-````
+```
 
 Examples:
 
@@ -88,30 +88,39 @@ Copy this to start a new ADR:
 - **Areas**: Roles | SoT | Quality Bars | Loops | PN | Repo | Localization | Art/Audio | Accessibility | Other
 
 ## Context
+
 <What problem or tension exists? Include constraints, prior decisions, and why the current rules aren’t sufficient.>
 
 ## Decision
+
 <The rule we are adopting. Write it as normative guidance. If renaming/restructuring, specify exact new names/paths.>
 
 ## Consequences
+
 ### Positive
+
 <What gets better? Clarity, safety, velocity, UX…>
 
 ### Negative / Risks
+
 <Migration pain, temporary churn, open questions.>
 
 ## Alternatives Considered
+
 <Short bullets. Why not each alternative?>
 
 ## Migration
+
 <Exactly what to change in the repo (paths/files), and which docs must be updated (links, indices). Timebox if phased.>
 
 ## Compatibility
+
 <Impact on Layers 3–7 (future). Any guarantees or breakages to call out.>
 
 ## Appendix (optional)
+
 <Diagrams, examples, or rationale that helps future readers.>
-````
+```
 
 ---
 
@@ -146,6 +155,8 @@ A: They remain here with `Status: Superseded by ADR-…` so future readers can t
 ---
 
 **Purpose of this folder**
-This directory is the **ledger of rule changes**. If someone asks *“Why is the studio like this?”*, the answer lives here with dates and rationale.
+This directory is the **ledger of rule changes**. If someone asks _“Why is the studio like this?”_, the answer lives here with dates and rationale.
+
+```
 
 ```

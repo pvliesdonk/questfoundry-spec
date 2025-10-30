@@ -8,19 +8,19 @@
 
 ## 1) One-minute scope (Showrunner)
 
-- [ ] Define **topic/batch** (e.g., “Dock infrastructure”, “Factions v1”).  
-- [ ] Confirm **bias** (player comprehension first? localization readiness?).  
-- [ ] Open/attach TU: `tu-codex-<topic-or-batch>`.  
+- [ ] Define **topic/batch** (e.g., “Dock infrastructure”, “Factions v1”).
+- [ ] Confirm **bias** (player comprehension first? localization readiness?).
+- [ ] Open/attach TU: `tu-codex-<topic-or-batch>`.
 - [ ] Note any **dormant roles** (Researcher, Translator) and risk posture.
 
 ---
 
 ## 2) Inputs you need on screen
 
-- **Canon Pack** entries for the topic (spoiler-level; from Lore Deepening).  
-- **Style guardrails** (register, motif language).  
-- Current **Cold codex** pages (for alignment).  
-- Accepted **taxonomy/clarity hooks**.  
+- **Canon Pack** entries for the topic (spoiler-level; from Lore Deepening).
+- **Style guardrails** (register, motif language).
+- Current **Cold codex** pages (for alignment).
+- Accepted **taxonomy/clarity hooks**.
 - PN/Binder notes about comprehension/navigation.
 
 ---
@@ -31,71 +31,67 @@
 
 1. **Pick terms** with highest **player value** (frequency in manuscript or UX friction).
 2. Draft **player-safe entries** using this anatomy:
-   - **Title**, **Overview (2–4 sentences)**, **Usage in the book**, **Context**, **See also (3–5)**, **Notes** (accessibility/localization), **Lineage: TU …**  
+   - **Title**, **Overview (2–4 sentences)**, **Usage in the book**, **Context**, **See also (3–5)**, **Notes** (accessibility/localization), **Lineage: TU …**
    - Keep spoilers out; no internal labels (codewords, gate logic, seeds, schema).
 3. Build a **Crosslink Map** (ensure See also resolves; add disambiguations).
 
-**Lore Weaver (C)**
-4. **Spoiler sweep**: compare to canon; remove or mask reveals.
+**Lore Weaver (C)** 4. **Spoiler sweep**: compare to canon; remove or mask reveals.
 
-**Style Lead (C)**
-5. **Tone pass**: ensure clarity, reading level, and motif resonance.
+**Style Lead (C)** 5. **Tone pass**: ensure clarity, reading level, and motif resonance.
 
-**Gatekeeper (C)**
-6. **Pre-check**: Presentation Safety, Integrity (links resolve), Style.
+**Gatekeeper (C)** 6. **Pre-check**: Presentation Safety, Integrity (links resolve), Style.
 
-**Curator (R)**
-7. Package entries + crosslink map into a **Codex Pack** attached to the TU.
+**Curator (R)** 7. Package entries + crosslink map into a **Codex Pack** attached to the TU.
 
 ---
 
 ## 4) Deliverables (Hot)
 
-- **Codex Pack**  
-  - Entries (Title, Overview, Usage, Context, See also, Notes, Lineage).  
-  - **Crosslink Map** (list of edges; note any required stubs).  
-- **Coverage report**  
-  - New terms covered; remaining gaps; taxonomy hooks resolved/deferred.  
-- **Spoiler hygiene note**  
+- **Codex Pack**
+  - Entries (Title, Overview, Usage, Context, See also, Notes, Lineage).
+  - **Crosslink Map** (list of edges; note any required stubs).
+- **Coverage report**
+  - New terms covered; remaining gaps; taxonomy hooks resolved/deferred.
+- **Spoiler hygiene note**
   - What was masked; any entries deferred to avoid reveal timing.
 
 ---
 
 ## 5) Hand-offs
 
-- → **Binding Run**: notify Binder that new player surfaces will be available after merge.  
-- → **Translation Pass**: provide glossary seeds & style notes if Translator is active.  
+- → **Binding Run**: notify Binder that new player surfaces will be available after merge.
+- → **Translation Pass**: provide glossary seeds & style notes if Translator is active.
 - → **PN**: phrase suggestions for gentle codex invites (optional).
 
 ---
 
 ## 6) Definition of “done” (for this play)
 
-- [ ] High-frequency terms **have entries**.  
-- [ ] **No spoilers**; PN can reference safely.  
-- [ ] **All links resolve**; See also adds useful navigation.  
-- [ ] Style/reading level matches the guardrails.  
+- [ ] High-frequency terms **have entries**.
+- [ ] **No spoilers**; PN can reference safely.
+- [ ] **All links resolve**; See also adds useful navigation.
+- [ ] Style/reading level matches the guardrails.
 - [ ] TU lists **coverage** and any **deferred** items with wake conditions.
 
 ---
 
 ## 7) Fast triage rubric (Curator)
 
-- **Include now**: terms that clarify active choices, hubs, or recurring factions/locations.  
-- **Defer**: entries that are only meaningful **after** a reveal; mark with wake condition (“after Act II merge”).  
+- **Include now**: terms that clarify active choices, hubs, or recurring factions/locations.
+- **Defer**: entries that are only meaningful **after** a reveal; mark with wake condition (“after Act II merge”).
 - **Drop**: overly narrow trivia that doesn’t aid comprehension.
 
 ---
 
 ## 8) RACI (micro)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
+| Task                  | R             | A          | C           | I          |
+| --------------------- | ------------- | ---------- | ----------- | ---------- |
 | Draft entries & links | Codex Curator | Showrunner | Lore, Style | Gatekeeper |
-| Spoiler sweep | Lore Weaver | Showrunner | Curator | Gatekeeper |
-| Style pass | Style Lead | Showrunner | Curator | Gatekeeper |
-| Pre-check | Gatekeeper | Showrunner | — | All |
-| Merge to Cold | Showrunner | Showrunner | Gatekeeper | Binder, PN |
+| Spoiler sweep         | Lore Weaver   | Showrunner | Curator     | Gatekeeper |
+| Style pass            | Style Lead    | Showrunner | Curator     | Gatekeeper |
+| Pre-check             | Gatekeeper    | Showrunner | —           | All        |
+| Merge to Cold         | Showrunner    | Showrunner | Gatekeeper  | Binder, PN |
 
 ---
 
@@ -132,9 +128,9 @@ TU <id>
 
 ## 10) Anti-patterns to catch
 
-- Codex page “helpfully” explaining a twist.  
-- See also lists that loop back into themselves without breadth.  
-- Style drift into encyclopedia-ese; keep it readable and in register.  
+- Codex page “helpfully” explaining a twist.
+- See also lists that loop back into themselves without breadth.
+- Style drift into encyclopedia-ese; keep it readable and in register.
 - Turning taxonomy work into secret canon (escalate to Lore Weaver).
 
 ---

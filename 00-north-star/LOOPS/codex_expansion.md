@@ -32,19 +32,19 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 
 ## 3) Roles & Responsibilities
 
-- **Codex Curator (R)**  
-  - Author **player-safe** entries; create cross-refs (“See also”), disambiguation notes, and glossary stubs.  
+- **Codex Curator (R)**
+  - Author **player-safe** entries; create cross-refs (“See also”), disambiguation notes, and glossary stubs.
   - May originate **taxonomy/clarity hooks**; does **not** invent deep lore.
-- **Lore Weaver (C)**  
+- **Lore Weaver (C)**
   - Ensures summaries accurately reflect canon; marks spoilers to avoid.
-- **Style Lead (C)**  
+- **Style Lead (C)**
   - Enforces voice clarity and reading level; motif consistency.
-- **Gatekeeper (C)**  
+- **Gatekeeper (C)**
   - Checks Presentation Safety (no spoilers), Integrity (links resolve), and Style.
-- **Showrunner (A)**  
+- **Showrunner (A)**
   - Confirms scope/priority; sequences merges.
 
-*(Researcher may be consulted if factual claims appear; otherwise factual content should be neutral or cite canon as in-world belief.)*
+_(Researcher may be consulted if factual claims appear; otherwise factual content should be neutral or cite canon as in-world belief.)_
 
 ---
 
@@ -59,7 +59,7 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 - **See also** — 3–5 related entries. Prefer breadth over recursion.
 - **Notes** — accessibility or localization hints (e.g., pronunciation; units).
 - **Lineage** — `Lineage: TU …` (traceability); **no spoilers** in lineage text itself.
-- *(Optional)* **Player warnings** — diegetic safety content (“Clipped gravity decks require mag-soles”).
+- _(Optional)_ **Player warnings** — diegetic safety content (“Clipped gravity decks require mag-soles”).
 
 **Never include:** hidden gate conditions, codeword names, internal IDs, seed/model info, twist explanations.
 
@@ -67,50 +67,56 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 
 ## 5) Procedure
 
-1. **Select Topics**  
-   - From canon deltas, term frequency in manuscript, and taxonomy hooks.  
+1. **Select Topics**
+
+   - From canon deltas, term frequency in manuscript, and taxonomy hooks.
    - Prioritize **player-value**: comprehension bottlenecks first.
 
-2. **Draft Entries (Curator)**  
-   - Write overview and context in **Style Lead**’s register.  
+2. **Draft Entries (Curator)**
+
+   - Write overview and context in **Style Lead**’s register.
    - Add **See also** list that improves navigation (avoid self-loops).
 
-3. **Spoiler Sweep (Lore Weaver)**  
-   - Compare against the spoiler-level canon; mask revelations.  
+3. **Spoiler Sweep (Lore Weaver)**
+
+   - Compare against the spoiler-level canon; mask revelations.
    - If masking makes an entry misleading, add a **neutral phrasing** workaround or defer until a later publication window.
 
-4. **Style Pass (Style Lead)**  
+4. **Style Pass (Style Lead)**
+
    - Ensure clarity, consistent terminology, motif harmonization, and reading level.
 
-5. **Link Audit (Curator)**  
-   - Check that every cross-reference resolves (or create the stub if approved).  
+5. **Link Audit (Curator)**
+
+   - Check that every cross-reference resolves (or create the stub if approved).
    - Add disambiguation if a term is overloaded.
 
-6. **Gatekeeper Pre-Check**  
+6. **Gatekeeper Pre-Check**
+
    - Presentation Safety, Integrity, Style. Flag any gateway logic leaks.
 
-7. **Package & Handoff**  
-   - Produce a **Codex Pack** (entries + crosslink map) and attach to TU.  
+7. **Package & Handoff**
+   - Produce a **Codex Pack** (entries + crosslink map) and attach to TU.
    - Notify **Binder** and **PN** that new player-safe surfaces will land after merge.
 
 ---
 
 ## 6) Deliverables (Hot)
 
-- **Codex Pack** (human text):  
-  - Entries (Title, Overview, Usage, Context, See also, Notes, Lineage).  
+- **Codex Pack** (human text):
+  - Entries (Title, Overview, Usage, Context, See also, Notes, Lineage).
   - **Crosslink Map** (simple list is fine) ensuring navigability.
-- **Coverage Report**  
+- **Coverage Report**
   - What new terms now covered; remaining red-links (with hooks if needed).
-- **Spoiler Hygiene Note**  
+- **Spoiler Hygiene Note**
   - Summary of masked details; any entries deferred due to spoil risk.
 
 ---
 
 ## 7) Merge Path (summary)
 
-- Gatekeeper runs full **Presentation Safety** + **Integrity** + **Style** checks.  
-- **Showrunner** merges Pack to **Cold** on pass.  
+- Gatekeeper runs full **Presentation Safety** + **Integrity** + **Style** checks.
+- **Showrunner** merges Pack to **Cold** on pass.
 - Binder/PN can now consume the **Cold** codex pages for exports/play.
 
 ---
@@ -127,22 +133,22 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 
 ## 9) Failure Modes & Remedies
 
-- **Accidental spoilers** → Move detail back to canon notes; rewrite with neutral phrasing.  
-- **Over-technical voice** → Style Lead simplifies; add examples.  
-- **Link rot** → Add stubs (with plan) or reduce See also fan-out.  
+- **Accidental spoilers** → Move detail back to canon notes; rewrite with neutral phrasing.
+- **Over-technical voice** → Style Lead simplifies; add examples.
+- **Link rot** → Add stubs (with plan) or reduce See also fan-out.
 - **Taxonomy creep into canon** → Escalate to Lore Weaver; Curator does not invent backstory.
 
 ---
 
 ## 10) RACI (quick)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
+| Task          | R             | A          | C           | I          |
+| ------------- | ------------- | ---------- | ----------- | ---------- |
 | Draft entries | Codex Curator | Showrunner | Lore, Style | Gatekeeper |
-| Spoiler sweep | Lore Weaver | Showrunner | Curator | Gatekeeper |
-| Style pass | Style Lead | Showrunner | Curator | Gatekeeper |
-| Pre-check | Gatekeeper | Showrunner | — | All |
-| Merge | Showrunner | Showrunner | Gatekeeper | Binder, PN |
+| Spoiler sweep | Lore Weaver   | Showrunner | Curator     | Gatekeeper |
+| Style pass    | Style Lead    | Showrunner | Curator     | Gatekeeper |
+| Pre-check     | Gatekeeper    | Showrunner | —           | All        |
+| Merge         | Showrunner    | Showrunner | Gatekeeper  | Binder, PN |
 
 ---
 
@@ -156,7 +162,7 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 **Notes**: “Dock” vs “Berth” distinction maintained; local slang prefers “D7”.  
 **Lineage**: TU tu-codex-docks-batch-1
 
-*(Canon’s detailed cause of the “refinery incident” stays in spoiler notes, not here.)*
+_(Canon’s detailed cause of the “refinery incident” stays in spoiler notes, not here.)_
 
 ---
 

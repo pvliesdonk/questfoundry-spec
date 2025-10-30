@@ -30,10 +30,7 @@
     "mode": {
       "type": "string",
       "description": "Gatecheck mode.",
-      "enum": [
-        "pre-gate",
-        "gatecheck"
-      ]
+      "enum": ["pre-gate", "gatecheck"]
     },
     "cold_snapshot": {
       "type": "string",
@@ -61,11 +58,7 @@
     "decision": {
       "type": "string",
       "description": "Gate decision outcome.",
-      "enum": [
-        "pass",
-        "conditional pass",
-        "block"
-      ]
+      "enum": ["pass", "conditional pass", "block"]
     },
     "why": {
       "type": "string",
@@ -102,11 +95,7 @@
           "status": {
             "type": "string",
             "description": "Bar status after review.",
-            "enum": [
-              "green",
-              "yellow",
-              "red"
-            ]
+            "enum": ["green", "yellow", "red"]
           },
           "evidence": {
             "type": "string",
@@ -130,28 +119,18 @@
             "maxLength": 200
           }
         },
-        "required": [
-          "bar",
-          "status",
-          "evidence"
-        ],
+        "required": ["bar", "status", "evidence"],
         "allOf": [
           {
             "if": {
               "properties": {
                 "status": {
-                  "enum": [
-                    "yellow",
-                    "red"
-                  ]
+                  "enum": ["yellow", "red"]
                 }
               }
             },
             "then": {
-              "required": [
-                "smallest_viable_fix",
-                "owner"
-              ]
+              "required": ["smallest_viable_fix", "owner"]
             }
           }
         ]
@@ -174,20 +153,12 @@
         "art": {
           "type": "string",
           "description": "Art coverage state.",
-          "enum": [
-            "none",
-            "plans-only",
-            "renders-included"
-          ]
+          "enum": ["none", "plans-only", "renders-included"]
         },
         "audio": {
           "type": "string",
           "description": "Audio coverage state.",
-          "enum": [
-            "none",
-            "plans-only",
-            "cues-included"
-          ]
+          "enum": ["none", "plans-only", "cues-included"]
         },
         "locales": {
           "type": "string",
@@ -227,19 +198,12 @@
         "level": {
           "type": "string",
           "description": "Escalation level.",
-          "enum": [
-            "L1",
-            "L2",
-            "L3"
-          ]
+          "enum": ["L1", "L2", "L3"]
         },
         "bundle_attached": {
           "type": "string",
           "description": "Whether escalation bundle is attached.",
-          "enum": [
-            "yes",
-            "no"
-          ]
+          "enum": ["yes", "no"]
         }
       }
     },
@@ -287,9 +251,7 @@
                   "const": "yellow"
                 }
               },
-              "required": [
-                "status"
-              ]
+              "required": ["status"]
             }
           }
         }
@@ -312,9 +274,7 @@
                   "const": "red"
                 }
               },
-              "required": [
-                "status"
-              ]
+              "required": ["status"]
             }
           }
         }
