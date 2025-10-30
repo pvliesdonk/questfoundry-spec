@@ -77,7 +77,7 @@ Neighbors: @illustrator @style @translator @binder @gatekeeper
 | `foreman-gate-signpost` | signpost | badge vs scanner | badge region | "Sodium lamps smear along wet steel; the scanner's eye waits." | "A foreman's shadow falls across a badge scanner at a dock checkpoint." | `/manuscript/act1/foreman-gate#inspection` | planned |
 | `<slot-2>` | mood | <…> | <…> | "<…>" | "<…>" | `/manuscript/...#...` | planned/rendering/done |
 
-*Statuses:* `planned` · `rendering` · `done` · `deferred`.
+*Statuses:* `planned` | `rendering` | `done` | `deferred`.
 
 ---
 
