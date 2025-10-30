@@ -23,7 +23,7 @@ Checked: <YYYY-MM-DD> · Gatekeeper: <name/agent>
 Scope: <slice or export target> · Mode: <pre-gate | gatecheck>
 Cold snapshot: [cold@YYYY-MM-DD](mailto:cold@YYYY-MM-DD) (no Hot examined beyond samples)
 Artifacts/Samples: <paths or short list>
-Dormancy state: <deferred:art? deferred:audio? deferred:translation? deferred:research?>
+Dormancy state: <deferred:art deferred:audio deferred:translation deferred:research>
 
 ```
 
@@ -52,6 +52,7 @@ Next actions: <smallest viable fixes + owners>
 | Nonlinearity | green/yellow/red | <loop-with-difference sample> | <add state delta line> | Plotwright/Scene | <brief> |
 | Gateways | green/yellow/red | <diegetic check lines> | <swap meta to diegetic> | Style → Scene | <brief> |
 | Style | green/yellow/red | <register/cadence issues> | <apply pattern; 3 lines> | Style | <brief> |
+| Determinism | green/yellow/red/N/A | <repro params logged?> | <record seed/model/params> | AD/IL/AuD | <brief> |
 | Presentation | green/yellow/red | <spoiler/technique leaks?> | <remove technique; revise caption> | Style/AD/AuD | <brief> |
 | Accessibility | green/yellow/red | <alt/caption/readability> | <write alt; shorten lines> | AD/IL/AuD/Style | <brief> |
 
@@ -129,7 +130,7 @@ Checked: 2025-10-29 · Gatekeeper: GK-02
 Scope: Act I — 3 sections around checkpoint · Mode: gatecheck
 Cold snapshot: cold@2025-10-28
 Artifacts/Samples: /manuscript/act1/foreman-gate#entry, #scanner
-Dormancy: deferred:art · deferred:audio · deferred:translation
+Dormancy: deferred:art deferred:audio deferred:translation
 
 1. Summary
    Decision: conditional pass
@@ -142,8 +143,9 @@ Dormancy: deferred:art · deferred:audio · deferred:translation
    | Integrity    | green  | anchors resolve in sample               | —                                            | Binder        | —     |
    | Reachability | green  | contrastive labels in two nodes         | —                                            | Style→Scene   | —     |
    | Nonlinearity | green  | loop-with-difference observed           | —                                            | Plotwright    | —     |
-   | Gateways     | yellow | “Option locked” at #scanner             | swap to diegetic refusal line                | Style→Scene   | use pattern from Style Addendum |
+   | Gateways     | yellow | "Option locked" at #scanner             | swap to diegetic refusal line                | Style→Scene   | use pattern from Style Addendum |
    | Style        | green  | cadence ok near choices                 | —                                            | Style         | —     |
+   | Determinism  | N/A    | no assets in this TU                    | —                                            | —             | —     |
    | Presentation | green  | no spoilers/technique on surfaces       | —                                            | —             | —     |
    | Accessibility| green  | alt present; short sentences near lists | —                                            | AD/Scene      | —     |
 

@@ -23,18 +23,18 @@ ID: <tu-id> · Opened: <YYYY-MM-DD> · Owner (A): <showrunner> · Responsible (R
 
 ## Scope
 
-Loop: <Story Spark | Style Tune-up | Hook Harvest | Lore Deepening | Codex Expansion | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run>
-Slice: <short description, e.g., “Act I: Foreman Gate (3 sections)”>
+Loop: <Story Spark | Hook Harvest | Lore Deepening | Codex Expansion | Style Tune-up | Art Touch-up | Audio Pass | Translation Pass | Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot>
+Slice: <short description, e.g., "Act I: Foreman Gate (3 sections)">
 Snapshot context: align to Cold @ [cold@YYYY-MM-DD](mailto:cold@YYYY-MM-DD) (no Hot in Views)
 
 ## Roles
 
 Awake: <PW, SS, ST, LW, CC, AD, IL, AuD, AuP, TR, BB, PN, GK>
-Dormant: <list> · Deferral tags: <deferred:art | deferred:audio | deferred:translation | deferred:research>
+Dormant: <list> · Deferral tags: <deferred:art deferred:audio deferred:translation deferred:research>
 
 ## Bars (press/monitor)
 
-Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility>
+Press: <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility>
 Monitor: <others>
 Pre-gate risks: <bullets; smallest likely failures>
 
@@ -93,7 +93,7 @@ Snapshot context: Cold @ 2025-10-27
 
 Awake: ST, GK, SS
 Dormant: AD, IL, AuD, AuP, TR, LW, CC, BB, PN
-Deferral tags: deferred:art · deferred:audio · deferred:translation
+Deferral tags: deferred:art deferred:audio deferred:translation
 
 ## Bars (press/monitor)
 

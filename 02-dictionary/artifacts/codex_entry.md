@@ -111,7 +111,7 @@ Binder note: ensure TOC/grouping under <category> (ASCII slugs if policy)
 ```
 
 From Canon: <summary of player-safe fact intake>
-Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
+Research posture touched: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
 Hooks filed: hook://translator/<term> (if tricky), hook://curator/<child-term> (if new children needed)
 
 ```
