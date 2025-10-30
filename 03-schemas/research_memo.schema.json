@@ -23,9 +23,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the memo; fixed to Researcher.",
-      "enum": [
-        "Researcher"
-      ]
+      "enum": ["Researcher"]
     },
     "slice": {
       "type": "string",

@@ -118,22 +118,22 @@
 
 ## 9) Anti-patterns (don’t do this)
 
-- Exporting from **Hot**, or mixing Hot & Cold sources.  
-- “Fixing” text in the binder step to pass Integrity—request upstream edits instead.  
-- Shipping **technique** in front matter (seeds/models/DAW).  
-- Decorative images without alt text (when not truly decorative).  
+- Exporting from **Hot**, or mixing Hot & Cold sources.
+- “Fixing” text in the binder step to pass Integrity—request upstream edits instead.
+- Shipping **technique** in front matter (seeds/models/DAW).
+- Decorative images without alt text (when not truly decorative).
 - Inconsistent anchors/IDs across language slices.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] Confirm **snapshot** ID with Showrunner  
-- [ ] Assemble bundle with requested options (art/audio/translation)  
-- [ ] Run link/anchor pass; generate **Anchor Map**  
-- [ ] Front matter includes snapshot, options, accessibility, coverage  
-- [ ] **Presentation** bar self-check: no internals/technique leaks  
-- [ ] **View Log** updated (player-safe TU titles; known limitations)  
+- [ ] Confirm **snapshot** ID with Showrunner
+- [ ] Assemble bundle with requested options (art/audio/translation)
+- [ ] Run link/anchor pass; generate **Anchor Map**
+- [ ] Front matter includes snapshot, options, accessibility, coverage
+- [ ] **Presentation** bar self-check: no internals/technique leaks
+- [ ] **View Log** updated (player-safe TU titles; known limitations)
 - [ ] Gatekeeper export spot-check: green
 
 ---

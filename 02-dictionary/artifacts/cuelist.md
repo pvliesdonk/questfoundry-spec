@@ -71,12 +71,12 @@ Neighbors: @audioproducer @style @translator @pn @gatekeeper @binder
 
 > Keep it short. Link **Cue ID** to the full `Audio Plan`. Captions are **player-safe**.
 
-| Cue ID → Plan | Purpose | Placement (short) | Description (plain) | Caption (1 line, safe) | Anchor target | Status |
-|---|---|---|---|---|---|---|
-| `foreman-gate-hum` | pace | under last 2 lines; end before choices | low engine hum rises, then settles | "[A low engine hum rises, then settles.]" | `/manuscript/act1/foreman-gate#scanner` | planned |
-| `<cue-2>` | mood | <…> | <…> | "[<…>]" | `/manuscript/...#...` | planned/producing/done |
+| Cue ID → Plan      | Purpose | Placement (short)                      | Description (plain)                | Caption (1 line, safe)                    | Anchor target                           | Status                 |
+| ------------------ | ------- | -------------------------------------- | ---------------------------------- | ----------------------------------------- | --------------------------------------- | ---------------------- |
+| `foreman-gate-hum` | pace    | under last 2 lines; end before choices | low engine hum rises, then settles | "[A low engine hum rises, then settles.]" | `/manuscript/act1/foreman-gate#scanner` | planned                |
+| `<cue-2>`          | mood    | <…>                                    | <…>                                | "[<…>]"                                   | `/manuscript/...#...`                   | planned/producing/done |
 
-*Statuses:* `planned` | `producing` | `done` | `deferred`.
+_Statuses:_ `planned` | `producing` | `done` | `deferred`.
 
 ---
 
@@ -200,6 +200,7 @@ Hooks
 ## Validation Rules (for Layer 3 schemas)
 
 ### Field-Level Validation
+
 - `Title`: Required, slice name
 - `Edited`: Must be YYYY-MM-DD format, cannot be future date
 - `Owner`: Must be "Audio Director"
@@ -212,12 +213,14 @@ Hooks
 - Per row: Cue ID kebab-case, Purpose from 5 values, Caption format "[<text>]", Status from 4 values
 
 ### Cross-Field Validation
+
 - `Purpose mix` counts must match table row count
 - If `Dormancy` = deferred:audio, all statuses should be "planned"
 - All `Caption` text must be player-safe, no technique (DAW/plugins/settings)
 - `Description` must use plain language, no technique terms
 
 ### Cross-Artifact Validation
+
 - Each `Cue ID` must reference existing Audio Plan artifact
 - `Anchor targets` should reference existing manuscript sections
 - `Register` must align with Style Addendum
@@ -228,22 +231,27 @@ Hooks
 ## Common Errors
 
 **❌ Dormancy mismatch with status**
+
 - Wrong: Dormancy: deferred:audio, Status: producing
 - Right: Dormancy: deferred:audio, Status: planned
 
 **❌ Technique in caption**
+
 - Wrong: Caption: "[Generated with reverb plugin at 2.5s tail]"
 - Right: Caption: "[A low engine hum rises, then settles.]"
 
 **❌ Missing square brackets in caption**
+
 - Wrong: Caption: "A low engine hum rises"
 - Right: Caption: "[A low engine hum rises, then settles.]"
 
 **❌ Technique in description**
+
 - Wrong: Description: "800 Hz lowpass filter, -6dB/oct"
 - Right: Description: "low engine hum rises, then settles"
 
 **❌ Purpose mix doesn't match table**
+
 - Wrong: Purpose mix: 1 pace / Table has 2 pace rows
 - Right: Purpose mix counts must exactly match table row purposes
 

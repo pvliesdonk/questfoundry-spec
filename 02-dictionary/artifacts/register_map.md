@@ -134,6 +134,7 @@ Neighbors: @style @binder @pn @gatekeeper
 ## Validation Rules
 
 ### Field-Level
+
 - `Title`: Required, ISO locale code
 - `Edited`: Required, YYYY-MM-DD format
 - `Owner`: Must be "Translator"
@@ -147,10 +148,12 @@ Neighbors: @style @binder @pn @gatekeeper
 ### Common Errors
 
 **❌ Spoilers in PN patterns**
+
 - Wrong: Gate refusal example: "The foreman is guilty"
 - Right: Gate refusal example: "The scanner blinks red. 'Union badge?'"
 
 **❌ Technique in alt/caption register**
+
 - Wrong: Alt register: "Render with soft focus and warm LUT"
 - Right: Alt register: "neutral; no technique terms"
 

@@ -65,11 +65,7 @@
     "presentation_status": {
       "type": "string",
       "description": "Presentation bar status.",
-      "enum": [
-        "green",
-        "yellow",
-        "red"
-      ]
+      "enum": ["green", "yellow", "red"]
     },
     "presentation_notes": {
       "type": "string",
@@ -79,11 +75,7 @@
     "accessibility_status": {
       "type": "string",
       "description": "Accessibility bar status.",
-      "enum": [
-        "green",
-        "yellow",
-        "red"
-      ]
+      "enum": ["green", "yellow", "red"]
     },
     "accessibility_notes": {
       "type": "string",
@@ -132,10 +124,7 @@
             "maxLength": 200
           }
         },
-        "required": [
-          "kind",
-          "path"
-        ]
+        "required": ["kind", "path"]
       },
       "minItems": 1
     }

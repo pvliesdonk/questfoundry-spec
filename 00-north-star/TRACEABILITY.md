@@ -46,7 +46,7 @@ Every meaningful change that aims for **Cold SoT** is tracked as a **Trace Unit 
 - **Downstream impacts** predict what to recheck: PN lines, Binder nav, QA gate list.
 - **Cross-TU links** are allowed but avoid circular dependence. If two TUs truly interlock, merge them or set one as “follows TU-XXXX”.
 
-**Pro tip**: prefer *many small TUs* over one omnibus TU. Smaller TUs stabilize faster and fail more safely.
+**Pro tip**: prefer _many small TUs_ over one omnibus TU. Smaller TUs stabilize faster and fail more safely.
 
 ---
 

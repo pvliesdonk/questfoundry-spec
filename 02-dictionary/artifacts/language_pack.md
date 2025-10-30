@@ -107,17 +107,18 @@ Micro-recap (pattern + example): <…>
 
 > Terms likely to appear in the slice; keep definitions neutral.
 
-| Source term | Target term | Notes for usage/ambiguity |
-|---|---|---|
-| <union token> | <…> | avoid brand-like capitalization |
-| <inspection logs> | <…> | neutral bureaucratic phrasing |
-| <foreman> | <…> | register: formal |
+| Source term       | Target term | Notes for usage/ambiguity       |
+| ----------------- | ----------- | ------------------------------- |
+| <union token>     | <…>         | avoid brand-like capitalization |
+| <inspection logs> | <…>         | neutral bureaucratic phrasing   |
+| <foreman>         | <…>         | register: formal                |
 
 ---
 
 ## Validation Rules
 
 ### Field-Level
+
 - `Title`: Required, ISO locale code
 - `Edited`: Required, YYYY-MM-DD format
 - `Owner`: Must be "Translator"
@@ -135,10 +136,12 @@ Micro-recap (pattern + example): <…>
 ### Common Errors
 
 **❌ Pipe-separated deferrals**
+
 - Wrong: `Deferrals: deferred:translation|deferred:research`
 - Right: `Deferrals: deferred:translation deferred:research`
 
 **❌ Spoilers in glossary**
+
 - Wrong: Source term: "foreman" | Target term: "guilty supervisor"
 - Right: Source term: "foreman" | Target term: "dock supervisor" | Notes: register: formal
 

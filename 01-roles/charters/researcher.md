@@ -104,10 +104,10 @@
 **Dormancy:** Researcher is **often dormant** by default.  
 **Wake signals (examples):**
 
-- Claims affect **safety** or **high-stakes plausibility** (medicine, law, engineering).  
-- Gatekeeper flags **Presentation** risk rooted in accuracy.  
-- Translator raises **culture/idiom** concerns.  
-- Lore/Plot need **constraints** to justify canon or topology.  
+- Claims affect **safety** or **high-stakes plausibility** (medicine, law, engineering).
+- Gatekeeper flags **Presentation** risk rooted in accuracy.
+- Translator raises **culture/idiom** concerns.
+- Lore/Plot need **constraints** to justify canon or topology.
 
 **When dormant:** Owners keep surfaces **neutral**; mark items in Hot as `uncorroborated:<risk>`; Showrunner schedules a Research TU before release if risk ≥ med.
 
@@ -115,30 +115,30 @@
 
 ## 8) Cross-Domain & Escalation
 
-- If findings **pressure canon**, pair with **Lore** to set constraints, not outcomes.  
-- If findings **pressure topology**, ping **Plotwright** with a hook (“door needs two-step check; here are credible options”).  
-- For **terminology**, coordinate with **Curator** (entry) and **Translator** (register/idiom).  
+- If findings **pressure canon**, pair with **Lore** to set constraints, not outcomes.
+- If findings **pressure topology**, ping **Plotwright** with a hook (“door needs two-step check; here are credible options”).
+- For **terminology**, coordinate with **Curator** (entry) and **Translator** (register/idiom).
 - For **sensitive content**, coordinate with **Style Lead** and **Gatekeeper**; escalate policy changes via **ADR** if needed.
 
 ---
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Wikipedia dump**: long, unfiltered notes without synthesis.  
-- **False certainty**: asserting disputed facts without posture.  
-- **Technique leakage** on surfaces: “seed 1234,” “roll DC 15,” or academic citation chatter.  
-- **Canon invention** disguised as research.  
+- **Wikipedia dump**: long, unfiltered notes without synthesis.
+- **False certainty**: asserting disputed facts without posture.
+- **Technique leakage** on surfaces: “seed 1234,” “roll DC 15,” or academic citation chatter.
+- **Canon invention** disguised as research.
 - **Single-source overfit** where consensus is mixed.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] TU scoped: questions listed, stakes noted  
-- [ ] Short answers + **citations** (2–5) + posture set  
-- [ ] **Neutral phrasing** suggestions for surfaces (if needed)  
-- [ ] Risks & mitigations listed; sensitive language flagged  
-- [ ] Hooks filed for Plot/Lore/Curator opportunities  
+- [ ] TU scoped: questions listed, stakes noted
+- [ ] Short answers + **citations** (2–5) + posture set
+- [ ] **Neutral phrasing** suggestions for surfaces (if needed)
+- [ ] Risks & mitigations listed; sensitive language flagged
+- [ ] Hooks filed for Plot/Lore/Curator opportunities
 - [ ] Self-check vs. **Presentation** bar (player-safe surface suggestions)
 
 ---
@@ -147,21 +147,21 @@
 
 **Feasibility (gate)**
 
-- Q: *Can a standard dock badge be cloned easily?*  
-- A: **Plausible with insider access**; commercial readers resist simple duplication.  
-- Phrasing (surface): “The scanner blinks red. ‘Union badge?’ the guard asks.”  
+- Q: _Can a standard dock badge be cloned easily?_
+- A: **Plausible with insider access**; commercial readers resist simple duplication.
+- Phrasing (surface): “The scanner blinks red. ‘Union badge?’ the guard asks.”
 - Implication: Gate can check **badge + foreman recognition**; loop-with-difference via insider contact.
 
 **Safety (audio)**
 
-- Q: *Alarm loudness in enclosed metal spaces?*  
-- A: **High risk** of startle; recommend **brief, lower-intensity** stingers; add content note.  
+- Q: _Alarm loudness in enclosed metal spaces?_
+- A: **High risk** of startle; recommend **brief, lower-intensity** stingers; add content note.
 - Phrasing (surface): “[A short alarm chirps twice, distant.]”
 
 **Terminology (codex)**
 
-- Q: *Correct term for legal salvage pass?*  
-- A: **Regionally varied**; “salvage permit” is widely intelligible.  
+- Q: _Correct term for legal salvage pass?_
+- A: **Regionally varied**; “salvage permit” is widely intelligible.
 - Hook: Curator entry with variants; Translator register map.
 
 ---

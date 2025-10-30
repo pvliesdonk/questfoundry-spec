@@ -124,46 +124,46 @@
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Canon dump** disguised as “context.”  
-- **Wiki sprawl**: many shallow pages that don’t help choices.  
-- **Orphan entries** with no inbound links and no real affordance.  
-- **See-also loops** that bounce readers without adding clarity.  
+- **Canon dump** disguised as “context.”
+- **Wiki sprawl**: many shallow pages that don’t help choices.
+- **Orphan entries** with no inbound links and no real affordance.
+- **See-also loops** that bounce readers without adding clarity.
 - **Meta leakage** (“flag set in Act II”, “seed 998877”) or internal IDs.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] TU scoped; target terms/entities listed  
-- [ ] Entries drafted from **Lore summaries**; spoilers stripped  
-- [ ] Links/anchors resolve across export formats  
-- [ ] Glossary slice & register notes updated; Translator notified if needed  
-- [ ] PN phrasing supported (no mechanic talk)  
-- [ ] Hooks filed for missing summaries/anchors  
+- [ ] TU scoped; target terms/entities listed
+- [ ] Entries drafted from **Lore summaries**; spoilers stripped
+- [ ] Links/anchors resolve across export formats
+- [ ] Glossary slice & register notes updated; Translator notified if needed
+- [ ] PN phrasing supported (no mechanic talk)
+- [ ] Hooks filed for missing summaries/anchors
 - [ ] Self-check vs. **Integrity** & **Presentation** bars
 
 ---
 
 ## 11) Tiny Examples
 
-**Bad → Good (spoiler removal)**  
+**Bad → Good (spoiler removal)**
 
-- Bad: “Dock-7 explosion was Syndicate sabotage.”  
+- Bad: “Dock-7 explosion was Syndicate sabotage.”
 - Good: “A refinery mishap years ago reshaped safety drills and cargo routes.”
 
-**Bad → Good (link text)**  
+**Bad → Good (link text)**
 
-- Bad: “See here”  
+- Bad: “See here”
 - Good: “See **Salvage Permits** and **Union Tokens**.”
 
-**Entry skeleton (player-safe)**  
+**Entry skeleton (player-safe)**
 
-- **Title:** Union Token  
-- **Overview:** A lapel badge used by dock workers to identify union membership during inspections.  
-- **Usage:** Often required to enter restricted maintenance areas.  
-- **Context:** After past safety incidents, foremen inspect badges more strictly.  
-- **See also:** Salvage Permits; Foreman’s Gate; Maintenance Protocols  
-- **Notes:** Terminology varies by station.  
+- **Title:** Union Token
+- **Overview:** A lapel badge used by dock workers to identify union membership during inspections.
+- **Usage:** Often required to enter restricted maintenance areas.
+- **Context:** After past safety incidents, foremen inspect badges more strictly.
+- **See also:** Salvage Permits; Foreman’s Gate; Maintenance Protocols
+- **Notes:** Terminology varies by station.
 - **Lineage:** TU tu-codex-docks-20251028 · Snapshot cold@2025-10-28
 
 ---

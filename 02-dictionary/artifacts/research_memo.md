@@ -119,7 +119,7 @@ Caveats: <bullets on gaps, contention, edge cases>
 - "<safe line 3>"  (optional)
 ```
 
-*Rules:* no technique (seeds/models/DAW), no codewords/logic, keep register per Style.
+_Rules:_ no technique (seeds/models/DAW), no codewords/logic, keep register per Style.
 
 ---
 
@@ -276,50 +276,62 @@ hook://research/reader-firmware — prevalence of vulnerable models (defer)
 ## Common Errors
 
 **❌ Nested posture format**
+
 - Wrong: `uncorroborated:<low|med|high>`
 - Right: `uncorroborated:low | uncorroborated:medium | uncorroborated:high` (flat, space-separated)
 
 **❌ Using "med" abbreviation**
+
 - Wrong: `uncorroborated:med`
 - Right: `uncorroborated:medium` (full word per taxonomy §8)
 
 **❌ Jargon in Short Answer**
+
 - Wrong: "RFID cloning via UID byte manipulation is plausible with ISO 14443A Type 2 tags."
 - Right: "Cloning is plausible with insider access; commodity readers resist trivial duplication."
 
 **❌ Spoilers in Neutral Phrasing**
+
 - Wrong: "The foreman suspects the badge is cloned because of the retrofit accident."
 - Right: "The scanner hesitates. The foreman studies your lapel."
 
 **❌ Using technique in Neutral Phrasing**
+
 - Wrong: "Set flag BADGE_CLONED to true if player has insider access."
 - Right: "The reader blinks, then waits for the guard's nod."
 
 **❌ Insufficient sources for posture**
+
 - Wrong: Posture: corroborated, but only 1 source listed
 - Right: Posture: corroborated requires multiple independent credible sources (2-5)
 
 **❌ Missing Neutral Phrasing when not corroborated**
+
 - Wrong: Posture: plausible, but no Neutral Phrasing provided
 - Right: If posture is not "corroborated", must provide 1-3 neutral phrasing lines
 
 **❌ Non-actionable Creative Implications**
+
 - Wrong: "Plotwright: Think about gate options."
 - Right: "Plotwright: allow insider route as loop-with-difference; otherwise enforce visual check"
 
 **❌ Missing risk mitigations**
+
 - Wrong: Risks listed, but no mitigations provided
 - Right: For each risk, provide specific mitigation (tone, wording, placement)
 
 **❌ Unchecked Done checklist at handoff**
+
 - Wrong: Handing off with 2/6 items unchecked
 - Right: All 6 items must be ticked before handoff
 
 **❌ Question too broad**
+
 - Wrong: "How do docks work?"
 - Right: "Can a dock badge be cloned with off-the-shelf gear?" (smallest useful question)
 
 **❌ Evidence without relevance summary**
+
 - Wrong: "- https://example.com/whitepaper.pdf"
 - Right: "- Trade whitepaper on RFID dock passes — common anti-clone features"
 
@@ -327,26 +339,26 @@ hook://research/reader-firmware — prevalence of vulnerable models (defer)
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | Title | string | yes | Topic / question short name |
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Owner | role-name | yes | Fixed: Researcher |
-| Header | Slice | markdown | yes | 1-2 lines, player-safe scope |
-| Header | Stakeholders | role-list | yes | @role mentions (min 5) |
-| §1 | Question | markdown | yes | One line, surface language |
-| §1 | Where it appears | markdown | yes | Manuscript location or codex/caption |
-| §1 | Why it matters | markdown | yes | Gate fairness \| safety \| terminology \| tone |
-| §2 | Short Answer | markdown | yes | 2-5 lines, plain language |
-| §3 | Evidence (Hot) | markdown-list | yes | 2-5 sources with relevance |
-| §4 | Posture | enum | yes | Research Posture Levels (§8) - 6 flat values |
-| §4 | Caveats | markdown-list | optional | Gaps, contention, edge cases |
-| §5 | Neutral Phrasing | markdown-list | yes | 1-3 lines, player-safe |
-| §6 | Risks & Mitigations | markdown | yes | Safety, cultural, legal |
-| §7 | Creative Implications | markdown-list | yes | Per role (min 5 roles) |
-| §8 | Hooks filed | markdown-list | optional | hook://<domain>/<topic> |
-| §9 | Done checklist | markdown-list | yes | 6 items; all must be ticked |
+| Section | Field                 | Type          | Required | Taxonomy/Constraint                            |
+| ------- | --------------------- | ------------- | -------- | ---------------------------------------------- |
+| Header  | Title                 | string        | yes      | Topic / question short name                    |
+| Header  | TU                    | tu-id         | yes      | Format: TU-YYYY-MM-DD-<role><seq>              |
+| Header  | Edited                | date          | yes      | Format: YYYY-MM-DD                             |
+| Header  | Owner                 | role-name     | yes      | Fixed: Researcher                              |
+| Header  | Slice                 | markdown      | yes      | 1-2 lines, player-safe scope                   |
+| Header  | Stakeholders          | role-list     | yes      | @role mentions (min 5)                         |
+| §1      | Question              | markdown      | yes      | One line, surface language                     |
+| §1      | Where it appears      | markdown      | yes      | Manuscript location or codex/caption           |
+| §1      | Why it matters        | markdown      | yes      | Gate fairness \| safety \| terminology \| tone |
+| §2      | Short Answer          | markdown      | yes      | 2-5 lines, plain language                      |
+| §3      | Evidence (Hot)        | markdown-list | yes      | 2-5 sources with relevance                     |
+| §4      | Posture               | enum          | yes      | Research Posture Levels (§8) - 6 flat values   |
+| §4      | Caveats               | markdown-list | optional | Gaps, contention, edge cases                   |
+| §5      | Neutral Phrasing      | markdown-list | yes      | 1-3 lines, player-safe                         |
+| §6      | Risks & Mitigations   | markdown      | yes      | Safety, cultural, legal                        |
+| §7      | Creative Implications | markdown-list | yes      | Per role (min 5 roles)                         |
+| §8      | Hooks filed           | markdown-list | optional | hook://<domain>/<topic>                        |
+| §9      | Done checklist        | markdown-list | yes      | 6 items; all must be ticked                    |
 
 **Total fields: 20** (6 metadata, 5 content, 1 classification, 5 relationships, 1 validation, 2 determinism)
 

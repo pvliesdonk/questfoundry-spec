@@ -18,9 +18,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the shotlist; fixed to Art Director.",
-      "enum": [
-        "Art Director"
-      ]
+      "enum": ["Art Director"]
     },
     "scope": {
       "type": "string",
@@ -31,11 +29,7 @@
     "dormancy": {
       "type": "string",
       "description": "Dormancy state, including deferral tagging when plan-only.",
-      "enum": [
-        "active",
-        "plan-only (deferred:art)",
-        "dormant"
-      ]
+      "enum": ["active", "plan-only (deferred:art)", "dormant"]
     },
     "snapshot": {
       "type": "string",
@@ -127,12 +121,7 @@
           "purpose": {
             "type": "string",
             "description": "Primary art purpose for this slot.",
-            "enum": [
-              "clarify",
-              "recall",
-              "mood",
-              "signpost"
-            ]
+            "enum": ["clarify", "recall", "mood", "signpost"]
           },
           "subject": {
             "type": "string",
@@ -171,12 +160,7 @@
           "status": {
             "type": "string",
             "description": "Current production status for the slot.",
-            "enum": [
-              "planned",
-              "rendering",
-              "done",
-              "deferred"
-            ]
+            "enum": ["planned", "rendering", "done", "deferred"]
           }
         },
         "required": [

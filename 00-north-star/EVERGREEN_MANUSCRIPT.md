@@ -19,7 +19,7 @@ Each view records:
 ## 2) What a view contains (player-safe surfaces)
 
 - **Hyperlinked manuscript** (sections + choices; terminals clearly marked)
-- **Codeword & gateway checklists** *(player-safe wording; no internal names)*
+- **Codeword & gateway checklists** _(player-safe wording; no internal names)_
 - **Codex** (player-safe entries with cross-refs)
 - **Front matter** (title, credits, snapshot ID, content warnings if applicable)
 - **Back matter** (appendices, acknowledgements, export options used)
@@ -48,15 +48,15 @@ Binder does not rewrite content; issues get logged as TUs or loop triggers via S
 
 ## 4) Export options (mix-and-match)
 
-| Option | Default | Notes |
-|---|---|---|
-| Include art plan | off | Plans may ship without renders; must be spoiler-safe. |
-| Include art renders | off | Requires determinism log in Cold if promised. |
-| Include audio plan | off | Spoiler-safe cue descriptions only. |
-| Include audio assets | off | Provide text equivalents and safety notes. |
-| Include translations | off | Flag each slice `complete` / `incomplete`. |
-| Print-friendly layout | on | Single-column, high contrast, no color-only cues. |
-| PN script | off | Usually reserved for PN tools; if included, stays spoiler-safe. |
+| Option                | Default | Notes                                                           |
+| --------------------- | ------- | --------------------------------------------------------------- |
+| Include art plan      | off     | Plans may ship without renders; must be spoiler-safe.           |
+| Include art renders   | off     | Requires determinism log in Cold if promised.                   |
+| Include audio plan    | off     | Spoiler-safe cue descriptions only.                             |
+| Include audio assets  | off     | Provide text equivalents and safety notes.                      |
+| Include translations  | off     | Flag each slice `complete` / `incomplete`.                      |
+| Print-friendly layout | on      | Single-column, high contrast, no color-only cues.               |
+| PN script             | off     | Usually reserved for PN tools; if included, stays spoiler-safe. |
 
 ---
 

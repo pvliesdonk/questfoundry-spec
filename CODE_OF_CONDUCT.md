@@ -53,9 +53,9 @@ We will respect requests for confidentiality. Retaliation against reporters is i
 
 Maintainers will review all reports promptly and fairly. Actions may include:
 
-1. Clarification or private warning  
-2. Temporary or permanent restrictions (issues/PRs/discussions)  
-3. Temporary or permanent removal from the community  
+1. Clarification or private warning
+2. Temporary or permanent restrictions (issues/PRs/discussions)
+3. Temporary or permanent removal from the community
 4. Escalation to hosting platforms or, if necessary, relevant authorities
 
 Enforcement decisions are made by the maintainer team acting as **Showrunner** (triage) and **Gatekeeper** (standards). When feasible, we will share a brief summary of actions taken with the reporter.
@@ -64,10 +64,10 @@ Enforcement decisions are made by the maintainer team acting as **Showrunner** (
 
 ## Guidelines for reviewers
 
-- Focus on the work, not the worker.  
-- Request **small, testable** changes.  
-- Call out spoilers or safety issues immediately.  
-- If a thread heats up, pause and invite a maintainer.  
+- Focus on the work, not the worker.
+- Request **small, testable** changes.
+- Call out spoilers or safety issues immediately.
+- If a thread heats up, pause and invite a maintainer.
 - When in doubt, move complex disputes to an ADR discussion rather than litigating in a PR.
 
 ---

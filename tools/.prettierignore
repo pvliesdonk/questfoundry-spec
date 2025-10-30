@@ -1,0 +1,24 @@
+# Dependencies and build artifacts
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+
+# Lock files (generated, don't format)
+uv.lock
+package-lock.json
+yarn.lock
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Specific files to exclude
+# (Add any documentation archives or examples that shouldn't be formatted)

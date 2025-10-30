@@ -41,11 +41,7 @@
     "edition": {
       "type": "string",
       "description": "Edition label shown to players.",
-      "enum": [
-        "Standard",
-        "Annotated",
-        "Classroom"
-      ]
+      "enum": ["Standard", "Annotated", "Classroom"]
     },
     "audience_note": {
       "type": "string",

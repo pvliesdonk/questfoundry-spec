@@ -3,7 +3,7 @@
 > **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
 > This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals).
 
-> **Use:** Capture **repeatable patterns** and **tiny examples** the owners can apply without rewrites. This addendum supplements the house style with *slice-specific* guidance (register, banned/preferred forms, PN phrasing, captions/alt). Keep it **player-safe**: no spoilers, no internals.
+> **Use:** Capture **repeatable patterns** and **tiny examples** the owners can apply without rewrites. This addendum supplements the house style with _slice-specific_ guidance (register, banned/preferred forms, PN phrasing, captions/alt). Keep it **player-safe**: no spoilers, no internals.
 
 ---
 
@@ -52,7 +52,7 @@ Neighbors: @scene @pn @translator @gatekeeper
 - **Pronouns & address:** <2nd person direct; titles for officials; …>
 - **Tense/aspect:** <present-simple; avoid progressive; …>
 
-> *If this conflicts with global policy, escalate for ADR.*
+> _If this conflicts with global policy, escalate for ADR._
 
 ---
 
@@ -77,11 +77,11 @@ Neighbors: @scene @pn @translator @gatekeeper
 
 - **Gate refusal (pattern):**
   "\<world cue\>. '\<short in-world check/refusal\>'"
-  *Ex:* "The scanner blinks red. 'Union badge?'"
+  _Ex:_ "The scanner blinks red. 'Union badge?'"
 
 - **Choice labels (pattern):**
-  "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast of *approach*)
-  *Ex:* "Slip through maintenance / Face the foreman."
+  "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast of _approach_)
+  _Ex:_ "Slip through maintenance / Face the foreman."
 
 - **Micro-recap (≤2 lines):**
   "\<state change\>. \<current stakes\>."
@@ -93,7 +93,7 @@ Neighbors: @scene @pn @translator @gatekeeper
 <!-- Field: Scene-Level Patterns | Type: markdown-list | Optional: yes | Guidance for Scene Smith application -->
 <!-- Validation: Keep actionable; avoid abstract directives -->
 
-- **Context line before choices (if needed):** one line that clarifies *why* the options differ.
+- **Context line before choices (if needed):** one line that clarifies _why_ the options differ.
 - **Show, don't lecture:** swap exposition for a physical cue when a term is in the **Codex**.
 - **Diegetic time pressure:** concrete sensory tick ("dock klaxon", "clock sweep") rather than meta countdowns.
 
@@ -131,10 +131,10 @@ Neighbors: @scene @pn @translator @gatekeeper
 <!-- Validation: Columns must be: Location | Issue | Before | After | Owner -->
 <!-- Cross-artifact: Locations should reference manuscript sections; owners must be valid roles -->
 
-| Location | Issue | Before | After | Owner |
-|---|---|---|---|---|
-| `/manuscript/act1/foreman-gate#entry` | `choice-ambiguity` | "Go / Proceed." | "Slip through maintenance / Face the foreman." | Scene |
-| `/manuscript/act1/foreman-gate#scanner` | `meta-gate` | "Option locked: missing CODEWORD." | "The scanner blinks red. 'Union badge?'" | Scene |
+| Location                                | Issue              | Before                             | After                                          | Owner |
+| --------------------------------------- | ------------------ | ---------------------------------- | ---------------------------------------------- | ----- |
+| `/manuscript/act1/foreman-gate#entry`   | `choice-ambiguity` | "Go / Proceed."                    | "Slip through maintenance / Face the foreman." | Scene |
+| `/manuscript/act1/foreman-gate#scanner` | `meta-gate`        | "Option locked: missing CODEWORD." | "The scanner blinks red. 'Union badge?'"       | Scene |
 
 ---
 
@@ -284,42 +284,52 @@ Change Log
 ## Common Errors
 
 **❌ Meta language in PN patterns**
+
 - Wrong: "Option locked: missing CODEWORD."
 - Right: "The scanner blinks red. 'Union badge?'"
 
 **❌ Using technique in captions**
+
 - Wrong: "Render with 85mm lens, warm LUT, f/1.8 aperture."
 - Right: "Sodium lamps smear along wet steel; the scanner's eye waits."
 
 **❌ Vague or metaphorical alt text**
+
 - Wrong: "Hope and despair collide."
 - Right: "A foreman's shadow falls across a badge scanner at a dock checkpoint."
 
 **❌ Non-actionable PN patterns**
+
 - Wrong: "Be creative with gate refusals."
 - Right: "\<world cue\>. '\<short in-world check/refusal\>'" with example
 
 **❌ Choice labels without verb+object pattern**
+
 - Wrong: "Option A / Option B"
 - Right: "Slip through maintenance / Face the foreman."
 
 **❌ Changing global policy without escalation**
+
 - Wrong: Register: "Use past tense for all narrative" (conflicts with global present-simple policy)
 - Right: Note conflict and escalate for ADR if needed
 
 **❌ Missing required PN pattern types**
+
 - Wrong: Only gate refusal pattern provided
 - Right: All three required: gate refusal, choice labels, micro-recap
 
 **❌ Before → After table with invalid owner**
+
 - Wrong: Owner = "Bob"
 - Right: Owner = "Scene" or "PN" or other valid Layer 1 role
 
 **❌ Spoilers in player-facing patterns**
+
 - Wrong: Micro-recap: "You avoided the foreman who is guilty of the retrofit accident."
 - Right: Micro-recap: "You kept the badge pocketed. The inspection line tightens."
 
 **❌ Unchecked Done checklist at handoff**
+
 - Wrong: Handing off with 3/7 items unchecked
 - Right: All 7 items must be ticked before handoff
 
@@ -327,31 +337,31 @@ Change Log
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | Title | string | yes | Slice or theme name |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Owner | role-name | yes | Fixed: Style Lead |
-| Header | Scope | markdown | yes | 1-2 lines, player-safe |
-| Header | Snapshot | cold-date-ref | yes | Format: Cold @ YYYY-MM-DD |
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Neighbors | role-list | yes | @role mentions |
-| §1 | Register | enum | optional | neutral \| formal \| colloquial |
-| §1 | Voice & Address | markdown | yes | Pronouns, formality, directness |
-| §1 | Tense / Aspect / Mood | markdown | yes | Tense policy |
-| §1 | Cadence | markdown | optional | Line length guidance |
-| §2 | Banned / Preferred | markdown-list | yes | Forbidden/preferred phrases |
-| §3 | PN Patterns | markdown-list | yes | Gate, choice, micro-recap patterns |
-| §4 | Scene-Level Patterns | markdown-list | optional | Actionable guidance |
-| §5 | Caption guideline | markdown | optional | One line, no technique |
-| §5 | Alt guidance | markdown | optional | Subject + relation + location |
-| §6 | Translator Notes | markdown-list | optional | Portability guidance |
-| §7 | Before → After | table | optional | Columns: Location, Issue, Before, After, Owner |
-| §8 | Accessibility nudges | markdown-list | optional | Readability guidance |
-| §9 | Hooks filed | markdown-list | optional | hook://<domain>/<topic> |
-| §9 | Hand-offs | markdown | optional | Who applies what |
-| §10 | Change Log | markdown | optional | YYYY-MM-DD — version — description |
-| §11 | Done checklist | markdown-list | yes | 7 items; all must be ticked |
+| Section | Field                 | Type          | Required | Taxonomy/Constraint                            |
+| ------- | --------------------- | ------------- | -------- | ---------------------------------------------- |
+| Header  | Title                 | string        | yes      | Slice or theme name                            |
+| Header  | Edited                | date          | yes      | Format: YYYY-MM-DD                             |
+| Header  | Owner                 | role-name     | yes      | Fixed: Style Lead                              |
+| Header  | Scope                 | markdown      | yes      | 1-2 lines, player-safe                         |
+| Header  | Snapshot              | cold-date-ref | yes      | Format: Cold @ YYYY-MM-DD                      |
+| Header  | TU                    | tu-id         | yes      | Format: TU-YYYY-MM-DD-<role><seq>              |
+| Header  | Neighbors             | role-list     | yes      | @role mentions                                 |
+| §1      | Register              | enum          | optional | neutral \| formal \| colloquial                |
+| §1      | Voice & Address       | markdown      | yes      | Pronouns, formality, directness                |
+| §1      | Tense / Aspect / Mood | markdown      | yes      | Tense policy                                   |
+| §1      | Cadence               | markdown      | optional | Line length guidance                           |
+| §2      | Banned / Preferred    | markdown-list | yes      | Forbidden/preferred phrases                    |
+| §3      | PN Patterns           | markdown-list | yes      | Gate, choice, micro-recap patterns             |
+| §4      | Scene-Level Patterns  | markdown-list | optional | Actionable guidance                            |
+| §5      | Caption guideline     | markdown      | optional | One line, no technique                         |
+| §5      | Alt guidance          | markdown      | optional | Subject + relation + location                  |
+| §6      | Translator Notes      | markdown-list | optional | Portability guidance                           |
+| §7      | Before → After        | table         | optional | Columns: Location, Issue, Before, After, Owner |
+| §8      | Accessibility nudges  | markdown-list | optional | Readability guidance                           |
+| §9      | Hooks filed           | markdown-list | optional | hook://<domain>/<topic>                        |
+| §9      | Hand-offs             | markdown      | optional | Who applies what                               |
+| §10     | Change Log            | markdown      | optional | YYYY-MM-DD — version — description             |
+| §11     | Done checklist        | markdown-list | yes      | 7 items; all must be ticked                    |
 
 **Total fields: 23** (6 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5 localization, 2 accessibility)
 

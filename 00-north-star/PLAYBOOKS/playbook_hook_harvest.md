@@ -31,19 +31,15 @@
 
 1. Sweep all new hooks; **don’t delete duplicates**—link them, keep provenance.
 
-**Cluster (All)**
-2. Group by **theme**, then by **type**: `narrative | scene | factual | taxonomy`.
+**Cluster (All)** 2. Group by **theme**, then by **type**: `narrative | scene | factual | taxonomy`.
 
-**Annotate (Showrunner + Specialists)**
-3. For each hook, set:
+**Annotate (Showrunner + Specialists)** 3. For each hook, set:
 
 - **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`, `reject`.
 - **Uncertainty** (factual only): `uncorroborated:low/med/high` + citations (if any).
 - **Dependencies**: roles/tools that must wake (Researcher, Lore, Plot, etc.).
 
-**Decide (Showrunner)**
-4. Mark each: `accepted | deferred | rejected` (1-line reason).
-5. Assign a **next loop** for `accepted`:
+**Decide (Showrunner)** 4. Mark each: `accepted | deferred | rejected` (1-line reason). 5. Assign a **next loop** for `accepted`:
 
 - `lore_deepening` (canonization),
 - `story_spark` (if topology must change),
@@ -51,19 +47,18 @@
 - `codex_expansion` (taxonomy/coverage),
 - `research_pass` (implicit if Researcher is active).
 
-**Package (Showrunner)**
-6. Draft the **Harvest Sheet** (see template) and attach to the TU.
+**Package (Showrunner)** 6. Draft the **Harvest Sheet** (see template) and attach to the TU.
 
 ---
 
 ## 4) Roles (RACI micro)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Run harvest | Showrunner | Showrunner | Lore, Plotwright, Scene Smith, Curator, Researcher*, Style, Gatekeeper | All |
-| Triage tags & decisions | Showrunner | Showrunner | Specialists above | Gatekeeper |
-| Uncertainty levels | Researcher* | Showrunner | — | Gatekeeper |
-| Harvest Sheet | Showrunner | Showrunner | — | All |
+| Task                    | R            | A          | C                                                                       | I          |
+| ----------------------- | ------------ | ---------- | ----------------------------------------------------------------------- | ---------- |
+| Run harvest             | Showrunner   | Showrunner | Lore, Plotwright, Scene Smith, Curator, Researcher\*, Style, Gatekeeper | All        |
+| Triage tags & decisions | Showrunner   | Showrunner | Specialists above                                                       | Gatekeeper |
+| Uncertainty levels      | Researcher\* | Showrunner | —                                                                       | Gatekeeper |
+| Harvest Sheet           | Showrunner   | Showrunner | —                                                                       | All        |
 
 \*If Researcher is dormant, Showrunner marks uncertainty as `uncorroborated:<risk>`.
 

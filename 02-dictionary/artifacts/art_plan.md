@@ -50,10 +50,10 @@ Rationale: <1–2 lines on why this image helps the reader here>
 
 ```
 
-> *Clarify* = make a described object/space legible.
-> *Recall* = help memory of a prior scene/concept.
-> *Mood* = set atmosphere that prose can't carry alone.
-> *Signpost* = reduce hesitation at hubs/gates.
+> _Clarify_ = make a described object/space legible.
+> _Recall_ = help memory of a prior scene/concept.
+> _Mood_ = set atmosphere that prose can't carry alone.
+> _Signpost_ = reduce hesitation at hubs/gates.
 
 ---
 
@@ -431,58 +431,72 @@ Status: planned
 ## Common Errors
 
 **❌ Using technique terms in Composition Intent**
+
 - Wrong: "85mm lens, f/1.8 aperture, warm LUT"
 - Right: "Framing: tight · Angle: slight low · Distance: close"
 
 **❌ Using technique terms in Light / Palette / Texture**
+
 - Wrong: "3200K color temperature, 0.7 ND filter, HSL curves"
 - Right: "Light: sodium lamp glow; soft shadow under gantry"
 
 **❌ Using technique in Caption**
+
 - Wrong: "Render with volumetric lighting and depth of field."
 - Right: "Sodium lamps smear along wet steel; the scanner's eye waits."
 
 **❌ Vague or metaphorical Alt text**
+
 - Wrong: "Authority and resistance meet."
 - Right: "A foreman's shadow falls across a badge scanner at a dock checkpoint."
 
 **❌ Abstract Subject**
+
 - Wrong: "Subject: power dynamics and surveillance"
 - Right: "Subject: lapel area and dock badge scanner"
 
 **❌ Missing exclude condition in Inclusion Criteria**
+
 - Wrong: "Include when: sections invoking inspection"
 - Right: "Include when: sections invoking inspection / Exclude when: post-inspection interiors"
 
 **❌ Spoilers in Environment & Props**
+
 - Wrong: "Location tells: syndicate safehouse with hidden weapons cache"
 - Right: "Location tells: dock railing; industrial signage shapes (no readable text)"
 
 **❌ Secret identities in Characters & Poses**
+
 - Wrong: "Who is visible: Agent X disguised as foreman"
 - Right: "Who is visible: foreman silhouette shoulder/hand"
 
 **❌ Producer logs in player-facing surfaces**
+
 - Wrong: Caption: "Generated with Stable Diffusion 2.1, seed 42, cfg 7.5"
 - Right: Caption in §9 is player-safe; Producer logs stay in §13 off-surface
 
 **❌ Missing selection rule when variants present**
+
 - Wrong: Variants: "tighter crop for mobile" (no selection rule)
 - Right: Variants: "tighter crop for mobile" / Selection rule: "choose tight when width < 480 px"
 
 **❌ Purpose without rationale**
+
 - Wrong: "Purpose: signpost" (no rationale)
 - Right: "Purpose: signpost / Rationale: Readers hesitate at the gate; show what matters."
 
 **❌ Accessibility without mitigations**
+
 - Wrong: "Accessibility: busy textures" (risks only, no mitigations)
 - Right: "Accessibility: busy textures → use high contrast at focal; simplify background"
 
 **❌ Missing required handoffs**
+
 - Wrong: Only Illustrator handoff listed
 - Right: All 5 required handoffs (Illustrator, Style, Translator, Gatekeeper, Binder)
 
 **❌ Unchecked Done checklist at handoff**
+
 - Wrong: Handing to Illustrator with 3/8 items unchecked
 - Right: All 8 items must be ticked before status = rendering
 
@@ -490,44 +504,44 @@ Status: planned
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | Title | string | yes | Slot id / short name |
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Owner | role-name | yes | Fixed: Art Director |
-| Header | Slice | markdown | yes | Short scope label |
-| Header | Status (Art) | enum | yes | planned \| rendering \| done \| deferred |
-| §1 | Purpose (Art) | enum | yes | clarify \| recall \| mood \| signpost |
-| §1 | Rationale (Purpose) | markdown | yes | 1-2 lines reader benefit |
-| §2 | Subject | markdown | yes | Concrete nouns |
-| §2 | Focal affordance | markdown | yes | What must be readable |
-| §3 | Composition Intent | markdown | yes | No technique terms |
-| §3 | Framing | enum | optional | tight \| medium \| wide |
-| §3 | Angle | enum | optional | eye \| low \| high \| oblique |
-| §3 | Distance | enum | optional | close \| room \| establishing |
-| §3 | Hierarchy | markdown | optional | Eye movement order |
-| §3 | Spatial cues | markdown | optional | Depth/reading guides |
-| §3 | Legibility at size | markdown | yes | Target sizes survivability |
-| §4 | Iconography & Motifs | markdown | yes | Include AND avoid |
-| §5 | Light / Palette / Texture | markdown | yes | Descriptive not technical |
-| §6 | Environment & Props | markdown | yes | Player-safe location tells |
-| §7 | Characters & Poses | markdown | yes | Roles/titles, readable gestures |
-| §8 | Inclusion Criteria | markdown | yes | Include AND exclude conditions |
-| §9 | Caption | markdown | yes | 1 line, player-safe, no technique |
-| §9 | Alt | markdown | yes | 1 sentence, subject+relation+location |
-| §10 | Variants / Crops | markdown | optional | Variant intents |
-| §10 | Selection rule | markdown | optional | When to choose variant |
-| §11 | Anchor targets | path-list | yes | /manuscript/...#anchor |
-| §11 | Placement (Art) | markdown | yes | Timing relative to prose/choices |
-| §11 | Anchor stability risks | markdown | optional | Coordination notes |
-| §12 | Accessibility (Art/Audio) | markdown | yes | Risks AND mitigations |
-| §12 | Localization | markdown | optional | Caption idioms/register/terms |
-| §13 | Determinism | markdown | yes | Off-surface repro info |
-| §13 | Repro expectation | enum | yes | none \| log-only |
-| §13 | Producer log fields | markdown | optional | Off-surface technique |
-| §14 | Handoffs | markdown-list | yes | Min 5 roles |
-| §15 | Done checklist | markdown-list | yes | 8 items; all must be ticked |
+| Section | Field                     | Type          | Required | Taxonomy/Constraint                      |
+| ------- | ------------------------- | ------------- | -------- | ---------------------------------------- |
+| Header  | Title                     | string        | yes      | Slot id / short name                     |
+| Header  | TU                        | tu-id         | yes      | Format: TU-YYYY-MM-DD-<role><seq>        |
+| Header  | Edited                    | date          | yes      | Format: YYYY-MM-DD                       |
+| Header  | Owner                     | role-name     | yes      | Fixed: Art Director                      |
+| Header  | Slice                     | markdown      | yes      | Short scope label                        |
+| Header  | Status (Art)              | enum          | yes      | planned \| rendering \| done \| deferred |
+| §1      | Purpose (Art)             | enum          | yes      | clarify \| recall \| mood \| signpost    |
+| §1      | Rationale (Purpose)       | markdown      | yes      | 1-2 lines reader benefit                 |
+| §2      | Subject                   | markdown      | yes      | Concrete nouns                           |
+| §2      | Focal affordance          | markdown      | yes      | What must be readable                    |
+| §3      | Composition Intent        | markdown      | yes      | No technique terms                       |
+| §3      | Framing                   | enum          | optional | tight \| medium \| wide                  |
+| §3      | Angle                     | enum          | optional | eye \| low \| high \| oblique            |
+| §3      | Distance                  | enum          | optional | close \| room \| establishing            |
+| §3      | Hierarchy                 | markdown      | optional | Eye movement order                       |
+| §3      | Spatial cues              | markdown      | optional | Depth/reading guides                     |
+| §3      | Legibility at size        | markdown      | yes      | Target sizes survivability               |
+| §4      | Iconography & Motifs      | markdown      | yes      | Include AND avoid                        |
+| §5      | Light / Palette / Texture | markdown      | yes      | Descriptive not technical                |
+| §6      | Environment & Props       | markdown      | yes      | Player-safe location tells               |
+| §7      | Characters & Poses        | markdown      | yes      | Roles/titles, readable gestures          |
+| §8      | Inclusion Criteria        | markdown      | yes      | Include AND exclude conditions           |
+| §9      | Caption                   | markdown      | yes      | 1 line, player-safe, no technique        |
+| §9      | Alt                       | markdown      | yes      | 1 sentence, subject+relation+location    |
+| §10     | Variants / Crops          | markdown      | optional | Variant intents                          |
+| §10     | Selection rule            | markdown      | optional | When to choose variant                   |
+| §11     | Anchor targets            | path-list     | yes      | /manuscript/...#anchor                   |
+| §11     | Placement (Art)           | markdown      | yes      | Timing relative to prose/choices         |
+| §11     | Anchor stability risks    | markdown      | optional | Coordination notes                       |
+| §12     | Accessibility (Art/Audio) | markdown      | yes      | Risks AND mitigations                    |
+| §12     | Localization              | markdown      | optional | Caption idioms/register/terms            |
+| §13     | Determinism               | markdown      | yes      | Off-surface repro info                   |
+| §13     | Repro expectation         | enum          | yes      | none \| log-only                         |
+| §13     | Producer log fields       | markdown      | optional | Off-surface technique                    |
+| §14     | Handoffs                  | markdown-list | yes      | Min 5 roles                              |
+| §15     | Done checklist            | markdown-list | yes      | 8 items; all must be ticked              |
 
 **Total fields: 36** (5 metadata, 3 content, 1 classification, 4 relationships, 2 validation, 2 localization, 4 accessibility, 7 spatial, 6 presentation, 2 determinism)
 

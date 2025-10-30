@@ -30,22 +30,22 @@ Showrunner opens a **Trace Unit (TU)** for the change and confirms which optiona
 
 ## 3) Roles & Responsibilities
 
-- **Plotwright (R)**  
-  - Sketch/adjust topology: parts → sections → **hubs/loops/gateways**; define **codeword** plan.  
-  - Mark **gateway conditions** in human terms (no schema names).  
+- **Plotwright (R)**
+  - Sketch/adjust topology: parts → sections → **hubs/loops/gateways**; define **codeword** plan.
+  - Mark **gateway conditions** in human terms (no schema names).
   - Generate **narrative hooks** (entities, stakes, affordances).
-- **Scene Smith (R)**  
-  - Draft/adjust affected sections; embed choices and intended state effects in human wording.  
+- **Scene Smith (R)**
+  - Draft/adjust affected sections; embed choices and intended state effects in human wording.
   - Generate **scene hooks** (traits, tells, props).
-- **Style Lead (C)**  
+- **Style Lead (C)**
   - Guard tone/voice; flag drift; suggest motif threading.
-- **Lore Weaver (C)**  
+- **Lore Weaver (C)**
   - Sanity-check feasibility vs canon; note likely lore needs (for **Lore Deepening**).
-- **Codex Curator (C)**  
+- **Codex Curator (C)**
   - Identify taxonomy/clarity gaps (red-links) created by new structure.
-- **Researcher (C, optional)**  
+- **Researcher (C, optional)**
   - If active: identify factual constraints; add **factual hooks** with citations.
-- **Gatekeeper (C)**  
+- **Gatekeeper (C)**
   - Early preview: Integrity/Reachability/Nonlinearity sanity.
 
 Showrunner (A) coordinates scope and timing.
@@ -54,30 +54,37 @@ Showrunner (A) coordinates scope and timing.
 
 ## 4) Procedure
 
-1. **Topology Draft (Plotwright)**  
-   - Map parts/chapters and designate **hubs** (fan-out), **loops** (return-with-difference), and **gateways** (state-gated).  
+1. **Topology Draft (Plotwright)**
+
+   - Map parts/chapters and designate **hubs** (fan-out), **loops** (return-with-difference), and **gateways** (state-gated).
    - For each gateway, write a **diegetic condition** PN can enforce (“foreman’s token”, “maintenance hex-key”).
 
-2. **Section Briefs (Plotwright)**  
+2. **Section Briefs (Plotwright)**
+
    - For each affected/new section: **intent**, **stakes**, **choices**, **expected state effect** (human phrasing), **references**.
 
-3. **Prose Pass (Scene Smith)**  
-   - Draft/adjust section text in style; make choices clear and distinct.  
+3. **Prose Pass (Scene Smith)**
+
+   - Draft/adjust section text in style; make choices clear and distinct.
    - Note intended state effects in comments (still human-level).
 
-4. **Hook Generation (Plotwright & Scene Smith [+ Researcher if active])**  
+4. **Hook Generation (Plotwright & Scene Smith [+ Researcher if active])**
+
    - Create **narrative/scene/factual** hook cards with rationales and uncertainty levels (see `HOOKS.md`).
 
-5. **Style Check (Style Lead)**  
+5. **Style Check (Style Lead)**
+
    - Sample sections; flag tone drift; propose motif anchors; suggest PN-surface phrasing patterns.
 
-6. **Feasibility Check (Lore Weaver)**  
+6. **Feasibility Check (Lore Weaver)**
+
    - Flag canon collisions; suggest where **Lore Deepening** is needed.
 
-7. **Preview Gate (Gatekeeper)**  
+7. **Preview Gate (Gatekeeper)**
+
    - Run a quick **pre-gate**: Integrity (no accidental dead ends), Reachability (keystones reachable), Nonlinearity (hubs/loops exist & matter).
 
-8. **Triage Hand-off**  
+8. **Triage Hand-off**
    - Pass the hook set to **Hook Harvest** loop; schedule **Lore Deepening** follow-up.
 
 ---
@@ -116,30 +123,30 @@ Only after those complete—and Gatekeeper passes—do related changes merge.
 
 ## 8) Failure Modes & Remedies
 
-- **Cosmetic hub/loop** → Add outcome differences; re-justify or remove.  
-- **Ambiguous gateway** → Rewrite condition in-world; ensure at least one path to meet it.  
-- **Overcoupled restructure** → Split into smaller TUs; stage changes.  
-- **Style wobble** → Run **Style Tune-up** before escalating.  
+- **Cosmetic hub/loop** → Add outcome differences; re-justify or remove.
+- **Ambiguous gateway** → Rewrite condition in-world; ensure at least one path to meet it.
+- **Overcoupled restructure** → Split into smaller TUs; stage changes.
+- **Style wobble** → Run **Style Tune-up** before escalating.
 - **Research dormant** → Mark relevant hooks `uncorroborated:<risk>`; log revisit.
 
 ---
 
 ## 9) RACI (quick)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Topology draft | Plotwright | Showrunner | Lore, Style, Gatekeeper | Scene |
-| Section prose | Scene Smith | Style Lead (voice) | Plotwright, Gatekeeper | Binder |
-| Hook set | Plotwright, Scene | Showrunner | Researcher, Lore, Curator | Gatekeeper |
-| Pre-gate | Gatekeeper | Showrunner | Plotwright, Scene | All |
+| Task           | R                 | A                  | C                         | I          |
+| -------------- | ----------------- | ------------------ | ------------------------- | ---------- |
+| Topology draft | Plotwright        | Showrunner         | Lore, Style, Gatekeeper   | Scene      |
+| Section prose  | Scene Smith       | Style Lead (voice) | Plotwright, Gatekeeper    | Binder     |
+| Hook set       | Plotwright, Scene | Showrunner         | Researcher, Lore, Curator | Gatekeeper |
+| Pre-gate       | Gatekeeper        | Showrunner         | Plotwright, Scene         | All        |
 
 ---
 
 ## 10) Hand-offs
 
-- To **Hook Harvest**: the hook list + topology delta.  
-- To **Lore Deepening**: accepted hooks that require canon backfill.  
-- To **Codex Expansion**: the taxonomy/clarity needs list.  
+- To **Hook Harvest**: the hook list + topology delta.
+- To **Lore Deepening**: accepted hooks that require canon backfill.
+- To **Codex Expansion**: the taxonomy/clarity needs list.
 - To **Style Tune-up**: any drift notes that exceed minor edits.
 
 ---

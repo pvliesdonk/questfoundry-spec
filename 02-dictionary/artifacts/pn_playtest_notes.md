@@ -64,18 +64,19 @@ Mode: dry-run (no improv) · Pace: <normal | slow | fast>
 
 > Keep snippets short and spoiler-safe. Pin to **section path + anchor**. Suggest the **smallest viable fix** and the **owner**.
 
-| When | Location (path#anchor) | Tag(s) | Severity | Snippet (safe) | Smallest viable fix | Owner | Notes |
-|---|---|---|---|---|---|---|---|
-| 00:03 | `/manuscript/act1/foreman-gate#entry` | choice-ambiguity | med | "Go / Proceed." | Sharpen to intent-forward verbs | Style → Scene | Contrast: "Slip through maintenance / Face the foreman." |
-| 00:06 | `/manuscript/act1/foreman-gate#scanner` | gate-friction | high | "Option locked: missing CODEWORD." | Swap to diegetic refusal line | Style → Scene | "The scanner blinks red. 'Union badge?'" |
+| When  | Location (path#anchor)                  | Tag(s)           | Severity | Snippet (safe)                     | Smallest viable fix             | Owner         | Notes                                                    |
+| ----- | --------------------------------------- | ---------------- | -------- | ---------------------------------- | ------------------------------- | ------------- | -------------------------------------------------------- |
+| 00:03 | `/manuscript/act1/foreman-gate#entry`   | choice-ambiguity | med      | "Go / Proceed."                    | Sharpen to intent-forward verbs | Style → Scene | Contrast: "Slip through maintenance / Face the foreman." |
+| 00:06 | `/manuscript/act1/foreman-gate#scanner` | gate-friction    | high     | "Option locked: missing CODEWORD." | Swap to diegetic refusal line   | Style → Scene | "The scanner blinks red. 'Union badge?'"                 |
 
-**Severity rubric:** *low* (minor polish), *med* (confuses some players), *high* (blocks clarity/fairness/access).
+**Severity rubric:** _low_ (minor polish), _med_ (confuses some players), _high_ (blocks clarity/fairness/access).
 
 ---
 
 ## Validation Rules
 
 ### Field-Level
+
 - `Run`: Required, YYYY-MM-DD HH:MM format
 - `PN`: Required, name or agent identifier
 - `TU`: Required, format TU-YYYY-MM-DD-<role><seq>
@@ -90,10 +91,12 @@ Mode: dry-run (no improv) · Pace: <normal | slow | fast>
 ### Common Errors
 
 **❌ Spoilers in snippet**
+
 - Wrong: Snippet: "The foreman is secretly guilty"
 - Right: Snippet: "Option locked: missing CODEWORD"
 
 **❌ Invalid severity**
+
 - Wrong: Severity: "critical"
 - Right: Severity: "high"
 

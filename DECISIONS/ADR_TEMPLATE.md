@@ -12,7 +12,7 @@ ADR-<YYYYMMDD>-<seq>-<short-slug>
 
 ```
 
-*Example:* `ADR-20251029-01-diegetic-gate-lines`
+_Example:_ `ADR-20251029-01-diegetic-gate-lines`
 
 ---
 
@@ -83,18 +83,18 @@ Proposed | Accepted | Superseded by ADR-<id> | Deprecated
 > Tiny, reusable examples that **don’t** reveal canon or internals.
 
 - **Rule:** <short rule>
-  - *Example:* “<safe line>”
-  - *Counterexample:* “<what to avoid>”
+  - _Example:_ “<safe line>”
+  - _Counterexample:_ “<what to avoid>”
 
-*(Repeat if needed.)*
+_(Repeat if needed.)_
 
 ---
 
 ## Interactions & Ownership
 
-- Affected roles: <list>  
-- Handshakes to update: `01-roles/interfaces/*.md` (links)  
-- Templates to update: `01-roles/templates/*.md` (links)  
+- Affected roles: <list>
+- Handshakes to update: `01-roles/interfaces/*.md` (links)
+- Templates to update: `01-roles/templates/*.md` (links)
 - Binder/Translator anchor policy: <if applicable>
 
 ---
@@ -119,10 +119,10 @@ Proposed | Accepted | Superseded by ADR-<id> | Deprecated
 
 ## References & Lineage
 
-- TUs: <ids>  
-- Gatecheck reports: <ids>  
-- View Logs: <ids> (if export policy)  
-- Canon Packs / Style Addenda / Language Packs touched: <ids>  
+- TUs: <ids>
+- Gatecheck reports: <ids>
+- View Logs: <ids> (if export policy)
+- Canon Packs / Style Addenda / Language Packs touched: <ids>
 - Related ADRs: <ids> (supersedes/depends-on)
 
 ---

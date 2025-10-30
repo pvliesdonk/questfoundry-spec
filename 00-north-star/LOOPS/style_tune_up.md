@@ -31,48 +31,54 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 
 ## 3) Roles & Responsibilities
 
-- **Style Lead (R)**  
+- **Style Lead (R)**
   - Diagnose drift; author **style addendum**; write targeted edit notes.
-- **Scene Smith (C)**  
+- **Scene Smith (C)**
   - Receive edits; propose rewrites that preserve intent.
-- **Plotwright (C)**  
+- **Plotwright (C)**
   - Confirm revisions don’t alter topology/gateways.
-- **Art Director / Audio Director (C, optional)**  
+- **Art Director / Audio Director (C, optional)**
   - Align captions/cue language with register.
-- **Translator (C, optional)**  
+- **Translator (C, optional)**
   - Flag untranslatable idioms; suggest equivalents.
-- **Gatekeeper (C)**  
+- **Gatekeeper (C)**
   - Pre-check Style & Presentation Safety.
-- **Showrunner (A)**  
+- **Showrunner (A)**
   - Scope pass; sequence fixes.
 
 ---
 
 ## 4) Procedure
 
-1. **Drift Diagnosis (Style Lead)**  
-   - Sample sections (early/middle/late), PN lines, and recent captions.  
+1. **Drift Diagnosis (Style Lead)**
+
+   - Sample sections (early/middle/late), PN lines, and recent captions.
    - Tag issues: `voice-shift`, `register-mismatch`, `motif-missing`, `over-exposition`, `jargon-spike`.
 
-2. **Exemplar Pass**  
-   - Provide short **before/after** exemplars for each issue (human prose).  
+2. **Exemplar Pass**
+
+   - Provide short **before/after** exemplars for each issue (human prose).
    - Reaffirm motif kit (e.g., “shadow-side neon”, “low-G dust”, “relay hum”).
 
-3. **Style Addendum**  
-   - Add rules or clarifications: sentence rhythm under pressure, idiom boundaries, POV distance, caption tone.  
+3. **Style Addendum**
+
+   - Add rules or clarifications: sentence rhythm under pressure, idiom boundaries, POV distance, caption tone.
    - Localization notes: avoid puns / provide alternatives.
 
-4. **Edit Notes to Owners**  
-   - Annotated list: `file/section → issue → fix suggestion (1–2 lines)`  
+4. **Edit Notes to Owners**
+
+   - Annotated list: `file/section → issue → fix suggestion (1–2 lines)`
    - PN phrase bank updates if needed (diegetic checks phrasing).
 
-5. **Owner Revisions (Scene/PN/Art/Audio)**  
+5. **Owner Revisions (Scene/PN/Art/Audio)**
+
    - Make minimal changes to hit style; escalate if structure might change.
 
-6. **Pre-Gate (Gatekeeper)**  
+6. **Pre-Gate (Gatekeeper)**
+
    - Style & Presentation Safety check; ensure no spoilers snuck into captions/PN.
 
-7. **Package**  
+7. **Package**
    - Bundle **style addendum** + **edit notes** + **pre-gate note** into the TU.
 
 ---
@@ -103,21 +109,21 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 
 ## 8) Failure Modes & Remedies
 
-- **Overcorrection flattens character voice** → Keep character idiolect; harmonize narration only.  
-- **Style change implies story change** → Route to **Story Spark**; don’t smuggle structure via style.  
-- **Caption spoilers** → Move detail to canon notes; rewrite caption atmospheric.  
+- **Overcorrection flattens character voice** → Keep character idiolect; harmonize narration only.
+- **Style change implies story change** → Route to **Story Spark**; don’t smuggle structure via style.
+- **Caption spoilers** → Move detail to canon notes; rewrite caption atmospheric.
 - **Untranslatable idioms** → Provide neutral phrasing or region-appropriate equivalents.
 
 ---
 
 ## 9) RACI (quick)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Diagnose & addendum | Style Lead | Showrunner | Scene, PN, Art/Audio, Translator | Gatekeeper |
-| Apply edits | Content owners | Showrunner | Style Lead | Gatekeeper |
-| Pre-gate | Gatekeeper | Showrunner | Style Lead | All |
-| Merge | Showrunner | Showrunner | Gatekeeper | All |
+| Task                | R              | A          | C                                | I          |
+| ------------------- | -------------- | ---------- | -------------------------------- | ---------- |
+| Diagnose & addendum | Style Lead     | Showrunner | Scene, PN, Art/Audio, Translator | Gatekeeper |
+| Apply edits         | Content owners | Showrunner | Style Lead                       | Gatekeeper |
+| Pre-gate            | Gatekeeper     | Showrunner | Style Lead                       | All        |
+| Merge               | Showrunner     | Showrunner | Gatekeeper                       | All        |
 
 ---
 

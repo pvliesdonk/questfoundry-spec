@@ -17,9 +17,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the pack; fixed to Translator.",
-      "enum": [
-        "Translator"
-      ]
+      "enum": ["Translator"]
     },
     "scope": {
       "type": "string",
@@ -42,13 +40,7 @@
       "description": "Roles paired on this pack; must include style, binder, PN, gatekeeper, curator.",
       "items": {
         "type": "string",
-        "enum": [
-          "@style",
-          "@binder",
-          "@pn",
-          "@gatekeeper",
-          "@curator"
-        ]
+        "enum": ["@style", "@binder", "@pn", "@gatekeeper", "@curator"]
       },
       "minItems": 5,
       "uniqueItems": true,
@@ -94,10 +86,7 @@
     "coverage_granularity": {
       "type": "string",
       "description": "Granularity used when reporting localization coverage.",
-      "enum": [
-        "characters",
-        "sections"
-      ]
+      "enum": ["characters", "sections"]
     },
     "manuscript_coverage": {
       "type": "string",
@@ -117,10 +106,7 @@
     "ui_labels_front_matter": {
       "type": "string",
       "description": "Coverage status for UI labels and front matter.",
-      "enum": [
-        "done",
-        "partial"
-      ]
+      "enum": ["done", "partial"]
     },
     "deferrals": {
       "type": "array",
@@ -175,11 +161,7 @@
             "maxLength": 200
           }
         },
-        "required": [
-          "source_term",
-          "target_term",
-          "usage_notes"
-        ]
+        "required": ["source_term", "target_term", "usage_notes"]
       },
       "minItems": 1
     }

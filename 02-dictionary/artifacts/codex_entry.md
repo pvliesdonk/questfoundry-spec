@@ -94,10 +94,10 @@ Register: <neutral | formal | colloquial> (per Style)
 <!-- Validation: Columns must be: Variant | Register/Region | Notes for Translator -->
 <!-- Cross-field: Register values must match header register or be compatible variants -->
 
-| Variant | Register/Region | Notes for Translator |
-|---|---|---|
-| <term> | <neutral/formal/colloquial> | <polysemy risks; idiom policy> |
-| <term> | <…> | <…> |
+| Variant | Register/Region             | Notes for Translator           |
+| ------- | --------------------------- | ------------------------------ |
+| <term>  | <neutral/formal/colloquial> | <polysemy risks; idiom policy> |
+| <term>  | <…>                         | <…>                            |
 
 ---
 
@@ -123,7 +123,7 @@ Register: <neutral | formal | colloquial> (per Style)
 <!-- Validation: Caption must be one line, same register as prose, atmospheric/clarifying, no technique -->
 
 - **Reading level:** <plain / needs glossary link>
-- **Alt guidance (if illustrated):** *subject + relation + location*, one sentence.
+- **Alt guidance (if illustrated):** _subject + relation + location_, one sentence.
 - **Caption guideline:** one line, atmospheric/clarifying; **no technique**.
 - **Link text:** avoid "click here"; prefer descriptive anchors.
 
@@ -281,7 +281,7 @@ Register: neutral
 - If `Alt guidance` or `Caption guideline` present, then cross-media noted in §5 Relations
 - `Register` in header must match register values in §4 Variants table (or be compatible)
 - `Anchor slug` in §7 must match `Slug` in header
-- `Research posture touched` must align with lineage references (e.g., if uncorroborated:*, cite Research Memo)
+- `Research posture touched` must align with lineage references (e.g., if uncorroborated:\*, cite Research Memo)
 - All overview/context/variants text must remain player-safe (no spoilers from Canon Pack Hot sections)
 
 ### Cross-Artifact Validation
@@ -299,50 +299,62 @@ Register: neutral
 ## Common Errors
 
 **❌ Nested research posture format**
+
 - Wrong: `uncorroborated:<low|med|high>`
 - Right: `uncorroborated:low | uncorroborated:medium | uncorroborated:high` (flat, space-separated)
 
 **❌ Using "med" abbreviation**
+
 - Wrong: `uncorroborated:med`
 - Right: `uncorroborated:medium` (full word per taxonomy §8)
 
 **❌ Spoilers in Overview**
+
 - Wrong: "The foreman is guilty of causing the retrofit accident and now checks badges strictly."
 - Right: "A small badge recognized at dock checkpoints to confirm union membership."
 
 **❌ Using technique terms**
+
 - Wrong: "Set flag UNION_BADGE_CHECKED to true"
 - Right: "Inspectors may glance or scan it during routine checks."
 
 **❌ Using internal codewords**
+
 - Wrong: "This enables the FOREMAN_GATE_BYPASS route"
 - Right: "Visual verification is common in well-lit areas."
 
 **❌ Alt guidance too vague or metaphorical**
+
 - Wrong: "Hope glimmers in the darkness."
 - Right: "A badge scanner glows as a lapel emblem is held near it at a dock checkpoint."
 
 **❌ Caption using technique**
+
 - Wrong: "Render sodium lamps with warm LUT and 85mm focal length."
 - Right: "Sodium lamps smear along wet steel; the scanner's eye waits."
 
 **❌ Non-descriptive link text**
+
 - Wrong: "Click here for more information."
 - Right: "union token requirements" or "dock checkpoint procedures"
 
 **❌ Slug with spaces or uppercase**
+
 - Wrong: `Union Token` or `union_token`
 - Right: `union-token` (kebab-case, ASCII)
 
 **❌ Revealing hidden causes in Context**
+
 - Wrong: "The foreman checks badges strictly because of guilt from the retrofit accident."
 - Right: "Tokens vary by dock but share a clear emblem. Visual verification is common."
 
 **❌ Missing Variants table**
+
 - Wrong: No variants listed
 - Right: At least 1-3 variants with register and translator notes
 
 **❌ Relations with broken slug references**
+
 - Wrong: `related-entry` (slug doesn't exist, no plan to create it)
 - Right: `inspection-logs` (existing or planned codex entry)
 
@@ -350,36 +362,36 @@ Register: neutral
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | Title | string | yes | Player-safe, no codewords |
-| Header | Slug | string | yes | kebab-case, ASCII or locale policy |
-| Header | Locale | locale-code | yes | ISO: EN \| EN-GB \| NL \| DE \| ... |
-| Header | Owner | role-name | yes | Fixed: Codex Curator |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Snapshot | cold-date-ref | yes | Format: Cold @ YYYY-MM-DD |
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Lineage | markdown | yes | Canon Pack(s), Research Memos with posture |
-| Header | Register | enum | optional | neutral \| formal \| colloquial |
-| §1 | Overview | markdown | yes | 2-5 lines; player-safe |
-| §2 | Where to link | markdown | optional | Section themes/anchors |
-| §2 | When not to link | markdown | optional | Avoid overlinking/spoilers |
-| §2 | PN cue | markdown | optional | 1 line in-voice nudge |
-| §3 | Context | markdown | yes | 2-6 lines; diegetic |
-| §4 | Variants & Synonyms | table | yes | Columns: Variant, Register/Region, Translator notes |
-| §5 | Relations (See also) | markdown-list | yes | Slug references, taxonomy paths |
-| §6 | Reading level | enum | yes | plain \| needs glossary link |
-| §6 | Alt guidance | markdown | if illustrated | Subject + relation + location |
-| §6 | Caption guideline | markdown | optional | One line, atmospheric, no technique |
-| §6 | Link text | markdown | optional | Descriptive anchors |
-| §7 | Anchor slug | string | yes | /codex/<kebab-case> |
-| §7 | Collision risks | markdown | optional | Diacritics/punctuation issues |
-| §7 | Binder note | markdown | optional | TOC/grouping instructions |
-| §8 | Notes (what to avoid) | markdown-list | implicit | Anti-patterns, cautions |
-| §9 | From Canon | markdown | yes | Player-safe fact intake |
-| §9 | Research posture touched | enum | yes | Research Posture Levels (§8) - 6 flat values |
-| §9 | Hooks filed | markdown-list | optional | hook://<domain>/<topic> |
-| §10 | Done checklist | markdown-list | yes | 8 items; all must be ticked |
+| Section | Field                    | Type          | Required       | Taxonomy/Constraint                                 |
+| ------- | ------------------------ | ------------- | -------------- | --------------------------------------------------- |
+| Header  | Title                    | string        | yes            | Player-safe, no codewords                           |
+| Header  | Slug                     | string        | yes            | kebab-case, ASCII or locale policy                  |
+| Header  | Locale                   | locale-code   | yes            | ISO: EN \| EN-GB \| NL \| DE \| ...                 |
+| Header  | Owner                    | role-name     | yes            | Fixed: Codex Curator                                |
+| Header  | Edited                   | date          | yes            | Format: YYYY-MM-DD                                  |
+| Header  | Snapshot                 | cold-date-ref | yes            | Format: Cold @ YYYY-MM-DD                           |
+| Header  | TU                       | tu-id         | yes            | Format: TU-YYYY-MM-DD-<role><seq>                   |
+| Header  | Lineage                  | markdown      | yes            | Canon Pack(s), Research Memos with posture          |
+| Header  | Register                 | enum          | optional       | neutral \| formal \| colloquial                     |
+| §1      | Overview                 | markdown      | yes            | 2-5 lines; player-safe                              |
+| §2      | Where to link            | markdown      | optional       | Section themes/anchors                              |
+| §2      | When not to link         | markdown      | optional       | Avoid overlinking/spoilers                          |
+| §2      | PN cue                   | markdown      | optional       | 1 line in-voice nudge                               |
+| §3      | Context                  | markdown      | yes            | 2-6 lines; diegetic                                 |
+| §4      | Variants & Synonyms      | table         | yes            | Columns: Variant, Register/Region, Translator notes |
+| §5      | Relations (See also)     | markdown-list | yes            | Slug references, taxonomy paths                     |
+| §6      | Reading level            | enum          | yes            | plain \| needs glossary link                        |
+| §6      | Alt guidance             | markdown      | if illustrated | Subject + relation + location                       |
+| §6      | Caption guideline        | markdown      | optional       | One line, atmospheric, no technique                 |
+| §6      | Link text                | markdown      | optional       | Descriptive anchors                                 |
+| §7      | Anchor slug              | string        | yes            | /codex/<kebab-case>                                 |
+| §7      | Collision risks          | markdown      | optional       | Diacritics/punctuation issues                       |
+| §7      | Binder note              | markdown      | optional       | TOC/grouping instructions                           |
+| §8      | Notes (what to avoid)    | markdown-list | implicit       | Anti-patterns, cautions                             |
+| §9      | From Canon               | markdown      | yes            | Player-safe fact intake                             |
+| §9      | Research posture touched | enum          | yes            | Research Posture Levels (§8) - 6 flat values        |
+| §9      | Hooks filed              | markdown-list | optional       | hook://<domain>/<topic>                             |
+| §10     | Done checklist           | markdown-list | yes            | 8 items; all must be ticked                         |
 
 **Total fields: 29** (7 metadata, 3 content, 1 classification, 4 relationships, 1 validation, 4 localization, 5 accessibility, 2 spatial, 1 presentation, 1 determinism)
 

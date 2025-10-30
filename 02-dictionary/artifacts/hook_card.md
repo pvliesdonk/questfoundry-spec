@@ -224,12 +224,14 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 ### Field-Level Validation
 
 **ID:**
+
 - Format: `HK-YYYYMMDD-\d{2,3}` (e.g., `HK-20251029-01`)
 - Must be unique across all Hook Cards in Hot
 - YYYYMMDD must be valid date
 - Seq starts at 01, increments per day
 
 **Status:**
+
 - Must be one of 7 values from taxonomies.md §2
 - Transitions must follow lifecycle flow:
   - `proposed` → `accepted | deferred | rejected`
@@ -240,101 +242,125 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
   - `canonized`, `rejected` are terminal (no further transitions)
 
 **Raised by:**
+
 - Must be valid role name from Layer 1 ROLE_INDEX.md
 - Abbreviations accepted if formally defined
 
 **TU:**
+
 - Must reference existing TU Brief artifact
 - Format depends on TU ID scheme (typically `TU-YYYY-MM-DD-<role><seq>`)
 
 **Edited:**
+
 - Format: `YYYY-MM-DD` (ISO 8601 date only, no time)
 - Must be valid date
 
 **Type (primary):**
+
 - Must be one of 13 values from taxonomies.md §1
 - Cannot be same as Secondary type
 
 **Secondary (optional):**
+
 - If present, must be one of 13 values from taxonomies.md §1
 - Cannot be same as primary type
 
 **Bars affected:**
+
 - Must be comma-separated list of bar names from taxonomies.md §5
 - All 8 bars are valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility
 - At least one bar required
 
 **Blocking?:**
+
 - Must be either `no` or `yes (reason)`
 - If `yes`, must include explanation in parentheses
 
 **Player-Safe Summary:**
+
 - Length: 1-3 lines (soft limit, ~300 chars max)
 - Must not contain: spoilers, codewords, internal IDs, gate logic, Hot canon, technique terms
 - Presentation bar validation required
 
 **Loop:**
+
 - Must be one of 13 loop names from taxonomies.md §3
 - Loop name must use Title Case with hyphens (e.g., "Style Tune-up")
 
 **Owner (R):**
+
 - Must be valid role name from Layer 1 ROLE_INDEX.md
 
 **Deferral tags:**
+
 - If present, must be space-separated (NOT comma-separated) list
 - Values must be from taxonomies.md §7: `deferred:art`, `deferred:audio`, `deferred:translation`, `deferred:research`
 
 **Locations:**
+
 - Must be valid anchor paths: `/manuscript/...#anchor` or `/codex/...`
 - Paths validated by Binder during dry bind (integrity check)
 
 ### Cross-Field Validation
 
 **If Blocking? = yes:**
+
 - Then Bars affected must include at least one bar
 - Player-Safe Summary should explain impact
 
 **If Status = deferred:**
+
 - Then §6 Dormancy & Deferrals must be filled
 - Must include: Deferral tags, Fallback, Revisit
 
 **If Status = rejected:**
+
 - Then §8 Resolution must include rejection reason in Decision field
 
 **If Status = canonized:**
+
 - Then §8 Resolution must be filled
 - Locations should link to Cold source where hook was embedded
 
 **If Status = resolved, canonized, or rejected:**
+
 - Then §8 Resolution must be completely filled (all fields)
 
 **If Deferral tags set:**
+
 - Then Fallback and Revisit fields in §6 are required
 
 **Acceptance Criteria:**
+
 - Bars mentioned should be subset of "Bars affected" in §1
 - At least one criterion required
 
 ### Cross-Artifact Validation
 
 **TU ID:**
+
 - Must reference existing TU Brief artifact in Hot
 - TU Brief should list this hook in deliverables or trace
 
 **Related hooks:**
+
 - All Hook IDs must reference existing Hook Cards
 - No self-references (hook cannot relate to itself)
 
 **Locations:**
+
 - Anchor paths must resolve to valid sections (checked by Binder)
 - Codex entries referenced must exist
 
 **Lineage:**
+
 - Canon Pack IDs must reference existing Canon Packs
 - Research Memo IDs must reference existing Research Memos
 - ADR IDs must reference existing ADRs
 
 **Owner (R):**
+
 - Role must be appropriate for chosen Loop (see RACI matrices in Layer 1)
 
 ---
@@ -498,39 +524,39 @@ Slice: Act I — Checkpoint
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | ID | string | yes | Format: HK-YYYYMMDD-seq |
-| Header | Status | enum | yes | Hook Status Lifecycle (taxonomies.md §2) - 7 values |
-| Header | Raised by | role-name | yes | Layer 1 ROLE_INDEX |
-| Header | TU | tu-id | yes | Must reference existing TU Brief |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Slice | markdown | yes | Player-safe, 1-2 lines |
-| Header | Snapshot context | cold-date-ref | yes | Format: Cold @ YYYY-MM-DD |
-| §1 | Type (primary) | enum | yes | Hook Types (taxonomies.md §1) - 13 values |
-| §1 | Secondary | enum | optional | Hook Types (taxonomies.md §1) - cannot equal primary |
-| §1 | Bars affected | enum-list | yes | Quality Bar Categories (taxonomies.md §5) - 8 bars |
-| §1 | Blocking? | enum | yes | no \| yes (explain) |
-| §2 | Player-Safe Summary | markdown | yes | 1-3 lines, no spoilers/meta/technique |
-| §3 | Hot Details | markdown | optional | Spoilers allowed, Hot-only |
-| §4 | Loop | enum | yes | TU Types & Loop Alignment (taxonomies.md §3) - 13 loops |
-| §4 | Owner (R) | role-name | yes | Layer 1 ROLE_INDEX |
-| §4 | Accountable (A) | role-name | yes | Usually Showrunner |
-| §4 | Consult | role-list | optional | Comma-separated |
-| §4 | Dormancy | markdown | optional | See §6 |
-| §5 | Acceptance Criteria | markdown-list | yes | Min 1 criterion, tied to bars |
-| §6 | Deferral tags | deferral-list | optional | Deferral Types (taxonomies.md §7) - space-separated |
-| §6 | Fallback | markdown | conditional | Required if deferrals set |
-| §6 | Revisit | markdown | conditional | Required if deferrals set |
-| §7 | Locations | path-list | yes | /manuscript/...#anchor or /codex/... |
-| §7 | Related hooks | id-list | optional | HK-<id> format |
-| §7 | Lineage | markdown | yes | Canon Packs, Research Memos, ADRs |
-| §8 | Decision | markdown | conditional | Required on close, one sentence |
-| §8 | Work performed | tu-id-list | conditional | Required on close |
-| §8 | View impact | enum | conditional | Required on close: none \| rebind needed |
-| §8 | Gatekeeper result | markdown | conditional | Required on close |
-| §8 | Status transition | markdown | conditional | Required on close |
-| §8 | Owner | role-name | conditional | Required on close |
+| Section | Field               | Type          | Required    | Taxonomy/Constraint                                     |
+| ------- | ------------------- | ------------- | ----------- | ------------------------------------------------------- |
+| Header  | ID                  | string        | yes         | Format: HK-YYYYMMDD-seq                                 |
+| Header  | Status              | enum          | yes         | Hook Status Lifecycle (taxonomies.md §2) - 7 values     |
+| Header  | Raised by           | role-name     | yes         | Layer 1 ROLE_INDEX                                      |
+| Header  | TU                  | tu-id         | yes         | Must reference existing TU Brief                        |
+| Header  | Edited              | date          | yes         | Format: YYYY-MM-DD                                      |
+| Header  | Slice               | markdown      | yes         | Player-safe, 1-2 lines                                  |
+| Header  | Snapshot context    | cold-date-ref | yes         | Format: Cold @ YYYY-MM-DD                               |
+| §1      | Type (primary)      | enum          | yes         | Hook Types (taxonomies.md §1) - 13 values               |
+| §1      | Secondary           | enum          | optional    | Hook Types (taxonomies.md §1) - cannot equal primary    |
+| §1      | Bars affected       | enum-list     | yes         | Quality Bar Categories (taxonomies.md §5) - 8 bars      |
+| §1      | Blocking?           | enum          | yes         | no \| yes (explain)                                     |
+| §2      | Player-Safe Summary | markdown      | yes         | 1-3 lines, no spoilers/meta/technique                   |
+| §3      | Hot Details         | markdown      | optional    | Spoilers allowed, Hot-only                              |
+| §4      | Loop                | enum          | yes         | TU Types & Loop Alignment (taxonomies.md §3) - 13 loops |
+| §4      | Owner (R)           | role-name     | yes         | Layer 1 ROLE_INDEX                                      |
+| §4      | Accountable (A)     | role-name     | yes         | Usually Showrunner                                      |
+| §4      | Consult             | role-list     | optional    | Comma-separated                                         |
+| §4      | Dormancy            | markdown      | optional    | See §6                                                  |
+| §5      | Acceptance Criteria | markdown-list | yes         | Min 1 criterion, tied to bars                           |
+| §6      | Deferral tags       | deferral-list | optional    | Deferral Types (taxonomies.md §7) - space-separated     |
+| §6      | Fallback            | markdown      | conditional | Required if deferrals set                               |
+| §6      | Revisit             | markdown      | conditional | Required if deferrals set                               |
+| §7      | Locations           | path-list     | yes         | /manuscript/...#anchor or /codex/...                    |
+| §7      | Related hooks       | id-list       | optional    | HK-<id> format                                          |
+| §7      | Lineage             | markdown      | yes         | Canon Packs, Research Memos, ADRs                       |
+| §8      | Decision            | markdown      | conditional | Required on close, one sentence                         |
+| §8      | Work performed      | tu-id-list    | conditional | Required on close                                       |
+| §8      | View impact         | enum          | conditional | Required on close: none \| rebind needed                |
+| §8      | Gatekeeper result   | markdown      | conditional | Required on close                                       |
+| §8      | Status transition   | markdown      | conditional | Required on close                                       |
+| §8      | Owner               | role-name     | conditional | Required on close                                       |
 
 **Total fields:** 28 (10 required always, 6 conditional, 12 optional)
 

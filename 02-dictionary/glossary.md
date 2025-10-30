@@ -62,13 +62,13 @@ Clear words prevent weird bugs. This glossary defines how we use key terms acros
 
 **Style Lead** — Maintains voice/register/motifs and phrasing patterns.
 
-**Researcher** *(optional/dormant)* — Verifies factual claims; assigns uncertainty levels.
+**Researcher** _(optional/dormant)_ — Verifies factual claims; assigns uncertainty levels.
 
-**Art Director / Illustrator** *(optional/dormant)* — Plan and/or render illustrations.
+**Art Director / Illustrator** _(optional/dormant)_ — Plan and/or render illustrations.
 
-**Audio Director / Audio Producer** *(optional/dormant)* — Plan and/or produce sound.
+**Audio Director / Audio Producer** _(optional/dormant)_ — Plan and/or produce sound.
 
-**Translator** *(optional/dormant)* — Builds language packs and localized surfaces.
+**Translator** _(optional/dormant)_ — Builds language packs and localized surfaces.
 
 **Book Binder** — Assembles exports (views) from Cold.
 
