@@ -46,11 +46,11 @@ Layer 4 remains transport-agnostic. Concrete mappings (HTTP, files, events) are 
   README.md                  # Overview and pointers (this file)
   ENVELOPE.md                # ✅ Normative envelope spec (fields, versioning, safety)
   INTENTS.md                 # Message catalog (verbs, required payloads) [planned]
-  LIFECYCLES/                # State machines (hooks, TU, gate, view) [planned]
-    hooks.md
-    tu.md
-    gate.md
-    view.md
+  LIFECYCLES/                # State machines (hooks, TU, gate, view)
+    hooks.md                 # ✅ Hook lifecycle with state transitions
+    tu.md                    # ✅ TU lifecycle with state transitions
+    gate.md                  # [planned]
+    view.md                  # [planned]
   FLOWS/                     # End-to-end handshakes per loop [planned]
     hook_harvest.md
     lore_deepening.md
@@ -130,13 +130,60 @@ See `ENVELOPE.md` for full details, field definitions, MUST/SHOULD rules, and JS
 
 ---
 
+### Hook Lifecycle v1.0
+
+**Location:** [`LIFECYCLES/hooks.md`](./LIFECYCLES/hooks.md)
+
+The normative specification for Hook Card state transitions and protocol rules. Defines:
+- 7-state lifecycle: proposed → accepted → in-progress → resolved → canonized  
+  (with deferred/rejected branches)
+- Complete transition matrix with allowed sender roles
+- Required message intents for each transition  
+  (hook.accept, hook.start, hook.resolve, etc.)
+- Payload schemas and required fields per transition
+- Error cases and validation rules
+- Quality bar integration and blocking hook enforcement
+- Envelope context requirements and examples
+
+**Status:** ✅ **Complete** — v1.0.0 specification with transition matrix and examples
+
+See `LIFECYCLES/hooks.md` for state machine, authorization rules, and JSON message examples.
+
+---
+
+### TU Lifecycle v1.0
+
+**Location:** [`LIFECYCLES/tu.md`](./LIFECYCLES/tu.md)
+
+The normative specification for Trace Unit (TU) state transitions and protocol rules. Defines:
+- 6-state lifecycle: hot-proposed → stabilizing → gatecheck → cold-merged  
+  (with deferred/rejected branches)
+- Complete transition matrix with allowed sender roles
+- Required message intents for each transition  
+  (tu.start, tu.submit_gate, tu.merge, etc.)
+- Payload schemas and required fields per transition
+- Error cases and validation rules
+- Quality bar integration and gatecheck enforcement
+- Cold-bound requirement (any artifact for Cold MUST have a TU)
+- Dormancy/deferral integration with wake rubric
+- Envelope context requirements and examples
+
+**Status:** ✅ **Complete** — v1.0.0 specification with transition matrix and examples
+
+See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, and JSON message examples.
+
+---
+
 ## Status & Next Steps
 
 **Completed:**
 - ✅ Phase 1: Envelope v1.0 specification
+- ✅ Phase 2a (Partial): Lifecycles & state machines
+  - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle with all state transitions
+  - ✅ `LIFECYCLES/tu.md` — Trace Unit lifecycle with all state transitions
 
 **Next:**
-- Phase 2: Lifecycles & state machines
+- Phase 2b (Remaining): Gate and View lifecycles
 - Phase 3: Message intents & catalogs
 - Phase 4: End-to-end flows per loop
 
