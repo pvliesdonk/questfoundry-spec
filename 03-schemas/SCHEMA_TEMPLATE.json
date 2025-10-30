@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://questfoundry.example.com/schemas/{artifact_name}.schema.json",
+  "title": "{Artifact Display Name}",
+  "description": "Schema for {artifact_name} artifact. Generated from Layer 2 enriched template: 02-dictionary/artifacts/{artifact_name}_ENRICHED.md",
+  "type": "object",
+
+  "properties": {
+    "header": {
+      "type": "object",
+      "description": "Header section with metadata",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier",
+          "pattern": "^{ID_PATTERN}$"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status",
+          "enum": ["value1", "value2", "value3"]
+        },
+        "edited": {
+          "type": "string",
+          "description": "Last edited date",
+          "format": "date"
+        }
+      },
+      "required": ["id", "status", "edited"]
+    },
+
+    "section_name": {
+      "type": "string",
+      "description": "Description from template prose",
+      "minLength": 1,
+      "maxLength": 500
+    },
+
+    "enum_field": {
+      "type": "string",
+      "description": "Field with controlled vocabulary",
+      "enum": ["option1", "option2", "option3"]
+    },
+
+    "list_field": {
+      "type": "array",
+      "description": "Space-separated or comma-separated list",
+      "items": {
+        "type": "string",
+        "enum": ["item1", "item2", "item3"]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+
+    "optional_field": {
+      "type": "string",
+      "description": "Optional field"
+    }
+  },
+
+  "required": ["header", "section_name", "enum_field"],
+
+  "definitions": {
+    "role_name": {
+      "type": "string",
+      "description": "QuestFoundry role abbreviation",
+      "enum": ["SR", "GK", "PW", "SS", "ST", "LW", "CC", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"]
+    },
+
+    "date_string": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+
+    "quality_bar": {
+      "type": "string",
+      "enum": ["Integrity", "Reachability", "Nonlinearity", "Gateways", "Style", "Determinism", "Presentation", "Accessibility"]
+    },
+
+    "deferral_tag": {
+      "type": "string",
+      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
+    }
+  }
+}
