@@ -40,7 +40,7 @@ Curated, stabilized canon and presentation rules:
 
 Dormant roles:
 
-- If **Researcher** is dormant, factual claims may be merged *only if* marked `uncorroborated:<risk>` and the Showrunner accepts the risk explicitly.
+- If **Researcher** is dormant, factual claims may be merged *only if* marked with research posture (uncorroborated:low | uncorroborated:medium | uncorroborated:high) and the Showrunner accepts the risk explicitly.
 - Art/Audio/Translator may remain dormant; their **plans** can live in Cold as **deferred** items (see §6).
 
 ---
@@ -70,15 +70,15 @@ This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/co
 2. **Stabilize**  
    - Affected roles review; contradictions and style drift surfaced and resolved.  
    - **Hook Harvest** / **Lore Deepening** may run if hooks are involved.
-3. **Gatecheck** (Gatekeeper)  
-   - Bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation Safety.  
+3. **Gatecheck** (Gatekeeper)
+   - Bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility.
    - Output: pass/fail + concrete remediation.
-4. **Approval** (Showrunner)  
+4. **Approval** (Showrunner)
    - Confirms scope/risk; schedules merge.
-5. **Merge to Cold**  
+5. **Merge to Cold**
    - Cold updated; export/play allowed; change unit gets snapshot ID.
-6. **Announce**  
-   - Brief note of what changed and who’s affected (downstream).
+6. **Announce**
+   - Brief note of what changed and who's affected (downstream).
 
 ---
 
@@ -140,13 +140,14 @@ This enables a prose-only book with future-ready plans in Cold.
 
 ## 11) Quality Bars Cheat-Sheet (for Gatecheck)
 
-- **Integrity**: no dead links/sections unless intentionally terminal.  
-- **Reachability**: critical beats reachable at least one way.  
-- **Nonlinearity**: planned hubs/loops/gateways exist and matter.  
-- **Gateways**: conditions are consistent and enforceable.  
-- **Style**: voice/guardrails intact; no drift.  
-- **Determinism**: promised assets reproducible.  
-- **Presentation**: player-safe; PN boundaries respected.
+- **Integrity**: no dead links/sections unless intentionally terminal.
+- **Reachability**: critical beats reachable at least one way.
+- **Nonlinearity**: planned hubs/loops/gateways exist and matter.
+- **Gateways**: conditions are consistent and enforceable.
+- **Style**: voice/guardrails intact; no drift.
+- **Determinism**: promised assets reproducible.
+- **Presentation**: player-safe; PN boundaries respected; no spoilers.
+- **Accessibility**: navigation clear; alt text present; sensory considerations respected.
 
 Gatekeeper records a short report per change or per batch.
 
@@ -154,9 +155,9 @@ Gatekeeper records a short report per change or per batch.
 
 ## 12) When Research is Dormant
 
-- Factual changes merged to Cold must carry `uncorroborated:<risk>` flag in their record.  
-- The Showrunner logs a **follow-up** to revisit when Researcher is active.  
-- PN/Binder wording must avoid hard claims if risk is high; prefer neutral phrasing.
+- Factual changes merged to Cold must carry research posture flag in their record: uncorroborated:low | uncorroborated:medium | uncorroborated:high (or corroborated | plausible | disputed).
+- The Showrunner logs a **follow-up** to revisit when Researcher is active.
+- PN/Binder wording must avoid hard claims if risk is medium or high; prefer neutral phrasing.
 
 ---
 
