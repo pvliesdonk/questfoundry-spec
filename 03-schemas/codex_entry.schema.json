@@ -29,7 +29,7 @@
       ]
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date this entry was last edited."
     },
     "snapshot": {
@@ -239,7 +239,7 @@
     "research_posture_touched",
     "done_checklist"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

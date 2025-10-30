@@ -11,24 +11,24 @@
       "pattern": "^TU-\\d{4}-\\d{2}-\\d{2}-[A-Z]{2,4}\\d{2}$"
     },
     "opened": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date the TU was opened."
     },
     "owner_a": {
-      "$ref": "#/definitions/role_name",
+      "$ref": "#/$defs/role_name",
       "description": "Accountable owner for the TU (usually Showrunner)."
     },
     "responsible_r": {
       "type": "array",
       "description": "Roles responsible for executing the TU.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
     },
     "loop": {
-      "$ref": "#/definitions/loop_name",
+      "$ref": "#/$defs/loop_name",
       "description": "Loop type from TU Types & Loop Alignment taxonomy."
     },
     "slice": {
@@ -46,7 +46,7 @@
       "type": "array",
       "description": "Roles actively participating in this TU.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -55,7 +55,7 @@
       "type": "array",
       "description": "Roles not participating in this TU.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -64,7 +64,7 @@
       "type": "array",
       "description": "Optional deferral tags explaining dormant tracks.",
       "items": {
-        "$ref": "#/definitions/deferral_tag"
+        "$ref": "#/$defs/deferral_tag"
       },
       "uniqueItems": true
     },
@@ -72,7 +72,7 @@
       "type": "array",
       "description": "Quality bars this TU will flip to green.",
       "items": {
-        "$ref": "#/definitions/quality_bar"
+        "$ref": "#/$defs/quality_bar"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -81,7 +81,7 @@
       "type": "array",
       "description": "Quality bars to monitor without committing to green.",
       "items": {
-        "$ref": "#/definitions/quality_bar"
+        "$ref": "#/$defs/quality_bar"
       },
       "uniqueItems": true
     },
@@ -125,7 +125,7 @@
       "type": "array",
       "description": "Bars that must be green before merge.",
       "items": {
-        "$ref": "#/definitions/quality_bar"
+        "$ref": "#/$defs/quality_bar"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -171,7 +171,7 @@
       "maxLength": 200
     },
     "lane": {
-      "$ref": "#/definitions/role_name",
+      "$ref": "#/$defs/role_name",
       "description": "Optional escalation owner per escalation rules."
     },
     "record": {
@@ -214,7 +214,7 @@
     "gatecheck",
     "linkage"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

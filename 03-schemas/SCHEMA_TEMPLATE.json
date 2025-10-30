@@ -74,7 +74,7 @@
     "section_name",
     "enum_field"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation",

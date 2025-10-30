@@ -12,7 +12,7 @@
       "maxLength": 120
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date this addendum was last edited."
     },
     "owner": {
@@ -42,7 +42,7 @@
       "type": "array",
       "description": "Roles affected by this addendum.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -155,7 +155,7 @@
             "maxLength": 400
           },
           "owner": {
-            "$ref": "#/definitions/role_name",
+            "$ref": "#/$defs/role_name",
             "description": "Role responsible for applying the change."
           }
         },
@@ -225,7 +225,7 @@
     "pn_patterns",
     "done_checklist"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

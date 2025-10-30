@@ -11,7 +11,7 @@
       "pattern": "^[A-Z]{2}(?:-[A-Z]{2})?$"
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date this register map was last edited."
     },
     "owner": {
@@ -176,7 +176,7 @@
     "idiom_lexicon_policy",
     "accessibility_readability"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

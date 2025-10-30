@@ -73,7 +73,7 @@
     "options_and_coverage",
     "accessibility"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

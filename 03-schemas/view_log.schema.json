@@ -12,7 +12,7 @@
       "maxLength": 160
     },
     "bound": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date the view was bound."
     },
     "binder": {
@@ -52,7 +52,7 @@
       "type": "array",
       "description": "Optional deferral tags declaring dormant tracks.",
       "items": {
-        "$ref": "#/definitions/deferral_tag"
+        "$ref": "#/$defs/deferral_tag"
       },
       "uniqueItems": true
     },
@@ -158,7 +158,7 @@
     "gatecheck_id",
     "export_artifacts"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

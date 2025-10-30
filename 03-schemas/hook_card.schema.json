@@ -34,7 +34,7 @@
           ]
         },
         "raised_by": {
-          "$ref": "#/definitions/role_name",
+          "$ref": "#/$defs/role_name",
           "description": "Role that created this hook"
         },
         "tu": {
@@ -43,7 +43,7 @@
           "pattern": "^TU-\\d{4}-\\d{2}-\\d{2}-[A-Z]{2,4}\\d{2}$"
         },
         "edited": {
-          "$ref": "#/definitions/date_string",
+          "$ref": "#/$defs/date_string",
           "description": "Last edited date"
         },
         "slice": {
@@ -115,7 +115,7 @@
           "type": "array",
           "description": "Quality Bars impacted by this hook (see taxonomies.md §5)",
           "items": {
-            "$ref": "#/definitions/quality_bar"
+            "$ref": "#/$defs/quality_bar"
           },
           "minItems": 1,
           "uniqueItems": true
@@ -149,22 +149,22 @@
       "description": "Suggested smallest loop and owner to resolve",
       "properties": {
         "loop": {
-          "$ref": "#/definitions/loop_name",
+          "$ref": "#/$defs/loop_name",
           "description": "Recommended loop for resolution (13 loops, see taxonomies.md §3)"
         },
         "owner_r": {
-          "$ref": "#/definitions/role_name",
+          "$ref": "#/$defs/role_name",
           "description": "Responsible role"
         },
         "accountable_a": {
-          "$ref": "#/definitions/role_name",
+          "$ref": "#/$defs/role_name",
           "description": "Accountable role (usually Showrunner)"
         },
         "consult": {
           "type": "array",
           "description": "Roles to consult",
           "items": {
-            "$ref": "#/definitions/role_name"
+            "$ref": "#/$defs/role_name"
           },
           "uniqueItems": true
         },
@@ -196,7 +196,7 @@
           "type": "array",
           "description": "Space-separated deferral types (see taxonomies.md §7)",
           "items": {
-            "$ref": "#/definitions/deferral_tag"
+            "$ref": "#/$defs/deferral_tag"
           },
           "uniqueItems": true
         },
@@ -268,11 +268,11 @@
           "description": "Brief bars green summary"
         },
         "resolved_date": {
-          "$ref": "#/definitions/date_string",
+          "$ref": "#/$defs/date_string",
           "description": "Date hook was resolved"
         },
         "resolved_by": {
-          "$ref": "#/definitions/role_name",
+          "$ref": "#/$defs/role_name",
           "description": "Role that closed the hook"
         }
       }
@@ -286,7 +286,7 @@
     "acceptance_criteria",
     "locations_links"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

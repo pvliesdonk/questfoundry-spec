@@ -99,7 +99,7 @@ Use this exact structure:
     // List all required field names
   ],
 
-  "definitions": {
+  "$defs": {
     // Copy from hook_card.schema.json:
     // - role_name
     // - date_string
@@ -146,7 +146,7 @@ Use this exact structure:
 **Always include** the `definitions` section from `hook_card.schema.json`:
 
 ```json
-"definitions": {
+"$defs": {
   "role_name": {
     "type": "string",
     "enum": ["SR", "GK", "PW", "SS", "ST", "LW", "CC", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"]
@@ -232,7 +232,7 @@ Before saving, check:
 **Schema:**
 ```json
 "edited": {
-  "$ref": "#/definitions/date_string"
+  "$ref": "#/$defs/date_string"
 }
 ```
 
@@ -262,7 +262,7 @@ Before saving, check:
 **Schema:**
 ```json
 "owner": {
-  "$ref": "#/definitions/role_name",
+  "$ref": "#/$defs/role_name",
   "description": "Responsible role"
 }
 ```
@@ -279,7 +279,7 @@ Before saving, check:
 "bars": {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/quality_bar"
+    "$ref": "#/$defs/quality_bar"
   },
   "minItems": 1
 }

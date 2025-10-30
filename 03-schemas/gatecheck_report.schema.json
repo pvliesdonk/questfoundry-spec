@@ -12,7 +12,7 @@
       "maxLength": 160
     },
     "checked": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date the gatecheck was performed."
     },
     "gatekeeper": {
@@ -54,7 +54,7 @@
       "type": "array",
       "description": "Optional deferral tags representing dormant tracks.",
       "items": {
-        "$ref": "#/definitions/deferral_tag"
+        "$ref": "#/$defs/deferral_tag"
       },
       "uniqueItems": true
     },
@@ -121,7 +121,7 @@
             "maxLength": 400
           },
           "owner": {
-            "$ref": "#/definitions/role_name",
+            "$ref": "#/$defs/role_name",
             "description": "Responsible role for the fix."
           },
           "notes": {
@@ -225,7 +225,7 @@
           "maxLength": 240
         },
         "lane": {
-          "$ref": "#/definitions/role_name",
+          "$ref": "#/$defs/role_name",
           "description": "Escalation owner per escalation rules."
         },
         "level": {
@@ -325,7 +325,7 @@
       }
     }
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

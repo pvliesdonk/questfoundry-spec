@@ -12,7 +12,7 @@
       "maxLength": 120
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date this cuelist was last edited."
     },
     "owner": {
@@ -273,7 +273,7 @@
     "accessibility_checklist",
     "done_checklist"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

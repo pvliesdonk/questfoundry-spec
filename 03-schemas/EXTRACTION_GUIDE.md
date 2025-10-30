@@ -166,7 +166,7 @@ List all fields marked `Required: yes`:
 For reusable types (used across multiple artifacts):
 
 ```json
-"definitions": {
+"$defs": {
   "role_name": {
     "type": "string",
     "enum": ["SR", "GK", "PW", "SS", "ST", "LW", "CC", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"]
@@ -333,7 +333,7 @@ In the description field, reference:
 | `enum-list` | `"type": "array"` + `"items": {"enum"}` | Multiple choices |
 | `markdown` | `"type": "string"` | Rich text (stays as string) |
 | `date` | `"type": "string"` + `"format": "date"` | YYYY-MM-DD |
-| `role-name` | `"$ref": "#/definitions/role_name"` | Use shared definition |
+| `role-name` | `"$ref": "#/$defs/role_name"` | Use shared definition |
 | `markdown-list` | `"type": "array"` + `"items": {"type": "string"}` | List of items |
 | `boolean` | `"type": "boolean"` | true/false |
 | `integer` | `"type": "integer"` | Whole numbers |

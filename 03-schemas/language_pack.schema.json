@@ -11,7 +11,7 @@
       "pattern": "^[A-Z]{2}(?:-[A-Z]{2})?$"
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date this language pack was last edited."
     },
     "owner": {
@@ -126,7 +126,7 @@
       "type": "array",
       "description": "Optional list of translation deferral tags.",
       "items": {
-        "$ref": "#/definitions/deferral_tag"
+        "$ref": "#/$defs/deferral_tag"
       },
       "uniqueItems": true
     },
@@ -204,7 +204,7 @@
     "pn_patterns",
     "glossary_slice"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

@@ -17,7 +17,7 @@
       "pattern": "^TU-\\d{4}-\\d{2}-\\d{2}-[A-Z]{2,4}\\d{2}$"
     },
     "opened": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date these edit notes were opened."
     },
     "snapshot": {
@@ -26,14 +26,14 @@
       "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}$"
     },
     "author": {
-      "$ref": "#/definitions/role_name",
+      "$ref": "#/$defs/role_name",
       "description": "Role filing the edit notes."
     },
     "owners_to_apply": {
       "type": "array",
       "description": "Roles responsible for applying the fixes; list each owner once.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -42,7 +42,7 @@
       "type": "array",
       "description": "Quality bars addressed by these edits.",
       "items": {
-        "$ref": "#/definitions/quality_bar"
+        "$ref": "#/$defs/quality_bar"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -124,7 +124,7 @@
     "summary",
     "before_after"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",

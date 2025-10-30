@@ -17,7 +17,7 @@
       "pattern": "^TU-\\d{4}-\\d{2}-\\d{2}-[A-Z]{2,4}\\d{2}$"
     },
     "edited": {
-      "$ref": "#/definitions/date_string",
+      "$ref": "#/$defs/date_string",
       "description": "Date the memo was last edited."
     },
     "owner": {
@@ -37,7 +37,7 @@
       "type": "array",
       "description": "Roles that will consume this research.",
       "items": {
-        "$ref": "#/definitions/role_name"
+        "$ref": "#/$defs/role_name"
       },
       "minItems": 1,
       "uniqueItems": true
@@ -163,7 +163,7 @@
     "creative_implications",
     "done_checklist"
   ],
-  "definitions": {
+  "$defs": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",
