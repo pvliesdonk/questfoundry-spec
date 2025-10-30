@@ -1,10 +1,10 @@
 # Artifact Structures (Layer 2)
 
-> **Status:** 🚧 **PARKED — Pending Layer 2 proper draft**
+> **Status:** ✅ **ENRICHED — All 17 templates enriched with constraints (Phase 3 — 2025-10-30)**
 >
-> These 17 artifact templates were moved from `01-roles/templates/` during architectural cleanup (2025-10-29). They define the structure of work products created during loops, but as **data structure definitions** they belong in Layer 2 (what artifacts ARE) rather than Layer 1 (who creates them).
+> All 17 artifact templates have been enriched with inline HTML constraint comments, validation rules, and common error examples. Both original (human-friendly) and enriched (human + machine-friendly) versions are available.
 >
-> Content is unchanged pending full Layer 2 review and refinement.
+> Enriched templates include field metadata, cross-artifact validation, and detailed guidance to support Layer 3 schema generation and Layer 1 corrections.
 
 ---
 
