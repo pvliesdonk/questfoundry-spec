@@ -72,7 +72,7 @@ Envelope:
   intent: gate.report.submit
   context.hot_cold: "hot" (checking Hot work)
   context.tu: "<TU-ID>" (required)
-  context.snapshot: "Cold @ YYYY-MM-DD" (if checking Cold merge)
+  context.snapshot: "Cold @ 2025-10-28" (if checking Cold merge)
   payload.type: gatecheck_report
 ```
 
@@ -83,7 +83,7 @@ Envelope:
   intent: tu.merge / merge.approve
   context.hot_cold: "cold" (target state)
   context.tu: "<TU-ID>" (required)
-  context.snapshot: "Cold @ YYYY-MM-DD" (required)
+  context.snapshot: "Cold @ 2025-10-30" (required)
   refs: ["<upstream-TU>", "<hook-IDs>"]
   payload.type: tu_brief / merge confirmation
 ```
@@ -96,7 +96,7 @@ Envelope:
   sender.role: "BB"
   receiver.role: "PN"
   context.hot_cold: "cold" (enforced by schema)
-  context.snapshot: "Cold @ YYYY-MM-DD" (required by schema)
+  context.snapshot: "Cold @ 2025-10-28" (required by schema)
   safety.player_safe: true (enforced by schema)
   safety.spoilers: "forbidden"
   payload.type: view_log
