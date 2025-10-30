@@ -138,8 +138,7 @@ The message action or verb, namespaced by domain.
 - `"gate.report.submit"` — submit a gatecheck report
 - `"merge.request"` — request merge to Cold
 - `"ack"` — acknowledge receipt
-- `"error.validation"` — validation error
-- `"error.business_rule"` — business rule violation
+- `"error"` — error (with `code` in payload specifying error type)
 
 **Rules:**
 - Intent MUST match a defined verb in `04-protocol/INTENTS.md` (future deliverable)
@@ -214,14 +213,12 @@ The message content, validated against a Layer 3 schema.
 
 **Fields:**
 - `type` (string, REQUIRED): Payload type name (matches schema filename without `.schema.json`)
-- `$schema` (string, REQUIRED): Relative or absolute path to the JSON Schema in `03-schemas/`
 - `data` (object, REQUIRED): The actual payload data
 
 **Example:**
 ```json
 "payload": {
   "type": "hook_card",
-  "$schema": "../03-schemas/hook_card.schema.json",
   "data": {
     "header": {
       "short_name": "Shadow Toll at Wormhole 3",
@@ -258,8 +255,7 @@ The message content, validated against a Layer 3 schema.
 ```
 
 **Rules:**
-- `payload.data` MUST validate against the schema referenced by `payload.$schema`
-- Schema path MAY be relative (from envelope location) or absolute URL
+- `payload.data` MUST validate against the Layer 3 schema for `payload.type` (e.g., `03-schemas/{payload.type}.schema.json`)
 - Unknown payload types SHOULD be rejected
 - Empty payloads are allowed for acks/errors (see Error Envelopes)
 
@@ -465,18 +461,13 @@ Receivers MUST ignore unknown top-level or nested fields. This allows:
 - `refs` — empty array `[]` if absent
 - `correlation_id`, `reply_to` — null if absent
 
-### 4.4 Version Negotiation
-
-- Receivers SHOULD support current major version
-- Minor/patch version differences are compatible within a major version
-- Receivers MAY reject older major versions (e.g., `protocol.version = "0.x.y"`)
-
 ---
 
 ## 5. Error Envelopes
 
 Errors use the same envelope structure with:
-- `intent` set to `"error.validation"`, `"error.business_rule"`, `"error.not_authorized"`, etc.
+- `intent` set to `"error"`
+- `payload.data.code` specifying the error type (e.g., `"validation_error"`, `"business_rule_violation"`, `"not_authorized"`)
 - `reply_to` referencing the failed message `id`
 - `payload.data` describing the error
 
@@ -486,7 +477,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
 
 ```json
 {
-  "code": "VALIDATION_FAILED",
+  "code": "validation_error",
   "message": "Payload data does not validate against schema",
   "details": {
     "schema_path": "../03-schemas/hook_card.schema.json",
@@ -499,11 +490,11 @@ Error payloads follow a simple structure (no Layer 3 schema required):
 ```
 
 **Common error codes:**
-- `VALIDATION_FAILED` — schema validation error
-- `BUSINESS_RULE_VIOLATION` — policy violation (e.g., Hot→PN)
-- `NOT_AUTHORIZED` — sender lacks permission
-- `NOT_FOUND` — referenced entity missing
-- `CONFLICT` — state conflict (e.g., TU already merged)
+- `validation_error` — schema validation error
+- `business_rule_violation` — policy violation (e.g., Hot→PN)
+- `not_authorized` — sender lacks permission
+- `not_found` — referenced entity missing
+- `conflict` — state conflict (e.g., TU already merged)
 
 ---
 
@@ -537,7 +528,6 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   },
   "payload": {
     "type": "ack",
-    "$schema": null,
     "data": {
       "message": "Hook HK-20251030-01 received and queued"
     }
@@ -565,7 +555,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   "receiver": {
     "role": "SS"
   },
-  "intent": "error.validation",
+  "intent": "error",
   "context": {
     "hot_cold": "hot",
     "loop": "Gatecheck"
@@ -576,9 +566,8 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   },
   "payload": {
     "type": "error",
-    "$schema": null,
     "data": {
-      "code": "VALIDATION_FAILED",
+      "code": "validation_error",
       "message": "Payload data does not validate against schema",
       "details": {
         "schema_path": "../03-schemas/hook_card.schema.json",
@@ -612,7 +601,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   "receiver": {
     "role": "SR"
   },
-  "intent": "error.business_rule",
+  "intent": "error",
   "context": {
     "hot_cold": "hot",
     "loop": "Binding Run"
@@ -623,9 +612,8 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   },
   "payload": {
     "type": "error",
-    "$schema": null,
     "data": {
-      "code": "BUSINESS_RULE_VIOLATION",
+      "code": "business_rule_violation",
       "message": "Attempted to route Hot content to PN",
       "details": {
         "rule": "PN_SAFETY_INVARIANT",
@@ -673,7 +661,6 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   },
   "payload": {
     "type": "hook_card",
-    "$schema": "../03-schemas/hook_card.schema.json",
     "data": {
       "header": {
         "short_name": "Shadow Toll at Wormhole 3",
@@ -746,7 +733,6 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   },
   "payload": {
     "type": "view_log",
-    "$schema": "../03-schemas/view_log.schema.json",
     "data": {
       "view_name": "main-export-v1",
       "snapshot": "Cold @ 2025-10-28",

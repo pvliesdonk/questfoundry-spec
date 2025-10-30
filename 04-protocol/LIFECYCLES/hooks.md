@@ -56,17 +56,17 @@ proposed → accepted → in-progress → resolved → canonized
 
 | From State     | To State      | Allowed Sender | Intent               | Required Payload      | Notes                                |
 |----------------|---------------|----------------|----------------------|-----------------------|--------------------------------------|
-| `proposed`     | `accepted`    | SR             | `hook.accept`        | hook_card (partial)   | SR triages during Hook Harvest       |
-| `proposed`     | `deferred`    | SR             | `hook.defer`         | hook_card (partial)   | Requires deferral reason + revisit   |
-| `proposed`     | `rejected`    | SR             | `hook.reject`        | hook_card (partial)   | Requires rejection reason            |
-| `accepted`     | `in-progress` | Owner (R role) | `hook.start`         | hook_card (partial)   | Owner begins work                    |
-| `accepted`     | `deferred`    | SR or Owner    | `hook.defer`         | hook_card (partial)   | If blocked before starting           |
-| `in-progress`  | `resolved`    | Owner (R role) | `hook.resolve`       | hook_card (full)      | Work complete, deliverables ready    |
-| `in-progress`  | `deferred`    | SR or Owner    | `hook.defer`         | hook_card (partial)   | If blocked during work               |
-| `resolved`     | `canonized`   | SR             | `hook.canonize`      | hook_card (full)      | After successful Cold merge          |
-| `resolved`     | `in-progress` | Owner (R role) | `hook.reopen`        | hook_card (partial)   | If gatecheck fails or rework needed  |
-| `deferred`     | `accepted`    | SR             | `hook.reactivate`    | hook_card (partial)   | Reactivating deferred hook           |
-| `deferred`     | `rejected`    | SR             | `hook.reject`        | hook_card (partial)   | Abandoning deferred hook             |
+| `proposed`     | `accepted`    | SR             | `hook.update_status` | hook_card (partial)   | SR triages; `status: "accepted"` in payload |
+| `proposed`     | `deferred`    | SR             | `hook.update_status` | hook_card (partial)   | Requires deferral reason; `status: "deferred"` |
+| `proposed`     | `rejected`    | SR             | `hook.update_status` | hook_card (partial)   | Requires rejection reason; `status: "rejected"` |
+| `accepted`     | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial)   | Owner begins work; `status: "in-progress"` |
+| `accepted`     | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial)   | If blocked; `status: "deferred"` |
+| `in-progress`  | `resolved`    | Owner (R role) | `hook.update_status` | hook_card (full)      | Work complete; `status: "resolved"` |
+| `in-progress`  | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial)   | If blocked; `status: "deferred"` |
+| `resolved`     | `canonized`   | SR             | `hook.update_status` | hook_card (full)      | After Cold merge; `status: "canonized"` |
+| `resolved`     | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial)   | If rework needed; `status: "in-progress"` |
+| `deferred`     | `accepted`    | SR             | `hook.update_status` | hook_card (partial)   | Reactivating; `status: "accepted"` |
+| `deferred`     | `rejected`    | SR             | `hook.update_status` | hook_card (partial)   | Abandoning; `status: "rejected"` |
 
 **Role Abbreviations:**
 - **SR** — Showrunner (accountable for lifecycle decisions)
@@ -85,9 +85,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.accept`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "accepted"`
 
 **Required Fields:**
 ```json
@@ -125,9 +127,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.defer`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "deferred"`
 
 **Required Fields:**
 ```json
@@ -164,9 +168,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.reject`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "rejected"`
 
 **Required Fields:**
 ```json
@@ -204,9 +210,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** Owner (R role specified in `proposed_next_step.owner_r`)
 
-**Intent:** `hook.start`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "in-progress"`
 
 **Required Fields:**
 ```json
@@ -239,9 +247,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** Owner (R role)
 
-**Intent:** `hook.resolve`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (full)
+
+**Payload Field:** `header.status: "resolved"`
 
 **Required Fields:**
 ```json
@@ -283,9 +293,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.canonize`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (full)
+
+**Payload Field:** `header.status: "canonized"`
 
 **Required Fields:**
 ```json
@@ -324,9 +336,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** Owner (R role)
 
-**Intent:** `hook.reopen`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "in-progress"`
 
 **Required Fields:**
 ```json
@@ -358,9 +372,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.reactivate`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "accepted"`
 
 **Required Fields:**
 ```json
@@ -392,9 +408,11 @@ proposed → accepted → in-progress → resolved → canonized
 
 **Sender:** SR (Showrunner)
 
-**Intent:** `hook.reject`
+**Intent:** `hook.update_status`
 
 **Payload Schema:** `hook_card.schema.json` (partial update)
+
+**Payload Field:** `header.status: "rejected"`
 
 **Required Fields:** (same as 4.3)
 
@@ -469,7 +487,7 @@ All hook messages MUST include:
   "details": {
     "sender_role": "SS",
     "required_role": "SR",
-    "intent": "hook.accept"
+    "intent": "hook.update_status"
   }
 }
 ```
@@ -560,7 +578,7 @@ If `classification.blocking = "yes (<reason>)"`:
   "time": "2025-10-30T12:30:00Z",
   "sender": { "role": "SR", "agent": "human:alice" },
   "receiver": { "role": "LW" },
-  "intent": "hook.accept",
+  "intent": "hook.update_status",
   "context": {
     "hot_cold": "hot",
     "tu": "TU-2025-10-30-SR01",
@@ -603,7 +621,7 @@ If `classification.blocking = "yes (<reason>)"`:
   "time": "2025-10-30T15:45:00Z",
   "sender": { "role": "LW", "agent": "bot:lw-v1.5" },
   "receiver": { "role": "SR" },
-  "intent": "hook.resolve",
+  "intent": "hook.update_status",
   "context": {
     "hot_cold": "hot",
     "tu": "TU-2025-10-30-LW01",

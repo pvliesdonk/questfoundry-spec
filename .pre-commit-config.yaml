@@ -18,7 +18,7 @@ repos:
       # Uncomment when ready to enforce envelope validation in CI
       # - id: validate-envelope-examples
       #   name: Validate Layer 4 envelope examples
-      #   entry: bash -c 'cd tools && uv run qfspec-check-envelope ../04-protocol/EXAMPLES/*.json'
+      #   entry: bash -c 'REPO_ROOT=$PWD && cd tools && uv run qfspec-check-envelope $REPO_ROOT/04-protocol/EXAMPLES/*.json'
       #   language: system
       #   files: ^04-protocol/EXAMPLES/.*\.json$
       #   pass_filenames: false

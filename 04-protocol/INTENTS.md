@@ -61,15 +61,15 @@ Intents follow the pattern: `<domain>.<verb>[.<subverb>]`
 - `hook.create` — create a new hook
 - `tu.open` — open (start) a new TU
 - `gate.report.submit` — submit a gatecheck report
-- `error.validation` — validation error
+- `error` — error (with `code` in payload specifying error type)
 
 ### 2.2 Domains
 
 | Domain     | Purpose                                    | Examples                                    |
 |------------|--------------------------------------------|---------------------------------------------|
-| `hook`     | Hook Card lifecycle operations             | `hook.create`, `hook.accept`, `hook.resolve`|
+| `hook`     | Hook Card lifecycle operations             | `hook.create`, `hook.update_status`         |
 | `tu`       | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`          |
-| `gate`     | Gatecheck lifecycle operations             | `gate.submit`, `gate.pass`, `gate.block`    |
+| `gate`     | Gatecheck lifecycle operations             | `gate.submit`, `gate.decision`              |
 | `merge`    | Cold merge operations                      | `merge.request`, `merge.approve`, `merge.reject`|
 | `view`     | View/export operations                     | `view.export.request`, `view.export.result` |
 | `pn`       | Player Narrator operations                 | `pn.playtest.submit`                        |
@@ -324,11 +324,11 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Expected Replies:**
 - `ack` — Hook received and queued
-- `error.validation` — Payload validation failed
+- `error` — Payload validation failed (with `code: "validation_error"`)
 
 **Error Conditions:**
-- `VALIDATION_FAILED` — if payload does not match schema
-- `CONFLICT` — if hook ID already exists
+- `validation_error` — if payload does not match schema
+- `conflict` — if hook ID already exists
 
 **References:**
 - `04-protocol/LIFECYCLES/hooks.md` — Hook lifecycle state machine
@@ -357,27 +357,29 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Expected Replies:**
 - `ack` — Status update accepted
-- `error.business_rule` — Invalid state transition
-- `error.not_authorized` — Sender lacks permission
+- `error` — Invalid state transition (with `code: "business_rule_violation"`)
+- `error` — Sender lacks permission (with `code: "not_authorized"`)
 
 **Error Conditions:**
-- `INVALID_STATE_TRANSITION` — transition not allowed per state machine
-- `NOT_AUTHORIZED` — sender role not allowed for transition
-- `NOT_FOUND` — hook ID does not exist
+- `business_rule_violation` — transition not allowed per state machine
+- `not_authorized` — sender role not allowed for transition
+- `not_found` — hook ID does not exist
 
 **Lifecycle Transition Mapping:**
 
-| From State     | To State      | Intent Subverb          | Sender      |
+All transitions use the `hook.update_status` intent with `header.status` field in payload specifying the target state:
+
+| From State     | To State      | Payload Status Field    | Sender      |
 |----------------|---------------|-------------------------|-------------|
-| `proposed`     | `accepted`    | `hook.accept`           | SR          |
-| `proposed`     | `deferred`    | `hook.defer`            | SR          |
-| `proposed`     | `rejected`    | `hook.reject`           | SR          |
-| `accepted`     | `in-progress` | `hook.start`            | Owner (R)   |
-| `in-progress`  | `resolved`    | `hook.resolve`          | Owner (R)   |
-| `resolved`     | `canonized`   | `hook.canonize`         | SR          |
-| `resolved`     | `in-progress` | `hook.reopen`           | Owner (R)   |
-| `deferred`     | `accepted`    | `hook.reactivate`       | SR          |
-| `deferred`     | `rejected`    | `hook.reject`           | SR          |
+| `proposed`     | `accepted`    | `"accepted"`            | SR          |
+| `proposed`     | `deferred`    | `"deferred"`            | SR          |
+| `proposed`     | `rejected`    | `"rejected"`            | SR          |
+| `accepted`     | `in-progress` | `"in-progress"`         | Owner (R)   |
+| `in-progress`  | `resolved`    | `"resolved"`            | Owner (R)   |
+| `resolved`     | `canonized`   | `"canonized"`           | SR          |
+| `resolved`     | `in-progress` | `"in-progress"`         | Owner (R)   |
+| `deferred`     | `accepted`    | `"accepted"`            | SR          |
+| `deferred`     | `rejected`    | `"rejected"`            | SR          |
 
 **References:**
 - `04-protocol/LIFECYCLES/hooks.md` §3 (State Transitions)
@@ -412,10 +414,10 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Expected Replies:**
 - `ack` — TU opened successfully
-- `error.validation` — Payload validation failed
+- `error` — Payload validation failed (with `code: "validation_error"`)
 
 **Error Conditions:**
-- `VALIDATION_FAILED` — if payload does not match schema
+- `validation_error` —if payload does not match schema
 - `CONFLICT` — if TU ID already exists
 
 **References:**
@@ -444,12 +446,12 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Expected Replies:**
 - `ack` — Update accepted
-- `error.business_rule` — Invalid state transition
+- `error` —Invalid state transition
 - `error.not_authorized` — Sender lacks permission
 
 **Error Conditions:**
-- `INVALID_STATE_TRANSITION` — transition not allowed per state machine
-- `NOT_AUTHORIZED` — sender role not allowed for transition
+- `business_rule_violation` —transition not allowed per state machine
+- `not_authorized` —sender role not allowed for transition
 - `NOT_FOUND` — TU ID does not exist
 
 **Lifecycle Transition Mapping:**
@@ -492,12 +494,12 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Expected Replies:**
 - `ack` — Merge successful
-- `error.business_rule` — Gatecheck not passed or other violation
+- `error` —Gatecheck not passed or other violation
 
 **Error Conditions:**
-- `INVALID_STATE_TRANSITION` — TU not in `gatecheck` state
-- `NOT_AUTHORIZED` — sender is not SR
-- `BUSINESS_RULE_VIOLATION` — gatecheck not passed or bars not green
+- `business_rule_violation` —TU not in `gatecheck` state
+- `not_authorized` —sender is not SR
+- `business_rule_violation` —gatecheck not passed or bars not green
 
 **References:**
 - `04-protocol/LIFECYCLES/tu.md` §4.5 (gatecheck → cold-merged)
@@ -535,8 +537,8 @@ When `intent = "error"`, the envelope schema enforces:
 - `error.validation` — Report validation failed
 
 **Error Conditions:**
-- `VALIDATION_FAILED` — if report does not match schema
-- `BUSINESS_RULE_VIOLATION` — if decision conflicts with bar status
+- `validation_error` —if report does not match schema
+- `business_rule_violation` —if decision conflicts with bar status
 
 **References:**
 - `04-protocol/LIFECYCLES/gate.md` §4 (Transition Details)
@@ -570,16 +572,18 @@ When `intent = "error"`, the envelope schema enforces:
 - `tu.rework` — if decision is `block` (owner addresses red bars)
 
 **Error Conditions:**
-- `VALIDATION_FAILED` — if decision conflicts with bar status
-- `NOT_AUTHORIZED` — sender is not GK
+- `validation_error` — if decision conflicts with bar status
+- `not_authorized` — sender is not GK
 
 **Decision Mapping:**
 
-| Decision           | Bar Status Requirement            | Intent Subverb           |
+All gate decisions use the `gate.decision` intent with the `decision` field in payload specifying the outcome:
+
+| Decision           | Bar Status Requirement            | Payload Decision Field   |
 |--------------------|-----------------------------------|--------------------------|
-| Pass               | All bars green                    | `gate.pass`              |
-| Conditional Pass   | Some bars yellow, none red        | `gate.conditional_pass`  |
-| Block              | One or more bars red              | `gate.block`             |
+| Pass               | All bars green                    | `"pass"`                 |
+| Conditional Pass   | Some bars yellow, none red        | `"conditional_pass"`     |
+| Block              | One or more bars red              | `"block"`                |
 
 **References:**
 - `04-protocol/LIFECYCLES/gate.md` §4.3-4.5 (Decision transitions)
@@ -614,8 +618,8 @@ When `intent = "error"`, the envelope schema enforces:
 - `error.validation` — Payload incomplete or invalid
 
 **Error Conditions:**
-- `VALIDATION_FAILED` — if deliverables or gatecheck plan missing
-- `BUSINESS_RULE_VIOLATION` — if TU not in `gatecheck` state
+- `validation_error` —if deliverables or gatecheck plan missing
+- `business_rule_violation` —if TU not in `gatecheck` state
 
 **References:**
 - `04-protocol/LIFECYCLES/tu.md` §4.4 (stabilizing → gatecheck)
@@ -626,7 +630,7 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Purpose:** Approve merge to Cold after successful gatecheck.
 
-**Direction:** SR → broadcast (after `gate.pass` or `gate.conditional_pass`)
+**Direction:** SR → broadcast (after `gate.decision` with `decision: "pass"` or `decision: "conditional_pass"`)
 
 **Required Envelope Fields:**
 - `context.hot_cold` — MUST be `"cold"` (merge approved, now Cold)
@@ -645,9 +649,9 @@ When `intent = "error"`, the envelope schema enforces:
 - `ack` — Merge acknowledged by downstream systems (Binder, PN)
 
 **Error Conditions:**
-- `INVALID_STATE_TRANSITION` — TU not in `gatecheck` state
-- `NOT_AUTHORIZED` — sender is not SR
-- `BUSINESS_RULE_VIOLATION` — gatecheck not passed
+- `business_rule_violation` —TU not in `gatecheck` state
+- `not_authorized` —sender is not SR
+- `business_rule_violation` —gatecheck not passed
 
 **References:**
 - `04-protocol/LIFECYCLES/tu.md` §4.5 (gatecheck → cold-merged)
@@ -659,7 +663,7 @@ When `intent = "error"`, the envelope schema enforces:
 
 **Purpose:** Reject merge to Cold after failed gatecheck; require rework.
 
-**Direction:** GK or SR → Owner (A) (after `gate.block`)
+**Direction:** GK or SR → Owner (A) (after `gate.decision` with `decision: "block"`)
 
 **Required Envelope Fields:**
 - `context.hot_cold` — MUST be `"hot"` (merge rejected, stays Hot)
@@ -677,8 +681,8 @@ When `intent = "error"`, the envelope schema enforces:
 - `tu.rework` — Owner addresses red bars and resubmits
 
 **Error Conditions:**
-- `NOT_AUTHORIZED` — sender is not GK or SR
-- `VALIDATION_FAILED` — if decision is not `block` or red bars lack remediation
+- `not_authorized` — sender is not GK or SR
+- `validation_error` —if decision is not `block` or red bars lack remediation
 
 **References:**
 - `04-protocol/LIFECYCLES/tu.md` §4.6 (gatecheck → stabilizing / rework)
@@ -715,7 +719,7 @@ When `intent = "error"`, the envelope schema enforces:
 **Error Conditions:**
 - `SNAPSHOT_NOT_FOUND` — if snapshot does not exist in Cold
 - `SNAPSHOT_INVALID` — if snapshot format is malformed
-- `VALIDATION_FAILED` — if view_log fields incomplete
+- `validation_error` —if view_log fields incomplete
 
 **References:**
 - `04-protocol/LIFECYCLES/view.md` §4.1 (snapshot-selected → export-binding)
@@ -793,7 +797,7 @@ When `intent = "error"`, the envelope schema enforces:
 **Error Conditions:**
 - `SNAPSHOT_MISMATCH` — if PN snapshot does not match view export snapshot
 - `PN_HOT_BOUNDARY_VIOLATION` — if PN snapshot is Hot (critical error)
-- `VALIDATION_FAILED` — if playtest notes incomplete
+- `validation_error` —if playtest notes incomplete
 
 **References:**
 - `04-protocol/LIFECYCLES/view.md` §4.4 (pn-dry-run → feedback-collected)
@@ -809,21 +813,9 @@ When `intent = "error"`, the envelope schema enforces:
 | Intent                    | Purpose                              | Sender      | Receiver    | Payload Schema              |
 |---------------------------|--------------------------------------|-------------|-------------|-----------------------------|
 | `ack`                     | Acknowledge receipt                  | Any         | Any         | None                        |
-| `error`                   | General error                        | Any         | Sender      | None (error structure)      |
-| `error.validation`        | Validation error                     | Any         | Sender      | None (error structure)      |
-| `error.business_rule`     | Business rule violation              | Any         | Sender      | None (error structure)      |
-| `error.not_authorized`    | Authorization failure                | Any         | Sender      | None (error structure)      |
-| `error.not_found`         | Entity not found                     | Any         | Sender      | None (error structure)      |
-| `error.conflict`          | State conflict                       | Any         | Sender      | None (error structure)      |
+| `error`                   | Error (with `code` in payload)       | Any         | Sender      | None (error structure)      |
 | `hook.create`             | Create hook                          | Any         | Owner       | `hook_card.schema.json`     |
-| `hook.accept`             | Accept hook                          | SR          | Owner       | `hook_card.schema.json`     |
-| `hook.defer`              | Defer hook                           | SR          | Owner       | `hook_card.schema.json`     |
-| `hook.reject`             | Reject hook                          | SR          | Owner       | `hook_card.schema.json`     |
-| `hook.start`              | Start hook work                      | Owner (R)   | Broadcast   | `hook_card.schema.json`     |
-| `hook.resolve`            | Resolve hook                         | Owner (R)   | SR          | `hook_card.schema.json`     |
-| `hook.canonize`           | Canonize hook (merge to Cold)        | SR          | Broadcast   | `hook_card.schema.json`     |
-| `hook.reopen`             | Reopen hook for rework               | Owner (R)   | Broadcast   | `hook_card.schema.json`     |
-| `hook.reactivate`         | Reactivate deferred hook             | SR          | Owner       | `hook_card.schema.json`     |
+| `hook.update_status`      | Update hook status                   | SR/Owner    | Owner       | `hook_card.schema.json`     |
 | `tu.open`                 | Open TU                              | SR/Owner    | Broadcast   | `tu_brief.schema.json`      |
 | `tu.start`                | Start TU work                        | SR/Owner    | Broadcast   | `tu_brief.schema.json`      |
 | `tu.defer`                | Defer TU                             | SR          | Broadcast   | `tu_brief.schema.json`      |
@@ -833,9 +825,7 @@ When `intent = "error"`, the envelope schema enforces:
 | `tu.reactivate`           | Reactivate deferred TU               | SR          | Broadcast   | `tu_brief.schema.json`      |
 | `tu.close`                | Close TU (merge to Cold)             | SR          | Broadcast   | `tu_brief.schema.json`      |
 | `gate.submit`             | Submit gatecheck report (pre-gate)   | GK          | SR          | `gatecheck_report.schema.json`|
-| `gate.pass`               | Gatecheck pass (all bars green)      | GK          | SR          | `gatecheck_report.schema.json`|
-| `gate.conditional_pass`   | Conditional pass (yellow bars)       | GK          | SR          | `gatecheck_report.schema.json`|
-| `gate.block`              | Gatecheck block (red bars)           | GK          | SR/Owner    | `gatecheck_report.schema.json`|
+| `gate.decision`           | Gate decision (with `decision` field)| GK          | SR/Owner    | `gatecheck_report.schema.json`|
 | `gate.defer`              | Defer gatecheck                      | SR/GK       | Broadcast   | `tu_brief.schema.json`      |
 | `merge.request`           | Request merge to Cold                | Owner (A)   | SR/GK       | `tu_brief.schema.json`      |
 | `merge.approve`           | Approve merge to Cold                | SR          | Broadcast   | `tu_brief.schema.json`      |
