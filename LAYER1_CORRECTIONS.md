@@ -556,3 +556,46 @@ Remove question marks, use space-separated format.
 **Total issues found:** 13 (7 from Phase 2 extraction, 6 from Phase 3 enrichment)
 
 ---
+
+## 14. Research Posture Format Inconsistencies (Found in Phase 3 - Tier 2)
+
+### Issue
+
+**Three templates have research posture format issues:**
+
+**A) Canon Pack** (`02-dictionary/artifacts/canon_pack.md` line 24):
+```
+Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
+```
+Problems: Nested format + "med" abbreviation
+
+**B) Codex Entry** (`02-dictionary/artifacts/codex_entry.md` line 114):
+```
+Research posture touched: <corroborated | plausible | disputed | uncorroborated:<low|med|high>>
+```
+Problems: Nested format + "med" abbreviation
+
+**C) Research Memo** (`02-dictionary/artifacts/research_memo.md` line 71):
+```
+Posture: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:med | uncorroborated:high>
+```
+Problems: "med" abbreviation (format is correct as flat)
+
+**Should all be:**
+```
+Research posture touched: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
+```
+
+### Resolution ✅
+
+1. Use "medium" not "med" (full word per taxonomy §8)
+2. List all 6 separate values in flat format, not nested format
+3. All three templates must use consistent format
+
+### Files to Fix 🔧
+
+- [ ] `02-dictionary/artifacts/canon_pack.md` line 24 — Fix nested format and "med" → "medium"
+- [ ] `02-dictionary/artifacts/codex_entry.md` line 114 — Fix nested format and "med" → "medium"
+- [ ] `02-dictionary/artifacts/research_memo.md` line 71 — Fix "med" → "medium"
+
+---
