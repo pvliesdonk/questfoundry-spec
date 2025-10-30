@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://questfoundry.liesdonk.nl/protocol/envelope.schema.json",
   "title": "QuestFoundry Protocol Envelope",
-  "description": "Transport-agnostic message envelope for Layer 4. Enforces PN safety and validates payloads against Layer 3 schemas by payload.type.",
+  "description": "Transport-agnostic message envelope for Layer 4. Enforces PN safety boundaries. Payload validation against Layer 3 schemas is handled separately by validation tools.",
   "type": "object",
   "properties": {
     "protocol": {
@@ -59,7 +59,10 @@
       "type": "object",
       "properties": {
         "type": { "$ref": "#/$defs/payload_type" },
-        "data": { "type": "object" }
+        "data": {
+          "type": "object",
+          "description": "Payload data validated separately against Layer 3 schemas based on payload.type"
+        }
       },
       "required": ["type", "data"]
     },
@@ -80,63 +83,12 @@
         }
       }
     },
-
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "hook_card" } }, "required": ["type"] } }, "required": ["payload"] },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/hook_card.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "tu_brief" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/tu_brief.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "gatecheck_report" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/gatecheck_report.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "canon_pack" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/canon_pack.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "codex_entry" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/codex_entry.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "style_addendum" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/style_addendum.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "edit_notes" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/edit_notes.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "research_memo" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/research_memo.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "shotlist" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/shotlist.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "cuelist" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/cuelist.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "art_plan" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/art_plan.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "audio_plan" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/audio_plan.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "language_pack" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/language_pack.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "register_map" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/register_map.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "view_log" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/view_log.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "front_matter" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/front_matter.schema.json" } } } } }
-    },
-    { "if": { "properties": { "payload": { "properties": { "type": { "const": "pn_playtest_notes" } }, "required": ["type"] } } },
-      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/pn_playtest_notes.schema.json" } } } } }
-    },
-
-    { "if": { "properties": { "intent": { "const": "ack" } }, "required": ["intent"] },
+    {
+      "if": { "properties": { "intent": { "const": "ack" } }, "required": ["intent"] },
       "then": { "properties": { "payload": { "properties": { "type": { "const": "none" } } } } }
     },
-    { "if": { "properties": { "intent": { "const": "error" } } },
+    {
+      "if": { "properties": { "intent": { "const": "error" } } },
       "then": {
         "properties": {
           "payload": {
@@ -145,13 +97,16 @@
               "data": {
                 "type": "object",
                 "properties": {
-                  "code": { "type": "string", "enum": [
-                    "validation_error",
-                    "business_rule_violation",
-                    "not_authorized",
-                    "not_found",
-                    "conflict"
-                  ] },
+                  "code": {
+                    "type": "string",
+                    "enum": [
+                      "validation_error",
+                      "business_rule_violation",
+                      "not_authorized",
+                      "not_found",
+                      "conflict"
+                    ]
+                  },
                   "message": { "type": "string", "minLength": 5 },
                   "details": { "type": "object" }
                 },
@@ -164,10 +119,49 @@
     }
   ],
   "$defs": {
-    "role_name": { "$ref": "../03-schemas/hook_card.schema.json#/$defs/role_name" },
-    "loop_name": { "$ref": "../03-schemas/hook_card.schema.json#/$defs/loop_name" },
+    "role_name": {
+      "type": "string",
+      "description": "Role abbreviation from 02-dictionary/role_abbreviations.md (Layer 2)",
+      "enum": [
+        "SR",
+        "GK",
+        "PW",
+        "SS",
+        "ST",
+        "LW",
+        "CC",
+        "AD",
+        "IL",
+        "AuD",
+        "AuP",
+        "TR",
+        "BB",
+        "PN",
+        "RS"
+      ]
+    },
+    "loop_name": {
+      "type": "string",
+      "description": "Loop display name from 02-dictionary/loop_names.md (Layer 2)",
+      "enum": [
+        "Story Spark",
+        "Hook Harvest",
+        "Lore Deepening",
+        "Codex Expansion",
+        "Style Tune-up",
+        "Art Touch-up",
+        "Audio Pass",
+        "Translation Pass",
+        "Binding Run",
+        "Narration Dry-Run",
+        "Gatecheck",
+        "Post-Mortem",
+        "Archive Snapshot"
+      ]
+    },
     "payload_type": {
       "type": "string",
+      "description": "Artifact type from Layer 3 schemas. Payload data validation is handled separately by validation tools.",
       "enum": [
         "art_plan",
         "audio_plan",
@@ -191,4 +185,3 @@
     }
   }
 }
-
