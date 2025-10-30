@@ -194,6 +194,59 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
 - Phase 5: Validation & Conformance ✅ Complete
   - ✅ `CONFORMANCE.md` — Conformance requirements and test matrix
   - ✅ `EXAMPLES/` — Example envelopes with validation procedures
+  - ✅ `scripts/validate-examples.sh` and `validate-examples.ps1` — CI validation scripts
 
 See `LAYER4_PLAN.md` at repository root for the full phased implementation plan, success criteria, and rollout timeline.
+
+
+
+## Continuous Integration
+
+### Validating Envelope Examples in CI
+
+The repository includes validation scripts for envelope examples that can be integrated into CI pipelines:
+
+**GitHub Actions example:**
+
+```yaml
+name: Validate Layer 4 Envelopes
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        run: pip install uv
+      
+      - name: Validate envelope examples
+        run: ./scripts/validate-examples.sh
+```
+
+**Manual validation:**
+
+```bash
+# Bash (Unix/Linux/macOS)
+./scripts/validate-examples.sh
+
+# PowerShell (Windows)
+.\scripts\validate-examples.ps1
+
+# Validate specific files
+./scripts/validate-examples.sh 04-protocol/EXAMPLES/hook.create.json
+```
+
+The validation scripts check:
+- Envelope structure against `envelope.schema.json`
+- Payload data against Layer 3 schemas
+- PN safety constraints
+- Required fields and format patterns
 
