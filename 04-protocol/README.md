@@ -135,9 +135,11 @@ See `ENVELOPE.md` for full details, field definitions, MUST/SHOULD rules, and JS
 **Location:** [`LIFECYCLES/hooks.md`](./LIFECYCLES/hooks.md)
 
 The normative specification for Hook Card state transitions and protocol rules. Defines:
-- 7-state lifecycle: proposed → accepted → in-progress → resolved → canonized (with deferred/rejected branches)
+- 7-state lifecycle: proposed → accepted → in-progress → resolved → canonized  
+  (with deferred/rejected branches)
 - Complete transition matrix with allowed sender roles
-- Required message intents for each transition (hook.accept, hook.start, hook.resolve, etc.)
+- Required message intents for each transition  
+  (hook.accept, hook.start, hook.resolve, etc.)
 - Payload schemas and required fields per transition
 - Error cases and validation rules
 - Quality bar integration and blocking hook enforcement
@@ -154,9 +156,11 @@ See `LIFECYCLES/hooks.md` for state machine, authorization rules, and JSON messa
 **Location:** [`LIFECYCLES/tu.md`](./LIFECYCLES/tu.md)
 
 The normative specification for Trace Unit (TU) state transitions and protocol rules. Defines:
-- 6-state lifecycle: hot-proposed → stabilizing → gatecheck → cold-merged (with deferred/rejected branches)
+- 6-state lifecycle: hot-proposed → stabilizing → gatecheck → cold-merged  
+  (with deferred/rejected branches)
 - Complete transition matrix with allowed sender roles
-- Required message intents for each transition (tu.start, tu.submit_gate, tu.merge, etc.)
+- Required message intents for each transition  
+  (tu.start, tu.submit_gate, tu.merge, etc.)
 - Payload schemas and required fields per transition
 - Error cases and validation rules
 - Quality bar integration and gatecheck enforcement
@@ -174,12 +178,12 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
 
 **Completed:**
 - ✅ Phase 1: Envelope v1.0 specification
-- ✅ Phase 2 (Partial): Lifecycles & state machines
+- ✅ Phase 2a (Partial): Lifecycles & state machines
   - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle with all state transitions
   - ✅ `LIFECYCLES/tu.md` — Trace Unit lifecycle with all state transitions
 
 **Next:**
-- Phase 2 (Remaining): Gate and View lifecycles
+- Phase 2b (Remaining): Gate and View lifecycles
 - Phase 3: Message intents & catalogs
 - Phase 4: End-to-end flows per loop
 
