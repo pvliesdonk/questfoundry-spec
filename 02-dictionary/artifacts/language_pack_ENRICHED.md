@@ -58,7 +58,7 @@ Manuscript: <XX%>    (notes: <what is included/excluded>)
 Codex: <YY%>         (notes: <which entries>)
 Captions/Alt: <ZZ%>  (notes: art/audio presence)
 UI Labels/Front-matter: <done | partial>
-Deferrals: deferred:translation? (if partial)
+Deferrals: deferred:translation (if partial)
 
 ```
 
