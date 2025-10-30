@@ -76,7 +76,7 @@ Neighbors: @audioproducer @style @translator @pn @gatekeeper @binder
 | `foreman-gate-hum` | pace | under last 2 lines; end before choices | low engine hum rises, then settles | "[A low engine hum rises, then settles.]" | `/manuscript/act1/foreman-gate#scanner` | planned |
 | `<cue-2>` | mood | <…> | <…> | "[<…>]" | `/manuscript/...#...` | planned/producing/done |
 
-*Statuses:* `planned` · `producing` · `done` · `deferred`.
+*Statuses:* `planned` | `producing` | `done` | `deferred`.
 
 ---
 
