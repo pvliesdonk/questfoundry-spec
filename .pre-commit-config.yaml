@@ -7,17 +7,19 @@ repos:
   - repo: local
     hooks:
       - id: validate-schemas
-        name: Validate Layer 3 schemas (Draft 2020-12)
+        name: Validate Layer 3 and Layer 4 schemas (Draft 2020-12)
         entry: bash -c 'cd tools && uv run qfspec-validate'
         language: system
-        files: ^03-schemas/.*\.schema\.json$
+        files: ^(03-schemas|04-protocol)/.*\.schema\.json$
         pass_filenames: false
-        description: Ensure all Layer 3 schemas are valid JSON Schema Draft 2020-12
+        description: Ensure all Layer 3 and Layer 4 schemas are valid JSON Schema Draft 2020-12
 
-      # Future: Add Layer 4 when ready
-      # - id: validate-layer4-schemas
-      #   name: Validate Layer 4 schemas (Draft 2020-12)
-      #   entry: bash -c 'cd tools && uv run qfspec-validate-layer4'
+      # Optional: Validate Layer 4 envelope examples
+      # Uncomment when ready to enforce envelope validation in CI
+      # - id: validate-envelope-examples
+      #   name: Validate Layer 4 envelope examples
+      #   entry: bash -c 'cd tools && uv run qfspec-check-envelope ../04-protocol/EXAMPLES/*.json'
       #   language: system
-      #   files: ^04-.*\.schema\.json$
+      #   files: ^04-protocol/EXAMPLES/.*\.json$
       #   pass_filenames: false
+      #   description: Validate envelope examples against envelope.schema.json and Layer 3 payload schemas

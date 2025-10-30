@@ -8,6 +8,8 @@
 
 This specification defines the **message intents** (verbs) that drive QuestFoundry workflows: the actions that trigger lifecycle state transitions, coordinate role handoffs, and enforce quality gates.
 
+All intents are validated against `04-protocol/envelope.schema.json`, which serves as the **normative source** for envelope structure, required fields, and constraints. This document provides the semantic meaning and usage patterns for each intent.
+
 ### Purpose
 
 Intents provide:
@@ -16,13 +18,36 @@ Intents provide:
 3. **Schema linkage** — intents specify which Layer 3 payload schemas are required
 4. **Error taxonomy** — standardized error intents enable consistent error handling
 5. **Role authorization** — intents document which roles can send/receive
+6. **Envelope validation** — intents are constrained by envelope.schema.json
 
 ### Design Principles
 
 - **Namespace organization** — intents use dot notation: `<domain>.<verb>[.<subverb>]`
 - **Explicit authorization** — each intent specifies allowed sender/receiver roles
 - **Schema enforcement** — intents reference Layer 3 schemas for payload validation
+- **Envelope constraints** — special intents (ack, error, PN-bound) have envelope schema rules
 - **Forward compatibility** — unknown intents should be rejected unless explicitly allowed
+
+### Relationship to Envelope Schema
+
+The `envelope.schema.json` defines several normative constraints that affect intents:
+
+1. **PN Safety Invariant**: When `receiver.role = "PN"`, the envelope MUST enforce:
+   - `context.hot_cold = "cold"`
+   - `context.snapshot` present
+   - `safety.player_safe = true`
+
+2. **Ack Intent**: When `intent = "ack"`, the envelope enforces:
+   - `payload.type = "none"`
+
+3. **Error Intent**: When `intent = "error"`, the envelope enforces:
+   - `payload.type = "none"`
+   - `payload.data.code` must be one of the standard error codes
+   - `payload.data.message` required (minLength: 5)
+
+4. **Payload Type Mapping**: Each payload type is validated against its Layer 3 schema via `allOf` constraints
+
+See `04-protocol/envelope.schema.json` for the complete normative definition.
 
 ---
 
@@ -54,30 +79,67 @@ Intents follow the pattern: `<domain>.<verb>[.<subverb>]`
 
 ## 3. Error Taxonomy
 
-All error intents follow the pattern `error.<error_type>` or simply `error` for general errors.
+All error intents follow the pattern `error.<error_type>` or simply `error` for general errors. Error codes and structures are defined in `04-protocol/envelope.schema.json` and enforced by the envelope schema validation.
 
 ### 3.1 Error Types
 
+Error types are standardized and MUST match the `code` enum in the envelope schema:
+
 | Error Intent              | Code                          | Trigger                                           | Remedy                                      |
 |---------------------------|-------------------------------|---------------------------------------------------|---------------------------------------------|
-| `error.validation`        | `VALIDATION_FAILED`           | Payload does not validate against schema          | Fix payload data to match schema            |
-| `error.business_rule`     | `BUSINESS_RULE_VIOLATION`     | Policy violation (e.g., Hot→PN)                   | Respect business rules (PN safety, etc.)    |
-| `error.not_authorized`    | `NOT_AUTHORIZED`              | Sender lacks permission for operation             | Use authorized role for operation           |
-| `error.not_found`         | `NOT_FOUND`                   | Referenced entity missing                         | Verify entity exists or create it           |
-| `error.conflict`          | `CONFLICT`                    | State conflict (e.g., TU already merged)          | Resolve state conflict before retrying      |
+| `error` (validation)      | `validation_error`            | Payload does not validate against schema          | Fix payload data to match schema            |
+| `error` (business_rule)   | `business_rule_violation`     | Policy violation (e.g., Hot→PN, PN Safety)        | Respect business rules (PN safety, etc.)    |
+| `error` (not_authorized)  | `not_authorized`              | Sender lacks permission for operation             | Use authorized role for operation           |
+| `error` (not_found)       | `not_found`                   | Referenced entity missing                         | Verify entity exists or create it           |
+| `error` (conflict)        | `conflict`                    | State conflict (e.g., TU already merged)          | Resolve state conflict before retrying      |
 
-### 3.2 Error Payload Structure
+**Note:** Error intents use the `error` intent field with different `code` values in the payload, rather than separate intent names like `error.validation`. The envelope schema enforces the valid codes through the `allOf` constraint for `intent: "error"`.
 
-Error intents use a simple payload structure (no Layer 3 schema required):
+### 3.2 Error Payload Structure (Envelope Schema Definition)
+
+Error intents are special cases in `envelope.schema.json`. When `intent = "error"`, the envelope schema enforces:
+
+- `payload.type` MUST be `"none"`
+- `payload.data` MUST contain:
+  - `code` (string, required) — one of the error codes above
+  - `message` (string, required, minLength: 5) — human-readable error message
+  - `details` (object, optional) — additional context
+
+**Envelope Requirements for Error Messages:**
+
+- `intent` — MUST be `"error"`
+- `reply_to` — MUST reference the failed message ID
+- `correlation_id` — SHOULD match original message
+- `payload.type` — MUST be `"none"`
+- `payload.data.code` — MUST be one of: `validation_error`, `business_rule_violation`, `not_authorized`, `not_found`, `conflict`
+
+**Example Error Envelope:**
 
 ```json
 {
-  "code": "VALIDATION_FAILED",
-  "message": "Human-readable error message",
-  "details": {
-    "field": "value",
-    "additional_context": "..."
-  }
+  "protocol": {"name": "qf-protocol", "version": "1.0.0"},
+  "id": "urn:uuid:error-123",
+  "time": "2025-10-30T12:25:00Z",
+  "sender": {"role": "GK"},
+  "receiver": {"role": "LW"},
+  "intent": "error",
+  "context": {"hot_cold": "hot", "loop": "Gatecheck"},
+  "safety": {"player_safe": false, "spoilers": "allowed"},
+  "payload": {
+    "type": "none",
+    "data": {
+      "code": "validation_error",
+      "message": "Payload data does not validate against schema",
+      "details": {
+        "schema_path": "../03-schemas/hook_card.schema.json",
+        "validation_errors": [
+          "header.id: does not match pattern",
+          "classification.bars_affected: must have at least 1 item"
+        ]
+      }
+    }
+  },
+  "reply_to": "urn:uuid:original-message-id"
 }
 ```
 
@@ -99,63 +161,143 @@ Error intents use a simple payload structure (no Layer 3 schema required):
 
 **Direction:** Any role → Any role (typically receiver → sender)
 
-**Required Envelope Fields:**
-- `reply_to` — MUST reference the acknowledged message ID
-- `correlation_id` — SHOULD match original message
+**Envelope Requirements:**
 
-**Payload Schema:** None (or simple acknowledgment structure)
+When `intent = "ack"`, the envelope schema enforces:
+- `payload.type` MUST be `"none"`
+- `reply_to` MUST be present (references acknowledged message ID)
+- `correlation_id` SHOULD match original message
+
+**Context Fields:**
+- `context.hot_cold` — inherits from original message context
+- `context.loop` — inherits from original message
+- Other context fields optional
+
+**Safety Fields:**
+- Typically matches original message safety context (Hot acks stay Hot, Cold acks stay Cold)
+
+**Payload Schema:** None (payload.type = "none")
 
 **Payload Example:**
 ```json
 {
-  "type": "ack",
-  "$schema": null,
+  "type": "none",
   "data": {
-    "message": "Message received and queued for processing"
+    "message": "Hook HK-20251030-01 received and queued for review"
   }
 }
 ```
 
-**Expected Replies:** None
+**Full Envelope Example:**
+```json
+{
+  "protocol": {"name": "qf-protocol", "version": "1.0.0"},
+  "id": "urn:uuid:ack-abc123",
+  "time": "2025-10-30T12:20:00Z",
+  "sender": {"role": "LW"},
+  "receiver": {"role": "SR"},
+  "intent": "ack",
+  "context": {"hot_cold": "hot", "loop": "Hook Harvest"},
+  "safety": {"player_safe": false, "spoilers": "allowed"},
+  "payload": {
+    "type": "none",
+    "data": {"message": "Hook received"}
+  },
+  "correlation_id": "corr-hook-harvest-2025-10-30",
+  "reply_to": "urn:uuid:original-message-id"
+}
+```
+
+**Expected Replies:** None (ack is terminal)
 
 **Error Conditions:** None
 
 **References:**
+- `04-protocol/envelope.schema.json` — Schema constraint for ack intent
 - `04-protocol/ENVELOPE.md` §6.1 (Example: Ack)
+- `04-protocol/EXAMPLES/ack.json` — Example ack envelope
 
 ---
 
-### 4.2 `error` — General Error
+### 4.2 `error` — Error Response
 
-**Purpose:** Report an error condition not covered by specific error intents.
+**Purpose:** Report an error condition with standardized error codes.
 
 **Direction:** Any role → sender of failed message
 
-**Required Envelope Fields:**
-- `reply_to` — MUST reference the failed message ID
-- `correlation_id` — SHOULD match original message
+**Envelope Requirements:**
 
-**Payload Schema:** None (error structure)
+When `intent = "error"`, the envelope schema enforces:
+- `payload.type` MUST be `"none"`
+- `payload.data.code` MUST be one of: `validation_error`, `business_rule_violation`, `not_authorized`, `not_found`, `conflict`
+- `payload.data.message` MUST be present (string, minLength: 5)
+- `payload.data.details` MAY be present (object)
+- `reply_to` MUST be present (references failed message ID)
+- `correlation_id` SHOULD match original message
 
-**Payload Example:**
+**Context Fields:**
+- `context.hot_cold` — inherits from original message context
+- `context.loop` — inherits from original message
+- Other context fields optional
+
+**Safety Fields:**
+- Typically matches original message safety context
+
+**Payload Schema:** None (payload.type = "none", enforced by envelope schema)
+
+**Payload Structure (enforced by envelope.schema.json):**
 ```json
 {
-  "type": "error",
-  "$schema": null,
+  "type": "none",
   "data": {
-    "code": "UNKNOWN_ERROR",
-    "message": "An unexpected error occurred",
-    "details": {}
+    "code": "<error_code>",
+    "message": "Human-readable error message",
+    "details": {
+      "schema_path": "...",
+      "validation_errors": [],
+      "rule": "...",
+      "violation": "...",
+      "reference": "..."
+    }
   }
 }
 ```
 
-**Expected Replies:** None (terminal)
+**Full Envelope Example:**
+```json
+{
+  "protocol": {"name": "qf-protocol", "version": "1.0.0"},
+  "id": "urn:uuid:error-def456",
+  "time": "2025-10-30T12:25:00Z",
+  "sender": {"role": "GK"},
+  "receiver": {"role": "LW"},
+  "intent": "error",
+  "context": {"hot_cold": "hot", "loop": "Gatecheck"},
+  "safety": {"player_safe": false, "spoilers": "allowed"},
+  "payload": {
+    "type": "none",
+    "data": {
+      "code": "validation_error",
+      "message": "Payload data does not validate against schema",
+      "details": {
+        "schema_path": "../03-schemas/hook_card.schema.json",
+        "validation_errors": ["header.id: invalid pattern"]
+      }
+    }
+  },
+  "reply_to": "urn:uuid:original-message-id"
+}
+```
+
+**Expected Replies:** None (error is terminal)
 
 **Error Conditions:** N/A (this is an error intent)
 
 **References:**
-- `04-protocol/ENVELOPE.md` §5 (Error Envelopes)
+- `04-protocol/envelope.schema.json` — Schema constraint for error intent
+- `04-protocol/ENVELOPE.md` §5 (Error Envelopes), §6.2 (Example: Validation Error)
+- `04-protocol/EXAMPLES/error.validation.json` — Example error envelope
+- `04-protocol/CONFORMANCE.md` §4 (Error Taxonomy)
 
 ---
 

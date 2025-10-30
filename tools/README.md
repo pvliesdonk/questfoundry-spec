@@ -6,10 +6,11 @@ Validation and maintenance tools for the **QuestFoundry specification itself**.
 
 ## Overview
 
-This UV project provides two types of validation:
+This UV project provides three types of validation:
 
-1. **Schema Validation** - Ensures Layer 3 (and future Layer 4) schemas are valid JSON Schema Draft 2020-12
+1. **Schema Validation** - Ensures Layer 3 and Layer 4 schemas are valid JSON Schema Draft 2020-12
 2. **Instance Validation** - Ensures artifact instances comply with their QuestFoundry schemas
+3. **Envelope Validation** - Validates Layer 4 protocol envelopes and their embedded payloads
 
 ## Quick Start
 
@@ -18,11 +19,14 @@ This UV project provides two types of validation:
 cd tools
 uv sync
 
-# Validate all schemas
+# Validate all schemas (Layer 3 + Layer 4)
 uv run qfspec-validate
 
 # Validate instance files
 uv run qfspec-check-instance hook_card ../path/to/hook.json
+
+# Validate Layer 4 envelope files (NEW)
+uv run qfspec-check-envelope ../04-protocol/EXAMPLES/hook.create.json
 ```
 
 ## Installation
@@ -47,6 +51,7 @@ uv tool install ./tools
 # Now available system-wide
 qfspec-validate
 qfspec-check-instance hook_card my-hook.json
+qfspec-check-envelope my-envelope.json
 ```
 
 ## Usage
@@ -55,7 +60,7 @@ All commands should be run from the **repository root**, not from the `tools/` d
 
 ### 1. Validate Schemas (Meta-validation)
 
-Validates that all Layer 3 schemas comply with JSON Schema Draft 2020-12:
+Validates that all Layer 3 and Layer 4 schemas comply with JSON Schema Draft 2020-12:
 
 ```bash
 # From repository root
@@ -78,12 +83,15 @@ Validating Layer 3 schemas...
   Checking hook_card.schema.json... ✓
   ...
 
+Validating Layer 4 envelope schema...
+  Checking envelope.schema.json... ✓
+
 === Validation Summary ===
 All schemas are valid JSON Schema Draft 2020-12!
 ```
 
 **When to use:**
-- After modifying any schema in `03-schemas/`
+- After modifying any schema in `03-schemas/` or `04-protocol/`
 - Before committing schema changes
 - In CI/CD pipelines
 - When developing new schemas
@@ -235,6 +243,79 @@ uv run qfspec-check-instance gatecheck_report report1.json report2.json
 # Glob patterns
 uv run qfspec-check-instance view_log logs/*.json
 ```
+
+### `qfspec-check-envelope`
+
+**NEW in Layer 4:** Validates Layer 4 envelope files against the envelope schema AND validates the embedded payload against its Layer 3 schema.
+
+**Usage:**
+```bash
+uv run qfspec-check-envelope <envelope-file> [envelope-file2 ...]
+```
+
+**Features:**
+- Validates envelope structure against `04-protocol/envelope.schema.json`
+- Validates `payload.data` against the corresponding Layer 3 schema (based on `payload.type`)
+- Enforces PN safety constraints (Cold-only, player_safe, etc.)
+- Validates all envelope fields (protocol, id, time, sender, receiver, intent, context, safety)
+- Detailed error messages for both envelope and payload validation
+- Summary report with pass/fail counts
+- Exit code 0 on success, 1 on failure
+
+**Arguments:**
+- `envelope-file` - One or more envelope JSON files to validate
+
+**Examples:**
+```bash
+# Single envelope
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
+
+# Multiple envelopes
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/hook.*.json
+
+# All examples
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/*.json
+```
+
+**What it validates:**
+
+1. **Envelope structure:**
+   - Required fields: protocol, id, time, sender, receiver, intent, context, safety, payload
+   - Field formats: RFC3339 timestamps, UUID/URN ids, role abbreviations, TU/snapshot patterns
+   - Enum constraints: hot_cold, player_safe, spoilers, loop names
+
+2. **PN Safety Invariant:**
+   - When `receiver.role = "PN"`:
+     - MUST have `context.hot_cold = "cold"`
+     - MUST have `context.snapshot` present
+     - MUST have `safety.player_safe = true`
+
+3. **Payload validation:**
+   - If `payload.type != "none"`:
+     - Validates `payload.data` against `03-schemas/{payload.type}.schema.json`
+     - All Layer 3 schema constraints apply (required fields, patterns, etc.)
+
+**Example output:**
+```
+=== QuestFoundry Spec: Envelope Validator ===
+Repository: /path/to/questfoundry
+
+Validating hook.create.json... ✓
+Validating view.export.result.json... ✓
+Validating error.validation.json... ✓
+
+=== Validation Summary ===
+Total: 3
+Passed: 3
+All envelopes are valid!
+```
+
+**When to use:**
+- After creating or modifying envelope examples in `04-protocol/EXAMPLES/`
+- Before committing envelope changes
+- In CI/CD to validate protocol message conformance
+- When testing envelope schema changes
+- To verify PN safety constraints are enforced
 
 ## Troubleshooting
 
