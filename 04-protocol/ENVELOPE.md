@@ -364,20 +364,72 @@ This enables traceability per `00-north-star/TRACEABILITY.md`.
 
 ## 4. Defaults and Forward Compatibility
 
-### 4.1 Unknown Fields
+### 4.1 Versioning & Compatibility
+
+The QuestFoundry Protocol uses **semantic versioning (semver)** for the `protocol.version` field:
+
+**Version Format:** `MAJOR.MINOR.PATCH[-prerelease][+build]`
+
+**Compatibility Rules:**
+
+1. **MAJOR version** changes indicate breaking changes:
+   - Field removals or incompatible type changes
+   - New required fields without defaults
+   - Behavior changes that violate previous contracts
+   - Example: `1.0.0` → `2.0.0` requires client updates
+
+2. **MINOR version** changes are backward-compatible additions:
+   - New optional fields
+   - New intent types
+   - New payload types
+   - Extended enums (e.g., new role abbreviations)
+   - Example: `1.0.0` → `1.1.0` works with 1.0.0 clients
+
+3. **PATCH version** changes are backward-compatible fixes:
+   - Documentation clarifications
+   - Bug fixes that don't affect contract
+   - Example: `1.0.0` → `1.0.1` is a drop-in replacement
+
+**Version Negotiation:**
+
+- Receivers SHOULD support the current MAJOR version
+- Receivers MAY support multiple MAJOR versions concurrently
+- Receivers MUST ignore unknown optional fields (forward compatibility)
+- Receivers SHOULD reject messages with unsupported MAJOR versions with error code `"not_supported"`
+
+**Example Version Error:**
+
+```json
+{
+  "intent": "error",
+  "payload": {
+    "type": "none",
+    "data": {
+      "code": "not_supported",
+      "message": "Protocol version 2.0.0 not supported",
+      "details": {
+        "received_version": "2.0.0",
+        "supported_versions": ["1.0.0", "1.1.0", "1.2.0"]
+      }
+    }
+  }
+}
+```
+
+### 4.2 Unknown Fields
 
 Receivers MUST ignore unknown top-level or nested fields. This allows:
 - Adding optional fields in minor versions
 - Transport-specific metadata (e.g., HTTP headers as `_transport.http`)
 
-### 4.2 Missing Optional Fields
+### 4.3 Missing Optional Fields
 
 - `sender.agent`, `receiver.agent` — default to role-level routing
 - `context.tu`, `context.snapshot` — absent if not applicable (Hot work, acks)
 - `refs` — empty array `[]` if absent
 - `correlation_id`, `reply_to` — null if absent
 
-### 4.3 Version Negotiation
+### 4.4 Version Negotiation
 
 - Receivers SHOULD support current major version
 - Minor/patch version differences are compatible within a major version
