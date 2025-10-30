@@ -1,0 +1,10 @@
+# Development dependencies for QuestFoundry validation
+
+# JSON Schema validation library (includes Draft 2020-12 meta-schemas)
+# - Validates schemas against meta-schema (no network required)
+# - Validates instances against schemas
+# - Used by scripts/validate-schemas.py and scripts/validate-instance.py
+jsonschema>=4.20.0
+
+# Pre-commit framework for git hooks (optional)
+pre-commit>=3.5.0

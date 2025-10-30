@@ -1,0 +1,23 @@
+# Pre-commit hooks for QuestFoundry
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Validate that JSON Schema files comply with Draft 2020-12
+  - repo: local
+    hooks:
+      - id: validate-schemas
+        name: Validate Layer 3 schemas (Draft 2020-12)
+        entry: python3 scripts/validate-schemas.py
+        language: system
+        files: ^03-schemas/.*\.schema\.json$
+        pass_filenames: false
+        description: Ensure all Layer 3 schemas are valid JSON Schema Draft 2020-12
+
+      # Future: Add Layer 4 when ready
+      # - id: validate-layer4-schemas
+      #   name: Validate Layer 4 schemas (Draft 2020-12)
+      #   entry: python3 scripts/validate-layer4-schemas.py
+      #   language: system
+      #   files: ^04-.*\.schema\.json$
+      #   pass_filenames: false
