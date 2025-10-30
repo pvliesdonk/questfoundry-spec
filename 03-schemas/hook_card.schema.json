@@ -1,10 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://questfoundry.example.com/schemas/hook_card.schema.json",
+  "$id": "https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json",
   "title": "Hook Card",
   "description": "Small, traceable follow-up for new needs or uncertainties. Generated from 02-dictionary/artifacts/hook_card_ENRICHED.md. Hooks are classified, routed to appropriate loops, and kept player-safe.",
   "type": "object",
-
   "properties": {
     "header": {
       "type": "object",
@@ -24,7 +23,15 @@
         "status": {
           "type": "string",
           "description": "Current hook status (see taxonomies.md §2)",
-          "enum": ["proposed", "accepted", "in-progress", "resolved", "canonized", "deferred", "rejected"]
+          "enum": [
+            "proposed",
+            "accepted",
+            "in-progress",
+            "resolved",
+            "canonized",
+            "deferred",
+            "rejected"
+          ]
         },
         "raised_by": {
           "$ref": "#/definitions/role_name",
@@ -51,9 +58,17 @@
           "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}.*$"
         }
       },
-      "required": ["short_name", "id", "status", "raised_by", "tu", "edited", "slice", "snapshot_context"]
+      "required": [
+        "short_name",
+        "id",
+        "status",
+        "raised_by",
+        "tu",
+        "edited",
+        "slice",
+        "snapshot_context"
+      ]
     },
-
     "classification": {
       "type": "object",
       "description": "Hook type and impact classification",
@@ -61,12 +76,40 @@
         "type_primary": {
           "type": "string",
           "description": "Primary hook type (see taxonomies.md §1 for 13 types)",
-          "enum": ["narrative", "scene", "factual", "taxonomy", "structure", "canon", "research", "style/pn", "translation", "art", "audio", "binder/nav", "accessibility"]
+          "enum": [
+            "narrative",
+            "scene",
+            "factual",
+            "taxonomy",
+            "structure",
+            "canon",
+            "research",
+            "style/pn",
+            "translation",
+            "art",
+            "audio",
+            "binder/nav",
+            "accessibility"
+          ]
         },
         "type_secondary": {
           "type": "string",
           "description": "Optional secondary type (must differ from primary)",
-          "enum": ["narrative", "scene", "factual", "taxonomy", "structure", "canon", "research", "style/pn", "translation", "art", "audio", "binder/nav", "accessibility"]
+          "enum": [
+            "narrative",
+            "scene",
+            "factual",
+            "taxonomy",
+            "structure",
+            "canon",
+            "research",
+            "style/pn",
+            "translation",
+            "art",
+            "audio",
+            "binder/nav",
+            "accessibility"
+          ]
         },
         "bars_affected": {
           "type": "array",
@@ -83,23 +126,24 @@
           "pattern": "^(no|yes \\(.+\\))$"
         }
       },
-      "required": ["type_primary", "bars_affected", "blocking"]
+      "required": [
+        "type_primary",
+        "bars_affected",
+        "blocking"
+      ]
     },
-
     "player_safe_summary": {
       "type": "string",
       "description": "Brief player-facing need description (1-3 lines, no spoilers, no internals)",
       "minLength": 10,
       "maxLength": 240
     },
-
     "hot_details": {
       "type": "string",
       "description": "Optional internal routing details (spoilers allowed, Hot-only, never surfaces to players)",
       "minLength": 0,
       "maxLength": 500
     },
-
     "proposed_next_step": {
       "type": "object",
       "description": "Suggested smallest loop and owner to resolve",
@@ -129,9 +173,12 @@
           "description": "Optional note about dormant roles"
         }
       },
-      "required": ["loop", "owner_r", "accountable_a"]
+      "required": [
+        "loop",
+        "owner_r",
+        "accountable_a"
+      ]
     },
-
     "acceptance_criteria": {
       "type": "array",
       "description": "Exit criteria to close this hook (each tied to Quality Bars)",
@@ -141,7 +188,6 @@
       },
       "minItems": 1
     },
-
     "dormancy_deferrals": {
       "type": "object",
       "description": "Optional deferral configuration if work can wait safely",
@@ -166,7 +212,6 @@
         }
       }
     },
-
     "locations_links": {
       "type": "object",
       "description": "References and lineage tracking",
@@ -192,7 +237,6 @@
         }
       }
     },
-
     "resolution": {
       "type": "object",
       "description": "Filled when hook is closed",
@@ -214,7 +258,10 @@
         "view_impact": {
           "type": "string",
           "description": "Impact on views",
-          "enum": ["none", "rebind needed"]
+          "enum": [
+            "none",
+            "rebind needed"
+          ]
         },
         "gatekeeper_result": {
           "type": "string",
@@ -231,39 +278,84 @@
       }
     }
   },
-
-  "required": ["header", "classification", "player_safe_summary", "proposed_next_step", "acceptance_criteria", "locations_links"],
-
+  "required": [
+    "header",
+    "classification",
+    "player_safe_summary",
+    "proposed_next_step",
+    "acceptance_criteria",
+    "locations_links"
+  ],
   "definitions": {
     "role_name": {
       "type": "string",
       "description": "QuestFoundry role abbreviation (see 02-dictionary/role_abbreviations.md)",
-      "enum": ["SR", "GK", "PW", "SS", "ST", "LW", "CC", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"]
+      "enum": [
+        "SR",
+        "GK",
+        "PW",
+        "SS",
+        "ST",
+        "LW",
+        "CC",
+        "AD",
+        "IL",
+        "AuD",
+        "AuP",
+        "TR",
+        "BB",
+        "PN",
+        "RS"
+      ]
     },
-
     "date_string": {
       "type": "string",
       "description": "Date in YYYY-MM-DD format",
       "format": "date",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
-
     "quality_bar": {
       "type": "string",
       "description": "One of 8 Quality Bars (see taxonomies.md §5)",
-      "enum": ["Integrity", "Reachability", "Nonlinearity", "Gateways", "Style", "Determinism", "Presentation", "Accessibility"]
+      "enum": [
+        "Integrity",
+        "Reachability",
+        "Nonlinearity",
+        "Gateways",
+        "Style",
+        "Determinism",
+        "Presentation",
+        "Accessibility"
+      ]
     },
-
     "loop_name": {
       "type": "string",
       "description": "One of 13 TU loop types (see taxonomies.md §3 and loop_names.md)",
-      "enum": ["Story Spark", "Hook Harvest", "Lore Deepening", "Codex Expansion", "Style Tune-up", "Art Touch-up", "Audio Pass", "Translation Pass", "Binding Run", "Narration Dry-Run", "Gatecheck", "Post-Mortem", "Archive Snapshot"]
+      "enum": [
+        "Story Spark",
+        "Hook Harvest",
+        "Lore Deepening",
+        "Codex Expansion",
+        "Style Tune-up",
+        "Art Touch-up",
+        "Audio Pass",
+        "Translation Pass",
+        "Binding Run",
+        "Narration Dry-Run",
+        "Gatecheck",
+        "Post-Mortem",
+        "Archive Snapshot"
+      ]
     },
-
     "deferral_tag": {
       "type": "string",
       "description": "Deferral type for dormant roles (see taxonomies.md §7)",
-      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
+      "enum": [
+        "deferred:art",
+        "deferred:audio",
+        "deferred:translation",
+        "deferred:research"
+      ]
     }
   }
 }

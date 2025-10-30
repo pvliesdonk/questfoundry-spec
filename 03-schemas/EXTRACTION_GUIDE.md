@@ -132,7 +132,7 @@ Use **Option A** for simple artifacts with fewer than 10 fields.
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://questfoundry.example.com/schemas/{artifact}.schema.json",
+  "$id": "https://questfoundry.liesdonk.nl/schemas/{artifact}.schema.json",
   "title": "{Artifact Display Name}",
   "description": "Generated from 02-dictionary/artifacts/{artifact}_ENRICHED.md. {Usage description}",
   "type": "object"
