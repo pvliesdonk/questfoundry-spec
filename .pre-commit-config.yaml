@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: validate-schemas
         name: Validate Layer 3 schemas (Draft 2020-12)
-        entry: python3 scripts/validate-schemas.py
+        entry: bash -c 'cd tools && uv run qfspec-validate'
         language: system
         files: ^03-schemas/.*\.schema\.json$
         pass_filenames: false
@@ -17,7 +17,7 @@ repos:
       # Future: Add Layer 4 when ready
       # - id: validate-layer4-schemas
       #   name: Validate Layer 4 schemas (Draft 2020-12)
-      #   entry: python3 scripts/validate-layer4-schemas.py
+      #   entry: bash -c 'cd tools && uv run qfspec-validate-layer4'
       #   language: system
       #   files: ^04-.*\.schema\.json$
       #   pass_filenames: false
