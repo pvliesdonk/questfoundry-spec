@@ -45,19 +45,19 @@ Layer 4 remains transport-agnostic. Concrete mappings (HTTP, files, events) are 
 04-protocol/
   README.md                  # Overview and pointers (this file)
   ENVELOPE.md                # ✅ Normative envelope spec (fields, versioning, safety)
-  INTENTS.md                 # Message catalog (verbs, required payloads) [planned]
+  INTENTS.md                 # ✅ Message catalog (verbs, required payloads)
   LIFECYCLES/                # State machines (hooks, TU, gate, view)
     hooks.md                 # ✅ Hook lifecycle with state transitions
     tu.md                    # ✅ TU lifecycle with state transitions
     gate.md                  # [planned]
     view.md                  # [planned]
-  FLOWS/                     # End-to-end handshakes per loop [planned]
-    hook_harvest.md
-    lore_deepening.md
-    codex_expansion.md
-    gatecheck.md
-    binding_run.md
-    narration_dry_run.md
+  FLOWS/                     # End-to-end handshakes per loop
+    hook_harvest.md          # ✅ Hook Harvest message sequences
+    lore_deepening.md        # ✅ Lore Deepening message sequences
+    codex_expansion.md       # [planned]
+    gatecheck.md             # [planned]
+    binding_run.md           # [planned]
+    narration_dry_run.md     # [planned]
   APPENDIX/                  # Non-normative mappings [planned]
     transport-http.md
     transport-files.md
@@ -181,11 +181,15 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
 - ✅ Phase 2a (Partial): Lifecycles & state machines
   - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle with all state transitions
   - ✅ `LIFECYCLES/tu.md` — Trace Unit lifecycle with all state transitions
+- ✅ Phase 3: Message intents & catalogs
+  - ✅ `INTENTS.md` — Complete intent catalog with all domains
+- ✅ Phase 4 (Partial): End-to-end flows per loop
+  - ✅ `FLOWS/hook_harvest.md` — Hook Harvest message sequences
+  - ✅ `FLOWS/lore_deepening.md` — Lore Deepening message sequences
 
 **Next:**
 - Phase 2b (Remaining): Gate and View lifecycles
-- Phase 3: Message intents & catalogs
-- Phase 4: End-to-end flows per loop
+- Phase 4 (Remaining): Additional loop flows (Codex Expansion, Gatecheck, Binding Run, Narration Dry-Run)
 
 See `LAYER4_PLAN.md` at repository root for the full phased implementation plan, success criteria, and rollout timeline.
 
