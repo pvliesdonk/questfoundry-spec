@@ -49,11 +49,11 @@ Rationale: <1–2 lines on how this cue helps reading/performance>
 
 ```
 
-> *Clarify* = make an implied action/surroundings legible.
-> *Recall* = help memory of a prior scene/concept.
-> *Mood* = set atmosphere that prose alone can't carry.
-> *Signpost* = reduce hesitation at hubs/gates.
-> *Pace* = manage tension/energy around choices.
+> _Clarify_ = make an implied action/surroundings legible.
+> _Recall_ = help memory of a prior scene/concept.
+> _Mood_ = set atmosphere that prose alone can't carry.
+> _Signpost_ = reduce hesitation at hubs/gates.
+> _Pace_ = manage tension/energy around choices.
 
 ---
 
@@ -323,42 +323,52 @@ Status: planned
 ## Common Errors
 
 **❌ Using technique in Description**
+
 - Wrong: "800 Hz lowpass filter, -6dB/octave, with soft clipper at -3dB"
 - Right: "a low engine hum gently swells, then eases back"
 
 **❌ Using SMPTE timecode in Placement**
+
 - Wrong: "Placement: 00:02:15.500 to 00:02:19.250"
 - Right: "Placement: under the last two narrative lines; end before choice list"
 
 **❌ Missing square brackets in Caption**
+
 - Wrong: Caption: "A low engine hum rises"
 - Right: Caption: "[A low engine hum rises, then settles.]"
 
 **❌ Technique in Caption**
+
 - Wrong: Caption: "[Generated with reverb plugin and 300ms tail]"
 - Right: Caption: "[A low engine hum rises, then settles.]"
 
 **❌ Missing exclude condition**
+
 - Wrong: "Include when: section mentions dock machinery"
 - Right: "Include when: section mentions dock machinery / Exclude when: high-density speech"
 
 **❌ Missing safety notes**
+
 - Wrong: Only Onset and Intensity provided
 - Right: All 4 safety fields: Onset, Intensity, Transients, Content notes (even if "none")
 
 **❌ Purpose without rationale**
+
 - Wrong: "Purpose: pace" (no rationale)
 - Right: "Purpose: pace / Rationale: Lift tension across inspection, clear before choices"
 
 **❌ Non-descriptive salient qualities**
+
 - Wrong: "Salient qualities: good sound design"
 - Right: "Salient qualities: steady, distant, short, mechanical"
 
 **❌ Missing duck policy when under speech**
+
 - Wrong: "Placement: under lines 3-5" (no duck policy)
 - Right: "Placement: under lines 3-5 / Duck policy: soft (voice remains primary)"
 
 **❌ Producer logs in player-facing caption**
+
 - Wrong: Caption: "[Rendered at -16 LUFS, session abc123]"
 - Right: Caption in §4 is player-safe; producer logs stay in §8 off-surface
 
@@ -366,38 +376,38 @@ Status: planned
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | Title | string | yes | Cue id / short name |
-| Header | TU | tu-id | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Edited | date | yes | Format: YYYY-MM-DD |
-| Header | Owner | role-name | yes | Fixed: Audio Director |
-| Header | Slice | markdown | yes | Short scope label |
-| Header | Status (Audio) | enum | yes | planned \| producing \| done \| deferred |
-| §1 | Purpose (Audio) | enum | yes | clarify \| recall \| mood \| signpost \| pace |
-| §1 | Rationale (Purpose) | markdown | yes | 1-2 lines reader/performer benefit |
-| §2 | Placement (Audio) | markdown | yes | Relative prose anchors |
-| §2 | Timing note | markdown | optional | Enter/exit in words, not SMPTE |
-| §2 | Duration target | markdown | yes | e.g., "2-4 s" |
-| §2 | Duck policy | enum | optional | soft \| moderate \| strong |
-| §3 | What is heard | markdown | yes | Plain language, no technique |
-| §3 | Salient qualities | markdown | yes | Descriptive adjectives |
-| §3 | Readability | markdown | yes | Target devices |
-| §4 | Caption / Text Equivalent | markdown | yes | "[<text>]" format, one line |
-| §5 | Onset | enum | yes | soft \| gradual |
-| §5 | Intensity | enum | yes | conservative \| moderate |
-| §5 | Transients | enum | yes | none \| gentle |
-| §5 | Content notes | markdown | optional | Layer-0 reference if applicable |
-| §6 | Inclusion Criteria | markdown | yes | Include AND exclude |
-| §6 | Anchor targets | path-list | yes | /manuscript/...#anchor |
-| §7 | Register | enum | optional | neutral \| formal \| colloquial |
-| §7 | Idioms to avoid | markdown-list | optional | Culture-bound idioms |
-| §7 | Translator note | markdown | optional | Portability hints |
-| §8 | Determinism | markdown | yes | Off-surface repro info |
-| §8 | Repro expectation | enum | yes | none \| log-only |
-| §8 | Producer log fields | markdown | optional | Off-surface technique |
-| §9 | Handoffs | markdown-list | yes | Min 6 roles |
-| §10 | Done checklist | markdown-list | yes | 9 items; all must be ticked |
+| Section | Field                     | Type          | Required | Taxonomy/Constraint                           |
+| ------- | ------------------------- | ------------- | -------- | --------------------------------------------- |
+| Header  | Title                     | string        | yes      | Cue id / short name                           |
+| Header  | TU                        | tu-id         | yes      | Format: TU-YYYY-MM-DD-<role><seq>             |
+| Header  | Edited                    | date          | yes      | Format: YYYY-MM-DD                            |
+| Header  | Owner                     | role-name     | yes      | Fixed: Audio Director                         |
+| Header  | Slice                     | markdown      | yes      | Short scope label                             |
+| Header  | Status (Audio)            | enum          | yes      | planned \| producing \| done \| deferred      |
+| §1      | Purpose (Audio)           | enum          | yes      | clarify \| recall \| mood \| signpost \| pace |
+| §1      | Rationale (Purpose)       | markdown      | yes      | 1-2 lines reader/performer benefit            |
+| §2      | Placement (Audio)         | markdown      | yes      | Relative prose anchors                        |
+| §2      | Timing note               | markdown      | optional | Enter/exit in words, not SMPTE                |
+| §2      | Duration target           | markdown      | yes      | e.g., "2-4 s"                                 |
+| §2      | Duck policy               | enum          | optional | soft \| moderate \| strong                    |
+| §3      | What is heard             | markdown      | yes      | Plain language, no technique                  |
+| §3      | Salient qualities         | markdown      | yes      | Descriptive adjectives                        |
+| §3      | Readability               | markdown      | yes      | Target devices                                |
+| §4      | Caption / Text Equivalent | markdown      | yes      | "[<text>]" format, one line                   |
+| §5      | Onset                     | enum          | yes      | soft \| gradual                               |
+| §5      | Intensity                 | enum          | yes      | conservative \| moderate                      |
+| §5      | Transients                | enum          | yes      | none \| gentle                                |
+| §5      | Content notes             | markdown      | optional | Layer-0 reference if applicable               |
+| §6      | Inclusion Criteria        | markdown      | yes      | Include AND exclude                           |
+| §6      | Anchor targets            | path-list     | yes      | /manuscript/...#anchor                        |
+| §7      | Register                  | enum          | optional | neutral \| formal \| colloquial               |
+| §7      | Idioms to avoid           | markdown-list | optional | Culture-bound idioms                          |
+| §7      | Translator note           | markdown      | optional | Portability hints                             |
+| §8      | Determinism               | markdown      | yes      | Off-surface repro info                        |
+| §8      | Repro expectation         | enum          | yes      | none \| log-only                              |
+| §8      | Producer log fields       | markdown      | optional | Off-surface technique                         |
+| §9      | Handoffs                  | markdown-list | yes      | Min 6 roles                                   |
+| §10     | Done checklist            | markdown-list | yes      | 9 items; all must be ticked                   |
 
 **Total fields: 28** (5 metadata, 2 content, 1 classification, 3 relationships, 2 validation, 2 localization, 4 accessibility, 3 spatial, 4 presentation, 2 determinism)
 

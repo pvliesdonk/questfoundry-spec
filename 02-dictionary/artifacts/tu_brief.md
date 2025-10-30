@@ -187,6 +187,7 @@ Snapshot/View impact: none (text-only small pass)
 ### Field-Level Validation
 
 **ID:**
+
 - Format: `TU-YYYY-MM-DD-<role><seq>` (e.g., `TU-2025-10-28-ST01`)
 - YYYY-MM-DD must be valid date
 - Role code typically 2-4 chars (ST, PW, LW, etc.)
@@ -194,20 +195,24 @@ Snapshot/View impact: none (text-only small pass)
 - Must be unique across all TUs
 
 **Opened:**
+
 - Format: `YYYY-MM-DD` (ISO 8601 date only)
 - Must be valid date
 - Typically matches date in TU ID
 
 **Owner (A):**
+
 - Must be valid role name from Layer 1 ROLE_INDEX
 - Usually "Showrunner" or "SR"
 
 **Responsible (R):**
+
 - Comma-separated list of role names
 - Each role must exist in Layer 1 ROLE_INDEX
 - At least one role required
 
 **Loop:**
+
 - Must be one of 13 loop names from taxonomies.md §3
 - Title Case with hyphens (e.g., "Style Tune-up")
 - Allowed values:
@@ -217,137 +222,169 @@ Snapshot/View impact: none (text-only small pass)
   - Export: Binding Run, Narration Dry-Run, Gatecheck, Post-Mortem, Archive Snapshot
 
 **Slice:**
+
 - Player-safe markdown, 1-2 lines
 - No spoilers, no internal IDs, no mechanics
 
 **Snapshot context:**
+
 - Format: `Cold @ YYYY-MM-DD` or link format with mailto
 - Must reference valid Cold snapshot date
 
 **Awake:**
+
 - Comma-separated list of role abbreviations
 - Each role must exist in Layer 1 ROLE_INDEX
 - Should align with chosen Loop (see RACI matrices)
 
 **Dormant:**
+
 - Comma-separated list of role abbreviations
 - Should be complement of Awake roles (all roles either awake or dormant)
 
 **Deferral tags:**
+
 - Space-separated list (NOT pipe or comma)
 - Values from taxonomies.md §7: `deferred:art deferred:audio deferred:translation deferred:research`
 
 **Press (Bars):**
+
 - Comma or space-separated list of bar names
 - Must be from taxonomies.md §5 (8 bars total)
 - All 8 bars valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility
 
 **Monitor (Bars):**
+
 - Same format as Press
 - Should not overlap with Press (either press or monitor, not both)
 
 **Pre-gate risks:**
+
 - Markdown bullet list
 - Each risk should be specific and testable
 
 **Inputs:**
+
 - Markdown bullet list
 - Each input should be concrete prerequisite
 
 **Deliverables:**
+
 - Markdown bullet list
 - Each deliverable should be concrete artifact
 
 **Bars green:**
+
 - Bar name list (subset of Press bars typically)
 - These bars must pass gatecheck before TU closes
 
 **Merge/View:**
+
 - Markdown describing merge decision
 - Must state if Binder involved
 
 **Timebox:**
+
 - Duration in minutes or "X-Y min" format
 - Typical range: 45-90 min
 - If >90 min, consider splitting TU
 
 **Checkpoint:**
+
 - Time in HH:MM format or duration from start
 - Optional mid-TU review point
 
 **Handoffs:**
+
 - Markdown describing who receives what and when
 - Should align with Deliverables
 
 **Trigger (Escalation):**
+
 - One-sentence condition for escalation
 - Should be decision-focused, not vague
 
 **Lane (Escalation):**
+
 - Role name who owns escalation
 - Must exist in Layer 1 ROLE_INDEX
 - See escalation_rules.md for routing
 
 **Record (Escalation):**
+
 - Where escalation is documented
 - Options: TU note, Addendum, Pack, View Log, ADR
 
 **Tracelog:**
+
 - Path to TU log file
 - Typically: `/logs/tu/<TU-ID>.md`
 
 **Linkage:**
+
 - Markdown describing trace connections
 - Hooks filed, snapshot/view impact
 
 ### Cross-Field Validation
 
 **If Deferral tags set:**
+
 - Then Dormant should include corresponding roles (AD/IL for art, AuD/AuP for audio, TR for translation, RS for research)
 - Deliverables should note deferred status
 
 **If Loop requires specific roles:**
+
 - Awake must include those roles (see RACI by loop)
 - Example: Style Tune-up requires ST (Style Lead) awake
 
 **Press bars + Monitor bars:**
+
 - Should not overlap (bar is either pressed or monitored, not both)
 - Union of Press + Monitor should not exceed 8 bars
 
 **Bars green:**
+
 - Should be subset of Press bars
 - Cannot include bars that are only Monitored
 
 **If Merge/View mentions "cut a View":**
+
 - Then Binder (BB) should be in Awake roles
 
 **If Snapshot context date:**
+
 - Should be <= Opened date (can't snapshot from future)
 
 **Timebox vs Deliverables:**
+
 - If many deliverables, timebox should be longer
 - If timebox >90 min and many deliverables, warn about TU size
 
 ### Cross-Artifact Validation
 
 **Loop:**
+
 - Must match one of the loop files in `00-north-star/LOOPS/`
 - RACI matrix for that loop should define roles in Awake
 
 **Responsible (R) roles:**
+
 - Should be Responsible in RACI for chosen Loop
 - Owner (A) should be Accountable in RACI
 
 **Inputs:**
+
 - If references TU IDs, they must exist
 - If references Canon Packs, they must exist
 - If references Style Addendum, it must exist
 
 **Deliverables:**
+
 - Hook Cards created must reference this TU ID
 - Artifacts listed must be traceable
 
 **Tracelog path:**
+
 - If specified, directory must exist or be creatable
 
 ---
@@ -446,36 +483,36 @@ Snapshot/View impact: none (text-only small pass)
 
 ## Field Reference
 
-| Section | Field | Type | Required | Taxonomy/Constraint |
-|---------|-------|------|----------|---------------------|
-| Header | ID | string | yes | Format: TU-YYYY-MM-DD-<role><seq> |
-| Header | Opened | date | yes | Format: YYYY-MM-DD |
-| Header | Owner (A) | role-name | yes | Usually Showrunner |
-| Header | Responsible (R) | role-list | yes | Comma-separated, from ROLE_INDEX |
-| Scope | Loop | enum | yes | TU Types & Loop Alignment (taxonomies.md §3) - 13 loops |
-| Scope | Slice | markdown | yes | Player-safe, 1-2 lines |
-| Scope | Snapshot context | cold-date-ref | yes | Format: Cold @ YYYY-MM-DD |
-| Roles | Awake | role-list | yes | Comma-separated abbreviations |
-| Roles | Dormant | role-list | yes | Complement of Awake |
-| Roles | Deferral tags | deferral-list | optional | Space-separated (taxonomies.md §7) |
-| Bars | Press | bar-list | yes | From taxonomies.md §5 (8 bars) |
-| Bars | Monitor | bar-list | optional | From taxonomies.md §5, no overlap with Press |
-| Bars | Pre-gate risks | markdown-list | yes | Specific, testable risks |
-| Inputs | Inputs | markdown-list | yes | Prerequisites |
-| Inputs | Pairing plan | markdown | optional | Which pair guides |
-| Deliverables | Deliverables | markdown-list | yes | Concrete exit artifacts |
-| Exit | Bars green | bar-list | yes | Subset of Press bars |
-| Exit | Merge/View | markdown | yes | Merge decision + Binder flag |
-| Timebox | Timebox | duration | yes | 45-90 min typical |
-| Timebox | Checkpoint | time | optional | Mid-TU review time |
-| Timebox | Handoffs | markdown | optional | Who, what, when |
-| Gatekeeper | Pre-gate | markdown | recommended | Sample files/anchors |
-| Gatekeeper | Gatecheck | markdown | yes | Pass/fail by bar |
-| Escalation | Trigger | markdown | optional | Escalation condition |
-| Escalation | Lane | role-name | optional | Escalation owner |
-| Escalation | Record | markdown | optional | Where documented |
-| Trace | Tracelog | path | optional | TU log file path |
-| Trace | Linkage | markdown | yes | Hooks, snapshot impact |
+| Section      | Field            | Type          | Required    | Taxonomy/Constraint                                     |
+| ------------ | ---------------- | ------------- | ----------- | ------------------------------------------------------- |
+| Header       | ID               | string        | yes         | Format: TU-YYYY-MM-DD-<role><seq>                       |
+| Header       | Opened           | date          | yes         | Format: YYYY-MM-DD                                      |
+| Header       | Owner (A)        | role-name     | yes         | Usually Showrunner                                      |
+| Header       | Responsible (R)  | role-list     | yes         | Comma-separated, from ROLE_INDEX                        |
+| Scope        | Loop             | enum          | yes         | TU Types & Loop Alignment (taxonomies.md §3) - 13 loops |
+| Scope        | Slice            | markdown      | yes         | Player-safe, 1-2 lines                                  |
+| Scope        | Snapshot context | cold-date-ref | yes         | Format: Cold @ YYYY-MM-DD                               |
+| Roles        | Awake            | role-list     | yes         | Comma-separated abbreviations                           |
+| Roles        | Dormant          | role-list     | yes         | Complement of Awake                                     |
+| Roles        | Deferral tags    | deferral-list | optional    | Space-separated (taxonomies.md §7)                      |
+| Bars         | Press            | bar-list      | yes         | From taxonomies.md §5 (8 bars)                          |
+| Bars         | Monitor          | bar-list      | optional    | From taxonomies.md §5, no overlap with Press            |
+| Bars         | Pre-gate risks   | markdown-list | yes         | Specific, testable risks                                |
+| Inputs       | Inputs           | markdown-list | yes         | Prerequisites                                           |
+| Inputs       | Pairing plan     | markdown      | optional    | Which pair guides                                       |
+| Deliverables | Deliverables     | markdown-list | yes         | Concrete exit artifacts                                 |
+| Exit         | Bars green       | bar-list      | yes         | Subset of Press bars                                    |
+| Exit         | Merge/View       | markdown      | yes         | Merge decision + Binder flag                            |
+| Timebox      | Timebox          | duration      | yes         | 45-90 min typical                                       |
+| Timebox      | Checkpoint       | time          | optional    | Mid-TU review time                                      |
+| Timebox      | Handoffs         | markdown      | optional    | Who, what, when                                         |
+| Gatekeeper   | Pre-gate         | markdown      | recommended | Sample files/anchors                                    |
+| Gatekeeper   | Gatecheck        | markdown      | yes         | Pass/fail by bar                                        |
+| Escalation   | Trigger          | markdown      | optional    | Escalation condition                                    |
+| Escalation   | Lane             | role-name     | optional    | Escalation owner                                        |
+| Escalation   | Record           | markdown      | optional    | Where documented                                        |
+| Trace        | Tracelog         | path          | optional    | TU log file path                                        |
+| Trace        | Linkage          | markdown      | yes         | Hooks, snapshot impact                                  |
 
 **Total fields:** 27 (20 required, 7 optional/recommended)
 

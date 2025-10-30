@@ -18,9 +18,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the cuelist; fixed to Audio Director.",
-      "enum": [
-        "Audio Director"
-      ]
+      "enum": ["Audio Director"]
     },
     "scope": {
       "type": "string",
@@ -31,11 +29,7 @@
     "dormancy": {
       "type": "string",
       "description": "Dormancy state, including deferral tagging when plan-only.",
-      "enum": [
-        "active",
-        "plan-only (deferred:audio)",
-        "dormant"
-      ]
+      "enum": ["active", "plan-only (deferred:audio)", "dormant"]
     },
     "snapshot": {
       "type": "string",
@@ -133,13 +127,7 @@
           "purpose": {
             "type": "string",
             "description": "Primary audio purpose for this cue.",
-            "enum": [
-              "clarify",
-              "recall",
-              "mood",
-              "signpost",
-              "pace"
-            ]
+            "enum": ["clarify", "recall", "mood", "signpost", "pace"]
           },
           "placement": {
             "type": "string",
@@ -173,12 +161,7 @@
           "status": {
             "type": "string",
             "description": "Current production status for the cue.",
-            "enum": [
-              "planned",
-              "producing",
-              "done",
-              "deferred"
-            ]
+            "enum": ["planned", "producing", "done", "deferred"]
           }
         },
         "required": [

@@ -96,15 +96,15 @@ Add role-specific nuances here:
 **Wake signals (examples):**
 
 - `<quant or qualitative triggers, e.g., “≥ N accepted hooks needing canon”, “PN gate-friction reports”, “translation coverage < threshold”>`
-**Plan-only merges:** `<deferred:art | deferred:audio | deferred:translation — allowed?>`  
-**Risk posture when dormant:** `<e.g., Researcher: mark uncorroborated:<risk>>`
+  **Plan-only merges:** `<deferred:art | deferred:audio | deferred:translation — allowed?>`  
+  **Risk posture when dormant:** `<e.g., Researcher: mark uncorroborated:<risk>>`
 
 ---
 
 ## 8) Cross-Domain & Escalation
 
 - **In-domain chats** encouraged (fast iteration).
-- **Cross-domain impacts** route via **Showrunner** with a TU.  
+- **Cross-domain impacts** route via **Showrunner** with a TU.
 - Use `../interfaces/pair_guides.md` and `../interfaces/escalation_rules.md` for common handshakes.
 
 ---
@@ -134,8 +134,8 @@ Keep this short; prefer guidance over hard bans unless it defends Layer-0 safety
 
 **Before → After (1–3 lines each)**
 
-- *Example 1:* `<problematic snippet>` → `<role-aligned fix>`
-- *Example 2:* `<problematic snippet>` → `<role-aligned fix>`
+- _Example 1:_ `<problematic snippet>` → `<role-aligned fix>`
+- _Example 2:_ `<problematic snippet>` → `<role-aligned fix>`
 
 ---
 

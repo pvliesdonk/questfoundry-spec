@@ -46,18 +46,12 @@
     "mode": {
       "type": "string",
       "description": "Playtest mode; fixed to dry-run (no improv).",
-      "enum": [
-        "dry-run (no improv)"
-      ]
+      "enum": ["dry-run (no improv)"]
     },
     "pace": {
       "type": "string",
       "description": "Optional narration pace.",
-      "enum": [
-        "normal",
-        "slow",
-        "fast"
-      ]
+      "enum": ["normal", "slow", "fast"]
     },
     "log": {
       "type": "array",
@@ -100,11 +94,7 @@
           "severity": {
             "type": "string",
             "description": "Severity level of the issue.",
-            "enum": [
-              "low",
-              "med",
-              "high"
-            ]
+            "enum": ["low", "med", "high"]
           },
           "snippet": {
             "type": "string",

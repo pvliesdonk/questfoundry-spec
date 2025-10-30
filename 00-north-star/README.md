@@ -32,8 +32,8 @@ The **Showrunner** coordinates **targeted loops** (small, focused passes). Maker
 
 ## Sources of Truth (SoT)
 
-- **Hot** — discovery space: drafts, hooks, canon notes, plans.  
-- **Cold** — curated: canon & player-safe surfaces approved by Gatekeeper.  
+- **Hot** — discovery space: drafts, hooks, canon notes, plans.
+- **Cold** — curated: canon & player-safe surfaces approved by Gatekeeper.
 - **Snapshots** — immutable tags of Cold; exports are **views** on snapshots.
 
 Read: `SOURCES_OF_TRUTH.md` and `EVERGREEN_MANUSCRIPT.md`.
@@ -42,9 +42,9 @@ Read: `SOURCES_OF_TRUTH.md` and `EVERGREEN_MANUSCRIPT.md`.
 
 ## Roles (canon names, dormancy)
 
-- Always on: **Showrunner**, **Gatekeeper**  
-- Default on: **Plotwright**, **Scene Smith**, **Style Lead**, **Lore Weaver**, **Codex Curator**  
-- Optional/dormant: **Researcher**, **Art Director**, **Illustrator**, **Audio Director**, **Audio Producer**, **Translator**  
+- Always on: **Showrunner**, **Gatekeeper**
+- Default on: **Plotwright**, **Scene Smith**, **Style Lead**, **Lore Weaver**, **Codex Curator**
+- Optional/dormant: **Researcher**, **Art Director**, **Illustrator**, **Audio Director**, **Audio Producer**, **Translator**
 - Consumers (downstream): **Book Binder**, **Player-Narrator (PN)**
 
 Details: `ROLE_INDEX.md` and `PN_PRINCIPLES.md`.
@@ -53,9 +53,9 @@ Details: `ROLE_INDEX.md` and `PN_PRINCIPLES.md`.
 
 ## Quality Bars (what must be true to merge)
 
-- **Integrity** (no dead refs), **Reachability** (keystones reachable),  
-- **Nonlinearity** (hubs/loops matter), **Gateways** (coherent diegetic checks),  
-- **Style** (voice/register/motifs), **Determinism** (when promised for assets),  
+- **Integrity** (no dead refs), **Reachability** (keystones reachable),
+- **Nonlinearity** (hubs/loops matter), **Gateways** (coherent diegetic checks),
+- **Style** (voice/register/motifs), **Determinism** (when promised for assets),
 - **Presentation** (no spoilers or technique on surfaces; accessibility).
 
 See: `QUALITY_BARS.md`, `SPOILER_HYGIENE.md`, `ACCESSIBILITY_AND_CONTENT_NOTES.md`.
@@ -95,7 +95,7 @@ Repo-wide contribution flow: `/CONTRIBUTING.md`. Structural changes? Use ADRs in
 
 ## Spoiler hygiene & PN boundaries
 
-- Player surfaces never show **codeword names**, **gate logic**, **seeds/models**, or canon twists.  
+- Player surfaces never show **codeword names**, **gate logic**, **seeds/models**, or canon twists.
 - PN enforces gates **diegetically** (token/reputation/knowledge/physical), never with mechanics talk.
 
 Details live in `SPOILER_HYGIENE.md` and `PN_PRINCIPLES.md`.
@@ -110,20 +110,20 @@ Alt text, descriptive links, high contrast, motion/audio safety, and localized t
 
 ## Quick start (15 minutes)
 
-1. Skim `WORKING_MODEL.md`.  
-2. Open a TU for a tiny **Story Spark** on a test chapter.  
-3. Run `Hook Harvest` → `Lore Deepening` → `Codex Expansion`.  
-4. Gatecheck, then **Binding Run** a view.  
+1. Skim `WORKING_MODEL.md`.
+2. Open a TU for a tiny **Story Spark** on a test chapter.
+3. Run `Hook Harvest` → `Lore Deepening` → `Codex Expansion`.
+4. Gatecheck, then **Binding Run** a view.
 5. Do a **Narration Dry-Run** and file follow-up TUs.
 
 ---
 
 ## What this layer is **not**
 
-- A schema or protocol. Those are Layers **3–4**.  
-- An AI prompt kit. That’s Layer **5**.  
+- A schema or protocol. Those are Layers **3–4**.
+- An AI prompt kit. That’s Layer **5**.
 - Code or UI. Layers **6–7**.  
-We keep them visible as first-class directories so readers see the runway, but Layer 0 stays human and implementation-agnostic.
+  We keep them visible as first-class directories so readers see the runway, but Layer 0 stays human and implementation-agnostic.
 
 ---
 

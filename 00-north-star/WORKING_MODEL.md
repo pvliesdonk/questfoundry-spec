@@ -32,7 +32,7 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 
 **Can be dormant (Showrunner decides)**
 
-- **Researcher** — investigates facts, cites sources; generates factual hooks. *(Dormant ⇒ factual risk noted.)*
+- **Researcher** — investigates facts, cites sources; generates factual hooks. _(Dormant ⇒ factual risk noted.)_
 - **Art Director / Illustrator** — plan and/or produce illustrations; deterministic parameters tracked.
 - **Audio Director / Audio Producer** — plan and/or produce audio assets.
 - **Translator (Localization Lead)** — plan and maintain target-language slices.
@@ -81,15 +81,15 @@ Each loop document specifies:
 
 ## 5) Hot → Cold Merge Path
 
-1. **Proposal in Hot**  
-   - Minimal lineage: *originating role, rationale, upstream refs, affected dependents.*
-2. **Stabilization**  
+1. **Proposal in Hot**
+   - Minimal lineage: _originating role, rationale, upstream refs, affected dependents._
+2. **Stabilization**
    - Peer review across affected roles; contradictions surfaced and addressed.
-3. **Gatekeeper review**  
+3. **Gatekeeper review**
    - Quality bars must be green; exceptions documented with time-boxed remediation.
-4. **Showrunner approval**  
+4. **Showrunner approval**
    - Confirms scope and risk posture; decides timing of merge.
-5. **Merge to Cold**  
+5. **Merge to Cold**
    - Canon/style updated; traceability recorded; downstream consumers may export/play a new view.
 
 ---
@@ -142,22 +142,22 @@ Gatekeeper reports pass/fail with concrete remediation notes.
 
 ## 10) RACI Snapshot (human summary)
 
-| Activity | R | A | C | I |
-|---|---|---|---|---|
-| Set scope & cadence | Showrunner | Showrunner | Gatekeeper, Leads | All |
-| Design topology | Plotwright | Showrunner | Lore, Style, Gatekeeper | Scene |
-| Write sections | Scene Smith | Style Lead (voice), Plotwright (structure) | Gatekeeper | Binder |
-| Adjudicate canon | Lore Weaver | Showrunner | Plotwright, Style, Researcher | Codex |
-| Publish codex entries | Codex Curator | Lore Weaver | Style, Gatekeeper | Binder |
-| Style guardrails | Style Lead | Showrunner | Scene, Art Director | Gatekeeper |
-| Art plan | Art Director | Style Lead | Scene, Binder, Gatekeeper | Illustrator |
-| Illustrations | Illustrator | Art Director | Gatekeeper | Binder |
-| Audio plan | Audio Director | Showrunner | Style, PN | Audio Producer |
-| Audio assets | Audio Producer | Audio Director | Gatekeeper | Binder |
-| Translation slice | Translator | Showrunner | Style, PN | Binder |
-| QA checks | Gatekeeper | Showrunner | All | All |
-| Export view | Book Binder | Showrunner | Gatekeeper, PN | All |
-| PN playtest | PN | Showrunner | Binder, Style | All |
+| Activity              | R              | A                                          | C                             | I              |
+| --------------------- | -------------- | ------------------------------------------ | ----------------------------- | -------------- |
+| Set scope & cadence   | Showrunner     | Showrunner                                 | Gatekeeper, Leads             | All            |
+| Design topology       | Plotwright     | Showrunner                                 | Lore, Style, Gatekeeper       | Scene          |
+| Write sections        | Scene Smith    | Style Lead (voice), Plotwright (structure) | Gatekeeper                    | Binder         |
+| Adjudicate canon      | Lore Weaver    | Showrunner                                 | Plotwright, Style, Researcher | Codex          |
+| Publish codex entries | Codex Curator  | Lore Weaver                                | Style, Gatekeeper             | Binder         |
+| Style guardrails      | Style Lead     | Showrunner                                 | Scene, Art Director           | Gatekeeper     |
+| Art plan              | Art Director   | Style Lead                                 | Scene, Binder, Gatekeeper     | Illustrator    |
+| Illustrations         | Illustrator    | Art Director                               | Gatekeeper                    | Binder         |
+| Audio plan            | Audio Director | Showrunner                                 | Style, PN                     | Audio Producer |
+| Audio assets          | Audio Producer | Audio Director                             | Gatekeeper                    | Binder         |
+| Translation slice     | Translator     | Showrunner                                 | Style, PN                     | Binder         |
+| QA checks             | Gatekeeper     | Showrunner                                 | All                           | All            |
+| Export view           | Book Binder    | Showrunner                                 | Gatekeeper, PN                | All            |
+| PN playtest           | PN             | Showrunner                                 | Binder, Style                 | All            |
 
 R = Responsible, A = Accountable, C = Consulted, I = Informed.
 
@@ -165,17 +165,17 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 
 ## 11) Failure Modes & Safeguards
 
-- **Silent cross-domain edits** → Route changes via Showrunner; require stabilization notes.  
-- **Codex leaking spoilers** → Curator uses player-safe summaries; spoilers remain in canon.  
-- **Research dormant drift** → Mark factual hooks “uncorroborated”; schedule revisit.  
-- **Style drift** → Run a **Style Tune-up** loop before larger rewrites.  
+- **Silent cross-domain edits** → Route changes via Showrunner; require stabilization notes.
+- **Codex leaking spoilers** → Curator uses player-safe summaries; spoilers remain in canon.
+- **Research dormant drift** → Mark factual hooks “uncorroborated”; schedule revisit.
+- **Style drift** → Run a **Style Tune-up** loop before larger rewrites.
 - **Topology regressions** → Gatekeeper blocks on Integrity/Reachability/Nonlinearity failures.
 
 ---
 
 ## 12) What’s intentionally not here
 
-- Data shapes, machine protocols, and prompts (Layers 2–5).  
+- Data shapes, machine protocols, and prompts (Layers 2–5).
 - Tooling and UI specifics (Layers 6–7).
 
 This working model is the human contract the later layers encode.

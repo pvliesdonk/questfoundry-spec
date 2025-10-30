@@ -114,54 +114,54 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ## Hook Generation & Ownership
 
-- **May generate hooks**: Plotwright, Scene Smith, Lore Weaver, Researcher, Codex Curator (taxonomy/clarity), Art/Audio Directors (surface needs).  
-- **Harvest authority**: Showrunner runs **Hook Harvest**; assigns owners and next loops.  
+- **May generate hooks**: Plotwright, Scene Smith, Lore Weaver, Researcher, Codex Curator (taxonomy/clarity), Art/Audio Directors (surface needs).
+- **Harvest authority**: Showrunner runs **Hook Harvest**; assigns owners and next loops.
 - **Canonization**: Only **Lore Weaver** writes spoiler-level canon; Curator publishes player-safe summaries.
 
 ---
 
 ## Cross-Domain Communication
 
-- **In-domain**: direct chats (e.g., Style ↔ Scene) encouraged.  
+- **In-domain**: direct chats (e.g., Style ↔ Scene) encouraged.
 - **Cross-domain** (plot → lore, lore → codex, style → PN phrasing across languages): route via **Showrunner** and record in a **TU**.
 
 ---
 
 ## RACI Snapshot (by loop)
 
-| Loop | R | A | C | I |
-|---|---|---|---|---|
-| Story Spark | Plotwright, Scene | Showrunner | Lore, Style, Gatekeeper | Binder |
-| Hook Harvest | Showrunner | Showrunner | Lore, Plot, Scene, Curator, Researcher, Style, Gatekeeper | All |
-| Lore Deepening | Lore Weaver | Showrunner | Researcher, Style, Plot, Scene, Gatekeeper | Curator |
-| Codex Expansion | Curator | Showrunner | Lore, Style, Gatekeeper | Translator, Binder |
-| Style Tune-up | Style Lead | Showrunner | Scene, PN, Art/Audio, Translator, Gatekeeper | Binder |
-| Art Touch-up | Art Director | Showrunner | Style, Gatekeeper | PN, Curator |
-| Audio Pass | Audio Director | Showrunner | Style, PN, Translator, Gatekeeper | Curator |
-| Translation Pass | Translator | Showrunner | Style, PN, Curator, Gatekeeper | Binder |
-| Binding Run | Binder | Showrunner | Gatekeeper, Style, Translator | PN |
-| Narration Dry-Run | PN | Showrunner | Gatekeeper, Style, Binder, Curator | All |
+| Loop              | R                 | A          | C                                                         | I                  |
+| ----------------- | ----------------- | ---------- | --------------------------------------------------------- | ------------------ |
+| Story Spark       | Plotwright, Scene | Showrunner | Lore, Style, Gatekeeper                                   | Binder             |
+| Hook Harvest      | Showrunner        | Showrunner | Lore, Plot, Scene, Curator, Researcher, Style, Gatekeeper | All                |
+| Lore Deepening    | Lore Weaver       | Showrunner | Researcher, Style, Plot, Scene, Gatekeeper                | Curator            |
+| Codex Expansion   | Curator           | Showrunner | Lore, Style, Gatekeeper                                   | Translator, Binder |
+| Style Tune-up     | Style Lead        | Showrunner | Scene, PN, Art/Audio, Translator, Gatekeeper              | Binder             |
+| Art Touch-up      | Art Director      | Showrunner | Style, Gatekeeper                                         | PN, Curator        |
+| Audio Pass        | Audio Director    | Showrunner | Style, PN, Translator, Gatekeeper                         | Curator            |
+| Translation Pass  | Translator        | Showrunner | Style, PN, Curator, Gatekeeper                            | Binder             |
+| Binding Run       | Binder            | Showrunner | Gatekeeper, Style, Translator                             | PN                 |
+| Narration Dry-Run | PN                | Showrunner | Gatekeeper, Style, Binder, Curator                        | All                |
 
 ---
 
 ## Dormancy Policy (quick)
 
-- Wake optional roles **per TU**.  
-- Merge **plans** without assets as **deferred:art / deferred:audio / deferred:translation**.  
-- Record risk posture when **Researcher** is dormant.  
-- Showrunner lists wake conditions in the TU (e.g., *render after Act II lock*).
+- Wake optional roles **per TU**.
+- Merge **plans** without assets as **deferred:art / deferred:audio / deferred:translation**.
+- Record risk posture when **Researcher** is dormant.
+- Showrunner lists wake conditions in the TU (e.g., _render after Act II lock_).
 
 ---
 
 ## Naming Canon (aliases → canon)
 
-- Plotwright *(a.k.a. Plot Drafter)*  
-- Scene Smith *(a.k.a. Prose Writer)*  
-- Lore Weaver *(a.k.a. World Bible Author)*  
-- Codex Curator *(a.k.a. Encyclopedist)*  
-- Style Lead *(a.k.a. Line Editor)*  
-- Book Binder *(a.k.a. Publisher)*  
-- Player-Narrator *(a.k.a. PN, Narrator/GM)*
+- Plotwright _(a.k.a. Plot Drafter)_
+- Scene Smith _(a.k.a. Prose Writer)_
+- Lore Weaver _(a.k.a. World Bible Author)_
+- Codex Curator _(a.k.a. Encyclopedist)_
+- Style Lead _(a.k.a. Line Editor)_
+- Book Binder _(a.k.a. Publisher)_
+- Player-Narrator _(a.k.a. PN, Narrator/GM)_
 
 Use **canon names** in docs and commits; list aliases only for onboarding clarity.
 

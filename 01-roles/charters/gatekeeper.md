@@ -139,18 +139,18 @@ This role **MUST** enforce:
 
 **Fail → Fix (Presentation)**
 
-- *Fail:* “Access denied without CODEWORD: ASH.”  
-- *Fix:* “The scanner blinks red. ‘Union badge?’ the guard asks.”
+- _Fail:_ “Access denied without CODEWORD: ASH.”
+- _Fix:_ “The scanner blinks red. ‘Union badge?’ the guard asks.”
 
 **Fail → Fix (Integrity)**
 
-- *Fail:* “See also: Salvage Permits” → broken anchor.  
-- *Fix:* Update link to `/codex/salvage-permits` and verify in export.
+- _Fail:_ “See also: Salvage Permits” → broken anchor.
+- _Fix:_ Update link to `/codex/salvage-permits` and verify in export.
 
 **Fail → Fix (Determinism leakage)**
 
-- *Fail:* Caption: “Rendered with seed 998877.”  
-- *Fix:* Remove; keep seed in determinism log; caption stays atmospheric.
+- _Fail:_ Caption: “Rendered with seed 998877.”
+- _Fix:_ Remove; keep seed in determinism log; caption stays atmospheric.
 
 ---
 

@@ -20,6 +20,7 @@ Append-only human ledger of what landed in **Cold**, when we stamped **snapshots
 ---
 
 <!-- Example -->
+
 ## cold@2025-10-28
 
 - **Merged TUs**

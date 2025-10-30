@@ -17,9 +17,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the map; fixed to Translator.",
-      "enum": [
-        "Translator"
-      ]
+      "enum": ["Translator"]
     },
     "scope": {
       "type": "string",
@@ -42,12 +40,7 @@
       "description": "Roles paired on this register guidance; must include style, binder, PN, gatekeeper.",
       "items": {
         "type": "string",
-        "enum": [
-          "@style",
-          "@binder",
-          "@pn",
-          "@gatekeeper"
-        ]
+        "enum": ["@style", "@binder", "@pn", "@gatekeeper"]
       },
       "minItems": 4,
       "uniqueItems": true,

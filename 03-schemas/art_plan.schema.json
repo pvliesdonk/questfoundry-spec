@@ -23,9 +23,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the plan; fixed to Art Director.",
-      "enum": [
-        "Art Director"
-      ]
+      "enum": ["Art Director"]
     },
     "slice": {
       "type": "string",
@@ -36,22 +34,12 @@
     "status": {
       "type": "string",
       "description": "Current art status for the slot.",
-      "enum": [
-        "planned",
-        "rendering",
-        "done",
-        "deferred"
-      ]
+      "enum": ["planned", "rendering", "done", "deferred"]
     },
     "purpose": {
       "type": "string",
       "description": "Primary art purpose for this slot.",
-      "enum": [
-        "clarify",
-        "recall",
-        "mood",
-        "signpost"
-      ]
+      "enum": ["clarify", "recall", "mood", "signpost"]
     },
     "purpose_rationale": {
       "type": "string",
@@ -80,30 +68,17 @@
     "framing": {
       "type": "string",
       "description": "Optional framing guidance.",
-      "enum": [
-        "tight",
-        "medium",
-        "wide"
-      ]
+      "enum": ["tight", "medium", "wide"]
     },
     "angle": {
       "type": "string",
       "description": "Optional camera angle guidance.",
-      "enum": [
-        "eye",
-        "low",
-        "high",
-        "oblique"
-      ]
+      "enum": ["eye", "low", "high", "oblique"]
     },
     "distance": {
       "type": "string",
       "description": "Optional distance guidance.",
-      "enum": [
-        "close",
-        "room",
-        "establishing"
-      ]
+      "enum": ["close", "room", "establishing"]
     },
     "hierarchy": {
       "type": "string",
@@ -218,10 +193,7 @@
     "repro_expectation": {
       "type": "string",
       "description": "Whether additional producer logging is expected.",
-      "enum": [
-        "none",
-        "log-only"
-      ]
+      "enum": ["none", "log-only"]
     },
     "producer_log_fields": {
       "type": "string",

@@ -23,9 +23,7 @@
     "owner": {
       "type": "string",
       "description": "Role maintaining the pack; fixed to Lore Weaver.",
-      "enum": [
-        "Lore Weaver"
-      ]
+      "enum": ["Lore Weaver"]
     },
     "slice": {
       "type": "string",
@@ -91,11 +89,7 @@
             "maxLength": 400
           }
         },
-        "required": [
-          "hook_id",
-          "answer",
-          "consequences"
-        ]
+        "required": ["hook_id", "answer", "consequences"]
       },
       "minItems": 1
     },
@@ -108,12 +102,7 @@
           "anchor": {
             "type": "string",
             "description": "Timeline anchor label (T0/T1/T2/T3).",
-            "enum": [
-              "T0",
-              "T1",
-              "T2",
-              "T3"
-            ]
+            "enum": ["T0", "T1", "T2", "T3"]
           },
           "description": {
             "type": "string",
@@ -122,10 +111,7 @@
             "maxLength": 400
           }
         },
-        "required": [
-          "anchor",
-          "description"
-        ]
+        "required": ["anchor", "description"]
       },
       "minItems": 2
     },
@@ -154,11 +140,7 @@
             "maxLength": 240
           }
         },
-        "required": [
-          "statement",
-          "owner",
-          "reason"
-        ]
+        "required": ["statement", "owner", "reason"]
       },
       "minItems": 1
     },
@@ -193,12 +175,7 @@
             "maxLength": 80
           }
         },
-        "required": [
-          "entity",
-          "before",
-          "after",
-          "visibility"
-        ]
+        "required": ["entity", "before", "after", "visibility"]
       }
     },
     "knowledge_ledger_hot": {
@@ -231,11 +208,7 @@
             "maxLength": 200
           }
         },
-        "required": [
-          "actor",
-          "knows_at_t0",
-          "gains_by_t1_t2"
-        ]
+        "required": ["actor", "knows_at_t0", "gains_by_t1_t2"]
       },
       "minItems": 1
     },

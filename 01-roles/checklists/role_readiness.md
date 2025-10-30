@@ -1,6 +1,6 @@
 # Role Readiness — Pre-Flight Checklists (Layer 1)
 
-> **Purpose:** Prevent doomed laps. Before opening a TU or accepting one, run the *pre-flight* for your role. Start only when inputs are real, neighbors are awake (or explicitly dormant), and you can finish a small slice without guessing.
+> **Purpose:** Prevent doomed laps. Before opening a TU or accepting one, run the _pre-flight_ for your role. Start only when inputs are real, neighbors are awake (or explicitly dormant), and you can finish a small slice without guessing.
 
 **Normative refs:**  
 `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md` · `../interfaces/pair_guides.md` · `../interfaces/dormancy_signals.md` · `../interfaces/escalation_rules.md`
@@ -11,12 +11,12 @@
 
 ## 0) Universal pre-flight (any role)
 
-- [ ] **TU slice named** (small enough for one sitting); loop chosen (Story Spark, Style Tune-up, …).  
-- [ ] **Owner/A count clear:** who is **R** and who is **A** per `../raci/by_loop.md`.  
-- [ ] **Dormancy set:** optional roles marked `deferred:*` or woken with rubric (`dormancy_signals.md`).  
-- [ ] **Snapshot context known:** which **Cold** snapshot your work must align to (no Hot in Views).  
-- [ ] **Pairing plan:** handshakes you’ll need are noted (`pair_guides.md`).  
-- [ ] **Exit criteria stated:** which Bars must go green for this slice.  
+- [ ] **TU slice named** (small enough for one sitting); loop chosen (Story Spark, Style Tune-up, …).
+- [ ] **Owner/A count clear:** who is **R** and who is **A** per `../raci/by_loop.md`.
+- [ ] **Dormancy set:** optional roles marked `deferred:*` or woken with rubric (`dormancy_signals.md`).
+- [ ] **Snapshot context known:** which **Cold** snapshot your work must align to (no Hot in Views).
+- [ ] **Pairing plan:** handshakes you’ll need are noted (`pair_guides.md`).
+- [ ] **Exit criteria stated:** which Bars must go green for this slice.
 - [ ] **Traceability ready:** TU id created / to be created; where notes land (Addendum, Pack, View Log, ADR).
 
 ---
@@ -25,8 +25,8 @@
 
 **Inputs you must have**
 
-- [ ] A concrete slice + loop; roles to wake vs keep dormant (with rubric score).  
-- [ ] Last **Cold** snapshot and any View goal/options.  
+- [ ] A concrete slice + loop; roles to wake vs keep dormant (with rubric score).
+- [ ] Last **Cold** snapshot and any View goal/options.
 - [ ] Known Bar pressure (what you expect to go red/yellow).
 
 **Neighbors to ping**
@@ -35,7 +35,7 @@
 
 **Ready to start if**
 
-- [ ] Work can complete without inventing canon/structure in the SR seat.  
+- [ ] Work can complete without inventing canon/structure in the SR seat.
 - [ ] You can ship a merge or a clear follow-up TU in ≤90 minutes.
 
 **Red flags → escalate**
@@ -48,8 +48,8 @@
 
 **Inputs you must have**
 
-- [ ] TU deliverables or a representative sample.  
-- [ ] Bar map from SR (which Bars to check first).  
+- [ ] TU deliverables or a representative sample.
+- [ ] Bar map from SR (which Bars to check first).
 - [ ] Access to **Cold** snapshot / draft View if export.
 
 **Neighbors to ping**
@@ -70,7 +70,7 @@
 
 **Inputs you must have**
 
-- [ ] Clear **Story Spark** scope: hub/loop/gateways.  
+- [ ] Clear **Story Spark** scope: hub/loop/gateways.
 - [ ] Style register constraints; any Lore **player-safe** summaries; known Research posture.
 
 **Neighbors to ping**
@@ -79,7 +79,7 @@
 
 **Ready to start if**
 
-- [ ] You can express choices as **intent labels** without prose drafting.  
+- [ ] You can express choices as **intent labels** without prose drafting.
 - [ ] At least one **fair path** exists (or you know which hook to file).
 
 **Red flags → escalate**
@@ -92,7 +92,7 @@
 
 **Inputs you must have**
 
-- [ ] Plot briefs (goal • beats • choice intents • outcomes).  
+- [ ] Plot briefs (goal • beats • choice intents • outcomes).
 - [ ] Style addendum; Curator anchors; Lore summaries.
 
 **Neighbors to ping**
@@ -113,7 +113,7 @@
 
 **Inputs you must have**
 
-- [ ] Concrete text needing **pattern** fixes (not structural rewrites).  
+- [ ] Concrete text needing **pattern** fixes (not structural rewrites).
 - [ ] PN friction/Translator notes if relevant.
 
 **Neighbors to ping**
@@ -134,7 +134,7 @@
 
 **Inputs you must have**
 
-- [ ] A cluster of accepted **hooks**; current knowledge ledger.  
+- [ ] A cluster of accepted **hooks**; current knowledge ledger.
 - [ ] Research posture if facts matter.
 
 **Neighbors to ping**
@@ -155,7 +155,7 @@
 
 **Inputs you must have**
 
-- [ ] Lore **player-safe** summaries; Style register; prior entries.  
+- [ ] Lore **player-safe** summaries; Style register; prior entries.
 - [ ] Anchor policy (slugs) from Binder.
 
 **Neighbors to ping**
@@ -176,7 +176,7 @@
 
 **Inputs you must have**
 
-- [ ] The **smallest useful question** + stakes + where it appears.  
+- [ ] The **smallest useful question** + stakes + where it appears.
 - [ ] Owner tags for handoff.
 
 **Neighbors to ping**
@@ -197,7 +197,7 @@
 
 **Inputs you must have**
 
-- [ ] Scene slices; Style motifs; Curator terms; Translator caption constraints.  
+- [ ] Scene slices; Style motifs; Curator terms; Translator caption constraints.
 - [ ] Decision: **plan-only** or **plan+render** this loop.
 
 **Neighbors to ping**
@@ -218,7 +218,7 @@
 
 **Inputs you must have**
 
-- [ ] Approved **Art Plans** + shotlist; Style motifs; target sizes.  
+- [ ] Approved **Art Plans** + shotlist; Style motifs; target sizes.
 - [ ] Caption/alt guidance.
 
 **Neighbors to ping**
@@ -239,7 +239,7 @@
 
 **Inputs you must have**
 
-- [ ] Scene slices; PN rhythm concerns; Researcher safety notes; Style register.  
+- [ ] Scene slices; PN rhythm concerns; Researcher safety notes; Style register.
 - [ ] Decision: **plan-only** or **plan+production** this loop.
 
 **Neighbors to ping**
@@ -260,7 +260,7 @@
 
 **Inputs you must have**
 
-- [ ] Approved **Audio Plans**; loudness target; file specs; caption text.  
+- [ ] Approved **Audio Plans**; loudness target; file specs; caption text.
 - [ ] Off-surface determinism log location.
 
 **Neighbors to ping**
@@ -281,7 +281,7 @@
 
 **Inputs you must have**
 
-- [ ] Stable source slice (Cold); Style addendum; Curator glossary.  
+- [ ] Stable source slice (Cold); Style addendum; Curator glossary.
 - [ ] Target coverage goal.
 
 **Neighbors to ping**
@@ -302,7 +302,7 @@
 
 **Inputs you must have**
 
-- [ ] A single **Cold** snapshot; SR export options (art/audio/locale coverage).  
+- [ ] A single **Cold** snapshot; SR export options (art/audio/locale coverage).
 - [ ] Label/slug policies; Translator anchor diffs.
 
 **Neighbors to ping**
@@ -323,8 +323,8 @@
 
 **Inputs you must have**
 
-- [ ] A bound **View**; Style PN patterns; Translator slice if localized.  
-- [ ] Clarification on *dry-run* vs *audience* mode.
+- [ ] A bound **View**; Style PN patterns; Translator slice if localized.
+- [ ] Clarification on _dry-run_ vs _audience_ mode.
 
 **Neighbors to ping**
 

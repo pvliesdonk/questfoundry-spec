@@ -33,9 +33,9 @@
 
 **Out of scope (SHOULD NOT own):**
 
-- Changing topology or canon.  
-- Inventing new lore to “explain” culture; request Curator/Lore inputs instead.  
-- Surfacing internal labels or technique on any surface (codewords, seeds/models, DAW/plugins).  
+- Changing topology or canon.
+- Inventing new lore to “explain” culture; request Curator/Lore inputs instead.
+- Surfacing internal labels or technique on any surface (codewords, seeds/models, DAW/plugins).
 - Overriding Style decisions—negotiate, don’t dictate.
 
 **Decisions & authority**
@@ -50,14 +50,14 @@
 
 **Reads (inputs):**
 
-- **Cold:** source snapshot surfaces (manuscript, codex, captions), Style Addenda, Curator glossary.  
+- **Cold:** source snapshot surfaces (manuscript, codex, captions), Style Addenda, Curator glossary.
 - **Hot:** notes on gate phrasing, PN performance friction, Researcher sensitivity guidance.
 
 **Produces (outputs):**
 
-- **Language Pack** — localized surfaces + **register map** + **glossary slice** + **coverage report** + open issues.  
-- **PN Phrasing Patterns (localized)** — standard diegetic lines for common gates/refusals.  
-- **Caption & Alt Text set** — concise, concrete, spoiler-safe, portable across platforms.  
+- **Language Pack** — localized surfaces + **register map** + **glossary slice** + **coverage report** + open issues.
+- **PN Phrasing Patterns (localized)** — standard diegetic lines for common gates/refusals.
+- **Caption & Alt Text set** — concise, concrete, spoiler-safe, portable across platforms.
 - **Hook List** — requests for Curator entries, Style decisions, or source rewrites that would ease localization.
 
 > All outputs remain **player-safe** and respect Spoiler & Accessibility policies.
@@ -74,10 +74,10 @@
 
 **Definition of done (for Translator contributions):**
 
-- Language Pack compiles without orphan labels; anchors resolve after binding.  
-- Register map published with 3–5 exemplars; PN patterns feel natural.  
-- Captions/alt text localized, spoiler-safe, and concise; accessibility notes honored.  
-- Coverage % stated; gaps documented with safe fallback policy.  
+- Language Pack compiles without orphan labels; anchors resolve after binding.
+- Register map published with 3–5 exemplars; PN patterns feel natural.
+- Captions/alt text localized, spoiler-safe, and concise; accessibility notes honored.
+- Coverage % stated; gaps documented with safe fallback policy.
 - Self-check passes **Presentation** (no internals) and **Accessibility**.
 
 ---
@@ -92,9 +92,9 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** retain source restraint; no added hints or mechanic talk.  
-- **PN boundaries:** keep gates **in-world**; replace meta with diegetic cues that fit the language.  
-- **Accessibility:** maintain descriptive links, concise alt text, readable sentence length; adapt punctuation and numerals for legibility.  
+- **Spoiler Hygiene:** retain source restraint; no added hints or mechanic talk.
+- **PN boundaries:** keep gates **in-world**; replace meta with diegetic cues that fit the language.
+- **Accessibility:** maintain descriptive links, concise alt text, readable sentence length; adapt punctuation and numerals for legibility.
 - **Terminology:** use Curator-approved terms; if none, propose and file a hook.
 
 ---
@@ -104,9 +104,9 @@
 **Dormancy:** Translator is **optional** and may be dormant.  
 **Wake signals (examples):**
 
-- Showrunner requests a multilingual View; coverage target set.  
-- Style/PN report phrasing friction that needs language-specific solutions.  
-- Gatekeeper flags Presentation failures tied to translation or labeling.  
+- Showrunner requests a multilingual View; coverage target set.
+- Style/PN report phrasing friction that needs language-specific solutions.
+- Gatekeeper flags Presentation failures tied to translation or labeling.
 - Curator updates taxonomy that impacts localized terms.
 
 **Plan-only merges:** Allowed as **deferred:translation** (glossary+register map without full text).
@@ -115,50 +115,50 @@
 
 ## 8) Cross-Domain & Escalation
 
-- **Terminology** → coordinate with **Curator**; publish glossary slice.  
-- **Register/voice** → coordinate with **Style**; agree on exemplars.  
-- **Performance cadence** → pair with **PN**; adjust patterns, not meaning.  
+- **Terminology** → coordinate with **Curator**; publish glossary slice.
+- **Register/voice** → coordinate with **Style**; agree on exemplars.
+- **Performance cadence** → pair with **PN**; adjust patterns, not meaning.
 - **Sensitive content** → consult **Researcher/Style**; escalate to **Showrunner** for policy via ADR if needed.
 
 ---
 
 ## 9) Anti-patterns (don’t do this)
 
-- **Literalism that breaks affordance** (choices become near-synonyms).  
-- **Meta leakage** (“option locked”, “flag X missing”).  
-- **Canon creep**: adding explanations to “help” readers.  
-- **Over-domestication**: erasing setting flavor without need.  
+- **Literalism that breaks affordance** (choices become near-synonyms).
+- **Meta leakage** (“option locked”, “flag X missing”).
+- **Canon creep**: adding explanations to “help” readers.
+- **Over-domestication**: erasing setting flavor without need.
 - **Anchor drift**: changing titles/anchors so links fail at bind time.
 
 ---
 
 ## 10) Mini-Checklist (run every time)
 
-- [ ] Source snapshot on screen; TU opened with coverage goal  
-- [ ] Register map & PN patterns aligned with Style/PN  
-- [ ] Glossary slice synced with Curator; new terms hooked  
-- [ ] Choices remain **contrastive**; gate lines stay **diegetic**  
-- [ ] Captions/alt localized, concise, spoiler-safe  
-- [ ] Coverage % computed; gaps labeled and safe fallbacks set  
+- [ ] Source snapshot on screen; TU opened with coverage goal
+- [ ] Register map & PN patterns aligned with Style/PN
+- [ ] Glossary slice synced with Curator; new terms hooked
+- [ ] Choices remain **contrastive**; gate lines stay **diegetic**
+- [ ] Captions/alt localized, concise, spoiler-safe
+- [ ] Coverage % computed; gaps labeled and safe fallbacks set
 - [ ] Self-check vs. **Presentation** & **Accessibility**; anchors verified after bind
 
 ---
 
 ## 11) Tiny Examples
 
-**Meta → diegetic (gate line, localized)**  
+**Meta → diegetic (gate line, localized)**
 
-- Source EN: “Option locked: missing CODEWORD.”  
+- Source EN: “Option locked: missing CODEWORD.”
 - Target: “De bewaker schudt zijn hoofd. ‘Geen badge? Dan niet vandaag.’”
 
-**Ambiguous pair → contrastive choices (localized)**  
+**Ambiguous pair → contrastive choices (localized)**
 
-- Source EN: “Go / Proceed.”  
+- Source EN: “Go / Proceed.”
 - Target NL: “Langs de onderhoudsgang / De voorman te woord staan.”
 
-**Glossary slice (excerpt)**  
+**Glossary slice (excerpt)**
 
-- *Union token* → *vakbondspenning* (n.), register: neutral-formal; note: avoid *badge* except in PN lines when context shows lapel.
+- _Union token_ → _vakbondspenning_ (n.), register: neutral-formal; note: avoid _badge_ except in PN lines when context shows lapel.
 
 ---
 

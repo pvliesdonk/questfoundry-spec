@@ -28,6 +28,7 @@ Each enriched template contains **HTML constraint comments** with field metadata
 ### 2. Extraction Pattern
 
 For each field, extract:
+
 - **Field name** — Property name in schema
 - **Type** — JSON Schema type (string, enum, array, object, etc.)
 - **Required** — Boolean (yes/no)
@@ -39,6 +40,7 @@ For each field, extract:
 ### 3. Output Format
 
 JSON Schema Draft 2020-12 with:
+
 - `$schema`, `$id`, `title`, `description`
 - `type: "object"`
 - `properties: {}` — All fields
@@ -62,6 +64,7 @@ See `hook_card.schema.json` for a complete reference example.
 **Pattern:** `{artifact_name}.schema.json`
 
 **Examples:**
+
 - `hook_card.schema.json`
 - `tu_brief.schema.json`
 - `gatecheck_report.schema.json`
@@ -73,16 +76,19 @@ See `hook_card.schema.json` for a complete reference example.
 ## Schema Index (17 Total)
 
 ### Core Workflow (2)
+
 - [ ] `hook_card.schema.json` — ✅ REFERENCE EXAMPLE
 - [ ] `tu_brief.schema.json`
 
 ### Creation & Content (4)
+
 - [ ] `canon_pack.schema.json`
 - [ ] `codex_entry.schema.json`
 - [ ] `style_addendum.schema.json`
 - [ ] `edit_notes.schema.json`
 
 ### Research & Planning (5)
+
 - [ ] `research_memo.schema.json`
 - [ ] `shotlist.schema.json`
 - [ ] `cuelist.schema.json`
@@ -90,10 +96,12 @@ See `hook_card.schema.json` for a complete reference example.
 - [ ] `audio_plan.schema.json`
 
 ### Localization (2)
+
 - [ ] `language_pack.schema.json`
 - [ ] `register_map.schema.json`
 
 ### Quality & Export (4)
+
 - [ ] `gatecheck_report.schema.json`
 - [ ] `view_log.schema.json`
 - [ ] `front_matter.schema.json`
@@ -104,6 +112,7 @@ See `hook_card.schema.json` for a complete reference example.
 ## Validation
 
 Each schema should:
+
 - ✅ Pass JSON Schema meta-validation
 - ✅ Reference taxonomies from Layer 2
 - ✅ Include all required fields from enriched template
@@ -116,6 +125,7 @@ Each schema should:
 ## Usage
 
 Schemas will be used for:
+
 - **Validation tooling** — CLI validators for artifacts
 - **API design** — REST/GraphQL endpoint definitions
 - **UI generation** — Form builders from schemas

@@ -149,10 +149,12 @@
 ## 11) Tiny Examples
 
 **Scope note (good)**
-> *TU: Act I hub polish — Story Spark (30m). Wake Style. Deliver: 3 draft sections with contrastive choices; 5 hooks triaged; pre-gate notes.*
+
+> _TU: Act I hub polish — Story Spark (30m). Wake Style. Deliver: 3 draft sections with contrastive choices; 5 hooks triaged; pre-gate notes._
 
 **View options (player-safe)**
-> *View A1 (cold@2025-10-28): EN complete; NL 74%; art plans (no renders); audio none. Accessibility: alt yes; captions n/a.*
+
+> _View A1 (cold@2025-10-28): EN complete; NL 74%; art plans (no renders); audio none. Accessibility: alt yes; captions n/a._
 
 ---
 

@@ -34,8 +34,9 @@
 **Read:** Scene slices (or full sections), Style addenda, Curator terminology/glossary, Translator notes, PN friction tags from dry-runs, Researcher safety notes, latest **Cold snapshot** to avoid contradictions.
 
 **Produce:**
-- **Audio Plan** per slot — *purpose • cue description • placement (before/under/after line) • intensity & duration • text equivalents/captions • safety notes • inclusion criteria • reproducibility expectation (off-surface)*  
-- **Cue List** — ordered slots with status (`planned | producing | deferred`)  
+
+- **Audio Plan** per slot — _purpose • cue description • placement (before/under/after line) • intensity & duration • text equivalents/captions • safety notes • inclusion criteria • reproducibility expectation (off-surface)_
+- **Cue List** — ordered slots with status (`planned | producing | deferred`)
 - **Hook List** — PN cadence fixes, Curator anchors, Style patterns, Researcher checks
 
 All outward wording is **player-safe** and free of technical jargon.
@@ -44,85 +45,90 @@ All outward wording is **player-safe** and free of technical jargon.
 
 ## 3) Small-step policy
 
-- **Pick a slice:** one chapter or a path through a hub (3–7 cues).  
-- **Open a TU:** “Audio Pass — <slice>” with bar pressure (Presentation/Accessibility).  
-- **Timebox:** write plans first; only then mark a subset **producing**.  
-- **Pre-gate ping:** quick Presentation sweep with Gatekeeper (captions/labels/safety tone).  
+- **Pick a slice:** one chapter or a path through a hub (3–7 cues).
+- **Open a TU:** “Audio Pass — <slice>” with bar pressure (Presentation/Accessibility).
+- **Timebox:** write plans first; only then mark a subset **producing**.
+- **Pre-gate ping:** quick Presentation sweep with Gatekeeper (captions/labels/safety tone).
 - **Hand off:** to Audio Producer; confirm caption portability with Translator.
 
 ---
 
 ## 4) Heuristics (try this first)
 
-- **Signpost the invisible.** Use short cues to indicate spatial shifts, inspections, or time pressure.  
-- **Keep it short.** 1–4 seconds often beats beds that fatigue readers.  
-- **Fade under words.** If placed “under,” duck levels so prose remains primary.  
-- **Recall motifs sparingly.** Reprise textures to bind acts—never to hint at secrets.  
-- **Caption formula.** Bracketed, plain, one line, no technique: `[A low engine hum rises, then settles.]`  
-- **Safety first.** Avoid sudden onsets and harsh transients; document startle risk and safe ranges in the plan (not on surfaces).  
+- **Signpost the invisible.** Use short cues to indicate spatial shifts, inspections, or time pressure.
+- **Keep it short.** 1–4 seconds often beats beds that fatigue readers.
+- **Fade under words.** If placed “under,” duck levels so prose remains primary.
+- **Recall motifs sparingly.** Reprise textures to bind acts—never to hint at secrets.
+- **Caption formula.** Bracketed, plain, one line, no technique: `[A low engine hum rises, then settles.]`
+- **Safety first.** Avoid sudden onsets and harsh transients; document startle risk and safe ranges in the plan (not on surfaces).
 - **Localization-aware.** Prefer captions that travel (avoid culture-specific onomatopoeia unless localized).
 
 ---
 
 ## 5) Safety rails
 
-- **No spoilers.** Leitmotifs must not reveal allegiances or hidden causes.  
-- **No internals on surfaces.** Captions never mention plugins, stems, DAW, mix settings.  
-- **Respect roles.** If a cue implies canon or topology, raise it—don’t encode story in sound.  
+- **No spoilers.** Leitmotifs must not reveal allegiances or hidden causes.
+- **No internals on surfaces.** Captions never mention plugins, stems, DAW, mix settings.
+- **Respect roles.** If a cue implies canon or topology, raise it—don’t encode story in sound.
 - **Accessibility is non-optional.** Provide text equivalents and safety notes; keep intensity conservative.
 
 ---
 
 ## 6) Communication rules
 
-- **Producer handshake:** confirm feasibility, loudness targets, and off-surface reproducibility logging.  
-- **Style/Translator review:** captions/phrasing portability and register fit.  
-- **PN alignment:** ensure cues won’t fight spoken rhythm; adjust placement.  
-- **Gatekeeper pass:** Presentation/Accessibility spot-check before assets ship.  
+- **Producer handshake:** confirm feasibility, loudness targets, and off-surface reproducibility logging.
+- **Style/Translator review:** captions/phrasing portability and register fit.
+- **PN alignment:** ensure cues won’t fight spoken rhythm; adjust placement.
+- **Gatekeeper pass:** Presentation/Accessibility spot-check before assets ship.
 - **Escalate via Showrunner** when cues force policy (e.g., per-platform loudness or multilingual caption conventions).
 
 ---
 
 ## 7) When to pause & escalate
 
-Pause and ping Showrunner if:  
-- A cue would require **canon** disclosure to make sense.  
-- Safety constraints (startle, intensity) cannot be met without neutering the purpose.  
+Pause and ping Showrunner if:
+
+- A cue would require **canon** disclosure to make sense.
+- Safety constraints (startle, intensity) cannot be met without neutering the purpose.
 - Translation reveals caption idioms that clash with Style or require ADR policy.
 
 ---
 
 ## 8) Tiny examples (before → after)
 
-**Technique leak (bad) → caption (good)**  
+**Technique leak (bad) → caption (good)**
+
 - “ALARM SFX with limiter −1 dB.” → “[A short alarm chirps twice, distant.]”
 
-**Meta stinger → diegetic cue**  
+**Meta stinger → diegetic cue**
+
 - “Level-up chime plays.” → “[The inspection scanner clicks, then goes quiet.]”
 
-**Overlong bed → purposeful pace cue**  
+**Overlong bed → purposeful pace cue**
+
 - 20-second drone → 3-second swell under final line, fade before choices.
 
-**Plan excerpt (player-safe)**  
-- *Purpose:* **Pace** — lift tension post-inspection  
-- *Cue:* Low engine hum swells then eases  
-- *Placement:* Under last two lines; fade before the choice list  
-- *Intensity/Duration:* Soft; 3–4 s  
-- *Text equivalent:* “[A low engine hum rises, then settles.]”  
-- *Safety:* Avoid sudden onset; no sharp transients  
-- *Inclusion:* When section mentions dock machinery or engines  
-- *Repro (off-surface):* Producer logs session ID, mix notes
+**Plan excerpt (player-safe)**
+
+- _Purpose:_ **Pace** — lift tension post-inspection
+- _Cue:_ Low engine hum swells then eases
+- _Placement:_ Under last two lines; fade before the choice list
+- _Intensity/Duration:_ Soft; 3–4 s
+- _Text equivalent:_ “[A low engine hum rises, then settles.]”
+- _Safety:_ Avoid sudden onset; no sharp transients
+- _Inclusion:_ When section mentions dock machinery or engines
+- _Repro (off-surface):_ Producer logs session ID, mix notes
 
 ---
 
 ## 9) Done checklist
 
-- [ ] Slice chosen; **Audio Plans** written with purpose & placement  
-- [ ] Captions/text equivalents concise, **player-safe**, localization-ready  
-- [ ] **Safety notes** (intensity/onset/duration) included; startle risk considered  
-- [ ] Producer briefed; reproducibility expectations **off-surface**  
-- [ ] Hooks filed (PN cadence, Curator anchors, Style patterns, Research checks)  
-- [ ] Gatekeeper pre-gate green on **Presentation/Accessibility**  
+- [ ] Slice chosen; **Audio Plans** written with purpose & placement
+- [ ] Captions/text equivalents concise, **player-safe**, localization-ready
+- [ ] **Safety notes** (intensity/onset/duration) included; startle risk considered
+- [ ] Producer briefed; reproducibility expectations **off-surface**
+- [ ] Hooks filed (PN cadence, Curator anchors, Style patterns, Research checks)
+- [ ] Gatekeeper pre-gate green on **Presentation/Accessibility**
 - [ ] TU closed or split; `deferred:audio` marked where applicable
 
 ---

@@ -43,19 +43,23 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 
 ## 4) Procedure
 
-1. **Collect**  
+1. **Collect**
+
    - Sweep all new `proposed` hooks. Reject obvious dupes; link provenance rather than deleting.
 
-2. **Cluster**  
+2. **Cluster**
+
    - Group by **theme** (e.g., “Wormhole economy”, “Kestrel arc”), then by **type** (`narrative | scene | factual | taxonomy`).
 
-3. **Annotate**  
+3. **Annotate**
+
    - For each hook, add or confirm:
      - **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`, `reject`.
      - **Uncertainty** (for factual): `uncorroborated:low/med/high` + any citations.
      - **Dependencies**: upstream refs; roles that must wake from dormancy.
 
-4. **Decide**  
+4. **Decide**
+
    - Mark each as `accepted`, `deferred`, or `rejected` (with 1-line reason).
    - For accepted hooks, assign **next loop**:
      - `lore_deepening` (most common),
@@ -64,7 +68,7 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
      - `research_pass` (implicit if Researcher is active),
      - `codex_expansion` (for pure taxonomy/clarity).
 
-5. **Package**  
+5. **Package**
    - Produce a **Harvest Sheet** (see Deliverables) summarizing decisions for hand-off.
 
 ---
@@ -72,6 +76,7 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 ## 5) Deliverables (Hot)
 
 - **Harvest Sheet** (human text; attach to TU)
+
   - Date & TU-ID
   - Cluster headings with lists of hooks:
     - **Accepted** (with next loop + owner + due window)
@@ -129,21 +134,21 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 
 ## 9) Failure Modes & Remedies
 
-- **Foggy clusters** → Recut by *player value* instead of source role.  
-- **Endless acceptance** → Enforce capacity; defer with explicit wake conditions.  
-- **Taxonomy hooks becoming secret lore** → Hand to Lore Weaver or mark `deferred`; Curator does not canonize.  
+- **Foggy clusters** → Recut by _player value_ instead of source role.
+- **Endless acceptance** → Enforce capacity; defer with explicit wake conditions.
+- **Taxonomy hooks becoming secret lore** → Hand to Lore Weaver or mark `deferred`; Curator does not canonize.
 - **Research dormant but factual heavy** → Accept with `uncorroborated:<risk>` only if Showrunner signs the risk; otherwise defer.
 
 ---
 
 ## 10) RACI (quick)
 
-| Task | R | A | C | I |
-|---|---|---|---|---|
-| Run harvest | Showrunner | Showrunner | All roles listed above | Gatekeeper |
-| Tag & decide | Showrunner | Showrunner | Lore, Plot, Scene, Curator, Researcher, Style | Gatekeeper |
-| Produce Harvest Sheet | Showrunner | Showrunner | — | All |
-| Handoffs to loops | Showrunner | Showrunner | Receiving role leads | Gatekeeper |
+| Task                  | R          | A          | C                                             | I          |
+| --------------------- | ---------- | ---------- | --------------------------------------------- | ---------- |
+| Run harvest           | Showrunner | Showrunner | All roles listed above                        | Gatekeeper |
+| Tag & decide          | Showrunner | Showrunner | Lore, Plot, Scene, Curator, Researcher, Style | Gatekeeper |
+| Produce Harvest Sheet | Showrunner | Showrunner | —                                             | All        |
+| Handoffs to loops     | Showrunner | Showrunner | Receiving role leads                          | Gatekeeper |
 
 ---
 
