@@ -31,7 +31,7 @@
 Art Plan — <slot id / short name>
 TU: <id> · Edited: <YYYY-MM-DD> · Owner: Art Director
 Slice: <scope, e.g., "Act I — Foreman Gate (3 sections)">
-Status: planned | rendering | deferred
+Status: planned | rendering | done | deferred
 
 ```
 
