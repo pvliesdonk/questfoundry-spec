@@ -11,6 +11,7 @@ dependencies = [
 [project.scripts]
 qfspec-validate = "questfoundry_spec_tools.cli:validate_schemas_cli"
 qfspec-check-instance = "questfoundry_spec_tools.cli:validate_instance_cli"
+qfspec-check-envelope = "questfoundry_spec_tools.cli:validate_envelope_cli"
 
 [build-system]
 requires = ["hatchling"]

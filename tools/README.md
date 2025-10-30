@@ -2,19 +2,15 @@
 
 Validation and maintenance tools for the **QuestFoundry specification itself**.
 
-> **Note:** These are spec maintenance tools for developers working on the QuestFoundry
-> specification. If you're looking for tools to _implement_ games/books using the spec, see Layer 6
-> (`qf` CLI).
+> **Note:** These are spec maintenance tools for developers working on the QuestFoundry specification. If you're looking for tools to *implement* games/books using the spec, see Layer 6 (`qf` CLI).
 
 ## Overview
 
-This UV project provides validation and formatting tools:
+This UV project provides three types of validation:
 
-1. **Schema Validation** - Ensures Layer 3 (and future Layer 4) schemas are valid JSON Schema Draft
-   2020-12
+1. **Schema Validation** - Ensures Layer 3 and Layer 4 schemas are valid JSON Schema Draft 2020-12
 2. **Instance Validation** - Ensures artifact instances comply with their QuestFoundry schemas
-3. **Formatting** - Prettier for strict JSON and Markdown formatting
-4. **Linting** - Markdownlint for lenient Markdown style checking
+3. **Envelope Validation** - Validates Layer 4 protocol envelopes and their embedded payloads
 
 ## Quick Start
 
@@ -23,11 +19,14 @@ This UV project provides validation and formatting tools:
 cd tools
 uv sync
 
-# Validate all schemas
+# Validate all schemas (Layer 3 + Layer 4)
 uv run qfspec-validate
 
 # Validate instance files
 uv run qfspec-check-instance hook_card ../path/to/hook.json
+
+# Validate Layer 4 envelope files (NEW)
+uv run qfspec-check-envelope ../04-protocol/EXAMPLES/hook.create.json
 ```
 
 ## Installation
@@ -40,7 +39,6 @@ uv sync
 ```
 
 This installs:
-
 - `jsonschema` - Python library for JSON Schema validation (includes Draft 2020-12 meta-schemas)
 - `pre-commit` - Git hook framework (optional)
 
@@ -53,6 +51,7 @@ uv tool install ./tools
 # Now available system-wide
 qfspec-validate
 qfspec-check-instance hook_card my-hook.json
+qfspec-check-envelope my-envelope.json
 ```
 
 ## Usage
@@ -61,7 +60,7 @@ All commands should be run from the **repository root**, not from the `tools/` d
 
 ### 1. Validate Schemas (Meta-validation)
 
-Validates that all Layer 3 schemas comply with JSON Schema Draft 2020-12:
+Validates that all Layer 3 and Layer 4 schemas comply with JSON Schema Draft 2020-12:
 
 ```bash
 # From repository root
@@ -74,7 +73,6 @@ uv run qfspec-validate
 ```
 
 **Example output:**
-
 ```
 === QuestFoundry Spec: Schema Validator ===
 Repository: /path/to/questfoundry
@@ -85,13 +83,15 @@ Validating Layer 3 schemas...
   Checking hook_card.schema.json... ✓
   ...
 
+Validating Layer 4 envelope schema...
+  Checking envelope.schema.json... ✓
+
 === Validation Summary ===
 All schemas are valid JSON Schema Draft 2020-12!
 ```
 
 **When to use:**
-
-- After modifying any schema in `03-schemas/`
+- After modifying any schema in `03-schemas/` or `04-protocol/`
 - Before committing schema changes
 - In CI/CD pipelines
 - When developing new schemas
@@ -112,7 +112,6 @@ uv run --directory tools qfspec-check-instance view_log logs/*.json
 ```
 
 **Example output:**
-
 ```
 === QuestFoundry Spec: Instance Validator ===
 Repository: /path/to/questfoundry
@@ -129,7 +128,6 @@ Failed: 1
 ```
 
 **Available schemas:**
-
 - `art_plan`
 - `audio_plan`
 - `canon_pack`
@@ -149,88 +147,16 @@ Failed: 1
 - `view_log`
 
 **When to use:**
-
 - When creating artifact instances for books/games
 - After generating artifacts from Layer 2 templates
 - In quality assurance workflows
 - When testing schema changes against sample data
 
-### 3. Format Code (Prettier)
-
-Automatically formats JSON and Markdown files to enforce consistent style:
-
-```bash
-# Format all JSON and Markdown files
-npx prettier --write "**/*.{json,md}" --config tools/.prettierrc.json --ignore-path tools/.prettierignore
-
-# Check formatting without modifying files
-npx prettier --check "**/*.{json,md}" --config tools/.prettierrc.json --ignore-path tools/.prettierignore
-
-# Format specific files
-npx prettier --write README.md 03-schemas/hook_card.schema.json
-```
-
-**Prettier configuration (strict):**
-
-- **Line width:** 100 characters
-- **Indentation:** 2 spaces (no tabs)
-- **Prose wrapping:** Always (for Markdown)
-- **Trailing commas:** ES5 style (for JSON)
-- **Quote style:** Double quotes
-- **Config:** `tools/.prettierrc.json`
-
-**When to use:**
-
-- Before committing changes (runs automatically via pre-commit hook)
-- When cleaning up formatting inconsistencies
-- After editing schemas or documentation
-
-**Note:** The pre-commit hook runs Prettier automatically, so manual formatting is rarely needed.
-
-### 4. Lint Markdown (Markdownlint)
-
-Checks Markdown files for style consistency (lenient configuration):
-
-```bash
-# Lint all Markdown files
-npx markdownlint-cli2 "**/*.md" --config tools/.markdownlint.json
-
-# Lint specific files
-npx markdownlint-cli2 README.md 00-north-star/HOOKS.md
-```
-
-**Markdownlint configuration (lenient):**
-
-- **Heading style:** ATX style (`#`, `##`, etc.)
-- **List indentation:** 2 spaces
-- **Line length:** Disabled (handled by Prettier)
-- **Duplicate headings:** Allowed for siblings only
-- **Inline HTML:** Allowed (needed for schemas/docs)
-- **First line heading:** Not required
-- **Config:** `tools/.markdownlint.json`
-
-**When to use:**
-
-- To check Markdown style (runs automatically via pre-commit hook)
-- When reviewing documentation changes
-- Note: Failures don't block commits (lenient mode)
-
 ## Pre-commit Hook
 
-The repository includes pre-commit hooks that automatically run formatters, validators, and linters
-before commits. The hooks are configured in the root `.pre-commit-config.yaml`.
-
-**Hooks (in order):**
-
-1. **Prettier** - Formats JSON and Markdown (auto-fixes, blocks if formatting needed)
-2. **Schema Validator** - Validates schemas against Draft 2020-12 (blocks if invalid)
-
-**Note:** Markdownlint is intentionally NOT in pre-commit hooks to keep commits fast and
-non-blocking for documentation changes. It runs in CI (lenient mode) and can be run manually as
-needed.
+The repository includes a pre-commit hook that automatically validates schemas before commits. The hook is configured in the root `.pre-commit-config.yaml`.
 
 **Setup:**
-
 ```bash
 # From repository root
 pip install pre-commit
@@ -238,58 +164,32 @@ pre-commit install
 ```
 
 **Manual run:**
-
 ```bash
-# Run all hooks on all files
+# Run on all files
 pre-commit run --all-files
 
-# Run specific hook
-pre-commit run prettier --all-files
-pre-commit run validate-schemas --all-files
-
 # Run on specific files
-pre-commit run --files 03-schemas/hook_card.schema.json README.md
+pre-commit run --files 03-schemas/hook_card.schema.json
 ```
 
-**How auto-fix works:** When you run `git commit`, the hooks run automatically:
-
-1. If Prettier needs to format files, it auto-fixes them and **aborts the commit**
-2. You review the formatting changes
-3. Run `git add` and `git commit` again
-4. Second commit succeeds (files already formatted)
-
-This ensures you can review all automated changes before committing.
+The hook automatically validates any schema files in `03-schemas/` that are staged for commit, blocking the commit if validation fails.
 
 ## CI/CD Integration
 
-The repository includes a GitHub Actions workflow that automatically validates formatting and
-schemas on pull requests and pushes to main branches.
+Add validation to your CI pipeline:
 
-**Workflow:** `.github/workflows/validate.yml`
+```yaml
+# Example for GitHub Actions
+- name: Set up Python
+  uses: actions/setup-python@v4
+  with:
+    python-version: '3.11'
 
-The workflow runs:
+- name: Install uv
+  run: pip install uv
 
-1. **Prettier check** - Ensures all JSON/Markdown is formatted (fails if not)
-2. **Markdownlint** - Lints Markdown (warnings only, doesn't fail)
-3. **Schema validation** - Validates all schemas against Draft 2020-12 (fails if invalid)
-
-**Triggers:**
-
-- Pull requests to `main`
-- Pushes to `main` or `claude/**` branches
-
-**View results:**
-
-- Check the Actions tab in GitHub after pushing
-- Failed checks will block PR merges
-
-**Manual workflow run:**
-
-```bash
-# Run the same checks locally
-npx prettier --check "**/*.{json,md}" --config tools/.prettierrc.json --ignore-path tools/.prettierignore
-npx markdownlint-cli2 "**/*.md" --config tools/.markdownlint.json
-uv run --directory tools qfspec-validate
+- name: Validate schemas
+  run: uv run --directory tools qfspec-validate
 ```
 
 ## Commands Reference
@@ -299,13 +199,11 @@ uv run --directory tools qfspec-validate
 Validates all QuestFoundry schemas against JSON Schema Draft 2020-12.
 
 **Usage:**
-
 ```bash
 uv run qfspec-validate
 ```
 
 **Features:**
-
 - Validates all `*.schema.json` files in `03-schemas/`
 - Uses bundled meta-schema (no network required)
 - Color-coded output (✓ for pass, ✗ for fail)
@@ -319,13 +217,11 @@ uv run qfspec-validate
 Validates artifact instance files against a QuestFoundry schema.
 
 **Usage:**
-
 ```bash
 uv run qfspec-check-instance <schema-name> <instance-file> [instance-file2 ...]
 ```
 
 **Features:**
-
 - Validates multiple instances in one run
 - Uses bundled meta-schema (no network required)
 - Detailed error messages with error paths
@@ -333,12 +229,10 @@ uv run qfspec-check-instance <schema-name> <instance-file> [instance-file2 ...]
 - Exit code 0 on success, 1 on failure
 
 **Arguments:**
-
 - `schema-name` - Schema to validate against (e.g., `hook_card`, `view_log`)
 - `instance-file` - One or more instance files to validate
 
 **Examples:**
-
 ```bash
 # Single file
 uv run qfspec-check-instance hook_card my-hook.json
@@ -349,6 +243,120 @@ uv run qfspec-check-instance gatecheck_report report1.json report2.json
 # Glob patterns
 uv run qfspec-check-instance view_log logs/*.json
 ```
+
+### `qfspec-check-envelope`
+
+**NEW in Layer 4:** Validates Layer 4 envelope files using a **two-pass validation approach**.
+
+**Usage:**
+```bash
+uv run qfspec-check-envelope <envelope-file> [envelope-file2 ...]
+```
+
+**Two-Pass Validation:**
+
+This command implements the two-pass validation approach described in `04-protocol/ENVELOPE.md` Section 3.1.1:
+
+1. **Pass 1: Envelope Structure Validation**
+   - Validates entire envelope against `04-protocol/envelope.schema.json` (Layer 4)
+   - Checks required fields (protocol, id, time, sender, receiver, intent, context, safety, payload)
+   - Validates role names against Layer 2 taxonomy (`02-dictionary/role_abbreviations.md`)
+   - Validates loop names against Layer 2 taxonomy (`02-dictionary/loop_names.md`)
+   - Enforces PN safety constraints (Cold-only, player_safe, spoilers forbidden)
+   - No external `$ref` resolution needed (envelope schema is self-contained)
+
+2. **Pass 2: Payload Data Validation**
+   - Extracts `payload.type` and `payload.data` from envelope
+   - Loads corresponding Layer 3 schema (`03-schemas/{payload.type}.schema.json`)
+   - Validates **only** `payload.data` against the Layer 3 schema
+   - Skipped if `payload.type = "none"` (for acks/errors)
+
+**Features:**
+- Two independent validation passes for clear error reporting
+- Proper layer separation (Layer 4 → Layer 2, not Layer 4 → Layer 3)
+- No deprecated RefResolver usage (future-proof)
+- Detailed error messages showing which pass failed
+- Summary report with pass/fail counts
+- Exit code 0 on success, 1 on failure
+
+**Arguments:**
+- `envelope-file` - One or more envelope JSON files to validate
+
+**Examples:**
+```bash
+# Single envelope
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
+
+# Multiple envelopes
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/hook.*.json
+
+# All examples
+uv run qfspec-check-envelope 04-protocol/EXAMPLES/*.json
+```
+
+**What it validates:**
+
+**Pass 1 - Envelope Structure (Layer 4):**
+- Required fields: protocol, id, time, sender, receiver, intent, context, safety, payload
+- Field formats: RFC3339 timestamps, UUID/URN ids, TU/snapshot patterns
+- Role names: Must match Layer 2 taxonomy (15 valid roles: SR, GK, PW, SS, ST, LW, CC, AD, IL, AuD, AuP, TR, BB, PN, RS)
+- Loop names: Must match Layer 2 taxonomy (13 valid loops from Discovery/Refinement/Asset/Export categories)
+- Enum constraints: hot_cold (hot/cold), player_safe (true/false), spoilers (allowed/forbidden)
+- PN Safety Invariant: When `receiver.role = "PN"`, enforces:
+  - `context.hot_cold = "cold"` AND
+  - `safety.player_safe = true` AND
+  - `safety.spoilers = "forbidden"`
+
+**Pass 2 - Payload Data (Layer 3):**
+- Skipped if `payload.type = "none"` (acks/errors)
+- Otherwise validates `payload.data` against `03-schemas/{payload.type}.schema.json`
+- All Layer 3 schema constraints apply (required fields, patterns, nested structures, etc.)
+- Example: For `payload.type = "hook_card"`, validates against `hook_card.schema.json`
+
+**Example output (all passing):**
+```
+=== QuestFoundry Spec: Envelope Validator ===
+Repository: /path/to/questfoundry
+
+Validating hook.create.json... ✓
+Validating ack.json... ✓
+Validating error.validation.json... ✓
+
+=== Validation Summary ===
+Total: 3
+Passed: 3
+All envelopes are valid!
+```
+
+**Example output (with errors):**
+```
+=== QuestFoundry Spec: Envelope Validator ===
+Repository: /path/to/questfoundry
+
+Validating hook.create.json... ✓
+Validating invalid.json... ✗
+  Envelope validation errors (Pass 1):
+  context -> loop: 'Invalid Loop' is not one of ['Story Spark', 'Hook Harvest', ...]
+Validating bad-payload.json... ✗
+  Payload validation errors (Pass 2, type: hook_card):
+  header -> status: 'draft' is not one of ['proposed', 'accepted', ...]
+
+=== Validation Summary ===
+Total: 3
+Passed: 1
+Failed: 2
+```
+
+**Note:** Error messages clearly indicate which validation pass failed:
+- `(Pass 1)` = Envelope structure validation failed
+- `(Pass 2, type: <payload_type>)` = Payload data validation failed
+
+**When to use:**
+- After creating or modifying envelope examples in `04-protocol/EXAMPLES/`
+- Before committing envelope changes
+- In CI/CD to validate protocol message conformance
+- When testing envelope schema changes
+- To verify PN safety constraints are enforced
 
 ## Troubleshooting
 
@@ -370,7 +378,6 @@ The validator provides detailed error messages. Common issues:
 - **Invalid JSON:** Check for syntax errors (trailing commas, unquoted keys)
 
 **Example error:**
-
 ```
 ✗ hook_card.schema.json
   Schema validation error: 'properties' is a required property
@@ -387,7 +394,6 @@ The validator shows the error path and message. Common issues:
 - **Conditional failures:** `if/then/else` validation requirements not met
 
 **Example error:**
-
 ```
 ✗ my-hook.json
   Validation error at 'status': 'draft' is not one of ['proposed', 'accepted', 'in-progress', ...]
@@ -395,8 +401,7 @@ The validator shows the error path and message. Common issues:
 
 ### Can't find repository root
 
-The tools automatically search for the repository root by looking for `03-schemas/` directory. If
-running from an unexpected location:
+The tools automatically search for the repository root by looking for `03-schemas/` directory. If running from an unexpected location:
 
 ```bash
 # Always run from repository root
