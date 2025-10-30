@@ -10,6 +10,7 @@ from .instance_validator import (
     list_available_schemas,
     find_schema_file,
     validate_instance,
+    validate_envelope,
 )
 
 # ANSI color codes
@@ -79,10 +80,22 @@ def validate_schemas_cli():
             print(f"{RED}✗{NC}")
             errors.append((schema_file.name, error_msg))
 
-    # Future: Add Layer 4 validation when ready
-    # print("")
-    # print("Validating Layer 4 schemas...")
-    # ...
+    # Validate Layer 4 envelope schema
+    print("")
+    print("Validating Layer 4 envelope schema...")
+    layer4_schema = repo_root / "04-protocol" / "envelope.schema.json"
+    
+    if layer4_schema.exists():
+        print(f"  Checking envelope.schema.json... ", end="", flush=True)
+        is_valid, error_msg = validate_schema_file(layer4_schema)
+        
+        if is_valid:
+            print(f"{GREEN}✓{NC}")
+        else:
+            print(f"{RED}✗{NC}")
+            errors.append(("envelope.schema.json", error_msg))
+    else:
+        print(f"{YELLOW}  No envelope.schema.json found{NC}")
 
     # Summary
     print("")
@@ -185,6 +198,71 @@ def validate_instance_cli():
 
     if errors == 0:
         print(f"{GREEN}All instances are valid!{NC}")
+        sys.exit(0)
+    else:
+        print(f"Failed: {RED}{errors}{NC}")
+        sys.exit(1)
+
+
+def validate_envelope_cli():
+    """
+    CLI entry point for qfspec-check-envelope command.
+    Validates envelope files against envelope schema and their payloads against Layer 3 schemas.
+    """
+    repo_root = find_repo_root()
+
+    # Check arguments
+    if len(sys.argv) < 2:
+        print("Usage: qfspec-check-envelope <envelope-file> [envelope-file2 ...]")
+        print("")
+        print("Validates envelope structure and payload data against schemas")
+        print("")
+        print("Examples:")
+        print("  qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json")
+        print("  qfspec-check-envelope 04-protocol/EXAMPLES/*.json")
+        print("")
+        sys.exit(1)
+
+    envelope_files = sys.argv[1:]
+
+    # Validate each envelope
+    print("=== QuestFoundry Spec: Envelope Validator ===")
+    print(f"Repository: {repo_root}")
+    print("")
+
+    total = 0
+    errors = 0
+
+    for envelope_file in envelope_files:
+        envelope_path = Path(envelope_file)
+
+        if not envelope_path.exists():
+            print(f"{RED}✗{NC} {envelope_path.name} - File not found")
+            errors += 1
+            total += 1
+            continue
+
+        total += 1
+        print(f"Validating {envelope_path.name}... ", end="", flush=True)
+
+        is_valid, error_msg = validate_envelope(envelope_path, repo_root)
+
+        if is_valid:
+            print(f"{GREEN}✓{NC}")
+        else:
+            print(f"{RED}✗{NC}")
+            print(f"  {error_msg}")
+            print("")
+            errors += 1
+
+    # Summary
+    print("")
+    print("=== Validation Summary ===")
+    print(f"Total: {total}")
+    print(f"Passed: {GREEN}{total - errors}{NC}")
+
+    if errors == 0:
+        print(f"{GREEN}All envelopes are valid!{NC}")
         sys.exit(0)
     else:
         print(f"Failed: {RED}{errors}{NC}")
