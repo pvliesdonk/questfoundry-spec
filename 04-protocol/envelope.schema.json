@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://questfoundry.liesdonk.nl/protocol/envelope.schema.json",
+  "title": "QuestFoundry Protocol Envelope",
+  "description": "Transport-agnostic message envelope for Layer 4. Enforces PN safety and validates payloads against Layer 3 schemas by payload.type.",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "const": "qf-protocol" },
+        "version": {
+          "type": "string",
+          "description": "SemVer string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$"
+        }
+      },
+      "required": ["name", "version"]
+    },
+    "id": { "type": "string", "description": "Message id (UUID/URN/ULID)", "minLength": 8 },
+    "time": { "type": "string", "format": "date-time" },
+    "sender": {
+      "type": "object",
+      "properties": {
+        "role": { "$ref": "#/$defs/role_name" },
+        "agent": { "type": "string", "description": "Optional human/agent identifier" }
+      },
+      "required": ["role"]
+    },
+    "receiver": {
+      "type": "object",
+      "properties": {
+        "role": { "$ref": "#/$defs/role_name" }
+      },
+      "required": ["role"]
+    },
+    "intent": { "type": "string", "description": "Verb.catalog (e.g., hook.create)", "pattern": "^[a-z]+([._-][a-z]+)*$" },
+    "correlation_id": { "type": "string" },
+    "reply_to": { "type": "string" },
+    "context": {
+      "type": "object",
+      "properties": {
+        "hot_cold": { "type": "string", "enum": ["hot", "cold"] },
+        "tu": { "type": "string", "pattern": "^TU-\\d{4}-\\d{2}-\\d{2}-[A-Z]{2,4}\\d{2}$" },
+        "snapshot": { "type": "string", "pattern": "^Cold @ \\d{4}-\\d{2}-\\d{2}$" },
+        "loop": { "$ref": "#/$defs/loop_name" }
+      },
+      "required": ["hot_cold"]
+    },
+    "safety": {
+      "type": "object",
+      "properties": {
+        "player_safe": { "type": "boolean" },
+        "spoilers": { "type": "string", "enum": ["allowed", "forbidden"] }
+      },
+      "required": ["player_safe", "spoilers"]
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/$defs/payload_type" },
+        "data": { "type": "object" }
+      },
+      "required": ["type", "data"]
+    },
+    "refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "required": ["protocol", "id", "time", "sender", "receiver", "intent", "context", "safety", "payload"],
+  "allOf": [
+    {
+      "if": { "properties": { "receiver": { "properties": { "role": { "const": "PN" } }, "required": ["role"] } }, "required": ["receiver"] },
+      "then": {
+        "properties": {
+          "context": { "properties": { "hot_cold": { "const": "cold" } }, "required": ["hot_cold", "snapshot"] },
+          "safety": { "properties": { "player_safe": { "const": true } } }
+        }
+      }
+    },
+
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "hook_card" } }, "required": ["type"] } }, "required": ["payload"] },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/hook_card.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "tu_brief" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/tu_brief.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "gatecheck_report" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/gatecheck_report.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "canon_pack" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/canon_pack.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "codex_entry" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/codex_entry.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "style_addendum" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/style_addendum.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "edit_notes" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/edit_notes.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "research_memo" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/research_memo.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "shotlist" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/shotlist.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "cuelist" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/cuelist.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "art_plan" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/art_plan.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "audio_plan" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/audio_plan.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "language_pack" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/language_pack.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "register_map" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/register_map.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "view_log" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/view_log.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "front_matter" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/front_matter.schema.json" } } } } }
+    },
+    { "if": { "properties": { "payload": { "properties": { "type": { "const": "pn_playtest_notes" } }, "required": ["type"] } } },
+      "then": { "properties": { "payload": { "properties": { "data": { "$ref": "../03-schemas/pn_playtest_notes.schema.json" } } } } }
+    },
+
+    { "if": { "properties": { "intent": { "const": "ack" } }, "required": ["intent"] },
+      "then": { "properties": { "payload": { "properties": { "type": { "const": "none" } } } } }
+    },
+    { "if": { "properties": { "intent": { "const": "error" } } },
+      "then": {
+        "properties": {
+          "payload": {
+            "properties": {
+              "type": { "const": "none" },
+              "data": {
+                "type": "object",
+                "properties": {
+                  "code": { "type": "string", "enum": [
+                    "validation_error",
+                    "business_rule_violation",
+                    "not_authorized",
+                    "not_found",
+                    "conflict"
+                  ] },
+                  "message": { "type": "string", "minLength": 5 },
+                  "details": { "type": "object" }
+                },
+                "required": ["code", "message"]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "role_name": { "$ref": "../03-schemas/hook_card.schema.json#/$defs/role_name" },
+    "loop_name": { "$ref": "../03-schemas/hook_card.schema.json#/$defs/loop_name" },
+    "payload_type": {
+      "type": "string",
+      "enum": [
+        "art_plan",
+        "audio_plan",
+        "canon_pack",
+        "codex_entry",
+        "cuelist",
+        "edit_notes",
+        "front_matter",
+        "gatecheck_report",
+        "hook_card",
+        "language_pack",
+        "pn_playtest_notes",
+        "register_map",
+        "research_memo",
+        "shotlist",
+        "style_addendum",
+        "tu_brief",
+        "view_log",
+        "none"
+      ]
+    }
+  }
+}
+
