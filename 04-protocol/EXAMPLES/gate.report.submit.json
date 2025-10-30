@@ -44,22 +44,56 @@
           "bar": "Integrity",
           "status": "yellow",
           "evidence": "Toll mechanism referenced but trigger conditions not explicit",
-          "smallest_viable_fix": "Add 2-3 sentences clarifying when toll is triggered"
+          "smallest_viable_fix": "Add 2-3 sentences clarifying when toll is triggered",
+          "owner": "LW"
+        },
+        {
+          "bar": "Reachability",
+          "status": "green",
+          "evidence": "All canon entries reachable from hub navigation"
         },
         {
           "bar": "Nonlinearity",
           "status": "green",
-          "evidence": "Toll creates new branch at hub; choices clear",
-          "smallest_viable_fix": "None needed"
+          "evidence": "Toll creates new branch at hub; choices clear"
+        },
+        {
+          "bar": "Gateways",
+          "status": "green",
+          "evidence": "Hub connections properly gated with toll mechanism"
+        },
+        {
+          "bar": "Style",
+          "status": "green",
+          "evidence": "Faction lore matches established voice and tone"
+        },
+        {
+          "bar": "Determinism",
+          "status": "green",
+          "evidence": "Toll mechanics deterministic; no random elements"
         },
         {
           "bar": "Presentation",
           "status": "green",
-          "evidence": "All surfaces player-safe; no spoilers or internals",
-          "smallest_viable_fix": "None needed"
+          "evidence": "All surfaces player-safe; no spoilers or internals"
+        },
+        {
+          "bar": "Accessibility",
+          "status": "green",
+          "evidence": "Faction descriptions include alt text; reading order clear"
         }
       ],
-      "handoffs": []
+      "handoffs": [
+        "LW: Add toll trigger conditions to manuscript integration notes in TU-2025-10-30-LW01 by 2025-10-30 EOD"
+      ],
+      "checklist": [
+        "Decision conditional pass is consistent with yellow bar (Integrity)",
+        "Smallest viable fixes documented for yellow bar with owner LW",
+        "Player safety verified across all content surfaces",
+        "Dormancy state recorded (no deferrals)",
+        "Handoffs documented with owners and deadlines",
+        "Trace links updated in canon_pack lineage"
+      ]
     }
   },
   "refs": [

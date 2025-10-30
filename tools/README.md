@@ -246,19 +246,36 @@ uv run qfspec-check-instance view_log logs/*.json
 
 ### `qfspec-check-envelope`
 
-**NEW in Layer 4:** Validates Layer 4 envelope files against the envelope schema AND validates the embedded payload against its Layer 3 schema.
+**NEW in Layer 4:** Validates Layer 4 envelope files using a **two-pass validation approach**.
 
 **Usage:**
 ```bash
 uv run qfspec-check-envelope <envelope-file> [envelope-file2 ...]
 ```
 
+**Two-Pass Validation:**
+
+This command implements the two-pass validation approach described in `04-protocol/ENVELOPE.md` Section 3.1.1:
+
+1. **Pass 1: Envelope Structure Validation**
+   - Validates entire envelope against `04-protocol/envelope.schema.json` (Layer 4)
+   - Checks required fields (protocol, id, time, sender, receiver, intent, context, safety, payload)
+   - Validates role names against Layer 2 taxonomy (`02-dictionary/role_abbreviations.md`)
+   - Validates loop names against Layer 2 taxonomy (`02-dictionary/loop_names.md`)
+   - Enforces PN safety constraints (Cold-only, player_safe, spoilers forbidden)
+   - No external `$ref` resolution needed (envelope schema is self-contained)
+
+2. **Pass 2: Payload Data Validation**
+   - Extracts `payload.type` and `payload.data` from envelope
+   - Loads corresponding Layer 3 schema (`03-schemas/{payload.type}.schema.json`)
+   - Validates **only** `payload.data` against the Layer 3 schema
+   - Skipped if `payload.type = "none"` (for acks/errors)
+
 **Features:**
-- Validates envelope structure against `04-protocol/envelope.schema.json`
-- Validates `payload.data` against the corresponding Layer 3 schema (based on `payload.type`)
-- Enforces PN safety constraints (Cold-only, player_safe, etc.)
-- Validates all envelope fields (protocol, id, time, sender, receiver, intent, context, safety)
-- Detailed error messages for both envelope and payload validation
+- Two independent validation passes for clear error reporting
+- Proper layer separation (Layer 4 → Layer 2, not Layer 4 → Layer 3)
+- No deprecated RefResolver usage (future-proof)
+- Detailed error messages showing which pass failed
 - Summary report with pass/fail counts
 - Exit code 0 on success, 1 on failure
 
@@ -279,29 +296,30 @@ uv run qfspec-check-envelope 04-protocol/EXAMPLES/*.json
 
 **What it validates:**
 
-1. **Envelope structure:**
-   - Required fields: protocol, id, time, sender, receiver, intent, context, safety, payload
-   - Field formats: RFC3339 timestamps, UUID/URN ids, role abbreviations, TU/snapshot patterns
-   - Enum constraints: hot_cold, player_safe, spoilers, loop names
+**Pass 1 - Envelope Structure (Layer 4):**
+- Required fields: protocol, id, time, sender, receiver, intent, context, safety, payload
+- Field formats: RFC3339 timestamps, UUID/URN ids, TU/snapshot patterns
+- Role names: Must match Layer 2 taxonomy (15 valid roles: SR, GK, PW, SS, ST, LW, CC, AD, IL, AuD, AuP, TR, BB, PN, RS)
+- Loop names: Must match Layer 2 taxonomy (13 valid loops from Discovery/Refinement/Asset/Export categories)
+- Enum constraints: hot_cold (hot/cold), player_safe (true/false), spoilers (allowed/forbidden)
+- PN Safety Invariant: When `receiver.role = "PN"`, enforces:
+  - `context.hot_cold = "cold"` AND
+  - `safety.player_safe = true` AND
+  - `safety.spoilers = "forbidden"`
 
-2. **PN Safety Invariant:**
-   - When `receiver.role = "PN"`:
-     - MUST have `context.hot_cold = "cold"`
-     - MUST have `context.snapshot` present
-     - MUST have `safety.player_safe = true`
+**Pass 2 - Payload Data (Layer 3):**
+- Skipped if `payload.type = "none"` (acks/errors)
+- Otherwise validates `payload.data` against `03-schemas/{payload.type}.schema.json`
+- All Layer 3 schema constraints apply (required fields, patterns, nested structures, etc.)
+- Example: For `payload.type = "hook_card"`, validates against `hook_card.schema.json`
 
-3. **Payload validation:**
-   - If `payload.type != "none"`:
-     - Validates `payload.data` against `03-schemas/{payload.type}.schema.json`
-     - All Layer 3 schema constraints apply (required fields, patterns, etc.)
-
-**Example output:**
+**Example output (all passing):**
 ```
 === QuestFoundry Spec: Envelope Validator ===
 Repository: /path/to/questfoundry
 
 Validating hook.create.json... ✓
-Validating view.export.result.json... ✓
+Validating ack.json... ✓
 Validating error.validation.json... ✓
 
 === Validation Summary ===
@@ -309,6 +327,29 @@ Total: 3
 Passed: 3
 All envelopes are valid!
 ```
+
+**Example output (with errors):**
+```
+=== QuestFoundry Spec: Envelope Validator ===
+Repository: /path/to/questfoundry
+
+Validating hook.create.json... ✓
+Validating invalid.json... ✗
+  Envelope validation errors (Pass 1):
+  context -> loop: 'Invalid Loop' is not one of ['Story Spark', 'Hook Harvest', ...]
+Validating bad-payload.json... ✗
+  Payload validation errors (Pass 2, type: hook_card):
+  header -> status: 'draft' is not one of ['proposed', 'accepted', ...]
+
+=== Validation Summary ===
+Total: 3
+Passed: 1
+Failed: 2
+```
+
+**Note:** Error messages clearly indicate which validation pass failed:
+- `(Pass 1)` = Envelope structure validation failed
+- `(Pass 2, type: <payload_type>)` = Payload data validation failed
 
 **When to use:**
 - After creating or modifying envelope examples in `04-protocol/EXAMPLES/`

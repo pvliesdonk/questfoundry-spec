@@ -49,7 +49,7 @@
       "acceptance_criteria": [
         "Canon entry for toll mechanism completed",
         "Integration points with existing factions identified"
-      },
+      ],
       "locations_links": {
         "locations": ["manuscript/sections/wormhole3.md"],
         "related_hooks": [],

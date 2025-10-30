@@ -263,6 +263,13 @@ The message content, validated against a Layer 3 schema.
 - Unknown payload types SHOULD be rejected
 - Empty payloads are allowed for acks/errors (see Error Envelopes)
 
+**Validation Note:**
+Envelope validation uses a **two-pass approach** (see Section 3.1.1):
+- **Pass 1:** Envelope structure validates against `envelope.schema.json` (roles, loops, safety, required fields)
+- **Pass 2:** Only `payload.data` validates against the Layer 3 schema specified by `payload.type`
+
+This separation ensures the envelope schema (Layer 4) depends only on Layer 2 taxonomies, not Layer 3 schemas.
+
 ---
 
 ### 2.8 References
@@ -322,11 +329,40 @@ The `id` of the message this is replying to.
 ### 3.1 Message Lifecycle
 
 1. **Creation** — sender assigns `id`, `time`, fills required fields
-2. **Validation** — envelope structure validated, then payload against `$schema`
+2. **Validation** — two-pass validation (see Section 3.1.1)
 3. **Safety check** — if receiver is PN, enforce safety rules
 4. **Routing** — transport layer delivers to `receiver.role`
 5. **Processing** — receiver handles based on `intent`
 6. **Reply** (optional) — receiver sends ack/error with `reply_to` set
+
+#### 3.1.1 Two-Pass Validation
+
+Envelope validation is performed in two independent passes to maintain proper layer separation:
+
+**Pass 1: Envelope Structure Validation**
+- Validates the entire envelope against `04-protocol/envelope.schema.json` (Layer 4)
+- Checks:
+  - Required fields (`protocol`, `id`, `time`, `sender`, `receiver`, `intent`, `context`, `safety`, `payload`)
+  - Role names against Layer 2 taxonomy (`02-dictionary/role_abbreviations.md`)
+  - Loop names against Layer 2 taxonomy (`02-dictionary/loop_names.md`)
+  - PN safety constraints (if `receiver.role = "PN"`, enforces `hot_cold = "cold"`, `player_safe = true`, `spoilers = "forbidden"`)
+  - Field types and structure
+
+**Pass 2: Payload Data Validation**
+- Extracts `payload.type` and `payload.data` from the envelope
+- Loads the corresponding Layer 3 schema from `03-schemas/{payload.type}.schema.json`
+- Validates **only** `payload.data` against the Layer 3 schema
+- Skipped if `payload.type = "none"` (for acks/errors)
+
+**Why Two Passes?**
+
+1. **Correct layering:** Layer 4 (envelope) depends only on Layer 2 (taxonomies), not Layer 3 (schemas)
+2. **Stability:** Adding new artifact types doesn't require envelope schema changes
+3. **Maintainability:** Envelope validation and payload validation are independent concerns
+4. **Implementation:** Avoids deprecated `$ref` resolution across layers
+
+**Implementation Note:**
+The `envelope.schema.json` does NOT contain `$ref` links to Layer 3 schemas. Validation tools (e.g., `qfspec-check-envelope`) implement the two-pass approach programmatically.
 
 ### 3.2 Hot/Cold Boundary
 
@@ -751,8 +787,9 @@ Error payloads follow a simple structure (no Layer 3 schema required):
      - `safety.spoilers = "forbidden"`
    - Violation is a critical error
 
-3. **Payload Validation:**
-   - `payload.data` MUST validate against the schema at `payload.$schema`
+3. **Payload Validation (Two-Pass):**
+   - Pass 1: Envelope structure MUST validate against `04-protocol/envelope.schema.json`
+   - Pass 2: `payload.data` MUST validate against the Layer 3 schema for `payload.type`
    - Unknown payload types MUST be rejected
 
 4. **TU Linkage:**
