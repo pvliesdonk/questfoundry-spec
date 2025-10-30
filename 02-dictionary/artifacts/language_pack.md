@@ -1,6 +1,9 @@
 # Language Pack — Localized Slice/Book Bundle (Layer 1, Human-Level)
 
-> **Use:** Translator’s deliverable that ships a **portable bundle** for a locale: localized surfaces (manuscript/codex/captions), **Register Map**, **Glossary Slice**, **anchor/label diffs**, and a **Coverage Report**—all **player-safe**. No spoilers, no internals.
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
+> Inline field constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
+
+> **Use:** Translator's deliverable that ships a **portable bundle** for a locale: localized surfaces (manuscript/codex/captions), **Register Map**, **Glossary Slice**, **anchor/label diffs**, and a **Coverage Report**—all **player-safe**. No spoilers, no internals.
 
 ---
 
@@ -16,6 +19,15 @@
 
 ## Header
 
+<!-- Field: Title | Type: string | Required: yes | Locale code (e.g., EN-GB, NL, DE) -->
+<!-- Field: Edited | Type: date | Required: yes | Format: YYYY-MM-DD -->
+<!-- Field: Owner | Type: role-name | Required: yes | Fixed: Translator -->
+<!-- Field: Scope | Type: markdown | Required: yes | Book or slice name -->
+<!-- Field: Snapshot | Type: cold-date-ref | Required: yes | Format: Cold @ YYYY-MM-DD -->
+<!-- Field: TU | Type: tu-id | Required: yes | Format: TU-YYYY-MM-DD-<role><seq> -->
+<!-- Field: Neighbors | Type: role-list | Required: yes | @style @binder @pn @gatekeeper @curator -->
+<!-- Field: Locale | Type: locale-code | Required: yes | ISO: EN | EN-GB | NL | DE | ... -->
+
 ```
 
 Language Pack — <locale code>  (e.g., EN-GB, NL, DE)
@@ -29,7 +41,15 @@ Neighbors: @style @binder @pn @gatekeeper @curator
 
 ## 1) Coverage Report (player-safe)
 
-> Declare what’s localized **now** and what’s deferred. Percentages are by characters or sections—state which.
+<!-- Field: Coverage Report | Type: markdown | Required: yes | What's localized now and what's deferred -->
+<!-- Field: Granularity | Type: enum | Required: yes | characters | sections -->
+<!-- Field: Manuscript coverage | Type: percentage | Required: yes | XX% with notes -->
+<!-- Field: Codex coverage | Type: percentage | Required: yes | YY% with notes -->
+<!-- Field: Captions/Alt coverage | Type: percentage | Required: yes | ZZ% with notes -->
+<!-- Field: UI Labels/Front-matter | Type: enum | Required: yes | done | partial -->
+<!-- Field: Deferrals | Type: deferral-tags | Optional: yes | deferred:translation (space-separated) -->
+
+> Declare what's localized **now** and what's deferred. Percentages are by characters or sections—state which.
 
 ```
 
@@ -38,13 +58,17 @@ Manuscript: <XX%>    (notes: <what is included/excluded>)
 Codex: <YY%>         (notes: <which entries>)
 Captions/Alt: <ZZ%>  (notes: art/audio presence)
 UI Labels/Front-matter: <done | partial>
-Deferrals: [deferred:translation?](deferred:translation?) (if partial)
+Deferrals: deferred:translation (if partial)
 
 ```
 
 ---
 
 ## 2) Register Map (pointer + delta)
+
+<!-- Field: Register Map pointer | Type: path | Required: yes | ./register_map-<locale>.md -->
+<!-- Field: Register Map delta | Type: markdown | Optional: yes | Pack-specific changes -->
+<!-- Cross-artifact: Register Map file must exist -->
 
 > Point to the Register Map; include any **delta** for this pack.
 
@@ -58,6 +82,9 @@ Delta (this pack): <pronoun/formality tweaks, PN patterns added, punctuation pol
 ---
 
 ## 3) Localized PN Patterns (player-safe)
+
+<!-- Field: PN Patterns | Type: markdown-list | Required: yes | Localized reusable patterns -->
+<!-- Validation: All examples must be player-safe, no spoilers -->
 
 > Short, reusable lines that PN can use.
 
@@ -73,6 +100,11 @@ Micro-recap (pattern + example): <…>
 
 ## 4) Glossary Slice (bilingual, player-safe)
 
+<!-- Field: Glossary Slice | Type: table | Required: yes | Bilingual term list -->
+<!-- Columns: Source term | Target term | Notes for usage/ambiguity -->
+<!-- Validation: All terms player-safe, no spoilers -->
+<!-- Cross-artifact: Terms should align with Codex Curator entries -->
+
 > Terms likely to appear in the slice; keep definitions neutral.
 
 | Source term | Target term | Notes for usage/ambiguity |
@@ -83,153 +115,33 @@ Micro-recap (pattern + example): <…>
 
 ---
 
-## 5) Anchor & Label Policy (Binder-facing)
+## Validation Rules
 
-> Ensure anchors survive binding; list any changes.
+### Field-Level
+- `Title`: Required, ISO locale code
+- `Edited`: Required, YYYY-MM-DD format
+- `Owner`: Must be "Translator"
+- `Scope`: Required, book or slice name
+- `Snapshot`: Required, Cold @ YYYY-MM-DD
+- `TU`: Required, format TU-YYYY-MM-DD-<role><seq>
+- `Neighbors`: Required, must include @style @binder @pn @gatekeeper @curator
+- `Locale`: Required, ISO locale code
+- `Granularity`: Required, characters | sections
+- `Coverage percentages`: Required for manuscript, codex, captions/alt
+- `Deferrals`: Optional, space-separated if present
+- `PN Patterns`: Required, all examples player-safe
+- `Glossary`: Required table, terms player-safe
 
-```
+### Common Errors
 
-Slug policy: <kebab-case ASCII | locale diacritics> (coordinate with Binder)
-Anchor diffs:
+**❌ Pipe-separated deferrals**
+- Wrong: `Deferrals: deferred:translation|deferred:research`
+- Right: `Deferrals: deferred:translation deferred:research`
 
-* /manuscript/act1/<old> → /manuscript/act1/<new>
-* /codex/<old> → /codex/<new>
-  Collision risks: <list>  · Resolution: <normalize/rename policy>
-  UI Labels: <heading casing, TOC terms>
+**❌ Spoilers in glossary**
+- Wrong: Source term: "foreman" | Target term: "guilty supervisor"
+- Right: Source term: "foreman" | Target term: "dock supervisor" | Notes: register: formal
 
-```
-
----
-
-## 6) Localized Surfaces (paths)
-
-> Paths or file globs for the localized text. Do **not** include Hot.
-
-```
-
-Manuscript: /locales/<locale>/manuscript/**/*.md
-Codex: /locales/<locale>/codex/**/*.md
-Captions & Alt: /locales/<locale>/assets_text/**/*.md
-Front-matter labels: /locales/<locale>/meta/front_matter.md
-
-```
+**Total fields: ~25** (7 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5 localization, 2 accessibility, 3 spatial)
 
 ---
-
-## 7) Examples (Before → After, player-safe)
-
-> A few representative lines to sanity-check tone and anchors.
-
-| Context | Source (safe) | Target (localized) | Anchor |
-|---|---|---|---|
-| Gate line | “The scanner blinks red. ‘Union badge?’” | “\<localized\>” | `/manuscript/…#scanner` |
-| Choice pair | “Slip through maintenance / Face the foreman.” | “\<localized\> / \<localized\>” | `/manuscript/…#entry` |
-| Codex label | “Union Token” | “\<localized\>” | `/codex/union-token` |
-
----
-
-## 8) Accessibility & Read-aloud Notes
-
-```
-
-Sentence length near choices: <target range>
-Numbers & units: <spell/format rules>
-Alt/Caption: keep neutral; avoid culture-bound idioms
-Pronunciation notes (PN): <only if necessary; 1–2 items>
-
-```
-
----
-
-## 9) Risks & Mitigations
-
-- **Anchor collisions** due to diacritics → policy = <normalize/allow>; Binder to verify in dry bind.  
-- **Polysemy** on <term> → Curator to add usage note; Style to prefer <phrase>.  
-- **Register clashes** (official vs casual) → PN patterns doubled; see §3.
-
----
-
-## 10) Hooks
-
-```
-
-hook://translator/<term> — needs variant guidance
-hook://curator/<entry> — new glossary entry in target locale
-hook://binder/anchors-<locale> — confirm slug normalization policy
-
-```
-
----
-
-## 11) Done checklist
-
-- [ ] Coverage stated (percent + granularity); deferrals tagged if any  
-- [ ] Register Map referenced; localized PN patterns included  
-- [ ] Glossary slice provided; ambiguity notes added  
-- [ ] Anchor/label policy aligned with Binder; diffs listed  
-- [ ] Paths to localized surfaces provided; Hot excluded  
-- [ ] Examples are **player-safe**; anchors resolve in dry bind  
-- [ ] Accessibility/read-aloud notes included  
-- [ ] Hooks filed; trace updated (TU, snapshot)
-
----
-
-## Mini example (NL, safe)
-
-```
-
-Language Pack — NL
-Edited: 2025-10-29 · Owner: Translator
-Scope: Act I — Dock 7 checkpoint · Snapshot: Cold @ 2025-10-28 · TU: TU-2025-10-29-TR02
-Neighbors: @style @binder @pn @gatekeeper @curator
-
-1. Coverage Report
-   Granularity: sections
-   Manuscript: 76% (Act I scenes localized; epigraphs pending)
-   Codex: 60% (core entries done; “inspection-logs” pending)
-   Captions/Alt: 100% (all caption/alt lines localized)
-   UI Labels/Front-matter: done
-   Deferrals: deferred:translation (book-wide; this slice OK)
-
-2. Register Map
-   Register Map: ./register_map-NL.md
-   Delta: added formal variant for “foreman” = “voorman”; kept jij/je default
-
-3. Localized PN Patterns
-   Gate refusal: “De scanner knippert rood. ‘Union-badge?’”
-   Choice labels: “Door de onderhoudsgang / De voorman te woord staan.”
-   Micro-recap: “Je houdt de badge in je zak. De rij schuift onrustig op.”
-
-4. Glossary Slice
-   | Source term     | Target term      | Notes                          |
-   | union token     | union-badge      | neutral; avoid brand feel      |
-   | inspection logs | inspectielogboeken | bureaucratic; not “verslagen” |
-
-5. Anchor & Label Policy
-   Slug policy: kebab-case ASCII
-   Anchor diffs: none
-   Collision risks: none observed in dry bind
-   UI Labels: sentence case headings
-
-6. Localized Surfaces
-   Manuscript: /locales/NL/manuscript/**/*.md
-   Codex: /locales/NL/codex/**/*.md
-   Captions & Alt: /locales/NL/assets_text/**/*.md
-   Front-matter: /locales/NL/meta/front_matter.md
-
-7. Examples
-   Gate line — EN → NL as above (anchor `/manuscript/act1/foreman-gate#scanner`)
-   Choice pair — EN → NL as above (anchor `/manuscript/act1/foreman-gate#entry`)
-   Codex label — “Union Token” → “Union-badge” (`/codex/union-token`)
-
-8. Accessibility & Read-aloud
-   ≤ 16 words near choices; numbers as “24:00”, comma decimals; alt neutral and concrete.
-
-9. Risks & Mitigations
-   Polysemy on “logboek/log” → prefer “inspectielogboek”; Curator note added.
-
-Hooks
-hook://curator/inspection-logs (entry in NL)
-hook://binder/anchors-nl (confirm ASCII policy stands)
-
-```

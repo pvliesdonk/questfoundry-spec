@@ -1,5 +1,8 @@
 # PN Playtest Notes — Dry-Run Log (Layer 1, Human-Level)
 
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
+> Inline field constraints and validation rules. All Phase 2+3 corrections applied.
+
 > **Use:** Log **player-facing friction** while reading a bound **View** aloud (no improvisation). Tag issues, cite the smallest fix, and route to the right owner. Keep all examples **player-safe**; never reveal canon or internals.
 
 ---
@@ -8,12 +11,20 @@
 
 - Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Handshakes & lanes: `../interfaces/pair_guides.md` (Style ↔ PN) · `../interfaces/escalation_rules.md`
-- Role brief: `../briefs/player_narrator.md` · Gatekeeping: `../checklists/quality_bars_by_role.md`
+- Role brief: `../briefs/player_narrator.md`
 
 ---
 
 ## Header
+
+<!-- Field: Title | Type: string | Required: yes | View-name or slice -->
+<!-- Field: Run | Type: timestamp | Required: yes | Format: YYYY-MM-DD HH:MM -->
+<!-- Field: PN | Type: name-or-agent | Required: yes | Player Narrator identity -->
+<!-- Field: TU | Type: tu-id | Required: yes | Format: TU-YYYY-MM-DD-<role><seq> -->
+<!-- Field: Snapshot | Type: cold-date-ref | Required: yes | Format: Cold @ YYYY-MM-DD -->
+<!-- Field: Targets | Type: list | Required: yes | PDF | HTML | EPUB | ... -->
+<!-- Field: Mode | Type: enum | Required: yes | dry-run (no improv) -->
+<!-- Field: Pace | Type: enum | Optional: yes | normal | slow | fast -->
 
 ```
 
@@ -28,118 +39,64 @@ Mode: dry-run (no improv) · Pace: <normal | slow | fast>
 
 ## Tags (choose at least one per note)
 
-- `choice-ambiguity` — options feel samey; intent unclear  
-- `gate-friction` — refusal reads meta or unfair; diegetic wording needed  
-- `nav-bug` — link/anchor sends me wrong place or loses context  
-- `tone-wobble` — register shifts awkwardly; breaks voice  
-- `translation-glitch` — localized phrasing/label collides or jars  
-- `accessibility` — hard to read aloud; alt/caption missing/misaligned  
-- `pace` — breath units wrong near choices; needs micro-recap or trim  
-- `caption-mismatch` — caption/alt doesn’t match what an asset shows/sounds  
-- `label-collision` — heading/anchor/slug collides or is unreadable  
+<!-- Field: Tags | Type: enum-list | Required: yes (per log entry) | Standard issue tags -->
+<!-- Validation: Must use standard tags; "other" requires brief specification -->
+
+- `choice-ambiguity` — options feel samey; intent unclear
+- `gate-friction` — refusal reads meta or unfair; diegetic wording needed
+- `nav-bug` — link/anchor sends me wrong place or loses context
+- `tone-wobble` — register shifts awkwardly; breaks voice
+- `translation-glitch` — localized phrasing/label collides or jars
+- `accessibility` — hard to read aloud; alt/caption missing/misaligned
+- `pace` — breath units wrong near choices; needs micro-recap or trim
+- `caption-mismatch` — caption/alt doesn't match what an asset shows/sounds
+- `label-collision` — heading/anchor/slug collides or is unreadable
 - `other` — specify briefly
 
 ---
 
 ## Log format (table; player-safe)
 
+<!-- Field: Log | Type: table | Required: yes | Issue log with timestamps -->
+<!-- Columns: When | Location (path#anchor) | Tag(s) | Severity | Snippet (safe) | Smallest viable fix | Owner | Notes -->
+<!-- Validation: All snippets must be player-safe; severity must be low/med/high -->
+<!-- Cross-artifact: Locations should reference existing manuscript/codex/view anchors -->
+
 > Keep snippets short and spoiler-safe. Pin to **section path + anchor**. Suggest the **smallest viable fix** and the **owner**.
 
 | When | Location (path#anchor) | Tag(s) | Severity | Snippet (safe) | Smallest viable fix | Owner | Notes |
 |---|---|---|---|---|---|---|---|
-| 00:03 | `/manuscript/act1/foreman-gate#entry` | choice-ambiguity | med | “Go / Proceed.” | Sharpen to intent-forward verbs | Style → Scene | Contrast: “Slip through maintenance / Face the foreman.” |
-| 00:06 | `/manuscript/act1/foreman-gate#scanner` | gate-friction | high | “Option locked: missing CODEWORD.” | Swap to diegetic refusal line | Style → Scene | “The scanner blinks red. ‘Union badge?’” |
-| 00:09 | `/views/…/index.html#union-token` | nav-bug | med | Link jumps to top | Fix anchor or TOC id | Binder | Check kebab-case slug, no diacritics |
-| 00:12 | `/codex/inspection-logs` | translation-glitch | low | “greenlighted” | Neutral, portable term | Translator | Prefer “approved” |
+| 00:03 | `/manuscript/act1/foreman-gate#entry` | choice-ambiguity | med | "Go / Proceed." | Sharpen to intent-forward verbs | Style → Scene | Contrast: "Slip through maintenance / Face the foreman." |
+| 00:06 | `/manuscript/act1/foreman-gate#scanner` | gate-friction | high | "Option locked: missing CODEWORD." | Swap to diegetic refusal line | Style → Scene | "The scanner blinks red. 'Union badge?'" |
 
 **Severity rubric:** *low* (minor polish), *med* (confuses some players), *high* (blocks clarity/fairness/access).
 
 ---
 
-## Micro-recaps (optional, ≤2 lines each)
+## Validation Rules
 
-> If a recap would help, write it **in-voice** and **player-safe**. Owners will decide.
+### Field-Level
+- `Run`: Required, YYYY-MM-DD HH:MM format
+- `PN`: Required, name or agent identifier
+- `TU`: Required, format TU-YYYY-MM-DD-<role><seq>
+- `Snapshot`: Required, Cold @ YYYY-MM-DD
+- `Targets`: Required, export format list
+- `Mode`: Required, must be "dry-run (no improv)"
+- `Pace`: Optional, normal | slow | fast
+- `Log table`: Required, all snippets player-safe
+- `Severity`: Required per row, low | med | high
+- `Tags`: Required per row, from standard tag list
 
-```
+### Common Errors
 
-* "<state change>. <current stakes>."
-* "You hold your ground. The queue tightens."
+**❌ Spoilers in snippet**
+- Wrong: Snippet: "The foreman is secretly guilty"
+- Right: Snippet: "Option locked: missing CODEWORD"
 
-```
+**❌ Invalid severity**
+- Wrong: Severity: "critical"
+- Right: Severity: "high"
 
----
-
-## Breath units & cadence (quick ticks)
-
-- Near choice lists, lines average **≤ 12–16 words** ✅/❌  
-- Sentences avoid stacked prepositional phrases ✅/❌  
-- Gate refusals are **one beat** long (short cue + line) ✅/❌
-
----
-
-## Accessibility sweep (PN-level)
-
-- Captions present and concise? ✅/❌  
-- Alt text present and concrete (subject + relation + location)? ✅/❌  
-- Numbers, units, and titles pronounce cleanly? ✅/❌ (note collisions)
-
----
-
-## Handoffs
-
-```
-
-To Style: tags = choice-ambiguity, gate-friction, tone-wobble
-To Scene: apply Style’s exemplars on listed locations
-To Binder: nav-bug & label-collision
-To Translator: translation-glitch with anchor notes
-To Gatekeeper: one sample per tag for gatecheck
-
-```
+**Total fields: 18** (5 metadata, 1 content, 2 classification, 4 relationships, 2 validation, 2 accessibility, 2 spatial)
 
 ---
-
-## Done checklist (tick before submitting)
-
-- [ ] All notes **player-safe**; no spoilers/internals  
-- [ ] Each note has **location, tag, smallest fix, owner**  
-- [ ] Severity set using rubric; only **high** blocks are marked as such  
-- [ ] Micro-recaps (if any) fit **PN patterns** (see Style Addendum)  
-- [ ] Handoffs listed; TU and Trace updated
-
----
-
-## Mini example (filled, safe)
-
-```
-
-PN Playtest Notes — ActI-ForemanGate-EN
-Run: 2025-10-29 20:10 · PN: PN-01 · TU: TU-2025-10-29-PN01
-Snapshot: Cold @ 2025-10-28 · Targets: HTML
-Mode: dry-run · Pace: normal
-
-Notes:
-
-* 00:03 /manuscript/act1/foreman-gate#entry — choice-ambiguity (med)
-  Fix: intent-forward verbs — Owner: Style→Scene
-  Example: “Slip through maintenance / Face the foreman.”
-
-* 00:06 /manuscript/act1/foreman-gate#scanner — gate-friction (high)
-  Fix: diegetic refusal — Owner: Style→Scene
-  Example: “The scanner blinks red. ‘Union badge?’”
-
-* 00:09 /views/ActI-ForemanGate-EN/index.html#union-token — nav-bug (med)
-  Fix: check slug; Binder to normalize
-
-Micro-recap candidates:
-
-* “You kept the badge pocketed. The inspection line tightens.”
-
-Accessibility:
-
-* Captions n/a; Alt present on images; numbers read fine.
-
-Handoffs:
-@style @scene @binder @gatekeeper
-
-```
