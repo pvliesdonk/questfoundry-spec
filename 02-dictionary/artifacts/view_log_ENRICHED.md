@@ -43,10 +43,10 @@ Targets: <PDF | HTML | EPUB | Web-bundle | …>
 
 ```
 
-Art: <none | plans-only | renders-included>     Tag: deferred:art?
-Audio: <none | plans-only | cues-included>      Tag: deferred:audio?
-Languages: <EN 100% | NL 74% | …>               Tag: deferred:translation?
-Research posture surfaced: <neutral phrasing only | none>  Tag: deferred:research?
+Art: <none | plans-only | renders-included>     Tag: deferred:art
+Audio: <none | plans-only | cues-included>      Tag: deferred:audio
+Languages: <EN 100% | NL 74% | …>               Tag: deferred:translation
+Research posture surfaced: <neutral phrasing only | none>  Tag: deferred:research
 Accessibility snapshot: alt <present/na>, captions <present/na>, reading order <ok>, contrast <ok/na>
 
 ```
