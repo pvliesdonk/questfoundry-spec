@@ -27,14 +27,46 @@
         "why": "All eight bars green with player-safe evidence.",
         "next_actions": "Hand off to Book Binder for exports and PN dry-run.",
         "bars": [
-          { "bar": "Integrity", "status": "green", "evidence": "Refs resolve; no orphans" },
-          { "bar": "Reachability", "status": "green", "evidence": "Paths cover main routes" },
-          { "bar": "Nonlinearity", "status": "green", "evidence": "Branches converge as designed" },
-          { "bar": "Gateways", "status": "green", "evidence": "Gate transitions labeled" },
-          { "bar": "Style", "status": "green", "evidence": "Register matches style map" },
-          { "bar": "Determinism", "status": "green", "evidence": "State updates idempotent" },
-          { "bar": "Presentation", "status": "green", "evidence": "Layout stable across targets" },
-          { "bar": "Accessibility", "status": "green", "evidence": "Alt/captions/reading order ok" }
+          {
+            "bar": "Integrity",
+            "status": "green",
+            "evidence": "Refs resolve; no orphans"
+          },
+          {
+            "bar": "Reachability",
+            "status": "green",
+            "evidence": "Paths cover main routes"
+          },
+          {
+            "bar": "Nonlinearity",
+            "status": "green",
+            "evidence": "Branches converge as designed"
+          },
+          {
+            "bar": "Gateways",
+            "status": "green",
+            "evidence": "Gate transitions labeled"
+          },
+          {
+            "bar": "Style",
+            "status": "green",
+            "evidence": "Register matches style map"
+          },
+          {
+            "bar": "Determinism",
+            "status": "green",
+            "evidence": "State updates idempotent"
+          },
+          {
+            "bar": "Presentation",
+            "status": "green",
+            "evidence": "Layout stable across targets"
+          },
+          {
+            "bar": "Accessibility",
+            "status": "green",
+            "evidence": "Alt/captions/reading order ok"
+          }
         ],
         "handoffs": [
           "Book Binder: Bind MD+HTML with coverage note (due TU-2025-11-06-BB01)",
@@ -80,14 +112,46 @@
         "why": "All quality bars green; safe for players.",
         "next_actions": "BB to produce artifacts; PN to dry-run.",
         "bars": [
-          { "bar": "Integrity", "status": "green", "evidence": "Refs resolve; no orphans" },
-          { "bar": "Reachability", "status": "green", "evidence": "Paths cover main routes" },
-          { "bar": "Nonlinearity", "status": "green", "evidence": "Branches converge as designed" },
-          { "bar": "Gateways", "status": "green", "evidence": "Gate transitions labeled" },
-          { "bar": "Style", "status": "green", "evidence": "Register matches style map" },
-          { "bar": "Determinism", "status": "green", "evidence": "State updates idempotent" },
-          { "bar": "Presentation", "status": "green", "evidence": "Layout stable across targets" },
-          { "bar": "Accessibility", "status": "green", "evidence": "Alt/captions/reading order ok" }
+          {
+            "bar": "Integrity",
+            "status": "green",
+            "evidence": "Refs resolve; no orphans"
+          },
+          {
+            "bar": "Reachability",
+            "status": "green",
+            "evidence": "Paths cover main routes"
+          },
+          {
+            "bar": "Nonlinearity",
+            "status": "green",
+            "evidence": "Branches converge as designed"
+          },
+          {
+            "bar": "Gateways",
+            "status": "green",
+            "evidence": "Gate transitions labeled"
+          },
+          {
+            "bar": "Style",
+            "status": "green",
+            "evidence": "Register matches style map"
+          },
+          {
+            "bar": "Determinism",
+            "status": "green",
+            "evidence": "State updates idempotent"
+          },
+          {
+            "bar": "Presentation",
+            "status": "green",
+            "evidence": "Layout stable across targets"
+          },
+          {
+            "bar": "Accessibility",
+            "status": "green",
+            "evidence": "Alt/captions/reading order ok"
+          }
         ],
         "handoffs": [
           "Book Binder: Bind MD+HTML with coverage note (due TU-2025-11-06-BB01)",
@@ -107,4 +171,3 @@
     "reply_to": "urn:uuid:sr-submit-gate-5002"
   }
 ]
-

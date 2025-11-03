@@ -29,6 +29,3 @@ Signals & Rhythm
 
 - SR controls activation via `role.wake` / `role.dormant`.
 - After escalation, emit brief updates via `tu.checkpoint` until unblocked.
-
-
-

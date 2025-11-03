@@ -29,6 +29,3 @@ Adding Intents or Behaviors
 
 - Update 04-protocol/INTENTS.md first; add examples in 04-protocol/EXAMPLES.
 - Extend the role’s procedures and examples; add tests in 05-prompts/tests.
-
-
-

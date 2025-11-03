@@ -6,11 +6,17 @@
     "sender": { "role": "AD", "agent": "bot:ad" },
     "receiver": { "role": "SR" },
     "intent": "ack",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AD10", "loop": "Art Touch-up" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-04-AD10",
+      "loop": "Art Touch-up"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "none", "data": { "message": "Waking, starting shotlist for A1–A2." } },
+    "payload": {
+      "type": "none",
+      "data": { "message": "Waking, starting shotlist for A1–A2." }
+    },
     "correlation_id": "corr-ad-shotlist-2025-11-04",
     "reply_to": "urn:uuid:sr-wake-ad-0001"
   }
 ]
-

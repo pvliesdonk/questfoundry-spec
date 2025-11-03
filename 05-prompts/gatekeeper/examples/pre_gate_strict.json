@@ -27,14 +27,46 @@
         "why": "Initial pre-gate looks good across bars.",
         "next_actions": "Proceed with final gatecheck and binding scheduling.",
         "bars": [
-          { "bar": "Integrity", "status": "green", "evidence": "All anchors resolve" },
-          { "bar": "Reachability", "status": "green", "evidence": "Entry points balanced" },
-          { "bar": "Nonlinearity", "status": "green", "evidence": "Choices branch and rejoin cleanly" },
-          { "bar": "Gateways", "status": "green", "evidence": "Gate nodes tagged" },
-          { "bar": "Style", "status": "green", "evidence": "Register consistent with style map" },
-          { "bar": "Determinism", "status": "green", "evidence": "No state leaks in flow" },
-          { "bar": "Presentation", "status": "green", "evidence": "Figures and captions align" },
-          { "bar": "Accessibility", "status": "green", "evidence": "Alt text and order OK" }
+          {
+            "bar": "Integrity",
+            "status": "green",
+            "evidence": "All anchors resolve"
+          },
+          {
+            "bar": "Reachability",
+            "status": "green",
+            "evidence": "Entry points balanced"
+          },
+          {
+            "bar": "Nonlinearity",
+            "status": "green",
+            "evidence": "Choices branch and rejoin cleanly"
+          },
+          {
+            "bar": "Gateways",
+            "status": "green",
+            "evidence": "Gate nodes tagged"
+          },
+          {
+            "bar": "Style",
+            "status": "green",
+            "evidence": "Register consistent with style map"
+          },
+          {
+            "bar": "Determinism",
+            "status": "green",
+            "evidence": "No state leaks in flow"
+          },
+          {
+            "bar": "Presentation",
+            "status": "green",
+            "evidence": "Figures and captions align"
+          },
+          {
+            "bar": "Accessibility",
+            "status": "green",
+            "evidence": "Alt text and order OK"
+          }
         ],
         "handoffs": [
           "Style Lead: confirm figure caption tone (due TU-2025-11-06-ST01)"
@@ -79,14 +111,46 @@
         "why": "Pre-gate is green across all bars.",
         "next_actions": "Schedule final gatecheck; prepare binding run.",
         "bars": [
-          { "bar": "Integrity", "status": "green", "evidence": "All anchors resolve" },
-          { "bar": "Reachability", "status": "green", "evidence": "Entry points balanced" },
-          { "bar": "Nonlinearity", "status": "green", "evidence": "Choices branch and rejoin cleanly" },
-          { "bar": "Gateways", "status": "green", "evidence": "Gate nodes tagged" },
-          { "bar": "Style", "status": "green", "evidence": "Register consistent with style map" },
-          { "bar": "Determinism", "status": "green", "evidence": "No state leaks in flow" },
-          { "bar": "Presentation", "status": "green", "evidence": "Figures and captions align" },
-          { "bar": "Accessibility", "status": "green", "evidence": "Alt text and order OK" }
+          {
+            "bar": "Integrity",
+            "status": "green",
+            "evidence": "All anchors resolve"
+          },
+          {
+            "bar": "Reachability",
+            "status": "green",
+            "evidence": "Entry points balanced"
+          },
+          {
+            "bar": "Nonlinearity",
+            "status": "green",
+            "evidence": "Choices branch and rejoin cleanly"
+          },
+          {
+            "bar": "Gateways",
+            "status": "green",
+            "evidence": "Gate nodes tagged"
+          },
+          {
+            "bar": "Style",
+            "status": "green",
+            "evidence": "Register consistent with style map"
+          },
+          {
+            "bar": "Determinism",
+            "status": "green",
+            "evidence": "No state leaks in flow"
+          },
+          {
+            "bar": "Presentation",
+            "status": "green",
+            "evidence": "Figures and captions align"
+          },
+          {
+            "bar": "Accessibility",
+            "status": "green",
+            "evidence": "Alt text and order OK"
+          }
         ],
         "handoffs": [
           "Style Lead: confirm figure caption tone (due TU-2025-11-06-ST01)"
@@ -105,4 +169,3 @@
     "reply_to": "urn:uuid:sr-submit-gate-5001"
   }
 ]
-

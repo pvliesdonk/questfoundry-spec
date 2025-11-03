@@ -35,6 +35,3 @@ Pre-send Checks
 - Verify receiver and PN invariants.
 - If referencing gated content, ensure the evidence is player-safe.
 - Gatekeeper decisions should not expose hidden logic in evidence text.
-
-
-

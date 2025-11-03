@@ -43,6 +43,3 @@ Session Lifecycle
 Examples
 
 - See 04-protocol/EXAMPLES/tu.checkpoint.json
-
-
-

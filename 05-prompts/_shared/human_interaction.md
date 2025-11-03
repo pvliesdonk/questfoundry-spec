@@ -1,6 +1,5 @@
 # Shared Pattern — Human Interaction
 
-
 Target: GPT-5 (primary)
 
 Purpose
@@ -31,6 +30,3 @@ Interpreting Answers
 - If `choice` is present, prefer it over free text.
 - Apply the answer immediately and emit a checkpoint if it changes scope.
 - Use `ack` sparingly; prefer making progress with the new information.
-
-
-

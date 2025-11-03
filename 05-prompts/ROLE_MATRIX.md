@@ -16,6 +16,3 @@ Examples per Role (minimums)
 - AuD/AuP: cuelist, audio render notes
 - TR: language_pack, register map
 - PN: pn.playtest.submit (Cold, player_safe)
-
-
-
