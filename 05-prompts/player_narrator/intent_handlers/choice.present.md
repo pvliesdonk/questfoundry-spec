@@ -1,13 +1,14 @@
-# Intent Handler — choice.present (Scaffold)
+# Procedure — choice.present (Scaffold)
 STATUS: SCAFFOLD
-TODO: Define clear, contrastive choice phrasing and numbering.
+TODO: Define clear, contrastive choice phrasing and numbering. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Available options and any required context.
+- Available options and necessary in-world context.
 
 Process
-- Present choices with clarity and contrast; avoid meta language.
+1) Number choices; phrase each option with strong contrast and clarity.
+2) Include minimal in-world context; avoid meta or internal labels.
+3) If ambiguity remains, log for `pn.playtest.submit` (tag: choice-ambiguity).
 
 Outputs
-- Player-safe choice lines; `ack`.
-
+- Player-safe choice lines (runtime); notes for playtest log.
