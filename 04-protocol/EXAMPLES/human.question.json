@@ -34,5 +34,6 @@
         "antagonistic"
       ]
     }
-  }
+  },
+  "correlation_id": "corr-toll-faction-01"
 }
