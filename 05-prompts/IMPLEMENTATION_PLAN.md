@@ -158,7 +158,7 @@ Examples of good question framing.
 **AI Agent Instructions:**
 ```
 Study Layer 1 showrunner charter deeply.
-Reference all 11 loops from Layer 0 LOOPS/.
+Reference all 13 loops from Layer 0 LOOPS/.
 Review Layer 4 FLOWS for message sequences.
 This is the "conductor" role - needs big picture view.
 Create comprehensive orchestration instructions.
@@ -880,7 +880,7 @@ Diegetic enforcement is key.
 - Complete conversation sequences
 - Valid Layer 4 envelopes
 - Expected agent responses
-- Cover all 11 loops
+- Cover all 13 loops
 
 **Acceptance Criteria:**
 - All loops have test fixtures
@@ -935,7 +935,7 @@ Diegetic enforcement is key.
 **File to create:** `05-prompts/ROLE_MATRIX.md`
 
 **Content:**
-- All 14 roles in table
+- All 14 core roles in table (translator optional)
 - Inputs, outputs, triggers
 - Dormancy conditions
 - LLM requirements
@@ -1148,7 +1148,7 @@ Each role prompt is complete when:
 
 Layer 5 is complete when:
 - [ ] All 9 epics implemented
-- [ ] All 14 roles have complete prompts
+- [ ] All 14 core roles have complete prompts (translator optional)
 - [ ] All shared foundations documented
 - [ ] All intents from Layer 4 handled
 - [ ] At least 2 examples per role
