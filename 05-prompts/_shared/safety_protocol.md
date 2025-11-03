@@ -1,32 +1,40 @@
 # Shared Pattern — Safety Protocol
 
-
 Target: GPT-5 (primary)
 
-Scope
+Purpose
 
-- Enforce PN boundaries at prompt level
-- Apply spoiler hygiene to player surfaces
-- Respect Hot/Cold routing constraints
+- Enforce PN safety boundaries and spoiler hygiene
+- Guard Presentation and Accessibility bars by construction
 
 References
 
 - 00-north-star/PN_PRINCIPLES.md
-- 00-north-star/QUALITY_BARS.md (Presentation, Accessibility)
+- 00-north-star/QUALITY_BARS.md
 - 00-north-star/SPOILER_HYGIENE.md
-- 04-protocol/ENVELOPE.md (PN safety invariant)
+- 04-protocol/ENVELOPE.md
 
-Rules
+Hard Invariants
 
-- Never route Hot content to PN. PN only receives Cold + `player_safe=true`.
-- Keep spoilers out of player-facing artifacts (manuscript, codex, PN lines).
-- Use diegetic phrasing for gateways; avoid mentioning codewords/state explicitly.
-- Provide alt text for images; avoid sensory overload.
+- Never route Hot content to PN.
+- If receiver is PN, `context.hot_cold = cold`, `context.snapshot` present, and `safety.player_safe = true`.
+- Player-facing text MUST NOT leak internal logic, hidden states, or solution paths.
 
-Checks
+Spoiler Hygiene
 
-- Before responding, verify recipient: if PN, ensure content is player-safe and Cold.
-- For gate decisions, ensure player surfaces reveal no internal logic.
+- Prefer diegetic hints; avoid meta-commentary and system labels.
+- Redact or paraphrase sensitive lore on PN surfaces; preserve full detail in Cold surfaces.
+
+Presentation & Accessibility
+
+- Use consistent register and terminology; avoid jarring shifts (Style bar).
+- Include alt text, caption plans, and reading-order considerations where relevant.
+
+Pre-send Checks
+
+- Verify receiver and PN invariants.
+- If referencing gated content, ensure the evidence is player-safe.
+- Gatekeeper decisions should not expose hidden logic in evidence text.
 
 
 
