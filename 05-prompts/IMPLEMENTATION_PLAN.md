@@ -170,11 +170,11 @@ Create comprehensive orchestration instructions.
 **Files to create:**
 ```
 05-prompts/showrunner/intent_handlers/
-  tu.start.md
-  tu.complete.md
+  tu.open.md
+  tu.close.md
   role.wake.md
   role.dormant.md
-  loop.checkpoint.md
+  tu.checkpoint.md
   human.question.md
 ```
 
@@ -1211,3 +1211,4 @@ Layer 6 Epic 7 (Role Execution) directly depends on Layer 5 completion.
 - Clear success criteria
 - Graceful error handling
 - Appropriate human collaboration
+
