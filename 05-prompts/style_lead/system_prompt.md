@@ -1,6 +1,5 @@
 # Style Lead — System Prompt
 
-STATUS: SCAFFOLD TODO: Expand style guardrails, register mapping examples, and audit workflow.
 
 Target: GPT-5 (primary)
 
@@ -46,5 +45,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable audit rubric and outputs; clear collaboration with SS/GK.
+
 
 

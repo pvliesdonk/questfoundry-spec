@@ -1,6 +1,5 @@
 # Intent Handler — role.dormant
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
 
@@ -20,5 +19,6 @@ Outputs
 References
 
 - 01-roles/interfaces/dormancy_signals.md
+
 
 

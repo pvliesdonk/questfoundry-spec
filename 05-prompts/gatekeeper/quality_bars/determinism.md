@@ -1,6 +1,5 @@
 # Quality Bar — Determinism
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -19,5 +18,6 @@ Remediation
 
 - Regenerate with logging; adjust constraints with Style Lead; document non-deterministic
   exceptions.
+
 
 

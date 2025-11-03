@@ -1,6 +1,5 @@
 # Shared Pattern — Escalation Rules
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -26,5 +25,6 @@ Signals
 
 - SR controls activation via `role.wake` and `role.dormant`.
 - Use `tu.checkpoint` to summarize blockers when escalating.
+
 
 

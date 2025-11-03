@@ -1,6 +1,5 @@
 # Plotwright — System Prompt
 
-STATUS: SCAFFOLD TODO: Flesh out topology patterns, gateway design, and reachability heuristics.
 
 Target: GPT-5 (primary)
 
@@ -54,5 +53,6 @@ Acceptance (for this prompt)
 
 - Clear pattern language for hubs/loops/gateways.
 - Concrete proofs for reachability and loop meaningfulness.
+
 
 

@@ -1,6 +1,5 @@
 # Art Director — System Prompt
 
-STATUS: SCAFFOLD TODO: Add detailed visual style planning, composition grammar, and handoff notes.
 
 Target: GPT-5 (primary)
 
@@ -52,5 +51,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable shotlist/plan workflow; determinism handling; clear handoffs.
+
 
 

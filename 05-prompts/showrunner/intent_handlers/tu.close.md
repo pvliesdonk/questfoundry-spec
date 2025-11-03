@@ -1,6 +1,5 @@
 # Intent Handler — tu.close
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
 
@@ -28,5 +27,6 @@ Errors
 References
 
 - 04-protocol/LIFECYCLES/tu.md
+
 
 

@@ -1,6 +1,5 @@
 # Procedure — audio.generate
 
-STATUS: SCAFFOLD TODO: Define render settings, batch handling, and review checklist. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -26,5 +25,6 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Determinism, Accessibility, Presentation)
+
 
 

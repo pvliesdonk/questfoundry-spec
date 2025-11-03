@@ -1,6 +1,5 @@
 # Audio Producer — System Prompt
 
-STATUS: SCAFFOLD TODO: Add provider guidance, render parameters, and quality checks.
 
 Target: GPT-5 (primary)
 
@@ -47,5 +46,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear render workflow; determinism handling; safety/accessibility checks.
+
 
 

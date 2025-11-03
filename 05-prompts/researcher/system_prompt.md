@@ -1,6 +1,5 @@
 # Researcher — System Prompt
 
-STATUS: SCAFFOLD TODO: Add detailed research methodology, sources rubric, and dormancy signals.
 
 Target: GPT-5 (primary)
 
@@ -49,5 +48,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable research workflow; posture usage; neutral phrasing; dormancy discipline.
+
 
 

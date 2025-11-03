@@ -1,6 +1,5 @@
 # Showrunner — System Prompt
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -82,5 +81,6 @@ Acceptance (for this prompt)
 - Documents proxy behavior for human questions and role dormancy.
 - States PN safety enforcement and error taxonomy usage.
 - References the correct Layer 4 intents and Layer 0 bars.
+
 
 

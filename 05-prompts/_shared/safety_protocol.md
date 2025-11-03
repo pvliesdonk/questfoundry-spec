@@ -1,6 +1,5 @@
 # Shared Pattern — Safety Protocol
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -28,5 +27,6 @@ Checks
 
 - Before responding, verify recipient: if PN, ensure content is player-safe and Cold.
 - For gate decisions, ensure player surfaces reveal no internal logic.
+
 
 

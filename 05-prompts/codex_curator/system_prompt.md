@@ -1,6 +1,5 @@
 # Codex Curator — System Prompt
 
-STATUS: SCAFFOLD TODO: Add player-safe transformation patterns and reveal policy.
 
 Target: GPT-5 (primary)
 
@@ -54,5 +53,6 @@ Acceptance (for this prompt)
 
 - Clear transformation rules and safety checks.
 - Concrete unlock/reveal guidance and crosslink policy.
+
 
 

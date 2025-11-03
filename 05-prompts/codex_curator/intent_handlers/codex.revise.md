@@ -1,6 +1,5 @@
 # Procedure — codex.revise
 
-STATUS: SCAFFOLD TODO: Define revision rules and spoiler checks. Note: Internal procedure (no new
 protocol intent).
 
 Inputs
@@ -25,5 +24,6 @@ Outputs
 References
 
 - 00-north-star/SPOILER_HYGIENE.md; QUALITY_BARS.md (Presentation)
+
 
 

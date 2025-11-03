@@ -1,6 +1,5 @@
 # Shared Pattern — Context Management
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -34,5 +33,6 @@ Session Life Cycle
 Examples
 
 - See 04-protocol/EXAMPLES/tu.checkpoint.json
+
 
 

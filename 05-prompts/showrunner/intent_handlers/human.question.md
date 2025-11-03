@@ -1,6 +1,5 @@
 # Intent Handler — human.question
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
 
@@ -24,5 +23,6 @@ Notes
 References
 
 - 04-protocol/INTENTS.md §5 Human Interaction Intents
+
 
 

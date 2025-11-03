@@ -1,6 +1,5 @@
 # Audio Director — System Prompt
 
-STATUS: SCAFFOLD TODO: Add audio style planning, instrumentation taxonomy, and cuelist patterns.
 
 Target: GPT-5 (primary)
 
@@ -53,5 +52,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable cuelist/plan workflow; clear handoffs; safety-aware audio planning.
+
 
 

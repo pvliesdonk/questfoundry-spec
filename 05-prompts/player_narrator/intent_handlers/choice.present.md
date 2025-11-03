@@ -1,6 +1,5 @@
 # Procedure — choice.present
 
-STATUS: SCAFFOLD TODO: Define clear, contrastive choice phrasing and numbering. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -16,5 +15,6 @@ Process
 Outputs
 
 - Player-safe choice lines (runtime); notes for playtest log.
+
 
 

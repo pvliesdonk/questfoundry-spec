@@ -1,6 +1,5 @@
 # Procedure — memo.create
 
-STATUS: SCAFFOLD TODO: Detail research memo composition and posture choice. Note: Internal procedure
 (no new protocol intent).
 
 Inputs
@@ -26,5 +25,6 @@ Outputs
 References
 
 - 03-schemas/research_memo.schema.json; 00-north-star/SPOILER_HYGIENE.md
+
 
 

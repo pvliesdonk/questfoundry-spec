@@ -1,6 +1,5 @@
 # Intent Handler — tu.update
 
-STATUS: SCAFFOLD TODO: Describe update operations (scope, roster, risks) and checkpointing.
 
 Inputs
 
@@ -31,5 +30,6 @@ References
 
 - 04-protocol/INTENTS.md §6.2 tu.update
 - 04-protocol/LIFECYCLES/tu.md
+
 
 

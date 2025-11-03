@@ -1,6 +1,5 @@
 # Intent Handler — shotlist.create
 
-STATUS: SCAFFOLD TODO: Define shotlist fields, composition taxonomy, and coverage policy.
 
 Inputs
 
@@ -25,5 +24,6 @@ Outputs
 References
 
 - 03-schemas/shotlist.schema.json; 02-dictionary/artifacts/shotlist.md
+
 
 

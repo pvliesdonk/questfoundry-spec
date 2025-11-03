@@ -1,6 +1,5 @@
 # Shared Pattern — Human Interaction
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -32,5 +31,6 @@ Interpreting Answers
 
 - Treat `choice` as authoritative when present; otherwise use `answer` text.
 - Acknowledge via `ack` only when needed; proceed with updated plan.
+
 
 

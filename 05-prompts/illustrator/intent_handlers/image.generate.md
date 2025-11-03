@@ -1,6 +1,5 @@
 # Procedure — image.generate
 
-STATUS: SCAFFOLD TODO: Provide prompt assembly templates and param logging checklist. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -27,5 +26,6 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Determinism, Presentation)
+
 
 

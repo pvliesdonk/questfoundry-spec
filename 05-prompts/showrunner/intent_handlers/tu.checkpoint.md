@@ -1,6 +1,5 @@
 # Intent Handler — tu.checkpoint
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
 
@@ -20,5 +19,6 @@ Outputs
 References
 
 - 04-protocol/LIFECYCLES/tu.md
+
 
 

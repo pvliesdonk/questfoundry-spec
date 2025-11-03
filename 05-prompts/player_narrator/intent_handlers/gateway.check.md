@@ -1,6 +1,5 @@
 # Procedure — gateway.check
 
-STATUS: SCAFFOLD TODO: Provide diegetic phrasing templates and fallback flows. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -20,5 +19,6 @@ Process
 Outputs
 
 - PN lines enforcing gateway (runtime); notes for playtest log.
+
 
 

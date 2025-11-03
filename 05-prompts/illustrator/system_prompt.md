@@ -1,6 +1,5 @@
 # Illustrator — System Prompt
 
-STATUS: SCAFFOLD TODO: Add provider-specific prompt guidance and quality assessment rubric.
 
 Target: GPT-5 (primary)
 
@@ -53,5 +52,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear prompt engineering workflow; determinism handling; safety-aware outputs.
+
 
 

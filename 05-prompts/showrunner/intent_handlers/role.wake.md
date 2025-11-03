@@ -1,6 +1,5 @@
 # Intent Handler — role.wake
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
 
@@ -24,5 +23,6 @@ Errors
 References
 
 - 01-roles/interfaces/dormancy_signals.md
+
 
 

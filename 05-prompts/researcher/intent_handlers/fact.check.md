@@ -1,6 +1,5 @@
 # Procedure — fact.check
 
-STATUS: SCAFFOLD TODO: Define quick corroboration pass and reporting structure. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -25,5 +24,6 @@ Outputs
 References
 
 - 03-schemas/research_memo.schema.json (for full memo structure)
+
 
 

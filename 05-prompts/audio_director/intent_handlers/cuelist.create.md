@@ -1,6 +1,5 @@
 # Intent Handler — cuelist.create
 
-STATUS: SCAFFOLD TODO: Define cue fields, layering approach, and transitions.
 
 Inputs
 
@@ -25,5 +24,6 @@ Outputs
 References
 
 - 03-schemas/cuelist.schema.json; 02-dictionary/artifacts/cuelist.md
+
 
 

@@ -1,6 +1,5 @@
 # Intent Handler — format.render
 
-STATUS: SCAFFOLD TODO: Map formats (HTML/Markdown/PDF) and rendering constraints.
 
 Inputs
 
@@ -19,5 +18,6 @@ Process
 Outputs
 
 - Rendered artifact reference (out-of-scope) and `ack`; `view_log` updated.
+
 
 

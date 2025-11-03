@@ -1,6 +1,5 @@
 # Procedure — style.audit
 
-STATUS: SCAFFOLD TODO: Provide audit rubric and remediation patterns. Note: Internal procedure (no
 new protocol intent).
 
 Inputs
@@ -25,5 +24,6 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Style, Presentation)
+
 
 

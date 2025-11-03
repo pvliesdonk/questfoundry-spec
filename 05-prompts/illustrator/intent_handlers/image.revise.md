@@ -1,6 +1,5 @@
 # Procedure — image.revise
 
-STATUS: SCAFFOLD TODO: Define revision cues and iteration logging. Note: Internal procedure (no new
 protocol intent).
 
 Inputs
@@ -21,5 +20,6 @@ Process
 Outputs
 
 - Updated images (out-of-scope), revised logs, checkpoint entry.
+
 
 

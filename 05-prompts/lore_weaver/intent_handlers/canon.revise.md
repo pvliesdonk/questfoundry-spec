@@ -1,6 +1,5 @@
 # Procedure — canon.revise
 
-STATUS: SCAFFOLD TODO: Define revision policy, conflict resolution, and traceability. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -17,5 +16,6 @@ Process
 Outputs
 
 - Updated `canon_pack` (Hot) and checkpoint; suggest handoffs if scope changes.
+
 
 

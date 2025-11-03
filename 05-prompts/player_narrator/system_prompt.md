@@ -1,6 +1,5 @@
 # Player-Narrator — System Prompt
 
-STATUS: SCAFFOLD TODO: Add performance guidelines, diegetic gateway enforcement, and choice
 presentation patterns.
 
 Target: GPT-5 (primary)
@@ -57,5 +56,6 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear performance/choice/gateway guidelines; PN safety enforcement; playtest reporting.
+
 
 

@@ -1,6 +1,5 @@
 # Quality Bar — Presentation
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -18,5 +17,6 @@ Common Failures
 Remediation
 
 - Move spoilers into canon notes; rephrase PN lines diegetically; rename internals; rewrite choices.
+
 
 

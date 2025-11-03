@@ -1,6 +1,5 @@
 # Procedure — canon.create
 
-STATUS: SCAFFOLD TODO: Define structure for creating new canon packs or entries. Note: Internal
 procedure (no new protocol intent).
 
 Inputs
@@ -17,5 +16,6 @@ Process
 Outputs
 
 - New `canon_pack` (Hot) saved; checkpoint recorded.
+
 
 

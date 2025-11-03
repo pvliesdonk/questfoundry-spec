@@ -1,6 +1,5 @@
 # Quality Bar — Reachability
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -18,5 +17,6 @@ Common Failures
 Remediation
 
 - Add alternative routes; shorten chains; surface keys earlier; add fail-forward beats.
+
 
 

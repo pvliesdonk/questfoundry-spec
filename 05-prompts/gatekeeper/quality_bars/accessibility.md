@@ -1,6 +1,5 @@
 # Quality Bar — Accessibility
 
-STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -20,5 +19,6 @@ Remediation
 
 - Add descriptive captions; improve headings/links; add content notes or adjust composition; ensure
   contrast.
+
 
 
