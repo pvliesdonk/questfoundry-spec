@@ -1,0 +1,31 @@
+{
+  "title": "Shadow Toll",
+  "slug": "shadow-toll",
+  "locale": "EN",
+  "owner": "Codex Curator",
+  "edited": "2025-11-04",
+  "snapshot": "Cold @ 2025-10-28",
+  "tu": "TU-2025-11-03-CC10",
+  "lineage": "From canon TU-2025-11-03-LW10; posture plausible",
+  "overview": "A guild-controlled levy at Wormhole 3 that fluctuates with station tensions, known to favor vouched crews.",
+  "context": "Merchants whisper that the gate narrows when a favor is owed. The toll foreman balances faction pressures and station needs.",
+  "variants": [
+    { "variant": "Gate Fee", "register_region": "neutral", "translator_notes": "Prefer in-world phrasing over technical terms" }
+  ],
+  "relations": ["wormhole-3", "kestrel"],
+  "reading_level": "plain",
+  "anchor_slug": "/codex/shadow-toll",
+  "from_canon": "Fluctuating non-lethal pressure mechanism controlled by station leadership and guild interests.",
+  "research_posture_touched": "plausible",
+  "done_checklist": [
+    "Player-safe",
+    "Links resolve",
+    "Variants listed",
+    "Relations noted",
+    "Register chosen",
+    "Anchor set",
+    "Canon distilled",
+    "Posture logged"
+  ]
+}
+
