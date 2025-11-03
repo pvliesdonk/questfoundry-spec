@@ -11,6 +11,7 @@ This specification defines the **message sequences** for **Gatecheck** and **Mer
 ### Purpose
 
 Gatecheck and Merge flows enable:
+
 1. **Gate report submission** — Owners submit `gate.report.submit` with bar statuses
 2. **Gate decision** — Gatekeeper responds with `gate.decision` (pass/conditional pass/block)
 3. **Merge handoffs** — Smallest viable fixes with owner + TU assignments
@@ -35,6 +36,7 @@ Gatecheck and Merge flows enable:
 **Trigger:** Owner completes work within TU and requests gatecheck OR Gatekeeper provides pre-gate feedback
 
 **Participants:**
+
 - **Owner (varies by loop)** — LW, CC, PW, SS, etc. — submits work for gatecheck
 - **Gatekeeper (GK)** — Reviews quality bars, provides decision
 - **Showrunner (SR)** — Accountable for merge coordination
@@ -46,16 +48,16 @@ Gatecheck and Merge flows enable:
    Intent: tu.submit_gate
    Payload: tu_brief (status: stabilizing → gatecheck)
    Signals work ready for gatecheck
-   
+
 2. GK reviews artifacts (internal work)
    Evaluates all 8 quality bars
    Determines bar statuses: green/yellow/red
    Identifies smallest viable fixes for yellow/red bars
-   
+
 3. GK → SR/Owner: gate.report.submit
    Intent: gate.report.submit
    Payload: gatecheck_report (mode: "pre-gate" or "gatecheck")
-   
+
 4. SR/Owner receives report and routes based on decision
 ```
 
@@ -73,10 +75,7 @@ Gatecheck and Merge flows enable:
   "scope": "Player-safe description of what was reviewed (10-240 chars)",
   "mode": "pre-gate|gatecheck",
   "cold_snapshot": "Cold @ YYYY-MM-DD",
-  "artifacts_samples": [
-    "Path or description of artifact 1",
-    "Path or description of artifact 2"
-  ],
+  "artifacts_samples": ["Path or description of artifact 1", "Path or description of artifact 2"],
   "decision": "pass|conditional pass|block",
   "why": "1-2 lines explaining decision tied to bar status (10-240 chars)",
   "next_actions": "Smallest viable fixes and responsible owners (10-400 chars)",
@@ -90,21 +89,13 @@ Gatecheck and Merge flows enable:
       "notes": "Optional brief context (max 200 chars)"
     }
   ],
-  "handoffs": [
-    "Bar: <bar>; Fix: <description>; Owner: <role>; TU: <TU-ID>; Due: <date or window>"
-  ],
-  "checklist": [
-    "✓ Decision tied to bar statuses",
-    "✓ Smallest viable fixes specified for yellow/red bars",
-    "✓ Responsible owners assigned",
-    "✓ Player-safe constraint respected (if applicable)",
-    "✓ Handoffs documented with TU linkage",
-    "✓ TU trace updated"
-  ]
+  "handoffs": ["Bar: <bar>; Fix: <description>; Owner: <role>; TU: <TU-ID>; Due: <date or window>"],
+  "checklist": ["✓ Decision tied to bar statuses", "✓ Smallest viable fixes specified for yellow/red bars", "✓ Responsible owners assigned", "✓ Player-safe constraint respected (if applicable)", "✓ Handoffs documented with TU linkage", "✓ TU trace updated"]
 }
 ```
 
 **Critical requirements:**
+
 - `bars` MUST include all 8 quality bars (Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility)
 - Yellow/red bars MUST include `smallest_viable_fix` and `owner`
 - `decision` MUST align with bar statuses:
@@ -124,10 +115,7 @@ Gatecheck and Merge flows enable:
   "scope": "Canon Pack: Kestrel backstory and Dock 7 fire history",
   "mode": "gatecheck",
   "cold_snapshot": "Cold @ 2025-10-30",
-  "artifacts_samples": [
-    "canon_pack: Kestrel Backstory — Dock 7 Fire Causality",
-    "player_safe_summary: Kestrel Var entry"
-  ],
+  "artifacts_samples": ["canon_pack: Kestrel Backstory — Dock 7 Fire Causality", "player_safe_summary: Kestrel Var entry"],
   "decision": "conditional pass",
   "why": "Style bar at yellow: inconsistent scar description tone across scenes; Integrity green",
   "next_actions": "Scene Smith to harmonize scar tone in S12, S41; Style Lead to provide motif guidance",
@@ -176,18 +164,8 @@ Gatecheck and Merge flows enable:
       "evidence": "Reading level appropriate; alt guidance not required for canon text"
     }
   ],
-  "handoffs": [
-    "Bar: Style; Fix: Revise S12 scar description to heroic tone; Owner: SS; TU: TU-2025-10-30-LW01; Due: before next export",
-    "Bar: Style; Fix: Provide motif guidance for scars; Owner: ST; TU: TU-2025-10-30-LW01; Due: immediate"
-  ],
-  "checklist": [
-    "✓ Decision (conditional pass) tied to bar statuses (Style yellow)",
-    "✓ Smallest viable fix specified (S12 tone revision)",
-    "✓ Responsible owners assigned (SS, ST)",
-    "✓ Player-safe constraint respected in report",
-    "✓ Handoffs documented with TU linkage",
-    "✓ TU trace updated with gate decision"
-  ]
+  "handoffs": ["Bar: Style; Fix: Revise S12 scar description to heroic tone; Owner: SS; TU: TU-2025-10-30-LW01; Due: before next export", "Bar: Style; Fix: Provide motif guidance for scars; Owner: ST; TU: TU-2025-10-30-LW01; Due: immediate"],
+  "checklist": ["✓ Decision (conditional pass) tied to bar statuses (Style yellow)", "✓ Smallest viable fix specified (S12 tone revision)", "✓ Responsible owners assigned (SS, ST)", "✓ Player-safe constraint respected in report", "✓ Handoffs documented with TU linkage", "✓ TU trace updated with gate decision"]
 }
 ```
 
@@ -200,6 +178,7 @@ Gatecheck and Merge flows enable:
 **Trigger:** Gatekeeper completes bar evaluation and determines decision
 
 **Participants:**
+
 - **Gatekeeper (GK)** — Delivers gate decision
 - **Showrunner (SR)** — Receives decision, coordinates next steps
 - **Owner (varies)** — Receives feedback, addresses fixes if needed
@@ -217,10 +196,11 @@ Gatecheck and Merge flows enable:
 **Outcome:** Work ready for merge; SR can approve immediately
 
 **Sequence:**
+
 ```
 1. GK → SR: gate.pass
    All bars green; no blockers
-   
+
 2. SR → Broadcast: merge.approve
    (see §4 for merge approval sequence)
 ```
@@ -236,17 +216,18 @@ Gatecheck and Merge flows enable:
 **Outcome:** Work can merge with handoffs for yellow bar fixes
 
 **Sequence:**
+
 ```
 1. GK → SR: gate.conditional_pass
    Yellow bars with smallest viable fixes specified
-   
+
 2. SR evaluates:
    a) If fixes can be deferred post-merge → merge.approve + handoffs
    b) If fixes must precede merge → Owner addresses, re-submits
-   
+
 3a. Deferred path:
     SR → Broadcast: merge.approve (with handoff TUs created)
-    
+
 3b. Pre-merge path:
     SR → Owner: tu.rework (address yellow bars)
     Owner addresses fixes
@@ -265,14 +246,15 @@ Gatecheck and Merge flows enable:
 **Outcome:** Work CANNOT merge; owner must address red bars
 
 **Sequence:**
+
 ```
 1. GK → SR/Owner: gate.block
    Red bars with smallest viable fixes specified
-   
+
 2. Owner addresses red bar fixes
-   
+
 3. Owner → GK: tu.submit_gate (re-submit)
-   
+
 4. Return to gate report submission (§2)
 ```
 
@@ -313,11 +295,7 @@ Gatecheck and Merge flows enable:
       "scope": "Codex entries for station terminology",
       "mode": "gatecheck",
       "cold_snapshot": "Cold @ 2025-10-30",
-      "artifacts_samples": [
-        "codex_entry: Dock 7",
-        "codex_entry: Kestrel Var",
-        "codex_entry: Station Security"
-      ],
+      "artifacts_samples": ["codex_entry: Dock 7", "codex_entry: Kestrel Var", "codex_entry: Station Security"],
       "decision": "pass",
       "why": "All 8 bars green; codex entries player-safe, links resolve, style consistent",
       "next_actions": "Merge to Cold; notify Binder/PN for export consumption",
@@ -363,18 +341,8 @@ Gatecheck and Merge flows enable:
           "evidence": "Reading level appropriate; alt guidance optional"
         }
       ],
-      "handoffs": [
-        "Binder: Consume Cold codex entries; TU-2025-10-30-CC01; immediate",
-        "PN: Codex available for reference; TU-2025-10-30-CC01; immediate"
-      ],
-      "checklist": [
-        "✓ Decision (pass) tied to all 8 bars green",
-        "✓ No fixes required",
-        "✓ Player-safe constraint verified",
-        "✓ Handoffs documented for Binder/PN",
-        "✓ TU linkage complete",
-        "✓ Ready for merge.approve"
-      ]
+      "handoffs": ["Binder: Consume Cold codex entries; TU-2025-10-30-CC01; immediate", "PN: Codex available for reference; TU-2025-10-30-CC01; immediate"],
+      "checklist": ["✓ Decision (pass) tied to all 8 bars green", "✓ No fixes required", "✓ Player-safe constraint verified", "✓ Handoffs documented for Binder/PN", "✓ TU linkage complete", "✓ Ready for merge.approve"]
     }
   },
   "refs": ["TU-2025-10-30-CC01"]
@@ -408,10 +376,7 @@ Gatecheck and Merge flows enable:
       "scope": "Topology update: Wormhole 3 hub restructure",
       "mode": "gatecheck",
       "cold_snapshot": "Cold @ 2025-10-30",
-      "artifacts_samples": [
-        "topology: Wormhole 3 hub branches",
-        "gateway_conditions: Syndicate confrontation"
-      ],
+      "artifacts_samples": ["topology: Wormhole 3 hub branches", "gateway_conditions: Syndicate confrontation"],
       "decision": "block",
       "why": "Integrity bar at red: Section 42 reference unresolved; Reachability bar at red: keystone beat unreachable without paradox",
       "next_actions": "Plotwright to create Section 42 or retarget reference; add alternative path to keystone beat",
@@ -465,19 +430,8 @@ Gatecheck and Merge flows enable:
           "evidence": "Navigation clear; reading order maintained"
         }
       ],
-      "handoffs": [
-        "Bar: Integrity; Fix: Create Section 42 or retarget; Owner: PW; TU: TU-2025-10-30-PW01; Due: before re-submit",
-        "Bar: Reachability; Fix: Add second path or remove codeword req; Owner: PW; TU: TU-2025-10-30-PW01; Due: before re-submit",
-        "Bar: Gateways; Fix: Document gateway logic; Owner: PW; TU: TU-2025-10-30-PW01; Due: can defer post-merge"
-      ],
-      "checklist": [
-        "✓ Decision (block) tied to 2 red bars",
-        "✓ Smallest viable fixes specified for red/yellow bars",
-        "✓ Responsible owner assigned (PW)",
-        "✓ Player-safe constraint respected",
-        "✓ Handoffs documented with TU linkage",
-        "✓ TU trace updated; merge blocked until red bars resolved"
-      ]
+      "handoffs": ["Bar: Integrity; Fix: Create Section 42 or retarget; Owner: PW; TU: TU-2025-10-30-PW01; Due: before re-submit", "Bar: Reachability; Fix: Add second path or remove codeword req; Owner: PW; TU: TU-2025-10-30-PW01; Due: before re-submit", "Bar: Gateways; Fix: Document gateway logic; Owner: PW; TU: TU-2025-10-30-PW01; Due: can defer post-merge"],
+      "checklist": ["✓ Decision (block) tied to 2 red bars", "✓ Smallest viable fixes specified for red/yellow bars", "✓ Responsible owner assigned (PW)", "✓ Player-safe constraint respected", "✓ Handoffs documented with TU linkage", "✓ TU trace updated; merge blocked until red bars resolved"]
     }
   },
   "refs": ["TU-2025-10-30-PW01"]
@@ -493,6 +447,7 @@ Gatecheck and Merge flows enable:
 **Trigger:** Gate pass or gate conditional pass received; owner requests merge
 
 **Participants:**
+
 - **Owner (varies)** — Requests merge after gate pass
 - **Showrunner (SR)** — Approves merge, performs snapshot stamping
 - **Gatekeeper (GK)** — Has already provided gate decision
@@ -503,18 +458,18 @@ Gatecheck and Merge flows enable:
 1. Owner → SR: merge.request
    Intent: merge.request
    Payload: tu_brief (status: gatecheck → merge-requested)
-   
+
 2. SR validates:
    - Gate decision is pass or conditional pass
    - All blockers resolved
    - TU deliverables complete
-   
+
 3a. If approved:
     SR → Broadcast: merge.approve
     Intent: merge.approve
     Payload: tu_brief (status: merge-requested → cold-merged)
     Snapshot stamping: "Cold @ YYYY-MM-DD" recorded per TRACEABILITY
-    
+
 3b. If rejected:
     SR → Owner: merge.reject
     Intent: merge.reject
@@ -537,10 +492,7 @@ Gatecheck and Merge flows enable:
 ```json
 {
   "id": "TU-YYYY-MM-DD-<role><seq>",
-  "deliverables": [
-    "Deliverable 1",
-    "Deliverable 2"
-  ],
+  "deliverables": ["Deliverable 1", "Deliverable 2"],
   "bars_green": ["List of bars at green or yellow"],
   "gatecheck": "Gate decision received: pass | conditional pass",
   "linkage": "Hooks answered, canon/codex merged to Cold, handoffs documented"
@@ -569,11 +521,7 @@ Gatecheck and Merge flows enable:
     "$schema": "../03-schemas/tu_brief.schema.json",
     "data": {
       "id": "TU-2025-10-30-CC01",
-      "deliverables": [
-        "Codex entries: Dock 7, Kestrel Var, Station Security",
-        "Crosslink map: all 'See also' chains validated",
-        "Coverage report: 3 new terms, 2 red-links deferred"
-      ],
+      "deliverables": ["Codex entries: Dock 7, Kestrel Var, Station Security", "Crosslink map: all 'See also' chains validated", "Coverage report: 3 new terms, 2 red-links deferred"],
       "bars_green": ["Presentation", "Integrity", "Style", "Accessibility"],
       "gatecheck": "Gate decision: pass (all bars green)",
       "linkage": "Canon Pack TU-2025-10-30-LW01; codex merged to Cold; handoffs to Binder/PN"
@@ -598,7 +546,7 @@ Gatecheck and Merge flows enable:
 ```json
 {
   "id": "TU-YYYY-MM-DD-<role><seq>",
-  "snapshot_context": "Cold @ YYYY-MM-DD",  // TRACEABILITY: snapshot stamping
+  "snapshot_context": "Cold @ YYYY-MM-DD", // TRACEABILITY: snapshot stamping
   "linkage": "Artifacts merged to Cold @ YYYY-MM-DD; TU closed; handoffs complete"
 }
 ```
@@ -616,9 +564,9 @@ Gatecheck and Merge flows enable:
   "receiver": { "role": "broadcast" },
   "intent": "merge.approve",
   "context": {
-    "hot_cold": "cold",  // Now Cold after merge
+    "hot_cold": "cold", // Now Cold after merge
     "tu": "TU-2025-10-30-CC01",
-    "snapshot": "Cold @ 2025-10-30",  // Snapshot stamping per TRACEABILITY
+    "snapshot": "Cold @ 2025-10-30", // Snapshot stamping per TRACEABILITY
     "loop": "Codex Expansion"
   },
   "safety": { "player_safe": true, "spoilers": "forbidden" },
@@ -646,6 +594,7 @@ Gatecheck and Merge flows enable:
 **Payload:** Rationale for rejection (simple text or structured)
 
 **Common reasons:**
+
 - Gate decision was block (red bars)
 - Deliverables incomplete
 - TU linkage missing
@@ -758,6 +707,7 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 **Smallest Viable Fix:** The minimal change required to move a quality bar from yellow/red to green.
 
 **Characteristics:**
+
 - **Minimal scope** — change as few lines/artifacts as possible
 - **Focused on bar** — directly addresses the bar failure, not tangential issues
 - **Actionable** — clear what to do, who does it, where it happens
@@ -765,12 +715,12 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 
 ### 6.2 Examples
 
-| Bar | Status | Evidence | Smallest Viable Fix | NOT Smallest Fix |
-|-----|--------|----------|---------------------|------------------|
-| Integrity | Red | Section 42 reference unresolved | Create Section 42 stub OR retarget to Section 41 | Rewrite entire hub structure |
-| Style | Yellow | Section 17 tone inconsistent | Revise Section 17 choice text to match hub tone | Rewrite all hub sections for consistency |
-| Presentation | Red | Codex entry reveals spoiler | Mask spoiler phrase with neutral phrasing | Rewrite entire codex entry |
-| Reachability | Red | Keystone beat unreachable | Add second path to keystone OR remove blocking condition | Redesign entire topology |
+| Bar          | Status | Evidence                        | Smallest Viable Fix                                      | NOT Smallest Fix                         |
+| ------------ | ------ | ------------------------------- | -------------------------------------------------------- | ---------------------------------------- |
+| Integrity    | Red    | Section 42 reference unresolved | Create Section 42 stub OR retarget to Section 41         | Rewrite entire hub structure             |
+| Style        | Yellow | Section 17 tone inconsistent    | Revise Section 17 choice text to match hub tone          | Rewrite all hub sections for consistency |
+| Presentation | Red    | Codex entry reveals spoiler     | Mask spoiler phrase with neutral phrasing                | Rewrite entire codex entry               |
+| Reachability | Red    | Keystone beat unreachable       | Add second path to keystone OR remove blocking condition | Redesign entire topology                 |
 
 ### 6.3 Owner Assignment
 
@@ -783,6 +733,7 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 - **Determinism** → AD (Art Director), AuD (Audio Director), IL (Illustrator), AuP (Audio Producer)
 
 **Handoff format:**
+
 > "Bar: <bar>; Fix: <smallest viable fix>; Owner: <role>; TU: <TU-ID>; Due: <date or window>"
 
 ---
@@ -800,32 +751,37 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 ### 7.2 Usage
 
 **Binder exports:**
+
 - Record Cold snapshot ID for reproducibility
 - List TU-IDs included since last export
 
 **PN dry-runs:**
+
 - Cite Cold snapshot ID for consistent play experience
 - Ensure codex/canon aligned with snapshot
 
 **Codex entries:**
+
 - Include `snapshot` field referencing merge snapshot
 - Enable provenance tracking
 
 ### 7.3 Example
 
 **Before merge:**
+
 ```json
 {
   "id": "TU-2025-10-30-CC01",
-  "snapshot_context": "Cold @ 2025-10-28"  // Old snapshot
+  "snapshot_context": "Cold @ 2025-10-28" // Old snapshot
 }
 ```
 
 **After merge (snapshot stamping):**
+
 ```json
 {
   "id": "TU-2025-10-30-CC01",
-  "snapshot_context": "Cold @ 2025-10-30"  // New snapshot stamped
+  "snapshot_context": "Cold @ 2025-10-30" // New snapshot stamped
 }
 ```
 
@@ -835,19 +791,19 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 
 ### 8.1 Status Levels
 
-| Status | Meaning | Merge Impact | Fix Required |
-|--------|---------|--------------|--------------|
-| **Green** | Bar passes; no issues | No blocker | No |
-| **Yellow** | Bar caution; non-critical issue | Can merge with handoff | Yes (can defer post-merge) |
-| **Red** | Bar failure; critical issue | BLOCKS merge | Yes (must fix before merge) |
+| Status     | Meaning                         | Merge Impact           | Fix Required                |
+| ---------- | ------------------------------- | ---------------------- | --------------------------- |
+| **Green**  | Bar passes; no issues           | No blocker             | No                          |
+| **Yellow** | Bar caution; non-critical issue | Can merge with handoff | Yes (can defer post-merge)  |
+| **Red**    | Bar failure; critical issue     | BLOCKS merge           | Yes (must fix before merge) |
 
 ### 8.2 Decision Mapping
 
-| Bar Statuses | Gate Decision | Merge Allowed? | Next Action |
-|--------------|---------------|----------------|-------------|
-| All green | `pass` | Yes (immediate) | merge.approve |
+| Bar Statuses      | Gate Decision      | Merge Allowed?      | Next Action                          |
+| ----------------- | ------------------ | ------------------- | ------------------------------------ |
+| All green         | `pass`             | Yes (immediate)     | merge.approve                        |
 | ≥1 yellow, no red | `conditional pass` | Yes (with handoffs) | merge.approve + create follow-up TUs |
-| ≥1 red | `block` | No | Owner addresses red bars, re-submits |
+| ≥1 red            | `block`            | No                  | Owner addresses red bars, re-submits |
 
 ### 8.3 Bar Evaluation Order
 
@@ -869,14 +825,17 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 ### 9.1 Handoff Structure
 
 **Format:**
+
 > "Bar: <bar>; Fix: <smallest viable fix>; Owner: <role>; TU: <TU-ID>; Due: <date or window>"
 
 **Example:**
+
 > "Bar: Style; Fix: Revise Section 17 choice text to match hub tone; Owner: SS; TU: TU-2025-10-30-PW02; Due: before next export"
 
 ### 9.2 Handoff Tracking
 
 **Showrunner responsibilities:**
+
 - Create follow-up TUs for yellow bar fixes
 - Assign owners and due dates
 - Track handoff completion
@@ -893,14 +852,8 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
   "loop": "Style Tune-up",
   "slice": "Fix Section 17 choice text tone per gate handoff",
   "snapshot_context": "Cold @ 2025-10-30",
-  "inputs": [
-    "Gate handoff from TU-2025-10-30-PW02",
-    "Section 17 current text",
-    "Hub tone reference (Docking Bay hub)"
-  ],
-  "deliverables": [
-    "Revised Section 17 choice text matching hub tone"
-  ],
+  "inputs": ["Gate handoff from TU-2025-10-30-PW02", "Section 17 current text", "Hub tone reference (Docking Bay hub)"],
+  "deliverables": ["Revised Section 17 choice text matching hub tone"],
   "bars_green": ["Style"],
   "linkage": "Gate handoff from TU-2025-10-30-PW02; addresses yellow Style bar"
 }
@@ -909,15 +862,16 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 ### 9.3 Handoff Completion
 
 **Sequence:**
+
 ```
 1. Owner completes handoff fix within follow-up TU
-   
+
 2. Owner → SR: tu.submit_gate (follow-up TU ready)
-   
+
 3. GK validates fix moves bar to green
-   
+
 4. GK → SR: gate.pass (follow-up TU)
-   
+
 5. SR closes follow-up TU
    SR updates original TU linkage: handoff complete
 ```
@@ -926,21 +880,22 @@ SR → SS: tu.open (TU-2025-10-31-SS01)
 
 ## 10. Error Conditions
 
-| Error Code | Trigger | Example | Remedy |
-|------------|---------|---------|--------|
-| `VALIDATION_FAILED` | Gate report missing required fields | No `bars` array | Add all 8 bars to report |
-| `BUSINESS_RULE_VIOLATION` | Decision doesn't match bar statuses | Decision "pass" but Style bar yellow | Align decision with bar statuses |
-| `BUSINESS_RULE_VIOLATION` | Yellow/red bar missing fix or owner | Style yellow, no `smallest_viable_fix` | Add fix and owner for yellow/red bars |
-| `BUSINESS_RULE_VIOLATION` | Merge request before gate pass | merge.request before gate.pass | Wait for gate decision |
-| `BUSINESS_RULE_VIOLATION` | Merge approve without snapshot stamping | `snapshot_context` not updated | Record new Cold snapshot per TRACEABILITY |
-| `NOT_AUTHORIZED` | Non-GK sends gate decision | PW sends gate.pass | Only GK can deliver gate decisions |
-| `NOT_AUTHORIZED` | Non-SR approves merge | LW sends merge.approve | Only SR can approve merges |
+| Error Code                | Trigger                                 | Example                                | Remedy                                    |
+| ------------------------- | --------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| `VALIDATION_FAILED`       | Gate report missing required fields     | No `bars` array                        | Add all 8 bars to report                  |
+| `BUSINESS_RULE_VIOLATION` | Decision doesn't match bar statuses     | Decision "pass" but Style bar yellow   | Align decision with bar statuses          |
+| `BUSINESS_RULE_VIOLATION` | Yellow/red bar missing fix or owner     | Style yellow, no `smallest_viable_fix` | Add fix and owner for yellow/red bars     |
+| `BUSINESS_RULE_VIOLATION` | Merge request before gate pass          | merge.request before gate.pass         | Wait for gate decision                    |
+| `BUSINESS_RULE_VIOLATION` | Merge approve without snapshot stamping | `snapshot_context` not updated         | Record new Cold snapshot per TRACEABILITY |
+| `NOT_AUTHORIZED`          | Non-GK sends gate decision              | PW sends gate.pass                     | Only GK can deliver gate decisions        |
+| `NOT_AUTHORIZED`          | Non-SR approves merge                   | LW sends merge.approve                 | Only SR can approve merges                |
 
 ---
 
 ## 11. Success Criteria
 
 A Gatecheck and Merge flow is successful when:
+
 - ✅ All 8 quality bars evaluated with statuses (green/yellow/red)
 - ✅ Gate decision ties to bar statuses (pass: all green; conditional pass: ≥1 yellow, no red; block: ≥1 red)
 - ✅ Yellow/red bars have smallest viable fixes specified
@@ -955,18 +910,22 @@ A Gatecheck and Merge flow is successful when:
 ## 12. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/QUALITY_BARS.md` — Quality bar definitions (8 bars)
 - `00-north-star/TRACEABILITY.md` — TU requirements, snapshot stamping
 - `00-north-star/SPOILER_HYGIENE.md` — Spoiler separation rules
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` — TU types, bar statuses, deferral tags
 
 ### Layer 3 Schemas
+
 - `03-schemas/tu_brief.schema.json` — TU Brief payload schema
 - `03-schemas/gatecheck_report.schema.json` — Gatecheck Report payload schema
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (gate.pass, merge.request, etc.)
 - `04-protocol/FLOWS/lore_deepening.md` — Lore Deepening flow (uses gatecheck)
@@ -981,12 +940,14 @@ A Gatecheck and Merge flow is successful when:
 ### 13.1 Pre-Gate vs Full Gatecheck
 
 **Pre-gate (`mode: "pre-gate"`):**
+
 - Early risk assessment during stabilization
 - Informal feedback loop
 - Identifies likely blockers before full gatecheck
 - Does not trigger merge approval
 
 **Full gatecheck (`mode: "gatecheck"`):**
+
 - Formal gate decision with all 8 bars evaluated
 - Triggers merge approval (if pass or conditional pass)
 - Blocks merge (if block)
@@ -998,13 +959,13 @@ A Gatecheck and Merge flow is successful when:
 
 For non-applicable bars, Gatekeeper marks them as green with note "N/A for <artifact type>".
 
-| Artifact Type | Critical Bars (must be substantively evaluated) | Typically N/A (mark green) |
-|---------------|--------------------------------------------------|----------------------------|
-| Canon Pack | Integrity, Presentation | Determinism, Accessibility |
-| Codex Entry | Presentation, Integrity, Style | Reachability, Gateways, Determinism |
-| Topology | Integrity, Reachability, Nonlinearity, Gateways | Determinism |
-| Art/Audio Plan | Determinism, Style | Reachability, Gateways |
-| Translation | Style, Accessibility, Presentation | Reachability, Gateways |
+| Artifact Type  | Critical Bars (must be substantively evaluated) | Typically N/A (mark green)          |
+| -------------- | ----------------------------------------------- | ----------------------------------- |
+| Canon Pack     | Integrity, Presentation                         | Determinism, Accessibility          |
+| Codex Entry    | Presentation, Integrity, Style                  | Reachability, Gateways, Determinism |
+| Topology       | Integrity, Reachability, Nonlinearity, Gateways | Determinism                         |
+| Art/Audio Plan | Determinism, Style                              | Reachability, Gateways              |
+| Translation    | Style, Accessibility, Presentation              | Reachability, Gateways              |
 
 **Note:** Even N/A bars must be included in the bar array with status "green" and evidence explaining why they're not applicable.
 
@@ -1013,11 +974,13 @@ For non-applicable bars, Gatekeeper marks them as green with note "N/A for <arti
 **Showrunner decision for conditional pass:**
 
 **Immediate merge** (yellow bar fix deferred post-merge):
+
 - Fix does not block player value
 - Fix can be isolated in follow-up TU
 - Risk of deferral is low (e.g., style polish, link stub creation)
 
 **Pre-merge fix** (yellow bar fix before merge):
+
 - Fix affects critical player experience
 - Fix interdependent with other Hot work
 - Risk of deferral is high (e.g., spoiler hint, near-miss reference)

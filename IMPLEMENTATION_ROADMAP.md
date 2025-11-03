@@ -1,4 +1,5 @@
 # QuestFoundry Implementation Roadmap
+
 ## Layers 5, 6, 7 — Comprehensive Build Order
 
 **Created:** 2025-10-31
@@ -11,6 +12,7 @@
 This document provides the **complete implementation order** for building QuestFoundry Layers 5, 6, and 7, designed for AI agents to implement with human oversight.
 
 **Target Agents:**
+
 - **Layer 6 (questfoundry-lib):** GitHub Copilot - Python SDK implementation
 - **Layer 5 (prompts):** Claude (Sonnet 3.5+) - Sophisticated prompt engineering
 - **Layer 7 (questfoundry-cli):** GitHub Copilot - CLI UX implementation
@@ -63,13 +65,13 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 1: Setup & Schema Integration
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E1 | Repository Setup | 6 | Copilot | `questfoundry-lib` repo, CI/CD |
-| L6-E1 | Package Structure | 6 | Copilot | Python package structure |
-| L6-E1 | Development Tools | 6 | Copilot | Linting, testing, pre-commit |
-| L6-E2 | Schema Bundling | 6 | Copilot | 17 schemas from Layer 3 |
-| L6-E2 | Schema Validation | 6 | Copilot | `validate_artifact()` function |
+| Epic  | Feature           | Layer | Agent   | Deliverable                    |
+| ----- | ----------------- | ----- | ------- | ------------------------------ |
+| L6-E1 | Repository Setup  | 6     | Copilot | `questfoundry-lib` repo, CI/CD |
+| L6-E1 | Package Structure | 6     | Copilot | Python package structure       |
+| L6-E1 | Development Tools | 6     | Copilot | Linting, testing, pre-commit   |
+| L6-E2 | Schema Bundling   | 6     | Copilot | 17 schemas from Layer 3        |
+| L6-E2 | Schema Validation | 6     | Copilot | `validate_artifact()` function |
 
 **Checkpoint:** Can validate artifacts against Layer 3 schemas ✅
 
@@ -77,10 +79,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 2: Protocol & Envelopes
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E2 | Protocol Envelope | 6 | Copilot | Pydantic envelope models |
-| L6-E2 | Protocol Conformance | 6 | Copilot | `validate_envelope()` function |
+| Epic  | Feature              | Layer | Agent   | Deliverable                    |
+| ----- | -------------------- | ----- | ------- | ------------------------------ |
+| L6-E2 | Protocol Envelope    | 6     | Copilot | Pydantic envelope models       |
+| L6-E2 | Protocol Conformance | 6     | Copilot | `validate_envelope()` function |
 
 **Checkpoint:** Can create and validate Layer 4 envelopes ✅
 
@@ -88,10 +90,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 3: State Management (SQLite)
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E3 | State Store Interface | 6 | Copilot | Abstract `StateStore` |
-| L6-E3 | SQLite Project File | 6 | Copilot | `.qfproj` implementation |
+| Epic  | Feature               | Layer | Agent   | Deliverable              |
+| ----- | --------------------- | ----- | ------- | ------------------------ |
+| L6-E3 | State Store Interface | 6     | Copilot | Abstract `StateStore`    |
+| L6-E3 | SQLite Project File   | 6     | Copilot | `.qfproj` implementation |
 
 **Checkpoint:** Can create `.qfproj` files and store artifacts ✅
 
@@ -99,10 +101,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 4: State Management (Files) & Workspace
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E3 | File-Based Hot Workspace | 6 | Copilot | Hot workspace file store |
-| L6-E3 | Workspace Manager | 6 | Copilot | Unified workspace API |
+| Epic  | Feature                  | Layer | Agent   | Deliverable              |
+| ----- | ------------------------ | ----- | ------- | ------------------------ |
+| L6-E3 | File-Based Hot Workspace | 6     | Copilot | Hot workspace file store |
+| L6-E3 | Workspace Manager        | 6     | Copilot | Unified workspace API    |
 
 **Checkpoint:** Hot/Cold workspace working ✅
 
@@ -118,12 +120,12 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 5: Artifact Types + CLI Setup
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E4 | Base Artifact Class | 6 | Copilot | `Artifact` base class |
-| L6-E4 | Core Artifact Types | 6 | Copilot | HookCard, TUBrief, etc. |
-| L7-E1 | Repository Setup | 7 | Copilot | `questfoundry-cli` repo |
-| L7-E1 | Package Structure | 7 | Copilot | CLI package with Typer |
+| Epic  | Feature             | Layer | Agent   | Deliverable             |
+| ----- | ------------------- | ----- | ------- | ----------------------- |
+| L6-E4 | Base Artifact Class | 6     | Copilot | `Artifact` base class   |
+| L6-E4 | Core Artifact Types | 6     | Copilot | HookCard, TUBrief, etc. |
+| L7-E1 | Repository Setup    | 7     | Copilot | `questfoundry-cli` repo |
+| L7-E1 | Package Structure   | 7     | Copilot | CLI package with Typer  |
 
 **Checkpoint:** Can create typed artifacts + CLI skeleton exists ✅
 
@@ -131,13 +133,13 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 6: More Artifacts + Layer 5 Foundations
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E4 | Remaining Artifact Types | 6 | Copilot | All 17 artifacts |
-| L5-E1 | Context Management Pattern | 5 | Claude | `_shared/context_management.md` |
-| L5-E1 | Safety Protocol Pattern | 5 | Claude | `_shared/safety_protocol.md` |
-| L5-E1 | Escalation Rules Pattern | 5 | Claude | `_shared/escalation_rules.md` |
-| L5-E1 | Human Interaction Pattern | 5 | Claude | `_shared/human_interaction.md` |
+| Epic  | Feature                    | Layer | Agent   | Deliverable                     |
+| ----- | -------------------------- | ----- | ------- | ------------------------------- |
+| L6-E4 | Remaining Artifact Types   | 6     | Copilot | All 17 artifacts                |
+| L5-E1 | Context Management Pattern | 5     | Claude  | `_shared/context_management.md` |
+| L5-E1 | Safety Protocol Pattern    | 5     | Claude  | `_shared/safety_protocol.md`    |
+| L5-E1 | Escalation Rules Pattern   | 5     | Claude  | `_shared/escalation_rules.md`   |
+| L5-E1 | Human Interaction Pattern  | 5     | Claude  | `_shared/human_interaction.md`  |
 
 **Checkpoint:** All artifacts implemented + Layer 5 shared foundations ready ✅
 
@@ -145,11 +147,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 7: Lifecycles + CLI Commands
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E4 | Hook Lifecycle | 6 | Copilot | Hook state machine |
-| L6-E4 | TU Lifecycle | 6 | Copilot | TU state machine |
-| L7-E2 | Project Management Commands | 7 | Copilot | `qf init`, `qf open`, `qf status` |
+| Epic  | Feature                     | Layer | Agent   | Deliverable                       |
+| ----- | --------------------------- | ----- | ------- | --------------------------------- |
+| L6-E4 | Hook Lifecycle              | 6     | Copilot | Hook state machine                |
+| L6-E4 | TU Lifecycle                | 6     | Copilot | TU state machine                  |
+| L7-E2 | Project Management Commands | 7     | Copilot | `qf init`, `qf open`, `qf status` |
 
 **Checkpoint:** State machines work + can create projects via CLI ✅
 
@@ -157,13 +159,13 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 8: Protocol Client + CLI Inspection
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E5 | File-Based Transport | 6 | Copilot | Message file transport |
-| L6-E5 | Protocol Client | 6 | Copilot | `ProtocolClient` class |
-| L7-E2 | Artifact Listing | 7 | Copilot | `qf list` command |
-| L7-E2 | Artifact Inspection | 7 | Copilot | `qf show` command |
-| L7-E2 | History Command | 7 | Copilot | `qf history` command |
+| Epic  | Feature              | Layer | Agent   | Deliverable            |
+| ----- | -------------------- | ----- | ------- | ---------------------- |
+| L6-E5 | File-Based Transport | 6     | Copilot | Message file transport |
+| L6-E5 | Protocol Client      | 6     | Copilot | `ProtocolClient` class |
+| L7-E2 | Artifact Listing     | 7     | Copilot | `qf list` command      |
+| L7-E2 | Artifact Inspection  | 7     | Copilot | `qf show` command      |
+| L7-E2 | History Command      | 7     | Copilot | `qf history` command   |
 
 **Checkpoint:** Protocol client works + can inspect projects via CLI ✅
 
@@ -179,11 +181,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 9: Provider Foundation
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E6 | Provider Interface | 6 | Copilot | Abstract provider interfaces |
-| L6-E6 | Configuration System | 6 | Copilot | Config loading with env vars |
-| L7-E3 | Config Command | 7 | Copilot | `qf config` commands |
+| Epic  | Feature              | Layer | Agent   | Deliverable                  |
+| ----- | -------------------- | ----- | ------- | ---------------------------- |
+| L6-E6 | Provider Interface   | 6     | Copilot | Abstract provider interfaces |
+| L6-E6 | Configuration System | 6     | Copilot | Config loading with env vars |
+| L7-E3 | Config Command       | 7     | Copilot | `qf config` commands         |
 
 **Checkpoint:** Provider system designed + configurable via CLI ✅
 
@@ -191,11 +193,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 10: Text Providers
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E6 | OpenAI Provider | 6 | Copilot | GPT-4 text generation |
-| L6-E6 | Ollama Provider | 6 | Copilot | Local LLM support |
-| L7-E3 | Provider List Command | 7 | Copilot | `qf provider list` |
+| Epic  | Feature               | Layer | Agent   | Deliverable           |
+| ----- | --------------------- | ----- | ------- | --------------------- |
+| L6-E6 | OpenAI Provider       | 6     | Copilot | GPT-4 text generation |
+| L6-E6 | Ollama Provider       | 6     | Copilot | Local LLM support     |
+| L7-E3 | Provider List Command | 7     | Copilot | `qf provider list`    |
 
 **Checkpoint:** Text generation working with 2 providers ✅
 
@@ -203,10 +205,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 11: Image Providers
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E6 | Automatic1111 Provider | 6 | Copilot | SD image generation |
-| L6-E6 | DALL-E Provider | 6 | Copilot | DALL-E integration |
+| Epic  | Feature                | Layer | Agent   | Deliverable         |
+| ----- | ---------------------- | ----- | ------- | ------------------- |
+| L6-E6 | Automatic1111 Provider | 6     | Copilot | SD image generation |
+| L6-E6 | DALL-E Provider        | 6     | Copilot | DALL-E integration  |
 
 **Checkpoint:** Image generation working with 2 providers ✅
 
@@ -214,10 +216,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 12: Quality & Validation Commands
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L7-E4 | Validation Command | 7 | Copilot | `qf validate` command |
-| L7-E4 | Gatecheck Command | 7 | Copilot | `qf check` command (placeholder) |
+| Epic  | Feature            | Layer | Agent   | Deliverable                      |
+| ----- | ------------------ | ----- | ------- | -------------------------------- |
+| L7-E4 | Validation Command | 7     | Copilot | `qf validate` command            |
+| L7-E4 | Gatecheck Command  | 7     | Copilot | `qf check` command (placeholder) |
 
 **Checkpoint:** Can validate artifacts via CLI ✅
 
@@ -233,11 +235,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 13: Orchestration Roles (Prompts)
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E2 | Showrunner System Prompt | 5 | Claude | Showrunner prompt |
-| L5-E2 | Showrunner Intent Handlers | 5 | Claude | Intent handler prompts |
-| L5-E2 | Showrunner Examples | 5 | Claude | Example conversations |
+| Epic  | Feature                    | Layer | Agent  | Deliverable            |
+| ----- | -------------------------- | ----- | ------ | ---------------------- |
+| L5-E2 | Showrunner System Prompt   | 5     | Claude | Showrunner prompt      |
+| L5-E2 | Showrunner Intent Handlers | 5     | Claude | Intent handler prompts |
+| L5-E2 | Showrunner Examples        | 5     | Claude | Example conversations  |
 
 **Checkpoint:** Showrunner prompt complete ✅
 
@@ -245,12 +247,12 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 14: Gatekeeper + Role Execution Foundation
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E2 | Gatekeeper System Prompt | 5 | Claude | Gatekeeper prompt |
-| L5-E2 | Quality Bar Checks | 5 | Claude | 8 quality bar prompts |
-| L5-E2 | Gatekeeper Examples | 5 | Claude | Example conversations |
-| L6-E7 | Prompt Bundling | 6 | Copilot | Load Layer 5 prompts |
+| Epic  | Feature                  | Layer | Agent   | Deliverable           |
+| ----- | ------------------------ | ----- | ------- | --------------------- |
+| L5-E2 | Gatekeeper System Prompt | 5     | Claude  | Gatekeeper prompt     |
+| L5-E2 | Quality Bar Checks       | 5     | Claude  | 8 quality bar prompts |
+| L5-E2 | Gatekeeper Examples      | 5     | Claude  | Example conversations |
+| L6-E7 | Prompt Bundling          | 6     | Copilot | Load Layer 5 prompts  |
 
 **Checkpoint:** Gatekeeper prompt complete + Layer 6 can load prompts ✅
 
@@ -258,11 +260,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 15: Role Session Management
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E7 | Role Session | 6 | Copilot | `RoleSession` class |
-| L6-E7 | Prompt Executor | 6 | Copilot | Execute prompts with LLM |
-| L6-E7 | Session Manager | 6 | Copilot | `SessionManager` class |
+| Epic  | Feature         | Layer | Agent   | Deliverable              |
+| ----- | --------------- | ----- | ------- | ------------------------ |
+| L6-E7 | Role Session    | 6     | Copilot | `RoleSession` class      |
+| L6-E7 | Prompt Executor | 6     | Copilot | Execute prompts with LLM |
+| L6-E7 | Session Manager | 6     | Copilot | `SessionManager` class   |
 
 **Checkpoint:** Can execute role prompts with real LLMs ✅
 
@@ -270,12 +272,12 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 16: Core Content Roles (Prompts)
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E3 | Lore Weaver System Prompt | 5 | Claude | Lore Weaver prompt |
-| L5-E3 | Lore Weaver Handlers & Examples | 5 | Claude | Intent handlers + examples |
-| L5-E3 | Scene Smith System Prompt | 5 | Claude | Scene Smith prompt |
-| L5-E3 | Scene Smith Handlers & Examples | 5 | Claude | Intent handlers + examples |
+| Epic  | Feature                         | Layer | Agent  | Deliverable                |
+| ----- | ------------------------------- | ----- | ------ | -------------------------- |
+| L5-E3 | Lore Weaver System Prompt       | 5     | Claude | Lore Weaver prompt         |
+| L5-E3 | Lore Weaver Handlers & Examples | 5     | Claude | Intent handlers + examples |
+| L5-E3 | Scene Smith System Prompt       | 5     | Claude | Scene Smith prompt         |
+| L5-E3 | Scene Smith Handlers & Examples | 5     | Claude | Intent handlers + examples |
 
 **Checkpoint:** Core content role prompts complete ✅
 
@@ -283,11 +285,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 17: Orchestration Implementation
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E8 | Loop Definitions | 6 | Copilot | 11 loop structures |
-| L6-E8 | Checkpoint System | 6 | Copilot | Checkpoint management |
-| L6-E8 | Showrunner Core | 6 | Copilot | Loop orchestration logic |
+| Epic  | Feature           | Layer | Agent   | Deliverable              |
+| ----- | ----------------- | ----- | ------- | ------------------------ |
+| L6-E8 | Loop Definitions  | 6     | Copilot | 11 loop structures       |
+| L6-E8 | Checkpoint System | 6     | Copilot | Checkpoint management    |
+| L6-E8 | Showrunner Core   | 6     | Copilot | Loop orchestration logic |
 
 **Checkpoint:** Can run simple loops end-to-end ✅
 
@@ -295,10 +297,10 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 18: Loop Execution via CLI
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L7-E5 | Run Command | 7 | Copilot | `qf run` command |
-| L7-E5 | Loop Summary Formatting | 7 | Copilot | Rich loop summaries |
+| Epic  | Feature                 | Layer | Agent   | Deliverable         |
+| ----- | ----------------------- | ----- | ------- | ------------------- |
+| L7-E5 | Run Command             | 7     | Copilot | `qf run` command    |
+| L7-E5 | Loop Summary Formatting | 7     | Copilot | Rich loop summaries |
 
 **Checkpoint:** Can run loops from CLI! ✅
 
@@ -314,11 +316,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 19: Structure & Discovery Roles
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E4 | Plotwright System Prompt | 5 | Claude | Plotwright prompt + handlers |
-| L5-E4 | Codex Curator System Prompt | 5 | Claude | Codex Curator prompt + handlers |
-| L6-E8 | Quickstart Orchestration | 6 | Copilot | Quickstart workflow logic |
+| Epic  | Feature                     | Layer | Agent   | Deliverable                     |
+| ----- | --------------------------- | ----- | ------- | ------------------------------- |
+| L5-E4 | Plotwright System Prompt    | 5     | Claude  | Plotwright prompt + handlers    |
+| L5-E4 | Codex Curator System Prompt | 5     | Claude  | Codex Curator prompt + handlers |
+| L6-E8 | Quickstart Orchestration    | 6     | Copilot | Quickstart workflow logic       |
 
 **Checkpoint:** Structure roles complete + quickstart logic ready ✅
 
@@ -326,12 +328,12 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 20: Style & Quality Roles
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E5 | Style Lead System Prompt | 5 | Claude | Style Lead prompt + handlers |
-| L5-E5 | Researcher System Prompt | 5 | Claude | Researcher prompt (optional) |
-| L6-E9 | Quality Bar Validators | 6 | Copilot | 8 quality bar implementations |
-| L6-E9 | Gatekeeper Integration | 6 | Copilot | Gatekeeper orchestration |
+| Epic  | Feature                  | Layer | Agent   | Deliverable                   |
+| ----- | ------------------------ | ----- | ------- | ----------------------------- |
+| L5-E5 | Style Lead System Prompt | 5     | Claude  | Style Lead prompt + handlers  |
+| L5-E5 | Researcher System Prompt | 5     | Claude  | Researcher prompt (optional)  |
+| L6-E9 | Quality Bar Validators   | 6     | Copilot | 8 quality bar implementations |
+| L6-E9 | Gatekeeper Integration   | 6     | Copilot | Gatekeeper orchestration      |
 
 **Checkpoint:** Style/quality roles complete + gatechecks working ✅
 
@@ -339,13 +341,13 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 21: Asset Roles + Generation Commands
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E6 | Art Director System Prompt | 5 | Claude | Art Director prompt |
-| L5-E6 | Illustrator System Prompt | 5 | Claude | Illustrator prompt |
-| L5-E6 | Audio Director & Producer | 5 | Claude | Audio role prompts |
-| L7-E6 | Generate Command | 7 | Copilot | `qf generate` command |
-| L7-E6 | Asset Preview | 7 | Copilot | Image/audio preview |
+| Epic  | Feature                    | Layer | Agent   | Deliverable           |
+| ----- | -------------------------- | ----- | ------- | --------------------- |
+| L5-E6 | Art Director System Prompt | 5     | Claude  | Art Director prompt   |
+| L5-E6 | Illustrator System Prompt  | 5     | Claude  | Illustrator prompt    |
+| L5-E6 | Audio Director & Producer  | 5     | Claude  | Audio role prompts    |
+| L7-E6 | Generate Command           | 7     | Copilot | `qf generate` command |
+| L7-E6 | Asset Preview              | 7     | Copilot | Image/audio preview   |
 
 **Checkpoint:** Asset generation working via CLI ✅
 
@@ -353,11 +355,11 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 22: Quickstart CLI Implementation
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L7-E7 | Quickstart Guided Mode | 7 | Copilot | `qf quickstart` command |
-| L7-E7 | Quickstart Interactive Mode | 7 | Copilot | `--interactive` flag |
-| L7-E7 | Progress Tracking | 7 | Copilot | Progress indicators |
+| Epic  | Feature                     | Layer | Agent   | Deliverable             |
+| ----- | --------------------------- | ----- | ------- | ----------------------- |
+| L7-E7 | Quickstart Guided Mode      | 7     | Copilot | `qf quickstart` command |
+| L7-E7 | Quickstart Interactive Mode | 7     | Copilot | `--interactive` flag    |
+| L7-E7 | Progress Tracking           | 7     | Copilot | Progress indicators     |
 
 **Checkpoint:** Quickstart working! Can generate manuscript end-to-end ✅
 
@@ -373,17 +375,17 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 23: Publication Roles + Export
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E7 | Translator System Prompt | 5 | Claude | Translator prompt (optional) |
-| L5-E7 | Book Binder System Prompt | 5 | Claude | Book Binder prompt |
-| L5-E7 | Player-Narrator System Prompt | 5 | Claude | PN prompt (critical!) |
-| L6-E9 | PN Guard | 6 | Copilot | PN boundary enforcement |
-| L6-E10 | View Generation | 6 | Copilot | View export logic |
-| L6-E10 | Git Export | 6 | Copilot | Git-friendly export |
-| L6-E10 | Book Binder | 6 | Copilot | Book Binder implementation |
-| L7-E8 | Export Command | 7 | Copilot | `qf export` command |
-| L7-E8 | Bind Command | 7 | Copilot | `qf bind` command |
+| Epic   | Feature                       | Layer | Agent   | Deliverable                  |
+| ------ | ----------------------------- | ----- | ------- | ---------------------------- |
+| L5-E7  | Translator System Prompt      | 5     | Claude  | Translator prompt (optional) |
+| L5-E7  | Book Binder System Prompt     | 5     | Claude  | Book Binder prompt           |
+| L5-E7  | Player-Narrator System Prompt | 5     | Claude  | PN prompt (critical!)        |
+| L6-E9  | PN Guard                      | 6     | Copilot | PN boundary enforcement      |
+| L6-E10 | View Generation               | 6     | Copilot | View export logic            |
+| L6-E10 | Git Export                    | 6     | Copilot | Git-friendly export          |
+| L6-E10 | Book Binder                   | 6     | Copilot | Book Binder implementation   |
+| L7-E8  | Export Command                | 7     | Copilot | `qf export` command          |
+| L7-E8  | Bind Command                  | 7     | Copilot | `qf bind` command            |
 
 **Checkpoint:** Can export views and player-safe content ✅
 
@@ -391,12 +393,12 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 24: Testing & Shell Completion
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E8 | Prompt Validation Suite | 5 | Claude | Validation scripts |
-| L5-E8 | Conversation Test Fixtures | 5 | Claude | Test conversation examples |
-| L5-E8 | Role Interaction Matrix | 5 | Claude | Role interaction docs |
-| L7-E9 | Completion Scripts | 7 | Copilot | Bash/Zsh/Fish completion |
+| Epic  | Feature                    | Layer | Agent   | Deliverable                |
+| ----- | -------------------------- | ----- | ------- | -------------------------- |
+| L5-E8 | Prompt Validation Suite    | 5     | Claude  | Validation scripts         |
+| L5-E8 | Conversation Test Fixtures | 5     | Claude  | Test conversation examples |
+| L5-E8 | Role Interaction Matrix    | 5     | Claude  | Role interaction docs      |
+| L7-E9 | Completion Scripts         | 7     | Copilot | Bash/Zsh/Fish completion   |
 
 **Checkpoint:** Testing infrastructure complete + autocomplete works ✅
 
@@ -404,15 +406,15 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 25: Documentation
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L5-E9 | Prompt Engineering Guide | 5 | Claude | Customization docs |
-| L5-E9 | Role Comparison Matrix | 5 | Claude | Role reference table |
-| L5-E9 | Migration Guide | 5 | Claude | Versioning strategy |
-| L6-E11 | API Documentation | 6 | Copilot | Layer 6 API docs |
-| L6-E11 | Integration Examples | 6 | Copilot | Code examples |
-| L7-E11 | User Documentation | 7 | Copilot | CLI user guide |
-| L7-E11 | Help Text Polish | 7 | Copilot | Review all help text |
+| Epic   | Feature                  | Layer | Agent   | Deliverable          |
+| ------ | ------------------------ | ----- | ------- | -------------------- |
+| L5-E9  | Prompt Engineering Guide | 5     | Claude  | Customization docs   |
+| L5-E9  | Role Comparison Matrix   | 5     | Claude  | Role reference table |
+| L5-E9  | Migration Guide          | 5     | Claude  | Versioning strategy  |
+| L6-E11 | API Documentation        | 6     | Copilot | Layer 6 API docs     |
+| L6-E11 | Integration Examples     | 6     | Copilot | Code examples        |
+| L7-E11 | User Documentation       | 7     | Copilot | CLI user guide       |
+| L7-E11 | Help Text Polish         | 7     | Copilot | Review all help text |
 
 **Checkpoint:** Documentation complete ✅
 
@@ -420,13 +422,13 @@ This document provides the **complete implementation order** for building QuestF
 
 ### Week 26: Distribution & Final Polish
 
-| Epic | Feature | Layer | Agent | Deliverable |
-|------|---------|-------|-------|-------------|
-| L6-E11 | Package Distribution | 6 | Copilot | PyPI setup for lib |
-| L7-E11 | Error Message Improvement | 7 | Copilot | Better error messages |
-| L7-E12 | Package Metadata | 7 | Copilot | README, CHANGELOG |
-| L7-E12 | Release Automation | 7 | Copilot | GitHub Actions release |
-| L7-E12 | Installation Testing | 7 | Copilot | Multi-platform testing |
+| Epic   | Feature                   | Layer | Agent   | Deliverable            |
+| ------ | ------------------------- | ----- | ------- | ---------------------- |
+| L6-E11 | Package Distribution      | 6     | Copilot | PyPI setup for lib     |
+| L7-E11 | Error Message Improvement | 7     | Copilot | Better error messages  |
+| L7-E12 | Package Metadata          | 7     | Copilot | README, CHANGELOG      |
+| L7-E12 | Release Automation        | 7     | Copilot | GitHub Actions release |
+| L7-E12 | Installation Testing      | 7     | Copilot | Multi-platform testing |
 
 **Checkpoint:** Ready for public release! ✅
 
@@ -439,14 +441,17 @@ This document provides the **complete implementation order** for building QuestF
 ### Can Be Done in Parallel
 
 **Weeks 5-8:**
+
 - Layer 5 Epic 1 (foundations) + Layer 7 Epic 1-2 (CLI basics)
 - These don't depend on each other
 
 **Weeks 13-14:**
+
 - Layer 5 Epic 2 (prompts) + Layer 6 Epic 7 (role execution)
 - Prompts can be written while execution framework is built
 
 **Week 21:**
+
 - Layer 5 Epic 6 (asset roles) + Layer 7 Epic 6 (generate command)
 - CLI can be built with placeholder implementations
 
@@ -462,50 +467,62 @@ This document provides the **complete implementation order** for building QuestF
 ## Milestones & Deliverables
 
 ### Milestone 1: Foundation Complete (Week 4)
+
 **Deliverables:**
+
 - ✅ Layer 6 repository set up with CI/CD
 - ✅ Can create `.qfproj` files
 - ✅ Can store and retrieve artifacts
 - ✅ Schema validation working
 
 **Success Criteria:**
+
 - All Layer 6 Epic 1-3 tests passing
 - Can manually test artifact storage
 
 ---
 
 ### Milestone 2: CLI Basics (Week 8)
+
 **Deliverables:**
+
 - ✅ Layer 7 CLI installed via `pip install -e .`
 - ✅ Can create projects via `qf init`
 - ✅ Can inspect projects via `qf list`, `qf show`
 - ✅ Layer 5 shared foundations documented
 
 **Success Criteria:**
+
 - CLI commands work end-to-end
 - Layer 5 foundation docs reviewed and approved
 
 ---
 
 ### Milestone 3: LLM Integration (Week 12)
+
 **Deliverables:**
+
 - ✅ OpenAI and Ollama text generation working
 - ✅ A1111 and DALL-E image generation working
 - ✅ Configurable via CLI
 
 **Success Criteria:**
+
 - Can generate text/images programmatically
 - Can configure providers via `qf config`
 
 ---
 
 ### Milestone 4: First Loop Working (Week 18)
+
 **Deliverables:**
+
 - ✅ Showrunner, Gatekeeper, Lore Weaver, Scene Smith prompts complete
 - ✅ Can run Hook Harvest loop via `qf run hook-harvest`
 - ✅ Artifacts created and validated
 
 **Success Criteria:**
+
 - Full loop executes without errors
 - Generated artifacts pass validation
 - Human can review and understand what happened
@@ -513,12 +530,15 @@ This document provides the **complete implementation order** for building QuestF
 ---
 
 ### Milestone 5: Quickstart MVP (Week 22)
+
 **Deliverables:**
+
 - ✅ All 14 role prompts complete
 - ✅ Quickstart workflow working (guided mode)
 - ✅ Can generate complete manuscript from setup questions
 
 **Success Criteria:**
+
 - Quickstart runs end-to-end without errors
 - Generated manuscript is coherent and playable
 - User testing feedback positive
@@ -526,15 +546,18 @@ This document provides the **complete implementation order** for building QuestF
 ---
 
 ### Milestone 6: Public Release (Week 26)
+
 **Deliverables:**
+
 - ✅ All layers complete and tested
 - ✅ Documentation comprehensive
 - ✅ Installable via PyPI
 - ✅ Works on Windows, macOS, Linux
 
 **Success Criteria:**
-- >80% test coverage on Layer 6
-- >70% test coverage on Layer 7
+
+- > 80% test coverage on Layer 6
+- > 70% test coverage on Layer 7
 - All documentation reviewed
 - Installation tested on multiple platforms
 - No critical bugs
@@ -546,6 +569,7 @@ This document provides the **complete implementation order** for building QuestF
 ### High-Risk Areas
 
 **1. LLM Output Quality (Weeks 13-18)**
+
 - **Risk:** AI role prompts don't produce good output
 - **Mitigation:**
   - Extensive testing with real LLMs during Week 15-16
@@ -554,6 +578,7 @@ This document provides the **complete implementation order** for building QuestF
   - Add refinement loops if needed
 
 **2. Orchestration Complexity (Week 17)**
+
 - **Risk:** Coordinating multiple roles is more complex than expected
 - **Mitigation:**
   - Start with simplest loop (Hook Harvest)
@@ -562,6 +587,7 @@ This document provides the **complete implementation order** for building QuestF
   - Checkpoints allow recovery from failures
 
 **3. Cross-Platform CLI Issues (Week 26)**
+
 - **Risk:** CLI doesn't work on all platforms
 - **Mitigation:**
   - Test on Windows, macOS, Linux throughout
@@ -572,6 +598,7 @@ This document provides the **complete implementation order** for building QuestF
 ### Medium-Risk Areas
 
 **4. Provider API Changes**
+
 - **Risk:** OpenAI/Ollama/A1111 APIs change
 - **Mitigation:**
   - Pin dependency versions
@@ -579,6 +606,7 @@ This document provides the **complete implementation order** for building QuestF
   - Abstract provider interface allows swapping
 
 **5. Performance Issues**
+
 - **Risk:** Large projects are slow
 - **Mitigation:**
   - SQLite for efficient queries
@@ -595,12 +623,14 @@ This document provides the **complete implementation order** for building QuestF
 **Required human involvement:**
 
 **Weekly Reviews (2-3 hours/week):**
+
 - Review epic completions
 - Test deliverables
 - Approve before next epic
 - Course correct if needed
 
 **Critical Review Points (4-6 hours each):**
+
 - End of Phase 1 (Week 4): Review Layer 6 foundation
 - End of Phase 2 (Week 8): Test CLI basics
 - Week 15: Test first role execution with real LLM
@@ -615,15 +645,18 @@ This document provides the **complete implementation order** for building QuestF
 ### Compute Resources
 
 **Development:**
+
 - GitHub Actions CI/CD (free tier sufficient)
 - Local development machines
 
 **Testing:**
+
 - OpenAI API credits: ~$50-100 for testing
 - Ollama: Free (local)
 - A1111: Free (local) or cloud GPU
 
 **Production:**
+
 - Users provide their own API keys
 - No hosting costs for MVP
 
@@ -662,6 +695,7 @@ This document provides the **complete implementation order** for building QuestF
 ### Aggressive Timeline (16 weeks)
 
 **Changes:**
+
 - Skip some optional roles (Researcher, Translator)
 - Implement only OpenAI provider initially (add Ollama later)
 - Minimal documentation initially
@@ -674,6 +708,7 @@ This document provides the **complete implementation order** for building QuestF
 ### Conservative Timeline (40 weeks)
 
 **Changes:**
+
 - More iteration on prompts (add buffer weeks)
 - Extensive user testing between phases
 - Implement all future providers (Gemini, Bedrock, Imagen)

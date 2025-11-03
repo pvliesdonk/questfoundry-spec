@@ -59,6 +59,7 @@ This document specifies conformance requirements for implementations of the Ques
 **CRITICAL Requirements:**
 
 When `receiver.role = "PN"`, the envelope MUST satisfy ALL of:
+
 - `context.hot_cold = "cold"`
 - `context.snapshot` MUST be present
 - `safety.player_safe = true`
@@ -74,6 +75,7 @@ When `receiver.role = "PN"`, the envelope MUST satisfy ALL of:
 **Violation Handling:**
 
 Violations MUST generate an `error` intent response with:
+
 - `code`: `"business_rule_violation"`
 - `details.rule`: `"PN_SAFETY_INVARIANT"`
 - `details.reference`: `"00-north-star/PN_PRINCIPLES.md"`
@@ -93,6 +95,7 @@ Violations MUST generate an `error` intent response with:
      - **Pass 1:** Validates envelope structure against `envelope.schema.json`
      - **Pass 2:** Validates `payload.data` against the Layer 3 schema for `payload.type`
    - Examples:
+
      ```bash
      # Validate hook_card envelope and payload
      uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
@@ -142,49 +145,49 @@ Violations MUST generate an `error` intent response with:
 
 ### 3.1 Envelope Structure Tests
 
-| Test Case | Input | Expected Result |
-|---|---|---|
-| Valid envelope | All required fields present | Pass |
-| Missing protocol | No `protocol` field | Reject |
-| Invalid protocol.name | `protocol.name = "other"` | Reject |
-| Invalid protocol.version | `protocol.version = "not-semver"` | Reject |
-| Missing id | No `id` field | Reject |
-| Invalid time format | `time = "2025-10-30"` | Reject |
-| Invalid sender.role | `sender.role = "XX"` | Reject |
-| Invalid hot_cold | `context.hot_cold = "warm"` | Reject |
-| Invalid tu format | `context.tu = "TU-123"` | Reject |
-| Invalid snapshot format | `context.snapshot = "2025-10-28"` | Reject |
+| Test Case                | Input                             | Expected Result |
+| ------------------------ | --------------------------------- | --------------- |
+| Valid envelope           | All required fields present       | Pass            |
+| Missing protocol         | No `protocol` field               | Reject          |
+| Invalid protocol.name    | `protocol.name = "other"`         | Reject          |
+| Invalid protocol.version | `protocol.version = "not-semver"` | Reject          |
+| Missing id               | No `id` field                     | Reject          |
+| Invalid time format      | `time = "2025-10-30"`             | Reject          |
+| Invalid sender.role      | `sender.role = "XX"`              | Reject          |
+| Invalid hot_cold         | `context.hot_cold = "warm"`       | Reject          |
+| Invalid tu format        | `context.tu = "TU-123"`           | Reject          |
+| Invalid snapshot format  | `context.snapshot = "2025-10-28"` | Reject          |
 
 ### 3.2 PN Safety Tests
 
-| Test Case | Input | Expected Result |
-|---|---|---|
-| Valid PN message | Cold + player_safe + snapshot | Pass |
-| Hot to PN | `hot_cold="hot"`, `receiver="PN"` | Reject with error intent |
-| PN without snapshot | Cold + player_safe, no snapshot | Reject |
-| PN not player_safe | Cold + snapshot, player_safe=false | Reject |
-| PN with spoilers | Cold + snapshot + player_safe, spoilers="allowed" | Reject |
+| Test Case           | Input                                             | Expected Result          |
+| ------------------- | ------------------------------------------------- | ------------------------ |
+| Valid PN message    | Cold + player_safe + snapshot                     | Pass                     |
+| Hot to PN           | `hot_cold="hot"`, `receiver="PN"`                 | Reject with error intent |
+| PN without snapshot | Cold + player_safe, no snapshot                   | Reject                   |
+| PN not player_safe  | Cold + snapshot, player_safe=false                | Reject                   |
+| PN with spoilers    | Cold + snapshot + player_safe, spoilers="allowed" | Reject                   |
 
 ### 3.3 Payload Validation Tests
 
-| Test Case | Payload Type | Expected Result |
-|---|---|---|
-| Valid hook_card | Conforms to schema | Pass |
-| Invalid hook_card | Missing required fields | Reject with validation_error |
-| Valid tu_brief | Conforms to schema | Pass |
-| Valid gatecheck_report | Conforms to schema | Pass |
-| Valid view_log | Conforms to schema | Pass |
-| Valid pn_playtest_notes | Conforms to schema | Pass |
-| Unknown payload type | `type = "unknown"` | Reject |
+| Test Case               | Payload Type            | Expected Result              |
+| ----------------------- | ----------------------- | ---------------------------- |
+| Valid hook_card         | Conforms to schema      | Pass                         |
+| Invalid hook_card       | Missing required fields | Reject with validation_error |
+| Valid tu_brief          | Conforms to schema      | Pass                         |
+| Valid gatecheck_report  | Conforms to schema      | Pass                         |
+| Valid view_log          | Conforms to schema      | Pass                         |
+| Valid pn_playtest_notes | Conforms to schema      | Pass                         |
+| Unknown payload type    | `type = "unknown"`      | Reject                       |
 
 ### 3.4 Flow Sequence Tests
 
-| Test Case | Flow | Expected Result |
-|---|---|---|
-| Binding Run: Cold export | SR→BB: cold request | Pass |
-| Binding Run: PN handoff | BB→PN: cold + player_safe | Pass |
-| Binding Run: Hot to PN | BB→PN: hot content | Reject |
-| Narration Dry-Run: PN feedback | PN→SR: same snapshot | Pass |
+| Test Case                             | Flow                      | Expected Result         |
+| ------------------------------------- | ------------------------- | ----------------------- |
+| Binding Run: Cold export              | SR→BB: cold request       | Pass                    |
+| Binding Run: PN handoff               | BB→PN: cold + player_safe | Pass                    |
+| Binding Run: Hot to PN                | BB→PN: hot content        | Reject                  |
+| Narration Dry-Run: PN feedback        | PN→SR: same snapshot      | Pass                    |
 | Narration Dry-Run: Different snapshot | PN→SR: different snapshot | Warning (inconsistency) |
 
 ---
@@ -193,13 +196,13 @@ Violations MUST generate an `error` intent response with:
 
 ### Standard Error Codes
 
-| Code | Intent | Description | Example |
-|---|---|---|---|
-| `validation_error` | `error` | Schema validation failure | Invalid field format, missing required field |
-| `business_rule_violation` | `error` | Policy violation | Hot→PN, missing TU for Cold merge |
-| `not_authorized` | `error` | Permission denied | Sender lacks role permission for action |
-| `not_found` | `error` | Referenced entity missing | Hook ID, TU ID, snapshot not found |
-| `conflict` | `error` | State conflict | TU already merged, duplicate ID |
+| Code                      | Intent  | Description               | Example                                      |
+| ------------------------- | ------- | ------------------------- | -------------------------------------------- |
+| `validation_error`        | `error` | Schema validation failure | Invalid field format, missing required field |
+| `business_rule_violation` | `error` | Policy violation          | Hot→PN, missing TU for Cold merge            |
+| `not_authorized`          | `error` | Permission denied         | Sender lacks role permission for action      |
+| `not_found`               | `error` | Referenced entity missing | Hook ID, TU ID, snapshot not found           |
+| `conflict`                | `error` | State conflict            | TU already merged, duplicate ID              |
 
 ### Error Response Template
 
@@ -227,12 +230,14 @@ Violations MUST generate an `error` intent response with:
 ### 5.1 Schema Validation
 
 **Envelope Schema:**
+
 ```bash
 # Validate envelope structure
 jsonschema -i example.json 04-protocol/envelope.schema.json
 ```
 
 **Layer 3 Payload:**
+
 ```bash
 # Validate envelope and payload using automated two-pass validation
 uv run --directory tools qfspec-check-envelope example.json
@@ -241,15 +246,17 @@ uv run --directory tools qfspec-check-envelope example.json
 ### 5.2 PN Safety Validation
 
 **Manual Check:**
+
 ```bash
 # Check if message to PN is safe
-jq 'select(.receiver.role == "PN") | 
-    {hot_cold: .context.hot_cold, 
-     snapshot: .context.snapshot, 
+jq 'select(.receiver.role == "PN") |
+    {hot_cold: .context.hot_cold,
+     snapshot: .context.snapshot,
      player_safe: .safety.player_safe}' example.json
 ```
 
 **Expected output for valid PN message:**
+
 ```json
 {
   "hot_cold": "cold",
@@ -261,6 +268,7 @@ jq 'select(.receiver.role == "PN") |
 ### 5.3 Automated Test Suite
 
 **Run all examples with two-pass validation:**
+
 ```bash
 # Validate all example envelopes and payloads using qfspec-check-envelope
 # This performs both envelope structure validation and payload validation automatically
@@ -268,6 +276,7 @@ uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/*.json
 ```
 
 **Validate individual examples:**
+
 ```bash
 # Hook creation
 uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json

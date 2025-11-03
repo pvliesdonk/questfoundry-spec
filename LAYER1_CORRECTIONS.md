@@ -296,7 +296,6 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 0 (North Star) — 2 files
 
 1. **`00-north-star/HOOKS.md`**
-
    - Add `research` as valid hook type in §1
    - Verify hook status lifecycle includes all 7 states
 
@@ -307,28 +306,23 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 1 (Roles) — 5+ files
 
 3. **`01-roles/templates/hook_card.md`** — 3 fixes
-
    - Line 21: Update status to `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
    - Line 34: Update types to include `narrative, scene, factual, taxonomy, research` (13 total)
    - Line 36: Add `Determinism` to bars list
    - Line 71: Add `Hook Harvest | Gatecheck | Post-Mortem | Archive Snapshot` to loops
 
 4. **`01-roles/templates/tu_brief.md`** — 2 fixes
-
    - Line 26: Add `Gatecheck | Post-Mortem | Archive Snapshot` to loops
    - Verify bar lists include Determinism
 
 5. **`01-roles/templates/gatecheck_report.md`** — 1 fix
-
    - §2 Bars Table: Add Determinism row
 
 6. **`01-roles/README.md`** OR new **`01-roles/LOOP_NAMES.md`**
-
    - Document loop name formatting convention (kebab-case files, Title Case display)
    - Canonical mapping table
 
 7. **`01-roles/ROLE_INDEX.md`** OR new **`01-roles/ROLE_ABBREVIATIONS.md`**
-
    - Add canonical abbreviation list
 
 8. **All role briefs** (15 files)
@@ -337,7 +331,6 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 2 (Dictionary) — 2 files
 
 9. **`02-dictionary/taxonomies.md`** — 2 fixes
-
    - §1 Hook Types: Add `research` (13 types total)
    - §5 Quality Bar Categories: Add `Determinism` (8 bars total)
 

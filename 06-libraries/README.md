@@ -22,6 +22,7 @@ Layer 6 provides software libraries, validators, and runtime implementations for
 **Primary Implementation:** `pvliesdonk/questfoundry-lib` (Python)
 
 This directory (`06-libraries/`) in the spec repo contains:
+
 - High-level architecture documentation
 - Integration guides
 - Cross-language specifications
@@ -115,11 +116,13 @@ workspace/
 ```
 
 **Cold SoT (Curated Canon):**
+
 - Single `.qfproj` SQLite file
 - Contains: snapshots, views, canon artifacts, TU history
 - Portable, efficient, ACID compliant
 
 **Hot SoT (Work in Progress):**
+
 - File-based directory structure
 - Easy inspection/editing
 - Git-friendly (optional export)
@@ -244,6 +247,7 @@ class SessionManager:
 ```
 
 **Session Lifetime:**
+
 - Created when Showrunner wakes role
 - Maintained during loop execution
 - Archived when role goes dormant
@@ -314,6 +318,7 @@ if not result.conformant:
 ## Evolution Path
 
 ### Phase 1: Core Infrastructure (MVP)
+
 - Protocol client with file transport
 - File-based state store
 - SQLite project files
@@ -321,22 +326,26 @@ if not result.conformant:
 - Hook/TU state machines
 
 ### Phase 2: Provider Support
+
 - OpenAI text provider
 - Ollama text provider
 - Basic prompt execution
 
 ### Phase 3: Role Execution
+
 - Session management
 - Prompt loader (Layer 5 integration)
 - Agent-to-human callbacks
 - Showrunner orchestration
 
 ### Phase 4: Asset Generation
+
 - Image providers (A1111, DALL-E)
 - Audio providers (ElevenLabs)
 - Multi-modal artifact support
 
 ### Phase 5: Advanced Features
+
 - Google AI Studio / Bedrock providers
 - Imagen 4 image provider
 - Per-role provider configuration
@@ -347,26 +356,26 @@ if not result.conformant:
 
 ### Text Generation Providers
 
-| Provider | Status | Priority |
-|----------|--------|----------|
-| OpenAI GPT | Phase 2 | High |
-| Ollama (local) | Phase 2 | High |
-| Google Gemini | Phase 5 | Medium |
-| Amazon Bedrock | Phase 5 | Medium |
+| Provider       | Status  | Priority |
+| -------------- | ------- | -------- |
+| OpenAI GPT     | Phase 2 | High     |
+| Ollama (local) | Phase 2 | High     |
+| Google Gemini  | Phase 5 | Medium   |
+| Amazon Bedrock | Phase 5 | Medium   |
 
 ### Image Generation Providers
 
-| Provider | Status | Priority |
-|----------|--------|----------|
-| Automatic1111 | Phase 4 | High |
-| OpenAI DALL-E | Phase 4 | High |
-| Google Imagen 4 | Phase 5 | Medium |
+| Provider        | Status  | Priority |
+| --------------- | ------- | -------- |
+| Automatic1111   | Phase 4 | High     |
+| OpenAI DALL-E   | Phase 4 | High     |
+| Google Imagen 4 | Phase 5 | Medium   |
 
 ### Audio Generation Providers
 
-| Provider | Status | Priority |
-|----------|--------|----------|
-| ElevenLabs | Phase 4 | Medium |
+| Provider   | Status  | Priority |
+| ---------- | ------- | -------- |
+| ElevenLabs | Phase 4 | Medium   |
 
 ## Testing Strategy
 
@@ -405,6 +414,7 @@ all = ["questfoundry[openai,ollama,google,bedrock]"]
 ## Distribution
 
 **PyPI Package:**
+
 ```bash
 pip install questfoundry
 
@@ -414,6 +424,7 @@ pip install questfoundry[all]
 ```
 
 **Bundled Resources:**
+
 - Layer 3 schemas (from spec repo)
 - Layer 5 prompts (from spec repo)
 - Default configuration templates
@@ -427,6 +438,7 @@ pip install questfoundry[all]
 ## Integration with Layer 7
 
 Layer 7 (questfoundry-cli) will:
+
 - Import `questfoundry` library
 - Use protocol client for operations
 - Provide UX wrapper around library functions

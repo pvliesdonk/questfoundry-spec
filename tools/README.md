@@ -2,7 +2,9 @@
 
 Validation and maintenance tools for the **QuestFoundry specification itself**.
 
-> **Note:** These are spec maintenance tools for developers working on the QuestFoundry specification. If you're looking for tools to *implement* games/books using the spec, see Layer 6 (`qf` CLI).
+> **Note:** These are spec maintenance tools for developers working on the QuestFoundry
+> specification. If you're looking for tools to _implement_ games/books using the spec, see Layer 6
+> (`qf` CLI).
 
 ## Overview
 
@@ -39,6 +41,7 @@ uv sync
 ```
 
 This installs:
+
 - `jsonschema` - Python library for JSON Schema validation (includes Draft 2020-12 meta-schemas)
 - `pre-commit` - Git hook framework (optional)
 
@@ -73,6 +76,7 @@ uv run qfspec-validate
 ```
 
 **Example output:**
+
 ```
 === QuestFoundry Spec: Schema Validator ===
 Repository: /path/to/questfoundry
@@ -91,6 +95,7 @@ All schemas are valid JSON Schema Draft 2020-12!
 ```
 
 **When to use:**
+
 - After modifying any schema in `03-schemas/` or `04-protocol/`
 - Before committing schema changes
 - In CI/CD pipelines
@@ -112,6 +117,7 @@ uv run --directory tools qfspec-check-instance view_log logs/*.json
 ```
 
 **Example output:**
+
 ```
 === QuestFoundry Spec: Instance Validator ===
 Repository: /path/to/questfoundry
@@ -128,6 +134,7 @@ Failed: 1
 ```
 
 **Available schemas:**
+
 - `art_plan`
 - `audio_plan`
 - `canon_pack`
@@ -147,6 +154,7 @@ Failed: 1
 - `view_log`
 
 **When to use:**
+
 - When creating artifact instances for books/games
 - After generating artifacts from Layer 2 templates
 - In quality assurance workflows
@@ -154,9 +162,11 @@ Failed: 1
 
 ## Pre-commit Hook
 
-The repository includes a pre-commit hook that automatically validates schemas before commits. The hook is configured in the root `.pre-commit-config.yaml`.
+The repository includes a pre-commit hook that automatically validates schemas before commits. The
+hook is configured in the root `.pre-commit-config.yaml`.
 
 **Setup:**
+
 ```bash
 # From repository root
 pip install pre-commit
@@ -164,6 +174,7 @@ pre-commit install
 ```
 
 **Manual run:**
+
 ```bash
 # Run on all files
 pre-commit run --all-files
@@ -172,7 +183,8 @@ pre-commit run --all-files
 pre-commit run --files 03-schemas/hook_card.schema.json
 ```
 
-The hook automatically validates any schema files in `03-schemas/` that are staged for commit, blocking the commit if validation fails.
+The hook automatically validates any schema files in `03-schemas/` that are staged for commit,
+blocking the commit if validation fails.
 
 ## CI/CD Integration
 
@@ -183,7 +195,7 @@ Add validation to your CI pipeline:
 - name: Set up Python
   uses: actions/setup-python@v4
   with:
-    python-version: '3.11'
+    python-version: "3.11"
 
 - name: Install uv
   run: pip install uv
@@ -199,11 +211,13 @@ Add validation to your CI pipeline:
 Validates all QuestFoundry schemas against JSON Schema Draft 2020-12.
 
 **Usage:**
+
 ```bash
 uv run qfspec-validate
 ```
 
 **Features:**
+
 - Validates all `*.schema.json` files in `03-schemas/`
 - Uses bundled meta-schema (no network required)
 - Color-coded output (✓ for pass, ✗ for fail)
@@ -217,11 +231,13 @@ uv run qfspec-validate
 Validates artifact instance files against a QuestFoundry schema.
 
 **Usage:**
+
 ```bash
 uv run qfspec-check-instance <schema-name> <instance-file> [instance-file2 ...]
 ```
 
 **Features:**
+
 - Validates multiple instances in one run
 - Uses bundled meta-schema (no network required)
 - Detailed error messages with error paths
@@ -229,10 +245,12 @@ uv run qfspec-check-instance <schema-name> <instance-file> [instance-file2 ...]
 - Exit code 0 on success, 1 on failure
 
 **Arguments:**
+
 - `schema-name` - Schema to validate against (e.g., `hook_card`, `view_log`)
 - `instance-file` - One or more instance files to validate
 
 **Examples:**
+
 ```bash
 # Single file
 uv run qfspec-check-instance hook_card my-hook.json
@@ -249,13 +267,15 @@ uv run qfspec-check-instance view_log logs/*.json
 **NEW in Layer 4:** Validates Layer 4 envelope files using a **two-pass validation approach**.
 
 **Usage:**
+
 ```bash
 uv run qfspec-check-envelope <envelope-file> [envelope-file2 ...]
 ```
 
 **Two-Pass Validation:**
 
-This command implements the two-pass validation approach described in `04-protocol/ENVELOPE.md` Section 3.1.1:
+This command implements the two-pass validation approach described in `04-protocol/ENVELOPE.md`
+Section 3.1.1:
 
 1. **Pass 1: Envelope Structure Validation**
    - Validates entire envelope against `04-protocol/envelope.schema.json` (Layer 4)
@@ -272,6 +292,7 @@ This command implements the two-pass validation approach described in `04-protoc
    - Skipped if `payload.type = "none"` (for acks/errors)
 
 **Features:**
+
 - Two independent validation passes for clear error reporting
 - Proper layer separation (Layer 4 → Layer 2, not Layer 4 → Layer 3)
 - No deprecated RefResolver usage (future-proof)
@@ -280,9 +301,11 @@ This command implements the two-pass validation approach described in `04-protoc
 - Exit code 0 on success, 1 on failure
 
 **Arguments:**
+
 - `envelope-file` - One or more envelope JSON files to validate
 
 **Examples:**
+
 ```bash
 # Single envelope
 uv run qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.json
@@ -297,10 +320,13 @@ uv run qfspec-check-envelope 04-protocol/EXAMPLES/*.json
 **What it validates:**
 
 **Pass 1 - Envelope Structure (Layer 4):**
+
 - Required fields: protocol, id, time, sender, receiver, intent, context, safety, payload
 - Field formats: RFC3339 timestamps, UUID/URN ids, TU/snapshot patterns
-- Role names: Must match Layer 2 taxonomy (15 valid roles: SR, GK, PW, SS, ST, LW, CC, AD, IL, AuD, AuP, TR, BB, PN, RS)
-- Loop names: Must match Layer 2 taxonomy (13 valid loops from Discovery/Refinement/Asset/Export categories)
+- Role names: Must match Layer 2 taxonomy (15 valid roles: SR, GK, PW, SS, ST, LW, CC, AD, IL, AuD,
+  AuP, TR, BB, PN, RS)
+- Loop names: Must match Layer 2 taxonomy (13 valid loops from Discovery/Refinement/Asset/Export
+  categories)
 - Enum constraints: hot_cold (hot/cold), player_safe (true/false), spoilers (allowed/forbidden)
 - PN Safety Invariant: When `receiver.role = "PN"`, enforces:
   - `context.hot_cold = "cold"` AND
@@ -308,12 +334,14 @@ uv run qfspec-check-envelope 04-protocol/EXAMPLES/*.json
   - `safety.spoilers = "forbidden"`
 
 **Pass 2 - Payload Data (Layer 3):**
+
 - Skipped if `payload.type = "none"` (acks/errors)
 - Otherwise validates `payload.data` against `03-schemas/{payload.type}.schema.json`
 - All Layer 3 schema constraints apply (required fields, patterns, nested structures, etc.)
 - Example: For `payload.type = "hook_card"`, validates against `hook_card.schema.json`
 
 **Example output (all passing):**
+
 ```
 === QuestFoundry Spec: Envelope Validator ===
 Repository: /path/to/questfoundry
@@ -329,6 +357,7 @@ All envelopes are valid!
 ```
 
 **Example output (with errors):**
+
 ```
 === QuestFoundry Spec: Envelope Validator ===
 Repository: /path/to/questfoundry
@@ -348,10 +377,12 @@ Failed: 2
 ```
 
 **Note:** Error messages clearly indicate which validation pass failed:
+
 - `(Pass 1)` = Envelope structure validation failed
 - `(Pass 2, type: <payload_type>)` = Payload data validation failed
 
 **When to use:**
+
 - After creating or modifying envelope examples in `04-protocol/EXAMPLES/`
 - Before committing envelope changes
 - In CI/CD to validate protocol message conformance
@@ -378,6 +409,7 @@ The validator provides detailed error messages. Common issues:
 - **Invalid JSON:** Check for syntax errors (trailing commas, unquoted keys)
 
 **Example error:**
+
 ```
 ✗ hook_card.schema.json
   Schema validation error: 'properties' is a required property
@@ -394,6 +426,7 @@ The validator shows the error path and message. Common issues:
 - **Conditional failures:** `if/then/else` validation requirements not met
 
 **Example error:**
+
 ```
 ✗ my-hook.json
   Validation error at 'status': 'draft' is not one of ['proposed', 'accepted', 'in-progress', ...]
@@ -401,7 +434,8 @@ The validator shows the error path and message. Common issues:
 
 ### Can't find repository root
 
-The tools automatically search for the repository root by looking for `03-schemas/` directory. If running from an unexpected location:
+The tools automatically search for the repository root by looking for `03-schemas/` directory. If
+running from an unexpected location:
 
 ```bash
 # Always run from repository root

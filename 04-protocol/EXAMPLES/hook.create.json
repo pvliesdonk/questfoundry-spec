@@ -57,8 +57,6 @@
       }
     }
   },
-  "refs": [
-    "TU-2025-10-30-SR01"
-  ],
+  "refs": ["TU-2025-10-30-SR01"],
   "correlation_id": "corr-hook-harvest-2025-10-30"
 }

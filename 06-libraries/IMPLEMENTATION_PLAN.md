@@ -22,7 +22,9 @@ This plan breaks Layer 6 implementation into sequential epics and features. Each
 ### Features
 
 #### 1.1: Repository Setup
+
 **Files to create:**
+
 ```
 questfoundry-lib/
   .gitignore
@@ -37,6 +39,7 @@ questfoundry-lib/
 ```
 
 **Tasks:**
+
 - Initialize Python project with UV
 - Configure `pyproject.toml`:
   - Package name: `questfoundry`
@@ -47,6 +50,7 @@ questfoundry-lib/
 - Create comprehensive `.gitignore` for Python
 
 **Acceptance Criteria:**
+
 - `uv sync` works
 - CI/CD pipeline runs successfully
 - README has basic project description
@@ -54,7 +58,9 @@ questfoundry-lib/
 ---
 
 #### 1.2: Package Structure
+
 **Files to create:**
+
 ```
 src/questfoundry/
   __init__.py
@@ -63,18 +69,22 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Create src-layout package structure
 - Add type hints marker for mypy
 - Export version info
 
 **Acceptance Criteria:**
+
 - `import questfoundry` works
 - Package version accessible: `questfoundry.__version__`
 
 ---
 
 #### 1.3: Development Tools
+
 **Files to create:**
+
 ```
 .pre-commit-config.yaml
 .ruff.toml              # or pyproject.toml section
@@ -82,12 +92,14 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Set up Ruff for linting and formatting
 - Configure mypy for strict type checking
 - Set up pre-commit hooks
 - Add pytest configuration in `pyproject.toml`
 
 **Acceptance Criteria:**
+
 - `ruff check` passes
 - `mypy src/` passes
 - `pytest` runs (even with no tests)
@@ -105,7 +117,9 @@ src/questfoundry/
 ### Features
 
 #### 2.1: Schema Bundling
+
 **Files to create:**
+
 ```
 src/questfoundry/
   resources/
@@ -119,18 +133,22 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Copy all 17 JSON schemas from `questfoundry/03-schemas/` into resources
 - Create `loader.py` with `get_schema(artifact_type: str) -> dict` function
 - Use `importlib.resources` for cross-platform resource loading
 
 **Acceptance Criteria:**
+
 - All 17 schemas accessible via `get_schema()`
 - Schemas validate as proper JSON Schema Draft 2020-12
 
 ---
 
 #### 2.2: Schema Validation
+
 **Files to create:**
+
 ```
 src/questfoundry/
   validation/
@@ -143,6 +161,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `validate_artifact(artifact_type, data) -> ValidationResult`
 - Use `jsonschema` library for validation
 - Create `ValidationResult` dataclass with:
@@ -152,11 +171,13 @@ tests/
 - Add comprehensive error messages
 
 **Acceptance Criteria:**
+
 - Valid artifacts pass validation
 - Invalid artifacts return detailed error messages
 - All 17 artifact types supported
 
 **Test Cases:**
+
 - Valid hook_card validates successfully
 - Invalid hook_card (missing required field) fails with clear error
 - Invalid enum value fails with suggestion
@@ -164,7 +185,9 @@ tests/
 ---
 
 #### 2.3: Protocol Envelope
+
 **Files to create:**
+
 ```
 src/questfoundry/
   protocol/
@@ -179,6 +202,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Create Pydantic models for Layer 4 protocol:
   - `Protocol` (name, version)
   - `Sender`, `Receiver` (role, agent)
@@ -190,11 +214,13 @@ tests/
 - Add serialization (to/from JSON)
 
 **Acceptance Criteria:**
+
 - Can construct valid envelopes programmatically
 - Can parse envelope JSON from Layer 4 examples
 - Pydantic validation catches malformed envelopes
 
 **Test Cases:**
+
 - Build and serialize envelope
 - Parse all 13 example envelopes from `04-protocol/EXAMPLES/`
 - Invalid envelope raises validation error
@@ -202,7 +228,9 @@ tests/
 ---
 
 #### 2.4: Protocol Conformance
+
 **Files to create:**
+
 ```
 src/questfoundry/
   validation/
@@ -213,6 +241,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `validate_envelope(envelope) -> ConformanceResult`
 - Check Layer 4 conformance rules:
   - Protocol version compatibility
@@ -223,11 +252,13 @@ tests/
 - Reference Layer 4 `CONFORMANCE.md`
 
 **Acceptance Criteria:**
+
 - Valid envelopes pass conformance
 - Violations clearly reported
 - PN safety rules enforced
 
 **Test Cases:**
+
 - Valid envelope passes
 - Envelope with invalid intent fails
 - Envelope to PN with spoilers fails safety check
@@ -245,7 +276,9 @@ tests/
 ### Features
 
 #### 3.1: State Store Interface
+
 **Files to create:**
+
 ```
 src/questfoundry/
   state/
@@ -255,6 +288,7 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Define abstract `StateStore` interface:
   - `get_project_info() -> ProjectInfo`
   - `save_artifact(artifact: Artifact)`
@@ -266,6 +300,7 @@ src/questfoundry/
 - Create Pydantic models for state types
 
 **Acceptance Criteria:**
+
 - Clear abstract interface defined
 - Type hints for all methods
 - Docstrings with examples
@@ -273,7 +308,9 @@ src/questfoundry/
 ---
 
 #### 3.2: SQLite Project File
+
 **Files to create:**
+
 ```
 src/questfoundry/
   state/
@@ -285,6 +322,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `SQLiteStore(StateStore)` for `.qfproj` files
 - Create database schema:
   - `project` table (metadata)
@@ -298,12 +336,14 @@ tests/
 - Add migrations system (simple version numbering)
 
 **Acceptance Criteria:**
+
 - Can create new `.qfproj` file
 - Can save and retrieve artifacts
 - Can query artifacts by type, status, etc.
 - ACID transactions work
 
 **Test Cases:**
+
 - Create project, save artifact, retrieve it
 - List all hooks with status='proposed'
 - Transaction rollback on error
@@ -311,7 +351,9 @@ tests/
 ---
 
 #### 3.3: File-Based Hot Workspace
+
 **Files to create:**
+
 ```
 src/questfoundry/
   state/
@@ -322,6 +364,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `FileStore(StateStore)` for hot workspace
 - Directory structure:
   ```
@@ -337,12 +380,14 @@ tests/
 - Atomic writes (write to temp, rename)
 
 **Acceptance Criteria:**
+
 - Can save artifacts as JSON files
 - Can load artifacts from files
 - Atomic writes prevent corruption
 - Directory structure auto-created
 
 **Test Cases:**
+
 - Save and load artifact
 - List all artifacts in hot workspace
 - Concurrent writes don't corrupt
@@ -350,7 +395,9 @@ tests/
 ---
 
 #### 3.4: Workspace Manager
+
 **Files to create:**
+
 ```
 src/questfoundry/
   state/
@@ -361,6 +408,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Create `Workspace` class that manages:
   - `.qfproj` file (cold SoT via SQLiteStore)
   - `.questfoundry/` directory (hot SoT via FileStore)
@@ -372,11 +420,13 @@ tests/
 - Handle workspace initialization
 
 **Acceptance Criteria:**
+
 - Can init new workspace with both stores
 - Can access hot and cold artifacts
 - Can promote artifacts from hot to cold
 
 **Test Cases:**
+
 - Initialize workspace
 - Save to hot, promote to cold
 - Query both hot and cold
@@ -394,7 +444,9 @@ tests/
 ### Features
 
 #### 4.1: Base Artifact Class
+
 **Files to create:**
+
 ```
 src/questfoundry/
   artifacts/
@@ -406,6 +458,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Create `Artifact` base class:
   - Common fields: id, type, created, modified, author
   - Methods: `validate()`, `to_dict()`, `from_dict()`
@@ -413,6 +466,7 @@ tests/
 - Use Pydantic for data modeling
 
 **Acceptance Criteria:**
+
 - Base class provides common functionality
 - Validation delegates to schema validator
 - Serialization works
@@ -420,7 +474,9 @@ tests/
 ---
 
 #### 4.2: Core Artifact Types
+
 **Files to create:**
+
 ```
 src/questfoundry/
   artifacts/
@@ -435,6 +491,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement typed wrappers for core artifacts:
   - `HookCard` (with lifecycle methods)
   - `TUBrief`
@@ -446,11 +503,13 @@ tests/
   - Lifecycle-specific methods if applicable
 
 **Acceptance Criteria:**
+
 - Type-safe artifact creation
 - IDE autocomplete works
 - Validation enforced
 
 **Test Cases:**
+
 - Create valid HookCard
 - Invalid HookCard raises ValidationError
 - Serialize and deserialize
@@ -458,7 +517,9 @@ tests/
 ---
 
 #### 4.3: Remaining Artifact Types
+
 **Files to create:**
+
 ```
 src/questfoundry/
   artifacts/
@@ -472,17 +533,21 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Implement remaining 13 artifact types
 - Follow same pattern as core artifacts
 
 **Acceptance Criteria:**
+
 - All 17 artifact types implemented
 - Consistent API across types
 
 ---
 
 #### 4.4: Hook Lifecycle State Machine
+
 **Files to create:**
+
 ```
 src/questfoundry/
   lifecycles/
@@ -495,6 +560,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement Hook state machine from Layer 4:
   - States: proposed → accepted → in-progress → resolved → canonized
   - Transitions with validation
@@ -502,11 +568,13 @@ tests/
 - Reference `04-protocol/LIFECYCLES/hooks.md`
 
 **Acceptance Criteria:**
+
 - Valid transitions succeed
 - Invalid transitions raise StateTransitionError
 - History tracked
 
 **Test Cases:**
+
 - Full lifecycle: proposed → canonized
 - Invalid transition raises error
 - State history queryable
@@ -514,7 +582,9 @@ tests/
 ---
 
 #### 4.5: TU Lifecycle State Machine
+
 **Files to create:**
+
 ```
 src/questfoundry/
   lifecycles/
@@ -525,12 +595,14 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement TU state machine:
   - States: hot-proposed → stabilizing → gatecheck → cold-merged
   - Transitions with validation
 - Reference `04-protocol/LIFECYCLES/tu.md`
 
 **Acceptance Criteria:**
+
 - Valid transitions work
 - Gatecheck required before cold-merged
 - History tracked
@@ -548,7 +620,9 @@ tests/
 ### Features
 
 #### 5.1: File-Based Transport
+
 **Files to create:**
+
 ```
 src/questfoundry/
   protocol/
@@ -560,6 +634,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Define `Transport` abstract interface:
   - `send(envelope: Envelope)`
   - `receive() -> Iterator[Envelope]`
@@ -570,11 +645,13 @@ tests/
   - Message acknowledgment (move to processed/)
 
 **Acceptance Criteria:**
+
 - Can send envelope to file
 - Can receive envelopes from directory
 - No lost messages
 
 **Test Cases:**
+
 - Send and receive message
 - Multiple messages in order
 - Concurrent access safe
@@ -582,7 +659,9 @@ tests/
 ---
 
 #### 5.2: Protocol Client
+
 **Files to create:**
+
 ```
 src/questfoundry/
   protocol/
@@ -593,6 +672,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `ProtocolClient`:
   - Constructor: `ProtocolClient(workspace, transport)`
   - `send(envelope) -> None`
@@ -603,11 +683,13 @@ tests/
 - Auto-validation on send/receive
 
 **Acceptance Criteria:**
+
 - Can send messages via client
 - Validation happens automatically
 - Can wait for response
 
 **Test Cases:**
+
 - Send message
 - Send and wait for response
 - Subscribe to intent pattern
@@ -625,7 +707,9 @@ tests/
 ### Features
 
 #### 6.1: Provider Interface
+
 **Files to create:**
+
 ```
 src/questfoundry/
   providers/
@@ -636,6 +720,7 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Define `TextProvider` abstract interface:
   - `generate_text(prompt, model, **kwargs) -> str`
   - `generate_streaming(prompt, model, **kwargs) -> Iterator[str]`
@@ -644,13 +729,16 @@ src/questfoundry/
 - Create provider registry for plugin discovery
 
 **Acceptance Criteria:**
+
 - Clear interfaces defined
 - Registry can register/lookup providers
 
 ---
 
 #### 6.2: Configuration System
+
 **Files to create:**
+
 ```
 src/questfoundry/
   config/
@@ -663,6 +751,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement configuration loading:
   - Read from `.questfoundry/config.yml`
   - Environment variable substitution (`${OPENAI_API_KEY}`)
@@ -674,11 +763,13 @@ tests/
   - Role overrides (future)
 
 **Acceptance Criteria:**
+
 - Can load config from YAML
 - Environment variables substituted
 - Invalid config raises error
 
 **Test Cases:**
+
 - Load valid config
 - Environment variable substitution
 - Missing required field raises error
@@ -686,7 +777,9 @@ tests/
 ---
 
 #### 6.3: OpenAI Provider
+
 **Files to create:**
+
 ```
 src/questfoundry/
   providers/
@@ -700,6 +793,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `OpenAIProvider(TextProvider)`:
   - Use `openai` library (optional dependency)
   - Support GPT-4, GPT-4o, etc.
@@ -709,11 +803,13 @@ tests/
 - Register in provider registry
 
 **Acceptance Criteria:**
+
 - Can generate text with OpenAI
 - Errors handled gracefully
 - Streaming works
 
 **Test Cases:**
+
 - Generate text (mocked API)
 - Handle API error
 - Streaming response
@@ -721,7 +817,9 @@ tests/
 ---
 
 #### 6.4: Ollama Provider
+
 **Files to create:**
+
 ```
 src/questfoundry/
   providers/
@@ -734,6 +832,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `OllamaProvider(TextProvider)`:
   - Use Ollama REST API
   - Support llama3, mistral, etc.
@@ -741,6 +840,7 @@ tests/
   - Streaming support
 
 **Acceptance Criteria:**
+
 - Can generate text with Ollama
 - Works with local models
 - Streaming works
@@ -748,7 +848,9 @@ tests/
 ---
 
 #### 6.5: Automatic1111 Provider
+
 **Files to create:**
+
 ```
 src/questfoundry/
   providers/
@@ -762,6 +864,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `A1111Provider(ImageProvider)`:
   - Use A1111 REST API
   - Support txt2img endpoint
@@ -769,6 +872,7 @@ tests/
   - Save images with metadata
 
 **Acceptance Criteria:**
+
 - Can generate images via A1111
 - Parameters configurable
 - Returns image bytes
@@ -776,7 +880,9 @@ tests/
 ---
 
 #### 6.6: DALL-E Provider
+
 **Files to create:**
+
 ```
 src/questfoundry/
   providers/
@@ -789,12 +895,14 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `DALLEProvider(ImageProvider)`:
   - Use OpenAI images API
   - Support DALL-E 3
   - Handle size, quality parameters
 
 **Acceptance Criteria:**
+
 - Can generate images with DALL-E
 - Parameters configurable
 
@@ -811,7 +919,9 @@ tests/
 ### Features
 
 #### 7.1: Prompt Bundling
+
 **Files to create:**
+
 ```
 src/questfoundry/
   resources/
@@ -825,18 +935,22 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Copy Layer 5 prompts into resources (when available)
 - Create `load_prompt(role_name, component) -> str` function
 - Support prompt templating (Jinja2 or similar)
 
 **Acceptance Criteria:**
+
 - Prompts loadable from package
 - Template variables can be substituted
 
 ---
 
 #### 7.2: Role Session
+
 **Files to create:**
+
 ```
 src/questfoundry/
   roles/
@@ -848,6 +962,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `RoleSession`:
   - Maintains conversation history
   - Tracks TU context
@@ -857,11 +972,13 @@ tests/
 - Session archival
 
 **Acceptance Criteria:**
+
 - Can create session for role
 - Conversation history maintained
 - Sessions can be archived
 
 **Test Cases:**
+
 - Create session, send messages
 - Ask human callback
 - Archive session
@@ -869,7 +986,9 @@ tests/
 ---
 
 #### 7.3: Prompt Executor
+
 **Files to create:**
+
 ```
 src/questfoundry/
   roles/
@@ -880,6 +999,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `PromptExecutor`:
   - Load prompt for role
   - Substitute template variables
@@ -889,6 +1009,7 @@ tests/
   - Validate output artifacts
 
 **Acceptance Criteria:**
+
 - Can execute prompt with LLM
 - Response parsed correctly
 - Artifacts validated
@@ -896,7 +1017,9 @@ tests/
 ---
 
 #### 7.4: Session Manager
+
 **Files to create:**
+
 ```
 src/questfoundry/
   roles/
@@ -907,6 +1030,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `SessionManager`:
   - `wake_role(role, tu) -> RoleSession`
   - `dormant_role(role)`
@@ -915,6 +1039,7 @@ tests/
   - Handle human question routing
 
 **Acceptance Criteria:**
+
 - Can wake/dormant roles
 - Track active sessions
 - Human questions routed correctly
@@ -932,7 +1057,9 @@ tests/
 ### Features
 
 #### 8.1: Loop Definitions
+
 **Files to create:**
+
 ```
 src/questfoundry/
   orchestration/
@@ -942,6 +1069,7 @@ src/questfoundry/
 ```
 
 **Tasks:**
+
 - Define loop structures from Layer 0:
   - 11 targeted loops
   - Roles involved in each
@@ -949,13 +1077,16 @@ src/questfoundry/
 - Reference Layer 4 FLOWS
 
 **Acceptance Criteria:**
+
 - All 11 loops defined
 - Role participation clear
 
 ---
 
 #### 8.2: Checkpoint System
+
 **Files to create:**
+
 ```
 src/questfoundry/
   orchestration/
@@ -966,6 +1097,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement checkpoint management:
   - Create checkpoint after each loop
   - Checkpoint contains: loop name, TU, artifacts created, summary
@@ -973,6 +1105,7 @@ tests/
   - Support checkpoint review
 
 **Acceptance Criteria:**
+
 - Checkpoints created automatically
 - Can review checkpoint data
 - Can resume from checkpoint
@@ -980,7 +1113,9 @@ tests/
 ---
 
 #### 8.3: Showrunner Core
+
 **Files to create:**
+
 ```
 src/questfoundry/
   orchestration/
@@ -991,6 +1126,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `Showrunner`:
   - `run_loop(loop_name, interactive) -> LoopResult`
   - Wake required roles
@@ -1001,11 +1137,13 @@ tests/
   - Dormant roles when done
 
 **Acceptance Criteria:**
+
 - Can run simple loop end-to-end
 - Roles woken and dormented correctly
 - Checkpoints created
 
 **Test Cases:**
+
 - Run Hook Harvest loop (mocked LLM)
 - Error handling
 - Checkpoint creation
@@ -1013,7 +1151,9 @@ tests/
 ---
 
 #### 8.4: Quickstart Orchestration
+
 **Files to create:**
+
 ```
 src/questfoundry/
   orchestration/
@@ -1024,6 +1164,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement quickstart workflow:
   - Setup questions
   - Loop sequence (Hook Harvest → Lore Deepening → Story Spark → ...)
@@ -1031,6 +1172,7 @@ tests/
   - Inline questions (interactive mode)
 
 **Acceptance Criteria:**
+
 - Can run quickstart with checkpoints
 - Setup questions collected
 - Loops execute in sequence
@@ -1048,7 +1190,9 @@ tests/
 ### Features
 
 #### 9.1: PN Guard
+
 **Files to create:**
+
 ```
 src/questfoundry/
   safety/
@@ -1060,6 +1204,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement PN boundary enforcement:
   - Filter envelopes to PN (only cold + player_safe)
   - Strip spoilers from artifacts
@@ -1067,11 +1212,13 @@ tests/
   - Prevent codewords/mechanics in player surfaces
 
 **Acceptance Criteria:**
+
 - PN only receives safe content
 - Spoilers stripped
 - Violations caught
 
 **Test Cases:**
+
 - Hot artifact blocked from PN
 - Spoiler field stripped
 - Cold player-safe artifact allowed
@@ -1079,7 +1226,9 @@ tests/
 ---
 
 #### 9.2: Quality Bar Validators
+
 **Files to create:**
+
 ```
 src/questfoundry/
   validation/
@@ -1101,12 +1250,14 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement 8 quality bar validators:
   - Each returns pass/fail + violations
   - Reference Layer 0 QUALITY_BARS.md
 - Integrate with Gatekeeper role
 
 **Acceptance Criteria:**
+
 - All 8 bars implemented
 - Clear violation messages
 - Can run individually or all together
@@ -1114,7 +1265,9 @@ tests/
 ---
 
 #### 9.3: Gatekeeper Integration
+
 **Files to create:**
+
 ```
 src/questfoundry/
   validation/
@@ -1125,6 +1278,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement `Gatekeeper` class:
   - Run all quality bars
   - Generate gatecheck report artifact
@@ -1132,6 +1286,7 @@ tests/
   - Integrate with Showrunner
 
 **Acceptance Criteria:**
+
 - Can run full gatecheck
 - Report generated
 - Failures block promotion
@@ -1149,7 +1304,9 @@ tests/
 ### Features
 
 #### 10.1: View Generation
+
 **Files to create:**
+
 ```
 src/questfoundry/
   export/
@@ -1161,6 +1318,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement view generation:
   - Extract cold artifacts from snapshot
   - Filter by player-safe flag
@@ -1168,6 +1326,7 @@ tests/
   - Store in .qfproj
 
 **Acceptance Criteria:**
+
 - Can generate view from snapshot
 - Only player-safe content included
 - View stored in project
@@ -1175,7 +1334,9 @@ tests/
 ---
 
 #### 10.2: Git Export
+
 **Files to create:**
+
 ```
 src/questfoundry/
   export/
@@ -1186,6 +1347,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement git-friendly export:
   - Export cold snapshot as YAML files
   - Human-readable directory structure
@@ -1193,6 +1355,7 @@ tests/
   - Can be diffed in git
 
 **Acceptance Criteria:**
+
 - Exports as YAML files
 - Directory structure logical
 - Can be committed to git
@@ -1200,7 +1363,9 @@ tests/
 ---
 
 #### 10.3: Book Binder
+
 **Files to create:**
+
 ```
 src/questfoundry/
   export/
@@ -1211,6 +1376,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Implement Book Binder role logic:
   - Render view to various formats
   - HTML export
@@ -1218,6 +1384,7 @@ tests/
   - PDF export (future)
 
 **Acceptance Criteria:**
+
 - Can render view to HTML
 - Can render view to Markdown
 
@@ -1234,7 +1401,9 @@ tests/
 ### Features
 
 #### 11.1: API Documentation
+
 **Files to create:**
+
 ```
 docs/
   index.md
@@ -1251,12 +1420,14 @@ docs/
 ```
 
 **Tasks:**
+
 - Write comprehensive API docs
 - Add docstrings to all public APIs
 - Create usage examples
 - Set up Sphinx or MkDocs
 
 **Acceptance Criteria:**
+
 - All public APIs documented
 - Examples work
 - Docs build successfully
@@ -1264,7 +1435,9 @@ docs/
 ---
 
 #### 11.2: Integration Examples
+
 **Files to create:**
+
 ```
 examples/
   01_create_project.py
@@ -1275,30 +1448,36 @@ examples/
 ```
 
 **Tasks:**
+
 - Create runnable examples
 - Cover common use cases
 - Include inline comments
 
 **Acceptance Criteria:**
+
 - All examples run successfully
 - Cover key functionality
 
 ---
 
 #### 11.3: Package Distribution
+
 **Files to create:**
+
 ```
 MANIFEST.in
 CHANGELOG.md
 ```
 
 **Tasks:**
+
 - Configure package for PyPI
 - Include bundled resources (schemas, prompts)
 - Test installation in clean environment
 - Create GitHub release
 
 **Acceptance Criteria:**
+
 - Package installable via `pip install questfoundry`
 - All resources bundled
 - Wheels built for multiple platforms
@@ -1308,12 +1487,15 @@ CHANGELOG.md
 ## Testing Strategy
 
 ### Unit Tests
+
 - Each module has corresponding test file
 - Aim for >80% code coverage
 - Use pytest fixtures for common setups
 
 ### Integration Tests
+
 **Files to create:**
+
 ```
 tests/
   integration/
@@ -1323,12 +1505,15 @@ tests/
 ```
 
 **Tasks:**
+
 - Test complete workflows
 - Use mock LLM providers
 - Test error paths
 
 ### Performance Tests
+
 **Files to create:**
+
 ```
 tests/
   performance/
@@ -1336,6 +1521,7 @@ tests/
 ```
 
 **Tasks:**
+
 - Test with large numbers of artifacts
 - SQLite query performance
 - File I/O performance
@@ -1345,27 +1531,19 @@ tests/
 ## Implementation Order Summary
 
 **Phase 1: Foundation**
+
 1. Epic 1: Project Foundation
 2. Epic 2: Layer 3/4 Integration
 
-**Phase 2: Core Infrastructure**
-3. Epic 3: State Management
-4. Epic 4: Artifact Types & Lifecycles
-5. Epic 5: Protocol Client
+**Phase 2: Core Infrastructure** 3. Epic 3: State Management 4. Epic 4: Artifact Types & Lifecycles 5. Epic 5: Protocol Client
 
-**Phase 3: Providers**
-6. Epic 6: Provider System
+**Phase 3: Providers** 6. Epic 6: Provider System
 
-**Phase 4: Intelligence**
-7. Epic 7: Role Execution
-8. Epic 8: Orchestration
+**Phase 4: Intelligence** 7. Epic 7: Role Execution 8. Epic 8: Orchestration
 
-**Phase 5: Quality & Export**
-9. Epic 9: Safety & Quality
-10. Epic 10: Export & Views
+**Phase 5: Quality & Export** 9. Epic 9: Safety & Quality 10. Epic 10: Export & Views
 
-**Phase 6: Polish**
-11. Epic 11: Documentation & Polish
+**Phase 6: Polish** 11. Epic 11: Documentation & Polish
 
 ---
 
@@ -1374,12 +1552,14 @@ tests/
 ### For GitHub Copilot
 
 **Context to provide:**
+
 - "Implementing Layer 6 of QuestFoundry system"
 - "Reference specification files in questfoundry repo"
 - "Follow Pydantic models, type hints, and pytest patterns"
 - "Maintain compatibility with Layer 3 schemas and Layer 4 protocol"
 
 **Best practices:**
+
 - Always add type hints
 - Write docstrings for public APIs
 - Create corresponding test files
@@ -1387,6 +1567,7 @@ tests/
 - Handle errors gracefully
 
 **When stuck:**
+
 - Reference Layer 3 schemas in `03-schemas/`
 - Reference Layer 4 protocol in `04-protocol/`
 - Check existing test patterns
@@ -1394,6 +1575,7 @@ tests/
 ### Checkpoints
 
 After each epic:
+
 - [ ] All tests pass
 - [ ] Type checking passes (mypy)
 - [ ] Linting passes (ruff)
@@ -1405,6 +1587,7 @@ After each epic:
 ## Success Criteria
 
 Layer 6 is complete when:
+
 - [ ] All 11 epics implemented
 - [ ] Test coverage >80%
 - [ ] All Layer 3 schemas supported

@@ -36,7 +36,6 @@
 ### Phase 3: Enrichment Pattern (Proven) ✅
 
 - **3 Tier 1 artifacts fully enriched:**
-
   1. hook_card_ENRICHED.md (28 fields, 10 errors)
   2. tu_brief_ENRICHED.md (27 fields, 10 errors)
   3. gatecheck_report_ENRICHED.md (28 fields, 4 errors)

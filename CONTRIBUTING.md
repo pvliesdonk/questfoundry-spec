@@ -81,20 +81,16 @@ Each PR should say which loop it’s supporting.
 ## 4) Submitting a PR
 
 1. **Fork & Branch**
-
    - Branch naming: `tu/<slug>` (e.g., `tu/story-spark-hubs-v1`).
 
 2. **Make focused changes**
-
    - Update exactly the docs you claim. Avoid drive-by edits.
    - If you reference later layers, add TODO stubs—not implementations.
 
 3. **Update indices**
-
    - If you add a new doc, link it from `00-north-star/README.md` and any relevant `LOOPS/README.md` or `PLAYBOOKS/README.md`.
 
 4. **PR description template**
-
    - TU summary (copy the TU block)
    - “Loop alignment”: which loop and why
    - “Player-surface impact”: none / codex / PN / binder … (and spoiler stance)

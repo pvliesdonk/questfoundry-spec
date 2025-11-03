@@ -28,28 +28,33 @@ This document captures the architectural vision and design decisions for QuestFo
 ## Layer 5 — Role Prompts
 
 ### Purpose
+
 Transform Layer 1 role charters into executable AI agent prompts.
 
 ### Key Decisions
 
 **Stateful Sessions:**
+
 - Agents maintain conversation history during active loops
 - Session lifetime = loop duration
 - Showrunner manages wake/dormancy
 - Archived for audit trail
 
 **Agent-to-Human Communication:**
+
 - Hybrid approach: Simple callback API backed by protocol
 - Agents call `ask_human(question, context, suggestions)`
 - Implemented as `human.question` / `human.response` intents
 - Enables conversational collaboration in interactive mode
 
 **Repository Location:**
+
 - Lives in spec repo (`05-prompts/`) as canonical source
 - Bundled into Layer 6 library during build
 - No runtime dependency on spec repo
 
 **Structure per Role:**
+
 ```
 05-prompts/
   _shared/
@@ -68,6 +73,7 @@ Transform Layer 1 role charters into executable AI agent prompts.
 ```
 
 **Evolution Path:**
+
 1. Phase 1: Core roles (Showrunner, Gatekeeper, Lore Weaver, Scene Smith)
 2. Phase 2: Content roles (Plotwright, Codex Curator, Style Lead)
 3. Phase 3: Asset roles (Art Director, Illustrator, Audio roles)
@@ -76,11 +82,13 @@ Transform Layer 1 role charters into executable AI agent prompts.
 ## Layer 6 — Libraries
 
 ### Purpose
+
 Provide SDK for protocol communication, validation, state management, and LLM integration.
 
 ### Key Decisions
 
 **State Persistence:**
+
 - **Cold SoT:** SQLite project file (`.qfproj`)
   - Contains: snapshots, views, canon, TU history
   - Portable, efficient, ACID compliant
@@ -90,27 +98,32 @@ Provide SDK for protocol communication, validation, state management, and LLM in
 - **Future:** Redis/Valkey for distributed workflows
 
 **Provider Plugin Architecture:**
+
 - Start simple: Unified text/image provider config
 - Evolve to: Per-role provider configuration
 - Plugin interface for extensibility
 
 **Supported Providers (Planned):**
 
-*Text Generation:*
+_Text Generation:_
+
 - OpenAI GPT (Phase 2)
 - Ollama - local models (Phase 2)
 - Google Gemini (Phase 5)
 - Amazon Bedrock (Phase 5)
 
-*Image Generation:*
+_Image Generation:_
+
 - Automatic1111 Stable Diffusion (Phase 4)
 - OpenAI DALL-E (Phase 4)
 - Google Imagen 4 (Phase 5)
 
-*Audio Generation:*
+_Audio Generation:_
+
 - ElevenLabs (Phase 4)
 
 **Core Components:**
+
 ```
 questfoundry-lib/
   src/questfoundry/
@@ -127,6 +140,7 @@ questfoundry-lib/
 ```
 
 **Evolution Path:**
+
 1. Phase 1: Core infrastructure (protocol, validation, state)
 2. Phase 2: Basic providers (OpenAI, Ollama)
 3. Phase 3: Role execution (sessions, prompts)
@@ -136,6 +150,7 @@ questfoundry-lib/
 ## Layer 7 — UI
 
 ### Purpose
+
 Provide author and player interfaces. Initial focus: CLI.
 
 ### Key Decisions
@@ -187,17 +202,20 @@ qf export view|git
    - Flag: `--express`
 
 **Quickstart Evolution:**
+
 - Start with Option B (Loop-by-Loop Checkpoints)
 - Add Option C (Approval Tiers: Guided/Interactive/Express)
 - Eventually enable Option A (Fully Autonomous) as mature feature
 
 **UI Toolkit:**
+
 - CLI Framework: Typer or Click
 - Rich Text: Rich library (tables, progress, colors)
 - Prompts: Questionary or InquirerPy
 - Shell Completion: Bash, Zsh, Fish
 
 **Structure:**
+
 ```
 questfoundry-cli/
   src/qf/
@@ -208,6 +226,7 @@ questfoundry-cli/
 ```
 
 **Evolution Path:**
+
 1. Phase 1: Basic CLI (init, list, show, run, check, export)
 2. Phase 2: Quickstart guided mode
 3. Phase 3: Interactive mode (agent questions)
@@ -221,17 +240,18 @@ questfoundry-cli/
 
 **Quickstart Modes:**
 
-| Mode | Autonomy | Checkpoints | Agent Questions | Target User |
-|------|----------|-------------|-----------------|-------------|
-| Guided | Low | After each loop | No (batch at checkpoints) | Learning, reviewing |
-| Interactive | Medium | After each loop | Yes (inline) | Collaborative creation |
-| Express | High | Only on failures | Auto-answered/skipped | Fast iteration |
+| Mode        | Autonomy | Checkpoints      | Agent Questions           | Target User            |
+| ----------- | -------- | ---------------- | ------------------------- | ---------------------- |
+| Guided      | Low      | After each loop  | No (batch at checkpoints) | Learning, reviewing    |
+| Interactive | Medium   | After each loop  | Yes (inline)              | Collaborative creation |
+| Express     | High     | Only on failures | Auto-answered/skipped     | Fast iteration         |
 
 **Evolution:** B (Guided) → C (Tiers) → A (Express mature)
 
 ### Provider Configuration
 
 **MVP (Simple):**
+
 ```yaml
 providers:
   text:
@@ -242,6 +262,7 @@ providers:
 ```
 
 **Future (Per-Role):**
+
 ```yaml
 roles:
   scene_smith:
@@ -268,17 +289,20 @@ roles:
 ### Testing Strategy
 
 **Layer 5:**
+
 - Prompt validation (references to schemas/protocol)
 - Intent coverage (each role handles required intents)
 - Conversation tests (example flows)
 
 **Layer 6:**
+
 - Unit tests (components)
 - Integration tests (protocol + state)
 - Provider tests (mock and real)
 - End-to-end tests (full loops with mock LLM)
 
 **Layer 7:**
+
 - Command tests (all arguments)
 - Interactive tests (mock user input)
 - Rendering tests (output formatting)
@@ -287,17 +311,20 @@ roles:
 ## Implementation Timeline
 
 ### Immediate (Post-Layer 4)
+
 - ✅ Capture vision in documentation (this doc + READMEs)
 - ⏸️ Create Layer 6 repository structure
 - ⏸️ Create Layer 7 repository structure
 
 ### Short Term (Phase 1-2)
+
 - ⏸️ Layer 6: Protocol client, validation, state persistence
 - ⏸️ Layer 6: OpenAI + Ollama providers
 - ⏸️ Layer 7: Basic CLI commands
 - ⏸️ Layer 5: Core role prompts (4 roles)
 
 ### Medium Term (Phase 3-4)
+
 - ⏸️ Layer 6: Session management, role execution
 - ⏸️ Layer 6: Image/audio providers
 - ⏸️ Layer 7: Quickstart guided mode
@@ -305,6 +332,7 @@ roles:
 - ⏸️ Layer 5: All 14 roles complete
 
 ### Long Term (Phase 5+)
+
 - ⏸️ Layer 6: Advanced providers (Gemini, Bedrock, Imagen)
 - ⏸️ Layer 6: Redis/Valkey state backend
 - ⏸️ Layer 7: Express mode
@@ -333,12 +361,14 @@ roles:
 ## Success Criteria
 
 **Layer 5:**
+
 - All 14 roles have complete, tested prompts
 - Agents successfully execute their role charters
 - Human-AI collaboration works smoothly in interactive mode
 - Safety boundaries respected by all agents
 
 **Layer 6:**
+
 - Protocol client works reliably
 - Multiple LLM providers supported
 - State persistence robust (SQLite + files)
@@ -346,6 +376,7 @@ roles:
 - Full test coverage
 
 **Layer 7:**
+
 - CLI intuitive for new users
 - Quickstart creates usable manuscripts
 - Interactive mode feels natural

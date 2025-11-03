@@ -11,6 +11,7 @@ This specification defines the **Gatecheck lifecycle**: the state transitions fr
 ### Purpose
 
 Gatechecks ensure that all work merging to Cold SoT meets defined quality standards. The lifecycle ensures:
+
 - **Quality gates enforced** — no Cold merge without gatekeeper approval
 - **Clear decisions** — pass/conditional pass/block with explicit rationale
 - **Actionable remediation** — smallest viable fixes identified with owners
@@ -37,6 +38,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ```
 
 **States:**
+
 - `pre-gate` — Early checkpoint; gatekeeper samples representative slice to identify likely failure points
 - `gatecheck` — Formal quality bar validation; all bars evaluated
 - `decision:pass` — All bars green; approved for Cold merge (terminal)
@@ -52,15 +54,16 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 
 ### 3.1 Transition Matrix
 
-| From State     | To State                | Allowed Sender | Intent                | Required Payload        | Notes                                  |
-|----------------|-------------------------|----------------|-----------------------|-------------------------|----------------------------------------|
-| `pre-gate`     | `gatecheck`             | GK             | `gate.submit`         | gatecheck_report (partial) | Pre-gate passed; ready for full check |
-| `pre-gate`     | `deferred`              | SR or GK       | `gate.defer`          | tu_brief (partial)      | TU deferred before gatecheck          |
-| `gatecheck`    | `decision:pass`         | GK             | `gate.decision`       | gatecheck_report (full) | All bars green; `decision: "pass"` in payload |
-| `gatecheck`    | `decision:conditional-pass` | GK         | `gate.decision`       | gatecheck_report (full) | Some bars yellow; `decision: "conditional_pass"` in payload |
-| `gatecheck`    | `decision:block`        | GK             | `gate.decision`       | gatecheck_report (full) | One or more bars red; `decision: "block"` in payload |
+| From State  | To State                    | Allowed Sender | Intent          | Required Payload           | Notes                                                       |
+| ----------- | --------------------------- | -------------- | --------------- | -------------------------- | ----------------------------------------------------------- |
+| `pre-gate`  | `gatecheck`                 | GK             | `gate.submit`   | gatecheck_report (partial) | Pre-gate passed; ready for full check                       |
+| `pre-gate`  | `deferred`                  | SR or GK       | `gate.defer`    | tu_brief (partial)         | TU deferred before gatecheck                                |
+| `gatecheck` | `decision:pass`             | GK             | `gate.decision` | gatecheck_report (full)    | All bars green; `decision: "pass"` in payload               |
+| `gatecheck` | `decision:conditional-pass` | GK             | `gate.decision` | gatecheck_report (full)    | Some bars yellow; `decision: "conditional_pass"` in payload |
+| `gatecheck` | `decision:block`            | GK             | `gate.decision` | gatecheck_report (full)    | One or more bars red; `decision: "block"` in payload        |
 
 **Role Abbreviations:**
+
 - **GK** — Gatekeeper (quality bar enforcement authority)
 - **SR** — Showrunner (can defer TU, triggering gate suspension)
 
@@ -71,6 +74,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ### 4.1 `pre-gate` → `gatecheck`
 
 **Preconditions:**
+
 - Pre-gate review completed
 - Representative slice sampled (not full deliverables)
 - No critical red flags identified
@@ -83,6 +87,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 **Payload Schema:** `gatecheck_report.schema.json` (partial)
 
 **Required Fields:**
+
 ```json
 {
   "title": "<TU ID or View name>",
@@ -99,11 +104,13 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ```
 
 **Effects:**
+
 - Pre-gate checkpoint passed
 - Owner submits full deliverables
 - Gatekeeper schedules full bar validation
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if not in `pre-gate` state
 - `NOT_AUTHORIZED` — if sender is not GK
 - `VALIDATION_FAILED` — if required pre-gate fields missing
@@ -113,6 +120,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ### 4.2 `pre-gate` → `deferred`
 
 **Preconditions:**
+
 - TU deferred by Showrunner before completing gatecheck
 - Deferral reason and revisit condition recorded
 
@@ -123,6 +131,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
+
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -132,11 +141,13 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ```
 
 **Effects:**
+
 - Gatecheck lifecycle suspended
 - TU enters deferred state
 - Gatekeeper notes remain for future reference
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if already in terminal decision state
 - `NOT_AUTHORIZED` — if sender is not SR or GK
 - `VALIDATION_FAILED` — if deferral reason missing
@@ -146,6 +157,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ### 4.3 `gatecheck` → `decision:pass`
 
 **Preconditions:**
+
 - All deliverables reviewed
 - All 8 bars evaluated
 - All bars status = `green`
@@ -160,6 +172,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 **Payload Field:** `decision: "pass"`
 
 **Required Fields:**
+
 ```json
 {
   "title": "<TU ID or View name>",
@@ -177,27 +190,22 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
       "bar": "Integrity",
       "status": "green",
       "evidence": "<player-safe evidence>"
-    },
+    }
     // ... (all 8 bars with status "green")
   ],
   "handoffs": ["None required; all bars green"],
-  "checklist": [
-    "Decision: pass",
-    "All bars validated green",
-    "Evidence player-safe",
-    "No dormancy issues",
-    "Handoffs none",
-    "Trace updated"
-  ]
+  "checklist": ["Decision: pass", "All bars validated green", "Evidence player-safe", "No dormancy issues", "Handoffs none", "Trace updated"]
 }
 ```
 
 **Effects:**
+
 - Gatecheck decision = `pass` (terminal)
 - TU approved for Cold merge
 - Showrunner can proceed with merge
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if not in `gatecheck` state
 - `NOT_AUTHORIZED` — if sender is not GK
 - `VALIDATION_FAILED` — if any bar is not green
@@ -208,6 +216,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ### 4.4 `gatecheck` → `decision:conditional-pass`
 
 **Preconditions:**
+
 - All deliverables reviewed
 - All 8 bars evaluated
 - Some bars status = `yellow` (but none `red`)
@@ -222,6 +231,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 **Payload Field:** `decision: "conditional_pass"`
 
 **Required Fields:**
+
 ```json
 {
   "title": "<TU ID or View name>",
@@ -247,30 +257,23 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
       "bar": "Integrity",
       "status": "green",
       "evidence": "<player-safe evidence>"
-    },
+    }
     // ... (remaining bars)
   ],
-  "handoffs": [
-    "Style (yellow) → ST: Style Tune-up TU by 2025-11-07"
-  ],
-  "checklist": [
-    "Decision: conditional pass",
-    "Yellow bars remediation plan accepted",
-    "Evidence player-safe",
-    "Dormancy acknowledged",
-    "Handoffs documented",
-    "Trace updated"
-  ]
+  "handoffs": ["Style (yellow) → ST: Style Tune-up TU by 2025-11-07"],
+  "checklist": ["Decision: conditional pass", "Yellow bars remediation plan accepted", "Evidence player-safe", "Dormancy acknowledged", "Handoffs documented", "Trace updated"]
 }
 ```
 
 **Effects:**
+
 - Gatecheck decision = `conditional pass` (terminal)
 - TU approved for Cold merge with conditions
 - Follow-up TU(s) scheduled for yellow bar remediation
 - Handoffs documented for responsible owners
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if not in `gatecheck` state
 - `NOT_AUTHORIZED` — if sender is not GK
 - `VALIDATION_FAILED` — if any bar is red, or yellow bars lack smallest_viable_fix/owner
@@ -281,6 +284,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 ### 4.5 `gatecheck` → `decision:block`
 
 **Preconditions:**
+
 - All deliverables reviewed
 - All 8 bars evaluated
 - One or more bars status = `red`
@@ -295,6 +299,7 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
 **Payload Field:** `decision: "block"`
 
 **Required Fields:**
+
 ```json
 {
   "title": "<TU ID or View name>",
@@ -320,30 +325,23 @@ pre-gate → gatecheck → decision (pass | conditional pass | block)
       "bar": "Integrity",
       "status": "green",
       "evidence": "<player-safe evidence>"
-    },
+    }
     // ... (remaining bars)
   ],
-  "handoffs": [
-    "Presentation (red) → SS: Remove spoiler from section 17 caption; resubmit within 24h"
-  ],
-  "checklist": [
-    "Decision: block",
-    "Red bars must be green before merge",
-    "Evidence player-safe",
-    "Dormancy acknowledged",
-    "Handoffs documented",
-    "Trace updated"
-  ]
+  "handoffs": ["Presentation (red) → SS: Remove spoiler from section 17 caption; resubmit within 24h"],
+  "checklist": ["Decision: block", "Red bars must be green before merge", "Evidence player-safe", "Dormancy acknowledged", "Handoffs documented", "Trace updated"]
 }
 ```
 
 **Effects:**
+
 - Gatecheck decision = `block` (terminal)
 - TU rejected for Cold merge
 - Owner must address red bars
 - New gatecheck required after remediation
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if not in `gatecheck` state
 - `NOT_AUTHORIZED` — if sender is not GK
 - `VALIDATION_FAILED` — if red bars lack smallest_viable_fix/owner
@@ -376,28 +374,31 @@ Every gatecheck MUST evaluate all 8 bars:
 
 Each bar entry in `gatecheck_report.schema.json` includes:
 
-| Field                   | Required When | Purpose                                           |
-|-------------------------|---------------|---------------------------------------------------|
-| `bar`                   | Always        | Bar name (enum: 8 bars)                           |
-| `status`                | Always        | green / yellow / red                              |
-| `evidence`              | Always        | Player-safe observation supporting status         |
-| `smallest_viable_fix`   | yellow or red | Minimal remediation step                          |
-| `owner`                 | yellow or red | Responsible role (enum: role abbreviations)       |
-| `notes`                 | Optional      | Additional context or reminders                   |
+| Field                 | Required When | Purpose                                     |
+| --------------------- | ------------- | ------------------------------------------- |
+| `bar`                 | Always        | Bar name (enum: 8 bars)                     |
+| `status`              | Always        | green / yellow / red                        |
+| `evidence`            | Always        | Player-safe observation supporting status   |
+| `smallest_viable_fix` | yellow or red | Minimal remediation step                    |
+| `owner`               | yellow or red | Responsible role (enum: role abbreviations) |
+| `notes`               | Optional      | Additional context or reminders             |
 
 ### 5.4 Decision Logic
 
 **Pass:**
+
 - ALL bars = green
 - `decision` = "pass"
 - `handoffs` = ["None required; all bars green"]
 
 **Conditional Pass:**
+
 - Some bars = yellow (none red)
 - `decision` = "conditional pass"
 - `handoffs` = explicit list of yellow bar remediation plans with owners and due dates
 
 **Block:**
+
 - One or more bars = red
 - `decision` = "block"
 - `handoffs` = explicit list of red bar remediation plans with owners and deadlines
@@ -423,6 +424,7 @@ All gatecheck lifecycle messages MUST include proper envelope context per `ENVEL
 ### 6.2 TU Linkage
 
 All gatecheck messages MUST include:
+
 - `context.tu` — the TU ID being gatechecked
 - `context.snapshot` — the Cold snapshot being validated
 - `refs` — array of related TU/artifact IDs for traceability
@@ -430,6 +432,7 @@ All gatecheck messages MUST include:
 ### 6.3 Loop Context
 
 All gatecheck messages MUST include:
+
 - `context.loop` — "Gatecheck" (from loop_name enum)
 
 ---
@@ -439,10 +442,12 @@ All gatecheck messages MUST include:
 ### 7.1 Bar Count Validation
 
 **Rule:** All 8 bars MUST be present in `bars` array
+
 - **Check:** `bars.length === 8` and all bar names from enum present
 - **Error:** `VALIDATION_FAILED` if bar count ≠ 8 or bar name invalid
 
 **Example error:**
+
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -458,6 +463,7 @@ All gatecheck messages MUST include:
 ### 7.2 Decision-Bar Status Consistency
 
 **Rule:** Decision must match bar status distribution
+
 - **Pass:** ALL bars green
 - **Conditional Pass:** Some yellow, none red
 - **Block:** One or more red
@@ -466,15 +472,14 @@ All gatecheck messages MUST include:
 **Error:** `BUSINESS_RULE_VIOLATION` if mismatch
 
 **Example error:**
+
 ```json
 {
   "code": "BUSINESS_RULE_VIOLATION",
   "message": "Decision 'pass' conflicts with bar status",
   "details": {
     "decision": "pass",
-    "bars_with_issues": [
-      {"bar": "Style", "status": "yellow"}
-    ],
+    "bars_with_issues": [{ "bar": "Style", "status": "yellow" }],
     "rule": "Pass decision requires all bars green"
   }
 }
@@ -483,10 +488,12 @@ All gatecheck messages MUST include:
 ### 7.3 Evidence Player-Safety Validation
 
 **Rule:** All `bars[].evidence` fields MUST be player-safe
+
 - **Check:** Evidence contains no codewords, gate logic, or hidden plot details
 - **Error:** `VALIDATION_FAILED` if spoilers detected
 
 **Example error:**
+
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -503,10 +510,12 @@ All gatecheck messages MUST include:
 ### 7.4 Smallest Viable Fix Validation
 
 **Rule:** Yellow/red bars MUST include `smallest_viable_fix` and `owner`
+
 - **Check:** If status yellow or red, both fields present
 - **Error:** `VALIDATION_FAILED` if missing
 
 **Example error:**
+
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -527,12 +536,14 @@ All gatecheck messages MUST include:
 ### 8.1 Handoff Format
 
 Each handoff in `handoffs` array MUST include:
+
 - Bar name and status (yellow or red)
 - Responsible role (owner)
 - Remediation action (smallest_viable_fix summary)
 - Due date or TU reference
 
 **Example:**
+
 ```
 "Style (yellow) → ST: Style Tune-up TU by 2025-11-07"
 "Presentation (red) → SS: Remove spoiler from section 17; resubmit within 24h"
@@ -541,10 +552,12 @@ Each handoff in `handoffs` array MUST include:
 ### 8.2 Escalation (Optional)
 
 If bar failure triggers escalation:
+
 - Use `escalation` object in gatecheck_report
 - Specify `topic`, `lane`, `level` (L1/L2/L3), `bundle_attached`
 
 **Example:**
+
 ```json
 {
   "escalation": {
@@ -561,19 +574,23 @@ If bar failure triggers escalation:
 ## 9. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/QUALITY_BARS.md` — 8 quality bar definitions and checks
 - `00-north-star/SOURCES_OF_TRUTH.md` — Hot/Cold SoT boundaries and merge rules
 - `01-roles/charters/gatekeeper.md` — GK authority and decision-making
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` §5 — Quality Bar Categories
 - `02-dictionary/artifacts/gatecheck_report.md` — Gatecheck Report structure
 
 ### Layer 3 Schemas
+
 - `03-schemas/gatecheck_report.schema.json` — Payload validation schema
 - `03-schemas/tu_brief.schema.json` — TU Brief schema (for gate.defer)
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/LIFECYCLES/tu.md` — TU lifecycle (companion spec)
 - `04-protocol/LIFECYCLES/hooks.md` — Hook lifecycle (companion spec)
@@ -585,6 +602,7 @@ If bar failure triggers escalation:
 ### 10.1 Example: Pre-gate Pass
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -619,11 +637,7 @@ If bar failure triggers escalation:
       "next_actions": "Owner submit full deliverables for formal gatecheck",
       "bars": [],
       "handoffs": ["None"],
-      "checklist": [
-        "Pre-gate sampling complete",
-        "No red flags identified",
-        "Ready for full gatecheck"
-      ]
+      "checklist": ["Pre-gate sampling complete", "No red flags identified", "Ready for full gatecheck"]
     }
   },
   "refs": ["TU-2025-10-30-SR01"],
@@ -634,6 +648,7 @@ If bar failure triggers escalation:
 ### 10.2 Example: Gatecheck Pass (All Bars Green)
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -662,10 +677,7 @@ If bar failure triggers escalation:
       "scope": "Canon entry for toll mechanism (full review)",
       "mode": "gatecheck",
       "cold_snapshot": "Cold @ 2025-10-28",
-      "artifacts_samples": [
-        "canon/toll_mechanism.md",
-        "canon/factions.md (updated)"
-      ],
+      "artifacts_samples": ["canon/toll_mechanism.md", "canon/factions.md (updated)"],
       "decision": "pass",
       "why": "All 8 bars green; approved for Cold merge",
       "next_actions": "SR merge to Cold",
@@ -712,14 +724,7 @@ If bar failure triggers escalation:
         }
       ],
       "handoffs": ["None required; all bars green"],
-      "checklist": [
-        "Decision: pass",
-        "All bars validated green",
-        "Evidence player-safe",
-        "No dormancy issues",
-        "Handoffs none",
-        "Trace updated"
-      ]
+      "checklist": ["Decision: pass", "All bars validated green", "Evidence player-safe", "No dormancy issues", "Handoffs none", "Trace updated"]
     }
   },
   "refs": ["TU-2025-10-30-SR01"],
@@ -730,6 +735,7 @@ If bar failure triggers escalation:
 ### 10.3 Example: Gatecheck Conditional Pass (Yellow Bars)
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -758,11 +764,7 @@ If bar failure triggers escalation:
       "scope": "Topology expansion: 3 new hub sections",
       "mode": "gatecheck",
       "cold_snapshot": "Cold @ 2025-10-28",
-      "artifacts_samples": [
-        "manuscript/chapter_3/hub_17.md",
-        "manuscript/chapter_3/hub_18.md",
-        "manuscript/chapter_3/hub_19.md"
-      ],
+      "artifacts_samples": ["manuscript/chapter_3/hub_17.md", "manuscript/chapter_3/hub_18.md", "manuscript/chapter_3/hub_19.md"],
       "decision": "conditional pass",
       "why": "Most bars green; Style shows minor drift; approved with Style Tune-up TU",
       "next_actions": "SR merge to Cold; schedule Style Tune-up TU within 1 week",
@@ -811,17 +813,8 @@ If bar failure triggers escalation:
           "evidence": "Navigation clear; breadcrumbs present"
         }
       ],
-      "handoffs": [
-        "Style (yellow) → ST: Style Tune-up TU by 2025-11-07"
-      ],
-      "checklist": [
-        "Decision: conditional pass",
-        "Yellow bars remediation plan accepted",
-        "Evidence player-safe",
-        "Dormancy acknowledged",
-        "Handoffs documented",
-        "Trace updated"
-      ]
+      "handoffs": ["Style (yellow) → ST: Style Tune-up TU by 2025-11-07"],
+      "checklist": ["Decision: conditional pass", "Yellow bars remediation plan accepted", "Evidence player-safe", "Dormancy acknowledged", "Handoffs documented", "Trace updated"]
     }
   },
   "refs": ["TU-2025-10-30-PW02"],
@@ -832,6 +825,7 @@ If bar failure triggers escalation:
 ### 10.4 Example: Gatecheck Block (Red Bars)
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -909,17 +903,8 @@ If bar failure triggers escalation:
           "evidence": "Navigation clear"
         }
       ],
-      "handoffs": [
-        "Presentation (red) → SS: Remove 'ASH' from section 17 caption line 34; resubmit within 24h"
-      ],
-      "checklist": [
-        "Decision: block",
-        "Red bars must be green before merge",
-        "Evidence player-safe",
-        "Dormancy acknowledged",
-        "Handoffs documented",
-        "Trace updated"
-      ]
+      "handoffs": ["Presentation (red) → SS: Remove 'ASH' from section 17 caption line 34; resubmit within 24h"],
+      "checklist": ["Decision: block", "Red bars must be green before merge", "Evidence player-safe", "Dormancy acknowledged", "Handoffs documented", "Trace updated"]
     }
   },
   "refs": ["TU-2025-10-30-SS03"],

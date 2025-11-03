@@ -47,43 +47,35 @@ Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a T
 ## 4) Procedure
 
 1. **Pick Snapshot & Options (Showrunner)**
-
    - Freeze a Cold snapshot (`cold@YYYY-MM-DDThh:mmZ` or tag).
    - Choose inclusions: art plan/renders, audio plan/assets, translations, print layout, PN script.
 
 2. **Assemble Manuscript (Binder)**
-
    - Compile hyperlinked sections; ensure terminals clearly marked.
    - Generate **codeword/gateway checklists** in **player-safe wording** (no internal labels).
 
 3. **Attach Codex**
-
    - Include player-safe entries; build **See also** crosslinks; add glossary if present.
    - Ensure all manuscript terms with codex references resolve.
 
 4. **Include Optional Surfaces**
-
    - **Art**: plan captions (spoiler-safe) and/or renders with alt text; no technique/seed info on surface.
    - **Audio**: plan cue descriptions and/or assets with text equivalents; loudness safety notes.
    - **Translations**: add language slices; mark `complete` / `incomplete`; keep anchors intact.
 
 5. **Accessibility & Navigation Pass**
-
    - Alt text, descriptive link text, proper headings; high-contrast print layout if enabled.
    - No motion/flash surprises; audio warnings where needed.
 
 6. **Stamp Metadata**
-
    - Front matter fields: title, credits, **Cold snapshot ID**, options used, coverage %, Gatekeeper report ID.
    - Generate a **View Log** page (see §6).
 
 7. **Export Formats**
-
    - Emit Markdown (source), HTML, EPUB, PDF (single-column, print-friendly).
    - Verify links/anchors across all formats.
 
 8. **Gatekeeper Spot-Check**
-
    - Presentation Safety, Integrity (links), Style; note any fixes before distribution.
 
 9. **Handoff**

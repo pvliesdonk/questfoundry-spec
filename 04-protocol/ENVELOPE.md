@@ -7,6 +7,7 @@
 ## 1. Overview
 
 The Layer 4 Envelope is a **transport-agnostic**, **versioned** wrapper that encapsulates Layer 3–validated payloads and encodes:
+
 - **PN safety boundaries** (Hot/Cold, player-safe flags)
 - **TU traceability** (trace unit linkage, snapshot context)
 - **Message routing** (sender/receiver roles, intent verbs)
@@ -15,6 +16,7 @@ The Layer 4 Envelope is a **transport-agnostic**, **versioned** wrapper that enc
 ### Purpose
 
 The envelope provides:
+
 1. **Protocol versioning** — semver-based evolution with forward compatibility
 2. **Safety enforcement** — PN receives only Cold + player-safe content
 3. **Traceability** — every change carries TU and snapshot context
@@ -41,10 +43,12 @@ All envelope messages are JSON objects with the following top-level structure:
 Identifies the protocol name and version.
 
 **Fields:**
+
 - `name` (string, REQUIRED): MUST be `"qf-protocol"`
 - `version` (string, REQUIRED): Protocol version in semver format (e.g., `"1.0.0"`)
 
 **Example:**
+
 ```json
 "protocol": {
   "name": "qf-protocol",
@@ -53,6 +57,7 @@ Identifies the protocol name and version.
 ```
 
 **Rules:**
+
 - Unknown protocol names MUST be rejected
 - Version compatibility follows semver: minor/patch changes are backward-compatible, major changes may break
 
@@ -68,6 +73,7 @@ Globally unique message identifier.
 **Example:** `"urn:uuid:550e8400-e29b-41d4-a716-446655440000"` or `"MSG-20251030-SR01-001"`
 
 **Rules:**
+
 - MUST be unique across all messages
 - SHOULD use UUID v4 or timestamp-based URN for traceability
 - MUST be immutable once assigned
@@ -80,6 +86,7 @@ Message creation timestamp.
 **Example:** `"2025-10-30T12:19:29Z"`
 
 **Rules:**
+
 - MUST include timezone (UTC recommended)
 - Receivers MAY use this for ordering, expiry, or audit trails
 
@@ -92,10 +99,12 @@ Message creation timestamp.
 Identifies the message sender.
 
 **Fields:**
+
 - `role` (string, REQUIRED): Role abbreviation from `02-dictionary/role_abbreviations.md` (e.g., `"SR"`, `"GK"`, `"LW"`)
 - `agent` (string, OPTIONAL): Human or agent identifier (e.g., `"human:alice"`, `"bot:gk-v2.1"`)
 
 **Example:**
+
 ```json
 "sender": {
   "role": "SR",
@@ -108,10 +117,12 @@ Identifies the message sender.
 Identifies the intended recipient.
 
 **Fields:**
+
 - `role` (string, REQUIRED): Role abbreviation from `02-dictionary/role_abbreviations.md`
 - `agent` (string, OPTIONAL): Specific agent identifier (for direct routing)
 
 **Example:**
+
 ```json
 "receiver": {
   "role": "LW"
@@ -119,6 +130,7 @@ Identifies the intended recipient.
 ```
 
 **Rules:**
+
 - Messages MAY be broadcast (receiver role = `"*"`)
 - Role abbreviations MUST match `02-dictionary/role_abbreviations.md`
 
@@ -133,6 +145,7 @@ The message action or verb, namespaced by domain.
 **Format:** `<namespace>.<verb>[.<subverb>]`
 
 **Examples:**
+
 - `"hook.create"` — create a new hook
 - `"tu.open"` — open a new trace unit
 - `"gate.report.submit"` — submit a gatecheck report
@@ -141,6 +154,7 @@ The message action or verb, namespaced by domain.
 - `"error"` — error (with `code` in payload specifying error type)
 
 **Rules:**
+
 - Intent MUST match a defined verb in `04-protocol/INTENTS.md` (future deliverable)
 - Unknown intents SHOULD be rejected unless explicitly forward-compatible
 
@@ -153,13 +167,15 @@ The message action or verb, namespaced by domain.
 Encodes Hot/Cold state, TU linkage, snapshot, and loop context.
 
 **Fields:**
-- `hot_cold` (string, REQUIRED): Content temperature  
+
+- `hot_cold` (string, REQUIRED): Content temperature
   - Values: `"hot"` (work-in-progress, spoilers allowed) or `"cold"` (stable, player-safe)
 - `tu` (string, OPTIONAL): Trace Unit ID (format: `TU-YYYY-MM-DD-RRnn`)
 - `snapshot` (string, OPTIONAL): Cold snapshot reference (format: `"Cold @ YYYY-MM-DD"`)
 - `loop` (string, REQUIRED): Loop name from `02-dictionary/loop_names.md` (display name format)
 
 **Example:**
+
 ```json
 "context": {
   "hot_cold": "cold",
@@ -170,6 +186,7 @@ Encodes Hot/Cold state, TU linkage, snapshot, and loop context.
 ```
 
 **Rules:**
+
 - `tu` is REQUIRED for messages targeting Cold (merges, gatechecks)
 - `snapshot` is REQUIRED when referencing Cold content for reproducibility
 - `loop` MUST match a display name from `02-dictionary/loop_names.md`
@@ -183,11 +200,13 @@ Encodes Hot/Cold state, TU linkage, snapshot, and loop context.
 Encodes player safety and spoiler policy.
 
 **Fields:**
+
 - `player_safe` (boolean, REQUIRED): Whether content is safe for PN/players
-- `spoilers` (string, REQUIRED): Spoiler policy  
+- `spoilers` (string, REQUIRED): Spoiler policy
   - Values: `"allowed"` (Hot content, internal) or `"forbidden"` (Cold/PN surfaces)
 
 **Example:**
+
 ```json
 "safety": {
   "player_safe": true,
@@ -196,6 +215,7 @@ Encodes player safety and spoiler policy.
 ```
 
 **Rules (non-negotiable):**
+
 - **PN MUST only receive messages where:**
   - `context.hot_cold = "cold"` AND
   - `safety.player_safe = true` AND
@@ -212,10 +232,12 @@ Encodes player safety and spoiler policy.
 The message content, validated against a Layer 3 schema.
 
 **Fields:**
+
 - `type` (string, REQUIRED): Payload type name (matches schema filename without `.schema.json`)
 - `data` (object, REQUIRED): The actual payload data
 
 **Example:**
+
 ```json
 "payload": {
   "type": "hook_card",
@@ -255,12 +277,14 @@ The message content, validated against a Layer 3 schema.
 ```
 
 **Rules:**
+
 - `payload.data` MUST validate against the Layer 3 schema for `payload.type` (e.g., `03-schemas/{payload.type}.schema.json`)
 - Unknown payload types SHOULD be rejected
 - Empty payloads are allowed for acks/errors (see Error Envelopes)
 
 **Validation Note:**
 Envelope validation uses a **two-pass approach** (see Section 3.1.1):
+
 - **Pass 1:** Envelope structure validates against `envelope.schema.json` (roles, loops, safety, required fields)
 - **Pass 2:** Only `payload.data` validates against the Layer 3 schema specified by `payload.type`
 
@@ -275,6 +299,7 @@ This separation ensures the envelope schema (Layer 4) depends only on Layer 2 ta
 Array of upstream IDs this message depends on or relates to.
 
 **Allowed reference types:**
+
 - Hook IDs (e.g., `"HK-20251024-03"`)
 - TU IDs (e.g., `"TU-2025-10-28-LW02"`)
 - ADR IDs (e.g., `"ADR-001-player-safety"`)
@@ -282,6 +307,7 @@ Array of upstream IDs this message depends on or relates to.
 - Message IDs (for reply chains)
 
 **Example:**
+
 ```json
 "refs": [
   "HK-20251024-03",
@@ -291,6 +317,7 @@ Array of upstream IDs this message depends on or relates to.
 ```
 
 **Rules:**
+
 - References are informational; receivers MAY use for traceability
 - Empty array `[]` or absent field both mean "no references"
 
@@ -305,6 +332,7 @@ Groups related messages in a conversation or workflow.
 **Example:** `"corr-hook-harvest-2025-10-30"`
 
 **Rules:**
+
 - All messages in a logical workflow SHOULD share the same `correlation_id`
 - Replies SHOULD preserve the original message's `correlation_id`
 
@@ -315,6 +343,7 @@ The `id` of the message this is replying to.
 **Example:** `"urn:uuid:550e8400-e29b-41d4-a716-446655440000"`
 
 **Rules:**
+
 - MUST reference a valid message `id`
 - Used for acks, errors, and status updates
 
@@ -336,6 +365,7 @@ The `id` of the message this is replying to.
 Envelope validation is performed in two independent passes to maintain proper layer separation:
 
 **Pass 1: Envelope Structure Validation**
+
 - Validates the entire envelope against `04-protocol/envelope.schema.json` (Layer 4)
 - Checks:
   - Required fields (`protocol`, `id`, `time`, `sender`, `receiver`, `intent`, `context`, `safety`, `payload`)
@@ -345,6 +375,7 @@ Envelope validation is performed in two independent passes to maintain proper la
   - Field types and structure
 
 **Pass 2: Payload Data Validation**
+
 - Extracts `payload.type` and `payload.data` from the envelope
 - Loads the corresponding Layer 3 schema from `03-schemas/{payload.type}.schema.json`
 - Validates **only** `payload.data` against the Layer 3 schema
@@ -366,7 +397,6 @@ The `envelope.schema.json` does NOT contain `$ref` links to Layer 3 schemas. Val
   - Used during active development/stabilization
   - May contain spoilers and internal notes
   - NOT safe for PN or player-facing tools
-  
 - **Cold messages** (`context.hot_cold = "cold"`):
   - Stable, merged content
   - Linked to a `snapshot` for reproducibility
@@ -375,11 +405,13 @@ The `envelope.schema.json` does NOT contain `$ref` links to Layer 3 schemas. Val
 ### 3.3 PN Safety Invariant
 
 **The Player-Narrator (PN) MUST only receive messages that satisfy ALL of:**
+
 1. `context.hot_cold = "cold"`
 2. `safety.player_safe = true`
 3. `safety.spoilers = "forbidden"`
 
 **Enforcement points:**
+
 - Gatekeeper pre-merge validation
 - Transport routing layer (reject Hot→PN)
 - PN ingestion validation (double-check)
@@ -387,6 +419,7 @@ The `envelope.schema.json` does NOT contain `$ref` links to Layer 3 schemas. Val
 ### 3.4 TU Linkage
 
 Changes targeting Cold (merges, gatechecks) MUST include:
+
 - `context.tu` — the trace unit driving the change
 - `context.snapshot` — the Cold snapshot being modified or validated
 
@@ -451,6 +484,7 @@ The QuestFoundry Protocol uses **semantic versioning (semver)** for the `protoco
 ### 4.2 Unknown Fields
 
 Receivers MUST ignore unknown top-level or nested fields. This allows:
+
 - Adding optional fields in minor versions
 - Transport-specific metadata (e.g., HTTP headers as `_transport.http`)
 
@@ -466,6 +500,7 @@ Receivers MUST ignore unknown top-level or nested fields. This allows:
 ## 5. Error Envelopes
 
 Errors use the same envelope structure with:
+
 - `intent` set to `"error"`
 - `payload.data.code` specifying the error type (e.g., `"validation_error"`, `"business_rule_violation"`, `"not_authorized"`)
 - `reply_to` referencing the failed message `id`
@@ -481,15 +516,13 @@ Error payloads follow a simple structure (no Layer 3 schema required):
   "message": "Payload data does not validate against schema",
   "details": {
     "schema_path": "../03-schemas/hook_card.schema.json",
-    "validation_errors": [
-      "header.id: does not match pattern ^HK-\\d{8}-...",
-      "classification.bars_affected: must have at least 1 item"
-    ]
+    "validation_errors": ["header.id: does not match pattern ^HK-\\d{8}-...", "classification.bars_affected: must have at least 1 item"]
   }
 }
 ```
 
 **Common error codes:**
+
 - `validation_error` — schema validation error
 - `business_rule_violation` — policy violation (e.g., Hot→PN)
 - `not_authorized` — sender lacks permission
@@ -571,10 +604,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
       "message": "Payload data does not validate against schema",
       "details": {
         "schema_path": "../03-schemas/hook_card.schema.json",
-        "validation_errors": [
-          "header.id: does not match pattern ^HK-\\d{8}-(0[1-9]|[1-9]\\d{1,2})$",
-          "classification.bars_affected: must have at least 1 item"
-        ]
+        "validation_errors": ["header.id: does not match pattern ^HK-\\d{8}-(0[1-9]|[1-9]\\d{1,2})$", "classification.bars_affected: must have at least 1 item"]
       }
     }
   },
@@ -623,9 +653,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
       }
     }
   },
-  "refs": [
-    "00-north-star/PN_PRINCIPLES.md"
-  ],
+  "refs": ["00-north-star/PN_PRINCIPLES.md"],
   "correlation_id": "corr-binding-2025-10-30",
   "reply_to": "urn:uuid:badc0ffe-1234-5678-9abc-def012345678"
 }
@@ -683,10 +711,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
         "owner_r": "LW",
         "accountable_a": "SR"
       },
-      "acceptance_criteria": [
-        "Canon entry for toll mechanism completed",
-        "Integration points with existing factions identified"
-      ],
+      "acceptance_criteria": ["Canon entry for toll mechanism completed", "Integration points with existing factions identified"],
       "locations_links": {
         "locations": ["manuscript/sections/wormhole3.md"],
         "related_hooks": [],
@@ -694,10 +719,7 @@ Error payloads follow a simple structure (no Layer 3 schema required):
       }
     }
   },
-  "refs": [
-    "HK-20251024-03",
-    "TU-2025-10-28-LW02"
-  ],
+  "refs": ["HK-20251024-03", "TU-2025-10-28-LW02"],
   "correlation_id": "corr-hook-harvest-2025-10-30",
   "reply_to": null
 }
@@ -740,16 +762,10 @@ Error payloads follow a simple structure (no Layer 3 schema required):
         "include_art_plans": false,
         "include_codex": true
       },
-      "manifest": [
-        "manuscript/section-01.md",
-        "manuscript/section-02.md",
-        "codex/factions.md"
-      ]
+      "manifest": ["manuscript/section-01.md", "manuscript/section-02.md", "codex/factions.md"]
     }
   },
-  "refs": [
-    "TU-2025-10-28-BB01"
-  ],
+  "refs": ["TU-2025-10-28-BB01"],
   "correlation_id": "corr-binding-2025-10-28",
   "reply_to": "urn:uuid:aabbccdd-0011-2233-4455-667788990011"
 }

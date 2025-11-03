@@ -55,33 +55,26 @@ Showrunner (A) coordinates scope and timing.
 ## 4) Procedure
 
 1. **Topology Draft (Plotwright)**
-
    - Map parts/chapters and designate **hubs** (fan-out), **loops** (return-with-difference), and **gateways** (state-gated).
    - For each gateway, write a **diegetic condition** PN can enforce (“foreman’s token”, “maintenance hex-key”).
 
 2. **Section Briefs (Plotwright)**
-
    - For each affected/new section: **intent**, **stakes**, **choices**, **expected state effect** (human phrasing), **references**.
 
 3. **Prose Pass (Scene Smith)**
-
    - Draft/adjust section text in style; make choices clear and distinct.
    - Note intended state effects in comments (still human-level).
 
 4. **Hook Generation (Plotwright & Scene Smith [+ Researcher if active])**
-
    - Create **narrative/scene/factual** hook cards with rationales and uncertainty levels (see `HOOKS.md`).
 
 5. **Style Check (Style Lead)**
-
    - Sample sections; flag tone drift; propose motif anchors; suggest PN-surface phrasing patterns.
 
 6. **Feasibility Check (Lore Weaver)**
-
    - Flag canon collisions; suggest where **Lore Deepening** is needed.
 
 7. **Preview Gate (Gatekeeper)**
-
    - Run a quick **pre-gate**: Integrity (no accidental dead ends), Reachability (keystones reachable), Nonlinearity (hubs/loops exist & matter).
 
 8. **Triage Hand-off**

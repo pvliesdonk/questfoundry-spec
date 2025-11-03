@@ -43,13 +43,11 @@
 ## Formatting Conventions
 
 1. **Display Name:**
-
    - Title Case for each word
    - Hyphenated compound words (e.g., "Tune-up", "Dry-Run", "Touch-up")
    - No hyphen before compound words (e.g., "Style Tune-up" not "Style-Tune-up")
 
 2. **File Name:**
-
    - All lowercase
    - Hyphen-separated words
    - No spaces

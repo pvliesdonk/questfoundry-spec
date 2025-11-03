@@ -110,12 +110,14 @@ The **Narration Dry-Run** flow allows the Player-Narrator (PN) to playtest a Col
 **CRITICAL: PN Receiver Constraints (per envelope.schema.json):**
 
 When `receiver.role = "PN"`, the envelope schema enforces:
+
 - `context.hot_cold = "cold"` (MUST be Cold)
 - `context.snapshot` MUST be present
 - `safety.player_safe = true` (MUST be true)
 - `safety.spoilers = "forbidden"` (implicitly via player_safe)
 
 **Validation point:** Any message to PN that violates these constraints MUST be rejected at:
+
 1. Sender validation (before transmission)
 2. Transport routing layer
 3. PN ingestion validation (defense in depth)
@@ -166,7 +168,7 @@ When `receiver.role = "PN"`, the envelope schema enforces:
       ],
       "summary": {
         "total_issues": 2,
-        "by_severity": {"high": 1, "medium": 1, "low": 0},
+        "by_severity": { "high": 1, "medium": 1, "low": 0 },
         "recommended_followup": ["Style Tune-up", "Gatecheck"]
       }
     }
@@ -176,6 +178,7 @@ When `receiver.role = "PN"`, the envelope schema enforces:
 ```
 
 **Required envelope fields:**
+
 - `context.hot_cold = "cold"` (PN works only on Cold)
 - `context.snapshot` (same as received from BB)
 - `context.tu` (trace unit linkage)
@@ -187,16 +190,16 @@ When `receiver.role = "PN"`, the envelope schema enforces:
 
 PN logs issues with structured types for routing:
 
-| Issue Type | Target Loop | Example |
-|---|---|---|
-| `choice-ambiguity` | Style Tune-up | Options unclear or indistinct |
-| `gate-friction` | Style Tune-up, Gatecheck | Diegetic enforcement clunky |
-| `recap-needed` | Style Tune-up | Reader likely lost; recap placement |
-| `codex-invite` | Codex Expansion | Codex reference could aid comprehension |
-| `leak-risk` | Gatecheck | Phrasing brushes against spoilers/internals |
-| `nav-bug` | Binding fixes | Link/anchor mismatch, breadcrumb confusion |
-| `tone-wobble` | Style Tune-up | Register slips; motif absent |
-| `accessibility` | Binding fixes | Missing alt text, low contrast |
+| Issue Type         | Target Loop              | Example                                     |
+| ------------------ | ------------------------ | ------------------------------------------- |
+| `choice-ambiguity` | Style Tune-up            | Options unclear or indistinct               |
+| `gate-friction`    | Style Tune-up, Gatecheck | Diegetic enforcement clunky                 |
+| `recap-needed`     | Style Tune-up            | Reader likely lost; recap placement         |
+| `codex-invite`     | Codex Expansion          | Codex reference could aid comprehension     |
+| `leak-risk`        | Gatecheck                | Phrasing brushes against spoilers/internals |
+| `nav-bug`          | Binding fixes            | Link/anchor mismatch, breadcrumb confusion  |
+| `tone-wobble`      | Style Tune-up            | Register slips; motif absent                |
+| `accessibility`    | Binding fixes            | Missing alt text, low contrast              |
 
 ---
 

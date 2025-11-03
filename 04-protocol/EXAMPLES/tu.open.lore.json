@@ -56,9 +56,6 @@
       "linkage": "Upstream: HK-20251030-01 accepted hook. Related: TU-2025-10-30-SR01. Snapshot impact: adds Shadow Toll faction to Cold."
     }
   },
-  "refs": [
-    "HK-20251030-01",
-    "TU-2025-10-30-SR01"
-  ],
+  "refs": ["HK-20251030-01", "TU-2025-10-30-SR01"],
   "correlation_id": "corr-lore-deepening-2025-10-30"
 }

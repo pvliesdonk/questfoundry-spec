@@ -118,6 +118,7 @@ The **Binding Run** flow assembles a player-safe export bundle from a specific C
 ```
 
 **Required envelope fields:**
+
 - `context.hot_cold = "cold"` (source is Cold)
 - `context.tu` (trace unit for this export)
 - `context.snapshot` (specific Cold snapshot)
@@ -166,12 +167,14 @@ The **Binding Run** flow assembles a player-safe export bundle from a specific C
 ```
 
 **Required envelope fields:**
+
 - `context.hot_cold = "cold"`
 - `context.snapshot` (same as request)
 - `safety.player_safe = true` (bundle is player-safe)
 - `safety.spoilers = "forbidden"` (no spoilers in surfaces)
 
 **PN handoff constraint:**
+
 - When `receiver.role = "PN"`, envelope MUST enforce:
   - `context.hot_cold = "cold"`
   - `safety.player_safe = true`

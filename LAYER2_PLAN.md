@@ -63,7 +63,6 @@
 **Sections to create:**
 
 1. **Hook Types** (extract from `00-north-star/HOOKS.md` + `01-roles/templates/hook_card.md`)
-
    - `narrative` - Story entities, locations, stakes, topology
    - `scene` - Scene-level details, traits, props, micro-events
    - `factual` - Real-world claims to verify
@@ -76,14 +75,12 @@
    - `accessibility` - A11y concerns
 
 2. **Hook Status Lifecycle**
-
    - `proposed` → `accepted` → `in-progress` → `resolved`
    - `proposed` → `deferred` (with reason)
    - `proposed` → `rejected` (with reason)
    - `resolved` → `canonized` (appears in Cold)
 
 3. **TU Types & Loop Alignment** (extract from `00-north-star/LOOPS/`)
-
    - Story Spark → topology/structure TUs
    - Hook Harvest → triage TUs
    - Lore Deepening → canon TUs
@@ -96,7 +93,6 @@
    - Narration Dry-Run → UX testing TUs
 
 4. **Gate Types** (extract from `00-north-star/PN_PRINCIPLES.md`)
-
    - `token` - Physical object possession
    - `reputation` - Social standing thresholds
    - `knowledge` - Information discovered
@@ -105,7 +101,6 @@
    - `composite` - Multiple conditions (AND/OR)
 
 5. **Quality Bar Categories** (extract from `00-north-star/QUALITY_BARS.md`)
-
    - **Integrity** - Anchors resolve, no orphans, IDs unique
    - **Reachability** - Keystones accessible, no unreachable sections
    - **Nonlinearity** - Hubs/loops matter, choices non-trivial
@@ -115,7 +110,6 @@
    - **Presentation** - No spoilers/meta on surfaces, accessibility baseline
 
 6. **Artifact Status Types** (extract from artifact templates)
-
    - `draft` - Initial creation in Hot
    - `review` - Submitted for gatecheck
    - `blocked` - Failed bars, needs remediation
@@ -124,20 +118,17 @@
    - `published` - Included in exported view
 
 7. **Deferral Types** (extract from `01-roles/interfaces/dormancy_signals.md`)
-
    - `deferred:art` - Visual work postponed
    - `deferred:audio` - Sound work postponed
    - `deferred:translation` - Localization postponed
    - `deferred:research` - Fact-checking postponed
 
 8. **Research Posture Levels** (extract from `01-roles/briefs/researcher.md`)
-
    - `uncorroborated:low` - Minor claim, low player impact
    - `uncorroborated:medium` - Significant claim, moderate impact
    - `uncorroborated:high` - Critical claim, high impact (requires immediate attention)
 
 9. **Role Dormancy States** (extract from `01-roles/interfaces/dormancy_signals.md`)
-
    - `always-on` - Showrunner, Gatekeeper
    - `default-on` - Plotwright, Scene Smith, Lore Weaver, Codex Curator, Style Lead
    - `optional-dormant` - Researcher, Art Director, Illustrator, Audio Director, Audio Producer, Translator
