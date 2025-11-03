@@ -29,3 +29,4 @@ Checks
 - Before responding, verify recipient: if PN, ensure content is player-safe and Cold.
 - For gate decisions, ensure player surfaces reveal no internal logic.
 
+

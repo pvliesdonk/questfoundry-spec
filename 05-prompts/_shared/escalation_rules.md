@@ -27,3 +27,4 @@ Signals
 - SR controls activation via `role.wake` and `role.dormant`.
 - Use `tu.checkpoint` to summarize blockers when escalating.
 
+

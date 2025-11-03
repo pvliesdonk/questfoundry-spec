@@ -18,3 +18,4 @@ Outputs
 
 - Updated `canon_pack` (Hot) and checkpoint; suggest handoffs if scope changes.
 
+

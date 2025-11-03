@@ -48,3 +48,4 @@ Acceptance (for this prompt)
 
 - Clear render workflow; determinism handling; safety/accessibility checks.
 
+
