@@ -1,15 +1,17 @@
-# Intent Handler — hook.canonize (Scaffold)
+# Procedure — hook.canonize (Scaffold)
 STATUS: SCAFFOLD
-TODO: Describe step-by-step canonization from hook_card to canon_pack.
+TODO: Describe step-by-step canonization from hook_card to canon_pack. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Envelope referencing accepted hook_card (Hot).
+- Accepted `hook_card` reference (Hot), within an open TU.
 
 Process
-- Analyze hook scope, stakes, and dependencies.
-- Draft canon entry; link upstream hook; note implications.
-- Validate against `canon_pack` schema; continuity checks.
+1) Analyze scope, stakes, dependencies; list bars affected.
+2) Draft `canon_answers_hot` for each hook; separate player-safe summary.
+3) Add timeline anchors, invariants, knowledge ledger.
+4) Continuity checks: refs resolve, timeline coherent, invariants consistent.
+5) Update `canon_pack` with lineage and downstream effects.
+6) Record `tu.checkpoint` summarizing draft and risks.
 
 Outputs
-- `canon_pack` payload (Hot) and `ack`.
-
+- Updated `canon_pack` (Hot) in repo; `tu.checkpoint` emitted.

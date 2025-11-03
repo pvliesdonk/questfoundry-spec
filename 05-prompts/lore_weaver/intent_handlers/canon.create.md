@@ -1,14 +1,15 @@
-# Intent Handler — canon.create (Scaffold)
+# Procedure — canon.create (Scaffold)
 STATUS: SCAFFOLD
-TODO: Define structure for creating new canon packs or entries.
+TODO: Define structure for creating new canon packs or entries. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Request to create canon for a novel topic (Hot).
+- Request to create canon for a novel topic (Hot) within an open TU.
 
 Process
-- Establish scope and boundaries; avoid leaking to player surfaces.
-- Create minimal viable canon entry with cross-references.
+1) Establish scope and boundaries; define bars to press/monitor.
+2) Create minimal viable canon entry with cross-references and lineage.
+3) Separate spoiler vs player-safe content; add downstream effects.
+4) `tu.checkpoint` with summary and open questions.
 
 Outputs
-- `canon_pack` payload (Hot) and `ack`.
-
+- New `canon_pack` (Hot) saved; checkpoint recorded.

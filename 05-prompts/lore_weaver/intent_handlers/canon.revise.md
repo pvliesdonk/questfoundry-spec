@@ -1,14 +1,15 @@
-# Intent Handler — canon.revise (Scaffold)
+# Procedure — canon.revise (Scaffold)
 STATUS: SCAFFOLD
-TODO: Define revision policy, conflict resolution, and traceability.
+TODO: Define revision policy, conflict resolution, and traceability. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Proposed revision to existing canon with rationale and refs.
+- Proposed revision to existing canon with rationale and refs, within an open TU.
 
 Process
-- Assess impact on continuity; run conflict checks.
-- Update canon entry and implications list.
+1) Assess impact on continuity, topology, and style.
+2) Run conflict checks (refs, invariants, timeline, PN safety surfaces).
+3) Update canon entry, consequences, and downstream effects; update lineage.
+4) `tu.checkpoint` summarizing changes and potential new hooks.
 
 Outputs
-- Updated `canon_pack` (Hot) and `ack` with summary.
-
+- Updated `canon_pack` (Hot) and checkpoint; suggest handoffs if scope changes.
