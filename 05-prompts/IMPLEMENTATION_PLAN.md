@@ -1,6 +1,6 @@
 # Layer 5 Implementation Plan
 
-**Target Agent:** Claude (Sonnet 3.5 or better recommended)
+**Target Agent:** GPT-5 (primary) — Claude Sonnet 3.5+ acceptable
 **Repository:** `pvliesdonk/questfoundry` (spec repo, `05-prompts/` directory)
 **Output:** Markdown prompt files + JSON examples
 
