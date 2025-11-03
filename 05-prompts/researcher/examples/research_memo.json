@@ -1,0 +1,50 @@
+{
+  "protocol": { "name": "qf-protocol", "version": "1.0.0" },
+  "id": "urn:uuid:rs-memo-0001",
+  "time": "2025-11-04T11:15:00Z",
+  "sender": { "role": "RS", "agent": "bot:rs" },
+  "receiver": { "role": "SR" },
+  "intent": "ack",
+  "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-RS10", "loop": "Lore Deepening" },
+  "safety": { "player_safe": false, "spoilers": "allowed" },
+  "payload": {
+    "type": "research_memo",
+    "data": {
+      "title": "Historical Toll Embargo Analogies",
+      "tu": "TU-2025-11-04-RS10",
+      "edited": "2025-11-04",
+      "owner": "Researcher",
+      "slice": "Player-safe background on toll embargo patterns at hubs",
+      "stakeholders": ["LW", "PW", "SS"],
+      "question": "What real-world analogs support a credible toll embargo mechanism?",
+      "where_it_appears": "manuscript/sections/wormhole3.md",
+      "why_it_matters": "Ensures plausibility and informs gateway fairness",
+      "short_answer": "Historic trade hubs used toll embargoes to control flow and extract concessions. Examples show plausible, non-lethal pressure matching story tone.",
+      "evidence_hot": [
+        "Case study: Hanseatic League toll controls — relevance: hub governance and non-lethal pressure",
+        "Research article: River customs in early modern Europe — relevance: choke points and exemptions"
+      ],
+      "posture": "plausible",
+      "neutral_phrasing": [
+        "Gate fees rise when the foreman suspects trouble.",
+        "Merchants whisper the toll narrows when a favor is owed."
+      ],
+      "risks_and_mitigations": "Avoid oppressive framing; keep consequences non-lethal and reversible; provide fail-forward routes.",
+      "creative_implications": [
+        "PW: Add obtainability route via foreman favor",
+        "SS: Reflect scarcity pressure in choice wording",
+        "LW: Align faction behavior with plausible deniable pressure"
+      ],
+      "done_checklist": [
+        "Question framed player-safe",
+        "2+ sources summarized",
+        "Posture assigned",
+        "Neutral phrasing added",
+        "Risks mitigated",
+        "Implications listed"
+      ]
+    }
+  },
+  "correlation_id": "corr-rs-memo-2025-11-04"
+}
+
