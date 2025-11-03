@@ -1,6 +1,8 @@
 # Hook Card — Small, Traceable Follow-Up (Layer 2, Enriched)
 
-> **Use:** Capture a **new need or uncertainty** without derailing the current TU. Hooks are small, classified, and routed to the right lane. Keep the **player-safe summary** clean; any spoilers live under **Hot Details**.
+> **Use:** Capture a **new need or uncertainty** without derailing the current TU. Hooks are small,
+> classified, and routed to the right lane. Keep the **player-safe summary** clean; any spoilers
+> live under **Hot Details**.
 >
 > **Status:** ✨ **ENRICHED with Layer 2 constraints (Phase 3, 2025-10-29)**
 
@@ -8,11 +10,15 @@
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
-- Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md` · `../../00-north-star/HOOKS.md`
-- Lanes & handshakes: `../../01-roles/interfaces/pair_guides.md` · `../../01-roles/interfaces/escalation_rules.md` · `../../01-roles/interfaces/dormancy_signals.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
+  · `../../00-north-star/HOOKS.md`
+- Lanes & handshakes: `../../01-roles/interfaces/pair_guides.md` ·
+  `../../01-roles/interfaces/escalation_rules.md` · `../../01-roles/interfaces/dormancy_signals.md`
 - RACI by loop: `../../01-roles/raci/by_loop.md`
-- **Layer 2 references:** `../taxonomies.md` (§1, §2, §3, §5, §7) · `../field_registry.md` (Metadata §1.1, §1.2)
+- **Layer 2 references:** `../taxonomies.md` (§1, §2, §3, §5, §7) · `../field_registry.md` (Metadata
+  §1.1, §1.2)
 
 ---
 
@@ -57,9 +63,11 @@ Snapshot context: Cold @ <YYYY-MM-DD> (Hot details allowed in §3)
 <!-- Field: Blocking? | Type: enum | Required: yes | Values: no | yes (explain why) -->
 <!-- Validation: If "yes", must include explanation in parentheses -->
 
-- **Type (primary):** <narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility>
+- **Type (primary):** <narrative | scene | factual | taxonomy | structure | canon | research |
+  style/pn | translation | art | audio | binder/nav | accessibility>
 - **Secondary (optional):** <…>
-- **Bars affected:** <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism | Presentation | Accessibility>
+- **Bars affected:** <Integrity | Reachability | Nonlinearity | Gateways | Style | Determinism |
+  Presentation | Accessibility>
 - **Blocking?:** <no | yes (explain why)>
 
 ---
@@ -269,7 +277,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 **Bars affected:**
 
 - Must be comma-separated list of bar names from taxonomies.md §5
-- All 8 bars are valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility
+- All 8 bars are valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism,
+  Presentation, Accessibility
 - At least one bar required
 
 **Blocking?:**
@@ -295,7 +304,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 **Deferral tags:**
 
 - If present, must be space-separated (NOT comma-separated) list
-- Values must be from taxonomies.md §7: `deferred:art`, `deferred:audio`, `deferred:translation`, `deferred:research`
+- Values must be from taxonomies.md §7: `deferred:art`, `deferred:audio`, `deferred:translation`,
+  `deferred:research`
 
 **Locations:**
 
@@ -369,8 +379,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Wrong Status Values
 
-**Wrong:** `Status: open | dropped`
-**Right:** `Status: proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
+**Wrong:** `Status: open | dropped` **Right:**
+`Status: proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
 
 **Why:** Old template used incorrect lifecycle terms. Use taxonomies.md §2 values.
 
@@ -378,8 +388,7 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Wrong Hook Type
 
-**Wrong:** `Type: terminology`
-**Right:** `Type: taxonomy`
+**Wrong:** `Type: terminology` **Right:** `Type: taxonomy`
 
 **Why:** Correct term is "taxonomy" for coverage gaps and terminology issues.
 
@@ -387,8 +396,9 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Missing Hook Types
 
-**Wrong:** Only listing structure, canon, style/pn, translation, art, audio, binder/nav, accessibility
-**Right:** Include all 13 types: narrative, scene, factual, taxonomy, structure, canon, research, style/pn, translation, art, audio, binder/nav, accessibility
+**Wrong:** Only listing structure, canon, style/pn, translation, art, audio, binder/nav,
+accessibility **Right:** Include all 13 types: narrative, scene, factual, taxonomy, structure,
+canon, research, style/pn, translation, art, audio, binder/nav, accessibility
 
 **Why:** narrative, scene, factual, and research were missing from original template.
 
@@ -396,8 +406,11 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Missing Determinism Bar
 
-**Wrong:** `Bars affected: Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility` (7 bars)
-**Right:** Include Determinism: `Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility` (8 bars)
+**Wrong:**
+`Bars affected: Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility`
+(7 bars) **Right:** Include Determinism:
+`Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility`
+(8 bars)
 
 **Why:** Determinism is the 8th mandatory bar per QUALITY_BARS.md.
 
@@ -405,8 +418,10 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Missing Loops
 
-**Wrong:** Only listing 9 loops, missing Hook Harvest and export loops
-**Right:** Include all 13 loops: Story Spark, Hook Harvest, Lore Deepening, Codex Expansion, Style Tune-up, Art Touch-up, Audio Pass, Translation Pass, Binding Run, Narration Dry-Run, Gatecheck, Post-Mortem, Archive Snapshot
+**Wrong:** Only listing 9 loops, missing Hook Harvest and export loops **Right:** Include all 13
+loops: Story Spark, Hook Harvest, Lore Deepening, Codex Expansion, Style Tune-up, Art Touch-up,
+Audio Pass, Translation Pass, Binding Run, Narration Dry-Run, Gatecheck, Post-Mortem, Archive
+Snapshot
 
 **Why:** Template was incomplete. See LOOPS/ directory for all loops.
 
@@ -414,8 +429,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Meta/Spoiler Language in Player-Safe Summary
 
-**Wrong:** "Option locked: need reputation>=5 to unlock foreman dialogue"
-**Right:** "The foreman won't speak without recognizing you from prior dock work."
+**Wrong:** "Option locked: need reputation>=5 to unlock foreman dialogue" **Right:** "The foreman
+won't speak without recognizing you from prior dock work."
 
 **Why:** Player-Safe Summary must be diegetic, no codewords, no mechanics, no spoilers.
 
@@ -423,8 +438,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Hook Type Too Broad
 
-**Wrong:** Using `canon` for everything
-**Right:** Use narrowest type: `scene` over `narrative`, `taxonomy` over `canon`, `factual` over `canon`
+**Wrong:** Using `canon` for everything **Right:** Use narrowest type: `scene` over `narrative`,
+`taxonomy` over `canon`, `factual` over `canon`
 
 **Why:** Specific types route to correct roles faster.
 
@@ -432,8 +447,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Missing Acceptance Criteria Tied to Bars
 
-**Wrong:** "Fix the gate issue"
-**Right:** "Gate refusal is diegetic (Gateways green); labels contrastive (Style green); PN dry-run confirms cadence"
+**Wrong:** "Fix the gate issue" **Right:** "Gate refusal is diegetic (Gateways green); labels
+contrastive (Style green); PN dry-run confirms cadence"
 
 **Why:** Criteria must be specific and tied to Quality Bars for gatecheck validation.
 
@@ -441,8 +456,8 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Comma-Separated Deferral Tags
 
-**Wrong:** `deferred:art, deferred:audio, deferred:translation`
-**Right:** `deferred:art deferred:audio deferred:translation` (space-separated)
+**Wrong:** `deferred:art, deferred:audio, deferred:translation` **Right:**
+`deferred:art deferred:audio deferred:translation` (space-separated)
 
 **Why:** Field registry specifies space-separated list format.
 
@@ -450,8 +465,7 @@ Status → resolved on <YYYY-MM-DD>  · Owner: <role>
 
 ### ❌ Inconsistent Loop Name Format
 
-**Wrong:** `style_tuneup` or `STYLE-TUNEUP`
-**Right:** `Style Tune-up` (Title Case with hyphens)
+**Wrong:** `style_tuneup` or `STYLE-TUNEUP` **Right:** `Style Tune-up` (Title Case with hyphens)
 
 **Why:** Display names use Title Case; file names use kebab-case. Templates use display format.
 

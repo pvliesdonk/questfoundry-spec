@@ -1,7 +1,6 @@
 # Quality Bar — Integrity
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -19,4 +18,3 @@ Common Failures
 Remediation
 
 - Create missing targets or retarget; add return paths; mark terminals explicitly.
-

@@ -1,19 +1,22 @@
 # Intent Handler — role.dormant (Scaffold)
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
 
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Inputs
+
 - Envelope with `intent = role.dormant`, Hot context, `receiver.role` = role to park.
 
 Process
-1) Validate sender authority (SR only) and TU context.
-2) Persist outstanding notes; mark deferrals with revisit criteria.
-3) Park session; remove from active roster.
-4) `ack`; add dormancy note via `tu.checkpoint`.
+
+1. Validate sender authority (SR only) and TU context.
+2. Persist outstanding notes; mark deferrals with revisit criteria.
+3. Park session; remove from active roster.
+4. `ack`; add dormancy note via `tu.checkpoint`.
 
 Outputs
+
 - `ack`; dormancy checkpoint.
 
 References
+
 - 01-roles/interfaces/dormancy_signals.md

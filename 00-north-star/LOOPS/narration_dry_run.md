@@ -1,10 +1,13 @@
 # Narration Dry-Run — PN Playtest of the Current View
 
 **Purpose**  
-Have the **Player-Narrator (PN)** play through the current **Cold snapshot** exactly as a player would experience it—**in-world, spoiler-safe**—to surface UX issues in comprehension, choice clarity, pacing, and diegetic gate enforcement.
+Have the **Player-Narrator (PN)** play through the current **Cold snapshot** exactly as a player
+would experience it—**in-world, spoiler-safe**—to surface UX issues in comprehension, choice
+clarity, pacing, and diegetic gate enforcement.
 
 **Outcome**  
-A set of **PN playtest notes** and **handoff tickets** (Trace Units or edit notes) that improve player-facing surfaces without rewriting canon or topology during the dry-run itself.
+A set of **PN playtest notes** and **handoff tickets** (Trace Units or edit notes) that improve
+player-facing surfaces without rewriting canon or topology during the dry-run itself.
 
 ---
 
@@ -15,7 +18,8 @@ A set of **PN playtest notes** and **handoff tickets** (Trace Units or edit note
 - When PN phrasing patterns or recaps were recently updated.
 
 **Activation**  
-Showrunner selects the **same Cold snapshot** used by the Binding Run and opens a TU: `tu-pn-dryrun-<date|milestone>`.
+Showrunner selects the **same Cold snapshot** used by the Binding Run and opens a TU:
+`tu-pn-dryrun-<date|milestone>`.
 
 ---
 
@@ -33,7 +37,8 @@ Showrunner selects the **same Cold snapshot** used by the Binding Run and opens 
 ## 3) Roles & Responsibilities
 
 - **PN (R)**
-  - Perform the book in-voice; enforce gates **diegetically**; log UX issues. No creative rewrites during the pass.
+  - Perform the book in-voice; enforce gates **diegetically**; log UX issues. No creative rewrites
+    during the pass.
 - **Showrunner (A)**
   - Scope routes to test; decide depth (single path vs sample of branches).
 - **Gatekeeper (C)**
@@ -52,21 +57,20 @@ Showrunner selects the **same Cold snapshot** used by the Binding Run and opens 
 ## 4) Procedure
 
 1. **Route Plan (Showrunner + PN)**
-
-   - Choose representative paths: a hub route, a loop return, a gated branch, and at least one terminal.
+   - Choose representative paths: a hub route, a loop return, a gated branch, and at least one
+     terminal.
    - If time-boxed, pick **high-traffic** sections and one “weird” edge case.
 
 2. **Live Read (PN)**
-
    - Narrate in-voice; present choices clearly; perform **recaps** when natural.
    - Enforce gateways without exposing internals (see PN Principles).
    - Do **not** improvise new content that changes meaning; note issues instead.
 
 3. **Issue Logging (PN)**  
-   Tag each note with an **issue type** and a **target** (manuscript/codex/PN phrasing/layout). Use short, actionable phrasing.
+   Tag each note with an **issue type** and a **target** (manuscript/codex/PN phrasing/layout). Use
+   short, actionable phrasing.
 
    **Issue types (common):**
-
    - `choice-ambiguity` — options unclear or indistinct.
    - `gate-friction` — diegetic enforcement feels clunky; suggests rephrase.
    - `recap-needed` — reader likely lost; suggest recap placement.
@@ -77,7 +81,6 @@ Showrunner selects the **same Cold snapshot** used by the Binding Run and opens 
    - `accessibility` — missing alt text, risky audio cue, low contrast.
 
 4. **Spot Checks (Gatekeeper + Binder + Curator + Style)**
-
    - Gatekeeper classifies severity and bar mapping.
    - Binder verifies navigation/format issues.
    - Curator checks codex links and coverage.
@@ -119,8 +122,10 @@ _(Do not alter Cold during the dry-run; changes happen in follow-up loops.)_
 
 ## 7) Failure Modes & Remedies
 
-- **PN improvises fixes live** → Log issues; route to **Style Tune-up** or Binder; don’t unilaterally rewrite.
-- **Recurring choice ambiguity** → Add micro-context in surface text; run a focused **Style Tune-up**.
+- **PN improvises fixes live** → Log issues; route to **Style Tune-up** or Binder; don’t
+  unilaterally rewrite.
+- **Recurring choice ambiguity** → Add micro-context in surface text; run a focused **Style
+  Tune-up**.
 - **Gate phrasing leaks plumbing** → Replace with diegetic token/reputation/knowledge checks.
 - **Codex rabbit-holing** → Cap invites; keep the main path legible.
 - **Format-specific nav bugs** → Binder repairs anchors and re-exports all formats.
@@ -155,4 +160,6 @@ _(Do not alter Cold during the dry-run; changes happen in follow-up loops.)_
 ---
 
 **TL;DR**  
-PN takes the book for a walk—same snapshot as the Binder—logging only what needs smoothing on the player surface. No spoilers, no improvisational rewrites; just sharp notes that make the next view sing.
+PN takes the book for a walk—same snapshot as the Binder—logging only what needs smoothing on the
+player surface. No spoilers, no improvisational rewrites; just sharp notes that make the next view
+sing.

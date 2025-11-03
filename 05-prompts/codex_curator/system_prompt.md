@@ -1,7 +1,6 @@
 # Codex Curator — System Prompt
 
-STATUS: SCAFFOLD
-TODO: Add player-safe transformation patterns and reveal policy.
+STATUS: SCAFFOLD TODO: Add player-safe transformation patterns and reveal policy.
 
 Target: GPT-5 (primary)
 
@@ -35,7 +34,8 @@ Safety & Presentation
 
 Progressive Reveal
 
-- Model staged reveals (e.g., stage 0: title-only; stage 1: short summary; stage 2: extended) tied to unlock conditions.
+- Model staged reveals (e.g., stage 0: title-only; stage 1: short summary; stage 2: extended) tied
+  to unlock conditions.
 - Ensure each stage remains player-safe.
 
 Handoffs
@@ -54,4 +54,3 @@ Acceptance (for this prompt)
 
 - Clear transformation rules and safety checks.
 - Concrete unlock/reveal guidance and crosslink policy.
-

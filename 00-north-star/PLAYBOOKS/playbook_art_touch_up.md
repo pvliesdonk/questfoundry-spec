@@ -1,8 +1,11 @@
 # Playbook — Art Touch-up
 
-**Use when:** You want to **plan and/or add illustrations** that clarify, anchor recall, or set mood—without leaking spoilers. Works even if the **Illustrator** is dormant (plan-only merge).
+**Use when:** You want to **plan and/or add illustrations** that clarify, anchor recall, or set
+mood—without leaking spoilers. Works even if the **Illustrator** is dormant (plan-only merge).
 
-**Outcome:** An **Art Plan** (subjects, purpose, composition intent, spoiler-safe captions, constraints) and, if active, **renders** with determinism logs + alt text. Ready for gatecheck and Cold merge (plans may land as **deferred:art**).
+**Outcome:** An **Art Plan** (subjects, purpose, composition intent, spoiler-safe captions,
+constraints) and, if active, **renders** with determinism logs + alt text. Ready for gatecheck and
+Cold merge (plans may land as **deferred:art**).
 
 ---
 
@@ -11,7 +14,8 @@
 - [ ] Define **slice** (which chapters/sections/scenes).
 - [ ] Decide **plan-only** vs **plan+render**.
 - [ ] Mark roles **active/dormant** (Art Director, Illustrator).
-- [ ] Open TU: `tu-art-<scope>` and state **why** these images exist (clarity/recall/mood/signposting).
+- [ ] Open TU: `tu-art-<scope>` and state **why** these images exist
+      (clarity/recall/mood/signposting).
 
 ---
 
@@ -28,18 +32,22 @@
 
 **Art Director (R)**
 
-1. **Select subjects** (per image): section anchor, **purpose** (clarify/recall/mood/signpost), **spoiler risk** (low/med/high).
-2. Write **Composition Intent** (framing, focal points, motion cues); add **constraints** (aspect, palette/motif hooks, avoid clichés).
+1. **Select subjects** (per image): section anchor, **purpose** (clarify/recall/mood/signpost),
+   **spoiler risk** (low/med/high).
+2. Write **Composition Intent** (framing, focal points, motion cues); add **constraints** (aspect,
+   palette/motif hooks, avoid clichés).
 3. Draft **Caption** (player-safe, atmospheric; no twist reveals).
 4. Add **Accessibility Notes** (alt-text guidance).
 
 **Style Lead (C)** 5. Tune plan to visual guardrails; ensure motif alignment; veto drift.
 
 **Illustrator (R, optional)** 6. If active, **render** candidates; iterate to intent.  
-7. Create **Determinism Log** (if promised): seed, prompt+version, model/build hash, sampler/steps, aspect, CFG/controls, post-process chain.  
+7. Create **Determinism Log** (if promised): seed, prompt+version, model/build hash, sampler/steps,
+aspect, CFG/controls, post-process chain.  
 8. Provide **Alt Text** (succinct, descriptive, spoiler-safe).
 
-**Gatekeeper (C)** 9. **Pre-gate**: Style, Presentation Safety (no spoilers/technique-talk), Determinism (if promised).
+**Gatekeeper (C)** 9. **Pre-gate**: Style, Presentation Safety (no spoilers/technique-talk),
+Determinism (if promised).
 
 **Art Director (R)** 10. **Package** plan (+ renders/logs if any) into the TU.
 
@@ -77,7 +85,8 @@
 
 ## 7) Fast heuristics
 
-- Prefer images that **disambiguate space**, **anchor faces/props**, or **telegraph affordances** (without reveals).
+- Prefer images that **disambiguate space**, **anchor faces/props**, or **telegraph affordances**
+  (without reveals).
 - If **spoiler risk ≥ med**, ship **plan-only** now; render later.
 - Captions **evoke**; they don’t **explain** twists or technique.
 - One strong motif per image beats five scattered ones.
@@ -147,4 +156,6 @@ Notes: <variants, negative prompts, known quirks>
 ---
 
 **Cheat line (TU note):**  
-“Art Touch-up (Act I): 5 images (Dock 7 hub, foreman gate, medbay recall, shadow-side berth, wormhole toll queue). Captions spoiler-safe; 2 renders with full logs + alt text; 3 **deferred:art** plans; Gatekeeper pre-gate green.”
+“Art Touch-up (Act I): 5 images (Dock 7 hub, foreman gate, medbay recall, shadow-side berth,
+wormhole toll queue). Captions spoiler-safe; 2 renders with full logs + alt text; 3 **deferred:art**
+plans; Gatekeeper pre-gate green.”

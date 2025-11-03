@@ -6,9 +6,25 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "SS" },
     "intent": "tu.open",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-SS10", "snapshot": "Cold @ 2025-10-28", "loop": "Lore Deepening" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-SS10",
+      "snapshot": "Cold @ 2025-10-28",
+      "loop": "Lore Deepening"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "tu_brief", "data": { "id": "TU-2025-11-03-SS10", "opened": "2025-11-03", "owner_a": "SR", "responsible_r": ["SS"], "loop": "Lore Deepening", "slice": "Draft scene A1 with new hub tone", "snapshot_context": "Cold @ 2025-10-28" } },
+    "payload": {
+      "type": "tu_brief",
+      "data": {
+        "id": "TU-2025-11-03-SS10",
+        "opened": "2025-11-03",
+        "owner_a": "SR",
+        "responsible_r": ["SS"],
+        "loop": "Lore Deepening",
+        "slice": "Draft scene A1 with new hub tone",
+        "snapshot_context": "Cold @ 2025-10-28"
+      }
+    },
     "correlation_id": "corr-ss-scene-2025-11-03"
   },
   {
@@ -18,13 +34,18 @@
     "sender": { "role": "SS", "agent": "bot:ss" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-SS10", "loop": "Lore Deepening" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-SS10",
+      "loop": "Lore Deepening"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": {
       "type": "none",
-      "data": { "summary": "Drafted A1 with balanced sardonic register; two choices added with diegetic gateway phrasing." }
+      "data": {
+        "summary": "Drafted A1 with balanced sardonic register; two choices added with diegetic gateway phrasing."
+      }
     },
     "correlation_id": "corr-ss-scene-2025-11-03"
   }
 ]
-

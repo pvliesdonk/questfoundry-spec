@@ -1,6 +1,8 @@
 # Quality Bars — What Must Be True Before We Merge to Cold
 
-These are human-level checks the **Gatekeeper** applies before any Hot change merges to Cold. No tooling required (yet). Bars are written so creators can self-check; the Gatekeeper formalizes the pass/fail with notes.
+These are human-level checks the **Gatekeeper** applies before any Hot change merges to Cold. No
+tooling required (yet). Bars are written so creators can self-check; the Gatekeeper formalizes the
+pass/fail with notes.
 
 > Cold = export/play-safe. If a bar fails, we don’t merge.
 
@@ -46,7 +48,8 @@ Each bar has quick checks, common failures, and remediation hints.
 
 **What it means**
 
-- “Must-see” beats (plot keystones, required items) are reachable from at least one path without paradoxes.
+- “Must-see” beats (plot keystones, required items) are reachable from at least one path without
+  paradoxes.
 
 **Quick checks**
 
@@ -82,7 +85,8 @@ Each bar has quick checks, common failures, and remediation hints.
 
 **What it means**
 
-- Conditions (codewords, items, states) are consistent across sections and can be enforced by the PN without leaks.
+- Conditions (codewords, items, states) are consistent across sections and can be enforced by the PN
+  without leaks.
 
 **Quick checks**
 
@@ -122,7 +126,8 @@ Each bar has quick checks, common failures, and remediation hints.
 
 **What it means**
 
-- Visual/audio assets can be reproduced from recorded parameters (seed, prompt version, model, aspect, chain).
+- Visual/audio assets can be reproduced from recorded parameters (seed, prompt version, model,
+  aspect, chain).
 - If determinism is _not_ promised, this bar is N/A.
 
 **Quick checks**
@@ -193,7 +198,8 @@ Each bar has quick checks, common failures, and remediation hints.
 - [ ] **Presentation**: No spoilers; codex/manuscript/PN player-safe; no internal plumbing visible.
 - [ ] **Accessibility**: Alt text present; navigation clear; sensory considerations respected.
 
-**Outcome**: `pass` or `fail` with **specific remediation notes**. The Showrunner can only merge on `pass` (or on an explicitly documented exception).
+**Outcome**: `pass` or `fail` with **specific remediation notes**. The Showrunner can only merge on
+`pass` (or on an explicitly documented exception).
 
 ---
 
@@ -221,4 +227,6 @@ Examples:
 ---
 
 **TL;DR**  
-If it’s going to **Cold**, it must be reachable, intentional, consistent, in-voice, spoiler-safe, and—when we promise it—deterministic. The Gatekeeper guards the door so the player never sees the duct tape.
+If it’s going to **Cold**, it must be reachable, intentional, consistent, in-voice, spoiler-safe,
+and—when we promise it—deterministic. The Gatekeeper guards the door so the player never sees the
+duct tape.

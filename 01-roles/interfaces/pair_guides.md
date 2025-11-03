@@ -1,6 +1,8 @@
 # Pair Guides — How Roles Hand Off Work (Layer 1, Human-Level)
 
-> **Purpose:** Make handshakes boring (in the good way). Each guide defines _when to pair, what to bring, what to hand back,_ and a 5-minute protocol that keeps loops tight and player surfaces clean.
+> **Purpose:** Make handshakes boring (in the good way). Each guide defines _when to pair, what to
+> bring, what to hand back,_ and a 5-minute protocol that keeps loops tight and player surfaces
+> clean.
 
 ---
 
@@ -29,11 +31,15 @@
 - **Hot** = private working truth (spoilers allowed).
 - **Cold** = player-safe surfaces (no spoilers, no internals).
 - **TU** = a small, timeboxed task unit (see `../../02-dictionary/artifacts/tu_brief.md`).
-- **Bars** = Quality Bars (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility).
+- **Bars** = Quality Bars (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation,
+  Accessibility).
 - Normative references:  
-  `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md` · `../../00-north-star/TRACEABILITY.md`
+  `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md` ·
+  `../../00-north-star/TRACEABILITY.md`
 
-> **Always player-safe outward.** If a sample might reach players, keep it spoiler-free and free of technique (no seeds/models/DAW, no codewords).
+> **Always player-safe outward.** If a sample might reach players, keep it spoiler-free and free of
+> technique (no seeds/models/DAW, no codewords).
 
 ---
 
@@ -186,7 +192,8 @@
 
 **Bring (Art Director)**
 
-- **Art Plan** (purpose • composition • iconography • light/mood • caption • alt guidance • inclusion criteria)
+- **Art Plan** (purpose • composition • iconography • light/mood • caption • alt guidance •
+  inclusion criteria)
 - Shotlist + determinism expectations **off-surface**
 
 **Hand back (Illustrator)**
@@ -219,7 +226,8 @@
 
 **Bring (Audio Director)**
 
-- **Audio Plans** (purpose • placement • intensity/duration • text equivalents • safety notes • inclusion criteria)
+- **Audio Plans** (purpose • placement • intensity/duration • text equivalents • safety notes •
+  inclusion criteria)
 - Cue list + reproducibility expectations **off-surface**
 
 **Hand back (Audio Producer)**
@@ -353,7 +361,8 @@
 
 **Hand back (Researcher)**
 
-- **Research Memo** (short answer + citations + posture), **neutral phrasing**, risks/mitigations, hooks
+- **Research Memo** (short answer + citations + posture), **neutral phrasing**, risks/mitigations,
+  hooks
 
 **5-minute protocol**
 
@@ -377,7 +386,8 @@
 
 - Cross-domain changes (structure + voice + canon) → **Showrunner**
 - Repeated Presentation failures → involve **Gatekeeper** earlier in the loop
-- Policy shifts (multilingual layout, caption standards, determinism promises) → propose **ADR** in `/DECISIONS`
+- Policy shifts (multilingual layout, caption standards, determinism promises) → propose **ADR** in
+  `/DECISIONS`
 
 ---
 

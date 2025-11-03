@@ -1,6 +1,8 @@
 # Spoiler Hygiene — Keep Player Surfaces Clean
 
-Players read **surfaces** (manuscript, PN lines, codex, captions, localized text). Everything else can be messy, clever, or mechanical—but **surfaces must never leak** twists, internals, or technique. This document is the single rulebook.
+Players read **surfaces** (manuscript, PN lines, codex, captions, localized text). Everything else
+can be messy, clever, or mechanical—but **surfaces must never leak** twists, internals, or
+technique. This document is the single rulebook.
 
 > Surfaces = **Cold** only. Spoiler work happens in **Hot** (canon notes, plans, hooks).
 
@@ -9,19 +11,23 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 ## 1) Golden Rules
 
 1. **No reveals on surfaces.**  
-   If knowing it would change how a first-time reader perceives a choice or scene, it stays off the surface.
+   If knowing it would change how a first-time reader perceives a choice or scene, it stays off the
+   surface.
 
 2. **No internals.**  
-   Never print: codeword names, gate logic, RNG, seeds/models, DAW/plugins, schema fields, file paths, IDs.
+   Never print: codeword names, gate logic, RNG, seeds/models, DAW/plugins, schema fields, file
+   paths, IDs.
 
 3. **Diegetic gates only.**  
-   PN and manuscript phrase access as **in-world conditions** (token/reputation/knowledge/tool), not mechanics.
+   PN and manuscript phrase access as **in-world conditions** (token/reputation/knowledge/tool), not
+   mechanics.
 
 4. **Canon ≠ Codex.**  
    Canon (spoiler-level truth) lives in Hot. Codex publishes **player-safe summaries** only.
 
 5. **Caption ≠ Explanation.**  
-   Art/audio captions set mood or clarify affordances; they don’t foreshadow twists or explain technique.
+   Art/audio captions set mood or clarify affordances; they don’t foreshadow twists or explain
+   technique.
 
 ---
 
@@ -40,16 +46,21 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 ## 3) What each role must do
 
-- **Showrunner** — Enforce this doc as a non-negotiable bar. Route cross-domain debates through loops, not ad-hoc fixes.
+- **Showrunner** — Enforce this doc as a non-negotiable bar. Route cross-domain debates through
+  loops, not ad-hoc fixes.
 - **Gatekeeper** — Block merges with **Presentation** failures. Run spot checks on exports.
-- **Plotwright/Scene Smith** — Write choices that are **distinct and fair** without hinting at hidden logic.
-- **Lore Weaver** — Quarantine spoilers in canon notes; provide **player-safe summaries** for Curator.
-- **Codex Curator** — Publish comprehension, not revelation. Mask timeline/causality that would spoil.
+- **Plotwright/Scene Smith** — Write choices that are **distinct and fair** without hinting at
+  hidden logic.
+- **Lore Weaver** — Quarantine spoilers in canon notes; provide **player-safe summaries** for
+  Curator.
+- **Codex Curator** — Publish comprehension, not revelation. Mask timeline/causality that would
+  spoil.
 - **Style Lead** — Nudge wording away from meta/technique. Keep voice tight under pressure.
 - **Art/Audio Directors** — Author **surface captions** (mood/affordance). Keep technique in logs.
 - **Illustrator/Audio Producer** — Record determinism/repro notes off-surface.
 - **Translator** — Preserve diegesis and neutrality; avoid meta hints.
-- **PN** — Enforce gates **diegetically**; never say the quiet part (no codewords, no checks by name).
+- **PN** — Enforce gates **diegetically**; never say the quiet part (no codewords, no checks by
+  name).
 
 ---
 
@@ -101,9 +112,12 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 
 ## 7) Handling inevitable edge cases
 
-- **Necessary ambiguity**: If masking a detail risks confusion, add a **neutral workaround** (e.g., imply stakes without naming causes) or defer entry until after the reveal.
-- **Research dormant**: Keep factual claims neutral on surfaces; mark `uncorroborated:<risk>` in Hot and schedule Researcher.
-- **Topology friction**: If surface clarity requires structural change, route a **Story Spark**; don’t smuggle logic via wording.
+- **Necessary ambiguity**: If masking a detail risks confusion, add a **neutral workaround** (e.g.,
+  imply stakes without naming causes) or defer entry until after the reveal.
+- **Research dormant**: Keep factual claims neutral on surfaces; mark `uncorroborated:<risk>` in Hot
+  and schedule Researcher.
+- **Topology friction**: If surface clarity requires structural change, route a **Story Spark**;
+  don’t smuggle logic via wording.
 
 ---
 
@@ -134,9 +148,11 @@ Players read **surfaces** (manuscript, PN lines, codex, captions, localized text
 ## 10) Enforcement & remediation
 
 - Gatekeeper flags a **Presentation** failure → work returns to Hot with a note citing this doc.
-- If the leak already reached a release view, Binder adds a **View Log** note and we cut a patched view from the same snapshot after fixing surfaces (no new spoilers added).
+- If the leak already reached a release view, Binder adds a **View Log** note and we cut a patched
+  view from the same snapshot after fixing surfaces (no new spoilers added).
 
 ---
 
 **TL;DR**  
-Keep wonder on the page and machinery off it. If a player could infer a twist or see the gears, it doesn’t belong on the surface. Put it in Hot, or phrase it in-world.
+Keep wonder on the page and machinery off it. If a player could infer a twist or see the gears, it
+doesn’t belong on the surface. Put it in Hot, or phrase it in-world.

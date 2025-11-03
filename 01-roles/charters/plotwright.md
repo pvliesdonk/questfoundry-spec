@@ -1,6 +1,8 @@
 # Role Charter — Plotwright
 
-> **Purpose:** The Plotwright shapes **topology**—hubs, loops, and gateways—so the book offers meaningful routes, clean affordances, and fair surprises. Design the playground; leave deep truth to Lore and the final phrasing to Scene/Style.
+> **Purpose:** The Plotwright shapes **topology**—hubs, loops, and gateways—so the book offers
+> meaningful routes, clean affordances, and fair surprises. Design the playground; leave deep truth
+> to Lore and the final phrasing to Scene/Style.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Plotwright  
 **Aliases (optional):** Plot Designer, Narrative Architect  
-**One-sentence mission:** Design nonlinear structure that **invites choice** and **rewards return**, then hand clear briefs to prose and canon neighbors.
+**One-sentence mission:** Design nonlinear structure that **invites choice** and **rewards return**,
+then hand clear briefs to prose and canon neighbors.
 
 **Normative references (Layer 0)**
 
@@ -25,9 +28,12 @@
 
 **In scope (SHOULD focus on):**
 
-- Craft **topology**: hubs, loops (with difference), gateways (diegetic conditions), and safe returns.
-- Define **section briefs**: goal, stakes, key beats, choice intents, and expected outcomes (player-safe).
-- Map **gateway intents** (what the world checks), not mechanics; ensure **reachability** paths exist.
+- Craft **topology**: hubs, loops (with difference), gateways (diegetic conditions), and safe
+  returns.
+- Define **section briefs**: goal, stakes, key beats, choice intents, and expected outcomes
+  (player-safe).
+- Map **gateway intents** (what the world checks), not mechanics; ensure **reachability** paths
+  exist.
 - Maintain a lightweight **codeword economy** concept in Hot (never on surfaces).
 - Identify **keystones** (critical sections) and design redundancy around them.
 
@@ -40,9 +46,12 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Local topology adjustments within the current TU slice; choice count & contrast; proposed gateway placements.
-- **Consult first (SHOULD):** Changes that touch canon timing (with Lore), register pressure on PN phrasing (with Style/PN), codex anchor needs (with Curator).
-- **Must defer (MUST):** Merge calls to **Showrunner**; bar outcomes to **Gatekeeper**; canon truth to **Lore Weaver**.
+- **May decide alone (MAY):** Local topology adjustments within the current TU slice; choice count &
+  contrast; proposed gateway placements.
+- **Consult first (SHOULD):** Changes that touch canon timing (with Lore), register pressure on PN
+  phrasing (with Style/PN), codex anchor needs (with Curator).
+- **Must defer (MUST):** Merge calls to **Showrunner**; bar outcomes to **Gatekeeper**; canon truth
+  to **Lore Weaver**.
 
 ---
 
@@ -56,12 +65,15 @@
 **Produces (outputs):**
 
 - **Topology Notes** — hub/loop/gateway map (human-readable), keystones, safe returns.
-- **Section Briefs** — per-section: goal • beats • choice intents (contrastive) • expected outcomes (player-safe) • open questions.
-- **Gateway Map** — diegetic checks (token/reputation/knowledge/tool) + fairness notes (how to qualify).
+- **Section Briefs** — per-section: goal • beats • choice intents (contrastive) • expected outcomes
+  (player-safe) • open questions.
+- **Gateway Map** — diegetic checks (token/reputation/knowledge/tool) + fairness notes (how to
+  qualify).
 - **Hook List** — crisp proposals for Lore/Curator/Style/Art/Audio.
 - **Back-pressure Notes** — where prose or canon will likely need support.
 
-> Outputs that can reach players (e.g., phrasing hints) **must** stay player-safe; never include codeword names or logic.
+> Outputs that can reach players (e.g., phrasing hints) **must** stay player-safe; never include
+> codeword names or logic.
 
 ---
 
@@ -69,7 +81,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Story Spark** — **R:** Plotwright · **A:** Showrunner · **C:** Scene, Lore, Style, Gatekeeper · **I:** Curator, PN
+- **Story Spark** — **R:** Plotwright · **A:** Showrunner · **C:** Scene, Lore, Style, Gatekeeper ·
+  **I:** Curator, PN
 - **Hook Harvest** — **C:** Plotwright (triage & clustering)
 - **Lore Deepening** — **C:** Plotwright (canon timing & structural fit)
 - **Style Tune-up** — **C:** Plotwright (choice contrast vs. cadence)
@@ -86,7 +99,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** narrative (new hub/loop), scene (missing beat), factual (world rule to justify a gate), taxonomy (codex anchor needed), surface-needs (image-worthy moments).
+- **May propose hooks:** narrative (new hub/loop), scene (missing beat), factual (world rule to
+  justify a gate), taxonomy (codex anchor needed), surface-needs (image-worthy moments).
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `hub`, `loop`, `gateway`, `keystone`, `codex-anchor`, `art-cue`.
 - **Lineage:** cite TU; spoilers in Hot only.
@@ -95,9 +109,11 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** briefs and gateway maps are **player-safe**; never reveal twists or logic names.
+- **Spoiler Hygiene:** briefs and gateway maps are **player-safe**; never reveal twists or logic
+  names.
 - **PN boundaries:** supply **diegetic phrasing cues** for gates; PN will phrase them in-world.
-- **Accessibility:** ensure section and choice labeling stays concise and **contrastive**; avoid near-synonyms.
+- **Accessibility:** ensure section and choice labeling stays concise and **contrastive**; avoid
+  near-synonyms.
 
 ---
 
@@ -116,8 +132,10 @@
 ## 8) Cross-Domain & Escalation
 
 - For canon-dependent structure, coordinate with **Lore** (time/causality) before locking topology.
-- For choice readability issues, pair with **Style** and **Scene**; if conflict persists, route via **Showrunner**.
-- If a codex anchor would clarify affordance, signal **Curator** with a hook instead of stuffing exposition into a brief.
+- For choice readability issues, pair with **Style** and **Scene**; if conflict persists, route via
+  **Showrunner**.
+- If a codex anchor would clarify affordance, signal **Curator** with a hook instead of stuffing
+  exposition into a brief.
 
 ---
 
@@ -156,11 +174,13 @@
 
 **Loop with difference (note)**
 
-- Return to Dock 7 after foreman encounter → **new affordance**: access to maintenance hatch if you overheard the crew code earlier.
+- Return to Dock 7 after foreman encounter → **new affordance**: access to maintenance hatch if you
+  overheard the crew code earlier.
 
 ---
 
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/story_spark.md`, `../../00-north-star/PLAYBOOKS/playbook_story_spark.md`
+**Related:** `../../00-north-star/LOOPS/story_spark.md`,
+`../../00-north-star/PLAYBOOKS/playbook_story_spark.md`

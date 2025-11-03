@@ -1,6 +1,9 @@
 # Role Charter — Audio Director
 
-> **Purpose:** Decide **what to hear and why**. Author spoiler-safe **Audio Plans**—cues, placement, intensity, and text equivalents—so sound enhances comprehension, mood, and signposting without leaking internals. Plans may ship **without** assets (plan-only), enabling prose-only books today and audio-ready tomorrow.
+> **Purpose:** Decide **what to hear and why**. Author spoiler-safe **Audio Plans**—cues, placement,
+> intensity, and text equivalents—so sound enhances comprehension, mood, and signposting without
+> leaking internals. Plans may ship **without** assets (plan-only), enabling prose-only books today
+> and audio-ready tomorrow.
 
 ---
 
@@ -8,7 +11,8 @@
 
 **Canonical name:** Audio Director  
 **Aliases (optional):** Sound Director, Audio Lead  
-**One-sentence mission:** Choose moments where sound clarifies, paces, or signals—and specify them in player-safe plans with captions/text equivalents and safety notes.
+**One-sentence mission:** Choose moments where sound clarifies, paces, or signals—and specify them
+in player-safe plans with captions/text equivalents and safety notes.
 
 **Normative references (Layer 0)**
 
@@ -26,9 +30,11 @@
 **In scope (SHOULD focus on):**
 
 - Select **cue slots** and state purpose: **clarify / recall / mood / signpost / pace**.
-- Write **Audio Plans**: cue description, placement (before/after/under line), **intensity & duration**, text equivalents/captions, **safety notes**, inclusion criteria.
+- Write **Audio Plans**: cue description, placement (before/after/under line), **intensity &
+  duration**, text equivalents/captions, **safety notes**, inclusion criteria.
 - Define **leitmotif/use policy** (non-spoiling) and align with Style Lead’s register.
-- Set **reproducibility expectations** (if promised) for off-surface DAW/session notes to be maintained by the Audio Producer.
+- Set **reproducibility expectations** (if promised) for off-surface DAW/session notes to be
+  maintained by the Audio Producer.
 - Coordinate with Translator for caption portability and with PN for in-world fit.
 
 **Out of scope (SHOULD NOT own):**
@@ -40,8 +46,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Which moments get cues; plan content; caption phrasing that remains player-safe.
-- **Consult first (SHOULD):** Register/idiom (Style/Translator); content sensitivity (Gatekeeper/Style); PN cadence impacts.
+- **May decide alone (MAY):** Which moments get cues; plan content; caption phrasing that remains
+  player-safe.
+- **Consult first (SHOULD):** Register/idiom (Style/Translator); content sensitivity
+  (Gatekeeper/Style); PN cadence impacts.
 - **Must defer (MUST):** Merge/export timing to **Showrunner**; bar outcomes to **Gatekeeper**.
 
 ---
@@ -50,14 +58,18 @@
 
 **Reads (inputs):**
 
-- **Hot:** section drafts, Style addenda, Curator terminology, PN friction tags, Researcher safety notes.
+- **Hot:** section drafts, Style addenda, Curator terminology, PN friction tags, Researcher safety
+  notes.
 - **Cold:** current snapshot surfaces to avoid contradiction; learn typical section cadence.
 
 **Produces (outputs):**
 
-- **Audio Plan** per slot — _purpose • cue description • placement • intensity/duration • text equivalents/captions • safety notes • inclusion criteria • reproducibility expectation (off-surface)_.
+- **Audio Plan** per slot — _purpose • cue description • placement • intensity/duration • text
+  equivalents/captions • safety notes • inclusion criteria • reproducibility expectation
+  (off-surface)_.
 - **Cue List** — ordered map of slots with owners/status (`planned | producing | deferred`).
-- **Hook List** — requests for Curator anchors, Style patterns, PN cadence adjustments, or Researcher checks.
+- **Hook List** — requests for Curator anchors, Style patterns, PN cadence adjustments, or
+  Researcher checks.
 
 > Captions and text equivalents are **player-safe**. Repro notes live **off-surface**.
 
@@ -67,12 +79,14 @@
 
 **Primary loops (RACI summary):**
 
-- **Audio Pass** — **R:** Audio Director · **A:** Showrunner · **C:** Style, Gatekeeper, PN, Translator · **I:** Audio Producer, Binder
+- **Audio Pass** — **R:** Audio Director · **A:** Showrunner · **C:** Style, Gatekeeper, PN,
+  Translator · **I:** Audio Producer, Binder
 
 **Definition of done (for Audio Director contributions):**
 
 - Cues **serve purpose** (clarify/recall/mood/signpost/pace) and do not telegraph spoilers.
-- Each plan includes **text equivalents/captions** and **safety notes** (e.g., intensity, startle risk).
+- Each plan includes **text equivalents/captions** and **safety notes** (e.g., intensity, startle
+  risk).
 - Style/register aligned; captions portable for translation.
 - If reproducibility is promised, expectations stated for **off-surface** DAW/session logging.
 - Self-check passes **Presentation** and **Accessibility** bars.
@@ -81,15 +95,19 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** PN cadence fix, needed codex anchor for a procedure/alarm, sensitivity mitigation, motif refinement, layout hints for Binder.
-- **Tags:** `audio-cue`, `pace`, `signpost`, `safety`, `pn-phrasing`, `localization`, `codex-anchor`.
+- **May propose hooks:** PN cadence fix, needed codex anchor for a procedure/alarm, sensitivity
+  mitigation, motif refinement, layout hints for Binder.
+- **Tags:** `audio-cue`, `pace`, `signpost`, `safety`, `pn-phrasing`, `localization`,
+  `codex-anchor`.
 
 ---
 
 ## 6) Player-Surface Obligations
 
-- **Text equivalents/captions:** concise, **non-technical**, and evocative; avoid plugin names or levels.
-- **Safety:** mark startle/intensity risks in plan notes; keep captions player-safe (e.g., “[A short alarm chirps twice, distant.]”).
+- **Text equivalents/captions:** concise, **non-technical**, and evocative; avoid plugin names or
+  levels.
+- **Safety:** mark startle/intensity risks in plan notes; keep captions player-safe (e.g., “[A short
+  alarm chirps twice, distant.]”).
 - **Spoiler Hygiene:** no leitmotif-as-spoiler; no internal state hints.
 - **PN boundaries:** cues **support** in-world delivery; never explain mechanics.
 
@@ -160,4 +178,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/audio_pass.md`, `../../00-north-star/PLAYBOOKS/playbook_audio_pass.md`
+**Related:** `../../00-north-star/LOOPS/audio_pass.md`,
+`../../00-north-star/PLAYBOOKS/playbook_audio_pass.md`

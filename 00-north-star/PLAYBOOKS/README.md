@@ -1,8 +1,10 @@
 # Playbooks — One-Page, Do-This-Now Guides
 
-Playbooks are **checklist-ready** summaries of the targeted loops. When you already know _what_ you’re doing and just need the **“how in one page,”** grab the matching playbook below.
+Playbooks are **checklist-ready** summaries of the targeted loops. When you already know _what_
+you’re doing and just need the **“how in one page,”** grab the matching playbook below.
 
-> Playbooks change **Hot** and only reach **Cold** after Gatekeeper passes the Quality Bars. Keep **SPOILER_HYGIENE.md** and **ACCESSIBILITY_AND_CONTENT_NOTES.md** open when you run them.
+> Playbooks change **Hot** and only reach **Cold** after Gatekeeper passes the Quality Bars. Keep
+> **SPOILER_HYGIENE.md** and **ACCESSIBILITY_AND_CONTENT_NOTES.md** open when you run them.
 
 ---
 
@@ -23,17 +25,22 @@ Playbooks are **checklist-ready** summaries of the targeted loops. When you alre
 
 ## When to use playbooks vs. full loop guides
 
-- **Playbook** = you’re executing and want **checklists, roles, deliverables, success criteria** on one page.
-- **Full loop guide** (in `../LOOPS/`) = you’re planning or teaching the loop and want deeper rationale, anti-patterns, and examples.
+- **Playbook** = you’re executing and want **checklists, roles, deliverables, success criteria** on
+  one page.
+- **Full loop guide** (in `../LOOPS/`) = you’re planning or teaching the loop and want deeper
+  rationale, anti-patterns, and examples.
 
 ---
 
 ## Shared guardrails (apply to every playbook)
 
-- Work in **Hot**; merge to **Cold** only after **Gatekeeper** passes **Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism (if promised), Presentation**.
-- Player surfaces obey **SPOILER_HYGIENE.md**; accessibility baselines in **ACCESSIBILITY_AND_CONTENT_NOTES.md**.
+- Work in **Hot**; merge to **Cold** only after **Gatekeeper** passes **Integrity, Reachability,
+  Nonlinearity, Gateways, Style, Determinism (if promised), Presentation**.
+- Player surfaces obey **SPOILER_HYGIENE.md**; accessibility baselines in
+  **ACCESSIBILITY_AND_CONTENT_NOTES.md**.
 - Each run sits inside a **Trace Unit (TU)**; record inputs/outputs and bar pressure.
-- **Dormancy policy**: Showrunner decides which optional roles wake (Researcher, Art/Audio, Translator); plan-only merges as **deferred** are allowed.
+- **Dormancy policy**: Showrunner decides which optional roles wake (Researcher, Art/Audio,
+  Translator); plan-only merges as **deferred** are allowed.
 
 ---
 
@@ -51,4 +58,5 @@ Playbooks are **checklist-ready** summaries of the targeted loops. When you alre
 ---
 
 **TL;DR**  
-Pick the right playbook, open a TU, run the checklist, hand off cleanly, and let the Gatekeeper keep us honest.
+Pick the right playbook, open a TU, run the checklist, hand off cleanly, and let the Gatekeeper keep
+us honest.

@@ -1,10 +1,13 @@
 # Style Tune-up — Correct Drift in Voice, Register, and Aesthetic Guardrails
 
 **Purpose**  
-Detect and correct **style drift** across prose, captions, and PN surfaces without re-architecting the story. Tighten voice, register, motifs, and visual guardrails so the book reads like one mind made it.
+Detect and correct **style drift** across prose, captions, and PN surfaces without re-architecting
+the story. Tighten voice, register, motifs, and visual guardrails so the book reads like one mind
+made it.
 
 **Outcome**  
-A consolidated **style addendum** with specific edit notes to owners, plus a green **Presentation/Style** pre-gate—ready for merge after downstream fixes.
+A consolidated **style addendum** with specific edit notes to owners, plus a green
+**Presentation/Style** pre-gate—ready for merge after downstream fixes.
 
 ---
 
@@ -51,31 +54,27 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 ## 4) Procedure
 
 1. **Drift Diagnosis (Style Lead)**
-
    - Sample sections (early/middle/late), PN lines, and recent captions.
-   - Tag issues: `voice-shift`, `register-mismatch`, `motif-missing`, `over-exposition`, `jargon-spike`.
+   - Tag issues: `voice-shift`, `register-mismatch`, `motif-missing`, `over-exposition`,
+     `jargon-spike`.
 
 2. **Exemplar Pass**
-
    - Provide short **before/after** exemplars for each issue (human prose).
    - Reaffirm motif kit (e.g., “shadow-side neon”, “low-G dust”, “relay hum”).
 
 3. **Style Addendum**
-
-   - Add rules or clarifications: sentence rhythm under pressure, idiom boundaries, POV distance, caption tone.
+   - Add rules or clarifications: sentence rhythm under pressure, idiom boundaries, POV distance,
+     caption tone.
    - Localization notes: avoid puns / provide alternatives.
 
 4. **Edit Notes to Owners**
-
    - Annotated list: `file/section → issue → fix suggestion (1–2 lines)`
    - PN phrase bank updates if needed (diegetic checks phrasing).
 
 5. **Owner Revisions (Scene/PN/Art/Audio)**
-
    - Make minimal changes to hit style; escalate if structure might change.
 
 6. **Pre-Gate (Gatekeeper)**
-
    - Style & Presentation Safety check; ensure no spoilers snuck into captions/PN.
 
 7. **Package**
@@ -94,7 +93,8 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 
 ## 6) Merge Path (summary)
 
-- After owners apply edits and **Gatekeeper** passes **Style + Presentation**, **Showrunner** merges the **Style Addendum** (and updated surfaces) to **Cold**.
+- After owners apply edits and **Gatekeeper** passes **Style + Presentation**, **Showrunner** merges
+  the **Style Addendum** (and updated surfaces) to **Cold**.
 
 ---
 
@@ -110,7 +110,8 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 ## 8) Failure Modes & Remedies
 
 - **Overcorrection flattens character voice** → Keep character idiolect; harmonize narration only.
-- **Style change implies story change** → Route to **Story Spark**; don’t smuggle structure via style.
+- **Style change implies story change** → Route to **Story Spark**; don’t smuggle structure via
+  style.
 - **Caption spoilers** → Move detail to canon notes; rewrite caption atmospheric.
 - **Untranslatable idioms** → Provide neutral phrasing or region-appropriate equivalents.
 
@@ -129,12 +130,15 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 
 ## 10) Mini Exemplar (pattern)
 
-**Before**: “In low gravity, you are floating, which is disorienting, and the alarms are very loud.”  
-**After** (house register tight): “Low-G lifts you an inch; the floor forgets you. Alarms chew the corridor.”
+**Before**: “In low gravity, you are floating, which is disorienting, and the alarms are very
+loud.”  
+**After** (house register tight): “Low-G lifts you an inch; the floor forgets you. Alarms chew the
+corridor.”
 
 Motifs: `low-G`, `industrial noise`. Rhythm: shorter under pressure.
 
 ---
 
 **TL;DR**  
-Find the wobble, show the fix, write it down, and nudge owners to tweak just enough. One book, one voice—without rewriting the map.
+Find the wobble, show the fix, write it down, and nudge owners to tweak just enough. One book, one
+voice—without rewriting the map.

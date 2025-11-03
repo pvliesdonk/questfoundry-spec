@@ -2,7 +2,8 @@
 
 > **Date:** 2025-10-29
 >
-> **Status:** ✅ **Phase 3 Core Complete** — Enrichment methodology proven, all inconsistencies found
+> **Status:** ✅ **Phase 3 Core Complete** — Enrichment methodology proven, all inconsistencies
+> found
 
 ---
 
@@ -10,7 +11,8 @@
 
 ### 1. Enrichment Methodology Established ✅
 
-Created and validated enrichment pattern through **3 Tier 1 artifacts** (most critical/frequently used):
+Created and validated enrichment pattern through **3 Tier 1 artifacts** (most critical/frequently
+used):
 
 1. **hook_card_ENRICHED.md** — 28 fields, 10 common errors documented
 2. **tu_brief_ENRICHED.md** — 27 fields, 10 common errors documented
@@ -38,7 +40,11 @@ Created and validated enrichment pattern through **3 Tier 1 artifacts** (most cr
 6. Loop name formatting undocumented (kebab vs Title Case)
 7. Role abbreviations undefined
 
-**Phase 3 Enrichment (6 issues):** 8. Deferral tags using pipe separators (should be space-separated) 9. TU Brief missing 3 loops (same as #5) 10. TU Brief missing Determinism bar (same as #3) 11. TU Brief deferral separators inconsistent (pipes and middle-dots) 12. Gatecheck Report missing Determinism row in table 13. Gatecheck Report deferral format issues (question marks and middle-dots)
+**Phase 3 Enrichment (6 issues):** 8. Deferral tags using pipe separators (should be
+space-separated) 9. TU Brief missing 3 loops (same as #5) 10. TU Brief missing Determinism bar (same
+as #3) 11. TU Brief deferral separators inconsistent (pipes and middle-dots) 12. Gatecheck Report
+missing Determinism row in table 13. Gatecheck Report deferral format issues (question marks and
+middle-dots)
 
 All documented in **LAYER1_CORRECTIONS.md** with:
 
@@ -146,8 +152,8 @@ Found **4 different separator formats** used for deferral tags:
 - Question mark: `deferred:art? deferred:audio?`
 - Space: `deferred:art deferred:audio` ✅ **CORRECT**
 
-**Root cause:** Templates created before format standardized
-**Solution:** Use space-separated everywhere (field_registry specification)
+**Root cause:** Templates created before format standardized **Solution:** Use space-separated
+everywhere (field_registry specification)
 
 ### 2. Determinism Bar Systematically Missing
 
@@ -157,8 +163,8 @@ Found Determinism missing in **3 different places:**
 - TU Brief bar list (Issue #10)
 - Gatecheck Report table rows (Issue #12)
 
-**Root cause:** Templates created when only 7 bars defined, not updated when 8th added
-**Solution:** Add Determinism everywhere (Layer 0 QUALITY_BARS.md is correct)
+**Root cause:** Templates created when only 7 bars defined, not updated when 8th added **Solution:**
+Add Determinism everywhere (Layer 0 QUALITY_BARS.md is correct)
 
 ### 3. Loop Count Evolved Over Time
 
@@ -168,8 +174,8 @@ Found different loop counts:
 - TU Brief: 10 loops (missing 3 export)
 - Layer 0 LOOPS/: 13 loops (correct)
 
-**Root cause:** Export loops (Gatecheck, Post-Mortem, Archive Snapshot) added later
-**Solution:** Update all templates to 13 loops
+**Root cause:** Export loops (Gatecheck, Post-Mortem, Archive Snapshot) added later **Solution:**
+Update all templates to 13 loops
 
 ### 4. Taxonomy Terminology Drift
 
@@ -179,21 +185,18 @@ Found `terminology` used instead of `taxonomy`:
 - Layer 0 uses "taxonomy" consistently
 - User confirmed: use "taxonomy"
 
-**Root cause:** Early template used different term
-**Solution:** Align to Layer 0 term "taxonomy"
+**Root cause:** Early template used different term **Solution:** Align to Layer 0 term "taxonomy"
 
 ---
 
 ## Success Metrics
 
-✅ **Enrichment pattern proven** on 3 most critical artifacts
-✅ **All inconsistencies found** (13 total) via systematic extraction
-✅ **All corrections applied** to enriched versions
-✅ **All issues documented** with fix plans in LAYER1_CORRECTIONS.md
-✅ **Machine-checkable** format established (HTML comments parseable by Layer 3)
-✅ **Human-readable** preserved (natural language instructions, footer sections)
-✅ **Taxonomy integration** complete (explicit §references)
-✅ **Field validation** comprehensive (3 levels: field, cross-field, cross-artifact)
+✅ **Enrichment pattern proven** on 3 most critical artifacts ✅ **All inconsistencies found** (13
+total) via systematic extraction ✅ **All corrections applied** to enriched versions ✅ **All issues
+documented** with fix plans in LAYER1_CORRECTIONS.md ✅ **Machine-checkable** format established
+(HTML comments parseable by Layer 3) ✅ **Human-readable** preserved (natural language instructions,
+footer sections) ✅ **Taxonomy integration** complete (explicit §references) ✅ **Field validation**
+comprehensive (3 levels: field, cross-field, cross-artifact)
 
 ---
 

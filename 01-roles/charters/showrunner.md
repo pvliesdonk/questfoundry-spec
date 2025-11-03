@@ -1,6 +1,8 @@
 # Role Charter — Showrunner
 
-> **Purpose:** The Showrunner scopes work, wakes the right roles, sequences **targeted loops**, and decides when **Hot** becomes **Cold**—balancing momentum with safety. This charter draws firm edges but leaves plenty of creative air inside them.
+> **Purpose:** The Showrunner scopes work, wakes the right roles, sequences **targeted loops**, and
+> decides when **Hot** becomes **Cold**—balancing momentum with safety. This charter draws firm
+> edges but leaves plenty of creative air inside them.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Showrunner  
 **Aliases (optional):** Producer, Project Lead  
-**One-sentence mission:** Keep the studio moving in small, high-signal loops; merge only what’s safe and useful; make the next step obvious.
+**One-sentence mission:** Keep the studio moving in small, high-signal loops; merge only what’s safe
+and useful; make the next step obvious.
 
 **Normative references (Layer 0)**
 
@@ -26,11 +29,13 @@
 **In scope (SHOULD focus on):**
 
 - Frame **TUs**: pick slice, loop, deliverables, timebox.
-- Decide **role dormancy**: which optional roles wake for this TU (Researcher, Art/Audio, Translator).
+- Decide **role dormancy**: which optional roles wake for this TU (Researcher, Art/Audio,
+  Translator).
 - Sequence loops and resolve **cross-domain** impacts via micro-plans.
 - Call **Gatechecks** and decide **Hot→Cold** merges.
 - Approve **snapshot** stamping and **Binding Run** options for views.
-- Maintain a light **risk register** (e.g., uncorroborated facts, deferred assets, translation coverage).
+- Maintain a light **risk register** (e.g., uncorroborated facts, deferred assets, translation
+  coverage).
 
 **Out of scope (SHOULD NOT own):**
 
@@ -41,8 +46,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** TU scope, loop order, role wake/sleep, snapshot cadence, view composition.
-- **Consult first (SHOULD):** Style-affecting calls (with Style Lead), translation coverage labels (with Translator), asset inclusion (with Directors/Producers).
+- **May decide alone (MAY):** TU scope, loop order, role wake/sleep, snapshot cadence, view
+  composition.
+- **Consult first (SHOULD):** Style-affecting calls (with Style Lead), translation coverage labels
+  (with Translator), asset inclusion (with Directors/Producers).
 - **Must defer (MUST):** Bar outcomes to **Gatekeeper**; policy changes to **ADRs**.
 
 ---
@@ -62,7 +69,8 @@
 - **View Options** for Binder (languages/coverage, art/audio plan-or-assets).
 - **Follow-up Plan** (next loops; who wakes next).
 
-> Outputs must be **player-safe** if they appear in exports (e.g., front-matter notes). Keep spoilers and internals in Hot.
+> Outputs must be **player-safe** if they appear in exports (e.g., front-matter notes). Keep
+> spoilers and internals in Hot.
 
 ---
 
@@ -70,9 +78,12 @@
 
 **Primary loops (RACI summary):**
 
-- **Hook Harvest** — **R:** Showrunner · **A:** Showrunner · **C:** Plotwright, Scene Smith, Lore, Curator, Researcher, Style, Gatekeeper · **I:** All
-- **Binding Run** — **R:** Binder · **A:** Showrunner · **C:** Gatekeeper, Style, Translator · **I:** PN
-- **Narration Dry-Run** — **R:** PN · **A:** Showrunner · **C:** Gatekeeper, Style, Binder · **I:** All
+- **Hook Harvest** — **R:** Showrunner · **A:** Showrunner · **C:** Plotwright, Scene Smith, Lore,
+  Curator, Researcher, Style, Gatekeeper · **I:** All
+- **Binding Run** — **R:** Binder · **A:** Showrunner · **C:** Gatekeeper, Style, Translator ·
+  **I:** PN
+- **Narration Dry-Run** — **R:** PN · **A:** Showrunner · **C:** Gatekeeper, Style, Binder · **I:**
+  All
 
 **Definition of done (for Showrunner):**
 
@@ -86,7 +97,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** narrative gaps, scope cuts, role wake signals, export UX tweaks, risk items.
+- **May propose hooks:** narrative gaps, scope cuts, role wake signals, export UX tweaks, risk
+  items.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `scope`, `risk`, `export`, `loop-order`, `wake-signal`.
 
@@ -94,8 +106,10 @@
 
 ## 6) Player-Surface Obligations
 
-- Ensure **Spoiler Hygiene** and **Accessibility** are respected in any Showrunner-authored surface text (e.g., view front matter).
-- When deciding view composition, label **translation coverage** and **deferred assets** clearly in player-safe terms.
+- Ensure **Spoiler Hygiene** and **Accessibility** are respected in any Showrunner-authored surface
+  text (e.g., view front matter).
+- When deciding view composition, label **translation coverage** and **deferred assets** clearly in
+  player-safe terms.
 - PN boundaries: never authorize surface wording that exposes internals; require diegetic phrasing.
 
 ---
@@ -106,22 +120,26 @@
 **Wake signals (examples):**
 
 - ≥ N **accepted hooks** requiring canon → wake **Lore Weaver**.
-- Repeated PN **gate-friction** tags → wake **Style Lead** (phrasing) and possibly **Plotwright** (topology).
+- Repeated PN **gate-friction** tags → wake **Style Lead** (phrasing) and possibly **Plotwright**
+  (topology).
 - Codex coverage gap on new terms → wake **Curator** (and **Translator** if languages active).
 - Visual/audio comprehension needs → wake **Art/Audio Directors** (plan-only allowed).
 - Factual risk > medium → wake **Researcher**.
 
 **Plan-only merges:** Allowed for Art/Audio/Translation as **deferred:art/audio/translation**.
 
-**Risk posture when Researcher dormant:** Mark items `uncorroborated:<low|med|high>` in Hot; keep surfaces neutral.
+**Risk posture when Researcher dormant:** Mark items `uncorroborated:<low|med|high>` in Hot; keep
+surfaces neutral.
 
 ---
 
 ## 8) Cross-Domain & Escalation
 
 - Encourage quick **in-domain** chats; route **cross-domain** impacts via a TU.
-- If a bar fails and owners disagree on remediation, call a short **policy huddle** and, if needed, open an **ADR** draft.
-- Use `../interfaces/pair_guides.md` for common handoffs (Plot↔Scene, Lore↔Codex, Style↔PN/Translator, Directors↔Producers, Binder↔PN).
+- If a bar fails and owners disagree on remediation, call a short **policy huddle** and, if needed,
+  open an **ADR** draft.
+- Use `../interfaces/pair_guides.md` for common handoffs (Plot↔Scene, Lore↔Codex,
+  Style↔PN/Translator, Directors↔Producers, Binder↔PN).
 
 ---
 
@@ -150,15 +168,18 @@
 
 **Scope note (good)**
 
-> _TU: Act I hub polish — Story Spark (30m). Wake Style. Deliver: 3 draft sections with contrastive choices; 5 hooks triaged; pre-gate notes._
+> _TU: Act I hub polish — Story Spark (30m). Wake Style. Deliver: 3 draft sections with contrastive
+> choices; 5 hooks triaged; pre-gate notes._
 
 **View options (player-safe)**
 
-> _View A1 (cold@2025-10-28): EN complete; NL 74%; art plans (no renders); audio none. Accessibility: alt yes; captions n/a._
+> _View A1 (cold@2025-10-28): EN complete; NL 74%; art plans (no renders); audio none.
+> Accessibility: alt yes; captions n/a._
 
 ---
 
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/full_production_run.md`, `../../00-north-star/PLAYBOOKS/playbook_story_spark.md`
+**Related:** `../../00-north-star/LOOPS/full_production_run.md`,
+`../../00-north-star/PLAYBOOKS/playbook_story_spark.md`

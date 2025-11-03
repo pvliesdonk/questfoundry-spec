@@ -1,14 +1,18 @@
 # Full Production Run — End-to-End Loop
 
-This loop takes a project brief from **Hot** ideation to an **exported view on Cold**. It exercises all core roles, but permits dormant roles (art/audio/translation/research) per the **Showrunner**’s plan.
+This loop takes a project brief from **Hot** ideation to an **exported view on Cold**. It exercises
+all core roles, but permits dormant roles (art/audio/translation/research) per the **Showrunner**’s
+plan.
 
-> Outcome: a spoiler-safe, hyperlinked manuscript view (plus optional plans/assets), stamped with a Cold snapshot ID.
+> Outcome: a spoiler-safe, hyperlinked manuscript view (plus optional plans/assets), stamped with a
+> Cold snapshot ID.
 
 ---
 
 ## 1) Kickoff (Showrunner)
 
-- **Scope**: define target (chapter/act/booklet), constraints (tone, content limits), and which roles are **active** vs **dormant**.
+- **Scope**: define target (chapter/act/booklet), constraints (tone, content limits), and which
+  roles are **active** vs **dormant**.
 - **Inputs**: brief, Style Lead’s current guardrails, existing Cold canon/codex.
 - **Open** a **Trace Unit (TU)** for the production slice (see `TRACEABILITY.md`).
 
@@ -22,7 +26,8 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 
 ## 2) Story Spark (Plotwright → Scene Smith → Style Lead)
 
-- **Plotwright** drafts/updates topology: parts/chapters, hubs, loops, gateways, codeword economy. Generates **narrative hooks**.
+- **Plotwright** drafts/updates topology: parts/chapters, hubs, loops, gateways, codeword economy.
+  Generates **narrative hooks**.
 - **Scene Smith** drafts key sections aligned to style; adds **scene hooks** (traits, tells).
 - **Style Lead** reviews tone/register/motifs; flags drift or ambiguity.
 
@@ -40,7 +45,8 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 
 - **Showrunner** triggers harvest; cluster and triage hooks:
   - `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`.
-- If **Researcher** active: collect citations, set uncertainty levels; else mark `uncorroborated:<risk>`.
+- If **Researcher** active: collect citations, set uncertainty levels; else mark
+  `uncorroborated:<risk>`.
 
 **Deliverables**
 
@@ -108,7 +114,8 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 
 - Cross-role review; resolve contradictions and UX snags.
 - **Gatekeeper** runs **Quality Bars**:
-  - Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism (if promised), Presentation Safety.
+  - Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism (if promised), Presentation
+    Safety.
 - Produce **gatecheck note** (pass/fail + remediation).
 
 **Deliverables**
@@ -133,7 +140,8 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 ## 10) Binding Run (Book Binder)
 
 - Assemble **export view** from the Cold snapshot:
-  - Hyperlinked manuscript, codex, checklists; optional art/audio plans/assets; localization slices if active.
+  - Hyperlinked manuscript, codex, checklists; optional art/audio plans/assets; localization slices
+    if active.
 - Ensure accessibility (alt text, descriptive links, contrast) and spoiler hygiene.
 - Record snapshot ID and export options in front matter.
 
@@ -192,11 +200,14 @@ This loop takes a project brief from **Hot** ideation to an **exported view on C
 
 - **Research dormant drift** → Mark factual items `uncorroborated:<risk>`; schedule revisit.
 - **Codex spoils twists** → Move detail to canon notes; keep player-safe summaries only.
-- **Topology regressions** → Gatekeeper blocks on Integrity/Reachability; split changes into smaller TUs.
+- **Topology regressions** → Gatekeeper blocks on Integrity/Reachability; split changes into smaller
+  TUs.
 - **Style wobble** → Run **Style Tune-up** before merge.
-- **Determinism missing** (when promised) → keep assets in Hot or merge as plan-only with `deferred:<asset>`.
+- **Determinism missing** (when promised) → keep assets in Hot or merge as plan-only with
+  `deferred:<asset>`.
 
 ---
 
 **TL;DR**  
-Plan the slice, spark the story, harvest and deepen hooks, codify player-safe surfaces, gate it hard, merge to Cold, bind a clean view, test it in-voice, and either ship or loop again—on purpose.
+Plan the slice, spark the story, harvest and deepen hooks, codify player-safe surfaces, gate it
+hard, merge to Cold, bind a clean view, test it in-voice, and either ship or loop again—on purpose.

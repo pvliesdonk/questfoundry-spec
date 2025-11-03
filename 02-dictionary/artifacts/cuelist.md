@@ -1,17 +1,22 @@
 # Cuelist — Audio Plan Index for a Slice (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (space-separated deferrals).
 
-> **Use:** Audio Director's compact index of **all cues** in a slice. Each row points to a full **Audio Plan**. Keep **player surfaces** clean (captions/text equivalents are safe). All technique/repro lives **off-surface** inside the Audio Plan or producer logs.
+> **Use:** Audio Director's compact index of **all cues** in a slice. Each row points to a full
+> **Audio Plan**. Keep **player surfaces** clean (captions/text equivalents are safe). All
+> technique/repro lives **off-surface** inside the Audio Plan or producer logs.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Audio Director ↔ Audio Producer; Style ↔ Translator) · `../interfaces/escalation_rules.md` · `../interfaces/dormancy_signals.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Audio Director ↔ Audio Producer; Style ↔
+  Translator) · `../interfaces/escalation_rules.md` · `../interfaces/dormancy_signals.md`
 - Role briefs: `../briefs/audio_director.md` · `../briefs/audio_producer.md`
 - Template: `./audio_plan.md`
 
@@ -101,8 +106,10 @@ foreman-gate-hum — include on exterior inspection lines; exclude during dialog
 <!-- Field: Localization notes | Type: markdown-list | Optional: yes | Register, onomatopoeia, portability -->
 <!-- Field: PN coordination | Type: markdown | Optional: yes | Cadence and masking checks -->
 
-- **Safety:** gradual onset; conservative intensity; no piercing transients; content notes referenced when applicable.
-- **Localization:** captions use slice register; avoid culture-bound onomatopoeia; Translator confirms portability.
+- **Safety:** gradual onset; conservative intensity; no piercing transients; content notes
+  referenced when applicable.
+- **Localization:** captions use slice register; avoid culture-bound onomatopoeia; Translator
+  confirms portability.
 - **PN coordination:** PN confirms cues don't fight cadence or mask lines.
 
 ---
@@ -124,8 +131,10 @@ foreman-gate-hum — include on exterior inspection lines; exclude during dialog
 <!-- Field: Binder note | Type: markdown | Optional: yes | View shipping and plan-only status -->
 <!-- Field: Gatekeeper note | Type: markdown | Optional: yes | Presentation/Accessibility spot-check -->
 
-- Binder: list whether cues **ship in the View** or are plan-only; reflect in `View Log` options/coverage.
-- Gatekeeper: **Presentation/Accessibility** spot-check one representative cue before production unlock.
+- Binder: list whether cues **ship in the View** or are plan-only; reflect in `View Log`
+  options/coverage.
+- Gatekeeper: **Presentation/Accessibility** spot-check one representative cue before production
+  unlock.
 
 ---
 
@@ -257,6 +266,7 @@ Hooks
 
 ---
 
-**Total fields: ~15** (7 metadata, 1 content, 1 classification, 3 relationships, 1 validation, 1 localization, 1 accessibility)
+**Total fields: ~15** (7 metadata, 1 content, 1 classification, 3 relationships, 1 validation, 1
+localization, 1 accessibility)
 
 ---

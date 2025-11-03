@@ -1,8 +1,11 @@
 # Playbook — Translation Pass
 
-**Use when:** You need a **target-language slice** (manuscript/codex/PN surfaces) that preserves voice and diegesis. Works even if you only ship the **glossary/style kit** this round.
+**Use when:** You need a **target-language slice** (manuscript/codex/PN surfaces) that preserves
+voice and diegesis. Works even if you only ship the **glossary/style kit** this round.
 
-**Outcome:** A **Language Pack** (glossary, register map, motif equivalence, idiom strategy, localized surfaces, coverage %, open issues) ready for gatecheck and Cold merge. Exports can include complete or partial translations flagged accordingly.
+**Outcome:** A **Language Pack** (glossary, register map, motif equivalence, idiom strategy,
+localized surfaces, coverage %, open issues) ready for gatecheck and Cold merge. Exports can include
+complete or partial translations flagged accordingly.
 
 ---
 
@@ -32,7 +35,8 @@
 1. **Glossary first** — lock key terms; build **Register Map** (pronouns, formality, honorifics).
 2. **Motif equivalence** — decide how house motifs render (e.g., “low-G dust”).
 3. **Idiom strategy** — list idioms → functional equivalents; mark avoid/replace.
-4. **Localize surfaces** — manuscript choices/paragraphs, codex titles/summaries, captions/alt text; **preserve anchors & links**.
+4. **Localize surfaces** — manuscript choices/paragraphs, codex titles/summaries, captions/alt text;
+   **preserve anchors & links**.
 5. **Open issues** — record untranslatables, cultural cautions, glossary gaps.
 
 **Style Lead (C)** 6. Tone & register pass; flag wording that fights house voice.
@@ -146,4 +150,5 @@ Anchors: <keep original IDs/links>
 ---
 
 **Cheat line (TU note):**  
-“Translation Pass (NL, Act I): glossary+register map locked; motifs mapped; 74% surfaces localized; PN diegetic gates verified; 5 open idioms; pre-gate Presentation/Integrity/Style green.”
+“Translation Pass (NL, Act I): glossary+register map locked; motifs mapped; 74% surfaces localized;
+PN diegetic gates verified; 5 open idioms; pre-gate Presentation/Integrity/Style green.”

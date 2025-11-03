@@ -1,6 +1,8 @@
 # Role Charter — Art Director
 
-> **Purpose:** Decide **what to illustrate and why**. Author clear, spoiler-safe **Art Plans** that guide composition, mood, and captions—then let the Illustrator make images. Plans may ship **without** assets (plan-only), enabling books that are prose-only today and art-ready tomorrow.
+> **Purpose:** Decide **what to illustrate and why**. Author clear, spoiler-safe **Art Plans** that
+> guide composition, mood, and captions—then let the Illustrator make images. Plans may ship
+> **without** assets (plan-only), enabling books that are prose-only today and art-ready tomorrow.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Art Director  
 **Aliases (optional):** Visual Director, Illustration Lead  
-**One-sentence mission:** Choose image moments that clarify, recall, signal, or enrich mood—and specify them in player-safe plans that respect style and accessibility.
+**One-sentence mission:** Choose image moments that clarify, recall, signal, or enrich mood—and
+specify them in player-safe plans that respect style and accessibility.
 
 **Normative references (Layer 0)**
 
@@ -26,7 +29,8 @@
 **In scope (SHOULD focus on):**
 
 - Select **illustration slots** and state purpose: **clarify / recall / mood / signpost**.
-- Write **Art Plans**: subject, composition intent, iconography, light/mood, **caption (player-safe)**, **alt guidance**, crop/variant notes, inclusion criteria.
+- Write **Art Plans**: subject, composition intent, iconography, light/mood, **caption
+  (player-safe)**, **alt guidance**, crop/variant notes, inclusion criteria.
 - Maintain **visual language & motif palette** aligned with Style Lead.
 - Coordinate with Curator for **codex anchors** and with PN for in-world fit.
 - Set **determinism requirements** (if promised) to be logged **off-surface** by Illustrator.
@@ -40,8 +44,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Which moments to illustrate; plan contents; caption/alt phrasing that remains player-safe.
-- **Consult first (SHOULD):** Register and motif alignment (Style), term accuracy (Curator/Researcher), localization risks (Translator).
+- **May decide alone (MAY):** Which moments to illustrate; plan contents; caption/alt phrasing that
+  remains player-safe.
+- **Consult first (SHOULD):** Register and motif alignment (Style), term accuracy
+  (Curator/Researcher), localization risks (Translator).
 - **Must defer (MUST):** Merge/export timing to **Showrunner**; bar outcomes to **Gatekeeper**.
 
 ---
@@ -50,16 +56,20 @@
 
 **Reads (inputs):**
 
-- **Hot:** section briefs & drafts, Style addenda, Lore summaries (player-safe), Researcher notes (plausibility), PN friction tags.
+- **Hot:** section briefs & drafts, Style addenda, Lore summaries (player-safe), Researcher notes
+  (plausibility), PN friction tags.
 - **Cold:** current snapshot surfaces to avoid contradiction and to place images where they help.
 
 **Produces (outputs):**
 
-- **Art Plan** per slot — _purpose • subject • composition intent • iconography • light/mood • caption (player-safe) • alt guidance • crop/variant notes • inclusion criteria • determinism requirement (off-surface)_.
+- **Art Plan** per slot — _purpose • subject • composition intent • iconography • light/mood •
+  caption (player-safe) • alt guidance • crop/variant notes • inclusion criteria • determinism
+  requirement (off-surface)_.
 - **Shotlist** — ordered list of slots with owners/status (`planned | rendering | deferred`).
 - **Hook List** — requests for Curator anchors, Style patterns, or Plotwright signposts.
 
-> Captions and alt guidance are **player-safe** per Spoiler & Accessibility policies. Determinism stays in **logs**, not on surfaces.
+> Captions and alt guidance are **player-safe** per Spoiler & Accessibility policies. Determinism
+> stays in **logs**, not on surfaces.
 
 ---
 
@@ -67,7 +77,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Art Touch-up** — **R:** Art Director · **A:** Showrunner · **C:** Style, Gatekeeper · **I:** Illustrator, Binder, PN, Curator
+- **Art Touch-up** — **R:** Art Director · **A:** Showrunner · **C:** Style, Gatekeeper · **I:**
+  Illustrator, Binder, PN, Curator
 - **Story Spark / Codex Expansion** — **C:** (when imagery clarifies affordances or terms)
 
 **Definition of done (for Art Director contributions):**
@@ -82,7 +93,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** needed codex anchor for an image, motif refinement, signpost opportunity, plausibility check (Researcher), layout aid for Binder.
+- **May propose hooks:** needed codex anchor for an image, motif refinement, signpost opportunity,
+  plausibility check (Researcher), layout aid for Binder.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `art-cue`, `signpost`, `motif`, `codex-anchor`, `plausibility`.
 
@@ -90,7 +102,8 @@
 
 ## 6) Player-Surface Obligations
 
-- **Captions:** atmospheric or clarifying; **no spoilers**, **no technique**, **no internal labels**.
+- **Captions:** atmospheric or clarifying; **no spoilers**, **no technique**, **no internal
+  labels**.
 - **Alt guidance:** one sentence, concrete nouns/relations; avoid “image of…”.
 - **Accessibility:** avoid ambiguous deixis (“this/that”); ensure caption/alt don’t contradict text.
 - **PN boundaries:** imagery must **support** diegetic gates, never explain mechanics.
@@ -114,7 +127,8 @@
 
 - Pair with **Illustrator** for feasibility; escalate determinism tracking off-surface.
 - Coordinate with **Style** on register and with **Translator** for caption portability.
-- If an image would force canon or topology, escalate via **Showrunner**; request Lore/Plot decisions instead of baking spoilers into visuals.
+- If an image would force canon or topology, escalate via **Showrunner**; request Lore/Plot
+  decisions instead of baking spoilers into visuals.
 
 ---
 
@@ -161,4 +175,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/art_touch_up.md`, `../../00-north-star/PLAYBOOKS/playbook_art_touch_up.md`
+**Related:** `../../00-north-star/LOOPS/art_touch_up.md`,
+`../../00-north-star/PLAYBOOKS/playbook_art_touch_up.md`

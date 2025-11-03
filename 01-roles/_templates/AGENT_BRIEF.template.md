@@ -1,8 +1,11 @@
 # Agent Brief — <Canon Role Name>
 
-> **Purpose:** A practical, human-level guide for how this role operates day-to-day. It’s a set of **heuristics**, not hard rules—aimed at small, testable steps that keep creativity high and surprises low.
+> **Purpose:** A practical, human-level guide for how this role operates day-to-day. It’s a set of
+> **heuristics**, not hard rules—aimed at small, testable steps that keep creativity high and
+> surprises low.
 >
-> **Do not** include prompt text, schemas, or protocol details here. Point to Layer-0 policies instead of repeating them.
+> **Do not** include prompt text, schemas, or protocol details here. Point to Layer-0 policies
+> instead of repeating them.
 
 ---
 
@@ -22,10 +25,13 @@
 ## 1) Operating principles (mindset)
 
 - **Small steps win.** Prefer a narrow TU with one clear outcome over a sprawling “everything pass.”
-- **Player-first surfaces.** If text can be seen by players, keep it **diegetic, spoiler-safe, and accessible**.
-- **Hooks, not detours.** When you get an idea outside current scope, write a **hook**; don’t derail the TU.
+- **Player-first surfaces.** If text can be seen by players, keep it **diegetic, spoiler-safe, and
+  accessible**.
+- **Hooks, not detours.** When you get an idea outside current scope, write a **hook**; don’t derail
+  the TU.
 - **Show, don’t tell internals.** Never surface codewords, gate logic, seeds, or technique.
-- **Pair lightly.** Talk to adjacent roles for context; route cross-domain changes via the Showrunner.
+- **Pair lightly.** Talk to adjacent roles for context; route cross-domain changes via the
+  Showrunner.
 
 ---
 
@@ -48,20 +54,24 @@
 - **Scope a slice**: pick a chapter/scene/term set/asset list you can finish in one sitting.
 - **Open a TU** with loop name and deliverables.
 - **Timebox**: set a soft limit; if exceeded, ship what’s solid and file follow-ups as hooks.
-- **Definition of done**: match the per-role checklist from the charter and pass relevant Quality Bars.
+- **Definition of done**: match the per-role checklist from the charter and pass relevant Quality
+  Bars.
 
 ---
 
 ## 4) Heuristics (try this first)
 
 - **Start with the adjacent truth.** Align to the most recent **Cold** snapshot; don’t fight it.
-- **Draft fast, stabilize later.** Produce a clean first pass, flag uncertainties, and keep momentum.
-- **Make choices contrastive.** Where applicable, options should clearly differ in intent and consequence.
+- **Draft fast, stabilize later.** Produce a clean first pass, flag uncertainties, and keep
+  momentum.
+- **Make choices contrastive.** Where applicable, options should clearly differ in intent and
+  consequence.
 - **Name intent, then details.** In notes, lead with “what this achieves,” then list specifics.
 - **Bias to readability.** Short sentences where tension rises; exemplars beat explanations.
 - **Prefer examples.** When introducing a rule or style, include one tiny before/after.
 
-> Swap these bullets for role-specific heuristics (e.g., Plotwright: “map gateways to diegetic checks”; Curator: “write Overview→Usage→Context→See also”).
+> Swap these bullets for role-specific heuristics (e.g., Plotwright: “map gateways to diegetic
+> checks”; Curator: “write Overview→Usage→Context→See also”).
 
 ---
 
@@ -76,9 +86,11 @@
 
 ## 6) Communication rules
 
-- **Notify neighbors** when your output changes their inputs (e.g., Lore → Curator; Style → Scene/PN).
+- **Notify neighbors** when your output changes their inputs (e.g., Lore → Curator; Style →
+  Scene/PN).
 - **Use pair guides** for common handshakes: `../interfaces/pair_guides.md`.
-- **Dormancy signals**: if you need a dormant role, note it in the TU and ping the Showrunner: `../interfaces/dormancy_signals.md`.
+- **Dormancy signals**: if you need a dormant role, note it in the TU and ping the Showrunner:
+  `../interfaces/dormancy_signals.md`.
 - **Escalate** cross-domain conflicts via the Showrunner: `../interfaces/escalation_rules.md`.
 
 ---

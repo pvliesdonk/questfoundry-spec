@@ -1,6 +1,8 @@
 # Dormancy Signals — When to Sleep, When to Wake (Layer 1, Human-Level)
 
-> **Purpose:** Make optional roles truly optional—without guessing. This guide defines _sleep/wake_ signals, deferral tags, and safety rules so the Showrunner can run **small, focused loops** while keeping player surfaces clean.
+> **Purpose:** Make optional roles truly optional—without guessing. This guide defines _sleep/wake_
+> signals, deferral tags, and safety rules so the Showrunner can run **small, focused loops** while
+> keeping player surfaces clean.
 
 ---
 
@@ -14,7 +16,9 @@
 - Traceability — `../../00-north-star/TRACEABILITY.md`
 
 **Conventions:**  
-**Hot** = private working truth (spoilers allowed). **Cold** = player-safe surfaces (no internals/spoilers). **TU** = timeboxed task unit. **Bars** = Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility.
+**Hot** = private working truth (spoilers allowed). **Cold** = player-safe surfaces (no
+internals/spoilers). **TU** = timeboxed task unit. **Bars** = Integrity, Reachability, Nonlinearity,
+Gateways, Style, Presentation, Accessibility.
 
 ---
 
@@ -25,7 +29,8 @@
 - **Translator (Localization Lead)**
 - **Researcher**
 
-> Others _can_ be paused between loops, but these four tracks are explicitly optional per run. Books can ship **prose-only**; plans can ship **plan-only**.
+> Others _can_ be paused between loops, but these four tracks are explicitly optional per run. Books
+> can ship **prose-only**; plans can ship **plan-only**.
 
 ---
 
@@ -36,7 +41,8 @@ Use these **player-safe** deferral tags in Hot and for Binder notes (never in pr
 - `deferred:art` — Art Plans exist or not; no renders included.
 - `deferred:audio` — Audio Plans exist or not; no cues included.
 - `deferred:translation` — Register map/glossary may exist; localized slices partial or absent.
-- `deferred:research` — Claims marked with **posture**; neutral phrasing in place; deep corroboration pending.
+- `deferred:research` — Claims marked with **posture**; neutral phrasing in place; deep
+  corroboration pending.
 
 **Binder front matter (example):**
 
@@ -78,8 +84,10 @@ Score each criterion **0–2**; wake when total ≥ **4** or any **hard wake** t
 
 - If the fix is **topology/voice/terminology**, wake Plot/Scene/Style/Curator instead.
 - If captions/alt can be written from existing plans, **Illustrator/Producer may stay dormant**.
-- If localization is <30% coverage and not a release goal, ship **register map + glossary slice** and keep Translator dormant (`deferred:translation`).
-- If Researcher posture is `plausible` and **neutral phrasing** is safe, keep Researcher dormant and schedule a research TU later.
+- If localization is <30% coverage and not a release goal, ship **register map + glossary slice**
+  and keep Translator dormant (`deferred:translation`).
+- If Researcher posture is `plausible` and **neutral phrasing** is safe, keep Researcher dormant and
+  schedule a research TU later.
 
 ---
 
@@ -155,8 +163,10 @@ Score each criterion **0–2**; wake when total ≥ **4** or any **hard wake** t
 
 ## 6) Gatekeeper policy under dormancy
 
-- **Block (red)** only when a dormant role is the **owner** of a failing bar and no safe fallback exists (e.g., missing alt → Accessibility red; un-localized labels break anchors → Integrity red).
-- **Merge-safe (yellow)** when neutral fallbacks exist (e.g., text equivalents present, art optional, translation partial with coverage stated). Note `deferred:*` tags in Binder notes.
+- **Block (red)** only when a dormant role is the **owner** of a failing bar and no safe fallback
+  exists (e.g., missing alt → Accessibility red; un-localized labels break anchors → Integrity red).
+- **Merge-safe (yellow)** when neutral fallbacks exist (e.g., text equivalents present, art
+  optional, translation partial with coverage stated). Note `deferred:*` tags in Binder notes.
 - Always cite **bar + smallest viable fix** and whether waking is required or optional.
 
 ---
@@ -231,7 +241,9 @@ Schedule: revisit in release-RC loop
 
 ## 10) Notes on traceability
 
-- Always record dormancy decisions in the **TU** and **Tracelog** so future loops can reason without chat memory.
-- When a deferred track completes, note the **removal** of the corresponding `deferred:*` tag in the **View Log** and **front matter**.
+- Always record dormancy decisions in the **TU** and **Tracelog** so future loops can reason without
+  chat memory.
+- When a deferred track completes, note the **removal** of the corresponding `deferred:*` tag in the
+  **View Log** and **front matter**.
 
 ---

@@ -1,8 +1,10 @@
 # Playbook — Codex Expansion
 
-**Use when:** New canon landed (from **Lore Deepening**) or the manuscript keeps using terms the player needs explained. Also use to resolve **taxonomy/clarity hooks** (coverage gaps, red-links).
+**Use when:** New canon landed (from **Lore Deepening**) or the manuscript keeps using terms the
+player needs explained. Also use to resolve **taxonomy/clarity hooks** (coverage gaps, red-links).
 
-**Outcome:** A **Codex Pack** (player-safe entries + crosslink map) ready for gatecheck and merge to **Cold**—without leaking spoilers or internal plumbing.
+**Outcome:** A **Codex Pack** (player-safe entries + crosslink map) ready for gatecheck and merge to
+**Cold**—without leaking spoilers or internal plumbing.
 
 ---
 
@@ -31,7 +33,8 @@
 
 1. **Pick terms** with highest **player value** (frequency in manuscript or UX friction).
 2. Draft **player-safe entries** using this anatomy:
-   - **Title**, **Overview (2–4 sentences)**, **Usage in the book**, **Context**, **See also (3–5)**, **Notes** (accessibility/localization), **Lineage: TU …**
+   - **Title**, **Overview (2–4 sentences)**, **Usage in the book**, **Context**, **See also
+     (3–5)**, **Notes** (accessibility/localization), **Lineage: TU …**
    - Keep spoilers out; no internal labels (codewords, gate logic, seeds, schema).
 3. Build a **Crosslink Map** (ensure See also resolves; add disambiguations).
 
@@ -78,7 +81,8 @@
 ## 7) Fast triage rubric (Curator)
 
 - **Include now**: terms that clarify active choices, hubs, or recurring factions/locations.
-- **Defer**: entries that are only meaningful **after** a reveal; mark with wake condition (“after Act II merge”).
+- **Defer**: entries that are only meaningful **after** a reveal; mark with wake condition (“after
+  Act II merge”).
 - **Drop**: overly narrow trivia that doesn’t aid comprehension.
 
 ---
@@ -136,4 +140,5 @@ TU <id>
 ---
 
 **Cheat line (TU note):**  
-“Codex Expansion (Dock infra): added **Dock 7**, **Maintenance Decks**, **Salvage Permits**; 15 links; masked refinery cause per canon; 2 terms deferred until Act II; Gatekeeper pre-check green.”
+“Codex Expansion (Dock infra): added **Dock 7**, **Maintenance Decks**, **Salvage Permits**; 15
+links; masked refinery cause per canon; 2 terms deferred until Act II; Gatekeeper pre-check green.”

@@ -2,7 +2,9 @@
 
 # Role Charter — Gatekeeper
 
-> **Purpose:** The Gatekeeper keeps the book safe and legible. Nothing merges to **Cold** and no **View** ships unless the Quality Bars are green. The job is clarity, not control: enforce bars, suggest concrete fixes, keep momentum.
+> **Purpose:** The Gatekeeper keeps the book safe and legible. Nothing merges to **Cold** and no
+> **View** ships unless the Quality Bars are green. The job is clarity, not control: enforce bars,
+> suggest concrete fixes, keep momentum.
 
 ---
 
@@ -10,7 +12,8 @@
 
 **Canonical name:** Gatekeeper  
 **Aliases (optional):** Standards Lead  
-**One-sentence mission:** Enforce the **Quality Bars** with lightweight checks that protect players and preserve creative flow.
+**One-sentence mission:** Enforce the **Quality Bars** with lightweight checks that protect players
+and preserve creative flow.
 
 **Normative references (Layer 0)**
 
@@ -28,7 +31,8 @@
 **In scope (SHOULD focus on):**
 
 - Run **pre-gate** (quick) and **gatecheck** (full) against the Quality Bars:
-  - **Integrity**, **Reachability**, **Nonlinearity**, **Gateways**, **Style**, **Determinism** (when promised), **Presentation** (spoiler + accessibility).
+  - **Integrity**, **Reachability**, **Nonlinearity**, **Gateways**, **Style**, **Determinism**
+    (when promised), **Presentation** (spoiler + accessibility).
 - Block merges to **Cold** and Views that fail bars; list specific remediations.
 - Spot-check **player surfaces** (manuscript, PN, codex, captions/alt, localized slices).
 - Verify **Hot→Cold** boundaries (no internal labels on surfaces; assets logs off-surface).
@@ -43,7 +47,8 @@
 **Decisions & authority**
 
 - **May decide alone (MAY):** Pass/Fail for each bar on the current slice; require fixes.
-- **Consult first (SHOULD):** Borderline **Style** calls (with Style Lead); localization coverage labeling (with Translator); asset determinism evidence (with Directors/Producers).
+- **Consult first (SHOULD):** Borderline **Style** calls (with Style Lead); localization coverage
+  labeling (with Translator); asset determinism evidence (with Directors/Producers).
 - **Must defer (MUST):** Merge and snapshot timing to **Showrunner**; policy shifts to **ADRs**.
 
 ---
@@ -83,7 +88,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** recurring failure patterns (choice ambiguity, gate phrasing, link rot), export UX improvements, candidate lint rules for later layers.
+- **May propose hooks:** recurring failure patterns (choice ambiguity, gate phrasing, link rot),
+  export UX improvements, candidate lint rules for later layers.
 - **Tags:** `quality`, `presentation`, `integrity`, `export-ux`.
 
 ---
@@ -93,7 +99,8 @@
 This role **MUST** enforce:
 
 - **Spoiler Hygiene:** no reveals, no internals, no technique on surfaces.
-- **Accessibility baseline:** headings, descriptive links, alt/captions present; audio safety notes where applicable.
+- **Accessibility baseline:** headings, descriptive links, alt/captions present; audio safety notes
+  where applicable.
 - **PN boundaries:** gate phrasing is diegetic; reject meta language.
 
 ---
@@ -101,14 +108,17 @@ This role **MUST** enforce:
 ## 7) Dormancy & Wake Conditions
 
 **Dormancy:** Gatekeeper is **always on**.  
-**Intensity dial:** May run **sampled** checks for small TUs; run **full** checks for merges affecting topology, PN, codex structure, or exports.
+**Intensity dial:** May run **sampled** checks for small TUs; run **full** checks for merges
+affecting topology, PN, codex structure, or exports.
 
 ---
 
 ## 8) Cross-Domain & Escalation
 
-- If a fix crosses domains (e.g., topology needed to solve a choice dead-end), flag **Showrunner** to route a small TU (Story Spark / Style Tune-up / Codex).
-- For unresolved disputes (e.g., Style vs. PN phrasing), convene a short decision huddle; if the rule itself is unclear, recommend an **ADR**.
+- If a fix crosses domains (e.g., topology needed to solve a choice dead-end), flag **Showrunner**
+  to route a small TU (Story Spark / Style Tune-up / Codex).
+- For unresolved disputes (e.g., Style vs. PN phrasing), convene a short decision huddle; if the
+  rule itself is unclear, recommend an **ADR**.
 
 ---
 

@@ -1,6 +1,8 @@
 # Role Charter — Scene Smith
 
-> **Purpose:** The Scene Smith turns topology into living prose. Take clear briefs from the Plotwright, write sections with contrastive choices, and keep everything player-safe and in-voice. Show the world; don’t expose the gears.
+> **Purpose:** The Scene Smith turns topology into living prose. Take clear briefs from the
+> Plotwright, write sections with contrastive choices, and keep everything player-safe and in-voice.
+> Show the world; don’t expose the gears.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Scene Smith  
 **Aliases (optional):** Prose Writer, Section Author  
-**One-sentence mission:** Draft and refine sections so choices feel inevitable and intriguing—clean beats, vivid detail, no spoilers.
+**One-sentence mission:** Draft and refine sections so choices feel inevitable and intriguing—clean
+beats, vivid detail, no spoilers.
 
 **Normative references (Layer 0)**
 
@@ -40,8 +43,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Line-level phrasing, paragraph rhythm, local imagery consistent with brief.
-- **Consult first (SHOULD):** Any beat that pressures canon timing (Lore), significant tone shifts (Style), or requires new codex anchors (Curator).
+- **May decide alone (MAY):** Line-level phrasing, paragraph rhythm, local imagery consistent with
+  brief.
+- **Consult first (SHOULD):** Any beat that pressures canon timing (Lore), significant tone shifts
+  (Style), or requires new codex anchors (Curator).
 - **Must defer (MUST):** Gate outcomes to **Gatekeeper**; merges and scope to **Showrunner**.
 
 ---
@@ -68,7 +73,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Story Spark** — **R:** Scene Smith (prose) · **A:** Showrunner · **C:** Plotwright, Style, Gatekeeper · **I:** Curator
+- **Story Spark** — **R:** Scene Smith (prose) · **A:** Showrunner · **C:** Plotwright, Style,
+  Gatekeeper · **I:** Curator
 - **Style Tune-up** — **R:** Style Lead · **C:** Scene Smith (apply edits)
 - **Narration Dry-Run** — **C:** Scene Smith (phrasing fixes)
 
@@ -84,7 +90,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** missing beat, sensory detail that suggests art/audio, needed codex terms, localized idiom concerns, potential loop affordances.
+- **May propose hooks:** missing beat, sensory detail that suggests art/audio, needed codex terms,
+  localized idiom concerns, potential loop affordances.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `scene`, `beat`, `affordance`, `codex-anchor`, `art-cue`, `audio-cue`, `localization`.
 
@@ -93,7 +100,8 @@
 ## 6) Player-Surface Obligations
 
 - **Spoiler Hygiene:** never reveal twist causes, codeword names, or gate logic.
-- **Accessibility:** meaningful headings where used; descriptive links; avoid ambiguous “click here”; keep sentences readable.
+- **Accessibility:** meaningful headings where used; descriptive links; avoid ambiguous “click
+  here”; keep sentences readable.
 - **PN boundaries:** write so PN can enforce gates **in-world** without meta language.
 - **Style alignment:** adhere to Style addenda (register, motif kit, banned phrases).
 
@@ -113,7 +121,8 @@
 
 ## 8) Cross-Domain & Escalation
 
-- If prose clarity requires structural change, flag **Showrunner** and pair with **Plotwright** (don’t silently alter topology).
+- If prose clarity requires structural change, flag **Showrunner** and pair with **Plotwright**
+  (don’t silently alter topology).
 - If a beat needs canon, request **Lore** via a hook with one-line need.
 - If a term begs explanation, request **Curator** for a codex anchor rather than expositing.
 
@@ -162,4 +171,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/story_spark.md`, `../../00-north-star/PLAYBOOKS/playbook_story_spark.md`
+**Related:** `../../00-north-star/LOOPS/story_spark.md`,
+`../../00-north-star/PLAYBOOKS/playbook_story_spark.md`

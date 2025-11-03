@@ -1,11 +1,11 @@
 # Layer 5 — Role Prompts (AI Agent Kits)
 
-**Status:** 🚧 Planning Phase
-**Last Updated:** 2025-10-31
+**Status:** 🚧 Planning Phase **Last Updated:** 2025-10-31
 
 ## Overview
 
-Layer 5 transforms Layer 1 role charters into executable AI agents that communicate via Layer 4 protocol and validate artifacts against Layer 3 schemas.
+Layer 5 transforms Layer 1 role charters into executable AI agents that communicate via Layer 4
+protocol and validate artifacts against Layer 3 schemas.
 
 ## Purpose
 
@@ -120,6 +120,7 @@ tone = ask_human(
 ### Context Management
 
 Every agent maintains awareness of:
+
 - Current TU
 - Active snapshot (if any)
 - Hot vs Cold state
@@ -158,17 +159,20 @@ Each role prompt includes:
 ## Implementation Modes
 
 ### Guided Mode (Default for MVP)
+
 - Loop-by-loop checkpoints
 - Author approves next loop before execution
 - Agents run within approved loop
 - Human reviews artifacts between loops
 
 ### Express Mode (Future)
+
 - Fully autonomous execution
 - Setup questions → complete manuscript
 - Only stops for gatecheck failures
 
 ### Interactive Mode
+
 - Agents ask clarifying questions inline
 - Free-form human responses
 - Conversational collaboration
@@ -177,6 +181,7 @@ Each role prompt includes:
 ## Provider Support
 
 Agents are provider-agnostic. Layer 6 handles:
+
 - Text generation (OpenAI, Ollama, Google AI Studio, Amazon Bedrock)
 - Image generation (A1111, DALL-E, Imagen 4)
 - Audio generation (ElevenLabs, etc.)
@@ -186,23 +191,27 @@ Per-role provider configuration supported (future).
 ## Evolution Path
 
 ### Phase 1: Core Roles (MVP)
+
 - Showrunner
 - Gatekeeper
 - Lore Weaver
 - Scene Smith
 
 ### Phase 2: Content Roles
+
 - Plotwright
 - Codex Curator
 - Style Lead
 
 ### Phase 3: Asset Roles
+
 - Art Director
 - Illustrator
 - Audio Director
 - Audio Producer
 
 ### Phase 4: Support Roles
+
 - Researcher
 - Translator
 - Book Binder
@@ -227,6 +236,7 @@ Per-role provider configuration supported (future).
 ## Integration with Layer 6
 
 Layer 6 (questfoundry-lib) will:
+
 - Bundle these prompts as package resources
 - Provide `get_prompt(role_name)` API
 - Manage role sessions

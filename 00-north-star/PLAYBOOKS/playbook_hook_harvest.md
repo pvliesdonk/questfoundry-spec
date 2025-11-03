@@ -1,8 +1,10 @@
 # Playbook — Hook Harvest
 
-**Use when:** A burst of work (Story Spark, drafting, research, or curation) created **hooks** that need collecting, clustering, and triage.
+**Use when:** A burst of work (Story Spark, drafting, research, or curation) created **hooks** that
+need collecting, clustering, and triage.
 
-**Outcome:** A tidy **Harvest Sheet**: accepted/deferred/rejected hooks with triage tags, uncertainty levels, next-loop owners, and any activation requests for dormant roles.
+**Outcome:** A tidy **Harvest Sheet**: accepted/deferred/rejected hooks with triage tags,
+uncertainty levels, next-loop owners, and any activation requests for dormant roles.
 
 ---
 
@@ -35,11 +37,13 @@
 
 **Annotate (Showrunner + Specialists)** 3. For each hook, set:
 
-- **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`, `reject`.
+- **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`,
+  `reject`.
 - **Uncertainty** (factual only): `uncorroborated:low/med/high` + citations (if any).
 - **Dependencies**: roles/tools that must wake (Researcher, Lore, Plot, etc.).
 
-**Decide (Showrunner)** 4. Mark each: `accepted | deferred | rejected` (1-line reason). 5. Assign a **next loop** for `accepted`:
+**Decide (Showrunner)** 4. Mark each: `accepted | deferred | rejected` (1-line reason). 5. Assign a
+**next loop** for `accepted`:
 
 - `lore_deepening` (canonization),
 - `story_spark` (if topology must change),
@@ -160,4 +164,5 @@
 ---
 
 **Cheat line (TU note):**  
-“Hook Harvest: 9 accepted (5 → Lore, 2 → Story Spark, 2 → Codex), 4 deferred (await Researcher), 3 rejected (dupes). Bars: Nonlinearity↑, Presentation ok. Activation: wake Researcher next sprint.”
+“Hook Harvest: 9 accepted (5 → Lore, 2 → Story Spark, 2 → Codex), 4 deferred (await Researcher), 3
+rejected (dupes). Bars: Nonlinearity↑, Presentation ok. Activation: wake Researcher next sprint.”

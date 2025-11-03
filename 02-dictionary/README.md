@@ -2,15 +2,19 @@
 
 > **Status:** ✅ **ACTIVE — Phase 3 enrichment complete (2025-10-30)**
 >
-> Layer 2 defines the common language used across all roles and loops. Phase 3 (completed 2025-10-30) enriched all 17 artifact templates with inline field constraints, validation rules, and common error examples to support Layer 3 schema generation.
+> Layer 2 defines the common language used across all roles and loops. Phase 3 (completed
+> 2025-10-30) enriched all 17 artifact templates with inline field constraints, validation rules,
+> and common error examples to support Layer 3 schema generation.
 >
-> This layer contains taxonomies, field registry, glossary, and artifact templates that form the data dictionary for QuestFoundry studio operations.
+> This layer contains taxonomies, field registry, glossary, and artifact templates that form the
+> data dictionary for QuestFoundry studio operations.
 
 ---
 
 ## What Layer 2 Is
 
-**Purpose:** Define the common language — terminology, data structures, and artifact types — used across all roles and loops.
+**Purpose:** Define the common language — terminology, data structures, and artifact types — used
+across all roles and loops.
 
 **Scope:**
 
@@ -106,7 +110,9 @@ Layer 2 definitions must align with:
 **Cross-reference updates:**
 
 - Layer 0 and Layer 1 files referencing these locations have been updated
-- See [ADR-20251029-01-layer-boundary-clarification.md](../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for rationale
+- See
+  [ADR-20251029-01-layer-boundary-clarification.md](../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md)
+  for rationale
 
 ---
 

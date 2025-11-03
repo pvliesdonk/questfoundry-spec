@@ -1,17 +1,21 @@
 # Register Map — Localization Register & Patterns (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied.
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied.
 
-> **Use:** Translator's one-pager that pins **pronouns, formality, tense/aspect, punctuation, numerals, idioms, PN patterns,** and any typography/directionality notes for a **target locale**. It travels with the slice or book. Keep it **player-safe**.
+> **Use:** Translator's one-pager that pins **pronouns, formality, tense/aspect, punctuation,
+> numerals, idioms, PN patterns,** and any typography/directionality notes for a **target locale**.
+> It travels with the slice or book. Keep it **player-safe**.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Style ↔ Translator; Binder ↔ Translator) · `../interfaces/escalation_rules.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Style ↔ Translator; Binder ↔ Translator) ·
+  `../interfaces/escalation_rules.md`
 - Role briefs: `../briefs/translator.md` · `../briefs/style_lead.md` · `../briefs/book_binder.md`
 
 ---
@@ -70,17 +74,14 @@ Neighbors: @style @binder @pn @gatekeeper
 <!-- Field: PN Patterns | Type: markdown-list | Required: yes | Localized gate/choice/recap patterns -->
 <!-- Validation: All examples must be player-safe and portable -->
 
-- **Gate refusal:**
-  Pattern: "\<world cue\>. '\<short in-world check/refusal\>'"
-  Example: "\<localized example\>"
+- **Gate refusal:** Pattern: "\<world cue\>. '\<short in-world check/refusal\>'" Example:
+  "\<localized example\>"
 
-- **Choice labels:**
-  Pattern: "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast)
+- **Choice labels:** Pattern: "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast)
   Examples: "\<A\> / \<B\>"
 
-- **Micro-recap (≤2 lines):**
-  Pattern: "\<state change\>. \<current stakes\>."
-  Example: "\<localized example\>"
+- **Micro-recap (≤2 lines):** Pattern: "\<state change\>. \<current stakes\>." Example: "\<localized
+  example\>"
 
 > Keep examples **player-safe** and portable.
 
@@ -157,6 +158,7 @@ Neighbors: @style @binder @pn @gatekeeper
 - Wrong: Alt register: "Render with soft focus and warm LUT"
 - Right: Alt register: "neutral; no technique terms"
 
-**Total fields: 30** (7 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5 localization, 2 accessibility, 8 spatial)
+**Total fields: 30** (7 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5
+localization, 2 accessibility, 8 spatial)
 
 ---

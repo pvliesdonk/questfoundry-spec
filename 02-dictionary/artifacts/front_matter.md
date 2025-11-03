@@ -1,15 +1,18 @@
 # Front Matter — Player-Safe View Header (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied.
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied.
 
-> **Use:** Book Binder's player-facing header that tops any bound **View** (PDF/HTML/EPUB/bundle). Declares **what this View is**, **which Cold snapshot it reflects**, and **what options/coverage** are included. No spoilers, no Hot content, no internal technique.
+> **Use:** Book Binder's player-facing header that tops any bound **View** (PDF/HTML/EPUB/bundle).
+> Declares **what this View is**, **which Cold snapshot it reflects**, and **what options/coverage**
+> are included. No spoilers, no Hot content, no internal technique.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Binder/View logging: `./view_log.md`
 - Role brief: `../briefs/book_binder.md`

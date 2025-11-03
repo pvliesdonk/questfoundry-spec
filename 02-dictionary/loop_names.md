@@ -1,6 +1,7 @@
 # Loop Names — Canonical Display and File Mapping (Layer 2)
 
-> **Purpose:** Map between display names (Title Case, used in templates/artifacts) and file names (kebab-case, used in Layer 0 LOOPS/ directory).
+> **Purpose:** Map between display names (Title Case, used in templates/artifacts) and file names
+> (kebab-case, used in Layer 0 LOOPS/ directory).
 
 ---
 
@@ -43,13 +44,11 @@
 ## Formatting Conventions
 
 1. **Display Name:**
-
    - Title Case for each word
    - Hyphenated compound words (e.g., "Tune-up", "Dry-Run", "Touch-up")
    - No hyphen before compound words (e.g., "Style Tune-up" not "Style-Tune-up")
 
 2. **File Name:**
-
    - All lowercase
    - Hyphen-separated words
    - No spaces

@@ -3,14 +3,16 @@
 > One or two sentences. What does this PR do in Layer 0/1 terms?
 
 - TU-ID(s): `tu-<topic>-<date>` (link if public)
-- Loop alignment: `story_spark | hook_harvest | lore_deepening | codex_expansion | style_tune_up | art_touch_up | audio_pass | translation_pass | binding_run | narration_dry_run | docs/policy`
+- Loop alignment:
+  `story_spark | hook_harvest | lore_deepening | codex_expansion | style_tune_up | art_touch_up | audio_pass | translation_pass | binding_run | narration_dry_run | docs/policy`
 - Scope: `Layer-0 | Layer-1` (avoid editing Layers 3–7 here)
 
 ---
 
 ## Motivation / Rationale
 
-Why is this change valuable to creators/players? Cite friction found in loops, PN dry-runs, or Gatekeeper checks. Keep spoilers out of the PR body; link to Hot notes if needed.
+Why is this change valuable to creators/players? Cite friction found in loops, PN dry-runs, or
+Gatekeeper checks. Keep spoilers out of the PR body; link to Hot notes if needed.
 
 ---
 
@@ -63,7 +65,8 @@ Why is this change valuable to creators/players? Cite friction found in loops, P
 - [ ] Alt text / text equivalents present & spoiler-safe
 - [ ] Descriptive link text; print-friendly assumptions hold
 
-Reference: `00-north-star/QUALITY_BARS.md`, `SPOILER_HYGIENE.md`, `ACCESSIBILITY_AND_CONTENT_NOTES.md`.
+Reference: `00-north-star/QUALITY_BARS.md`, `SPOILER_HYGIENE.md`,
+`ACCESSIBILITY_AND_CONTENT_NOTES.md`.
 
 ---
 

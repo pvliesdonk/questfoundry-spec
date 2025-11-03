@@ -1,9 +1,13 @@
 # Canon Pack — Answers in Hot + Player-Safe Summaries (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full research posture values).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full
+> research posture values).
 
-> **Use:** Lore Weaver's bundle that turns **accepted hooks** into coherent **canon** (Hot) and exports **player-safe summaries** (Cold) for neighbors. Keep the split explicit: **Hot may contain spoilers; Cold must not.** This is a _human template_ (no schemas).
+> **Use:** Lore Weaver's bundle that turns **accepted hooks** into coherent **canon** (Hot) and
+> exports **player-safe summaries** (Cold) for neighbors. Keep the split explicit: **Hot may contain
+> spoilers; Cold must not.** This is a _human template_ (no schemas).
 
 ---
 
@@ -130,12 +134,9 @@ T3 <near-future invariant>: <what must happen or cannot happen during slice>
 
 > **No spoilers, no internals.** What neighbors may surface to players right now.
 
-- **Summary S-01** _(for Curator/Scene/Style/PN)_
-  Topic: <concept, place, procedure>
-  Player-safe text (2–4 lines):
-  "<neutral description that enables choices without revealing causes or twists>"
-  Notes to Translator: <register hints/idioms to avoid>
-  See-also: <entries/anchors>
+- **Summary S-01** _(for Curator/Scene/Style/PN)_ Topic: <concept, place, procedure> Player-safe
+  text (2–4 lines): "<neutral description that enables choices without revealing causes or twists>"
+  Notes to Translator: <register hints/idioms to avoid> See-also: <entries/anchors>
 
 _(Repeat per concept needing a surface-safe summary.)_
 
@@ -150,29 +151,24 @@ _(Repeat per concept needing a surface-safe summary.)_
 > Give each neighbor the **actionable** next steps—still **player-safe** in phrasing.
 
 - **Plotwright:**
-
   - Gate reason(s): <diegetic checks the world enforces>
   - Loop-with-difference seeds: <small state deltas that justify meaningful returns>
   - Keystone resilience: <fallback route or soft-fail suggestion>
 
 - **Scene Smith:**
-
   - Phrasing cues: <what the world would _show/say_ at the gate>
   - Micro-context: <one line to clarify choice contrast>
 
 - **Style Lead:**
-
   - Pattern nudge: <banned/preferred forms tied to this canon>
   - Example (player-safe): "<1–2 lines>"
 
 - **Codex Curator:**
-
   - New/updated entries: <list of titles>
   - Crosslink hints: <A ↔ B ↔ C>
   - Anchor slugs: <kebab-case suggestions>
 
 - **Translator:**
-
   - Terminology risks: <polysemy, diacritics, RTL/anchor policy>
   - Register map nudge: <pronouns/formality if relevant>
 
@@ -280,13 +276,16 @@ Sensitivity: workplace injury (see content notes)
 - `Owner`: Must be "Lore Weaver" (role from Layer 1 role index)
 - `Slice`: Required, 1-2 lines, player-safe scope description
 - `Hooks answered`: Required list, must reference existing Hook Card IDs
-- `Research posture touched`: Must be one of 6 flat values: corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
-- `Sensitivity`: Either "none" or reference to content note (must exist in ACCESSIBILITY_AND_CONTENT_NOTES.md)
+- `Research posture touched`: Must be one of 6 flat values: corroborated | plausible | disputed |
+  uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
+- `Sensitivity`: Either "none" or reference to content note (must exist in
+  ACCESSIBILITY_AND_CONTENT_NOTES.md)
 - `Canon Answers (Hot)`: Each answer 2-6 lines, crisp, avoid prose flourish
 - `Timeline Anchors (Hot)`: Must include at least T0 and T2
 - `Knowledge Ledger (Hot)`: Required table, columns: Actor | Knows at T0 | Gains at T1/T2 | Notes
 - `Player-Safe Summary`: Required, 2-4 lines per concept, no spoilers/internals/technique
-- `Downstream Effects`: Must include at least Plotwright, Scene Smith, Style Lead, Codex Curator sections
+- `Downstream Effects`: Must include at least Plotwright, Scene Smith, Style Lead, Codex Curator
+  sections
 - `Checks`: All items must be ticked before status = approved/merged
 - `Lineage`: Must reference TU, may reference Research Memos/Canon Packs/ADRs
 
@@ -295,8 +294,10 @@ Sensitivity: workplace injury (see content notes)
 - If `Research posture touched` is uncorroborated:\*, then Research Memo lineage should be present
 - If `Sensitivity` contains content note refs, then those notes must be documented
 - Each hook ID in `Hooks answered` must appear in `Canon Answers (Hot)` section
-- Timeline anchors in `Knowledge Ledger (Hot)` must match `Timeline Anchors (Hot)` section (T0/T1/T2)
-- Concepts in `Player-Safe Summaries (Cold)` must cover all exposed topics from `Canon Answers (Hot)`
+- Timeline anchors in `Knowledge Ledger (Hot)` must match `Timeline Anchors (Hot)` section
+  (T0/T1/T2)
+- Concepts in `Player-Safe Summaries (Cold)` must cover all exposed topics from
+  `Canon Answers (Hot)`
 - `Downstream Effects` phrasing must remain player-safe (no spoilers from Hot sections)
 
 ### Cross-Artifact Validation
@@ -306,7 +307,8 @@ Sensitivity: workplace injury (see content notes)
 - If `Lineage` references Research Memos, those must exist with matching posture
 - If `Lineage` references prior Canon Packs, those must exist
 - If `Lineage` references ADRs, those must exist in DECISIONS/
-- `Neighbors notified` must use valid Layer 1 role names (@plot = Plotwright, @scene = Scene Smith, etc.)
+- `Neighbors notified` must use valid Layer 1 role names (@plot = Plotwright, @scene = Scene Smith,
+  etc.)
 - Hook URLs in §8 should become actual Hook Card artifacts
 - Codex entry titles in §7 should become actual Codex Entry artifacts
 

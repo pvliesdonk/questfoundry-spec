@@ -1,13 +1,18 @@
 # RACI by Micro-Loop (Layer 1)
 
-> **Purpose:** Clear ownership per loop so small passes stay fast and player-safe. _R_ = Responsible (does the work). _A_ = Accountable (final decision/merge). _C_ = Consulted (two-way). _I_ = Informed (one-way).
+> **Purpose:** Clear ownership per loop so small passes stay fast and player-safe. _R_ = Responsible
+> (does the work). _A_ = Accountable (final decision/merge). _C_ = Consulted (two-way). _I_ =
+> Informed (one-way).
 
 **Normative refs:**  
 `../../00-north-star/LOOPS/README.md` · individual loop guides in `../../00-north-star/LOOPS/*.md`  
-Layer-0 bars: `QUALITY_BARS.md` · surfaces: `SOURCES_OF_TRUTH.md` · hygiene: `SPOILER_HYGIENE.md` · access: `ACCESSIBILITY_AND_CONTENT_NOTES.md`
+Layer-0 bars: `QUALITY_BARS.md` · surfaces: `SOURCES_OF_TRUTH.md` · hygiene: `SPOILER_HYGIENE.md` ·
+access: `ACCESSIBILITY_AND_CONTENT_NOTES.md`
 
 **Roles (short codes used below):**  
-SR = Showrunner · GK = Gatekeeper · PW = Plotwright · SS = Scene Smith · ST = Style Lead · LW = Lore Weaver · CC = Codex Curator · RS = Researcher · AD = Art Director · IL = Illustrator · AuD = Audio Director · AuP = Audio Producer · TR = Translator · BB = Book Binder · PN = Player-Narrator
+SR = Showrunner · GK = Gatekeeper · PW = Plotwright · SS = Scene Smith · ST = Style Lead · LW = Lore
+Weaver · CC = Codex Curator · RS = Researcher · AD = Art Director · IL = Illustrator · AuD = Audio
+Director · AuP = Audio Producer · TR = Translator · BB = Book Binder · PN = Player-Narrator
 
 ---
 
@@ -145,7 +150,8 @@ SR = Showrunner · GK = Gatekeeper · PW = Plotwright · SS = Scene Smith · ST 
 
 ## 11) Full Production Run (coordinated multi-slice pass)
 
-**Bar focus:** All (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility)
+**Bar focus:** All (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation,
+Accessibility)
 
 - **R:** Domain owners per slice (PW, SS, ST, LW, CC, AD/IL, AuD/AuP, TR, BB)
 - **A:** SR
@@ -176,4 +182,6 @@ SR = Showrunner · GK = Gatekeeper · PW = Plotwright · SS = Scene Smith · ST 
 | BB   | —                                      | Binding Run                       |
 | PN   | —                                      | Narration Dry-Run                 |
 
-**Reminder:** Optional tracks (Art, Audio, Translation, Research) may be **dormant** per `../interfaces/dormancy_signals.md`. Use `deferred:*` tags and front-matter notes when shipping without them.
+**Reminder:** Optional tracks (Art, Audio, Translation, Research) may be **dormant** per
+`../interfaces/dormancy_signals.md`. Use `deferred:*` tags and front-matter notes when shipping
+without them.

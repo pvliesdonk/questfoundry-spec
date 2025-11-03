@@ -1,8 +1,12 @@
 # Playbook — Audio Pass
 
-**Use when:** You want to **plan and/or add sound** (ambience, foley, stingers, VO) that clarifies, anchors recall, or sets mood—without leaking spoilers. Works even if the **Audio Producer** is dormant (plan-only merge).
+**Use when:** You want to **plan and/or add sound** (ambience, foley, stingers, VO) that clarifies,
+anchors recall, or sets mood—without leaking spoilers. Works even if the **Audio Producer** is
+dormant (plan-only merge).
 
-**Outcome:** An **Audio Plan** (cues, purpose, placement, captions/text-equivalents, safety notes) and, if active, **assets** with reproducibility notes. Ready for gatecheck and Cold merge (plans may land as **deferred:audio**).
+**Outcome:** An **Audio Plan** (cues, purpose, placement, captions/text-equivalents, safety notes)
+and, if active, **assets** with reproducibility notes. Ready for gatecheck and Cold merge (plans may
+land as **deferred:audio**).
 
 ---
 
@@ -11,7 +15,8 @@
 - [ ] Define **slice** (which chapters/sections/moments).
 - [ ] Decide **plan-only** vs **plan+assets**.
 - [ ] Mark roles **active/dormant** (Audio Director, Audio Producer, Translator).
-- [ ] Open TU: `tu-audio-<scope>` and state **why** these cues exist (clarity/recall/mood/signposting).
+- [ ] Open TU: `tu-audio-<scope>` and state **why** these cues exist
+      (clarity/recall/mood/signposting).
 
 ---
 
@@ -29,22 +34,28 @@
 
 **Audio Director (R)**
 
-1. **Select cues** (per moment): scene anchor, **purpose** (clarify/recall/mood/transition), **type** (ambience/foley/stinger/VO), **spoiler risk** (low/med/high).
+1. **Select cues** (per moment): scene anchor, **purpose** (clarify/recall/mood/transition),
+   **type** (ambience/foley/stinger/VO), **spoiler risk** (low/med/high).
 2. Write **Player-safe Description** (what the listener perceives, not technique).
-3. Specify **Placement** (entry/exit), **duration/loop**, **intensity curve** (low/med/high; ramp/fade).
+3. Specify **Placement** (entry/exit), **duration/loop**, **intensity curve** (low/med/high;
+   ramp/fade).
 4. Add **Motif ties** and **Safety notes** (sudden peaks, harsh sounds).
 5. Provide **Captions/Text-equivalents** (concise, descriptive).
 6. Add **Localization notes** (if VO: register, dialect, terms to preserve).
 
 **Style Lead (C)** 7. Tune plan language to register; ensure motif coherence.
 
-**Audio Producer (R, optional)** 8. If active, **produce** cues; export masters (and stems if useful).  
-9. Create **Reproducibility Notes**: DAW/version, plugin list/versions, session sample rate/bit depth, key presets/settings, normalization target.  
+**Audio Producer (R, optional)** 8. If active, **produce** cues; export masters (and stems if
+useful).  
+9. Create **Reproducibility Notes**: DAW/version, plugin list/versions, session sample rate/bit
+depth, key presets/settings, normalization target.  
 10. Ensure **text equivalents** for accessibility.
 
-**PN (C)** 11. Confirm cues can be referenced **diegetically** when appropriate; never expose technique.
+**PN (C)** 11. Confirm cues can be referenced **diegetically** when appropriate; never expose
+technique.
 
-**Gatekeeper (C)** 12. **Pre-gate**: Style, Presentation Safety (no spoilers, reasonable loudness, caption coverage), Reproducibility (when promised).
+**Gatekeeper (C)** 12. **Pre-gate**: Style, Presentation Safety (no spoilers, reasonable loudness,
+caption coverage), Reproducibility (when promised).
 
 **Audio Director (R)** 13. **Package** plan (+ assets/logs if any) into the TU.
 
@@ -147,4 +158,6 @@ Stems: <if provided>
 ---
 
 **Cheat line (TU note):**  
-“Audio Pass (Act I): 6 cues (shadow-side ambience, relay-hum transition, Dock 7 crowd, foreman gate foley, medbay monitors, wormhole stinger). Captions & safety notes in place; 3 assets w/ repro notes; 3 **deferred:audio** plans; Gatekeeper pre-gate green.”
+“Audio Pass (Act I): 6 cues (shadow-side ambience, relay-hum transition, Dock 7 crowd, foreman gate
+foley, medbay monitors, wormhole stinger). Captions & safety notes in place; 3 assets w/ repro
+notes; 3 **deferred:audio** plans; Gatekeeper pre-gate green.”

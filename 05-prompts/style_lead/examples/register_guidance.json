@@ -6,13 +6,18 @@
     "sender": { "role": "ST", "agent": "bot:st" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-ST10", "loop": "Style Tune-up" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-04-ST10",
+      "loop": "Style Tune-up"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": {
       "type": "none",
-      "data": { "summary": "Register guidance for Kestrel and PN narrator updated; added motifs; proposed banned phrases list; register_map deltas prepared." }
+      "data": {
+        "summary": "Register guidance for Kestrel and PN narrator updated; added motifs; proposed banned phrases list; register_map deltas prepared."
+      }
     },
     "correlation_id": "corr-st-register-2025-11-04"
   }
 ]
-

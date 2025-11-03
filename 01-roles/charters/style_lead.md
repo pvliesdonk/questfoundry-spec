@@ -1,6 +1,8 @@
 # Role Charter — Style Lead
 
-> **Purpose:** The Style Lead keeps the book’s **voice, register, and motifs** coherent—across manuscript, PN lines, codex entries, captions, and translations. Nudge, don’t strangle: preserve creators’ intent while making the language sing and stay player-safe.
+> **Purpose:** The Style Lead keeps the book’s **voice, register, and motifs** coherent—across
+> manuscript, PN lines, codex entries, captions, and translations. Nudge, don’t strangle: preserve
+> creators’ intent while making the language sing and stay player-safe.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Style Lead  
 **Aliases (optional):** Line Editor, Voice Director  
-**One-sentence mission:** Maintain a consistent voice and readable cadence, shaping phrasing so choices are contrastive, gates are diegetic, and player surfaces are clean and accessible.
+**One-sentence mission:** Maintain a consistent voice and readable cadence, shaping phrasing so
+choices are contrastive, gates are diegetic, and player surfaces are clean and accessible.
 
 **Normative references (Layer 0)**
 
@@ -26,7 +29,8 @@
 **In scope (SHOULD focus on):**
 
 - Define/maintain **register & motif kit**; provide exemplars (manuscript, PN, codex, captions).
-- Ensure **choice labels are contrastive** and concise; fix ambiguity via micro-context, not spoilers.
+- Ensure **choice labels are contrastive** and concise; fix ambiguity via micro-context, not
+  spoilers.
 - Phrase **gate language diegetically** (align with PN Principles).
 - Harmonize surfaces: manuscript tone ↔ PN cadence ↔ codex clarity ↔ caption restraint.
 - Prepare **Style Addenda** and **targeted edit notes** for authors and translators.
@@ -40,8 +44,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Line-level edits, banned phrases list, exemplar rewrites within scope of the TU.
-- **Consult first (SHOULD):** Phrasing that materially affects PN performance (with PN), localization register (with Translator), or structural implications (with Plotwright/Scene).
+- **May decide alone (MAY):** Line-level edits, banned phrases list, exemplar rewrites within scope
+  of the TU.
+- **Consult first (SHOULD):** Phrasing that materially affects PN performance (with PN),
+  localization register (with Translator), or structural implications (with Plotwright/Scene).
 - **Must defer (MUST):** Merge outcome to **Gatekeeper**; scope/sequence to **Showrunner**.
 
 ---
@@ -50,7 +56,8 @@
 
 **Reads (inputs):**
 
-- **Hot:** drafts/rewrites from Scene, PN phrasing notes, codex drafts, captions, translator notes, prior Style Addenda.
+- **Hot:** drafts/rewrites from Scene, PN phrasing notes, codex drafts, captions, translator notes,
+  prior Style Addenda.
 - **Cold:** recent snapshot surfaces to detect drift.
 
 **Produces (outputs):**
@@ -59,7 +66,8 @@
 - **Edit Notes** — targeted, actionable comments per section/entry/caption.
 - **PN Phrasing Patterns** — short pattern lines for common gates/refusals (diegetic).
 - **Localization cues** — register map & idiom guidance for Translator.
-- **Hook List** — when style issues hint at missing codex anchors, structural ambiguity, or research needs.
+- **Hook List** — when style issues hint at missing codex anchors, structural ambiguity, or research
+  needs.
 
 > Outputs that touch player surfaces MUST obey Spoiler & Accessibility baselines.
 
@@ -69,7 +77,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Style Tune-up** — **R:** Style Lead · **A:** Showrunner · **C:** Scene, PN, Translator, Gatekeeper · **I:** Plotwright, Curator
+- **Style Tune-up** — **R:** Style Lead · **A:** Showrunner · **C:** Scene, PN, Translator,
+  Gatekeeper · **I:** Plotwright, Curator
 - **Narration Dry-Run** — **C:** Style Lead (capture PN friction → phrasing fixes)
 - **Binding Run** — **C:** Style Lead (front-matter phrasing, labels)
 
@@ -79,13 +88,15 @@
 - Ambiguous choices corrected or flagged with micro-context suggestions.
 - Gate phrasing patterns are **diegetic** and reusable.
 - Edit notes are **small & surgical**; owners can apply them in one pass.
-- Self-check passes **Style** and **Presentation** bars; Accessibility phrasing holds (links/alt/captions guidance as relevant).
+- Self-check passes **Style** and **Presentation** bars; Accessibility phrasing holds
+  (links/alt/captions guidance as relevant).
 
 ---
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** needed codex anchors, recurring gate-friction patterns, idioms requiring localization policy, motif drift, potential art/audio phrasing needs.
+- **May propose hooks:** needed codex anchors, recurring gate-friction patterns, idioms requiring
+  localization policy, motif drift, potential art/audio phrasing needs.
 - **Size:** 1–3 lines; triaged in **Hook Harvest**.
 - **Tags:** `style`, `choice-clarity`, `pn-phrasing`, `localization`, `codex-anchor`.
 
@@ -93,8 +104,10 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** never fix clarity by revealing canon; prefer neutral wording or request Curator anchor.
-- **Accessibility:** enforce descriptive links, readable sentence length, and clear alt/caption phrasing; ban meta directives (“click”, “flag”).
+- **Spoiler Hygiene:** never fix clarity by revealing canon; prefer neutral wording or request
+  Curator anchor.
+- **Accessibility:** enforce descriptive links, readable sentence length, and clear alt/caption
+  phrasing; ban meta directives (“click”, “flag”).
 - **PN boundaries:** supply **in-world** refusals & gate lines; no mechanic talk.
 - **Contrastive choices:** ensure verbs & objects differentiate intent, not just synonyms.
 
@@ -114,9 +127,11 @@
 
 ## 8) Cross-Domain & Escalation
 
-- If clarity requires structural change, pair with **Plotwright/Scene**; don’t silently alter outcomes.
+- If clarity requires structural change, pair with **Plotwright/Scene**; don’t silently alter
+  outcomes.
 - If comprehension needs a codex entry, hook **Curator** rather than injecting exposition.
-- Localization disagreements route through **Translator** and, if needed, **Showrunner** per `../interfaces/escalation_rules.md`.
+- Localization disagreements route through **Translator** and, if needed, **Showrunner** per
+  `../interfaces/escalation_rules.md`.
 
 ---
 
@@ -156,7 +171,8 @@
 
 **Overlong line → tense cadence**
 
-- Before: “You carefully consider the foreman’s words, weighing your options in a moment that seems to stretch.”
+- Before: “You carefully consider the foreman’s words, weighing your options in a moment that seems
+  to stretch.”
 - After: “The foreman waits. The dock hums. Choose.”
 
 **Caption technique leak → atmospheric caption**
@@ -169,4 +185,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/style_tune_up.md`, `../../00-north-star/PLAYBOOKS/playbook_style_tune_up.md`
+**Related:** `../../00-north-star/LOOPS/style_tune_up.md`,
+`../../00-north-star/PLAYBOOKS/playbook_style_tune_up.md`

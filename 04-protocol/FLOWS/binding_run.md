@@ -6,7 +6,10 @@
 
 ## Overview
 
-The **Binding Run** flow assembles a player-safe export bundle from a specific Cold snapshot. This flow is **read-only** on Cold—no new canon is created. The Book Binder (BB) exports manuscript, codex, and optional surfaces (art, audio, translations) in multiple formats (Markdown, HTML, EPUB, PDF).
+The **Binding Run** flow assembles a player-safe export bundle from a specific Cold snapshot. This
+flow is **read-only** on Cold—no new canon is created. The Book Binder (BB) exports manuscript,
+codex, and optional surfaces (art, audio, translations) in multiple formats (Markdown, HTML, EPUB,
+PDF).
 
 ### Purpose
 
@@ -28,7 +31,8 @@ The **Binding Run** flow assembles a player-safe export bundle from a specific C
 - **Showrunner (SR)** — Selects snapshot, chooses export options, approves distribution
 - **Book Binder (BB)** — Assembles bundle from Cold, ensures navigation and accessibility
 - **Gatekeeper (GK)** — Spot-checks Presentation Safety, Integrity, Style on built bundle
-- **Player-Narrator (PN)** — Receives bundle for Narration Dry-Run (consumer, not participant in this flow)
+- **Player-Narrator (PN)** — Receives bundle for Narration Dry-Run (consumer, not participant in
+  this flow)
 
 ---
 
@@ -118,6 +122,7 @@ The **Binding Run** flow assembles a player-safe export bundle from a specific C
 ```
 
 **Required envelope fields:**
+
 - `context.hot_cold = "cold"` (source is Cold)
 - `context.tu` (trace unit for this export)
 - `context.snapshot` (specific Cold snapshot)
@@ -166,12 +171,14 @@ The **Binding Run** flow assembles a player-safe export bundle from a specific C
 ```
 
 **Required envelope fields:**
+
 - `context.hot_cold = "cold"`
 - `context.snapshot` (same as request)
 - `safety.player_safe = true` (bundle is player-safe)
 - `safety.spoilers = "forbidden"` (no spoilers in surfaces)
 
 **PN handoff constraint:**
+
 - When `receiver.role = "PN"`, envelope MUST enforce:
   - `context.hot_cold = "cold"`
   - `safety.player_safe = true`

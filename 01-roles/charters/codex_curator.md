@@ -1,6 +1,8 @@
 # Role Charter — Codex Curator
 
-> **Purpose:** The Codex Curator publishes **player-safe** entries that improve comprehension without revealing canon. Curate terms, entities, systems, places, and procedures; keep crosslinks tight; never invent deep truth—that’s Lore’s job.
+> **Purpose:** The Codex Curator publishes **player-safe** entries that improve comprehension
+> without revealing canon. Curate terms, entities, systems, places, and procedures; keep crosslinks
+> tight; never invent deep truth—that’s Lore’s job.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Codex Curator  
 **Aliases (optional):** Encyclopedist, Reference Editor  
-**One-sentence mission:** Explain just enough of the world for players to act with confidence—clearly, concisely, and without spoilers.
+**One-sentence mission:** Explain just enough of the world for players to act with
+confidence—clearly, concisely, and without spoilers.
 
 **Normative references (Layer 0)**
 
@@ -25,10 +28,12 @@
 
 **In scope (SHOULD focus on):**
 
-- Publish **Codex Packs**: entries with **Overview → Usage → Context → See also → Notes → Lineage** (player-safe).
+- Publish **Codex Packs**: entries with **Overview → Usage → Context → See also → Notes → Lineage**
+  (player-safe).
 - Maintain a **crosslink map** so readers can hop between related concepts without dead ends.
 - Translate **Lore Weaver’s player-safe summaries** into entries; never add hidden causality.
-- Align terminology across **manuscript, PN phrasing, captions, and translations** (with Style/Translator).
+- Align terminology across **manuscript, PN phrasing, captions, and translations** (with
+  Style/Translator).
 - Identify **gaps** (missing anchors, ambiguous terms) and propose hooks.
 
 **Out of scope (SHOULD NOT own):**
@@ -40,9 +45,12 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Entry wording, examples, and See-also links that remain player-safe; taxonomy tags.
-- **Consult first (SHOULD):** Terminology that pressures PN phrasing (with Style/PN), localization nuances (with Translator), or entry timing tied to reveals (with Lore).
-- **Must defer (MUST):** Canon truth to **Lore Weaver**; merge timing to **Showrunner**; bar outcomes to **Gatekeeper**.
+- **May decide alone (MAY):** Entry wording, examples, and See-also links that remain player-safe;
+  taxonomy tags.
+- **Consult first (SHOULD):** Terminology that pressures PN phrasing (with Style/PN), localization
+  nuances (with Translator), or entry timing tied to reveals (with Lore).
+- **Must defer (MUST):** Canon truth to **Lore Weaver**; merge timing to **Showrunner**; bar
+  outcomes to **Gatekeeper**.
 
 ---
 
@@ -58,9 +66,11 @@
 - **Codex Pack** — a set of entries + updated crosslink map + coverage notes.
 - **Glossary slice** — concise term list for translators and PN phrasing alignment.
 - **See-also graph** — human-readable list or diagram of high-value jumps.
-- **Hook List** — requests to Lore (missing summaries), Style (register issues), Plotwright (needs structural anchor).
+- **Hook List** — requests to Lore (missing summaries), Style (register issues), Plotwright (needs
+  structural anchor).
 
-> Everything the Curator publishes is **player-safe** and must follow **Spoiler Hygiene** and **Accessibility** baselines.
+> Everything the Curator publishes is **player-safe** and must follow **Spoiler Hygiene** and
+> **Accessibility** baselines.
 
 ---
 
@@ -68,14 +78,16 @@
 
 **Primary loops (RACI summary):**
 
-- **Codex Expansion** — **R:** Codex Curator · **A:** Showrunner · **C:** Lore, Style, Gatekeeper · **I:** Translator, PN
+- **Codex Expansion** — **R:** Codex Curator · **A:** Showrunner · **C:** Lore, Style, Gatekeeper ·
+  **I:** Translator, PN
 - **Hook Harvest** — **C:** Codex Curator (taxonomy & gap triage)
 - **Translation Pass** — **C:** Codex Curator (terminology & register map)
 - **Binding Run** — **C:** Codex Curator (link integrity & front-matter notes)
 
 **Definition of done (for Curator contributions):**
 
-- Entries follow **Overview → Usage → Context → See also → Notes → Lineage**; no spoilers or internals.
+- Entries follow **Overview → Usage → Context → See also → Notes → Lineage**; no spoilers or
+  internals.
 - Crosslinks resolve; no loops that trap readers; anchors stable across export formats.
 - Terminology aligns with manuscript/PN/Style; glossary slice updated.
 - Coverage and known gaps noted (e.g., “Act II terms pending Lore summary”).
@@ -85,7 +97,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** missing Lore summary, ambiguous term in manuscript, PN phrasing conflict, translation hazard, needed diagram/caption anchor.
+- **May propose hooks:** missing Lore summary, ambiguous term in manuscript, PN phrasing conflict,
+  translation hazard, needed diagram/caption anchor.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `taxonomy`, `summary-needed`, `pn-phrasing`, `localization`, `link-gap`.
 
@@ -93,10 +106,14 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** never include twist causality, secret allegiances, or gate logic. Summarize outcomes neutrally.
-- **Accessibility:** descriptive headings; **descriptive link text** (“See Salvage Permits”), not “click here”; simple sentences; if figures ever appear later, provide alt text.
-- **PN boundaries:** entries should **support** diegetic gate phrasing; never describe internal checks or codewords.
-- **Localization support:** supply glossary and register notes without prescribing translation solutions.
+- **Spoiler Hygiene:** never include twist causality, secret allegiances, or gate logic. Summarize
+  outcomes neutrally.
+- **Accessibility:** descriptive headings; **descriptive link text** (“See Salvage Permits”), not
+  “click here”; simple sentences; if figures ever appear later, provide alt text.
+- **PN boundaries:** entries should **support** diegetic gate phrasing; never describe internal
+  checks or codewords.
+- **Localization support:** supply glossary and register notes without prescribing translation
+  solutions.
 
 ---
 
@@ -117,7 +134,8 @@
 
 - If an entry needs canon, request **Lore’s player-safe summary**—do not fill with guesses.
 - If clarity depends on structure, signal **Plotwright** for an anchor rather than over-explaining.
-- For tone/register shifts, coordinate with **Style**; for target-language risks, coordinate with **Translator**.
+- For tone/register shifts, coordinate with **Style**; for target-language risks, coordinate with
+  **Translator**.
 - Unresolved tensions route to **Showrunner** via a TU.
 
 ---
@@ -171,4 +189,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/codex_expansion.md`, `../../00-north-star/PLAYBOOKS/playbook_codex_expansion.md`
+**Related:** `../../00-north-star/LOOPS/codex_expansion.md`,
+`../../00-north-star/PLAYBOOKS/playbook_codex_expansion.md`

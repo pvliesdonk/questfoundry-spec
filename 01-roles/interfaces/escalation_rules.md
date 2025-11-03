@@ -1,6 +1,8 @@
 # Escalation Rules — How to Resolve Cross-Domain Conflicts (Layer 1, Human-Level)
 
-> **Purpose:** Keep creative friction productive. This guide defines **when to escalate, to whom, with what bundle,** and the **decision records** we leave behind—without leaking spoilers or internals to player surfaces.
+> **Purpose:** Keep creative friction productive. This guide defines **when to escalate, to whom,
+> with what bundle,** and the **decision records** we leave behind—without leaking spoilers or
+> internals to player surfaces.
 
 ---
 
@@ -17,17 +19,23 @@
 `./pair_guides.md` · `./dormancy_signals.md`
 
 **Conventions:**  
-**Hot** = private working truth; **Cold** = player-safe surfaces; **TU** = timeboxed task unit; **Bars** = Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility.
+**Hot** = private working truth; **Cold** = player-safe surfaces; **TU** = timeboxed task unit;
+**Bars** = Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility.
 
 ---
 
 ## 1) Core principles
 
-1. **Escalate the smallest thing.** Name the _one decision_ blocking progress; avoid omnibus “fix everything” escalations.
-2. **Route by ownership.** Structure → **Plotwright**, Voice/Register → **Style**, Canon → **Lore**, Terminology → **Curator**, Export/Nav → **Binder**, Presentation checks → **Gatekeeper**.
-3. **Showrunner chairs cross-domain calls.** When a decision touches multiple owners, the **Showrunner** convenes and records the outcome.
-4. **Bars beat opinions.** Tie disagreements to the **Quality Bars**; propose the _smallest viable fix_ to turn a bar green.
-5. **ADR for policy, TU for work.** If a decision sets precedent across books, write an **ADR** (Architecture Decision Record) in `/DECISIONS` and keep the TU focused on the current slice.
+1. **Escalate the smallest thing.** Name the _one decision_ blocking progress; avoid omnibus “fix
+   everything” escalations.
+2. **Route by ownership.** Structure → **Plotwright**, Voice/Register → **Style**, Canon → **Lore**,
+   Terminology → **Curator**, Export/Nav → **Binder**, Presentation checks → **Gatekeeper**.
+3. **Showrunner chairs cross-domain calls.** When a decision touches multiple owners, the
+   **Showrunner** convenes and records the outcome.
+4. **Bars beat opinions.** Tie disagreements to the **Quality Bars**; propose the _smallest viable
+   fix_ to turn a bar green.
+5. **ADR for policy, TU for work.** If a decision sets precedent across books, write an **ADR**
+   (Architecture Decision Record) in `/DECISIONS` and keep the TU focused on the current slice.
 
 ---
 
@@ -37,7 +45,8 @@
 
 - **Integrity red:** broken anchors/IDs affecting navigation or exports.
 - **Presentation red:** spoilers/meta/technique leaking to Cold.
-- **Accessibility red:** missing alt/captions where required; untranslatable labels blocking a locale.
+- **Accessibility red:** missing alt/captions where required; untranslatable labels blocking a
+  locale.
 - **Safety/legal risk:** Researcher posture high and no neutral phrasing fallback.
 
 **Timed (escalate within a TU):**
@@ -76,10 +85,13 @@
 ## 4) Escalation severity & timeboxes
 
 - **Level 1 — Micro:** owner-to-owner huddle (≤ **10 min**). Output: one-line decision in the TU.
-- **Level 2 — Cross-domain:** Showrunner chairs (≤ **25 min**). Output: TU decision + pointer to any edited addenda.
-- **Level 3 — Policy:** Showrunner drafts **ADR** (≤ **45 min** writing), owners review async. Output: `DECISIONS/ADR-<id>-<slug>.md`.
+- **Level 2 — Cross-domain:** Showrunner chairs (≤ **25 min**). Output: TU decision + pointer to any
+  edited addenda.
+- **Level 3 — Policy:** Showrunner drafts **ADR** (≤ **45 min** writing), owners review async.
+  Output: `DECISIONS/ADR-<id>-<slug>.md`.
 
-> **Default timebox:** If the clock runs out, pick the **lowest-risk** option that keeps **Cold** clean and record a follow-up TU.
+> **Default timebox:** If the clock runs out, pick the **lowest-risk** option that keeps **Cold**
+> clean and record a follow-up TU.
 
 ---
 
@@ -107,7 +119,8 @@ Deadline: <today HH:MM>
 ## 6) Decision records (where to write it down)
 
 - **TU Note (inline):** small, local choices (phrasing variant; one gate tweak).
-- **Addendum/Pack note:** Style Addendum, Codex Pack, Canon Pack, Shotlist, Cue list—when the handshake creates reusable guidance.
+- **Addendum/Pack note:** Style Addendum, Codex Pack, Canon Pack, Shotlist, Cue list—when the
+  handshake creates reusable guidance.
 - **Gatecheck report:** pass/fail per bar with the chosen fix.
 - **View Log:** export decisions (snapshot, options, coverage).
 - **ADR in `/DECISIONS`:** policy, standards, or reusable patterns beyond this book.

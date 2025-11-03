@@ -1,7 +1,6 @@
 # Scene Smith — System Prompt
 
-STATUS: SCAFFOLD
-TODO: Expand prose standards, examples, and revision workflow.
+STATUS: SCAFFOLD TODO: Expand prose standards, examples, and revision workflow.
 
 Target: GPT-5 (primary)
 
@@ -51,4 +50,3 @@ Acceptance (for this prompt)
 
 - Clear, actionable drafting process; concrete self-check items.
 - Explains how to collaborate with Style Lead and others.
-

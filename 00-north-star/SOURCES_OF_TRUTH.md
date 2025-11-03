@@ -1,6 +1,7 @@
 # Sources of Truth — Hot vs Cold
 
-QuestFoundry maintains two complementary sources of truth. This document defines what goes where, who can change what, and how work moves safely from **Hot** to **Cold**.
+QuestFoundry maintains two complementary sources of truth. This document defines what goes where,
+who can change what, and how work moves safely from **Hot** to **Cold**.
 
 ---
 
@@ -40,8 +41,11 @@ Curated, stabilized canon and presentation rules:
 
 Dormant roles:
 
-- If **Researcher** is dormant, factual claims may be merged _only if_ marked with research posture (uncorroborated:low | uncorroborated:medium | uncorroborated:high) and the Showrunner accepts the risk explicitly.
-- Art/Audio/Translator may remain dormant; their **plans** can live in Cold as **deferred** items (see §6).
+- If **Researcher** is dormant, factual claims may be merged _only if_ marked with research posture
+  (uncorroborated:low | uncorroborated:medium | uncorroborated:high) and the Showrunner accepts the
+  risk explicitly.
+- Art/Audio/Translator may remain dormant; their **plans** can live in Cold as **deferred** items
+  (see §6).
 
 ---
 
@@ -71,7 +75,8 @@ This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/co
    - Affected roles review; contradictions and style drift surfaced and resolved.
    - **Hook Harvest** / **Lore Deepening** may run if hooks are involved.
 3. **Gatecheck** (Gatekeeper)
-   - Bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility.
+   - Bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation,
+     Accessibility.
    - Output: pass/fail + concrete remediation.
 4. **Approval** (Showrunner)
    - Confirms scope/risk; schedules merge.
@@ -84,19 +89,23 @@ This record is created in Hot; on merge, it gains a **Cold snapshot ID** (tag/co
 
 ## 5) Cold Guardrails
 
-- **No spoilers in Cold codex/manuscript surfaces.** Spoiler-level canon remains in canon notes, not player pages.
+- **No spoilers in Cold codex/manuscript surfaces.** Spoiler-level canon remains in canon notes, not
+  player pages.
 - **No orphaned references.** Every Cold link resolves to Cold content.
 - **Reproducibility where promised.** Asset outputs record parameters for deterministic re-renders.
-- **Minimal coupling.** If a change creates widespread churn, split it into smaller changes or run a focused loop first.
+- **Minimal coupling.** If a change creates widespread churn, split it into smaller changes or run a
+  focused loop first.
 
 ---
 
 ## 6) Plans vs Outputs (Art/Audio/Translation)
 
-- **Plans** (what/why/how; captions; constraints) may be merged to Cold as **deferred** deliverables:
+- **Plans** (what/why/how; captions; constraints) may be merged to Cold as **deferred**
+  deliverables:
   - Mark with `deferred:art` / `deferred:audio` / `deferred:translation`.
   - Plans must pass **Style** and **Presentation** bars (no spoilers in captions).
-- **Outputs** (images/audio/localized text) enter Cold _only after_ Gatekeeper checks for determinism (if promised) and presentation safety.
+- **Outputs** (images/audio/localized text) enter Cold _only after_ Gatekeeper checks for
+  determinism (if promised) and presentation safety.
 
 This enables a prose-only book with future-ready plans in Cold.
 
@@ -155,7 +164,9 @@ Gatekeeper records a short report per change or per batch.
 
 ## 12) When Research is Dormant
 
-- Factual changes merged to Cold must carry research posture flag in their record: uncorroborated:low | uncorroborated:medium | uncorroborated:high (or corroborated | plausible | disputed).
+- Factual changes merged to Cold must carry research posture flag in their record:
+  uncorroborated:low | uncorroborated:medium | uncorroborated:high (or corroborated | plausible |
+  disputed).
 - The Showrunner logs a **follow-up** to revisit when Researcher is active.
 - PN/Binder wording must avoid hard claims if risk is medium or high; prefer neutral phrasing.
 
@@ -171,4 +182,5 @@ Gatekeeper records a short report per change or per batch.
 ---
 
 **TL;DR**  
-Create freely in **Hot**. Stabilize, gatecheck, and only then merge to **Cold**. Exports and PN always read from Cold snapshots, keeping the player safe and the studio accountable.
+Create freely in **Hot**. Stabilize, gatecheck, and only then merge to **Cold**. Exports and PN
+always read from Cold snapshots, keeping the player safe and the studio accountable.

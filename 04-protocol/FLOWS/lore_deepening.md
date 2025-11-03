@@ -1,16 +1,20 @@
 # Lore Deepening Flow — Message Sequences
 
-> **Status:** Normative — this document defines end-to-end message sequences for the Lore Deepening loop.
+> **Status:** Normative — this document defines end-to-end message sequences for the Lore Deepening
+> loop.
 
 ---
 
 ## 1. Overview
 
-This specification defines the **message sequences** for the **Lore Deepening** loop: the protocol-level interactions that enable roles to transform accepted hooks into canonical lore with quality gates and traceability.
+This specification defines the **message sequences** for the **Lore Deepening** loop: the
+protocol-level interactions that enable roles to transform accepted hooks into canonical lore with
+quality gates and traceability.
 
 ### Purpose
 
 Lore Deepening transforms accepted hooks into canon by:
+
 1. **Opening a TU** — Showrunner or Lore Weaver opens a Lore Deepening TU
 2. **Drafting canon** — Lore Weaver creates Canon Pack with answers, timelines, constraints
 3. **Pre-gate review** — Gatekeeper provides early risk assessment
@@ -19,7 +23,8 @@ Lore Deepening transforms accepted hooks into canon by:
 ### Design Principles
 
 - **TU-bound** — ALL canon work MUST occur within a TU context
-- **Schema-validated** — payloads validated against `tu_brief.schema.json` and `canon_pack.schema.json`
+- **Schema-validated** — payloads validated against `tu_brief.schema.json` and
+  `canon_pack.schema.json`
 - **Pre-gate before merge** — Gatekeeper reviews before merge request
 - **Explicit TU linkage** — Canon Packs MUST reference their TU
 - **Spoiler separation** — Hot canon separate from player-safe summaries
@@ -33,9 +38,11 @@ Lore Deepening transforms accepted hooks into canon by:
 **Trigger:** Showrunner or Lore Weaver initiates Lore Deepening session after Hook Harvest
 
 **Participants:**
+
 - **Showrunner (SR)** — Accountable owner (opens TU if coordinating multiple themes)
 - **Lore Weaver (LW)** — Responsible owner (opens TU if focused session)
-- **Consulted Roles** — RS (Researcher), PW (Plotwright), SS (Scene Smith), ST (Style Lead), GK (Gatekeeper)
+- **Consulted Roles** — RS (Researcher), PW (Plotwright), SS (Scene Smith), ST (Style Lead), GK
+  (Gatekeeper)
 
 ### 2.2 Sequence
 
@@ -44,7 +51,7 @@ Lore Deepening transforms accepted hooks into canon by:
    Intent: tu.open
    Payload: tu_brief (status: hot-proposed → stabilizing)
    Context: hot_cold="hot", tu=<new-TU-ID>, snapshot=<Cold snapshot>
-   
+
 2. Broadcast → SR/LW: ack
    Confirms TU opened and roles notified
 ```
@@ -92,6 +99,7 @@ Lore Deepening transforms accepted hooks into canon by:
 ```
 
 **Critical requirements:**
+
 - `loop` MUST be `"Lore Deepening"`
 - `responsible_r` MUST include `"LW"`
 - `inputs` MUST reference accepted hooks from Hook Harvest
@@ -164,6 +172,7 @@ Lore Deepening transforms accepted hooks into canon by:
 **Trigger:** Lore Weaver completes canon drafting within TU
 
 **Participants:**
+
 - **Lore Weaver (LW)** — Responsible for drafting canon
 - **Gatekeeper (GK)** — Reviews for quality bars before merge
 - **Showrunner (SR)** — Receives canon for review/approval
@@ -172,17 +181,17 @@ Lore Deepening transforms accepted hooks into canon by:
 
 ```
 1. LW drafts Canon Pack (internal work, no protocol message)
-   
+
 2. LW → GK: [Implicit pre-gate request via TU context]
    GK reviews Canon Pack for early risk assessment
-   
+
 3. GK → SR/LW: gate.submit (pre-gate report)
    Intent: gate.submit
    Payload: gatecheck_report (mode: "pre-gate")
    Flags likely risks before full gatecheck
-   
+
 4. LW addresses pre-gate feedback (if needed)
-   
+
 5. LW → SR: tu.submit_gate (ready for gatecheck)
    Intent: tu.submit_gate
    Payload: tu_brief (updated with deliverables)
@@ -198,14 +207,11 @@ Lore Deepening transforms accepted hooks into canon by:
 ```json
 {
   "title": "Canon Pack title (player-safe, 3-160 chars)",
-  "tu": "TU-YYYY-MM-DD-LW<seq>",  // REQUIRED: TU linkage
+  "tu": "TU-YYYY-MM-DD-LW<seq>", // REQUIRED: TU linkage
   "edited": "YYYY-MM-DD",
   "owner": "Lore Weaver",
   "slice": "Player-safe scope description (10-240 chars)",
-  "hooks_answered": [
-    "HK-YYYYMMDD-seq",
-    "HK-YYYYMMDD-seq"
-  ],
+  "hooks_answered": ["HK-YYYYMMDD-seq", "HK-YYYYMMDD-seq"],
   "research_posture_touched": "corroborated|plausible|uncorroborated:low|...",
   "canon_answers_hot": [
     {
@@ -240,11 +246,7 @@ Lore Deepening transforms accepted hooks into canon by:
   "downstream_effects": [
     "Actionable step for Plotwright/Scene Smith/Style Lead/etc. (min 4 items)"
   ],
-  "checks": [
-    "Checklist item 1",
-    "...",
-    "Checklist item 7"
-  ],
+  "checks": ["Checklist item 1", "...", "Checklist item 7"],
   "lineage": "References to TU, Research Memos, prior Canon Packs, ADRs (20-600 chars)",
   "neighbors_notified": ["PW", "SS", "ST", "CC"],
   "snapshot_impact": "Impact on Cold or upcoming exports (10-400 chars)"
@@ -252,6 +254,7 @@ Lore Deepening transforms accepted hooks into canon by:
 ```
 
 **Critical requirements:**
+
 - `tu` field MUST reference the Lore Deepening TU (traceability)
 - `hooks_answered` MUST list all hooks resolved by this canon
 - `canon_answers_hot` contains spoiler-level answers (Hot-only)
@@ -280,7 +283,10 @@ Lore Deepening transforms accepted hooks into canon by:
   ],
   "timeline_anchors_hot": [
     { "anchor": "T0", "description": "Present day — hub tensions escalate at Wormhole 3" },
-    { "anchor": "T1", "description": "Y-5 — Syndicate trials; evidence of sabotage tests surfaces" },
+    {
+      "anchor": "T1",
+      "description": "Y-5 — Syndicate trials; evidence of sabotage tests surfaces"
+    },
     { "anchor": "T2", "description": "Y-18 — Dock 7 fire; Kestrel scarred, Ena Roe saved" }
   ],
   "invariants_constraints_hot": [
@@ -334,6 +340,7 @@ Lore Deepening transforms accepted hooks into canon by:
 **Trigger:** Lore Weaver signals Canon Pack ready for review; Gatekeeper performs pre-gate
 
 **Participants:**
+
 - **Gatekeeper (GK)** — Reviews for quality bar risks
 - **Lore Weaver (LW)** — Receives feedback, addresses issues
 - **Showrunner (SR)** — Informed of risks
@@ -343,17 +350,17 @@ Lore Deepening transforms accepted hooks into canon by:
 ```
 1. GK reviews Canon Pack (internal work)
    Checks: Integrity (referential), spoiler separation, timeline consistency
-   
+
 2. GK → SR/LW: gate.submit
    Intent: gate.submit
    Payload: gatecheck_report (mode: "pre-gate")
-   
+
 3. If risks identified:
    a) LW → SR: tu.rework
       Addresses GK feedback, revises Canon Pack
-   
+
    b) Return to step 1 (GK re-reviews)
-   
+
 4. If pre-gate clear:
    Proceed to merge request (next section)
 ```
@@ -371,14 +378,14 @@ Lore Deepening transforms accepted hooks into canon by:
   "title": "TU-YYYY-MM-DD-LW<seq>",
   "checked": "YYYY-MM-DD",
   "gatekeeper": "GK agent or human",
-  "mode": "pre-gate",  // Pre-gate, not full gatecheck
+  "mode": "pre-gate", // Pre-gate, not full gatecheck
   "cold_snapshot": "Cold @ YYYY-MM-DD",
   "pre_gate_notes": [
     "Risk: Timeline anchor T2 conflicts with existing Cold date",
     "Risk: Player-safe summary mentions 'sabotage' — spoiler",
     "OK: Invariants properly assigned to owners"
   ],
-  "decision": "conditional pass"  // or "block" if critical issues
+  "decision": "conditional pass" // or "block" if critical issues
 }
 ```
 
@@ -429,6 +436,7 @@ Lore Deepening transforms accepted hooks into canon by:
 **Trigger:** Pre-gate clear; Lore Weaver requests merge to Cold
 
 **Participants:**
+
 - **Lore Weaver (LW)** — Submits merge request
 - **Gatekeeper (GK)** — Performs full gatecheck
 - **Showrunner (SR)** — Approves merge after gatecheck pass
@@ -440,17 +448,17 @@ Lore Deepening transforms accepted hooks into canon by:
    Intent: merge.request
    Payload: tu_brief (with deliverables ready)
    Context: TU ready for gatecheck
-   
+
 2. GK → SR: gate.decision
    Intent: gate.pass | gate.conditional_pass | gate.block
    Payload: gatecheck_report (mode: "gatecheck", all bars evaluated)
-   
+
 3a. If gate.pass or gate.conditional_pass:
     SR → Broadcast: merge.approve
     Intent: merge.approve
     Payload: tu_brief (final, with snapshot_context updated)
     Canon merged to Cold
-    
+
 3b. If gate.block:
     GK → LW: merge.reject
     Intent: merge.reject
@@ -528,10 +536,10 @@ Lore Deepening transforms accepted hooks into canon by:
 ```
 1. GK → SR: gate.decision (intent: gate.pass)
    All bars green; no blockers
-   
+
 2. SR → Broadcast: merge.approve
    Canon merged to Cold @ <new-snapshot>
-   
+
 3. SR → Broadcast: tu.close
    TU closed; work complete
 ```
@@ -573,7 +581,7 @@ Lore Deepening transforms accepted hooks into canon by:
 ```json
 {
   "id": "TU-YYYY-MM-DD-LW<seq>",
-  "snapshot_context": "Cold @ YYYY-MM-DD",  // Updated to new snapshot
+  "snapshot_context": "Cold @ YYYY-MM-DD", // Updated to new snapshot
   "linkage": "Canon Pack merged to Cold; hooks resolved; handoffs complete"
 }
 ```
@@ -589,9 +597,9 @@ Lore Deepening transforms accepted hooks into canon by:
   "receiver": { "role": "broadcast" },
   "intent": "merge.approve",
   "context": {
-    "hot_cold": "cold",  // Now Cold after merge
+    "hot_cold": "cold", // Now Cold after merge
     "tu": "TU-2025-10-30-LW01",
-    "snapshot": "Cold @ 2025-10-30",  // New snapshot
+    "snapshot": "Cold @ 2025-10-30", // New snapshot
     "loop": "Lore Deepening"
   },
   "safety": { "player_safe": false, "spoilers": "allowed" },
@@ -614,7 +622,8 @@ Lore Deepening transforms accepted hooks into canon by:
 
 ### 7.1 Scenario: Kestrel Backstory Canonization
 
-**Context:** After Hook Harvest accepted HK-20251028-03 (Kestrel jaw scar) and HK-20251028-04 (Dock 7 fire), Showrunner opens Lore Deepening TU for Lore Weaver to canonize.
+**Context:** After Hook Harvest accepted HK-20251028-03 (Kestrel jaw scar) and HK-20251028-04 (Dock
+7 fire), Showrunner opens Lore Deepening TU for Lore Weaver to canonize.
 
 **Sequence:**
 
@@ -679,6 +688,7 @@ SR → Broadcast: tu.close
 **Policy:** All artifacts destined for Cold MUST have a TU reference.
 
 **For Lore Deepening:**
+
 - Canon Packs MUST include `tu` field referencing the Lore Deepening TU
 - Cannot merge canon without TU linkage
 - Enables traceability: which hooks → which canon → which TU
@@ -702,6 +712,7 @@ SR → Broadcast: tu.close
 **Policy:** TU MUST be opened before canon work begins.
 
 **Sequence enforcement:**
+
 1. Hook Harvest accepts hook → hook.accept (owner_r: LW, loop: Lore Deepening)
 2. **TU MUST be opened** → tu.open (loop: Lore Deepening)
 3. LW drafts Canon Pack → (internal work)
@@ -763,19 +774,20 @@ After Lore Deepening completes and canon merges to Cold, handoffs occur:
 
 ## 10. Error Conditions
 
-| Error Code | Trigger | Example | Remedy |
-|------------|---------|---------|--------|
-| `VALIDATION_FAILED` | Canon Pack missing required fields | No `tu` field | Add TU reference |
-| `BUSINESS_RULE_VIOLATION` | TU not opened before canon work | Canon Pack without TU | Open TU first |
-| `BUSINESS_RULE_VIOLATION` | Merge without gatecheck | merge.request before gate.pass | Wait for gatecheck |
-| `BUSINESS_RULE_VIOLATION` | Spoiler in player-safe summary | Player summary reveals sabotage | Remove spoiler, re-submit |
-| `INVALID_STATE_TRANSITION` | merge.request from wrong state | TU not in gatecheck state | Follow sequence: stabilizing → gatecheck → merge |
+| Error Code                 | Trigger                            | Example                         | Remedy                                           |
+| -------------------------- | ---------------------------------- | ------------------------------- | ------------------------------------------------ |
+| `VALIDATION_FAILED`        | Canon Pack missing required fields | No `tu` field                   | Add TU reference                                 |
+| `BUSINESS_RULE_VIOLATION`  | TU not opened before canon work    | Canon Pack without TU           | Open TU first                                    |
+| `BUSINESS_RULE_VIOLATION`  | Merge without gatecheck            | merge.request before gate.pass  | Wait for gatecheck                               |
+| `BUSINESS_RULE_VIOLATION`  | Spoiler in player-safe summary     | Player summary reveals sabotage | Remove spoiler, re-submit                        |
+| `INVALID_STATE_TRANSITION` | merge.request from wrong state     | TU not in gatecheck state       | Follow sequence: stabilizing → gatecheck → merge |
 
 ---
 
 ## 11. Success Criteria
 
 A Lore Deepening flow is successful when:
+
 - ✅ TU opened BEFORE canon work begins (traceability)
 - ✅ Canon Pack includes all required fields (tu, hooks_answered, canon_answers_hot, etc.)
 - ✅ Pre-gate review completed with risks addressed
@@ -790,21 +802,25 @@ A Lore Deepening flow is successful when:
 ## 12. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/LOOPS/lore_deepening.md` — Loop procedure and RACI
 - `00-north-star/QUALITY_BARS.md` — Quality bar definitions
 - `00-north-star/TRACEABILITY.md` — TU requirements (Cold-bound rule)
 - `00-north-star/SPOILER_HYGIENE.md` — Spoiler separation rules
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` — TU types taxonomy §3
 - `02-dictionary/artifacts/canon_pack.md` — Canon Pack artifact definition
 
 ### Layer 3 Schemas
+
 - `03-schemas/tu_brief.schema.json` — TU Brief payload schema
 - `03-schemas/canon_pack.schema.json` — Canon Pack payload schema
 - `03-schemas/gatecheck_report.schema.json` — Gatecheck Report payload schema
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (tu.open, merge.request, gate.pass, etc.)
 - `04-protocol/LIFECYCLES/tu.md` — TU lifecycle state machine
@@ -818,6 +834,7 @@ A Lore Deepening flow is successful when:
 ### 13.1 Synchronous vs Asynchronous
 
 Lore Deepening can be:
+
 - **Synchronous** — real-time session with LW + consulted roles
 - **Asynchronous** — LW drafts canon, shares for review, iterates
 - **Hybrid** — async drafting + sync review meeting
@@ -827,10 +844,12 @@ All formats use same message protocol: `tu.open` → draft → `gate.submit` →
 ### 13.2 Researcher Integration
 
 If Researcher role is awake:
+
 - `research_posture_touched` should be `"corroborated"` or `"plausible"`
 - Research memos referenced in `lineage`
 
 If Researcher role is dormant:
+
 - `research_posture_touched` may be `"uncorroborated:low/medium/high"`
 - Canon Pack includes note about neutral phrasing for PN/Binder
 
@@ -839,6 +858,7 @@ If Researcher role is dormant:
 **Critical rule:** `canon_answers_hot` contains spoilers; `player_safe_summary` does NOT.
 
 **Enforcement:**
+
 - Pre-gate reviews `player_safe_summary` for spoiler leaks
 - Gatecheck Integrity bar validates spoiler separation
 - PN NEVER receives `canon_answers_hot` (Hot-only content)
@@ -846,11 +866,13 @@ If Researcher role is dormant:
 ### 13.4 Merge Mechanics
 
 **What gets merged to Cold:**
+
 - Canon Pack (Hot artifact) → Cold canon directory
 - Player-safe summaries → handed to Codex Expansion (separate merge)
 - TU Brief (updated with linkage) → Cold TU archive
 
 **Snapshot update:**
+
 - New Cold snapshot created: `Cold @ YYYY-MM-DD`
 - All artifacts reference new snapshot ID
 - Binder/PN use snapshot ID for reproducible exports

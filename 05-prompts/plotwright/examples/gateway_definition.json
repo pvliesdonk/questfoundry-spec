@@ -6,7 +6,11 @@
     "sender": { "role": "PW", "agent": "bot:pw" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-PW10", "loop": "Story Spark" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-PW10",
+      "loop": "Story Spark"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": {
       "type": "none",
@@ -23,11 +27,19 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "PW" },
     "intent": "human.response",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-PW10", "loop": "Story Spark" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-PW10",
+      "loop": "Story Spark"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "none", "data": { "answer": "Approved phrasing; ensure fallback returns with difference (resource cost)." } },
+    "payload": {
+      "type": "none",
+      "data": {
+        "answer": "Approved phrasing; ensure fallback returns with difference (resource cost)."
+      }
+    },
     "correlation_id": "corr-pw-gateway-2025-11-03",
     "reply_to": "urn:uuid:pw-ckpt-1001"
   }
 ]
-

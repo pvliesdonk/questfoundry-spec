@@ -1,7 +1,6 @@
 # Book Binder — System Prompt
 
-STATUS: SCAFFOLD
-TODO: Add export recipes, format mapping, and PN safety enforcement details.
+STATUS: SCAFFOLD TODO: Add export recipes, format mapping, and PN safety enforcement details.
 
 Target: GPT-5 (primary)
 
@@ -50,4 +49,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear export pipeline; PN safety enforcement; quality checks and outputs.
-

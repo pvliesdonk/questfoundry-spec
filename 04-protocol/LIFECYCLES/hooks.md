@@ -1,16 +1,20 @@
 # Hook Lifecycle — State Transitions and Protocol Rules
 
-> **Status:** Normative — this document defines the canonical lifecycle and state transitions for Hook Cards in Layer 4 protocol.
+> **Status:** Normative — this document defines the canonical lifecycle and state transitions for
+> Hook Cards in Layer 4 protocol.
 
 ---
 
 ## 1. Overview
 
-This specification defines the **Hook Card lifecycle**: the allowed state transitions, who can trigger them, required message intents and payloads, and error conditions.
+This specification defines the **Hook Card lifecycle**: the allowed state transitions, who can
+trigger them, required message intents and payloads, and error conditions.
 
 ### Purpose
 
-Hook Cards track small, traceable follow-up ideas from proposal through resolution and canonization. The lifecycle ensures:
+Hook Cards track small, traceable follow-up ideas from proposal through resolution and canonization.
+The lifecycle ensures:
+
 - **Clear ownership** — roles know who can transition states
 - **Traceability** — every transition references TU context
 - **Quality gates** — transitions enforce quality bar checks
@@ -38,6 +42,7 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **States:**
+
 - `proposed` — Initial state when hook card is created
 - `accepted` — Showrunner has triaged and approved for work
 - `in-progress` — Work actively underway, assigned to owner
@@ -46,7 +51,8 @@ proposed → accepted → in-progress → resolved → canonized
 - `deferred` — Parked for future consideration with reason (can be reactivated)
 - `rejected` — Won't pursue with reason (terminal)
 
-**Terminal states:** `canonized`, `rejected` — once reached, hook cannot transition further without creating a new hook
+**Terminal states:** `canonized`, `rejected` — once reached, hook cannot transition further without
+creating a new hook
 
 ---
 
@@ -54,21 +60,22 @@ proposed → accepted → in-progress → resolved → canonized
 
 ### 3.1 Transition Matrix
 
-| From State     | To State      | Allowed Sender | Intent               | Required Payload      | Notes                                |
-|----------------|---------------|----------------|----------------------|-----------------------|--------------------------------------|
-| `proposed`     | `accepted`    | SR             | `hook.update_status` | hook_card (partial)   | SR triages; `status: "accepted"` in payload |
-| `proposed`     | `deferred`    | SR             | `hook.update_status` | hook_card (partial)   | Requires deferral reason; `status: "deferred"` |
-| `proposed`     | `rejected`    | SR             | `hook.update_status` | hook_card (partial)   | Requires rejection reason; `status: "rejected"` |
-| `accepted`     | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial)   | Owner begins work; `status: "in-progress"` |
-| `accepted`     | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial)   | If blocked; `status: "deferred"` |
-| `in-progress`  | `resolved`    | Owner (R role) | `hook.update_status` | hook_card (full)      | Work complete; `status: "resolved"` |
-| `in-progress`  | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial)   | If blocked; `status: "deferred"` |
-| `resolved`     | `canonized`   | SR             | `hook.update_status` | hook_card (full)      | After Cold merge; `status: "canonized"` |
-| `resolved`     | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial)   | If rework needed; `status: "in-progress"` |
-| `deferred`     | `accepted`    | SR             | `hook.update_status` | hook_card (partial)   | Reactivating; `status: "accepted"` |
-| `deferred`     | `rejected`    | SR             | `hook.update_status` | hook_card (partial)   | Abandoning; `status: "rejected"` |
+| From State    | To State      | Allowed Sender | Intent               | Required Payload    | Notes                                           |
+| ------------- | ------------- | -------------- | -------------------- | ------------------- | ----------------------------------------------- |
+| `proposed`    | `accepted`    | SR             | `hook.update_status` | hook_card (partial) | SR triages; `status: "accepted"` in payload     |
+| `proposed`    | `deferred`    | SR             | `hook.update_status` | hook_card (partial) | Requires deferral reason; `status: "deferred"`  |
+| `proposed`    | `rejected`    | SR             | `hook.update_status` | hook_card (partial) | Requires rejection reason; `status: "rejected"` |
+| `accepted`    | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial) | Owner begins work; `status: "in-progress"`      |
+| `accepted`    | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial) | If blocked; `status: "deferred"`                |
+| `in-progress` | `resolved`    | Owner (R role) | `hook.update_status` | hook_card (full)    | Work complete; `status: "resolved"`             |
+| `in-progress` | `deferred`    | SR or Owner    | `hook.update_status` | hook_card (partial) | If blocked; `status: "deferred"`                |
+| `resolved`    | `canonized`   | SR             | `hook.update_status` | hook_card (full)    | After Cold merge; `status: "canonized"`         |
+| `resolved`    | `in-progress` | Owner (R role) | `hook.update_status` | hook_card (partial) | If rework needed; `status: "in-progress"`       |
+| `deferred`    | `accepted`    | SR             | `hook.update_status` | hook_card (partial) | Reactivating; `status: "accepted"`              |
+| `deferred`    | `rejected`    | SR             | `hook.update_status` | hook_card (partial) | Abandoning; `status: "rejected"`                |
 
 **Role Abbreviations:**
+
 - **SR** — Showrunner (accountable for lifecycle decisions)
 - **Owner (R role)** — The responsible role specified in `proposed_next_step.owner_r`
 
@@ -79,6 +86,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.1 `proposed` → `accepted`
 
 **Preconditions:**
+
 - Hook status is `proposed`
 - Hook has been triaged by Showrunner
 - Owner role and deliverables are clear
@@ -92,6 +100,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "accepted"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -108,11 +117,13 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `accepted`
 - Owner role assigned (if not already set)
 - Hook enters work backlog
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `proposed`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if owner_r or loop not specified
@@ -122,6 +133,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.2 `proposed` → `deferred`
 
 **Preconditions:**
+
 - Hook status is `proposed`
 - Decision made to postpone (with reason)
 
@@ -134,6 +146,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "deferred"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -150,10 +163,12 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `deferred`
 - Deferral reason and revisit condition recorded
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `proposed`, `accepted`, or `in-progress`
 - `NOT_AUTHORIZED` — if sender is not SR or Owner
 - `VALIDATION_FAILED` — if `dormancy_deferrals.fallback` or `revisit` missing
@@ -163,6 +178,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.3 `proposed` → `rejected`
 
 **Preconditions:**
+
 - Hook status is `proposed`
 - Decision made not to pursue (with reason)
 
@@ -175,6 +191,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "rejected"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -191,11 +208,13 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `rejected` (terminal)
 - Hook removed from active backlog
 - Rejection reason recorded for audit
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `proposed` or `deferred`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if `resolution.decision` missing
@@ -205,6 +224,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.4 `accepted` → `in-progress`
 
 **Preconditions:**
+
 - Hook status is `accepted`
 - Owner role ready to begin work
 
@@ -217,6 +237,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "in-progress"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -228,10 +249,12 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `in-progress`
 - Owner actively working on deliverables
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `accepted`
 - `NOT_AUTHORIZED` — if sender is not the assigned owner role
 - `VALIDATION_FAILED` — if hook has blocking issues unresolved
@@ -241,6 +264,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.5 `in-progress` → `resolved`
 
 **Preconditions:**
+
 - Hook status is `in-progress`
 - Work completed, deliverables ready
 - Acceptance criteria met
@@ -254,6 +278,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "resolved"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -273,11 +298,13 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `resolved`
 - Ready for gatecheck and potential Cold merge
 - TU IDs recorded for traceability
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `in-progress`
 - `NOT_AUTHORIZED` — if sender is not the assigned owner role
 - `VALIDATION_FAILED` — if acceptance criteria not met or resolution fields incomplete
@@ -287,6 +314,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.6 `resolved` → `canonized`
 
 **Preconditions:**
+
 - Hook status is `resolved`
 - Gatecheck passed
 - Successfully merged to Cold
@@ -300,6 +328,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "canonized"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -316,11 +345,13 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `canonized` (terminal)
 - Hook card links to Cold snapshot and locations
 - Lifecycle complete
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `resolved`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if snapshot_context or locations missing
@@ -331,6 +362,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.7 `resolved` → `in-progress` (reopen)
 
 **Preconditions:**
+
 - Hook status is `resolved`
 - Gatecheck failed or rework needed
 
@@ -343,6 +375,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "in-progress"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -354,10 +387,12 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status reverts to `in-progress`
 - Owner must address gatecheck issues
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `resolved`
 - `NOT_AUTHORIZED` — if sender is not the assigned owner role or SR
 
@@ -366,6 +401,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.8 `deferred` → `accepted` (reactivate)
 
 **Preconditions:**
+
 - Hook status is `deferred`
 - Decision made to reactivate
 - Revisit condition met
@@ -379,6 +415,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Payload Field:** `header.status: "accepted"`
 
 **Required Fields:**
+
 ```json
 {
   "header": {
@@ -390,11 +427,13 @@ proposed → accepted → in-progress → resolved → canonized
 ```
 
 **Effects:**
+
 - Hook status changes to `accepted`
 - Hook re-enters work backlog
 - Deferral tags cleared or updated
 
 **Error Cases:**
+
 - `INVALID_STATE_TRANSITION` — if current status is not `deferred`
 - `NOT_AUTHORIZED` — if sender is not SR
 
@@ -403,6 +442,7 @@ proposed → accepted → in-progress → resolved → canonized
 ### 4.9 `deferred` → `rejected` (abandon)
 
 **Preconditions:**
+
 - Hook status is `deferred`
 - Decision made not to pursue
 
@@ -417,6 +457,7 @@ proposed → accepted → in-progress → resolved → canonized
 **Required Fields:** (same as 4.3)
 
 **Effects:**
+
 - Hook status changes to `rejected` (terminal)
 - Rejection reason recorded
 
@@ -442,12 +483,14 @@ All hook lifecycle messages MUST include proper envelope context per `ENVELOPE.m
 ### 5.2 TU Linkage
 
 All transitions (except initial `proposed` creation) SHOULD include:
+
 - `context.tu` — the trace unit driving the change
 - `refs` — array of related hook/TU IDs for traceability
 
 ### 5.3 Loop Context
 
 All hook messages MUST include:
+
 - `context.loop` — the loop context (typically "Hook Harvest" for lifecycle transitions)
 
 ---
@@ -457,10 +500,12 @@ All hook messages MUST include:
 ### 6.1 State Transition Validation
 
 **Rule:** Transitions MUST follow allowed paths from the state machine
+
 - **Check:** Current status matches "From State" in transition matrix
 - **Error:** `INVALID_STATE_TRANSITION` if not allowed
 
 **Example error:**
+
 ```json
 {
   "code": "INVALID_STATE_TRANSITION",
@@ -476,10 +521,12 @@ All hook messages MUST include:
 ### 6.2 Role Authorization Validation
 
 **Rule:** Only specified roles can trigger transitions
+
 - **Check:** `sender.role` matches "Allowed Sender" in transition matrix
 - **Error:** `NOT_AUTHORIZED` if role mismatch
 
 **Example error:**
+
 ```json
 {
   "code": "NOT_AUTHORIZED",
@@ -495,10 +542,12 @@ All hook messages MUST include:
 ### 6.3 Required Field Validation
 
 **Rule:** Transitions requiring specific fields must validate
+
 - **Check:** Required fields present and valid per schema
 - **Error:** `VALIDATION_FAILED` if fields missing or invalid
 
 **Example error:**
+
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -513,10 +562,12 @@ All hook messages MUST include:
 ### 6.4 Terminal State Protection
 
 **Rule:** Terminal states (`canonized`, `rejected`) cannot transition further
+
 - **Check:** Current status is not terminal
 - **Error:** `INVALID_STATE_TRANSITION` with terminal state reason
 
 **Example error:**
+
 ```json
 {
   "code": "INVALID_STATE_TRANSITION",
@@ -535,12 +586,14 @@ All hook messages MUST include:
 ### 7.1 Gatecheck Enforcement
 
 Hook transitions to `canonized` MUST verify:
+
 - All bars in `classification.bars_affected` are green
 - Gatekeeper has approved via `resolution.gatekeeper_result`
 
 ### 7.2 Blocking Hooks
 
 If `classification.blocking = "yes (<reason>)"`:
+
 - Hook cannot be deferred without SR explicit decision
 - Work on dependent artifacts should pause until resolved
 
@@ -549,18 +602,22 @@ If `classification.blocking = "yes (<reason>)"`:
 ## 8. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/HOOKS.md` — Hook types and lifecycle overview
 - `00-north-star/TRACEABILITY.md` — TU linkage requirements
 - `01-roles/charters/showrunner.md` — SR lifecycle authority
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` §2 — Hook Status Lifecycle (canonical states)
 - `02-dictionary/artifacts/hook_card.md` — Hook Card structure
 
 ### Layer 3 Schemas
+
 - `03-schemas/hook_card.schema.json` — Payload validation schema
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (future)
 
@@ -571,6 +628,7 @@ If `classification.blocking = "yes (<reason>)"`:
 ### 9.1 Example: Accept Hook
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -614,6 +672,7 @@ If `classification.blocking = "yes (<reason>)"`:
 ### 9.2 Example: Resolve Hook
 
 **Message:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -660,6 +719,7 @@ If `classification.blocking = "yes (<reason>)"`:
 ### 9.3 Example: Invalid Transition Error
 
 **Error Response:**
+
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },

@@ -1,11 +1,11 @@
 # Quality Bar — Accessibility
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
-- Clear navigation/structure; descriptive headings/links; alt text present; sensory considerations respected.
+- Clear navigation/structure; descriptive headings/links; alt text present; sensory considerations
+  respected.
 
 Evidence
 
@@ -13,9 +13,10 @@ Evidence
 
 Common Failures
 
-- Missing alt text; ambiguous navigation; sensory overload risk; inaccessible color contrast in examples.
+- Missing alt text; ambiguous navigation; sensory overload risk; inaccessible color contrast in
+  examples.
 
 Remediation
 
-- Add descriptive captions; improve headings/links; add content notes or adjust composition; ensure contrast.
-
+- Add descriptive captions; improve headings/links; add content notes or adjust composition; ensure
+  contrast.

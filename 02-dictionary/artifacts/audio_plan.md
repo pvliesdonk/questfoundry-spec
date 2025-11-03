@@ -1,17 +1,22 @@
 # Audio Plan — Cue Specification (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied.
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied.
 
-> **Use:** Specify a cue so an Audio Producer can realize it **without guessing**. Keep player surfaces clean: captions/text equivalents are **in-world**; all technique/repro stays **off-surface**.
+> **Use:** Specify a cue so an Audio Producer can realize it **without guessing**. Keep player
+> surfaces clean: captions/text equivalents are **in-world**; all technique/repro stays
+> **off-surface**.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../briefs/audio_director.md` · `../briefs/audio_producer.md` · `../interfaces/pair_guides.md` (Audio Director ↔ Audio Producer)
+- Interfaces & lanes: `../briefs/audio_director.md` · `../briefs/audio_producer.md` ·
+  `../interfaces/pair_guides.md` (Audio Director ↔ Audio Producer)
 - Dormancy: `../interfaces/dormancy_signals.md` (plan-only allowed: `deferred:audio`)
 
 ---
@@ -49,11 +54,9 @@ Rationale: <1–2 lines on how this cue helps reading/performance>
 
 ```
 
-> _Clarify_ = make an implied action/surroundings legible.
-> _Recall_ = help memory of a prior scene/concept.
-> _Mood_ = set atmosphere that prose alone can't carry.
-> _Signpost_ = reduce hesitation at hubs/gates.
-> _Pace_ = manage tension/energy around choices.
+> _Clarify_ = make an implied action/surroundings legible. _Recall_ = help memory of a prior
+> scene/concept. _Mood_ = set atmosphere that prose alone can't carry. _Signpost_ = reduce
+> hesitation at hubs/gates. _Pace_ = manage tension/energy around choices.
 
 ---
 
@@ -409,6 +412,7 @@ Status: planned
 | §9      | Handoffs                  | markdown-list | yes      | Min 6 roles                                   |
 | §10     | Done checklist            | markdown-list | yes      | 9 items; all must be ticked                   |
 
-**Total fields: 28** (5 metadata, 2 content, 1 classification, 3 relationships, 2 validation, 2 localization, 4 accessibility, 3 spatial, 4 presentation, 2 determinism)
+**Total fields: 28** (5 metadata, 2 content, 1 classification, 3 relationships, 2 validation, 2
+localization, 4 accessibility, 3 spatial, 4 presentation, 2 determinism)
 
 ---

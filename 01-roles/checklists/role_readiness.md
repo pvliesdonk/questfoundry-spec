@@ -1,23 +1,33 @@
 # Role Readiness — Pre-Flight Checklists (Layer 1)
 
-> **Purpose:** Prevent doomed laps. Before opening a TU or accepting one, run the _pre-flight_ for your role. Start only when inputs are real, neighbors are awake (or explicitly dormant), and you can finish a small slice without guessing.
+> **Purpose:** Prevent doomed laps. Before opening a TU or accepting one, run the _pre-flight_ for
+> your role. Start only when inputs are real, neighbors are awake (or explicitly dormant), and you
+> can finish a small slice without guessing.
 
 **Normative refs:**  
-`../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md` · `../interfaces/pair_guides.md` · `../interfaces/dormancy_signals.md` · `../interfaces/escalation_rules.md`
+`../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SOURCES_OF_TRUTH.md` ·
+`../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+· `../interfaces/pair_guides.md` · `../interfaces/dormancy_signals.md` ·
+`../interfaces/escalation_rules.md`
 
-**Conventions:** **Hot** (private, spoilers) · **Cold** (player-safe) · **Bars** (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility) · **TU** (timeboxed task unit)
+**Conventions:** **Hot** (private, spoilers) · **Cold** (player-safe) · **Bars** (Integrity,
+Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility) · **TU** (timeboxed task
+unit)
 
 ---
 
 ## 0) Universal pre-flight (any role)
 
-- [ ] **TU slice named** (small enough for one sitting); loop chosen (Story Spark, Style Tune-up, …).
+- [ ] **TU slice named** (small enough for one sitting); loop chosen (Story Spark, Style Tune-up,
+      …).
 - [ ] **Owner/A count clear:** who is **R** and who is **A** per `../raci/by_loop.md`.
-- [ ] **Dormancy set:** optional roles marked `deferred:*` or woken with rubric (`dormancy_signals.md`).
+- [ ] **Dormancy set:** optional roles marked `deferred:*` or woken with rubric
+      (`dormancy_signals.md`).
 - [ ] **Snapshot context known:** which **Cold** snapshot your work must align to (no Hot in Views).
 - [ ] **Pairing plan:** handshakes you’ll need are noted (`pair_guides.md`).
 - [ ] **Exit criteria stated:** which Bars must go green for this slice.
-- [ ] **Traceability ready:** TU id created / to be created; where notes land (Addendum, Pack, View Log, ADR).
+- [ ] **Traceability ready:** TU id created / to be created; where notes land (Addendum, Pack, View
+      Log, ADR).
 
 ---
 
@@ -206,7 +216,8 @@
 
 **Ready to start if**
 
-- [ ] You can name **purpose** for each slot (clarify/recall/mood/signpost) and write **caption/alt guidance**.
+- [ ] You can name **purpose** for each slot (clarify/recall/mood/signpost) and write **caption/alt
+      guidance**.
 
 **Red flags → escalate**
 
@@ -227,7 +238,8 @@
 
 **Ready to start if**
 
-- [ ] You can render without inventing composition intent; determinism logging path exists **off-surface**.
+- [ ] You can render without inventing composition intent; determinism logging path exists
+      **off-surface**.
 
 **Red flags → escalate**
 
@@ -290,7 +302,8 @@
 
 **Ready to start if**
 
-- [ ] You can ship **Register Map + glossary slice**, and localize a **bounded** set (choices/headings/captions).
+- [ ] You can ship **Register Map + glossary slice**, and localize a **bounded** set
+      (choices/headings/captions).
 
 **Red flags → escalate**
 
@@ -332,7 +345,8 @@
 
 **Ready to start if**
 
-- [ ] You can perform **without improvising**; know how to tag notes (`choice-ambiguity`, `gate-friction`, …).
+- [ ] You can perform **without improvising**; know how to tag notes (`choice-ambiguity`,
+      `gate-friction`, …).
 
 **Red flags → escalate**
 

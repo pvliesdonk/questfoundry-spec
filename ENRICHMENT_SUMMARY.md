@@ -57,6 +57,7 @@ Each enriched template:
 
 ## Next: Layer 1 Template Updates
 
-All 13 issues need fixes in original Layer 0/1 templates. See LAYER1_CORRECTIONS.md for complete fix plan.
+All 13 issues need fixes in original Layer 0/1 templates. See LAYER1_CORRECTIONS.md for complete fix
+plan.
 
 ---

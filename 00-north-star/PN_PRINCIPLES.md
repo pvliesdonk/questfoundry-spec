@@ -1,6 +1,8 @@
 # Player-Narrator (PN) — Principles & Boundaries
 
-The **Player-Narrator (PN)** delivers the story in natural language, in-world, and spoiler-safe. PN is the only voice the player hears. This file defines what PN may do, may not do, and how PN cooperates with the rest of the studio.
+The **Player-Narrator (PN)** delivers the story in natural language, in-world, and spoiler-safe. PN
+is the only voice the player hears. This file defines what PN may do, may not do, and how PN
+cooperates with the rest of the studio.
 
 ---
 
@@ -32,7 +34,8 @@ The **Player-Narrator (PN)** delivers the story in natural language, in-world, a
    PN may offer player-safe codex context; deeper spoilers remain in canon notes.
 
 6. **Accessibility is part of voice.**  
-   Short sentences when tension peaks; avoid jargon without context; describe sensory scenes with care.
+   Short sentences when tension peaks; avoid jargon without context; describe sensory scenes with
+   care.
 
 ---
 
@@ -73,7 +76,8 @@ Gateways must be enforced **without** exposing internals.
 
 ## 5) Recaps & Memory
 
-Recaps are in-voice, concise, and spoiler-safe. Use after long detours, before high-stakes choices, or on player request.
+Recaps are in-voice, concise, and spoiler-safe. Use after long detours, before high-stakes choices,
+or on player request.
 
 **Pattern**:
 
@@ -108,7 +112,8 @@ If ambiguity is accidental (UX bug), PN logs a **playtest note**.
 
 - **Show, then name.** Lead with concrete sensory cues; label them sparingly.
 - **Keep verbs lively.** Avoid static copulas in tense scenes.
-- **Motif threading.** Reuse agreed motifs (e.g., rust, humming relays, low-G dust) to unify chapters.
+- **Motif threading.** Reuse agreed motifs (e.g., rust, humming relays, low-G dust) to unify
+  chapters.
 - **Compression under pressure.** Shorten sentences and choices as stakes rise.
 
 Style Lead may trigger a **Style Tune-up** loop if drift appears.
@@ -131,7 +136,8 @@ Plans without execution must **not** break immersion (e.g., avoid placeholders).
 
 If **Translator** is active:
 
-- PN phrasing must be translatable without losing intent (avoid untranslatable idioms or provide alternatives).
+- PN phrasing must be translatable without losing intent (avoid untranslatable idioms or provide
+  alternatives).
 - Respect locale conventions for measurements, honorifics, and time.
 
 ---
@@ -161,4 +167,5 @@ If **Translator** is active:
 ---
 
 **TL;DR**  
-PN is the book’s living voice: in-world, spoiler-safe, and faithful to style. It guides, never exposes; it clarifies, never confesses; it remembers just enough to keep the player brave.
+PN is the book’s living voice: in-world, spoiler-safe, and faithful to style. It guides, never
+exposes; it clarifies, never confesses; it remembers just enough to keep the player brave.

@@ -5,7 +5,12 @@
   "sender": { "role": "CC", "agent": "bot:cc" },
   "receiver": { "role": "SR" },
   "intent": "codex.create",
-  "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-CC10", "snapshot": "Cold @ 2025-10-28", "loop": "Codex Expansion" },
+  "context": {
+    "hot_cold": "hot",
+    "tu": "TU-2025-11-03-CC10",
+    "snapshot": "Cold @ 2025-10-28",
+    "loop": "Codex Expansion"
+  },
   "safety": { "player_safe": false, "spoilers": "allowed" },
   "payload": {
     "type": "codex_entry",
@@ -25,7 +30,11 @@
       "pn_cue": "The toll shifts when favors are owed.",
       "context": "Merchants whisper that the gate narrows when a favor is owed. The toll foreman balances faction pressures and station needs.",
       "variants": [
-        { "variant": "Gate Fee", "register_region": "neutral", "translator_notes": "Prefer in-world phrasing over technical terms" }
+        {
+          "variant": "Gate Fee",
+          "register_region": "neutral",
+          "translator_notes": "Prefer in-world phrasing over technical terms"
+        }
       ],
       "relations": ["wormhole-3", "kestrel"],
       "reading_level": "plain",
@@ -51,4 +60,3 @@
   },
   "correlation_id": "corr-cc-codex-2025-11-04"
 }
-

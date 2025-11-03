@@ -1,10 +1,12 @@
 # Codex Expansion — Publish Player-Safe Knowledge
 
 **Purpose**  
-Turn canon (often spoiler-heavy) into **player-safe** codex pages with clear cross-references. Improve comprehension without leaking twists or internal plumbing.
+Turn canon (often spoiler-heavy) into **player-safe** codex pages with clear cross-references.
+Improve comprehension without leaking twists or internal plumbing.
 
 **Outcome**  
-Codex entries and crosslink maps (in **Hot**) derived from **canon** and ready to merge to **Cold** after gatecheck. Taxonomy/clarity hooks may also be addressed here.
+Codex entries and crosslink maps (in **Hot**) derived from **canon** and ready to merge to **Cold**
+after gatecheck. Taxonomy/clarity hooks may also be addressed here.
 
 ---
 
@@ -33,7 +35,8 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 ## 3) Roles & Responsibilities
 
 - **Codex Curator (R)**
-  - Author **player-safe** entries; create cross-refs (“See also”), disambiguation notes, and glossary stubs.
+  - Author **player-safe** entries; create cross-refs (“See also”), disambiguation notes, and
+    glossary stubs.
   - May originate **taxonomy/clarity hooks**; does **not** invent deep lore.
 - **Lore Weaver (C)**
   - Ensures summaries accurately reflect canon; marks spoilers to avoid.
@@ -44,7 +47,8 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-codex-<topic-or-batch>`.
 - **Showrunner (A)**
   - Confirms scope/priority; sequences merges.
 
-_(Researcher may be consulted if factual claims appear; otherwise factual content should be neutral or cite canon as in-world belief.)_
+_(Researcher may be consulted if factual claims appear; otherwise factual content should be neutral
+or cite canon as in-world belief.)_
 
 ---
 
@@ -59,40 +63,37 @@ _(Researcher may be consulted if factual claims appear; otherwise factual conten
 - **See also** — 3–5 related entries. Prefer breadth over recursion.
 - **Notes** — accessibility or localization hints (e.g., pronunciation; units).
 - **Lineage** — `Lineage: TU …` (traceability); **no spoilers** in lineage text itself.
-- _(Optional)_ **Player warnings** — diegetic safety content (“Clipped gravity decks require mag-soles”).
+- _(Optional)_ **Player warnings** — diegetic safety content (“Clipped gravity decks require
+  mag-soles”).
 
-**Never include:** hidden gate conditions, codeword names, internal IDs, seed/model info, twist explanations.
+**Never include:** hidden gate conditions, codeword names, internal IDs, seed/model info, twist
+explanations.
 
 ---
 
 ## 5) Procedure
 
 1. **Select Topics**
-
    - From canon deltas, term frequency in manuscript, and taxonomy hooks.
    - Prioritize **player-value**: comprehension bottlenecks first.
 
 2. **Draft Entries (Curator)**
-
    - Write overview and context in **Style Lead**’s register.
    - Add **See also** list that improves navigation (avoid self-loops).
 
 3. **Spoiler Sweep (Lore Weaver)**
-
    - Compare against the spoiler-level canon; mask revelations.
-   - If masking makes an entry misleading, add a **neutral phrasing** workaround or defer until a later publication window.
+   - If masking makes an entry misleading, add a **neutral phrasing** workaround or defer until a
+     later publication window.
 
 4. **Style Pass (Style Lead)**
-
    - Ensure clarity, consistent terminology, motif harmonization, and reading level.
 
 5. **Link Audit (Curator)**
-
    - Check that every cross-reference resolves (or create the stub if approved).
    - Add disambiguation if a term is overloaded.
 
 6. **Gatekeeper Pre-Check**
-
    - Presentation Safety, Integrity, Style. Flag any gateway logic leaks.
 
 7. **Package & Handoff**
@@ -155,9 +156,11 @@ _(Researcher may be consulted if factual claims appear; otherwise factual conten
 ## 11) Example (miniature)
 
 **Title**: Dock 7  
-**Overview**: A cargo and repairs quay on the station’s shadow side, known for low-bid maintenance and odd-hour shifts.  
+**Overview**: A cargo and repairs quay on the station’s shadow side, known for low-bid maintenance
+and odd-hour shifts.  
 **Usage**: Early chapters reference Dock 7 for side-jobs and parts salvage.  
-**Context**: Security patrols are thin; rumor credits a refinery incident years back with today’s strict fire doors.  
+**Context**: Security patrols are thin; rumor credits a refinery incident years back with today’s
+strict fire doors.  
 **See also**: “Wormhole Tolls”, “Salvage Permits”, “Shadow Decks”, “Station Security”  
 **Notes**: “Dock” vs “Berth” distinction maintained; local slang prefers “D7”.  
 **Lineage**: TU tu-codex-docks-batch-1
@@ -167,4 +170,5 @@ _(Canon’s detailed cause of the “refinery incident” stays in spoiler notes
 ---
 
 **TL;DR**  
-Publish knowledge the player can safely read: clear, helpful, spoiler-tight. Let lore be deep; let codex be kind.
+Publish knowledge the player can safely read: clear, helpful, spoiler-tight. Let lore be deep; let
+codex be kind.

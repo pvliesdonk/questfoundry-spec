@@ -1,9 +1,13 @@
 # Research Memo — Question → Answer → Posture → Neutral Phrasing (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full research posture values).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full
+> research posture values).
 
-> **Use:** Answer the **smallest useful question** with a short, sourced summary. Label **posture**, provide **player-safe neutral phrasing**, and name **creative implications**. Hot can hold citations; outward text stays spoiler-free.
+> **Use:** Answer the **smallest useful question** with a short, sourced summary. Label **posture**,
+> provide **player-safe neutral phrasing**, and name **creative implications**. Hot can hold
+> citations; outward text stays spoiler-free.
 
 ---
 
@@ -96,7 +100,8 @@ Why it matters: <gate fairness | safety | terminology | tone>
 <!-- Field: Caveats | Type: markdown-list | Optional: yes | Bullets on gaps, contention, edge cases -->
 <!-- Cross-field: If not corroborated, Neutral Phrasing (§5) must be provided -->
 
-> Label certainty; use the strict set. If not **corroborated**, offer **neutral phrasing** (next section).
+> Label certainty; use the strict set. If not **corroborated**, offer **neutral phrasing** (next
+> section).
 
 ```
 Posture: <corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high>
@@ -241,17 +246,21 @@ hook://research/reader-firmware — prevalence of vulnerable models (defer)
 - `Edited`: Must be YYYY-MM-DD format, cannot be future date
 - `Owner`: Must be "Researcher" (role from Layer 1 role index)
 - `Slice`: Required, 1-2 lines, player-safe scope description
-- `Stakeholders`: Required role list, must use valid Layer 1 role names (@plot, @lore, @style, @curator, @translator, @gatekeeper)
+- `Stakeholders`: Required role list, must use valid Layer 1 role names (@plot, @lore, @style,
+  @curator, @translator, @gatekeeper)
 - `Question`: Required, one line, framed in surface language
 - `Where it appears`: Required, manuscript location or codex entry or caption
-- `Why it matters`: Required, must be one of: gate fairness | safety | terminology | tone (or similar)
+- `Why it matters`: Required, must be one of: gate fairness | safety | terminology | tone (or
+  similar)
 - `Short Answer`: Required, 2-5 lines, plain language, no jargon, no spoilers
 - `Evidence (Hot)`: Required, 2-5 sources with URLs/DOIs in Hot, 1 line relevance each
-- `Posture`: Required, must be one of 6 flat values: corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
+- `Posture`: Required, must be one of 6 flat values: corroborated | plausible | disputed |
+  uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
 - `Caveats`: Optional, bullets on gaps/contention/edge cases
 - `Neutral Phrasing`: Required, 1-3 lines, no technique/codewords, player-safe
 - `Risks & Mitigations`: Required, must cover safety/culture/legal if applicable, plain language
-- `Creative Implications`: Required, must include at least 5 roles (Plotwright, Lore, Style/PN, Curator/Translator, Gatekeeper)
+- `Creative Implications`: Required, must include at least 5 roles (Plotwright, Lore, Style/PN,
+  Curator/Translator, Gatekeeper)
 - `Hooks filed`: Optional, format: hook://<domain>/<topic>
 - `Done checklist`: Required, 6 items, all must be ticked before approved/merged
 
@@ -360,6 +369,7 @@ hook://research/reader-firmware — prevalence of vulnerable models (defer)
 | §8      | Hooks filed           | markdown-list | optional | hook://<domain>/<topic>                        |
 | §9      | Done checklist        | markdown-list | yes      | 6 items; all must be ticked                    |
 
-**Total fields: 20** (6 metadata, 5 content, 1 classification, 5 relationships, 1 validation, 2 determinism)
+**Total fields: 20** (6 metadata, 5 content, 1 classification, 5 relationships, 1 validation, 2
+determinism)
 
 ---

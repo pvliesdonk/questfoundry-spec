@@ -60,13 +60,7 @@
       "maxItems": 3
     }
   },
-  "required": [
-    "title",
-    "version",
-    "snapshot",
-    "options_and_coverage",
-    "accessibility"
-  ],
+  "required": ["title", "version", "snapshot", "options_and_coverage", "accessibility"],
   "$defs": {
     "role_name": {
       "type": "string",
@@ -131,12 +125,7 @@
     "deferral_tag": {
       "type": "string",
       "description": "Deferral type for dormant roles (see taxonomies.md §7)",
-      "enum": [
-        "deferred:art",
-        "deferred:audio",
-        "deferred:translation",
-        "deferred:research"
-      ]
+      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
     }
   }
 }

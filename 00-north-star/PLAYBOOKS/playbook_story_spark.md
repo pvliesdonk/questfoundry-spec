@@ -1,8 +1,11 @@
 # Playbook — Story Spark
 
-**Use when:** You want to add or reshape plot topology (parts/chapters, **hubs**, **loops**, **gateways**, **codeword** economy) and kick off a small burst that won’t leak spoilers to player surfaces.
+**Use when:** You want to add or reshape plot topology (parts/chapters, **hubs**, **loops**,
+**gateways**, **codeword** economy) and kick off a small burst that won’t leak spoilers to player
+surfaces.
 
-**Outcome:** A crisp topology delta with section briefs + draft prose, a tidy hook set ready for **Hook Harvest**, and a Gatekeeper pre-check. Story Spark itself doesn’t merge to Cold.
+**Outcome:** A crisp topology delta with section briefs + draft prose, a tidy hook set ready for
+**Hook Harvest**, and a Gatekeeper pre-check. Story Spark itself doesn’t merge to Cold.
 
 ---
 
@@ -32,7 +35,8 @@
 3. Draft **section briefs** (intent, stakes, choices, expected state effect—human phrasing).
 4. Generate **narrative hooks** (entities, stakes, affordances).
 
-**Scene Smith (R)** 5. Draft/adjust **section prose**; make choices legible and distinct. 6. Generate **scene hooks** (traits, tells, props).
+**Scene Smith (R)** 5. Draft/adjust **section prose**; make choices legible and distinct. 6.
+Generate **scene hooks** (traits, tells, props).
 
 **Style Lead (C)** 7. Sample and flag drift; add motif anchors; suggest PN phrasing patterns.
 
@@ -40,7 +44,8 @@
 
 **Researcher (C, if active)** 9. Add **factual hooks** with citations or `uncorroborated:<risk>`.
 
-**Gatekeeper (C)** 10. **Pre-gate**: Integrity (no dangling refs), Reachability (keystones reachable), Nonlinearity (hub/loop not cosmetic).
+**Gatekeeper (C)** 10. **Pre-gate**: Integrity (no dangling refs), Reachability (keystones
+reachable), Nonlinearity (hub/loop not cosmetic).
 
 ---
 
@@ -107,4 +112,5 @@ _(Story Spark does **not** merge to Cold. Merges happen after deepening + gatech
 ---
 
 **Cheat line (commit/TU note):**  
-“Story Spark: add hub at **Dock 7**, loop via **Union Token**, gateway ‘foreman’s token’; 3 briefs + 2 drafts; 6 hooks → Harvest; pre-gate green on Integrity/Reachability.”
+“Story Spark: add hub at **Dock 7**, loop via **Union Token**, gateway ‘foreman’s token’; 3 briefs +
+2 drafts; 6 hooks → Harvest; pre-gate green on Integrity/Reachability.”

@@ -4,13 +4,15 @@
 >
 > Created: 2025-10-29
 >
-> Enrich all 17 artifact templates with inline field constraints, validation rules, and reference tables from field_registry.md.
+> Enrich all 17 artifact templates with inline field constraints, validation rules, and reference
+> tables from field_registry.md.
 
 ---
 
 ## Goal
 
-Transform artifact templates from **human-readable guides** into **machine-checkable specifications** while maintaining readability and usability.
+Transform artifact templates from **human-readable guides** into **machine-checkable
+specifications** while maintaining readability and usability.
 
 **What "enriched" means:**
 

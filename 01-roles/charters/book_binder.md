@@ -1,6 +1,8 @@
 # Role Charter — Book Binder
 
-> **Purpose:** The Book Binder turns **Cold snapshots** into **player-safe export views** (Markdown/HTML/EPUB/PDF). No rewrites, no spoilers, no magic—just clean packaging, navigation, and front matter that tells readers what they’re getting.
+> **Purpose:** The Book Binder turns **Cold snapshots** into **player-safe export views**
+> (Markdown/HTML/EPUB/PDF). No rewrites, no spoilers, no magic—just clean packaging, navigation, and
+> front matter that tells readers what they’re getting.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Book Binder  
 **Aliases (optional):** Publisher, Packager  
-**One-sentence mission:** Assemble reproducible, accessible bundles from **Cold**, stamp snapshot & options, and keep navigation rock-solid.
+**One-sentence mission:** Assemble reproducible, accessible bundles from **Cold**, stamp snapshot &
+options, and keep navigation rock-solid.
 
 **Normative references (Layer 0)**
 
@@ -26,9 +29,11 @@
 **In scope (SHOULD focus on):**
 
 - Build **export views** from a **Cold snapshot** chosen by the Showrunner.
-- Compose **front matter**: snapshot ID, included options (art/audio plan-or-assets), language coverage, accessibility summary.
+- Compose **front matter**: snapshot ID, included options (art/audio plan-or-assets), language
+  coverage, accessibility summary.
 - Ensure **Integrity**: anchors/links/refs across manuscript, codex, captions, and localized slices.
-- Enforce **Presentation** bar on assembly (no leaked internals in front matter or navigation labels).
+- Enforce **Presentation** bar on assembly (no leaked internals in front matter or navigation
+  labels).
 - Maintain **View Log** entries and minimal **anchor maps** for debugging.
 
 **Out of scope (SHOULD NOT own):**
@@ -40,9 +45,12 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Export mechanics (toc depth, file layout) that don’t alter text; harmless label normalizations for consistency.
-- **Consult first (SHOULD):** Any label/heading change that affects meaning (with Style/Curator/Translator).
-- **Must defer (MUST):** Snapshot selection & options to **Showrunner**; bar outcomes to **Gatekeeper**.
+- **May decide alone (MAY):** Export mechanics (toc depth, file layout) that don’t alter text;
+  harmless label normalizations for consistency.
+- **Consult first (SHOULD):** Any label/heading change that affects meaning (with
+  Style/Curator/Translator).
+- **Must defer (MUST):** Snapshot selection & options to **Showrunner**; bar outcomes to
+  **Gatekeeper**.
 
 ---
 
@@ -71,7 +79,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Binding Run** — **R:** Book Binder · **A:** Showrunner · **C:** Gatekeeper, Style, Translator · **I:** PN
+- **Binding Run** — **R:** Book Binder · **A:** Showrunner · **C:** Gatekeeper, Style, Translator ·
+  **I:** PN
 
 **Definition of done (for Book Binder contributions):**
 
@@ -85,15 +94,19 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** broken or ambiguous anchors in sources, missing codex anchors, label collisions across languages, PN navigation friction, layout readability tweaks that require source edits.
+- **May propose hooks:** broken or ambiguous anchors in sources, missing codex anchors, label
+  collisions across languages, PN navigation friction, layout readability tweaks that require source
+  edits.
 - **Tags:** `integrity`, `nav`, `labeling`, `localization`, `presentation`.
 
 ---
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** front matter and any labels remain non-revealing; do not explain gate logic or seeds/models.
-- **Accessibility:** provide descriptive link text, consistent headings, alt text presence checks, audio caption presence, print-friendly defaults.
+- **Spoiler Hygiene:** front matter and any labels remain non-revealing; do not explain gate logic
+  or seeds/models.
+- **Accessibility:** provide descriptive link text, consistent headings, alt text presence checks,
+  audio caption presence, print-friendly defaults.
 - **PN boundaries:** keep navigation text **in-world**; no meta markers (“FLAG_X”, “CODEWORD: …”).
 
 ---
@@ -111,8 +124,10 @@
 
 ## 8) Cross-Domain & Escalation
 
-- If binding reveals content issues (broken links, ambiguous headings), open a **TU** and ping the **owner role** (Scene/Curator/Style/Translator).
-- For policy-level export decisions (e.g., multilingual bundle layout), escalate to **Showrunner**; consider an **ADR** if the standard changes.
+- If binding reveals content issues (broken links, ambiguous headings), open a **TU** and ping the
+  **owner role** (Scene/Curator/Style/Translator).
+- For policy-level export decisions (e.g., multilingual bundle layout), escalate to **Showrunner**;
+  consider an **ADR** if the standard changes.
 
 ---
 
@@ -165,4 +180,5 @@ Notes: PN dry-run recommended; NL slice incomplete
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/binding_run.md`, `../../00-north-star/PLAYBOOKS/playbook_story_spark.md`
+**Related:** `../../00-north-star/LOOPS/binding_run.md`,
+`../../00-north-star/PLAYBOOKS/playbook_story_spark.md`

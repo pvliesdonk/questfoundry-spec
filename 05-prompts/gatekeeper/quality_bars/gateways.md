@@ -1,7 +1,6 @@
 # Quality Bar — Gateways
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -19,4 +18,3 @@ Common Failures
 Remediation
 
 - Rewrite condition and PN phrasing; add catch-up or fail-forward beats.
-

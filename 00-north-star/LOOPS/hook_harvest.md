@@ -1,10 +1,12 @@
 # Hook Harvest — Collect, Cluster, and Triage Hooks
 
 **Purpose**  
-Sweep up newly proposed **hooks** (narrative, scene, factual, taxonomy), remove duplicates, cluster related ideas, and triage what should advance now, later, or never.
+Sweep up newly proposed **hooks** (narrative, scene, factual, taxonomy), remove duplicates, cluster
+related ideas, and triage what should advance now, later, or never.
 
 **Outcome**  
-A prioritized, tagged hook set ready for **Lore Deepening** (canonization) and follow-on loops, with risks and dependencies made explicit.
+A prioritized, tagged hook set ready for **Lore Deepening** (canonization) and follow-on loops, with
+risks and dependencies made explicit.
 
 ---
 
@@ -15,7 +17,8 @@ A prioritized, tagged hook set ready for **Lore Deepening** (canonization) and f
 - On demand when the backlog looks fuzzy or drifted.
 
 **Activation**  
-Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and confirms whether **Researcher** is active (affects factual triage).
+Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and confirms whether
+**Researcher** is active (affects factual triage).
 
 ---
 
@@ -44,22 +47,20 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 ## 4) Procedure
 
 1. **Collect**
-
    - Sweep all new `proposed` hooks. Reject obvious dupes; link provenance rather than deleting.
 
 2. **Cluster**
-
-   - Group by **theme** (e.g., “Wormhole economy”, “Kestrel arc”), then by **type** (`narrative | scene | factual | taxonomy`).
+   - Group by **theme** (e.g., “Wormhole economy”, “Kestrel arc”), then by **type**
+     (`narrative | scene | factual | taxonomy`).
 
 3. **Annotate**
-
    - For each hook, add or confirm:
-     - **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`, `deferred`, `reject`.
+     - **Triage tag**: `quick-win`, `needs-research`, `structure-impact`, `style-impact`,
+       `deferred`, `reject`.
      - **Uncertainty** (for factual): `uncorroborated:low/med/high` + any citations.
      - **Dependencies**: upstream refs; roles that must wake from dormancy.
 
 4. **Decide**
-
    - Mark each as `accepted`, `deferred`, or `rejected` (with 1-line reason).
    - For accepted hooks, assign **next loop**:
      - `lore_deepening` (most common),
@@ -76,7 +77,6 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 ## 5) Deliverables (Hot)
 
 - **Harvest Sheet** (human text; attach to TU)
-
   - Date & TU-ID
   - Cluster headings with lists of hooks:
     - **Accepted** (with next loop + owner + due window)
@@ -116,7 +116,8 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 
 ## 7) Handoffs
 
-- **To Lore Deepening**: the **Accepted** list (narrative/scene/factual hooks requiring canon), clustered by theme, with dependencies and uncertainty notes.
+- **To Lore Deepening**: the **Accepted** list (narrative/scene/factual hooks requiring canon),
+  clustered by theme, with dependencies and uncertainty notes.
 - **To Story Spark**: hooks that **re-shape topology**.
 - **To Codex Expansion**: **taxonomy/clarity** hooks accepted (player-safe coverage).
 - **To Style Tune-up**: hooks whose primary effect is tone/voice/aesthetics.
@@ -136,8 +137,10 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 
 - **Foggy clusters** → Recut by _player value_ instead of source role.
 - **Endless acceptance** → Enforce capacity; defer with explicit wake conditions.
-- **Taxonomy hooks becoming secret lore** → Hand to Lore Weaver or mark `deferred`; Curator does not canonize.
-- **Research dormant but factual heavy** → Accept with `uncorroborated:<risk>` only if Showrunner signs the risk; otherwise defer.
+- **Taxonomy hooks becoming secret lore** → Hand to Lore Weaver or mark `deferred`; Curator does not
+  canonize.
+- **Research dormant but factual heavy** → Accept with `uncorroborated:<risk>` only if Showrunner
+  signs the risk; otherwise defer.
 
 ---
 
@@ -153,4 +156,5 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-hook-harvest-<date>` and con
 ---
 
 **TL;DR**  
-Round up the hooks, group them smartly, tag the risk, pick the winners, and hand them to the right loop—fast ideas, safe canon.
+Round up the hooks, group them smartly, tag the risk, pick the winners, and hand them to the right
+loop—fast ideas, safe canon.

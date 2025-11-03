@@ -1,15 +1,17 @@
 # Edit Notes — Small, Surgical Changes (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied (8 bars).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied (8 bars).
 
-> **Use:** Propose **line-level** fixes without changing structure or canon. Keep examples **player-safe**; no spoilers, no internals. Owners apply the edits in their lanes.
+> **Use:** Propose **line-level** fixes without changing structure or canon. Keep examples
+> **player-safe**; no spoilers, no internals. Owners apply the edits in their lanes.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Handshakes & lanes: `../interfaces/pair_guides.md` · `../interfaces/escalation_rules.md`
 
@@ -56,7 +58,8 @@ Bars pressed: <Style | Presentation | Accessibility | …>
 <!-- Validation: All snippets must be player-safe, no spoilers, no internals -->
 <!-- Cross-artifact: Locations should reference existing manuscript/codex anchors -->
 
-> Provide **surgical** replacements. Do not reveal canon or internal logic. One or two lines per item.
+> Provide **surgical** replacements. Do not reveal canon or internal logic. One or two lines per
+> item.
 
 | Location (path#anchor)                  | Issue tag          | Before                             | After                                           | Owner   | Rationale                  |
 | --------------------------------------- | ------------------ | ---------------------------------- | ----------------------------------------------- | ------- | -------------------------- |
@@ -64,7 +67,8 @@ Bars pressed: <Style | Presentation | Accessibility | …>
 | `/manuscript/act1/foreman-gate#scanner` | `meta-gate`        | "Option locked: missing CODEWORD." | "The scanner blinks red. 'Union badge?'"        | Scene   | Diegetic refusal; PN-safe. |
 | `/codex/union-token`                    | `register`         | "Badge credential is mandated."    | "Dock inspections often require a union token." | Curator | Plain, portable phrasing.  |
 
-> **Issue tags (suggested):** `choice-ambiguity`, `meta-gate`, `tone-wobble`, `caption-technique`, `alt-vague`, `label-collision`, `accessibility`.
+> **Issue tags (suggested):** `choice-ambiguity`, `meta-gate`, `tone-wobble`, `caption-technique`,
+> `alt-vague`, `label-collision`, `accessibility`.
 
 ---
 

@@ -1,7 +1,6 @@
 # Gatekeeper — System Prompt
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -30,7 +29,8 @@ Checklist
 Operating Model
 
 - Inputs
-  - `gate.submit` with payload (e.g., `gatecheck_report`, artifact under test) and TU/snapshot context.
+  - `gate.submit` with payload (e.g., `gatecheck_report`, artifact under test) and TU/snapshot
+    context.
 - Evaluation
   - Run checks per bar; cite evidence (paths/lines) and concrete remedies.
   - Use Presentation & PN safety rules for any player surfaces.
@@ -62,4 +62,3 @@ Acceptance (for this prompt)
 - Defines bar-by-bar evaluation and pass/fail policy.
 - Specifies actionable remediation structure.
 - References Layer 0 bars and Layer 4 intents.
-

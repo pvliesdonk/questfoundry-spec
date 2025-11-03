@@ -1,6 +1,8 @@
 # Architecture Decision Record (ADR) — Template
 
-> **Purpose:** Record cross-book **policy/standards** decisions that outlive a single TU. Keep the ADR short, cite the Bars it stabilizes, and link the slice that triggered it. Player-safe by default; if spoiler risk exists, keep specifics abstract.
+> **Purpose:** Record cross-book **policy/standards** decisions that outlive a single TU. Keep the
+> ADR short, cite the Bars it stabilizes, and link the slice that triggered it. Player-safe by
+> default; if spoiler risk exists, keep specifics abstract.
 
 ---
 
@@ -31,7 +33,8 @@ Proposed | Accepted | Superseded by ADR-<id> | Deprecated
 > What forced this decision? Tie to **Quality Bars** and the triggering work.
 
 - Trigger: TU `<id>` — `<loop>` — `<slice>`
-- Bars pressed: **<Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation | Accessibility>**
+- Bars pressed: **<Integrity | Reachability | Nonlinearity | Gateways | Style | Presentation |
+  Accessibility>**
 - Symptoms (player-safe): <1–3 bullets>
 - Prior attempts: <brief notes or links to TUs/notes>
 

@@ -1,8 +1,10 @@
 # Role Index — Canon Names, Scopes, and Dormancy
 
-This is the **single source** for role names, scopes, and when each role is awake. Humans or AI can fill any role, but the **communication rules** and **hand-offs** stay the same.
+This is the **single source** for role names, scopes, and when each role is awake. Humans or AI can
+fill any role, but the **communication rules** and **hand-offs** stay the same.
 
-> Cross-domain debates route via the **Showrunner** and stabilize through loops. In-domain collaboration is free.
+> Cross-domain debates route via the **Showrunner** and stabilize through loops. In-domain
+> collaboration is free.
 
 ---
 
@@ -10,13 +12,15 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Showrunner
 
-**Scope**: Scope work, pick targeted loops, wake dormant roles, sequence merges, choose export options.  
+**Scope**: Scope work, pick targeted loops, wake dormant roles, sequence merges, choose export
+options.  
 **Owns**: TU creation, merge decisions, snapshot cadence.  
 **Handoffs**: To Gatekeeper (bars), to Binder (exports), to PN (dry-runs).
 
 ### Gatekeeper
 
-**Scope**: Enforce **Quality Bars** on merges/exports: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism (if promised), Presentation (spoilers & accessibility).  
+**Scope**: Enforce **Quality Bars** on merges/exports: Integrity, Reachability, Nonlinearity,
+Gateways, Style, Determinism (if promised), Presentation (spoilers & accessibility).  
 **Owns**: Pre-gates and final gates; export spot checks.  
 **Blocks**: Any Cold merge or view that fails bars.
 
@@ -26,7 +30,8 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Plotwright
 
-**Scope**: Narrative topology—**hubs**, **loops**, **gateways**, codeword economy (never surfaced).  
+**Scope**: Narrative topology—**hubs**, **loops**, **gateways**, codeword economy (never
+surfaced).  
 **Delivers**: Section **briefs**, topology deltas, gateway phrasing guidance (diegetic).  
 **Loops**: Story Spark, receives notes from Lore/Style.
 
@@ -50,7 +55,8 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Style Lead
 
-**Scope**: Voice/register/motifs across manuscript, PN phrasing, captions, localization guardrails.  
+**Scope**: Voice/register/motifs across manuscript, PN phrasing, captions, localization
+guardrails.  
 **Delivers**: **Style Addenda**, exemplars, targeted edit notes.  
 **Loops**: Style Tune-up.
 
@@ -60,13 +66,15 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Researcher
 
-**Scope**: Verify facts; attach citations; assign `uncorroborated:<low|med|high>` when evidence is thin.  
+**Scope**: Verify facts; attach citations; assign `uncorroborated:<low|med|high>` when evidence is
+thin.  
 **Delivers**: Research memos, risk posture; aids Lore/Curator/Plot.  
 **Dormancy rule**: If dormant, surfaces stay neutral; mark uncertainty in Hot.
 
 ### Art Director
 
-**Scope**: **Plan** illustrations—subject, purpose (clarify/recall/mood/signpost), composition intent, captions.  
+**Scope**: **Plan** illustrations—subject, purpose (clarify/recall/mood/signpost), composition
+intent, captions.  
 **Delivers**: **Art Plans**; coordinates Style and PN boundaries.  
 **Dormancy rule**: Plan-only may merge as **deferred:art**.
 
@@ -90,9 +98,11 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Translator
 
-**Scope**: Language packs—glossary, register map, motif equivalence, idiom strategy; localized surfaces.  
+**Scope**: Language packs—glossary, register map, motif equivalence, idiom strategy; localized
+surfaces.  
 **Delivers**: **Language Pack** with coverage % and open issues.  
-**Dormancy rule**: If dormant, source language only; glossary slice may still ship as **deferred:translation**.
+**Dormancy rule**: If dormant, source language only; glossary slice may still ship as
+**deferred:translation**.
 
 ---
 
@@ -100,30 +110,35 @@ This is the **single source** for role names, scopes, and when each role is awak
 
 ### Book Binder
 
-**Scope**: Assemble **views** (Markdown/HTML/EPUB/PDF) from **Cold snapshots**; stamp front matter; maintain View Log.  
+**Scope**: Assemble **views** (Markdown/HTML/EPUB/PDF) from **Cold snapshots**; stamp front matter;
+maintain View Log.  
 **Delivers**: Export bundles; accessibility and navigation checks.  
 **Loops**: Binding Run.
 
 ### Player-Narrator (PN)
 
 **Scope**: Perform the book **in-world**; enforce **gates diegetically**; never expose internals.  
-**Delivers**: Playtest notes (`choice-ambiguity`, `gate-friction`, `nav-bug`, `tone-wobble`, etc.).  
+**Delivers**: Playtest notes (`choice-ambiguity`, `gate-friction`, `nav-bug`, `tone-wobble`,
+etc.).  
 **Loops**: Narration Dry-Run.
 
 ---
 
 ## Hook Generation & Ownership
 
-- **May generate hooks**: Plotwright, Scene Smith, Lore Weaver, Researcher, Codex Curator (taxonomy/clarity), Art/Audio Directors (surface needs).
+- **May generate hooks**: Plotwright, Scene Smith, Lore Weaver, Researcher, Codex Curator
+  (taxonomy/clarity), Art/Audio Directors (surface needs).
 - **Harvest authority**: Showrunner runs **Hook Harvest**; assigns owners and next loops.
-- **Canonization**: Only **Lore Weaver** writes spoiler-level canon; Curator publishes player-safe summaries.
+- **Canonization**: Only **Lore Weaver** writes spoiler-level canon; Curator publishes player-safe
+  summaries.
 
 ---
 
 ## Cross-Domain Communication
 
 - **In-domain**: direct chats (e.g., Style ↔ Scene) encouraged.
-- **Cross-domain** (plot → lore, lore → codex, style → PN phrasing across languages): route via **Showrunner** and record in a **TU**.
+- **Cross-domain** (plot → lore, lore → codex, style → PN phrasing across languages): route via
+  **Showrunner** and record in a **TU**.
 
 ---
 
@@ -168,4 +183,5 @@ Use **canon names** in docs and commits; list aliases only for onboarding clarit
 ---
 
 **TL;DR**  
-These are the hats. Showrunner wakes what’s needed, Gatekeeper checks the bars, and everyone keeps player surfaces clean and in-world.
+These are the hats. Showrunner wakes what’s needed, Gatekeeper checks the bars, and everyone keeps
+player surfaces clean and in-world.

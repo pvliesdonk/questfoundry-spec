@@ -1,17 +1,22 @@
 # Shotlist — Art Plan Index for a Slice (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (space-separated deferrals).
 
-> **Use:** Art Director's compact index of **all illustration slots** in a slice. Each row points to a full **Art Plan**. Keep **player surfaces** clean here too (captions/alt are safe); all technique/repro details stay **off-surface** inside the Art Plan or producer logs.
+> **Use:** Art Director's compact index of **all illustration slots** in a slice. Each row points to
+> a full **Art Plan**. Keep **player surfaces** clean here too (captions/alt are safe); all
+> technique/repro details stay **off-surface** inside the Art Plan or producer logs.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Art Director ↔ Illustrator; Style ↔ Translator) · `../interfaces/escalation_rules.md` · `../interfaces/dormancy_signals.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Art Director ↔ Illustrator; Style ↔
+  Translator) · `../interfaces/escalation_rules.md` · `../interfaces/dormancy_signals.md`
 - Role briefs: `../briefs/art_director.md` · `../briefs/illustrator.md`
 - Template: `./art_plan.md`
 
@@ -124,8 +129,10 @@ foreman-gate-signpost — include on first gate appearance; exclude on interior 
 <!-- Field: Binder note | Type: markdown | Optional: yes | Anchor verification and dry bind instructions -->
 <!-- Field: Gatekeeper note | Type: markdown | Optional: yes | Presentation/Accessibility spot-check -->
 
-- Binder: verify **anchors** and figure placements in **dry bind**; list any normalized slugs in View Log.
-- Gatekeeper: **Presentation/Accessibility** spot-check one representative slot before unlocking production.
+- Binder: verify **anchors** and figure placements in **dry bind**; list any normalized slugs in
+  View Log.
+- Gatekeeper: **Presentation/Accessibility** spot-check one representative slot before unlocking
+  production.
 
 ---
 
@@ -209,7 +216,8 @@ Hooks
 - `TU`: Must match format `TU-YYYY-MM-DD-<role><seq>`
 - `Neighbors`: Required, must include @illustrator @style @translator @binder @gatekeeper
 - Table columns: All 8 required (Slot ID, Purpose, Subject, Focal, Caption, Alt, Anchor, Status)
-- Per row: Slot ID kebab-case, Purpose from 4 values, Caption 1 line, Alt 1 sentence, Status from 4 values
+- Per row: Slot ID kebab-case, Purpose from 4 values, Caption 1 line, Alt 1 sentence, Status from 4
+  values
 
 ### Cross-Field Validation
 
@@ -250,6 +258,7 @@ Hooks
 
 ---
 
-**Total fields: ~15** (7 metadata, 1 content, 1 classification, 3 relationships, 1 validation, 1 localization, 1 accessibility)
+**Total fields: ~15** (7 metadata, 1 content, 1 classification, 3 relationships, 1 validation, 1
+localization, 1 accessibility)
 
 ---

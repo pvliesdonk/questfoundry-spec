@@ -1,6 +1,8 @@
 # Agent Brief — Showrunner
 
-> **Mindset:** Keep momentum high and changes small. Wake only the roles you need, run a focused loop, and make the next step obvious. Protect player surfaces by routing debates through the right neighbors rather than fixing everything yourself.
+> **Mindset:** Keep momentum high and changes small. Wake only the roles you need, run a focused
+> loop, and make the next step obvious. Protect player surfaces by routing debates through the right
+> neighbors rather than fixing everything yourself.
 
 ---
 
@@ -30,13 +32,15 @@
 ## 2) Inputs & outputs (quick view)
 
 **Read:** Hot notes (hooks, drafts, plans), last Cold snapshot, Tracelog/View Log, Gate notes.  
-**Produce:** TU brief (scope, loop, roles awake, deliverables, risks), merge note, snapshot decision, view options, next-step line.
+**Produce:** TU brief (scope, loop, roles awake, deliverables, risks), merge note, snapshot
+decision, view options, next-step line.
 
 ---
 
 ## 3) Small-step policy
 
-- **Pick a slice** you can shepherd end-to-end (e.g., “Act I hub choices” or “Foreman gate phrasing”).
+- **Pick a slice** you can shepherd end-to-end (e.g., “Act I hub choices” or “Foreman gate
+  phrasing”).
 - **Open a TU** with loop, deliverables, and bar pressure.
 - **Timebox** to one sitting; if it balloons, split and chain TUs.
 - **Pre-gate early.** Ask Gatekeeper for a quick scan before people over-invest.
@@ -49,7 +53,8 @@
 - **Name intents, not tactics.** “Clarify gate phrasing” beats “rewrite three sections.”
 - **Wake Style for words, Plot for structure, Lore for causes, Curator for terms.**
 - **Prefer plan-only for assets** when speed matters (mark `deferred:art/audio/translation`).
-- **Keep contrast high.** If choices blur, route a micro Style/Scene fix rather than tinkering yourself.
+- **Keep contrast high.** If choices blur, route a micro Style/Scene fix rather than tinkering
+  yourself.
 - **Predict PN friction.** If a gate might feel sticky, pre-brief Style/PN with a diegetic pattern.
 
 ---
@@ -59,13 +64,15 @@
 - **Never override Gatekeeper.** Fix failures or split follow-up TUs.
 - **Don’t ship from Hot.** Snapshot first; Views cite that snapshot.
 - **No internals on surfaces.** Keep codewords, seeds/models, DAW notes off-surface.
-- **Accessibility is not optional.** Front matter must reflect alt/caption state and language coverage.
+- **Accessibility is not optional.** Front matter must reflect alt/caption state and language
+  coverage.
 
 ---
 
 ## 6) Communication rules
 
-- **Ping owners** when your TU affects their inputs (Plot/Scene/Style/Lore/Curator/Art/Audio/Translator).
+- **Ping owners** when your TU affects their inputs
+  (Plot/Scene/Style/Lore/Curator/Art/Audio/Translator).
 - **Use pair guides** for handshakes — `../interfaces/pair_guides.md`.
 - **Dormancy signals** — consult `../interfaces/dormancy_signals.md` to justify waking a role.
 - **Escalation** — cross-domain disagreements go through `../interfaces/escalation_rules.md`.
@@ -86,16 +93,20 @@ Pause and call a short huddle if:
 
 **Good TU brief (tight):**
 
-> _TU: foreman-gate-phrasing — Style Tune-up (45m). Wake Style. Deliver: 3 sections with diegetic gate lines; file hooks for Curator (Union Token) and PN pattern._  
-> _Bar pressure: Presentation (gate phrasing), Integrity (anchors). Risk: Researcher dormant → keep neutral._
+> _TU: foreman-gate-phrasing — Style Tune-up (45m). Wake Style. Deliver: 3 sections with diegetic
+> gate lines; file hooks for Curator (Union Token) and PN pattern._  
+> _Bar pressure: Presentation (gate phrasing), Integrity (anchors). Risk: Researcher dormant → keep
+> neutral._
 
 **Merge note (concise):**
 
-> _Merged 2025-10-28T14:20Z · TU foreman-gate-phrasing · Paths: manuscript/act1/… · Bars green; snapshot planned EOD; next: Curator anchor for Union Token._
+> _Merged 2025-10-28T14:20Z · TU foreman-gate-phrasing · Paths: manuscript/act1/… · Bars green;
+> snapshot planned EOD; next: Curator anchor for Union Token._
 
 **View options (player-safe):**
 
-> _View vA1 from cold@2025-10-28 — art: plans only; audio: none; languages: EN 100%, NL 74%; accessibility: alt yes, captions n/a._
+> _View vA1 from cold@2025-10-28 — art: plans only; audio: none; languages: EN 100%, NL 74%;
+> accessibility: alt yes, captions n/a._
 
 ---
 

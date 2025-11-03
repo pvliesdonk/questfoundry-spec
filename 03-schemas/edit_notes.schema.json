@@ -101,14 +101,7 @@
             "maxLength": 300
           }
         },
-        "required": [
-          "location",
-          "issue_tag",
-          "before_text",
-          "after_text",
-          "owner",
-          "rationale"
-        ]
+        "required": ["location", "issue_tag", "before_text", "after_text", "owner", "rationale"]
       },
       "minItems": 1
     }
@@ -188,12 +181,7 @@
     "deferral_tag": {
       "type": "string",
       "description": "Deferral type for dormant roles (see taxonomies.md §7)",
-      "enum": [
-        "deferred:art",
-        "deferred:audio",
-        "deferred:translation",
-        "deferred:research"
-      ]
+      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
     }
   }
 }

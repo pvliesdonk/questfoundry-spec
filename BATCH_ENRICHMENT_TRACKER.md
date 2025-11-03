@@ -4,10 +4,9 @@
 
 ### Issue #14: Research Posture Format in canon_pack.md
 
-**Location:** canon_pack.md line 24
-**Current:** `uncorroborated:<low|med|high>`
-**Should be:** `uncorroborated:low | uncorroborated:medium | uncorroborated:high`
-**Why:** Taxonomy uses "medium" not "med"; separate values not nested format
+**Location:** canon_pack.md line 24 **Current:** `uncorroborated:<low|med|high>` **Should be:**
+`uncorroborated:low | uncorroborated:medium | uncorroborated:high` **Why:** Taxonomy uses "medium"
+not "med"; separate values not nested format
 
 ---
 
@@ -64,12 +63,11 @@ Each enriched template includes:
 
 ### Issue #14: Research Posture Format (Expanded)
 
-**Templates affected:** canon_pack.md, codex_entry.md, research_memo.md
-**Problems:**
+**Templates affected:** canon_pack.md, codex_entry.md, research_memo.md **Problems:**
 
 - Uses "med" instead of "medium" (abbreviation not allowed)
-- Uses nested format `uncorroborated:<low|med|high>` instead of flat format
-  **Resolution:** Use flat format with full word: `uncorroborated:low | uncorroborated:medium | uncorroborated:high`
+- Uses nested format `uncorroborated:<low|med|high>` instead of flat format **Resolution:** Use flat
+  format with full word: `uncorroborated:low | uncorroborated:medium | uncorroborated:high`
   **Status:** Fixed in all 3 enriched templates; documented in LAYER1_CORRECTIONS.md
 
 ### Tiers 1-5: No additional issues found
@@ -91,4 +89,6 @@ All 17 enriched templates completed with no new inconsistencies discovered beyon
 - 7 from Phase 2 (field registry extraction)
 - 7 from Phase 3 (template enrichment)
 
-**Methodology proven:** Systematic enrichment with HTML constraint comments, validation rules, common errors, and field references enables future Layer 3 schema generation while maintaining human readability.
+**Methodology proven:** Systematic enrichment with HTML constraint comments, validation rules,
+common errors, and field references enables future Layer 3 schema generation while maintaining human
+readability.

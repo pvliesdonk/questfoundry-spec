@@ -1,8 +1,11 @@
 # Architectural Decision Records (ADRs)
 
-ADRs capture **policy-level** choices that shape QuestFoundry’s rules: roles, bars, SoT boundaries, loop taxonomy, repository layout, etc. They are **not** for everyday content edits (use a **Trace Unit**, TU, for that).
+ADRs capture **policy-level** choices that shape QuestFoundry’s rules: roles, bars, SoT boundaries,
+loop taxonomy, repository layout, etc. They are **not** for everyday content edits (use a **Trace
+Unit**, TU, for that).
 
-> TL;DR — If you’re **changing the rules of the studio**, write an ADR. If you’re **working within the rules**, open a TU and a normal PR.
+> TL;DR — If you’re **changing the rules of the studio**, write an ADR. If you’re **working within
+> the rules**, open a TU and a normal PR.
 
 ---
 
@@ -85,15 +88,18 @@ Copy this to start a new ADR:
 - **Date**: YYYY-MM-DD
 - **Authors**: <names/handles>
 - **Related TUs**: <tu-ids, optional>
-- **Areas**: Roles | SoT | Quality Bars | Loops | PN | Repo | Localization | Art/Audio | Accessibility | Other
+- **Areas**: Roles | SoT | Quality Bars | Loops | PN | Repo | Localization | Art/Audio |
+  Accessibility | Other
 
 ## Context
 
-<What problem or tension exists? Include constraints, prior decisions, and why the current rules aren’t sufficient.>
+<What problem or tension exists? Include constraints, prior decisions, and why the current rules
+aren’t sufficient.>
 
 ## Decision
 
-<The rule we are adopting. Write it as normative guidance. If renaming/restructuring, specify exact new names/paths.>
+<The rule we are adopting. Write it as normative guidance. If renaming/restructuring, specify exact
+new names/paths.>
 
 ## Consequences
 
@@ -111,7 +117,8 @@ Copy this to start a new ADR:
 
 ## Migration
 
-<Exactly what to change in the repo (paths/files), and which docs must be updated (links, indices). Timebox if phased.>
+<Exactly what to change in the repo (paths/files), and which docs must be updated (links, indices).
+Timebox if phased.>
 
 ## Compatibility
 
@@ -126,8 +133,10 @@ Copy this to start a new ADR:
 
 ## 6) Cross-referencing & traceability
 
-- Link ADRs from the docs they affect (e.g., add a small **“Decision History”** section to `WORKING_MODEL.md` with ADR IDs).
-- If an ADR **mandates** doc changes, include them in the **same PR** or open follow-up PRs that reference the ADR ID.
+- Link ADRs from the docs they affect (e.g., add a small **“Decision History”** section to
+  `WORKING_MODEL.md` with ADR IDs).
+- If an ADR **mandates** doc changes, include them in the **same PR** or open follow-up PRs that
+  reference the ADR ID.
 - TUs can reference ADRs when they execute work **under** the new policy.
 
 ---
@@ -143,19 +152,19 @@ Copy this to start a new ADR:
 
 ## 8) FAQ
 
-**Q: Can I bundle an ADR with large content edits?**
-A: No. Split the **policy** (ADR) from the **execution** (TUs/regular docs PRs). It sharpens review and rollbacks.
+**Q: Can I bundle an ADR with large content edits?** A: No. Split the **policy** (ADR) from the
+**execution** (TUs/regular docs PRs). It sharpens review and rollbacks.
 
-**Q: Do we need an ADR to rename a file?**
-A: Only if it changes the **documented structure** or the meaning of a canon term. Otherwise, a TU + PR is fine.
+**Q: Do we need an ADR to rename a file?** A: Only if it changes the **documented structure** or the
+meaning of a canon term. Otherwise, a TU + PR is fine.
 
-**Q: Where do deprecated decisions go?**
-A: They remain here with `Status: Superseded by ADR-…` so future readers can trace evolution.
+**Q: Where do deprecated decisions go?** A: They remain here with `Status: Superseded by ADR-…` so
+future readers can trace evolution.
 
 ---
 
-**Purpose of this folder**
-This directory is the **ledger of rule changes**. If someone asks _“Why is the studio like this?”_, the answer lives here with dates and rationale.
+**Purpose of this folder** This directory is the **ledger of rule changes**. If someone asks _“Why
+is the studio like this?”_, the answer lives here with dates and rationale.
 
 ```
 

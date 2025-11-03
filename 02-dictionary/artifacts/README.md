@@ -2,15 +2,19 @@
 
 > **Status:** ✅ **ENRICHED — All 17 templates enriched with constraints (Phase 3 — 2025-10-30)**
 >
-> All 17 artifact templates have been enriched with inline HTML constraint comments, validation rules, and common error examples. Both original (human-friendly) and enriched (human + machine-friendly) versions are available.
+> All 17 artifact templates have been enriched with inline HTML constraint comments, validation
+> rules, and common error examples. Both original (human-friendly) and enriched (human +
+> machine-friendly) versions are available.
 >
-> Enriched templates include field metadata, cross-artifact validation, and detailed guidance to support Layer 3 schema generation and Layer 1 corrections.
+> Enriched templates include field metadata, cross-artifact validation, and detailed guidance to
+> support Layer 3 schema generation and Layer 1 corrections.
 
 ---
 
 ## What This Is
 
-Each file here defines the **structure and purpose** of a work artifact used in QuestFoundry studio operations:
+Each file here defines the **structure and purpose** of a work artifact used in QuestFoundry studio
+operations:
 
 - What fields/sections it contains
 - What each field means (human-readable)
@@ -65,7 +69,8 @@ These are **human-readable templates** that:
 
 ### For Role Work (Layer 1)
 
-Each role charter/brief in `01-roles/` references which artifacts that role produces. Look here for the structure, but remember:
+Each role charter/brief in `01-roles/` references which artifacts that role produces. Look here for
+the structure, but remember:
 
 - WHO creates it = Layer 1 charter/brief
 - WHAT it contains = here (Layer 2)
@@ -91,15 +96,15 @@ Layer 4 will define how these artifacts flow between roles:
 
 ## Migration Notes
 
-**From:** `01-roles/templates/`
-**To:** `02-dictionary/artifacts/`
-**Reason:** These define data structures (WHAT), not role responsibilities (WHO)
+**From:** `01-roles/templates/` **To:** `02-dictionary/artifacts/` **Reason:** These define data
+structures (WHAT), not role responsibilities (WHO)
 
 **Cross-reference updates needed:**
 
 - Layer 0 files referencing templates
 - Layer 1 charters/briefs referencing templates
-- See [ADR-20251029-01](../../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for full rationale
+- See [ADR-20251029-01](../../DECISIONS/ADR-20251029-01-layer-boundary-clarification.md) for full
+  rationale
 
 ---
 

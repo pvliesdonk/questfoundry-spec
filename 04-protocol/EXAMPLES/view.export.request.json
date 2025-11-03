@@ -60,8 +60,6 @@
       ]
     }
   },
-  "refs": [
-    "TU-2025-10-30-BB01"
-  ],
+  "refs": ["TU-2025-10-30-BB01"],
   "correlation_id": "corr-binding-2025-10-30"
 }

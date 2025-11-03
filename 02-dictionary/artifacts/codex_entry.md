@@ -1,9 +1,13 @@
 # Codex Entry — Player-Safe Knowledge (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full research posture values).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals, full
+> research posture values).
 
-> **Use:** Write **player-safe** background pieces that clarify terms, places, procedures, or objects without revealing canon or internal mechanics. Keep entries concise, linkable, and portable across locales. This is a **human template**; no schemas here.
+> **Use:** Write **player-safe** background pieces that clarify terms, places, procedures, or
+> objects without revealing canon or internal mechanics. Keep entries concise, linkable, and
+> portable across locales. This is a **human template**; no schemas here.
 
 ---
 
@@ -11,7 +15,8 @@
 
 - Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Lore ↔ Curator; Translator ↔ Binder) · `../interfaces/escalation_rules.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Lore ↔ Curator; Translator ↔ Binder) ·
+  `../interfaces/escalation_rules.md`
 - Role briefs: `../briefs/codex_curator.md` · neighbors in `../briefs/*.md`
 
 ---
@@ -78,7 +83,8 @@ Register: <neutral | formal | colloquial> (per Style)
 <!-- Validation: Practical norms, common misunderstandings, visible traits; keep diegetic -->
 <!-- Cross-field: Expands clarity without hinting at hidden causes from Canon Pack Hot sections -->
 
-> Surface-level background: practical norms, common misunderstandings, visible traits. Keep diegetic.
+> Surface-level background: practical norms, common misunderstandings, visible traits. Keep
+> diegetic.
 
 ```
 
@@ -271,7 +277,8 @@ Register: neutral
 - `Link text`: Optional, descriptive anchors, avoid "click here"
 - `Anchor slug`: Required, format `/codex/<kebab-case>`, must match header slug
 - `Collision risks`: Optional, note diacritics/punctuation issues
-- `Research posture touched`: Required, must be one of 6 flat values: corroborated | plausible | disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
+- `Research posture touched`: Required, must be one of 6 flat values: corroborated | plausible |
+  disputed | uncorroborated:low | uncorroborated:medium | uncorroborated:high (NOT nested format)
 - `Hooks filed`: Optional, format: hook://<domain>/<topic>
 - `Done checklist`: Required, 8 items, all must be ticked before approved/merged
 
@@ -281,8 +288,10 @@ Register: neutral
 - If `Alt guidance` or `Caption guideline` present, then cross-media noted in §5 Relations
 - `Register` in header must match register values in §4 Variants table (or be compatible)
 - `Anchor slug` in §7 must match `Slug` in header
-- `Research posture touched` must align with lineage references (e.g., if uncorroborated:\*, cite Research Memo)
-- All overview/context/variants text must remain player-safe (no spoilers from Canon Pack Hot sections)
+- `Research posture touched` must align with lineage references (e.g., if uncorroborated:\*, cite
+  Research Memo)
+- All overview/context/variants text must remain player-safe (no spoilers from Canon Pack Hot
+  sections)
 
 ### Cross-Artifact Validation
 
@@ -393,6 +402,7 @@ Register: neutral
 | §9      | Hooks filed              | markdown-list | optional       | hook://<domain>/<topic>                             |
 | §10     | Done checklist           | markdown-list | yes            | 8 items; all must be ticked                         |
 
-**Total fields: 29** (7 metadata, 3 content, 1 classification, 4 relationships, 1 validation, 4 localization, 5 accessibility, 2 spatial, 1 presentation, 1 determinism)
+**Total fields: 29** (7 metadata, 3 content, 1 classification, 4 relationships, 1 validation, 4
+localization, 5 accessibility, 2 spatial, 1 presentation, 1 determinism)
 
 ---

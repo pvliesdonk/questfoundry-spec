@@ -1,17 +1,22 @@
 # Art Plan — Slot Specification (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals).
 
-> **Use:** Specify an illustration slot so an Illustrator can execute without guessing. Keep **player surfaces** clean: captions/alt are **in-world**; all technique/repro stays **off-surface**.
+> **Use:** Specify an illustration slot so an Illustrator can execute without guessing. Keep
+> **player surfaces** clean: captions/alt are **in-world**; all technique/repro stays
+> **off-surface**.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Art Director ↔ Illustrator) · `../interfaces/escalation_rules.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Art Director ↔ Illustrator) ·
+  `../interfaces/escalation_rules.md`
 - Role briefs: `../briefs/art_director.md` · `../briefs/illustrator.md`
 
 ---
@@ -50,10 +55,9 @@ Rationale: <1–2 lines on why this image helps the reader here>
 
 ```
 
-> _Clarify_ = make a described object/space legible.
-> _Recall_ = help memory of a prior scene/concept.
-> _Mood_ = set atmosphere that prose can't carry alone.
-> _Signpost_ = reduce hesitation at hubs/gates.
+> _Clarify_ = make a described object/space legible. _Recall_ = help memory of a prior
+> scene/concept. _Mood_ = set atmosphere that prose can't carry alone. _Signpost_ = reduce
+> hesitation at hubs/gates.
 
 ---
 
@@ -401,7 +405,8 @@ Status: planned
 - `Determinism`: Required, off-surface repro info
 - `Repro expectation`: Required, must be: none | log-only
 - `Producer log fields`: Optional, required if repro = log-only, must be off-surface
-- `Handoffs`: Required, must include at least 5 roles (Illustrator, Style, Translator, Gatekeeper, Binder)
+- `Handoffs`: Required, must include at least 5 roles (Illustrator, Style, Translator, Gatekeeper,
+  Binder)
 - `Done checklist`: Required, 8 items, all must be ticked before rendering/done
 
 ### Cross-Field Validation
@@ -543,6 +548,7 @@ Status: planned
 | §14     | Handoffs                  | markdown-list | yes      | Min 5 roles                              |
 | §15     | Done checklist            | markdown-list | yes      | 8 items; all must be ticked              |
 
-**Total fields: 36** (5 metadata, 3 content, 1 classification, 4 relationships, 2 validation, 2 localization, 4 accessibility, 7 spatial, 6 presentation, 2 determinism)
+**Total fields: 36** (5 metadata, 3 content, 1 classification, 4 relationships, 2 validation, 2
+localization, 4 accessibility, 7 spatial, 6 presentation, 2 determinism)
 
 ---

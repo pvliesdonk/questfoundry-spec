@@ -142,5 +142,4 @@ Schemas will be used for:
 
 ---
 
-**Created:** 2025-10-30
-**Method:** Automated extraction from enriched Layer 2 templates
+**Created:** 2025-10-30 **Method:** Automated extraction from enriched Layer 2 templates

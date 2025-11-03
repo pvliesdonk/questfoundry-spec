@@ -1,15 +1,18 @@
 # PN Playtest Notes — Dry-Run Log (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied.
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied.
 
-> **Use:** Log **player-facing friction** while reading a bound **View** aloud (no improvisation). Tag issues, cite the smallest fix, and route to the right owner. Keep all examples **player-safe**; never reveal canon or internals.
+> **Use:** Log **player-facing friction** while reading a bound **View** aloud (no improvisation).
+> Tag issues, cite the smallest fix, and route to the right owner. Keep all examples
+> **player-safe**; never reveal canon or internals.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Role brief: `../briefs/player_narrator.md`
 
@@ -62,14 +65,16 @@ Mode: dry-run (no improv) · Pace: <normal | slow | fast>
 <!-- Validation: All snippets must be player-safe; severity must be low/med/high -->
 <!-- Cross-artifact: Locations should reference existing manuscript/codex/view anchors -->
 
-> Keep snippets short and spoiler-safe. Pin to **section path + anchor**. Suggest the **smallest viable fix** and the **owner**.
+> Keep snippets short and spoiler-safe. Pin to **section path + anchor**. Suggest the **smallest
+> viable fix** and the **owner**.
 
 | When  | Location (path#anchor)                  | Tag(s)           | Severity | Snippet (safe)                     | Smallest viable fix             | Owner         | Notes                                                    |
 | ----- | --------------------------------------- | ---------------- | -------- | ---------------------------------- | ------------------------------- | ------------- | -------------------------------------------------------- |
 | 00:03 | `/manuscript/act1/foreman-gate#entry`   | choice-ambiguity | med      | "Go / Proceed."                    | Sharpen to intent-forward verbs | Style → Scene | Contrast: "Slip through maintenance / Face the foreman." |
 | 00:06 | `/manuscript/act1/foreman-gate#scanner` | gate-friction    | high     | "Option locked: missing CODEWORD." | Swap to diegetic refusal line   | Style → Scene | "The scanner blinks red. 'Union badge?'"                 |
 
-**Severity rubric:** _low_ (minor polish), _med_ (confuses some players), _high_ (blocks clarity/fairness/access).
+**Severity rubric:** _low_ (minor polish), _med_ (confuses some players), _high_ (blocks
+clarity/fairness/access).
 
 ---
 
@@ -100,6 +105,7 @@ Mode: dry-run (no improv) · Pace: <normal | slow | fast>
 - Wrong: Severity: "critical"
 - Right: Severity: "high"
 
-**Total fields: 18** (5 metadata, 1 content, 2 classification, 4 relationships, 2 validation, 2 accessibility, 2 spatial)
+**Total fields: 18** (5 metadata, 1 content, 2 classification, 4 relationships, 2 validation, 2
+accessibility, 2 spatial)
 
 ---

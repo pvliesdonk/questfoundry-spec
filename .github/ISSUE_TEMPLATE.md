@@ -5,7 +5,8 @@
 - [ ] **Docs Bug — links, typos, structure clarity**
 - [ ] **Question / Discussion**
 
-> Use **TU** for normal work (loops/playbooks). Use **ADR** only to change policy. See `DECISIONS/README.md` and `00-north-star/TRACEABILITY.md`.
+> Use **TU** for normal work (loops/playbooks). Use **ADR** only to change policy. See
+> `DECISIONS/README.md` and `00-north-star/TRACEABILITY.md`.
 
 ---
 
@@ -17,21 +18,24 @@
 
 ## Context & Motivation
 
-<What problem or friction did you hit? Player comprehension, PN phrasing, spoiler risk, link integrity, style drift, etc. Cite where it occurred.>
+<What problem or friction did you hit? Player comprehension, PN phrasing, spoiler risk, link
+integrity, style drift, etc. Cite where it occurred.>
 
 ---
 
 ## Scope & Impact
 
 - **Layer(s):** `Layer-0 | Layer-1` (don’t edit 3–7 here)
-- **Surfaces touched (if any):** `manuscript | PN | codex | captions | audio text | translations | none`
+- **Surfaces touched (if any):**
+  `manuscript | PN | codex | captions | audio text | translations | none`
 - **Optional roles to wake (if any):** `Researcher | Art | Audio | Translator | none`
 
 ---
 
 ## For TU issues (fill this block)
 
-**Loop alignment:** `story_spark | hook_harvest | lore_deepening | codex_expansion | style_tune_up | art_touch_up | audio_pass | translation_pass | binding_run | narration_dry_run | docs/policy`
+**Loop alignment:**
+`story_spark | hook_harvest | lore_deepening | codex_expansion | style_tune_up | art_touch_up | audio_pass | translation_pass | binding_run | narration_dry_run | docs/policy`
 
 **Inputs on screen:**  
 <Which docs/snapshots/hooks this TU depends on?>

@@ -1,6 +1,7 @@
 # Role Abbreviations — Canonical Short Codes (Layer 2)
 
-> **Purpose:** Define standard abbreviations for all QuestFoundry roles, used in TU briefs, hook cards, and trace records.
+> **Purpose:** Define standard abbreviations for all QuestFoundry roles, used in TU briefs, hook
+> cards, and trace records.
 
 ---
 
@@ -110,4 +111,5 @@ When a role is **dormant**, use deferral tags in TU briefs and hook cards:
 
 ---
 
-**Source:** Extracted from LAYER1_CORRECTIONS.md Issue #7 and observed template usage during Layer 1/2 alignment (2025-10-30)
+**Source:** Extracted from LAYER1_CORRECTIONS.md Issue #7 and observed template usage during Layer
+1/2 alignment (2025-10-30)

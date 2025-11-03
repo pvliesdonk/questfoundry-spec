@@ -46,13 +46,7 @@
       "description": "Roles affected by this shotlist; must include illustrator, style, translator, binder, and gatekeeper.",
       "items": {
         "type": "string",
-        "enum": [
-          "@illustrator",
-          "@style",
-          "@translator",
-          "@binder",
-          "@gatekeeper"
-        ]
+        "enum": ["@illustrator", "@style", "@translator", "@binder", "@gatekeeper"]
       },
       "minItems": 5,
       "uniqueItems": true,
@@ -311,12 +305,7 @@
     "deferral_tag": {
       "type": "string",
       "description": "Deferral type for dormant roles (see taxonomies.md §7)",
-      "enum": [
-        "deferred:art",
-        "deferred:audio",
-        "deferred:translation",
-        "deferred:research"
-      ]
+      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
     }
   }
 }

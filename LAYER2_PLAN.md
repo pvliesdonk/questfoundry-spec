@@ -1,8 +1,10 @@
 # Layer 2 Implementation Plan
 
-> **Goal:** Create "Common Language" as human-readable data dictionary bridging Layer 0/1 concepts to Layer 3 schemas
+> **Goal:** Create "Common Language" as human-readable data dictionary bridging Layer 0/1 concepts
+> to Layer 3 schemas
 >
-> **Scope:** Good coverage without redundancy - depends on L0/L1 for context, focuses on data structures and taxonomies
+> **Scope:** Good coverage without redundancy - depends on L0/L1 for context, focuses on data
+> structures and taxonomies
 >
 > **Approach:** Hybrid (automated extraction → human review → iteration → finalization)
 
@@ -12,45 +14,38 @@
 
 ### **Phase 1: Taxonomies** 🎯 START HERE
 
-**Why first:** Everything else references these classifications
-**Effort:** Medium (extract from L0, consolidate, extend)
-**Risk:** Low (mostly exists scattered across L0/1)
+**Why first:** Everything else references these classifications **Effort:** Medium (extract from L0,
+consolidate, extend) **Risk:** Low (mostly exists scattered across L0/1)
 
 ### **Phase 2: Field Registry**
 
-**Why second:** Needs taxonomies for enum type definitions
-**Effort:** High (parse 17 artifacts, deduplicate, classify)
-**Risk:** Medium (requires careful deduplication)
+**Why second:** Needs taxonomies for enum type definitions **Effort:** High (parse 17 artifacts,
+deduplicate, classify) **Risk:** Medium (requires careful deduplication)
 
 ### **Phase 3: Artifacts Refinement**
 
-**Why third:** Now we have taxonomies and fields to reference
-**Effort:** Medium (enrich existing 17 templates)
-**Risk:** Low (incremental improvements to existing)
+**Why third:** Now we have taxonomies and fields to reference **Effort:** Medium (enrich existing 17
+templates) **Risk:** Low (incremental improvements to existing)
 
 ### **Phase 4: Validation Rules**
 
-**Why fourth:** Needs fields and taxonomies to express rules
-**Effort:** Medium (extract from L0/1 policies)
-**Risk:** Medium (needs careful policy interpretation)
+**Why fourth:** Needs fields and taxonomies to express rules **Effort:** Medium (extract from L0/1
+policies) **Risk:** Medium (needs careful policy interpretation)
 
 ### **Phase 5: Relationships**
 
-**Why fifth:** Builds on complete understanding of artifacts
-**Effort:** Medium (map flows between artifacts)
-**Risk:** Low (mostly documentation of existing flows)
+**Why fifth:** Builds on complete understanding of artifacts **Effort:** Medium (map flows between
+artifacts) **Risk:** Low (mostly documentation of existing flows)
 
 ### **Phase 6: Glossary Enhancement**
 
-**Why sixth:** Final polish after all structures defined
-**Effort:** Low (augment existing glossary.md)
-**Risk:** Low (refinement only)
+**Why sixth:** Final polish after all structures defined **Effort:** Low (augment existing
+glossary.md) **Risk:** Low (refinement only)
 
 ### **Phase 7: Finalization**
 
-**Why last:** Remove PARKED markers, final consistency check
-**Effort:** Low (cleanup and documentation)
-**Risk:** Low
+**Why last:** Remove PARKED markers, final consistency check **Effort:** Low (cleanup and
+documentation) **Risk:** Low
 
 ---
 
@@ -63,7 +58,6 @@
 **Sections to create:**
 
 1. **Hook Types** (extract from `00-north-star/HOOKS.md` + `01-roles/templates/hook_card.md`)
-
    - `narrative` - Story entities, locations, stakes, topology
    - `scene` - Scene-level details, traits, props, micro-events
    - `factual` - Real-world claims to verify
@@ -76,14 +70,12 @@
    - `accessibility` - A11y concerns
 
 2. **Hook Status Lifecycle**
-
    - `proposed` → `accepted` → `in-progress` → `resolved`
    - `proposed` → `deferred` (with reason)
    - `proposed` → `rejected` (with reason)
    - `resolved` → `canonized` (appears in Cold)
 
 3. **TU Types & Loop Alignment** (extract from `00-north-star/LOOPS/`)
-
    - Story Spark → topology/structure TUs
    - Hook Harvest → triage TUs
    - Lore Deepening → canon TUs
@@ -96,7 +88,6 @@
    - Narration Dry-Run → UX testing TUs
 
 4. **Gate Types** (extract from `00-north-star/PN_PRINCIPLES.md`)
-
    - `token` - Physical object possession
    - `reputation` - Social standing thresholds
    - `knowledge` - Information discovered
@@ -105,7 +96,6 @@
    - `composite` - Multiple conditions (AND/OR)
 
 5. **Quality Bar Categories** (extract from `00-north-star/QUALITY_BARS.md`)
-
    - **Integrity** - Anchors resolve, no orphans, IDs unique
    - **Reachability** - Keystones accessible, no unreachable sections
    - **Nonlinearity** - Hubs/loops matter, choices non-trivial
@@ -115,7 +105,6 @@
    - **Presentation** - No spoilers/meta on surfaces, accessibility baseline
 
 6. **Artifact Status Types** (extract from artifact templates)
-
    - `draft` - Initial creation in Hot
    - `review` - Submitted for gatecheck
    - `blocked` - Failed bars, needs remediation
@@ -124,23 +113,21 @@
    - `published` - Included in exported view
 
 7. **Deferral Types** (extract from `01-roles/interfaces/dormancy_signals.md`)
-
    - `deferred:art` - Visual work postponed
    - `deferred:audio` - Sound work postponed
    - `deferred:translation` - Localization postponed
    - `deferred:research` - Fact-checking postponed
 
 8. **Research Posture Levels** (extract from `01-roles/briefs/researcher.md`)
-
    - `uncorroborated:low` - Minor claim, low player impact
    - `uncorroborated:medium` - Significant claim, moderate impact
    - `uncorroborated:high` - Critical claim, high impact (requires immediate attention)
 
 9. **Role Dormancy States** (extract from `01-roles/interfaces/dormancy_signals.md`)
-
    - `always-on` - Showrunner, Gatekeeper
    - `default-on` - Plotwright, Scene Smith, Lore Weaver, Codex Curator, Style Lead
-   - `optional-dormant` - Researcher, Art Director, Illustrator, Audio Director, Audio Producer, Translator
+   - `optional-dormant` - Researcher, Art Director, Illustrator, Audio Director, Audio Producer,
+     Translator
    - `downstream` - Book Binder, Player-Narrator
 
 10. **Loop Types** (create classification)
@@ -354,4 +341,5 @@ grep -rh "deferred:" 01-roles/
 3. Clarify decision criteria where needed
 4. Approve or request iteration
 
-**Ready to start Phase 1?** Say the word and I'll begin automated extraction and draft the first version of `taxonomies.md`.
+**Ready to start Phase 1?** Say the word and I'll begin automated extraction and draft the first
+version of `taxonomies.md`.

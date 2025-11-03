@@ -1,6 +1,8 @@
 # Gatecheck Report — Bars Status & Smallest Fixes (Layer 2, Enriched)
 
-> **Use:** Gatekeeper's formal pass on a TU or a bound View. Name each **Bar** status (**green/yellow/red**), cite the **smallest viable fix**, and route to the correct owner. Keep examples **player-safe**; never paste Hot.
+> **Use:** Gatekeeper's formal pass on a TU or a bound View. Name each **Bar** status
+> (**green/yellow/red**), cite the **smallest viable fix**, and route to the correct owner. Keep
+> examples **player-safe**; never paste Hot.
 >
 > **Status:** ✨ **ENRICHED with Layer 2 constraints (Phase 3, 2025-10-29)**
 
@@ -8,9 +10,11 @@
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Dormancy & loops: `../../01-roles/interfaces/dormancy_signals.md` · `../../01-roles/raci/by_loop.md`
+- Dormancy & loops: `../../01-roles/interfaces/dormancy_signals.md` ·
+  `../../01-roles/raci/by_loop.md`
 - Escalation lanes: `../../01-roles/interfaces/escalation_rules.md`
 - Binder/View logging (if export): `./view_log.md`
 - **Layer 2 references:** `../taxonomies.md` (§5, §7) · `../field_registry.md` (Validation §5.2)
@@ -248,27 +252,25 @@ Dormancy state: deferred:art deferred:audio deferred:translation
 
 ### ❌ Missing Determinism Bar Row
 
-**Wrong:** Only 7 bars in table
-**Right:** Include all 8 bars (add Determinism between Style and Presentation)
-**Why:** Determinism is 8th mandatory bar per QUALITY_BARS.md
+**Wrong:** Only 7 bars in table **Right:** Include all 8 bars (add Determinism between Style and
+Presentation) **Why:** Determinism is 8th mandatory bar per QUALITY_BARS.md
 
 ### ❌ Wrong Deferral Format
 
-**Wrong:** `deferred:art?` or `deferred:art · deferred:audio`
-**Right:** `deferred:art deferred:audio` (space-separated, no punctuation)
-**Why:** Consistent format across all artifacts
+**Wrong:** `deferred:art?` or `deferred:art · deferred:audio` **Right:**
+`deferred:art deferred:audio` (space-separated, no punctuation) **Why:** Consistent format across
+all artifacts
 
 ### ❌ Vague Fixes
 
-**Wrong:** "Fix the gate issue"
-**Right:** "Swap 'Option locked' to diegetic refusal: 'The scanner blinks red. Union badge?'"
-**Why:** Smallest viable fix must be specific and actionable
+**Wrong:** "Fix the gate issue" **Right:** "Swap 'Option locked' to diegetic refusal: 'The scanner
+blinks red. Union badge?'" **Why:** Smallest viable fix must be specific and actionable
 
 ### ❌ Hot Content in Evidence
 
-**Wrong:** Evidence: "Foreman's guilt about plasma incident drives strictness"
-**Right:** Evidence: "Gate refusal phrasing is diegetic; no meta language"
-**Why:** Gatecheck reports are player-safe; no Hot spoilers
+**Wrong:** Evidence: "Foreman's guilt about plasma incident drives strictness" **Right:** Evidence:
+"Gate refusal phrasing is diegetic; no meta language" **Why:** Gatecheck reports are player-safe; no
+Hot spoilers
 
 ---
 

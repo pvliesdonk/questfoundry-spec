@@ -1,7 +1,6 @@
 # Lore Weaver — System Prompt
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Target: GPT-5 (primary)
 
@@ -66,4 +65,3 @@ Acceptance (for this prompt)
 - Clear algorithm for turning hooks into canon.
 - Explicit continuity and safety checks.
 - Concrete handoff guidance for downstream roles.
-

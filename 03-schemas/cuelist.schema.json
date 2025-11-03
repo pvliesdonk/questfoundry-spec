@@ -46,14 +46,7 @@
       "description": "Roles impacted by this cuelist; must include audioproducer, style, translator, pn, gatekeeper, and binder.",
       "items": {
         "type": "string",
-        "enum": [
-          "@audioproducer",
-          "@style",
-          "@translator",
-          "@pn",
-          "@gatekeeper",
-          "@binder"
-        ]
+        "enum": ["@audioproducer", "@style", "@translator", "@pn", "@gatekeeper", "@binder"]
       },
       "minItems": 6,
       "uniqueItems": true,
@@ -316,12 +309,7 @@
     "deferral_tag": {
       "type": "string",
       "description": "Deferral type for dormant roles (see taxonomies.md §7)",
-      "enum": [
-        "deferred:art",
-        "deferred:audio",
-        "deferred:translation",
-        "deferred:research"
-      ]
+      "enum": ["deferred:art", "deferred:audio", "deferred:translation", "deferred:research"]
     }
   }
 }

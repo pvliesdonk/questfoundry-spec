@@ -1,11 +1,11 @@
 # Layer 7 — UI (User Interfaces)
 
-**Status:** 🚧 Planning Phase
-**Last Updated:** 2025-10-31
+**Status:** 🚧 Planning Phase **Last Updated:** 2025-10-31
 
 ## Overview
 
-Layer 7 provides user interfaces for authors and players. The initial implementation focuses on a CLI tool that wraps Layer 6 library functionality.
+Layer 7 provides user interfaces for authors and players. The initial implementation focuses on a
+CLI tool that wraps Layer 6 library functionality.
 
 ## Purpose
 
@@ -20,6 +20,7 @@ Layer 7 provides user interfaces for authors and players. The initial implementa
 **Primary Implementation:** `pvliesdonk/questfoundry-cli` (Python CLI)
 
 This directory (`07-ui/`) in the spec repo contains:
+
 - UX design documentation
 - Command specifications
 - Future UI concepts (TUI, GUI, WebUI, MCP server)
@@ -188,6 +189,7 @@ Starting Lore Deepening loop...
 ```
 
 **Key Features:**
+
 - Simple Y/N prompts at checkpoints
 - Automatic summary of what just happened
 - Optional detailed review before continuing
@@ -242,6 +244,7 @@ Continue? [Y/n]:
 ```
 
 **Agent Questions Implementation:**
+
 - Agents use `ask_human()` API (Layer 6)
 - Creates `human.question` intent (Layer 4)
 - CLI displays question with context
@@ -422,23 +425,29 @@ Request style review: qf run style-tuneup
 
 ## UI Toolkit
 
-**CLI Framework:** [Typer](https://typer.tiangolo.com/) or [Click](https://click.palletsprojects.com/)
+**CLI Framework:** [Typer](https://typer.tiangolo.com/) or
+[Click](https://click.palletsprojects.com/)
+
 - Type-safe commands
 - Automatic help generation
 - Built-in completion support
 
 **Rich Text:** [Rich](https://rich.readthedocs.io/)
+
 - Tables, progress bars
 - Syntax highlighting
 - Markdown rendering
 - Tree views
 
-**Prompts:** [Questionary](https://github.com/tmbo/questionary) or [InquirerPy](https://inquirerpy.readthedocs.io/)
+**Prompts:** [Questionary](https://github.com/tmbo/questionary) or
+[InquirerPy](https://inquirerpy.readthedocs.io/)
+
 - Interactive prompts
 - Multi-select, autocomplete
 - Validation
 
 **Shell Completion:**
+
 - Bash, Zsh, Fish support
 - Dynamic completion (artifact IDs, loop names)
 - Install via: `qf --install-completion`
@@ -468,42 +477,48 @@ ui:
 
 # Quickstart defaults
 quickstart:
-  mode: guided              # guided | interactive | express
-  auto_continue: false      # Auto-proceed at checkpoints
-  detailed_reviews: true    # Show full artifacts at checkpoints
+  mode: guided # guided | interactive | express
+  auto_continue: false # Auto-proceed at checkpoints
+  detailed_reviews: true # Show full artifacts at checkpoints
 ```
 
 ## Evolution Path
 
 ### Phase 1: Basic CLI (MVP)
+
 - `init`, `open`, `status`
 - `list`, `show`
 - `run` (simple loops)
 - `check`, `export`
 
 ### Phase 2: Quickstart
+
 - Guided mode with checkpoints
 - Setup questions
 - Loop orchestration
 - Summary displays
 
 ### Phase 3: Interactive Mode
+
 - Agent questions
 - Free-form responses
 - Conversational flow
 
 ### Phase 4: Asset Generation
+
 - `generate` commands
 - Provider selection
 - Image/audio support
 
 ### Phase 5: Advanced Features
+
 - Express mode (autonomous)
 - Per-role provider config
 - Advanced artifact queries
 - Diff/comparison tools
 
 ### Future: Alternative Interfaces
+
 - **TUI:** Terminal UI with panels (like `k9s`, `lazygit`)
 - **GUI:** Desktop app (Electron, Tauri)
 - **WebUI:** Browser-based interface
@@ -541,6 +556,7 @@ qf = "qf.cli:app"
 ## Distribution
 
 **PyPI Package:**
+
 ```bash
 pip install questfoundry-cli
 
@@ -548,6 +564,7 @@ pip install questfoundry-cli
 ```
 
 **Shell Completion:**
+
 ```bash
 # Install completion
 qf --install-completion

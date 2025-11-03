@@ -1,7 +1,6 @@
 # Quality Bar — Style
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -19,4 +18,3 @@ Common Failures
 Remediation
 
 - Run Style Tune-up; move detail to codex or canon notes; provide phrasing fixes.
-

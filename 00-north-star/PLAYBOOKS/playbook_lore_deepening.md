@@ -1,8 +1,12 @@
 # Playbook — Lore Deepening
 
-**Use when:** A **Hook Harvest** has marked hooks as `accepted` and you need to turn them into coherent **canon** (backstories, timelines, metaphysics, causal links) without leaking spoilers to player surfaces.
+**Use when:** A **Hook Harvest** has marked hooks as `accepted` and you need to turn them into
+coherent **canon** (backstories, timelines, metaphysics, causal links) without leaking spoilers to
+player surfaces.
 
-**Outcome:** A **Canon Pack** (spoiler-level), with contradiction resolutions, timeline anchors, and downstream notes for Plotwright/Scene Smith, plus player-safe handoffs to **Codex Expansion**. Ready for gatecheck and Cold merge.
+**Outcome:** A **Canon Pack** (spoiler-level), with contradiction resolutions, timeline anchors, and
+downstream notes for Plotwright/Scene Smith, plus player-safe handoffs to **Codex Expansion**. Ready
+for gatecheck and Cold merge.
 
 ---
 
@@ -29,27 +33,33 @@
 **Lore Weaver (R)**
 
 1. **Frame the canon question(s)** (1–3 lines each).
-2. **Draft the canon answer** (precise causal account): backstory, timeline anchors, implicated entities/factions, constraints (tech/magic), metaphysics where relevant.
-3. **Check collisions** against Cold; reconcile or mark **deliberate mystery** (with bounds + revisit window).
+2. **Draft the canon answer** (precise causal account): backstory, timeline anchors, implicated
+   entities/factions, constraints (tech/magic), metaphysics where relevant.
+3. **Check collisions** against Cold; reconcile or mark **deliberate mystery** (with bounds +
+   revisit window).
 4. **Enumerate consequences**:
    - **Topology** notes (gateways/loops affected; hand to Plotwright).
    - **Prose** notes (foreshadow/recall/descriptive details; hand to Scene Smith).
 5. **Tag sensitivity** (`spoiler-heavy` vs `player-safe-summary-possible`).
 
-**Researcher (C, optional)** 6. Validate factual claims; attach citations or keep `uncorroborated:<risk>` with PN/Binder wording guidance.
+**Researcher (C, optional)** 6. Validate factual claims; attach citations or keep
+`uncorroborated:<risk>` with PN/Binder wording guidance.
 
 **Style Lead (C)** 7. Quick **tone/motif** pass on canon notes (no rewrites—just guidance).
 
-**Gatekeeper (C)** 8. **Pre-gate**: spot Integrity/Reachability/Gateway risks; presentation safety for any player-safe summaries.
+**Gatekeeper (C)** 8. **Pre-gate**: spot Integrity/Reachability/Gateway risks; presentation safety
+for any player-safe summaries.
 
-**Package (Lore Weaver)** 9. Assemble the **Canon Pack** and attach to TU. Prepare **player-safe summaries** for **Codex Expansion**.
+**Package (Lore Weaver)** 9. Assemble the **Canon Pack** and attach to TU. Prepare **player-safe
+summaries** for **Codex Expansion**.
 
 ---
 
 ## 4) Deliverables (Hot)
 
 - **Canon Pack** (one entry per question):
-  - Title, **Canon Answer**, **Timeline anchors**, **Entities/Factions**, **Constraints**, **Sensitivity tag**, **Upstream hooks/TUs**, **Downstream impacts**, **Notes**.
+  - Title, **Canon Answer**, **Timeline anchors**, **Entities/Factions**, **Constraints**,
+    **Sensitivity tag**, **Upstream hooks/TUs**, **Downstream impacts**, **Notes**.
 - **Prose Notes** → Scene Smith.
 - **Topology Notes** → Plotwright.
 - **Factual Appendix** → citations or `uncorroborated:<risk>`.
@@ -67,7 +77,8 @@
 
 ## 6) Definition of “done” (for this loop)
 
-- [ ] Each accepted hook is **canonized** or **deferred** with reason (or **rejected** with rationale).
+- [ ] Each accepted hook is **canonized** or **deferred** with reason (or **rejected** with
+      rationale).
 - [ ] Collisions resolved or **deliberate mystery** logged with bounds & revisit date.
 - [ ] Timeline anchors added where relevant.
 - [ ] Prose/Topology notes handed off and linked in the TU.
@@ -119,11 +130,14 @@ Notes: <deliberate-mystery? revisit date?>
 
 ## 10) Anti-patterns
 
-- Turning codex summaries into hidden canon: **Curator publishes summaries only; deep detail stays in canon notes.**
+- Turning codex summaries into hidden canon: **Curator publishes summaries only; deep detail stays
+  in canon notes.**
 - Canon that **forces** linearity without intent: reroute to Story Spark or split the change.
 - Bundling five unrelated mysteries into one TU: split by **player value** cluster.
 
 ---
 
 **Cheat line (TU note):**  
-“Lore Deepening (Kestrel arc): canonizes Dock-7 fire backstory; anchors Y–18; adds Syndicate constraint; 2 topology notes → Story Spark; 3 prose notes → Scene; codex summaries ready; research `uncorroborated:low` on valve model.”
+“Lore Deepening (Kestrel arc): canonizes Dock-7 fire backstory; anchors Y–18; adds Syndicate
+constraint; 2 topology notes → Story Spark; 3 prose notes → Scene; codex summaries ready; research
+`uncorroborated:low` on valve model.”

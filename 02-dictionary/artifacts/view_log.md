@@ -1,15 +1,17 @@
 # View Log — Bound, Player-Safe Output Record (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
 
-> **Use:** Book Binder's one-pager for any bound _View_ (export). Declares the **Cold** snapshot, **options/coverage**, anchor health, and any `deferred:*` tracks. No spoilers, no Hot content.
+> **Use:** Book Binder's one-pager for any bound _View_ (export). Declares the **Cold** snapshot,
+> **options/coverage**, anchor health, and any `deferred:*` tracks. No spoilers, no Hot content.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Role brief: `../briefs/book_binder.md`
 
@@ -136,6 +138,7 @@ Gatekeeper: <name> · Gatecheck ID: <id>
 - Wrong: `Manuscript anchors: 45 (resolved: 45)`
 - Right: `Manuscript anchors: 45 (resolved: 45; orphans: 0)`
 
-**Total fields: 15** (4 metadata, 1 content, 2 relationships, 2 validation, 1 accessibility, 2 spatial, 1 presentation, 2 determinism)
+**Total fields: 15** (4 metadata, 1 content, 2 relationships, 2 validation, 1 accessibility, 2
+spatial, 1 presentation, 2 determinism)
 
 ---

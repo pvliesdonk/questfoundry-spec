@@ -1,6 +1,8 @@
 # Role Charter — Player-Narrator (PN)
 
-> **Purpose:** The Player-Narrator performs the book **in-world**. It guides, recaps, and enforces gates **diegetically**, never exposing internals. In workshop mode it **dry-runs** a view to surface UX issues; in audience mode it simply **tells the story**.
+> **Purpose:** The Player-Narrator performs the book **in-world**. It guides, recaps, and enforces
+> gates **diegetically**, never exposing internals. In workshop mode it **dry-runs** a view to
+> surface UX issues; in audience mode it simply **tells the story**.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Player-Narrator (PN)  
 **Aliases (optional):** Narrator, Game Master (GM)  
-**One-sentence mission:** Present choices clearly and enforce conditions in-world so players feel immersed, not managed.
+**One-sentence mission:** Present choices clearly and enforce conditions in-world so players feel
+immersed, not managed.
 
 **Normative references (Layer 0)**
 
@@ -39,9 +42,12 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Performative pacing, micro-recaps, pronoun and breath adjustments consistent with style.
-- **Consult first (SHOULD):** Any rephrasing that alters meaning (with Style Lead), terminology uncertainties (with Curator/Translator).
-- **Must defer (MUST):** Structural/content fixes to owners via Showrunner; bar outcomes to Gatekeeper.
+- **May decide alone (MAY):** Performative pacing, micro-recaps, pronoun and breath adjustments
+  consistent with style.
+- **Consult first (SHOULD):** Any rephrasing that alters meaning (with Style Lead), terminology
+  uncertainties (with Curator/Translator).
+- **Must defer (MUST):** Structural/content fixes to owners via Showrunner; bar outcomes to
+  Gatekeeper.
 
 ---
 
@@ -49,13 +55,17 @@
 
 **Reads (inputs):**
 
-- **Cold:** current **export view** (the script), codex entries referenced by the section, player-safe captions/alt lines, localized slice where applicable.
-- **Hot (for dry-run only):** none required; PN performs the **view** and files issues; it does not read canon.
+- **Cold:** current **export view** (the script), codex entries referenced by the section,
+  player-safe captions/alt lines, localized slice where applicable.
+- **Hot (for dry-run only):** none required; PN performs the **view** and files issues; it does not
+  read canon.
 
 **Produces (outputs):**
 
-- **PN Playtest Notes** (dry-run): concise, tagged items — `choice-ambiguity`, `gate-friction`, `nav-bug`, `tone-wobble`, `translation-glitch`, `accessibility`.
-- **Session Recap Lines** (optional, player-safe): short in-voice summaries suitable for inclusion at section starts if adopted by owners.
+- **PN Playtest Notes** (dry-run): concise, tagged items — `choice-ambiguity`, `gate-friction`,
+  `nav-bug`, `tone-wobble`, `translation-glitch`, `accessibility`.
+- **Session Recap Lines** (optional, player-safe): short in-voice summaries suitable for inclusion
+  at section starts if adopted by owners.
 
 > Notes are player-safe; spoilers and internals are never included.
 
@@ -65,7 +75,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Narration Dry-Run** — **R:** PN · **A:** Showrunner · **C:** Gatekeeper, Style, Binder · **I:** Plotwright, Curator, Translator
+- **Narration Dry-Run** — **R:** PN · **A:** Showrunner · **C:** Gatekeeper, Style, Binder · **I:**
+  Plotwright, Curator, Translator
 - **Binding Run** — **I:** PN (receives bundle for performance)
 
 **Definition of done (for PN contributions):**
@@ -79,7 +90,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** request for codex anchor, recurring phrasing friction, recap need at specific junctions, diegetic alternative for a sticky gate.
+- **May propose hooks:** request for codex anchor, recurring phrasing friction, recap need at
+  specific junctions, diegetic alternative for a sticky gate.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `pn-phrasing`, `recap`, `gate-diegesis`, `codex-anchor`, `localization`.
 
@@ -90,7 +102,8 @@
 - **Spoiler Hygiene:** never signal twists or behind-the-scenes causes.
 - **No internals:** no codeword names, gate logic, seeds/models, or tooling mentions.
 - **Diegetic gates:** enforce access using **in-world** cues (“badge,” “permit,” “ritual phrase”).
-- **Accessibility:** steady pacing; pronounceable phrasing; descriptive references; if reading captions/alt, render them **as atmosphere**, not technique.
+- **Accessibility:** steady pacing; pronounceable phrasing; descriptive references; if reading
+  captions/alt, render them **as atmosphere**, not technique.
 
 ---
 
@@ -155,4 +168,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/narration_dry_run.md`, `../../00-north-star/PLAYBOOKS/playbook_story_spark.md`
+**Related:** `../../00-north-star/LOOPS/narration_dry_run.md`,
+`../../00-north-star/PLAYBOOKS/playbook_story_spark.md`

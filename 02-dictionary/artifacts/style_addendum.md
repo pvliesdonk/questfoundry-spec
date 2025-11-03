@@ -1,17 +1,23 @@
 # Style Addendum — Patterns & Examples (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)**
-> This template includes inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-29)** This template includes
+> inline field constraints, validation rules, and common error prevention. All Phase 2+3 corrections
+> applied (13 hook types, 7 status values, 8 bars, 13 loops, space-separated deferrals).
 
-> **Use:** Capture **repeatable patterns** and **tiny examples** the owners can apply without rewrites. This addendum supplements the house style with _slice-specific_ guidance (register, banned/preferred forms, PN phrasing, captions/alt). Keep it **player-safe**: no spoilers, no internals.
+> **Use:** Capture **repeatable patterns** and **tiny examples** the owners can apply without
+> rewrites. This addendum supplements the house style with _slice-specific_ guidance (register,
+> banned/preferred forms, PN phrasing, captions/alt). Keep it **player-safe**: no spoilers, no
+> internals.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Handshakes & lanes: `../interfaces/pair_guides.md` (Style ↔ PN / Translator / Scene) · `../interfaces/escalation_rules.md`
+- Handshakes & lanes: `../interfaces/pair_guides.md` (Style ↔ PN / Translator / Scene) ·
+  `../interfaces/escalation_rules.md`
 - Role briefs: `../briefs/style_lead.md` · neighbors in `../briefs/*.md`
 
 ---
@@ -75,16 +81,13 @@ Neighbors: @scene @pn @translator @gatekeeper
 <!-- Validation: Must include at least: gate refusal, choice labels, micro-recap patterns -->
 <!-- Cross-field: Examples must align with register (§1) and banned/preferred (§2) -->
 
-- **Gate refusal (pattern):**
-  "\<world cue\>. '\<short in-world check/refusal\>'"
-  _Ex:_ "The scanner blinks red. 'Union badge?'"
+- **Gate refusal (pattern):** "\<world cue\>. '\<short in-world check/refusal\>'" _Ex:_ "The scanner
+  blinks red. 'Union badge?'"
 
-- **Choice labels (pattern):**
-  "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast of _approach_)
-  _Ex:_ "Slip through maintenance / Face the foreman."
+- **Choice labels (pattern):** "\<verb\> \<object/place\>" vs "\<verb\> \<person\>" (contrast of
+  _approach_) _Ex:_ "Slip through maintenance / Face the foreman."
 
-- **Micro-recap (≤2 lines):**
-  "\<state change\>. \<current stakes\>."
+- **Micro-recap (≤2 lines):** "\<state change\>. \<current stakes\>."
 
 ---
 
@@ -95,7 +98,8 @@ Neighbors: @scene @pn @translator @gatekeeper
 
 - **Context line before choices (if needed):** one line that clarifies _why_ the options differ.
 - **Show, don't lecture:** swap exposition for a physical cue when a term is in the **Codex**.
-- **Diegetic time pressure:** concrete sensory tick ("dock klaxon", "clock sweep") rather than meta countdowns.
+- **Diegetic time pressure:** concrete sensory tick ("dock klaxon", "clock sweep") rather than meta
+  countdowns.
 
 ---
 
@@ -155,8 +159,10 @@ Neighbors: @scene @pn @translator @gatekeeper
 <!-- Field: Hand-offs | Type: markdown | Optional: yes | Who applies what from this addendum -->
 <!-- Validation: Hook format: hook://<domain>/<topic> with description -->
 
-- Hooks: `hook://curator/union-token` (glossary anchor); `hook://translator/gate-phrasing` (register variants).
-- Hand-offs: Scene applies line edits; PN adopts patterns; Translator localizes examples; Gatekeeper pre-gates Presentation.
+- Hooks: `hook://curator/union-token` (glossary anchor); `hook://translator/gate-phrasing` (register
+  variants).
+- Hand-offs: Scene applies line edits; PN adopts patterns; Translator localizes examples; Gatekeeper
+  pre-gates Presentation.
 
 ---
 
@@ -249,7 +255,8 @@ Change Log
 - `Scope`: Required, 1-2 lines, player-safe slice description
 - `Snapshot`: Required, format "Cold @ YYYY-MM-DD"
 - `TU`: Must match format `TU-YYYY-MM-DD-<role><seq>`, reference existing TU Brief
-- `Neighbors`: Required role list, must use valid Layer 1 role names (@scene, @pn, @translator, @gatekeeper)
+- `Neighbors`: Required role list, must use valid Layer 1 role names (@scene, @pn, @translator,
+  @gatekeeper)
 - `Register`: If present, must be one of: neutral | formal | colloquial
 - `Voice & Address`: Required, must specify pronouns, formality, directness
 - `Tense / Aspect / Mood`: Required, must specify tense policy
@@ -363,6 +370,7 @@ Change Log
 | §10     | Change Log            | markdown      | optional | YYYY-MM-DD — version — description             |
 | §11     | Done checklist        | markdown-list | yes      | 7 items; all must be ticked                    |
 
-**Total fields: 23** (6 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5 localization, 2 accessibility)
+**Total fields: 23** (6 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5
+localization, 2 accessibility)
 
 ---

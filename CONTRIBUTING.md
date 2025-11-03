@@ -1,27 +1,34 @@
 # Contributing to QuestFoundry
 
-Thanks for jumping in. QuestFoundry is a **layered spec** for building nonlinear gamebooks with clear roles, tight feedback loops, and player-safe surfaces. This guide explains how to propose changes **today** while we’re focusing on **Layer 0 (North Star)** and **Layer 1 (Roles)**.
+Thanks for jumping in. QuestFoundry is a **layered spec** for building nonlinear gamebooks with
+clear roles, tight feedback loops, and player-safe surfaces. This guide explains how to propose
+changes **today** while we’re focusing on **Layer 0 (North Star)** and **Layer 1 (Roles)**.
 
-> Short version: open a small PR anchored by a **Trace Unit (TU)**; keep spoilers in Hot; the **Gatekeeper** enforces Quality Bars before anything hits **Cold**.
+> Short version: open a small PR anchored by a **Trace Unit (TU)**; keep spoilers in Hot; the
+> **Gatekeeper** enforces Quality Bars before anything hits **Cold**.
 
 ---
 
 ## 1) Ground rules
 
-- **Code of Conduct**: Be kind, specific, and assume good intent. See [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md).
+- **Code of Conduct**: Be kind, specific, and assume good intent. See
+  [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md).
 - **License**: Contributions are under MIT. See [`LICENSE`](./LICENSE).
-- **Current scope**: We’re authoring **Layer 0 & 1**. Don’t add schemas, protocol messages, or code yet—leave stubs in Layers 3–7.
+- **Current scope**: We’re authoring **Layer 0 & 1**. Don’t add schemas, protocol messages, or code
+  yet—leave stubs in Layers 3–7.
 
 ---
 
 ## 2) The layered repo (what goes where)
 
-- **Layer 0 — North Star**: human docs (SoT, PN principles, loops, quality bars, accessibility, spoiler hygiene, traceability).
+- **Layer 0 — North Star**: human docs (SoT, PN principles, loops, quality bars, accessibility,
+  spoiler hygiene, traceability).
 - **Layer 1 — Roles**: human-level role charters/briefs and RACIs.
 - **Layer 2 — Dictionary**: human terms (non-technical).
 - **Layers 3–7**: first-class directories, but **no new technical content** until 0/1 stabilize.
 
-When in doubt: if it’s **how we think/work**, it’s Layer 0/1. If it’s **data or execution**, it belongs to later layers (leave a stub or open an ADR to discuss).
+When in doubt: if it’s **how we think/work**, it’s Layer 0/1. If it’s **data or execution**, it
+belongs to later layers (leave a stub or open an ADR to discuss).
 
 ---
 
@@ -31,8 +38,8 @@ When in doubt: if it’s **how we think/work**, it’s Layer 0/1. If it’s **da
 
 # <<<<<<< HEAD
 
-> > > > > > > feat/level0
-> > > > > > > Every meaningful PR should reference a **TU** (see `00-north-star/TRACEABILITY.md`):
+> > > > > > > feat/level0 Every meaningful PR should reference a **TU** (see
+> > > > > > > `00-north-star/TRACEABILITY.md`):
 
 ```
 
@@ -62,9 +69,7 @@ Place a brief TU note at the top of your PR description.
 
 ### 3.3 Use small, targeted loops
 
-<<<<<<< HEAD
-Prefer **micro-PRs** that align with a loop
-=======
+<<<<<<< HEAD Prefer **micro-PRs** that align with a loop =======
 
 Prefer **micro-PRs** that align with a loop:
 
@@ -81,20 +86,17 @@ Each PR should say which loop it’s supporting.
 ## 4) Submitting a PR
 
 1. **Fork & Branch**
-
    - Branch naming: `tu/<slug>` (e.g., `tu/story-spark-hubs-v1`).
 
 2. **Make focused changes**
-
    - Update exactly the docs you claim. Avoid drive-by edits.
    - If you reference later layers, add TODO stubs—not implementations.
 
 3. **Update indices**
-
-   - If you add a new doc, link it from `00-north-star/README.md` and any relevant `LOOPS/README.md` or `PLAYBOOKS/README.md`.
+   - If you add a new doc, link it from `00-north-star/README.md` and any relevant `LOOPS/README.md`
+     or `PLAYBOOKS/README.md`.
 
 4. **PR description template**
-
    - TU summary (copy the TU block)
    - “Loop alignment”: which loop and why
    - “Player-surface impact”: none / codex / PN / binder … (and spoiler stance)
@@ -120,14 +122,16 @@ Each PR should say which loop it’s supporting.
   - **PN** principles or surfaces → ping PN reviewer
   - **Accessibility/Spoiler hygiene** → ping Gatekeeper
 
-Expect friendly pushback on scope and spoiler hygiene. We value **clarity and testability** over cleverness.
+Expect friendly pushback on scope and spoiler hygiene. We value **clarity and testability** over
+cleverness.
 
 ---
 
 ## 6) ADRs vs TUs
 
 - Use a **TU** for changes _within_ the current rules (docs, loops, guardrails).
-- Use an **ADR** (`/DECISIONS/ADR-YYYYMMDD-<slug>.md`) for **changing the rules** (e.g., adding/removing a role, redefining Hot/Cold boundaries, altering loop taxonomy).
+- Use an **ADR** (`/DECISIONS/ADR-YYYYMMDD-<slug>.md`) for **changing the rules** (e.g.,
+  adding/removing a role, redefining Hot/Cold boundaries, altering loop taxonomy).
 
 PRs that mix ADR and routine edits will be asked to split.
 
@@ -153,13 +157,16 @@ PRs that mix ADR and routine edits will be asked to split.
 
 ## 9) After merge
 
-- Maintainers will tag a **Cold snapshot** periodically and note which **TU-IDs** landed since the previous snapshot in `00-north-star/TRACELOG.md`.
+- Maintainers will tag a **Cold snapshot** periodically and note which **TU-IDs** landed since the
+  previous snapshot in `00-north-star/TRACELOG.md`.
 - The **Book Binder** may cut a new export view; the PN may schedule a **Narration Dry-Run**.
 
 ---
 
 ## 10) Questions?
 
-Open a Discussion or a draft PR with the TU header and “Questions” section. Small, concrete examples beat long hypotheticals.
+Open a Discussion or a draft PR with the TU header and “Questions” section. Small, concrete examples
+beat long hypotheticals.
 
-**Welcome aboard.** Keep changes small, keep surfaces safe, and let the book get better in deliberate steps.
+**Welcome aboard.** Keep changes small, keep surfaces safe, and let the book get better in
+deliberate steps.

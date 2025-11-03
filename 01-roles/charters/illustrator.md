@@ -1,6 +1,8 @@
 # Role Charter — Illustrator
 
-> **Purpose:** Turn **Art Plans** into images. Deliver renders that fit tone and affordance, keep technique off surfaces, and record **determinism** so we can reproduce results later. When in doubt, favor clarity over spectacle.
+> **Purpose:** Turn **Art Plans** into images. Deliver renders that fit tone and affordance, keep
+> technique off surfaces, and record **determinism** so we can reproduce results later. When in
+> doubt, favor clarity over spectacle.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Illustrator  
 **Aliases (optional):** Image Artist, Visual Implementer  
-**One-sentence mission:** Realize the Art Director’s plans as **player-safe** illustrations with clean captions, solid alt text, and reproducible logs kept off-surface.
+**One-sentence mission:** Realize the Art Director’s plans as **player-safe** illustrations with
+clean captions, solid alt text, and reproducible logs kept off-surface.
 
 **Normative references (Layer 0)**
 
@@ -27,21 +30,25 @@
 
 - Render images to the **Art Plan** (subject, composition intent, iconography, light/mood).
 - Provide **Alt Text** that matches the plan’s guidance and remains player-safe.
-- Maintain **Determinism Logs** (seeds/models/capture/settings) **off-surface** when determinism is promised.
+- Maintain **Determinism Logs** (seeds/models/capture/settings) **off-surface** when determinism is
+  promised.
 - Produce **variants/crops** when the plan calls for them; pick best-fit with Director/Style.
 - Flag feasibility issues early; suggest composition tweaks that preserve intent.
 
 **Out of scope (SHOULD NOT own):**
 
-- Choosing what to illustrate or writing captions from scratch (Art Director leads captions; Illustrator may propose tweaks).
+- Choosing what to illustrate or writing captions from scratch (Art Director leads captions;
+  Illustrator may propose tweaks).
 - Publishing technique on surfaces (no seeds/models, DAW/plugins in captions/front matter).
 - Inventing canon or altering narrative structure.
 - Overriding register/voice (Style Lead) or terminology (Curator/Translator).
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Technical approach, lighting/material adjustments that keep the plan’s intent; variant selection within the plan’s envelope.
-- **Consult first (SHOULD):** Caption refinements (Art Director/Style), terminology (Curator/Translator), sensitive imagery (Gatekeeper/Style).
+- **May decide alone (MAY):** Technical approach, lighting/material adjustments that keep the plan’s
+  intent; variant selection within the plan’s envelope.
+- **Consult first (SHOULD):** Caption refinements (Art Director/Style), terminology
+  (Curator/Translator), sensitive imagery (Gatekeeper/Style).
 - **Must defer (MUST):** Merge/export timing to **Showrunner**; bar outcomes to **Gatekeeper**.
 
 ---
@@ -50,17 +57,20 @@
 
 **Reads (inputs):**
 
-- **Hot:** Art Plans & shotlists, Style addenda, Curator terminology/glossary, Translator notes for caption portability.
+- **Hot:** Art Plans & shotlists, Style addenda, Curator terminology/glossary, Translator notes for
+  caption portability.
 - **Cold:** Nearby manuscript/codex context to avoid contradiction.
 
 **Produces (outputs):**
 
 - **Renders** (final images) aligned to plan intent.
 - **Alt Text** (player-safe, one sentence; concrete nouns/relations).
-- **Determinism Logs** (off-surface) — seeds/models/settings or capture notes; file lineage; variant decisions.
+- **Determinism Logs** (off-surface) — seeds/models/settings or capture notes; file lineage; variant
+  decisions.
 - **Feasibility Notes** — short bullets when constraints require plan adjustment.
 
-> Surfaces = image + caption + alt. Only **alt** may be authored here; technique stays in logs, not on surfaces.
+> Surfaces = image + caption + alt. Only **alt** may be authored here; technique stays in logs, not
+> on surfaces.
 
 ---
 
@@ -68,7 +78,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Art Touch-up** — **R:** Art Director · **C:** Illustrator (render & feasibility), Style, Gatekeeper · **I:** Binder, PN, Curator
+- **Art Touch-up** — **R:** Art Director · **C:** Illustrator (render & feasibility), Style,
+  Gatekeeper · **I:** Binder, PN, Curator
 
 **Definition of done (for Illustrator contributions):**
 
@@ -76,22 +87,28 @@
 - **Alt Text** present, concise, and **spoiler-safe**; matches composition.
 - **Determinism Logs** complete when promised; kept **off-surface**.
 - Any caption tweaks proposed are **player-safe** and cleared with Director/Style.
-- Self-check passes **Presentation** (no technique/internal labels on surfaces) and supports Accessibility.
+- Self-check passes **Presentation** (no technique/internal labels on surfaces) and supports
+  Accessibility.
 
 ---
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** terminology needing a codex anchor, motif refinements, signpost opportunities, layout/navigational aids for Binder, sensitivity flags needing Style/Gatekeeper review.
+- **May propose hooks:** terminology needing a codex anchor, motif refinements, signpost
+  opportunities, layout/navigational aids for Binder, sensitivity flags needing Style/Gatekeeper
+  review.
 - **Tags:** `art-cue`, `motif`, `codex-anchor`, `signpost`, `sensitivity`, `nav`.
 
 ---
 
 ## 6) Player-Surface Obligations
 
-- **No spoilers, no internals.** Captions/alt never telegraph twists or list technique (seeds/models).
-- **Alt text quality.** One sentence; concrete nouns/relations; avoid “image of…”, avoid subjective interpretation unless the plan requires mood.
-- **Register alignment.** Keep tone consistent with Style; terminology consistent with Curator; portable for translation.
+- **No spoilers, no internals.** Captions/alt never telegraph twists or list technique
+  (seeds/models).
+- **Alt text quality.** One sentence; concrete nouns/relations; avoid “image of…”, avoid subjective
+  interpretation unless the plan requires mood.
+- **Register alignment.** Keep tone consistent with Style; terminology consistent with Curator;
+  portable for translation.
 - **PN boundaries.** Imagery supports diegetic gates; it never explains mechanics.
 
 ---
@@ -111,7 +128,8 @@
 
 ## 8) Cross-Domain & Escalation
 
-- If a plan is infeasible or risks spoilers, pair with **Art Director** and **Style**; propose safe alternates.
+- If a plan is infeasible or risks spoilers, pair with **Art Director** and **Style**; propose safe
+  alternates.
 - If terminology is unstable, ping **Curator/Translator** before finalizing on-surface words.
 - Sensitive content concerns go to **Gatekeeper/Style**; policy changes via **ADR** if needed.
 
@@ -147,15 +165,18 @@
 
 **Feasibility note (to Director)**
 
-- “Backlight needed to read the lapel area at print scale; propose raising scanner glow and cropping tighter on the badge.”
+- “Backlight needed to read the lapel area at print scale; propose raising scanner glow and cropping
+  tighter on the badge.”
 
 **Technique kept off-surface (log excerpt)**
 
-- _Determinism:_ seed 403912; model X.Y; sampler Z; cfg 4.5; 768×1152; crop A at 0.72; variant B selected after Style review.
+- _Determinism:_ seed 403912; model X.Y; sampler Z; cfg 4.5; 768×1152; crop A at 0.72; variant B
+  selected after Style review.
 
 ---
 
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/art_touch_up.md`, `../../00-north-star/PLAYBOOKS/playbook_art_touch_up.md`
+**Related:** `../../00-north-star/LOOPS/art_touch_up.md`,
+`../../00-north-star/PLAYBOOKS/playbook_art_touch_up.md`

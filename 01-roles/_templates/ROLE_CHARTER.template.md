@@ -1,6 +1,8 @@
 # Role Charter — <Canon Role Name>
 
-> **Purpose:** Define why this role exists, what it owns, and how it hands off work—without constraining creative choices. Use **MUST/SHOULD/MAY** sparingly. Link to Layer-0 policies instead of repeating them.
+> **Purpose:** Define why this role exists, what it owns, and how it hands off work—without
+> constraining creative choices. Use **MUST/SHOULD/MAY** sparingly. Link to Layer-0 policies instead
+> of repeating them.
 
 ---
 
@@ -50,7 +52,8 @@
 
 - `<Named artifacts at human level, e.g., “Canon Pack”, “Codex Pack”, “Style Addendum”, “Topology Notes”, “Edit Notes”, “Art/Audio Plan”, “Language Pack”, “Export View”>`
 
-> Keep outputs **player-safe** unless explicitly marked Hot. Never surface internals (codewords, gate logic, seeds/technique) per Layer-0 policies.
+> Keep outputs **player-safe** unless explicitly marked Hot. Never surface internals (codewords,
+> gate logic, seeds/technique) per Layer-0 policies.
 
 ---
 
@@ -69,7 +72,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** `<types relevant to this role: narrative | scene | factual | taxonomy | surface-needs>`
+- **May propose hooks:**
+  `<types relevant to this role: narrative | scene | factual | taxonomy | surface-needs>`
 - **Size:** `<1–3 lines>`; triageable in **Hook Harvest**.
 - **Tags:** `<suggested tags for filtering>`
 - **Lineage:** Reference TU in notes; spoilers stay in Hot.

@@ -1,6 +1,7 @@
 # Tracelog — Cold Snapshots & Views
 
-Append-only human ledger of what landed in **Cold**, when we stamped **snapshots**, and which **views** were cut. Keep entries spoiler-safe.
+Append-only human ledger of what landed in **Cold**, when we stamped **snapshots**, and which
+**views** were cut. Keep entries spoiler-safe.
 
 ---
 

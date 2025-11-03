@@ -1,6 +1,7 @@
 # Targeted Loops — Index & Chooser
 
-Targeted loops are **short, goal-driven passes** that change **Hot** and only reach **Cold** after Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your map.
+Targeted loops are **short, goal-driven passes** that change **Hot** and only reach **Cold** after
+Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your map.
 
 ---
 
@@ -39,7 +40,8 @@ Targeted loops are **short, goal-driven passes** that change **Hot** and only re
 
 - **Goal**: turn accepted hooks into spoiler-level **canon**.
 - **Deliver**: Canon Pack (answers, timeline, constraints) + player-safe summaries.
-- **Hand-off**: Codex Expansion (summaries), Story Spark (topology notes), Scene Smith (prose notes).
+- **Hand-off**: Codex Expansion (summaries), Story Spark (topology notes), Scene Smith (prose
+  notes).
 
 ### Codex Expansion
 
@@ -56,19 +58,22 @@ Targeted loops are **short, goal-driven passes** that change **Hot** and only re
 ### Art Touch-up
 
 - **Goal**: decide **what** to illustrate and **why**; optionally render.
-- **Deliver**: Art Plan (subject, purpose, composition, caption, constraints, alt guidance) + optional renders & determinism logs.
+- **Deliver**: Art Plan (subject, purpose, composition, caption, constraints, alt guidance) +
+  optional renders & determinism logs.
 - **Hand-off**: Binder (inclusion options), Style (caption tone).
 
 ### Audio Pass
 
 - **Goal**: decide **what** to hear and **why**; optionally produce assets.
-- **Deliver**: Audio Plan (cue, placement, intensity, captions, safety) + optional assets & reproducibility notes.
+- **Deliver**: Audio Plan (cue, placement, intensity, captions, safety) + optional assets &
+  reproducibility notes.
 - **Hand-off**: Binder (inclusion), Style/Translator (phrasing & VO).
 
 ### Translation Pass
 
 - **Goal**: build a target-language slice.
-- **Deliver**: Language Pack (glossary, register map, motif equivalence, idiom strategy, localized surfaces, coverage %, open issues).
+- **Deliver**: Language Pack (glossary, register map, motif equivalence, idiom strategy, localized
+  surfaces, coverage %, open issues).
 - **Hand-off**: Binder; Style (register); PN (gate phrasing).
 
 ### Binding Run
@@ -89,8 +94,10 @@ Targeted loops are **short, goal-driven passes** that change **Hot** and only re
 
 - **Hot vs Cold**: work in Hot; merge to Cold only after **Gatekeeper** passes **Quality Bars**.
 - **Player surfaces**: follow **SPOILER_HYGIENE.md** and **ACCESSIBILITY_AND_CONTENT_NOTES.md**.
-- **Traceability**: each loop run sits inside a **Trace Unit (TU)**; record inputs/outputs and bar pressure.
-- **Dormancy**: Showrunner decides whether Researcher/Art/Audio/Translator are awake; plan-only merges as **deferred** are allowed.
+- **Traceability**: each loop run sits inside a **Trace Unit (TU)**; record inputs/outputs and bar
+  pressure.
+- **Dormancy**: Showrunner decides whether Researcher/Art/Audio/Translator are awake; plan-only
+  merges as **deferred** are allowed.
 
 ---
 
@@ -117,7 +124,8 @@ Targeted loops are **short, goal-driven passes** that change **Hot** and only re
 - `narration_dry_run.md`
 - `full_production_run.md`
 
-> **Filename note**: If your tree currently has `style_rune_up.md`, rename it to `style_tune_up.md` for consistency.
+> **Filename note**: If your tree currently has `style_rune_up.md`, rename it to `style_tune_up.md`
+> for consistency.
 
 ---
 

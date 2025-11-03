@@ -1,16 +1,20 @@
 # Hook Harvest Flow — Message Sequences
 
-> **Status:** Normative — this document defines end-to-end message sequences for the Hook Harvest loop.
+> **Status:** Normative — this document defines end-to-end message sequences for the Hook Harvest
+> loop.
 
 ---
 
 ## 1. Overview
 
-This specification defines the **message sequences** for the **Hook Harvest** loop: the protocol-level interactions that enable roles to collect, cluster, triage, and route hooks for follow-on work.
+This specification defines the **message sequences** for the **Hook Harvest** loop: the
+protocol-level interactions that enable roles to collect, cluster, triage, and route hooks for
+follow-on work.
 
 ### Purpose
 
 Hook Harvest transforms proposed hooks into actionable work items by:
+
 1. **Creating hooks** from any role during creative work
 2. **Triaging** by Showrunner during a Hook Harvest session
 3. **Routing** accepted hooks to appropriate loops with clear ownership
@@ -29,9 +33,11 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 
 ### 2.1 Context
 
-**Trigger:** Any role identifies a hook during creative work (Story Spark, Lore Deepening, Scene writing, etc.)
+**Trigger:** Any role identifies a hook during creative work (Story Spark, Lore Deepening, Scene
+writing, etc.)
 
 **Participants:**
+
 - **Originator** — Any role (SR, LW, PW, SS, etc.)
 - **Receiver** — Typically broadcast or specific owner role
 
@@ -42,7 +48,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
    Intent: hook.create
    Payload: hook_card (status: "proposed")
    Context: hot_cold="hot", tu=<origin-TU>, snapshot=<Cold snapshot>
-   
+
 2. [Broadcast/Owner] → Originator: ack
    Confirms receipt and hook queued for triage
 ```
@@ -77,9 +83,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
     "accountable_a": "SR",
     "consult": ["<role>", "..."]
   },
-  "acceptance_criteria": [
-    "Exit criterion tied to Quality Bars"
-  ],
+  "acceptance_criteria": ["Exit criterion tied to Quality Bars"],
   "locations_links": {
     "locations": ["path/to/affected/content"],
     "related_hooks": ["HK-YYYYMMDD-seq"]
@@ -88,6 +92,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 ```
 
 **Notes:**
+
 - `status` MUST be `"proposed"` for new hooks
 - `tu` MUST reference the TU that prompted the hook (traceability)
 - `snapshot_context` MUST reference current Cold snapshot
@@ -95,11 +100,11 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 
 ### 2.4 Error Conditions
 
-| Error Code | Trigger | Remedy |
-|------------|---------|--------|
-| `VALIDATION_FAILED` | Payload missing required fields or violates schema | Fix payload to match schema |
-| `CONFLICT` | Hook ID already exists | Use unique hook ID |
-| `BUSINESS_RULE_VIOLATION` | Hot content leaks to PN | Keep hook Hot-only |
+| Error Code                | Trigger                                            | Remedy                      |
+| ------------------------- | -------------------------------------------------- | --------------------------- |
+| `VALIDATION_FAILED`       | Payload missing required fields or violates schema | Fix payload to match schema |
+| `CONFLICT`                | Hook ID already exists                             | Use unique hook ID          |
+| `BUSINESS_RULE_VIOLATION` | Hot content leaks to PN                            | Keep hook Hot-only          |
 
 ---
 
@@ -110,6 +115,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 **Trigger:** Showrunner runs Hook Harvest session (TU opened with loop="Hook Harvest")
 
 **Participants:**
+
 - **Showrunner (SR)** — Accountable for triage decisions
 - **Hook Owners** — Roles that will execute accepted hooks
 - **Consulted Roles** — LW, PW, SS, CC, RS, ST, GK (provide input)
@@ -119,17 +125,17 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 ```
 1. SR → Broadcast: tu.open
    Opens Hook Harvest TU, wakes required roles
-   
+
 2. [Triage Session — synchronous or asynchronous discussion]
    SR + consulted roles review proposed hooks
    Cluster by theme, annotate with triage tags
    SR makes accept/defer/reject decisions
-   
+
 3. For each hook decision:
    a) SR → [Owner/Broadcast]: hook.update_status
       Intent: hook.accept | hook.defer | hook.reject
       Payload: hook_card (partial update with new status)
-   
+
    b) [Owner/Broadcast] → SR: ack
       Confirms status update received
 ```
@@ -154,10 +160,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
   "awake": ["SR", "LW", "PW", "SS", "CC", "GK"],
   "dormant": ["AD", "IL", "AuD", "AuP", "TR", "BB", "PN"],
   "press": ["Integrity"],
-  "inputs": [
-    "Hook cards in proposed state",
-    "Prior harvest decisions for consistency"
-  ],
+  "inputs": ["Hook cards in proposed state", "Prior harvest decisions for consistency"],
   "deliverables": [
     "Harvest Sheet (summary of decisions)",
     "Updated hook cards with status and triage tags"
@@ -191,17 +194,16 @@ Hook Harvest transforms proposed hooks into actionable work items by:
     "edited": "YYYY-MM-DD"
   },
   "proposed_next_step": {
-    "loop": "Lore Deepening",  // REQUIRED: next loop
-    "owner_r": "LW",           // REQUIRED: responsible owner
+    "loop": "Lore Deepening", // REQUIRED: next loop
+    "owner_r": "LW", // REQUIRED: responsible owner
     "accountable_a": "SR"
   },
-  "acceptance_criteria": [
-    "Updated criteria if needed"
-  ]
+  "acceptance_criteria": ["Updated criteria if needed"]
 }
 ```
 
 **Critical requirements for acceptance:**
+
 - `proposed_next_step.loop` — MUST specify which loop handles this hook
 - `proposed_next_step.owner_r` — MUST specify responsible role
 - Hook MUST NOT be blocking unless resolution plan exists
@@ -263,14 +265,15 @@ Hook Harvest transforms proposed hooks into actionable work items by:
     "edited": "YYYY-MM-DD"
   },
   "dormancy_deferrals": {
-    "deferral_tags": ["deferred:research"],  // REQUIRED: reason
-    "fallback": "What happens without this work",  // REQUIRED
-    "revisit": "Loop name or milestone/date"  // REQUIRED: when to reconsider
+    "deferral_tags": ["deferred:research"], // REQUIRED: reason
+    "fallback": "What happens without this work", // REQUIRED
+    "revisit": "Loop name or milestone/date" // REQUIRED: when to reconsider
   }
 }
 ```
 
 **Critical requirements for deferral:**
+
 - `dormancy_deferrals.deferral_tags` — MUST specify why deferred
 - `dormancy_deferrals.fallback` — MUST describe impact if never done
 - `dormancy_deferrals.revisit` — MUST specify wake condition
@@ -332,7 +335,7 @@ Hook Harvest transforms proposed hooks into actionable work items by:
     "edited": "YYYY-MM-DD"
   },
   "resolution": {
-    "decision": "One sentence rejection reason",  // REQUIRED
+    "decision": "One sentence rejection reason", // REQUIRED
     "resolved_date": "YYYY-MM-DD",
     "resolved_by": "SR"
   }
@@ -340,8 +343,10 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 ```
 
 **Critical requirements for rejection:**
+
 - `resolution.decision` — MUST provide 1-line reason
-- Common reasons: duplicate of another hook, violates PN/style boundaries, creates unwinnable states, no viable path forward
+- Common reasons: duplicate of another hook, violates PN/style boundaries, creates unwinnable
+  states, no viable path forward
 
 **Example message:**
 
@@ -386,7 +391,8 @@ Hook Harvest transforms proposed hooks into actionable work items by:
 
 ### 5.1 Scenario: Hook Harvest Session
 
-**Context:** Showrunner runs Hook Harvest after Story Spark session generated 15 hooks. Triage goal: accept 8, defer 5, reject 2.
+**Context:** Showrunner runs Hook Harvest after Story Spark session generated 15 hooks. Triage goal:
+accept 8, defer 5, reject 2.
 
 **Sequence:**
 
@@ -410,16 +416,16 @@ Step 3: SR sends status updates for each hook
 --------
 SR → LW: hook.accept (HK-20251030-01)
   next_step: Lore Deepening, owner_r: LW
-  
+
 SR → PW: hook.accept (HK-20251030-02)
   next_step: Story Spark, owner_r: PW
-  
+
 SR → RS: hook.defer (HK-20251030-05)
   reason: deferred:research, revisit: Q1 2026
-  
+
 SR → Broadcast: hook.reject (HK-20251030-09)
   decision: Duplicate of HK-20251028-12
-  
+
 [...repeat for remaining hooks...]
 
 Step 4: Owners acknowledge updates
@@ -474,18 +480,19 @@ After Hook Harvest completes, accepted hooks are handed to appropriate loops:
 
 ## 7. Error Conditions
 
-| Error Code | Trigger | Example | Remedy |
-|------------|---------|---------|--------|
-| `VALIDATION_FAILED` | hook.accept missing owner_r or loop | Accept without owner | Add required fields |
-| `INVALID_STATE_TRANSITION` | hook.accept on non-proposed hook | Accept already-accepted hook | Check current status first |
-| `NOT_AUTHORIZED` | Non-SR sends hook.accept | LW tries to accept hook | Only SR can triage |
-| `BUSINESS_RULE_VIOLATION` | Deferral without revisit | Defer without wake condition | Add revisit field |
+| Error Code                 | Trigger                             | Example                      | Remedy                     |
+| -------------------------- | ----------------------------------- | ---------------------------- | -------------------------- |
+| `VALIDATION_FAILED`        | hook.accept missing owner_r or loop | Accept without owner         | Add required fields        |
+| `INVALID_STATE_TRANSITION` | hook.accept on non-proposed hook    | Accept already-accepted hook | Check current status first |
+| `NOT_AUTHORIZED`           | Non-SR sends hook.accept            | LW tries to accept hook      | Only SR can triage         |
+| `BUSINESS_RULE_VIOLATION`  | Deferral without revisit            | Defer without wake condition | Add revisit field          |
 
 ---
 
 ## 8. Success Criteria
 
 A Hook Harvest flow is successful when:
+
 - ✅ All proposed hooks have status updated (accepted/deferred/rejected)
 - ✅ Accepted hooks have clear `owner_r` and `next loop`
 - ✅ Deferred hooks have `reason` and `revisit` wake condition
@@ -499,18 +506,22 @@ A Hook Harvest flow is successful when:
 ## 9. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/LOOPS/hook_harvest.md` — Loop procedure and RACI
 - `00-north-star/QUALITY_BARS.md` — Quality bar definitions
 - `00-north-star/TRACEABILITY.md` — TU requirements
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` — Hook status taxonomy §2
 
 ### Layer 3 Schemas
+
 - `03-schemas/hook_card.schema.json` — Hook Card payload schema
 - `03-schemas/tu_brief.schema.json` — TU Brief payload schema
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (hook.create, hook.accept, hook.defer, hook.reject)
 - `04-protocol/LIFECYCLES/hooks.md` — Hook lifecycle state machine
@@ -523,7 +534,9 @@ A Hook Harvest flow is successful when:
 ### 10.1 Hook Collection Phase
 
 Hook creation can happen:
-- **During other loops** (Story Spark, Lore Deepening, Scene writing) — roles file hooks as they surface
+
+- **During other loops** (Story Spark, Lore Deepening, Scene writing) — roles file hooks as they
+  surface
 - **Batch at loop end** — roles review work and file hooks before closing TU
 - **Ad-hoc** — any role can create hooks anytime
 
@@ -532,6 +545,7 @@ All hooks start in `proposed` state and await Hook Harvest triage.
 ### 10.2 Triage Session Format
 
 Hook Harvest can be:
+
 - **Synchronous** — real-time meeting with SR + consulted roles
 - **Asynchronous** — SR posts hooks, roles comment, SR decides
 - **Hybrid** — async review + sync decision meeting
@@ -541,6 +555,7 @@ All formats use same message protocol: `hook.create` → `hook.accept/defer/reje
 ### 10.3 Harvest Sheet
 
 The Harvest Sheet is a human-readable summary (not a structured message) that includes:
+
 - Date & TU-ID
 - Cluster headings (by theme or type)
 - **Accepted** list (with next loop + owner + due window)

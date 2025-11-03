@@ -6,9 +6,25 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "LW" },
     "intent": "tu.open",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-LW10", "snapshot": "Cold @ 2025-10-28", "loop": "Lore Deepening" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-LW10",
+      "snapshot": "Cold @ 2025-10-28",
+      "loop": "Lore Deepening"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "tu_brief", "data": { "id": "TU-2025-11-03-LW10", "opened": "2025-11-03", "owner_a": "SR", "responsible_r": ["LW"], "loop": "Lore Deepening", "slice": "Canonize HK-20251103-01", "snapshot_context": "Cold @ 2025-10-28" } },
+    "payload": {
+      "type": "tu_brief",
+      "data": {
+        "id": "TU-2025-11-03-LW10",
+        "opened": "2025-11-03",
+        "owner_a": "SR",
+        "responsible_r": ["LW"],
+        "loop": "Lore Deepening",
+        "slice": "Canonize HK-20251103-01",
+        "snapshot_context": "Cold @ 2025-10-28"
+      }
+    },
     "refs": ["HK-20251103-01"],
     "correlation_id": "corr-lw-canon-2025-11-03"
   },
@@ -19,9 +35,18 @@
     "sender": { "role": "LW", "agent": "bot:lw" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-LW10", "loop": "Lore Deepening" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-LW10",
+      "loop": "Lore Deepening"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "none", "data": { "summary": "Drafted canon answers for HK-20251103-01; added timeline anchors and invariants; preparing pre-gate." } },
+    "payload": {
+      "type": "none",
+      "data": {
+        "summary": "Drafted canon answers for HK-20251103-01; added timeline anchors and invariants; preparing pre-gate."
+      }
+    },
     "refs": ["HK-20251103-01"],
     "correlation_id": "corr-lw-canon-2025-11-03"
   },
@@ -32,10 +57,22 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "GK" },
     "intent": "gate.report.submit",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-03-LW10", "snapshot": "Cold @ 2025-10-28", "loop": "Lore Deepening" },
+    "context": {
+      "hot_cold": "hot",
+      "tu": "TU-2025-11-03-LW10",
+      "snapshot": "Cold @ 2025-10-28",
+      "loop": "Lore Deepening"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "gatecheck_report", "data": { "title": "Pre-Gate", "mode": "pre-gate", "cold_snapshot": "Cold @ 2025-10-28", "bars": [] } },
+    "payload": {
+      "type": "gatecheck_report",
+      "data": {
+        "title": "Pre-Gate",
+        "mode": "pre-gate",
+        "cold_snapshot": "Cold @ 2025-10-28",
+        "bars": []
+      }
+    },
     "correlation_id": "corr-lw-canon-2025-11-03"
   }
 ]
-

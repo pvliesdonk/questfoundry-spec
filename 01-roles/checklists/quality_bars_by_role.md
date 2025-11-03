@@ -1,7 +1,9 @@
 # Quality Bars by Role — Quick Checklists (Layer 1)
 
-> **Use:** Run these before asking Gatekeeper to pre-gate or gatecheck. Keep it light, keep it moving.  
-> **Bars (see Layer-0 `QUALITY_BARS.md`):** **Integrity**, **Reachability**, **Nonlinearity**, **Gateways**, **Style**, **Presentation**, **Accessibility**.
+> **Use:** Run these before asking Gatekeeper to pre-gate or gatecheck. Keep it light, keep it
+> moving.  
+> **Bars (see Layer-0 `QUALITY_BARS.md`):** **Integrity**, **Reachability**, **Nonlinearity**,
+> **Gateways**, **Style**, **Presentation**, **Accessibility**.
 
 ---
 
@@ -36,7 +38,8 @@
 - No spoilers/technique on surfaces.
 - Alt/captions present where required; labels localizable.
 - Diegetic gate phrasing present; no meta.  
-  **Typical fails:** “Option locked” text; caption technique leaks; untranslated labels breaking anchors.  
+  **Typical fails:** “Option locked” text; caption technique leaks; untranslated labels breaking
+  anchors.  
   **If red, route to…** Owner role (Style/Plot/Binder/Translator/Art/Audio), SR to coordinate.
 
 ---
@@ -203,7 +206,8 @@
 **Self-check (dry-run):**
 
 - Reads from View; **no improvisation**.
-- Logs `choice-ambiguity`, `gate-friction`, `nav-bug`, `tone-wobble`, `translation-glitch`, `accessibility`.
+- Logs `choice-ambiguity`, `gate-friction`, `nav-bug`, `tone-wobble`, `translation-glitch`,
+  `accessibility`.
 - Micro-recaps ≤2 lines; in-voice.  
   **Typical fails:** Meta explanations; over-recap; inventing text.  
   **If red, route to…** Style (patterns), Plot/Scene (labels/structure), Binder (nav).

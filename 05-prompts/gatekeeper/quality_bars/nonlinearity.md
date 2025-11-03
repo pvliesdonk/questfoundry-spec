@@ -1,7 +1,6 @@
 # Quality Bar — Nonlinearity
 
-STATUS: SCAFFOLD
-TODO: Flesh out full guidance, examples, and acceptance criteria.
+STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 Checks
 
@@ -18,4 +17,3 @@ Common Failures
 Remediation
 
 - Add state effects; diversify outcomes; merge trivial hubs.
-

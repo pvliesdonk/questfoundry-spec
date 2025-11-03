@@ -96,8 +96,6 @@
       ]
     }
   },
-  "refs": [
-    "TU-2025-10-30-LW01"
-  ],
+  "refs": ["TU-2025-10-30-LW01"],
   "correlation_id": "corr-lore-deepening-2025-10-30"
 }

@@ -1,6 +1,8 @@
 # Role Charter — Researcher
 
-> **Purpose:** The Researcher keeps the fiction **plausible where it claims plausibility**. Corroborate facts, estimate uncertainty, and offer concise, creative-friendly notes—without dictating story or leaking spoilers.
+> **Purpose:** The Researcher keeps the fiction **plausible where it claims plausibility**.
+> Corroborate facts, estimate uncertainty, and offer concise, creative-friendly notes—without
+> dictating story or leaking spoilers.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Researcher  
 **Aliases (optional):** Fact Checker, Reality Wrangler  
-**One-sentence mission:** Corroborate claims and constraints, record uncertainty plainly, and hand neighbors just enough truth to work safely.
+**One-sentence mission:** Corroborate claims and constraints, record uncertainty plainly, and hand
+neighbors just enough truth to work safely.
 
 **Normative references (Layer 0)**
 
@@ -25,11 +28,16 @@
 
 **In scope (SHOULD focus on):**
 
-- **Corroborate claims** that affect plot feasibility, world physics, law/policy, technology, medicine, history, language, or culture.
-- Produce **Research Memos**: concise answers, citations, caveats, and creative affordances (what this enables or forbids).
-- Assign **uncertainty posture** (`uncorroborated:<low|med|high>`) for open items; list safe neutral phrasings for surfaces.
-- Flag **content risks** (harmful stereotypes, safety issues, sensitive topics) and propose mitigations aligned with Style/Accessibility docs.
-- Identify **opportunities** where verisimilitude can heighten stakes or affordances (hooks for Plot/Scene/Lore/Curator).
+- **Corroborate claims** that affect plot feasibility, world physics, law/policy, technology,
+  medicine, history, language, or culture.
+- Produce **Research Memos**: concise answers, citations, caveats, and creative affordances (what
+  this enables or forbids).
+- Assign **uncertainty posture** (`uncorroborated:<low|med|high>`) for open items; list safe neutral
+  phrasings for surfaces.
+- Flag **content risks** (harmful stereotypes, safety issues, sensitive topics) and propose
+  mitigations aligned with Style/Accessibility docs.
+- Identify **opportunities** where verisimilitude can heighten stakes or affordances (hooks for
+  Plot/Scene/Lore/Curator).
 
 **Out of scope (SHOULD NOT own):**
 
@@ -40,9 +48,12 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Evidence grading, recommended neutral phrasings, risk labels, memo structure.
-- **Consult first (SHOULD):** Cultural/linguistic matters with **Translator**; sensitive topics with **Style Lead**; canon-pressuring facts with **Lore**.
-- **Must defer (MUST):** Merge/export timing to **Showrunner**; pass/fail against bars to **Gatekeeper**.
+- **May decide alone (MAY):** Evidence grading, recommended neutral phrasings, risk labels, memo
+  structure.
+- **Consult first (SHOULD):** Cultural/linguistic matters with **Translator**; sensitive topics with
+  **Style Lead**; canon-pressuring facts with **Lore**.
+- **Must defer (MUST):** Merge/export timing to **Showrunner**; pass/fail against bars to
+  **Gatekeeper**.
 
 ---
 
@@ -50,7 +61,8 @@
 
 **Reads (inputs):**
 
-- **Hot:** accepted hooks needing verification, Plot/Lore notes, Style/Translator concerns, PN dry-run flags.
+- **Hot:** accepted hooks needing verification, Plot/Lore notes, Style/Translator concerns, PN
+  dry-run flags.
 - **Cold:** surfaces where claims appear (to suggest neutral phrasing if dormant or uncertain).
 
 **Produces (outputs):**
@@ -85,7 +97,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** plausible mechanism for a gate, credible consequence of an action, cultural practice that can power a hub/loop, terminology requiring codex anchor, sensitivity mitigation.
+- **May propose hooks:** plausible mechanism for a gate, credible consequence of an action, cultural
+  practice that can power a hub/loop, terminology requiring codex anchor, sensitivity mitigation.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
 - **Tags:** `feasibility`, `consequence`, `terminology`, `sensitivity`, `codex-anchor`.
 
@@ -93,9 +106,12 @@
 
 ## 6) Player-Surface Obligations
 
-- **Spoiler Hygiene:** provide **player-safe** alternative lines; no source names or behind-the-scenes mechanics on surfaces.
-- **Accessibility:** prefer concrete, plain phrasing; avoid jargon unless Curator will publish an entry.
-- **PN boundaries:** propose **diegetic** gate language where research affects checks (permits, procedures, equipment limits).
+- **Spoiler Hygiene:** provide **player-safe** alternative lines; no source names or
+  behind-the-scenes mechanics on surfaces.
+- **Accessibility:** prefer concrete, plain phrasing; avoid jargon unless Curator will publish an
+  entry.
+- **PN boundaries:** propose **diegetic** gate language where research affects checks (permits,
+  procedures, equipment limits).
 
 ---
 
@@ -109,16 +125,19 @@
 - Translator raises **culture/idiom** concerns.
 - Lore/Plot need **constraints** to justify canon or topology.
 
-**When dormant:** Owners keep surfaces **neutral**; mark items in Hot as `uncorroborated:<risk>`; Showrunner schedules a Research TU before release if risk ≥ med.
+**When dormant:** Owners keep surfaces **neutral**; mark items in Hot as `uncorroborated:<risk>`;
+Showrunner schedules a Research TU before release if risk ≥ med.
 
 ---
 
 ## 8) Cross-Domain & Escalation
 
 - If findings **pressure canon**, pair with **Lore** to set constraints, not outcomes.
-- If findings **pressure topology**, ping **Plotwright** with a hook (“door needs two-step check; here are credible options”).
+- If findings **pressure topology**, ping **Plotwright** with a hook (“door needs two-step check;
+  here are credible options”).
 - For **terminology**, coordinate with **Curator** (entry) and **Translator** (register/idiom).
-- For **sensitive content**, coordinate with **Style Lead** and **Gatekeeper**; escalate policy changes via **ADR** if needed.
+- For **sensitive content**, coordinate with **Style Lead** and **Gatekeeper**; escalate policy
+  changes via **ADR** if needed.
 
 ---
 
@@ -150,7 +169,8 @@
 - Q: _Can a standard dock badge be cloned easily?_
 - A: **Plausible with insider access**; commercial readers resist simple duplication.
 - Phrasing (surface): “The scanner blinks red. ‘Union badge?’ the guard asks.”
-- Implication: Gate can check **badge + foreman recognition**; loop-with-difference via insider contact.
+- Implication: Gate can check **badge + foreman recognition**; loop-with-difference via insider
+  contact.
 
 **Safety (audio)**
 
@@ -169,4 +189,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/hook_harvest.md`, `../../00-north-star/PLAYBOOKS/playbook_lore_deepening.md`
+**Related:** `../../00-north-star/LOOPS/hook_harvest.md`,
+`../../00-north-star/PLAYBOOKS/playbook_lore_deepening.md`

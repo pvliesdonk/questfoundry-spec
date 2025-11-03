@@ -4,13 +4,15 @@
 >
 > Created: 2025-10-29 during Phase 2 (Field Registry) extraction
 >
-> This document tracks contradictions between Layer 0 policy and Layer 1 templates discovered during systematic Layer 2 field extraction.
+> This document tracks contradictions between Layer 0 policy and Layer 1 templates discovered during
+> systematic Layer 2 field extraction.
 
 ---
 
 ## Summary
 
-During Phase 2 extraction of all 17 artifact templates, **7 contradictions** were found between Layer 0 North Star documents and Layer 1 templates. User has provided resolution decisions.
+During Phase 2 extraction of all 17 artifact templates, **7 contradictions** were found between
+Layer 0 North Star documents and Layer 1 templates. User has provided resolution decisions.
 
 **Resolution status:** ✅ Decisions made | 🔧 Fixes pending in Layer 1
 
@@ -129,10 +131,12 @@ Add `Determinism` to all template bar lists. It's a mandatory bar.
 - [ ] `01-roles/templates/hook_card.md` line 36 — Add Determinism
 - [ ] `01-roles/templates/gatecheck_report.md` §2 table — Add Determinism row
 - [ ] All role briefs mentioning bars — Verify Determinism is included
-- [ ] `02-dictionary/field_registry.md` — Update Bars affected field description (already shows 8 in taxonomy ref)
+- [ ] `02-dictionary/field_registry.md` — Update Bars affected field description (already shows 8 in
+      taxonomy ref)
 - [ ] `02-dictionary/taxonomies.md` — Already correct in §5 (7 bars listed, need to add Determinism)
 
-**Note:** Art Plan §13 and Audio Plan §8 already handle Determinism as off-surface repro section, but it needs to be in the Quality Bars list.
+**Note:** Art Plan §13 and Audio Plan §8 already handle Determinism as off-surface repro section,
+but it needs to be in the Quality Bars list.
 
 ---
 
@@ -201,7 +205,8 @@ Binding Run | Narration Dry-Run | Gatecheck | Post-Mortem | Archive Snapshot
 
 - [ ] `01-roles/templates/tu_brief.md` line 26 — Add Gatecheck, Post-Mortem, Archive Snapshot
 - [ ] `01-roles/templates/hook_card.md` line 71 — Add Gatecheck, Post-Mortem, Archive Snapshot
-- [ ] `02-dictionary/taxonomies.md` §3 — Update TU Types list (currently shows 13, verify all are listed)
+- [ ] `02-dictionary/taxonomies.md` §3 — Update TU Types list (currently shows 13, verify all are
+      listed)
 
 ---
 
@@ -230,22 +235,14 @@ This is intentional (file names vs display names). Document the canonical mappin
 - [ ] `01-roles/README.md` — Add section documenting loop name formatting convention
 - [ ] OR create `01-roles/LOOP_NAMES.md` — Canonical mapping table
 
-**Proposed mapping table:**
-| Display Name | File Name | Abbreviation |
-|--------------|-----------|--------------|
-| Story Spark | story-spark.md | SS |
-| Hook Harvest | hook-harvest.md | HH |
-| Lore Deepening | lore-deepening.md | LD |
-| Codex Expansion | codex-expansion.md | CE |
-| Style Tune-up | style-tuneup.md | ST |
-| Art Touch-up | art-touchup.md | AT |
-| Audio Pass | audio-pass.md | AP |
-| Translation Pass | translation-pass.md | TP |
-| Binding Run | binding-run.md | BR |
-| Narration Dry-Run | narration-dry-run.md | NDR |
-| Gatecheck | gatecheck.md | GC |
-| Post-Mortem | post-mortem.md | PM |
-| Archive Snapshot | archive-snapshot.md | AS |
+**Proposed mapping table:** | Display Name | File Name | Abbreviation |
+|--------------|-----------|--------------| | Story Spark | story-spark.md | SS | | Hook Harvest |
+hook-harvest.md | HH | | Lore Deepening | lore-deepening.md | LD | | Codex Expansion |
+codex-expansion.md | CE | | Style Tune-up | style-tuneup.md | ST | | Art Touch-up | art-touchup.md |
+AT | | Audio Pass | audio-pass.md | AP | | Translation Pass | translation-pass.md | TP | | Binding
+Run | binding-run.md | BR | | Narration Dry-Run | narration-dry-run.md | NDR | | Gatecheck |
+gatecheck.md | GC | | Post-Mortem | post-mortem.md | PM | | Archive Snapshot | archive-snapshot.md |
+AS |
 
 ---
 
@@ -270,24 +267,11 @@ Create canonical abbreviation list in Layer 1.
 - [ ] `01-roles/ROLE_INDEX.md` — Add abbreviation column to role table
 - [ ] OR create `01-roles/ROLE_ABBREVIATIONS.md` — Standalone reference
 
-**Proposed abbreviations (from observed usage):**
-| Role | Abbreviation |
-|------|--------------|
-| Showrunner | SR |
-| Gatekeeper | GK |
-| Plotwright | PW |
-| Scene Smith | SS |
-| Style Lead | ST |
-| Lore Weaver | LW |
-| Codex Curator | CC |
-| Art Director | AD |
-| Illustrator | IL |
-| Audio Director | AuD |
-| Audio Producer | AuP |
-| Translator | TR |
-| Book Binder | BB |
-| Player Narrator | PN |
-| Researcher | RS |
+**Proposed abbreviations (from observed usage):** | Role | Abbreviation | |------|--------------| |
+Showrunner | SR | | Gatekeeper | GK | | Plotwright | PW | | Scene Smith | SS | | Style Lead | ST | |
+Lore Weaver | LW | | Codex Curator | CC | | Art Director | AD | | Illustrator | IL | | Audio
+Director | AuD | | Audio Producer | AuP | | Translator | TR | | Book Binder | BB | | Player Narrator
+| PN | | Researcher | RS |
 
 ---
 
@@ -296,7 +280,6 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 0 (North Star) — 2 files
 
 1. **`00-north-star/HOOKS.md`**
-
    - Add `research` as valid hook type in §1
    - Verify hook status lifecycle includes all 7 states
 
@@ -307,28 +290,24 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 1 (Roles) — 5+ files
 
 3. **`01-roles/templates/hook_card.md`** — 3 fixes
-
-   - Line 21: Update status to `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
+   - Line 21: Update status to
+     `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`
    - Line 34: Update types to include `narrative, scene, factual, taxonomy, research` (13 total)
    - Line 36: Add `Determinism` to bars list
    - Line 71: Add `Hook Harvest | Gatecheck | Post-Mortem | Archive Snapshot` to loops
 
 4. **`01-roles/templates/tu_brief.md`** — 2 fixes
-
    - Line 26: Add `Gatecheck | Post-Mortem | Archive Snapshot` to loops
    - Verify bar lists include Determinism
 
 5. **`01-roles/templates/gatecheck_report.md`** — 1 fix
-
    - §2 Bars Table: Add Determinism row
 
 6. **`01-roles/README.md`** OR new **`01-roles/LOOP_NAMES.md`**
-
    - Document loop name formatting convention (kebab-case files, Title Case display)
    - Canonical mapping table
 
 7. **`01-roles/ROLE_INDEX.md`** OR new **`01-roles/ROLE_ABBREVIATIONS.md`**
-
    - Add canonical abbreviation list
 
 8. **All role briefs** (15 files)
@@ -337,7 +316,6 @@ Create canonical abbreviation list in Layer 1.
 ### Layer 2 (Dictionary) — 2 files
 
 9. **`02-dictionary/taxonomies.md`** — 2 fixes
-
    - §1 Hook Types: Add `research` (13 types total)
    - §5 Quality Bar Categories: Add `Determinism` (8 bars total)
 
@@ -353,9 +331,12 @@ Create canonical abbreviation list in Layer 1.
 1. Update `00-north-star/HOOKS.md` — add `research` type
 2. Verify `00-north-star/QUALITY_BARS.md` — confirm Determinism is 8th bar
 
-**Phase 2: Layer 2 taxonomy corrections** (common language) 3. Update `02-dictionary/taxonomies.md` §1 and §5
+**Phase 2: Layer 2 taxonomy corrections** (common language) 3. Update `02-dictionary/taxonomies.md`
+§1 and §5
 
-**Phase 3: Layer 1 template corrections** (role artifacts) 4. Update `hook_card.md`, `tu_brief.md`, `gatecheck_report.md` 5. Create/update `LOOP_NAMES.md` and `ROLE_ABBREVIATIONS.md` 6. Scan all 15 role briefs for bar references
+**Phase 3: Layer 1 template corrections** (role artifacts) 4. Update `hook_card.md`, `tu_brief.md`,
+`gatecheck_report.md` 5. Create/update `LOOP_NAMES.md` and `ROLE_ABBREVIATIONS.md` 6. Scan all 15
+role briefs for bar references
 
 **Phase 4: Field registry sync** 7. Update `02-dictionary/field_registry.md` constraints
 
@@ -415,7 +396,8 @@ Deferral tags to set now: <deferred:art deferred:audio deferred:translation defe
 
 ## Notes
 
-- These contradictions emerged because Layer 1 templates were created before Layer 0 policy was fully settled
+- These contradictions emerged because Layer 1 templates were created before Layer 0 policy was
+  fully settled
 - Field extraction (Phase 2) caught these systematically
 - User decisions align templates with Layer 0 (correct approach)
 - Some items (like Determinism bar) show Layer 0 was always correct, templates just incomplete
@@ -528,13 +510,12 @@ Use space-separated format everywhere (no pipes, no middle-dots, no commas).
 
 ### Issue
 
-**Current template** (`01-roles/templates/gatecheck_report.md` lines 48-56):
-Bars table only has 7 rows (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility)
+**Current template** (`01-roles/templates/gatecheck_report.md` lines 48-56): Bars table only has 7
+rows (Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility)
 
 **Example** (lines 139-148): Also missing Determinism row
 
-**Should be** (8 bars):
-Add Determinism row between Style and Presentation
+**Should be** (8 bars): Add Determinism row between Style and Presentation
 
 ### Resolution ✅
 

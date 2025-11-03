@@ -8,8 +8,7 @@ Creating enriched versions for all 17 artifacts.
 - tu_brief_ENRICHED.md
 - gatecheck_report_ENRICHED.md
 
-**In Progress (14/17):**
-Tier 2-5 artifacts being batch-created with same pattern:
+**In Progress (14/17):** Tier 2-5 artifacts being batch-created with same pattern:
 
 - HTML constraint comments
 - Validation rules (3 levels)

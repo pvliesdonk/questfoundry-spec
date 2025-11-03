@@ -1,10 +1,13 @@
 # Binding Run — Assemble an Export View on Cold
 
 **Purpose**  
-Assemble a **player-safe export view** of the book from a specific **Cold snapshot**. Package manuscript, codex, and checklists—optionally including art/audio plans or assets and translation slices—without leaking spoilers or internal plumbing.
+Assemble a **player-safe export view** of the book from a specific **Cold snapshot**. Package
+manuscript, codex, and checklists—optionally including art/audio plans or assets and translation
+slices—without leaking spoilers or internal plumbing.
 
 **Outcome**  
-A stamped **export bundle** (Markdown/HTML/EPUB/PDF) with front-matter metadata (snapshot ID, options used) and a **View Log**. No new canon is created; this loop does **not** write to Cold.
+A stamped **export bundle** (Markdown/HTML/EPUB/PDF) with front-matter metadata (snapshot ID,
+options used) and a **View Log**. No new canon is created; this loop does **not** write to Cold.
 
 ---
 
@@ -15,7 +18,8 @@ A stamped **export bundle** (Markdown/HTML/EPUB/PDF) with front-matter metadata 
 - External review or print/export request.
 
 **Activation**  
-Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a TU: `tu-binding-run-<date|milestone>` (trace only; content remains unchanged).
+Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a TU:
+`tu-binding-run-<date|milestone>` (trace only; content remains unchanged).
 
 ---
 
@@ -30,7 +34,8 @@ Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a T
 ## 3) Roles & Responsibilities
 
 - **Book Binder (R)**
-  - Assemble bundle from **Cold** only; ensure navigation, accessibility, and spoiler hygiene; stamp metadata.
+  - Assemble bundle from **Cold** only; ensure navigation, accessibility, and spoiler hygiene; stamp
+    metadata.
 - **Showrunner (A)**
   - Select snapshot & options; approve distribution.
 - **Gatekeeper (C)**
@@ -47,43 +52,37 @@ Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a T
 ## 4) Procedure
 
 1. **Pick Snapshot & Options (Showrunner)**
-
    - Freeze a Cold snapshot (`cold@YYYY-MM-DDThh:mmZ` or tag).
    - Choose inclusions: art plan/renders, audio plan/assets, translations, print layout, PN script.
 
 2. **Assemble Manuscript (Binder)**
-
    - Compile hyperlinked sections; ensure terminals clearly marked.
    - Generate **codeword/gateway checklists** in **player-safe wording** (no internal labels).
 
 3. **Attach Codex**
-
    - Include player-safe entries; build **See also** crosslinks; add glossary if present.
    - Ensure all manuscript terms with codex references resolve.
 
 4. **Include Optional Surfaces**
-
-   - **Art**: plan captions (spoiler-safe) and/or renders with alt text; no technique/seed info on surface.
+   - **Art**: plan captions (spoiler-safe) and/or renders with alt text; no technique/seed info on
+     surface.
    - **Audio**: plan cue descriptions and/or assets with text equivalents; loudness safety notes.
    - **Translations**: add language slices; mark `complete` / `incomplete`; keep anchors intact.
 
 5. **Accessibility & Navigation Pass**
-
    - Alt text, descriptive link text, proper headings; high-contrast print layout if enabled.
    - No motion/flash surprises; audio warnings where needed.
 
 6. **Stamp Metadata**
-
-   - Front matter fields: title, credits, **Cold snapshot ID**, options used, coverage %, Gatekeeper report ID.
+   - Front matter fields: title, credits, **Cold snapshot ID**, options used, coverage %, Gatekeeper
+     report ID.
    - Generate a **View Log** page (see §6).
 
 7. **Export Formats**
-
    - Emit Markdown (source), HTML, EPUB, PDF (single-column, print-friendly).
    - Verify links/anchors across all formats.
 
 8. **Gatekeeper Spot-Check**
-
    - Presentation Safety, Integrity (links), Style; note any fixes before distribution.
 
 9. **Handoff**
@@ -173,4 +172,5 @@ Showrunner chooses a **Cold snapshot** and export **options**, opens/updates a T
 ---
 
 **TL;DR**  
-Cut a clean **view** from Cold: safe, linked, accessible, and clearly labeled. The Binder ships the bundle; PN takes it for a spin; canon remains untouched.
+Cut a clean **view** from Cold: safe, linked, accessible, and clearly labeled. The Binder ships the
+bundle; PN takes it for a spin; canon remains untouched.

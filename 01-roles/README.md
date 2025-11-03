@@ -1,9 +1,12 @@
 # Layer 1 — Roles (Charters, Briefs, and Interfaces)
 
-Layer 1 defines **who does what** in QuestFoundry. It’s human-readable, implementation-agnostic, and deliberately light on restrictions so creators can breathe. Each role gets a **charter** (mission, scope, authorities, inputs/outputs) and an **agent brief** (practical heuristics). A few **interface notes** describe how key pairs collaborate.
+Layer 1 defines **who does what** in QuestFoundry. It’s human-readable, implementation-agnostic, and
+deliberately light on restrictions so creators can breathe. Each role gets a **charter** (mission,
+scope, authorities, inputs/outputs) and an **agent brief** (practical heuristics). A few **interface
+notes** describe how key pairs collaborate.
 
-> No schemas. No prompts. No message formats. Those belong to later layers.
-> Layer 1 must stand on its own and point back to Layer-0 policies when needed.
+> No schemas. No prompts. No message formats. Those belong to later layers. Layer 1 must stand on
+> its own and point back to Layer-0 policies when needed.
 
 ---
 
@@ -45,7 +48,10 @@ escalation_rules.md
 - **Briefs** give _how-to heuristics_ for day-to-day execution (still human, not prompts).
 - **Interfaces** describe _the handshake_ between specific roles without dictating wire formats.
 
-> **Note on work artifact structures:** Each role produces specific artifacts (hooks, TUs, canon packs, etc.). The **structure** of these artifacts (what fields they have) lives in Layer 2 (`../02-dictionary/artifacts/`). Role charters/briefs reference which artifacts each role produces, but defer to Layer 2 for the actual structure definitions.
+> **Note on work artifact structures:** Each role produces specific artifacts (hooks, TUs, canon
+> packs, etc.). The **structure** of these artifacts (what fields they have) lives in Layer 2
+> (`../02-dictionary/artifacts/`). Role charters/briefs reference which artifacts each role
+> produces, but defer to Layer 2 for the actual structure definitions.
 
 ---
 
@@ -87,7 +93,8 @@ Dormancy policy and wake signals are documented in `interfaces/dormancy_signals.
 ## Creative freedom (important)
 
 - Charters describe the **edges of the sandbox**, not your every move.
-- Briefs use **heuristics** (“prefer small, testable steps”, “keep choices contrastive”) rather than rules you could trip over.
+- Briefs use **heuristics** (“prefer small, testable steps”, “keep choices contrastive”) rather than
+  rules you could trip over.
 - Any role **MAY** propose **hooks**; the Showrunner’s **Hook Harvest** will triage them.
 - If a better idea appears mid-loop, **SHOULD** capture it as a hook and keep the current TU small.
 
@@ -97,7 +104,8 @@ Dormancy policy and wake signals are documented in `interfaces/dormancy_signals.
 
 1. **Start with charters** for the roles you’ll actually wake this sprint.
 2. **Skim the matching briefs** to align on working heuristics.
-3. **Check pair guides** before heavy hand-offs (Plotwright↔Scene, Lore↔Codex, Style↔PN/Translator, Directors↔Producers, Binder↔PN).
+3. **Check pair guides** before heavy hand-offs (Plotwright↔Scene, Lore↔Codex,
+   Style↔PN/Translator, Directors↔Producers, Binder↔PN).
 4. Keep a TU open in Hot; when done, go through Gatekeeper and merge to Cold.
 
 ---
@@ -116,7 +124,8 @@ We’ll draft these one by one to keep quality high.
 ## Contribution & traceability
 
 - Use a **TU** (`tu-<topic>-<date>`) for each charter/brief you add or revise.
-- If you propose renaming a role or changing its authority, that’s an **ADR** (`/DECISIONS`), not just a TU.
+- If you propose renaming a role or changing its authority, that’s an **ADR** (`/DECISIONS`), not
+  just a TU.
 - Keep examples **player-safe** unless the doc explicitly lives in Hot.
 
 ---
@@ -124,7 +133,8 @@ We’ll draft these one by one to keep quality high.
 ## What Layer 1 is **not**
 
 - Not schemas (Layer 3), not protocol (Layer 4), not prompts (Layer 5), not code (Layer 6–7).
-- It also isn’t a dumping ground for lore or prose—keep those in the studio loops under Layer 0 rules.
+- It also isn’t a dumping ground for lore or prose—keep those in the studio loops under Layer 0
+  rules.
 
 ---
 

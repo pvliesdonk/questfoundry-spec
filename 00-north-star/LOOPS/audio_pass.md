@@ -1,10 +1,14 @@
 # Audio Pass — Plan and/or Add Sound
 
 **Purpose**  
-Decide _what the audience should hear and why_—ambience, foley, stingers, or voice—then (optionally) produce audio that fits style and narrative intent without leaking spoilers. This loop supports **plan-only** merges when the **Audio Producer** is dormant.
+Decide _what the audience should hear and why_—ambience, foley, stingers, or voice—then (optionally)
+produce audio that fits style and narrative intent without leaking spoilers. This loop supports
+**plan-only** merges when the **Audio Producer** is dormant.
 
 **Outcome**  
-An **Audio Plan** (cues, purpose, timing/placement, captions/text-equivalents, safety notes) and, if active, **audio assets** with reproducibility notes. Ready for Gatekeeper checks and merge to **Cold** (plans may merge as **deferred**; assets merge only on full pass).
+An **Audio Plan** (cues, purpose, timing/placement, captions/text-equivalents, safety notes) and, if
+active, **audio assets** with reproducibility notes. Ready for Gatekeeper checks and merge to
+**Cold** (plans may merge as **deferred**; assets merge only on full pass).
 
 ---
 
@@ -16,7 +20,8 @@ An **Audio Plan** (cues, purpose, timing/placement, captions/text-equivalents, s
 - Export targets include audio plan/assets.
 
 **Activation**  
-Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director**/**Audio Producer** activation; either may be **dormant**.
+Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director**/**Audio Producer**
+activation; either may be **dormant**.
 
 ---
 
@@ -33,17 +38,21 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 ## 3) Roles & Responsibilities
 
 - **Audio Director (R)**
-  - Choose cue targets and **why** (clarity, mood, signposting); specify **placement** (entry/exit), **duration**, and **intensity**; write **player-safe cue descriptions** and captions/text-equivalents.
+  - Choose cue targets and **why** (clarity, mood, signposting); specify **placement** (entry/exit),
+    **duration**, and **intensity**; write **player-safe cue descriptions** and
+    captions/text-equivalents.
 - **Style Lead (C)**
   - Ensure audio language aligns with register/motifs; veto drift.
 - **Audio Producer (R, optional)**
-  - Create/arrange/mix assets; export masters; log **reproducibility notes** (DAW/session, key plugins, versions, sample rate/bit depth, stems).
+  - Create/arrange/mix assets; export masters; log **reproducibility notes** (DAW/session, key
+    plugins, versions, sample rate/bit depth, stems).
 - **PN (C)**
   - Confirm cues can be referenced **diegetically** when appropriate; never expose technique.
 - **Translator (C, optional)**
   - Flag VO/linguistic content and localization needs.
 - **Gatekeeper (C)**
-  - Check **Presentation Safety** (no spoilers; safe levels), **Style**, and **Determinism**/**Reproducibility** (when promised).
+  - Check **Presentation Safety** (no spoilers; safe levels), **Style**, and
+    **Determinism**/**Reproducibility** (when promised).
 - **Showrunner (A)**
   - Scope the pass; decide plan-only vs asset production; sequence merge.
 
@@ -53,14 +62,12 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 
 1. **Select & Justify (Audio Director)**  
    For each proposed cue:
-
    - **Cue ID & Scene anchor** (section or moment).
    - **Purpose** (clarify affordance, intensify stakes, transition, recall motif).
    - **Type** (ambience, foley, stinger, VO).
    - **Spoiler risk** (low/med/high) and mitigation (alternate cue or plan-only).
 
 2. **Write the Audio Plan (Audio Director)**
-
    - **Description (player-safe)**: what the listener perceives, not how it was made.
    - **Placement**: entry/exit, loop or one-shot, suggested duration.
    - **Intensity curve**: low/med/high, ramp/fade guidance.
@@ -70,20 +77,20 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
    - **Localization notes** (if VO): dialect, register, terms to preserve.
 
 3. **Style Alignment (Style Lead)**
-
    - Tune language and motif ties; approve or request revisions.
 
 4. **Produce Assets (Audio Producer, if active)**
-
    - Create cues; export masters; provide **stems** when relevant.
-   - Record **reproducibility**: DAW name/version, plugin list/versions, session sample rate/bit depth, key settings or presets, normalization target.
-   - Provide **text equivalents** and any **lyrics avoidance** if copyrighted texts would otherwise appear.
+   - Record **reproducibility**: DAW name/version, plugin list/versions, session sample rate/bit
+     depth, key settings or presets, normalization target.
+   - Provide **text equivalents** and any **lyrics avoidance** if copyrighted texts would otherwise
+     appear.
 
 5. **Pre-Gate (Gatekeeper)**
-
    - **Style**: cohesive with book register.
    - **Presentation Safety**: spoiler-safe cue descriptions; reasonable loudness; caption coverage.
-   - **Determinism/Reproducibility**: logs sufficient when promised; otherwise mark **non-deterministic** explicitly.
+   - **Determinism/Reproducibility**: logs sufficient when promised; otherwise mark
+     **non-deterministic** explicitly.
 
 6. **Package & Handoff**
    - Attach **Audio Plan** and (if produced) **assets + logs** to the TU.
@@ -94,7 +101,8 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 ## 5) Deliverables (Hot)
 
 - **Audio Plan** (per cue):
-  - Cue ID, Scene anchor, Purpose, Type, Player-safe description, Placement, Intensity curve, Motif ties, Captions/text-equivalents, Safety & Localization notes, Spoiler risk.
+  - Cue ID, Scene anchor, Purpose, Type, Player-safe description, Placement, Intensity curve, Motif
+    ties, Captions/text-equivalents, Safety & Localization notes, Spoiler risk.
 - **Audio Assets** (optional):
   - Files (masters) + **stems** (if applicable) + **reproducibility notes**.
 - **Pre-gate note** (Gatekeeper): pass/fail + remediations.
@@ -103,8 +111,10 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 
 ## 6) Merge Path (summary)
 
-- **Plan-only**: May merge to **Cold** as **deferred:audio** if **Style** and **Presentation Safety** pass.
-- **With assets**: Merge to **Cold** only if **Style + Presentation** pass and **Reproducibility** info is adequate (when promised).
+- **Plan-only**: May merge to **Cold** as **deferred:audio** if **Style** and **Presentation
+  Safety** pass.
+- **With assets**: Merge to **Cold** only if **Style + Presentation** pass and **Reproducibility**
+  info is adequate (when promised).
 - **Showrunner** stamps Cold snapshot; TU updated.
 
 ---
@@ -113,7 +123,8 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 
 - Each cue has a clear **narrative purpose** (clarity, mood, or signposting).
 - Descriptions and captions are **player-safe** and consistent with Style Lead.
-- Assets (if included) have **reproducibility notes**; loudness is reasonable; text equivalents exist.
+- Assets (if included) have **reproducibility notes**; loudness is reasonable; text equivalents
+  exist.
 - Gatekeeper reports **green** on Style/Presentation (and Reproducibility if applicable).
 
 ---
@@ -123,7 +134,8 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 - **Cue telegraphs a twist** → Move detail to canon notes; keep description atmospheric.
 - **Technique on surface** → Remove DAW/plugin talk; keep diegetic.
 - **Loudness shocks** → Tame transients; add fade/ramp; include safety note.
-- **Missing repro notes (promised)** → Re-export with logs or mark non-deterministic and do not promise reproducibility.
+- **Missing repro notes (promised)** → Re-export with logs or mark non-deterministic and do not
+  promise reproducibility.
 - **Untranslatable VO idioms** → Coordinate with Translator; adjust script; provide alt phrasing.
 
 ---
@@ -149,4 +161,5 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 ---
 
 **TL;DR**  
-Score the book with intention: say _why_ the sound exists, keep surfaces spoiler-safe, and either ship the **plan** now or the **plan + assets** with proper logs and captions. Mood, not machinery.
+Score the book with intention: say _why_ the sound exists, keep surfaces spoiler-safe, and either
+ship the **plan** now or the **plan + assets** with proper logs and captions. Mood, not machinery.

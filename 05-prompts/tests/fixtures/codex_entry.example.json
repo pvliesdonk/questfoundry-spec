@@ -10,7 +10,11 @@
   "overview": "A guild-controlled levy at Wormhole 3 that fluctuates with station tensions, known to favor vouched crews.",
   "context": "Merchants whisper that the gate narrows when a favor is owed. The toll foreman balances faction pressures and station needs.",
   "variants": [
-    { "variant": "Gate Fee", "register_region": "neutral", "translator_notes": "Prefer in-world phrasing over technical terms" }
+    {
+      "variant": "Gate Fee",
+      "register_region": "neutral",
+      "translator_notes": "Prefer in-world phrasing over technical terms"
+    }
   ],
   "relations": ["wormhole-3", "kestrel"],
   "reading_level": "plain",
@@ -28,4 +32,3 @@
     "Posture logged"
   ]
 }
-

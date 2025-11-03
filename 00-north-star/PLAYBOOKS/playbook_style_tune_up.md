@@ -1,8 +1,10 @@
 # Playbook — Style Tune-up
 
-**Use when:** Voice/register/motif drift is visible in prose, captions, PN lines, or localization. You need a focused pass that realigns surfaces without changing story structure.
+**Use when:** Voice/register/motif drift is visible in prose, captions, PN lines, or localization.
+You need a focused pass that realigns surfaces without changing story structure.
 
-**Outcome:** A **Style Addendum** (rules + exemplars), targeted **edit notes** to owners, and a green **Style/Presentation** pre-gate. Changes merge after owners apply edits.
+**Outcome:** A **Style Addendum** (rules + exemplars), targeted **edit notes** to owners, and a
+green **Style/Presentation** pre-gate. Changes merge after owners apply edits.
 
 ---
 
@@ -28,17 +30,20 @@
 
 **Style Lead (R)**
 
-1. **Sample & diagnose** drift; tag issues: `voice-shift`, `register-mismatch`, `motif-missing`, `over-exposition`, `jargon-spike`.
+1. **Sample & diagnose** drift; tag issues: `voice-shift`, `register-mismatch`, `motif-missing`,
+   `over-exposition`, `jargon-spike`.
 2. Write **exemplars (before/after)** that show the desired fix in 1–3 lines.
 3. Draft **Style Addendum**: rules, motif kit refresh, PN phrasing patterns, localization cautions.
 
-**Scene/PN/Caption owners (C)** 4. Receive **edit notes**: `target → issue → fix suggestion`. Propose minimal rewrites that preserve meaning.
+**Scene/PN/Caption owners (C)** 4. Receive **edit notes**: `target → issue → fix suggestion`.
+Propose minimal rewrites that preserve meaning.
 
 **Plotwright (C)** 5. Sanity: edits don’t alter topology/gateways or codeword economy.
 
 **Translator (C, optional)** 6. Flag untranslatables; suggest functionally equivalent phrasing.
 
-**Gatekeeper (C)** 7. **Pre-gate**: Style + Presentation Safety (no spoilers/technique talk on surfaces).
+**Gatekeeper (C)** 7. **Pre-gate**: Style + Presentation Safety (no spoilers/technique talk on
+surfaces).
 
 **Style Lead (R)** 8. Package Addendum + Edit Notes + Pre-gate into the TU.
 
@@ -104,7 +109,8 @@
 
 **Localization caution**
 
-- Rule: Avoid idioms without direct equivalents; provide functional phrasing (“on the level” → “honest, aboveboard”).
+- Rule: Avoid idioms without direct equivalents; provide functional phrasing (“on the level” →
+  “honest, aboveboard”).
 
 ---
 
@@ -118,4 +124,5 @@
 ---
 
 **Cheat line (TU note):**  
-“Style Tune-up (Act I): tighten voice, re-thread ‘low-G/relay-hum’ motifs; PN gate phrasing bank updated; 18 edit notes issued; pre-gate Style/Presentation green.”
+“Style Tune-up (Act I): tighten voice, re-thread ‘low-G/relay-hum’ motifs; PN gate phrasing bank
+updated; 18 edit notes issued; pre-gate Style/Presentation green.”

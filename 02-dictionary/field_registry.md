@@ -2,7 +2,9 @@
 
 > **Status:** 🚧 **PARKED — Phase 2 deliverable (2025-10-29)**
 >
-> This field registry catalogs **every field** used across all 17 artifact templates in Layer 2. Fields are classified by category, mapped to Phase 1 taxonomies, and annotated with type/optionality/constraints.
+> This field registry catalogs **every field** used across all 17 artifact templates in Layer 2.
+> Fields are classified by category, mapped to Phase 1 taxonomies, and annotated with
+> type/optionality/constraints.
 
 ---
 
@@ -370,27 +372,22 @@ The Field Registry serves as the **authoritative data dictionary** for QuestFoun
 Several fields directly reference or imply relationships between Phase 1 taxonomies:
 
 1. **Hook Type → TU Type/Loop**
-
    - Hook type influences which loop resolves it
    - Example: `style/pn` hook → `Style Tune-up` loop
 
 2. **Loop → Role Dormancy**
-
    - Each loop specifies awake/dormant roles
    - Example: `Art Touch-up` → wake Art Director/Illustrator
 
 3. **Bars → All Artifacts**
-
    - Every artifact relates to one or more Quality Bars
    - Example: Codex Entry presses `Integrity, Presentation`
 
 4. **Deferral Type → Artifact Status**
-
    - Deferral tags affect artifact production status
    - Example: `deferred:art` → Art Plan status = `planned` not `rendering`
 
 5. **Research Posture → Validation Rules**
-
    - Posture level determines what phrasing is safe
    - Example: `uncorroborated:high` → requires neutral phrasing in Cold
 
@@ -441,7 +438,8 @@ Several fields directly reference or imply relationships between Phase 1 taxonom
 
 When formalizing these fields into Layer 3 schemas:
 
-1. **Optionality may vary by context** — A field "required" in one artifact may be optional in another
+1. **Optionality may vary by context** — A field "required" in one artifact may be optional in
+   another
 2. **Enums should reference taxonomies** — Don't duplicate; link to `taxonomies.md`
 3. **Markdown fields need sanitization** — Player-safe constraint must be enforced
 4. **Path fields need validation** — Anchors must resolve; collision detection required

@@ -1,6 +1,8 @@
 # Hooks — Fast Ideas, Safe Canon
 
-A **hook** is a newly introduced fact, entity, affordance, or question that _might_ become canon. Hooks keep creativity fast while protecting coherence: they are usable immediately in **Hot SoT**, but only become **canon** after stabilization and Gatekeeper checks.
+A **hook** is a newly introduced fact, entity, affordance, or question that _might_ become canon.
+Hooks keep creativity fast while protecting coherence: they are usable immediately in **Hot SoT**,
+but only become **canon** after stabilization and Gatekeeper checks.
 
 ---
 
@@ -8,10 +10,13 @@ A **hook** is a newly introduced fact, entity, affordance, or question that _mig
 
 Examples (non-exhaustive):
 
-- **Narrative**: “New character: _Kestrel Var_,” “Hidden gateway under Dock 7,” “Loop: return here if `CODEWORD: ASH`.”
+- **Narrative**: “New character: _Kestrel Var_,” “Hidden gateway under Dock 7,” “Loop: return here
+  if `CODEWORD: ASH`.”
 - **Scene detail**: “Kestrel has a burn-scar on the jaw,” “Air tastes metallic in Section 42.”
-- **Factual (real-world)**: “Zero-G arterial bleeding forms floating filaments; needs cleanup protocol,” “Neutron star orbit period makes a 27-minute window plausible.”
-- **Taxonomy/clarity**: “Codex needs an entry for _Dock 7_,” “Missing timeline anchor between _Incident A_ and _Election B_.”
+- **Factual (real-world)**: “Zero-G arterial bleeding forms floating filaments; needs cleanup
+  protocol,” “Neutron star orbit period makes a 27-minute window plausible.”
+- **Taxonomy/clarity**: “Codex needs an entry for _Dock 7_,” “Missing timeline anchor between
+  _Incident A_ and _Election B_.”
 
 > Hooks are small on purpose: **one idea, one rationale**. Big changes are made of many small hooks.
 
@@ -21,9 +26,11 @@ Examples (non-exhaustive):
 
 - **Plotwright** — narrative hooks (entities, locations, stakes, topology ideas).
 - **Scene Smith** — concrete scene-level hooks (traits, tells, props, micro-events).
-- **Researcher** — factual hooks (claims to verify, constraints, contradictions; with sources/uncertainty).
+- **Researcher** — factual hooks (claims to verify, constraints, contradictions; with
+  sources/uncertainty).
 - **Codex Curator** — **taxonomy/clarity hooks only** (coverage gaps, cross-ref needs, red-links).
-- **Lore Weaver** — may originate narrative hooks when **backfilling** causality or resolving contradictions; also adjudicates accepted hooks into canon.
+- **Lore Weaver** — may originate narrative hooks when **backfilling** causality or resolving
+  contradictions; also adjudicates accepted hooks into canon.
 
 ---
 
@@ -32,10 +39,12 @@ Examples (non-exhaustive):
 Each hook note must include:
 
 - **Title** — short, unique.
-- **Type** — `narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility`.
+- **Type** —
+  `narrative | scene | factual | taxonomy | structure | canon | research | style/pn | translation | art | audio | binder/nav | accessibility`.
 - **Proposed by** — role + person/agent.
 - **Rationale** — why this helps (1–2 sentences).
-- **Evidence** _(factual/research only)_ — citation or `uncorroborated:<risk-level>` (low/medium/high).
+- **Evidence** _(factual/research only)_ — citation or `uncorroborated:<risk-level>`
+  (low/medium/high).
 - **Upstream refs** — what inspired this (section/brief/lore page).
 - **Potential impacts** — who/what might change downstream.
 - **Status** — `proposed | accepted | in-progress | resolved | canonized | deferred | rejected`.
@@ -48,16 +57,22 @@ Each hook note must include:
 ## 4) Lifecycle & loops
 
 1. **Create (Hot SoT)** — any generator writes a hook card with status `proposed`.
-2. **Hook Harvest (loop)** — Showrunner triggers; cluster similar hooks, remove dupes, set **triage tags**:
+2. **Hook Harvest (loop)** — Showrunner triggers; cluster similar hooks, remove dupes, set **triage
+   tags**:
    - `quick-win` (low risk, clear value)
    - `needs-research` (Researcher active or mark_uncorroborated)
    - `structure-impact` (affects topology/gateways)
    - `style-impact` (tone/voice/aesthetic ramifications)
-3. **Decision** — Mark hooks as `accepted` (proceed), `deferred` (parked for later), or `rejected` (won't do, with reason).
+3. **Decision** — Mark hooks as `accepted` (proceed), `deferred` (parked for later), or `rejected`
+   (won't do, with reason).
 4. **Work (in-progress)** — Accepted hooks move to `in-progress` when actively being developed.
-5. **Lore Deepening (loop)** — Lore Weaver turns `in-progress` or `accepted` hooks into **canon** (causal backstory, timelines, metaphysics). Conflicts are either `resolved` or tagged `deliberate-mystery`.
-6. **Codex Expansion (loop)** — Codex Curator publishes **player-safe** entries/cross-refs. Spoilers stay in canon notes, not in the codex.
-7. **Gatekeeper checks** — Quality bars (integrity, reachability, nonlinearity, gateways, style, determinism, presentation, accessibility); merge **Hot → Cold** on green.
+5. **Lore Deepening (loop)** — Lore Weaver turns `in-progress` or `accepted` hooks into **canon**
+   (causal backstory, timelines, metaphysics). Conflicts are either `resolved` or tagged
+   `deliberate-mystery`.
+6. **Codex Expansion (loop)** — Codex Curator publishes **player-safe** entries/cross-refs. Spoilers
+   stay in canon notes, not in the codex.
+7. **Gatekeeper checks** — Quality bars (integrity, reachability, nonlinearity, gateways, style,
+   determinism, presentation, accessibility); merge **Hot → Cold** on green.
 8. **Canonized** — Hook status becomes `canonized`; card links to its Cold location.
 
 ---
@@ -85,10 +100,12 @@ Defer hooks that:
 A hook can move from `accepted` → `canonized` if:
 
 - **Clarity** — it is stated unambiguously (one idea).
-- **Consistency** — does not contradict existing **Cold** canon or, if it does, comes with a resolution strategy signed by Lore Weaver.
+- **Consistency** — does not contradict existing **Cold** canon or, if it does, comes with a
+  resolution strategy signed by Lore Weaver.
 - **Traceability** — has upstream refs and expected downstream impacts.
 - **QA preview** — Gatekeeper can simulate impacts on integrity/reachability/nonlinearity.
-- **Player safety** — if it changes visible surface (codex/manuscript), PN/codex presentation remains spoiler-safe.
+- **Player safety** — if it changes visible surface (codex/manuscript), PN/codex presentation
+  remains spoiler-safe.
 
 ---
 
@@ -105,9 +122,12 @@ When **Researcher** is dormant:
 ## 8) Conflict patterns & resolutions
 
 - **Duplicate hooks** — Cluster under one title; preserve provenance.
-- **Colliding hooks** — Lore Weaver proposes a unifying canon or declares a `deliberate-mystery` with boundaries.
-- **Scope creep via codex** — Curator _does not_ invent deep lore; escalates narrative implications to Lore Weaver.
-- **Hidden spoilers** — Curator publishes player-safe summaries; spoiler detail remains in canon notes.
+- **Colliding hooks** — Lore Weaver proposes a unifying canon or declares a `deliberate-mystery`
+  with boundaries.
+- **Scope creep via codex** — Curator _does not_ invent deep lore; escalates narrative implications
+  to Lore Weaver.
+- **Hidden spoilers** — Curator publishes player-safe summaries; spoiler detail remains in canon
+  notes.
 
 ---
 
@@ -170,8 +190,10 @@ When **Researcher** is dormant:
 
 ## 11) Governance quick rules
 
-- **Showrunner**: triggers **Hook Harvest**; sets triage cadence; decides activation of dormant roles needed to advance a hook.
-- **Lore Weaver**: owns **Lore Deepening**; is final creative authority on canonization (subject to Gatekeeper/Showrunner gates).
+- **Showrunner**: triggers **Hook Harvest**; sets triage cadence; decides activation of dormant
+  roles needed to advance a hook.
+- **Lore Weaver**: owns **Lore Deepening**; is final creative authority on canonization (subject to
+  Gatekeeper/Showrunner gates).
 - **Gatekeeper**: blocks promotion if any quality bar fails; records remediation notes.
 - **Codex Curator**: publishes only after canonization; keeps the surface spoiler-safe.
 
@@ -187,4 +209,6 @@ When **Researcher** is dormant:
 ---
 
 **TL;DR**  
-Hooks keep us nimble without wrecking canon. Generate freely, harvest regularly, deepen deliberately, and ship player-safe surfaces once Gatekeeper and Showrunner green-light the merge to Cold.
+Hooks keep us nimble without wrecking canon. Generate freely, harvest regularly, deepen
+deliberately, and ship player-safe surfaces once Gatekeeper and Showrunner green-light the merge to
+Cold.

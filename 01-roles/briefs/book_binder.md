@@ -1,6 +1,8 @@
 # Agent Brief — Book Binder
 
-> **Mindset:** Package, don’t rewrite. Cut **Views** from a single **Cold snapshot**, keep navigation unbreakable, and surface only player-safe front matter. If you must touch wording, stop and route a TU upstream.
+> **Mindset:** Package, don’t rewrite. Cut **Views** from a single **Cold snapshot**, keep
+> navigation unbreakable, and surface only player-safe front matter. If you must touch wording, stop
+> and route a TU upstream.
 
 ---
 
@@ -20,15 +22,18 @@
 
 - **Cold-only.** A View is assembled from exactly one snapshot; never mix Hot.
 - **Label lightly.** Normalize labels/IDs only when non-semantic; otherwise open a TU.
-- **Integrity first.** Anchors/links/refs must resolve across manuscript, codex, captions, and language slices.
-- **Player-safe surfaces.** Front matter states snapshot, options, coverage, accessibility—no internals or technique.
+- **Integrity first.** Anchors/links/refs must resolve across manuscript, codex, captions, and
+  language slices.
+- **Player-safe surfaces.** Front matter states snapshot, options, coverage, accessibility—no
+  internals or technique.
 - **Repro notes off-surface.** Determinism/asset logs live in build notes, not in the book.
 
 ---
 
 ## 2) Inputs & outputs (quick view)
 
-**Read:** Cold snapshot contents, Showrunner options (art/audio: plan vs assets; languages), Gatekeeper notes, Style/Translator label guidance.
+**Read:** Cold snapshot contents, Showrunner options (art/audio: plan vs assets; languages),
+Gatekeeper notes, Style/Translator label guidance.
 
 **Produce:**
 
@@ -51,11 +56,15 @@
 
 ## 4) Heuristics (try this first)
 
-- **Stable slugs.** Prefer kebab-case anchors; avoid collisions across locales (`/nl/...` vs `/en/...`).
-- **TOC shape.** Keep section depth shallow enough for scan-ability; isolate choice lists visually (formatting only, no wording).
+- **Stable slugs.** Prefer kebab-case anchors; avoid collisions across locales (`/nl/...` vs
+  `/en/...`).
+- **TOC shape.** Keep section depth shallow enough for scan-ability; isolate choice lists visually
+  (formatting only, no wording).
 - **Crosslink sanity.** Manuscript ↔ codex ↔ captions round-trip without 404s.
-- **Coverage clarity.** If languages differ in completion, state percentages plainly in front matter.
-- **Accessibility snapshot.** Note alt/caption presence; flag missing items as future work, not promises.
+- **Coverage clarity.** If languages differ in completion, state percentages plainly in front
+  matter.
+- **Accessibility snapshot.** Note alt/caption presence; flag missing items as future work, not
+  promises.
 
 ---
 
@@ -70,9 +79,11 @@
 
 ## 6) Communication rules
 
-- **Ping owners** when binding reveals broken anchors or label drift (Scene/Curator/Translator/Style).
+- **Ping owners** when binding reveals broken anchors or label drift
+  (Scene/Curator/Translator/Style).
 - **Gatekeeper spot-check** for export Presentation before release.
-- **Escalate** export policy shifts (multilingual layout, file naming) via Showrunner; propose ADR if standards change.
+- **Escalate** export policy shifts (multilingual layout, file naming) via Showrunner; propose ADR
+  if standards change.
 
 ---
 
@@ -118,7 +129,8 @@ Notes: PN dry-run recommended; NL slice incomplete
 ## 9) Done checklist
 
 - [ ] Snapshot & options confirmed with Showrunner
-- [ ] Dry bind passes **Integrity** (anchors/links), **Presentation** (no internals), **Accessibility** summary added
+- [ ] Dry bind passes **Integrity** (anchors/links), **Presentation** (no internals),
+      **Accessibility** summary added
 - [ ] Front matter stamped with snapshot ID and options
 - [ ] **View Log** updated; **Anchor Map** generated
 - [ ] Gatekeeper export spot-check: **green**

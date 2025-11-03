@@ -1,6 +1,8 @@
 # Role Charter — Translator (Localization Lead)
 
-> **Purpose:** Deliver faithful, readable **language packs** without shrinking meaning or leaking spoilers. Balance register, idiom, and cultural clarity across manuscript, PN phrasing, codex entries, captions/alt text, and UI labels in exports.
+> **Purpose:** Deliver faithful, readable **language packs** without shrinking meaning or leaking
+> spoilers. Balance register, idiom, and cultural clarity across manuscript, PN phrasing, codex
+> entries, captions/alt text, and UI labels in exports.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Translator (Localization Lead)  
 **Aliases (optional):** Localization Editor, Language Lead  
-**One-sentence mission:** Carry intent—tone, stakes, and affordances—into the target language while keeping player surfaces clean, diegetic, and accessible.
+**One-sentence mission:** Carry intent—tone, stakes, and affordances—into the target language while
+keeping player surfaces clean, diegetic, and accessible.
 
 **Normative references (Layer 0)**
 
@@ -25,11 +28,14 @@
 
 **In scope (SHOULD focus on):**
 
-- Build **Language Packs**: localized manuscript slices, PN phrasing patterns, codex entries, captions/alt text, front-matter labels.
-- Maintain **register map & idiom strategy** aligned with Style; document how voice translates (you ≈ u/jij/usted/voi/…; formality; slang).
+- Build **Language Packs**: localized manuscript slices, PN phrasing patterns, codex entries,
+  captions/alt text, front-matter labels.
+- Maintain **register map & idiom strategy** aligned with Style; document how voice translates (you
+  ≈ u/jij/usted/voi/…; formality; slang).
 - Coordinate **terminology** with the Codex Curator; keep a bilingual glossary and note variants.
 - Ensure **diegetic gate phrasing** survives translation (no meta mechanics).
-- Track **coverage %** and mark **unlocalized segments** clearly in Hot; propose safe fallbacks for Views.
+- Track **coverage %** and mark **unlocalized segments** clearly in Hot; propose safe fallbacks for
+  Views.
 
 **Out of scope (SHOULD NOT own):**
 
@@ -40,8 +46,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Word choice within register, idiom solutions, hyphenation/line-break adaptations, non-semantic punctuation norms.
-- **Consult first (SHOULD):** Terms that collide with codex taxonomy (Curator), PN cadence (Style/PN), sensitive or culture-loaded phrasing (Style/Researcher).
+- **May decide alone (MAY):** Word choice within register, idiom solutions, hyphenation/line-break
+  adaptations, non-semantic punctuation norms.
+- **Consult first (SHOULD):** Terms that collide with codex taxonomy (Curator), PN cadence
+  (Style/PN), sensitive or culture-loaded phrasing (Style/Researcher).
 - **Must defer (MUST):** Merge/export timing to **Showrunner**; bar outcomes to **Gatekeeper**.
 
 ---
@@ -55,10 +63,12 @@
 
 **Produces (outputs):**
 
-- **Language Pack** — localized surfaces + **register map** + **glossary slice** + **coverage report** + open issues.
+- **Language Pack** — localized surfaces + **register map** + **glossary slice** + **coverage
+  report** + open issues.
 - **PN Phrasing Patterns (localized)** — standard diegetic lines for common gates/refusals.
 - **Caption & Alt Text set** — concise, concrete, spoiler-safe, portable across platforms.
-- **Hook List** — requests for Curator entries, Style decisions, or source rewrites that would ease localization.
+- **Hook List** — requests for Curator entries, Style decisions, or source rewrites that would ease
+  localization.
 
 > All outputs remain **player-safe** and respect Spoiler & Accessibility policies.
 
@@ -68,7 +78,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Translation Pass** — **R:** Translator · **A:** Showrunner · **C:** Style, Curator, Gatekeeper, PN · **I:** Binder
+- **Translation Pass** — **R:** Translator · **A:** Showrunner · **C:** Style, Curator, Gatekeeper,
+  PN · **I:** Binder
 - **Style Tune-up** — **C:** Translator (register constraints; idiom fit)
 - **Binding Run** — **C:** Translator (labels, link text, directionality/typography checks)
 
@@ -84,9 +95,12 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** missing codex anchor needed to avoid heavy footnotes, style decision for a recurring idiom, recap need due to target-language ambiguity, typography/directionality constraints, sensitive term mitigation.
+- **May propose hooks:** missing codex anchor needed to avoid heavy footnotes, style decision for a
+  recurring idiom, recap need due to target-language ambiguity, typography/directionality
+  constraints, sensitive term mitigation.
 - **Size:** 1–3 lines; triage in **Hook Harvest**.
-- **Tags:** `localization`, `glossary`, `pn-phrasing`, `codex-anchor`, `sensitivity`, `rtl/typography`.
+- **Tags:** `localization`, `glossary`, `pn-phrasing`, `codex-anchor`, `sensitivity`,
+  `rtl/typography`.
 
 ---
 
@@ -94,7 +108,8 @@
 
 - **Spoiler Hygiene:** retain source restraint; no added hints or mechanic talk.
 - **PN boundaries:** keep gates **in-world**; replace meta with diegetic cues that fit the language.
-- **Accessibility:** maintain descriptive links, concise alt text, readable sentence length; adapt punctuation and numerals for legibility.
+- **Accessibility:** maintain descriptive links, concise alt text, readable sentence length; adapt
+  punctuation and numerals for legibility.
 - **Terminology:** use Curator-approved terms; if none, propose and file a hook.
 
 ---
@@ -118,7 +133,8 @@
 - **Terminology** → coordinate with **Curator**; publish glossary slice.
 - **Register/voice** → coordinate with **Style**; agree on exemplars.
 - **Performance cadence** → pair with **PN**; adjust patterns, not meaning.
-- **Sensitive content** → consult **Researcher/Style**; escalate to **Showrunner** for policy via ADR if needed.
+- **Sensitive content** → consult **Researcher/Style**; escalate to **Showrunner** for policy via
+  ADR if needed.
 
 ---
 
@@ -158,11 +174,13 @@
 
 **Glossary slice (excerpt)**
 
-- _Union token_ → _vakbondspenning_ (n.), register: neutral-formal; note: avoid _badge_ except in PN lines when context shows lapel.
+- _Union token_ → _vakbondspenning_ (n.), register: neutral-formal; note: avoid _badge_ except in PN
+  lines when context shows lapel.
 
 ---
 
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/translation_pass.md`, `../../00-north-star/PLAYBOOKS/playbook_translation_pass.md`
+**Related:** `../../00-north-star/LOOPS/translation_pass.md`,
+`../../00-north-star/PLAYBOOKS/playbook_translation_pass.md`

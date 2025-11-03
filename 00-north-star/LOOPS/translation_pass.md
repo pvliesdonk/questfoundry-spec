@@ -1,10 +1,14 @@
 # Translation Pass — Add or Maintain a Target-Language Slice
 
 **Purpose**  
-Create or update a **player-safe** translation of the manuscript/codex surfaces while preserving PN boundaries, style intent, and navigation. This loop supports plan-only merges (glossary/style kit) when the full slice isn’t ready.
+Create or update a **player-safe** translation of the manuscript/codex surfaces while preserving PN
+boundaries, style intent, and navigation. This loop supports plan-only merges (glossary/style kit)
+when the full slice isn’t ready.
 
 **Outcome**  
-A **Language Pack** (glossary, style notes, localized surfaces, open issues) ready for Gatekeeper checks and merge to **Cold**. Exports can include complete or partial translations flagged accordingly.
+A **Language Pack** (glossary, style notes, localized surfaces, open issues) ready for Gatekeeper
+checks and merge to **Cold**. Exports can include complete or partial translations flagged
+accordingly.
 
 ---
 
@@ -15,7 +19,8 @@ A **Language Pack** (glossary, style notes, localized surfaces, open issues) rea
 - Accessibility or market goals require multilingual exports.
 
 **Activation**  
-Open/attach a **Trace Unit (TU)**: `tu-translation-<lang>-<scope>`. Confirm **Translator** activation (others may be dormant).
+Open/attach a **Trace Unit (TU)**: `tu-translation-<lang>-<scope>`. Confirm **Translator**
+activation (others may be dormant).
 
 ---
 
@@ -31,7 +36,8 @@ Open/attach a **Trace Unit (TU)**: `tu-translation-<lang>-<scope>`. Confirm **Tr
 ## 3) Roles & Responsibilities
 
 - **Translator (R)**
-  - Produce the **Language Pack**: glossary, style transfer notes, localized surfaces; flag untranslatables and cultural risks.
+  - Produce the **Language Pack**: glossary, style transfer notes, localized surfaces; flag
+    untranslatables and cultural risks.
 - **Style Lead (C)**
   - Approve register mapping (e.g., formal/informal “you”), motif equivalence, idiom strategy.
 - **PN (C)**
@@ -50,7 +56,8 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 ## 4) Language Pack Contents (human-level, not a schema)
 
 - **Glossary**
-  - Term → approved translation; part-of-speech; usage notes; do-not-translate list (proper nouns, codeword _names_ never shown on surface anyway); examples.
+  - Term → approved translation; part-of-speech; usage notes; do-not-translate list (proper nouns,
+    codeword _names_ never shown on surface anyway); examples.
 - **Register Map**
   - Pronoun system choice; honorifics; tone equivalents; swear policy.
 - **Motif Equivalence**
@@ -69,34 +76,27 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 ## 5) Procedure
 
 1. **Scope & Coverage Plan (Translator + Showrunner)**
-
    - Decide **slice** (full book, acts, codex subset).
    - Set coverage target and time box; mark partial outputs as `incomplete`.
 
 2. **Glossary First**
-
    - Create/refresh glossary with Style Lead.
    - Decide **register** (T/V distinction, dialect); lock decisions here.
 
 3. **Segment & Localize**
-
    - Translate player surfaces: **no internal labels**, no spoilers, preserve PN diegesis.
    - Keep hyperlinks and anchors intact; choice labels stay distinct and clear.
 
 4. **Motif & Idiom Pass (Style Lead)**
-
    - Validate motif resonance; solve idioms with functionally equivalent phrases.
 
 5. **PN Phrasing Check**
-
    - Confirm gate enforcement phrasing is diegetic and natural in target language.
 
 6. **Link Audit (Curator)**
-
    - Ensure cross-refs resolve to localized targets; add stubs if scoped.
 
 7. **Pre-Gate (Gatekeeper)**
-
    - **Presentation Safety** (no leaks), **Integrity** (links), **Style** (tone/voice).
 
 8. **Package**
@@ -106,7 +106,8 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 
 ## 6) Deliverables (Hot)
 
-- **Language Pack** for `<lang>`: glossary, register map, motif equivalence, idiom strategy, localized surfaces, open issues, coverage %.
+- **Language Pack** for `<lang>`: glossary, register map, motif equivalence, idiom strategy,
+  localized surfaces, open issues, coverage %.
 - **Pre-gate note**: Gatekeeper’s findings and remediation.
 
 ---
@@ -114,7 +115,8 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 ## 7) Merge Path (summary)
 
 - If **glossary/kit only**: may merge to **Cold** as **deferred:translation** with coverage `0%`.
-- If localized surfaces present: Gatekeeper passes **Presentation/Integrity/Style** → **Showrunner** merges to **Cold**, stamping snapshot and coverage %.
+- If localized surfaces present: Gatekeeper passes **Presentation/Integrity/Style** → **Showrunner**
+  merges to **Cold**, stamping snapshot and coverage %.
 - Binder may now include the slice (marked `complete` / `incomplete`).
 
 ---
@@ -140,7 +142,8 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 
 ## 10) Inclusion in Exports (Binder)
 
-- Export options: include **translations** per language with coverage flags: `complete`/`incomplete`.
+- Export options: include **translations** per language with coverage flags:
+  `complete`/`incomplete`.
 - Front matter records **snapshot ID**, languages included, and coverage %.
 - If incomplete, Binder lists missing sections so readers know scope.
 
@@ -168,4 +171,5 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 ---
 
 **TL;DR**  
-Lock terms and tone, translate the player surface without exposing the gears, keep links alive, and ship a clearly labeled language slice—even if it’s just the glossary this round.
+Lock terms and tone, translate the player surface without exposing the gears, keep links alive, and
+ship a clearly labeled language slice—even if it’s just the glossary this round.

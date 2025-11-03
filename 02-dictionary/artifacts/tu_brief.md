@@ -1,6 +1,7 @@
 # TU Brief — Small, Focused Loop (Layer 2, Enriched)
 
-> **Use this to open a timeboxed task unit (TU).** Keep it one sitting, wake only needed roles, cite the bars you'll press, and define what "done" means. Views are cut from **Cold**; never ship Hot.
+> **Use this to open a timeboxed task unit (TU).** Keep it one sitting, wake only needed roles, cite
+> the bars you'll press, and define what "done" means. Views are cut from **Cold**; never ship Hot.
 >
 > **Status:** ✨ **ENRICHED with Layer 2 constraints (Phase 3, 2025-10-29)**
 
@@ -8,11 +9,15 @@
 
 ## Normative references
 
-- Bars & safety: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & safety: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Handshakes & policy: `../../01-roles/interfaces/pair_guides.md` · `../../01-roles/interfaces/dormancy_signals.md` · `../../01-roles/interfaces/escalation_rules.md`
-- Roles & ownership: `../../01-roles/raci/by_loop.md` · `../../01-roles/checklists/role_readiness.md`
-- **Layer 2 references:** `../taxonomies.md` (§3, §5, §7) · `../field_registry.md` (Metadata §1.1, §1.2)
+- Handshakes & policy: `../../01-roles/interfaces/pair_guides.md` ·
+  `../../01-roles/interfaces/dormancy_signals.md` · `../../01-roles/interfaces/escalation_rules.md`
+- Roles & ownership: `../../01-roles/raci/by_loop.md` ·
+  `../../01-roles/checklists/role_readiness.md`
+- **Layer 2 references:** `../taxonomies.md` (§3, §5, §7) · `../field_registry.md` (Metadata §1.1,
+  §1.2)
 
 ---
 
@@ -251,7 +256,8 @@ Snapshot/View impact: none (text-only small pass)
 
 - Comma or space-separated list of bar names
 - Must be from taxonomies.md §5 (8 bars total)
-- All 8 bars valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility
+- All 8 bars valid: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism,
+  Presentation, Accessibility
 
 **Monitor (Bars):**
 
@@ -329,7 +335,8 @@ Snapshot/View impact: none (text-only small pass)
 
 **If Deferral tags set:**
 
-- Then Dormant should include corresponding roles (AD/IL for art, AuD/AuP for audio, TR for translation, RS for research)
+- Then Dormant should include corresponding roles (AD/IL for art, AuD/AuP for audio, TR for
+  translation, RS for research)
 - Deliverables should note deferred status
 
 **If Loop requires specific roles:**
@@ -402,8 +409,11 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Missing Determinism Bar
 
-**Wrong:** `Press: Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility` (7 bars)
-**Right:** `Press: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility` (8 bars)
+**Wrong:**
+`Press: Integrity, Reachability, Nonlinearity, Gateways, Style, Presentation, Accessibility` (7
+bars) **Right:**
+`Press: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility`
+(8 bars)
 
 **Why:** Determinism is the 8th mandatory bar per QUALITY_BARS.md.
 
@@ -420,8 +430,8 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Scope Too Large
 
-**Wrong:** "Act I — all scenes" with 20 deliverables and 120 min timebox
-**Right:** "Act I — Foreman Gate (3 sections)" with 3-5 deliverables and 60 min timebox
+**Wrong:** "Act I — all scenes" with 20 deliverables and 120 min timebox **Right:** "Act I — Foreman
+Gate (3 sections)" with 3-5 deliverables and 60 min timebox
 
 **Why:** TUs must fit in one sitting (45-90 min). Split large work into multiple chained TUs.
 
@@ -429,8 +439,8 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Bars Not Tied to Deliverables
 
-**Wrong:** Press: Integrity, Style | Deliverables: Gateway map, TU log
-**Right:** Press: Integrity, Reachability, Gateways | Deliverables: Gateway map with reachability check, TU log
+**Wrong:** Press: Integrity, Style | Deliverables: Gateway map, TU log **Right:** Press: Integrity,
+Reachability, Gateways | Deliverables: Gateway map with reachability check, TU log
 
 **Why:** Bars pressed should match deliverable types. Gateway map presses Gateways bar.
 
@@ -438,17 +448,18 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Dormancy Not Explicit
 
-**Wrong:** Awake: ST, SS | Dormant: (empty)
-**Right:** Awake: ST, GK, SS | Dormant: AD, IL, AuD, AuP, TR, LW, CC, BB, PN, RS | Deferral tags: deferred:art deferred:audio deferred:translation deferred:research
+**Wrong:** Awake: ST, SS | Dormant: (empty) **Right:** Awake: ST, GK, SS | Dormant: AD, IL, AuD,
+AuP, TR, LW, CC, BB, PN, RS | Deferral tags: deferred:art deferred:audio deferred:translation
+deferred:research
 
-**Why:** All 15 roles must be either awake or dormant. Deferral tags explain why optional tracks are dormant.
+**Why:** All 15 roles must be either awake or dormant. Deferral tags explain why optional tracks are
+dormant.
 
 ---
 
 ### ❌ Undefined Role Abbreviations
 
-**Wrong:** Using "SL" for Style Lead
-**Right:** Using "ST" for Style Lead (per Layer 1 role index)
+**Wrong:** Using "SL" for Style Lead **Right:** Using "ST" for Style Lead (per Layer 1 role index)
 
 **Why:** Role abbreviations must be consistent. Formal list needed in Layer 1.
 
@@ -456,8 +467,8 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Timebox Mismatch with Loop
 
-**Wrong:** Loop: Translation Pass | Timebox: 30 min
-**Right:** Loop: Translation Pass | Timebox: 60-90 min (multilingual work takes longer)
+**Wrong:** Loop: Translation Pass | Timebox: 30 min **Right:** Loop: Translation Pass | Timebox:
+60-90 min (multilingual work takes longer)
 
 **Why:** Different loops have different typical timeboxes. See LOOPS/ docs for guidance.
 
@@ -465,17 +476,18 @@ Snapshot/View impact: none (text-only small pass)
 
 ### ❌ Pre-gate Skipped
 
-**Wrong:** Gatekeeper: (only Gatecheck listed)
-**Right:** Gatekeeper: Pre-gate @gatekeeper (sample lines); Gatecheck @gatekeeper (final validation)
+**Wrong:** Gatekeeper: (only Gatecheck listed) **Right:** Gatekeeper: Pre-gate @gatekeeper (sample
+lines); Gatecheck @gatekeeper (final validation)
 
-**Why:** Pre-gate catches issues early, prevents wasted work. Always pre-gate before significant effort.
+**Why:** Pre-gate catches issues early, prevents wasted work. Always pre-gate before significant
+effort.
 
 ---
 
 ### ❌ No Trace Linkage
 
-**Wrong:** Trace: (empty)
-**Right:** Trace: Tracelog /logs/tu/<ID>.md | Linkage: hooks filed @ /hot/hooks/<names> | Snapshot impact: none (text-only)
+**Wrong:** Trace: (empty) **Right:** Trace: Tracelog /logs/tu/<ID>.md | Linkage: hooks filed @
+/hot/hooks/<names> | Snapshot impact: none (text-only)
 
 **Why:** Every TU must be traceable. Lineage is critical for understanding work history.
 

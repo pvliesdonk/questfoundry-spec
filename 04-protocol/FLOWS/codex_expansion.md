@@ -1,16 +1,20 @@
 # Codex Expansion Flow — Message Sequences
 
-> **Status:** Normative — this document defines end-to-end message sequences for the Codex Expansion loop.
+> **Status:** Normative — this document defines end-to-end message sequences for the Codex Expansion
+> loop.
 
 ---
 
 ## 1. Overview
 
-This specification defines the **message sequences** for the **Codex Expansion** loop: the protocol-level interactions that enable roles to transform canonical lore into player-safe codex entries with quality gates, traceability, and spoiler hygiene.
+This specification defines the **message sequences** for the **Codex Expansion** loop: the
+protocol-level interactions that enable roles to transform canonical lore into player-safe codex
+entries with quality gates, traceability, and spoiler hygiene.
 
 ### Purpose
 
 Codex Expansion transforms canon into player-safe knowledge by:
+
 1. **Handoff from Lore Deepening** — Lore Weaver provides player-safe summaries
 2. **Drafting codex entries** — Codex Curator creates structured, player-safe entries
 3. **Submitting codex entries** — CC submits `codex_entry` payloads for gatecheck
@@ -19,7 +23,8 @@ Codex Expansion transforms canon into player-safe knowledge by:
 
 ### Design Principles
 
-- **Player-safe constraint** — ALL codex payloads MUST be player-safe (no spoilers, no canon internals)
+- **Player-safe constraint** — ALL codex payloads MUST be player-safe (no spoilers, no canon
+  internals)
 - **TU-bound** — Codex work MUST occur within a TU context
 - **Schema-validated** — all payloads validated against `codex_entry.schema.json`
 - **Spoiler hygiene enforced** — Gatekeeper blocks any spoiler leaks in codex content
@@ -31,9 +36,11 @@ Codex Expansion transforms canon into player-safe knowledge by:
 
 ### 2.1 Context
 
-**Trigger:** Showrunner or Codex Curator initiates Codex Expansion after Lore Deepening produces canon with player-safe summaries
+**Trigger:** Showrunner or Codex Curator initiates Codex Expansion after Lore Deepening produces
+canon with player-safe summaries
 
 **Participants:**
+
 - **Showrunner (SR)** — Accountable owner (coordinates scope)
 - **Codex Curator (CC)** — Responsible owner (drafts entries)
 - **Lore Weaver (LW)** — Consulted (ensures canon accuracy, masks spoilers)
@@ -47,7 +54,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
    Intent: tu.open
    Payload: tu_brief (status: hot-proposed → stabilizing)
    Context: hot_cold="hot", tu=<new-TU-ID>, snapshot=<Cold snapshot>
-   
+
 2. Broadcast → SR/CC: ack
    Confirms TU opened and roles notified
 ```
@@ -96,6 +103,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```
 
 **Critical requirements:**
+
 - `loop` MUST be `"Codex Expansion"`
 - `responsible_r` MUST include `"CC"`
 - `press` MUST include `"Presentation"` (spoiler hygiene is critical)
@@ -169,6 +177,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 **Trigger:** Codex Curator completes codex entry drafting within TU
 
 **Participants:**
+
 - **Codex Curator (CC)** — Responsible for drafting player-safe entries
 - **Lore Weaver (LW)** — Validates canon accuracy, spoiler sweep
 - **Style Lead (ST)** — Validates voice, tone, reading level
@@ -179,27 +188,27 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```
 1. CC drafts codex entries (internal work, no protocol message)
    Drafts include: title, overview, context, variants, relations
-   
+
 2. LW performs spoiler sweep (consulted role)
    Compares entries against spoiler-level canon
    Masks any revelations or defers entry if masking misleads
-   
+
 3. ST performs style pass (consulted role)
    Ensures clarity, terminology consistency, reading level
-   
+
 4. CC performs link audit
    Validates all cross-references resolve (or creates stubs)
-   
+
 5. CC → GK: [Implicit pre-gate request via TU context]
    GK reviews codex entries for early risk assessment
-   
+
 6. GK → SR/CC: gate.report.submit (pre-gate report)
    Intent: gate.report.submit
    Payload: gatecheck_report (mode: "pre-gate")
    Flags likely risks before full gatecheck
-   
+
 7. CC addresses pre-gate feedback (if needed)
-   
+
 8. CC → SR: tu.submit_gate (ready for gatecheck)
    Intent: tu.submit_gate
    Payload: tu_brief (updated with deliverables)
@@ -232,10 +241,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
       "translator_notes": "Usage context and risks"
     }
   ],
-  "relations": [
-    "Related entry slug 1",
-    "Related entry slug 2"
-  ],
+  "relations": ["Related entry slug 1", "Related entry slug 2"],
   "reading_level": "plain",
   "anchor_slug": "/codex/kebab-case-anchor",
   "from_canon": "Player-safe fact intake from canon (20-400 chars, NO SPOILERS)",
@@ -254,12 +260,14 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```
 
 **Critical requirements:**
+
 - `tu` field MUST reference the Codex Expansion TU (traceability)
 - `overview` and `context` MUST NOT contain spoilers (player-safe constraint)
 - `from_canon` MUST be distilled from canon WITHOUT revealing spoilers
 - `relations` list ("See also") MUST resolve to existing or planned entries
 - `done_checklist` MUST have 8 items completed
-- **FORBIDDEN in codex payloads:** hidden gate conditions, codeword names, internal IDs, seed/model info, twist explanations, canon internals
+- **FORBIDDEN in codex payloads:** hidden gate conditions, codeword names, internal IDs, seed/model
+  info, twist explanations, canon internals
 
 **Example Codex Entry (Dock 7):**
 
@@ -283,12 +291,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
       "translator_notes": "Maintain informality; abbreviation conveys familiarity"
     }
   ],
-  "relations": [
-    "wormhole-tolls",
-    "salvage-permits",
-    "shadow-decks",
-    "station-security"
-  ],
+  "relations": ["wormhole-tolls", "salvage-permits", "shadow-decks", "station-security"],
   "reading_level": "plain",
   "anchor_slug": "/codex/dock-7",
   "from_canon": "Dock 7 is a low-traffic repair dock with minimal security presence, site of a historical refinery incident that shaped current safety protocols.",
@@ -306,7 +309,8 @@ Codex Expansion transforms canon into player-safe knowledge by:
 }
 ```
 
-**Note:** The canon's detailed cause of the incident (whatever it may be) stays in canon notes, NOT in the codex entry. Only player-safe context is included.
+**Note:** The canon's detailed cause of the incident (whatever it may be) stays in canon notes, NOT
+in the codex entry. Only player-safe context is included.
 
 ---
 
@@ -317,6 +321,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 **Trigger:** Codex Curator signals codex entries ready for review; Gatekeeper performs pre-gate
 
 **Participants:**
+
 - **Gatekeeper (GK)** — Reviews for presentation safety, integrity, style risks
 - **Codex Curator (CC)** — Receives feedback, addresses issues
 - **Showrunner (SR)** — Informed of risks
@@ -326,17 +331,17 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```
 1. GK reviews codex entries (internal work)
    Checks: Presentation Safety (no spoilers), Integrity (links resolve), Style
-   
+
 2. GK → SR/CC: gate.report.submit
    Intent: gate.report.submit
    Payload: gatecheck_report (mode: "pre-gate")
-   
+
 3. If risks identified:
    a) CC → SR: tu.rework
       Addresses GK feedback, revises codex entries
-   
+
    b) Return to step 1 (GK re-reviews)
-   
+
 4. If pre-gate clear:
    Proceed to merge request (next section)
 ```
@@ -452,9 +457,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
           "evidence": "Register neutral, reading level appropriate"
         }
       ],
-      "handoffs": [
-        "CC: Revise Dock 7 context; TU-2025-10-30-CC01; due: next cycle"
-      ],
+      "handoffs": ["CC: Revise Dock 7 context; TU-2025-10-30-CC01; due: next cycle"],
       "checklist": [
         "✓ Decision tied to bar statuses",
         "✓ Smallest viable fix specified",
@@ -478,6 +481,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 **Trigger:** Pre-gate clear; Codex Curator requests merge to Cold
 
 **Participants:**
+
 - **Codex Curator (CC)** — Submits merge request
 - **Gatekeeper (GK)** — Performs full gatecheck
 - **Showrunner (SR)** — Approves merge after gatecheck pass
@@ -489,17 +493,17 @@ Codex Expansion transforms canon into player-safe knowledge by:
    Intent: merge.request
    Payload: tu_brief (with deliverables ready)
    Context: TU ready for gatecheck
-   
+
 2. GK → SR: gate.decision
    Intent: gate.pass | gate.conditional_pass | gate.block
    Payload: gatecheck_report (mode: "gatecheck", all bars evaluated)
-   
+
 3a. If gate.pass or gate.conditional_pass:
     SR → Broadcast: merge.approve
     Intent: merge.approve
     Payload: tu_brief (final, with snapshot_context updated)
     Codex entries merged to Cold with snapshot stamping
-    
+
 3b. If gate.block:
     GK → CC: merge.reject
     Intent: merge.reject
@@ -576,11 +580,11 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```
 1. GK → SR: gate.decision (intent: gate.pass)
    All bars green (Presentation, Integrity, Style); no blockers
-   
+
 2. SR → Broadcast: merge.approve
    Codex entries merged to Cold @ <new-snapshot>
    Snapshot stamping: "Cold @ YYYY-MM-DD" recorded per TRACEABILITY
-   
+
 3. SR → Broadcast: tu.close
    TU closed; work complete
 ```
@@ -673,7 +677,7 @@ Codex Expansion transforms canon into player-safe knowledge by:
 ```json
 {
   "id": "TU-YYYY-MM-DD-CC<seq>",
-  "snapshot_context": "Cold @ YYYY-MM-DD",  // Updated to new snapshot (TRACEABILITY)
+  "snapshot_context": "Cold @ YYYY-MM-DD", // Updated to new snapshot (TRACEABILITY)
   "linkage": "Codex entries merged to Cold @ YYYY-MM-DD; TU closed; handoffs complete"
 }
 ```
@@ -689,9 +693,9 @@ Codex Expansion transforms canon into player-safe knowledge by:
   "receiver": { "role": "broadcast" },
   "intent": "merge.approve",
   "context": {
-    "hot_cold": "cold",  // Now Cold after merge
+    "hot_cold": "cold", // Now Cold after merge
     "tu": "TU-2025-10-30-CC01",
-    "snapshot": "Cold @ 2025-10-30",  // Snapshot stamping per TRACEABILITY
+    "snapshot": "Cold @ 2025-10-30", // Snapshot stamping per TRACEABILITY
     "loop": "Codex Expansion"
   },
   "safety": { "player_safe": true, "spoilers": "forbidden" },
@@ -714,7 +718,8 @@ Codex Expansion transforms canon into player-safe knowledge by:
 
 ### 7.1 Scenario: Station Terminology Codex Expansion
 
-**Context:** After Lore Deepening (TU-2025-10-30-LW01) produces canon with player-safe summaries, Showrunner opens Codex Expansion TU for Codex Curator to publish.
+**Context:** After Lore Deepening (TU-2025-10-30-LW01) produces canon with player-safe summaries,
+Showrunner opens Codex Expansion TU for Codex Curator to publish.
 
 **Sequence:**
 
@@ -735,7 +740,7 @@ Codex entries created:
   - Dock 7: player-safe description, no sabotage mention
   - Kestrel Var: scar origin without Syndicate involvement
   - Station Security: patrol patterns, no faction details
-  
+
 All entries validated against codex_entry.schema.json
 
 Step 3: GK pre-gate review
@@ -781,12 +786,14 @@ SR → Broadcast: tu.close
 **Policy:** ALL codex payloads MUST be player-safe (no spoilers, no canon internals).
 
 **Enforcement:**
+
 - Codex Curator drafts with player-safe constraint
 - Lore Weaver performs spoiler sweep comparing against canon
 - Gatekeeper validates Presentation bar (spoiler hygiene)
 - Any spoiler leak triggers conditional pass or block
 
 **Forbidden in codex entries:**
+
 - Hidden gate conditions
 - Codeword names or internal IDs
 - Seed/model parameters
@@ -796,11 +803,11 @@ SR → Broadcast: tu.close
 
 **Example violations:**
 
-| Violation | Codex Text | Remedy |
-|-----------|------------|--------|
+| Violation      | Codex Text                           | Remedy                                |
+| -------------- | ------------------------------------ | ------------------------------------- |
 | Spoiler reveal | "Dock 7 fire was Syndicate sabotage" | "Dock 7 fire was a refinery incident" |
-| Canon internal | "Kestrel gains knowledge at T2" | "Kestrel learns new information" |
-| Gateway logic | "Requires codeword SYNTH_LOYAL" | Remove codeword reference |
+| Canon internal | "Kestrel gains knowledge at T2"      | "Kestrel learns new information"      |
+| Gateway logic  | "Requires codeword SYNTH_LOYAL"      | Remove codeword reference             |
 
 ### 8.2 Spoiler Sweep Procedure
 
@@ -815,10 +822,14 @@ SR → Broadcast: tu.close
 **Example:**
 
 **Canon (spoiler-level):**
-> "[Character backstory with plot-relevant causal details, faction involvement, and specific motivations that would spoil narrative reveals]"
+
+> "[Character backstory with plot-relevant causal details, faction involvement, and specific
+> motivations that would spoil narrative reveals]"
 
 **Codex entry (player-safe):**
-> "[Same scenario described with neutral phrasing, general context, and surface-level facts that provide comprehension without revealing plot twists]"
+
+> "[Same scenario described with neutral phrasing, general context, and surface-level facts that
+> provide comprehension without revealing plot twists]"
 
 **Masked:** Faction involvement, causal details, character motivations that spoil plot
 
@@ -834,7 +845,8 @@ After Codex Expansion completes and entries merge to Cold, handoffs occur:
 
 **Content:** Cold codex entries for export
 
-**Handoff:** Binder consumes codex entries from Cold for manuscript exports, TOC generation, cross-reference linking
+**Handoff:** Binder consumes codex entries from Cold for manuscript exports, TOC generation,
+cross-reference linking
 
 **Message:** None required (informational handoff via Cold snapshot)
 
@@ -850,20 +862,21 @@ After Codex Expansion completes and entries merge to Cold, handoffs occur:
 
 ## 10. Error Conditions
 
-| Error Code | Trigger | Example | Remedy |
-|------------|---------|---------|--------|
-| `VALIDATION_FAILED` | Codex entry missing required fields | No `tu` field | Add TU reference |
-| `BUSINESS_RULE_VIOLATION` | TU not opened before codex work | Codex entry without TU | Open TU first |
-| `BUSINESS_RULE_VIOLATION` | Spoiler in codex payload | Overview reveals plot twist | Remove spoiler, re-submit |
-| `BUSINESS_RULE_VIOLATION` | Merge without gatecheck | merge.request before gate.pass | Wait for gatecheck |
-| `BUSINESS_RULE_VIOLATION` | Link rot | 'See also' references non-existent entry | Create stub or remove link |
-| `INVALID_STATE_TRANSITION` | merge.request from wrong state | TU not in gatecheck state | Follow sequence: stabilizing → gatecheck → merge |
+| Error Code                 | Trigger                             | Example                                  | Remedy                                           |
+| -------------------------- | ----------------------------------- | ---------------------------------------- | ------------------------------------------------ |
+| `VALIDATION_FAILED`        | Codex entry missing required fields | No `tu` field                            | Add TU reference                                 |
+| `BUSINESS_RULE_VIOLATION`  | TU not opened before codex work     | Codex entry without TU                   | Open TU first                                    |
+| `BUSINESS_RULE_VIOLATION`  | Spoiler in codex payload            | Overview reveals plot twist              | Remove spoiler, re-submit                        |
+| `BUSINESS_RULE_VIOLATION`  | Merge without gatecheck             | merge.request before gate.pass           | Wait for gatecheck                               |
+| `BUSINESS_RULE_VIOLATION`  | Link rot                            | 'See also' references non-existent entry | Create stub or remove link                       |
+| `INVALID_STATE_TRANSITION` | merge.request from wrong state      | TU not in gatecheck state                | Follow sequence: stabilizing → gatecheck → merge |
 
 ---
 
 ## 11. Success Criteria
 
 A Codex Expansion flow is successful when:
+
 - ✅ TU opened BEFORE codex drafting begins (traceability)
 - ✅ Codex entries validated against `codex_entry.schema.json`
 - ✅ All entries player-safe: NO spoilers in overview, context, or from_canon
@@ -881,21 +894,25 @@ A Codex Expansion flow is successful when:
 ## 12. Cross-References
 
 ### Layer 0/1 Policy
+
 - `00-north-star/LOOPS/codex_expansion.md` — Loop procedure and RACI
 - `00-north-star/QUALITY_BARS.md` — Quality bar definitions (Presentation, Integrity, Style)
 - `00-north-star/TRACEABILITY.md` — TU requirements, snapshot stamping
 - `00-north-star/SPOILER_HYGIENE.md` — Spoiler separation rules
 
 ### Layer 2 Dictionary
+
 - `02-dictionary/taxonomies.md` — TU types taxonomy §3
 - `02-dictionary/artifacts/codex_entry.md` — Codex Entry artifact definition
 
 ### Layer 3 Schemas
+
 - `03-schemas/tu_brief.schema.json` — TU Brief payload schema
 - `03-schemas/codex_entry.schema.json` — Codex Entry payload schema
 - `03-schemas/gatecheck_report.schema.json` — Gatecheck Report payload schema
 
 ### Layer 4 Protocol
+
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (tu.open, merge.request, gate.pass, etc.)
 - `04-protocol/FLOWS/lore_deepening.md` — Lore Deepening flow (upstream)
@@ -910,6 +927,7 @@ A Codex Expansion flow is successful when:
 ### 13.1 Synchronous vs Asynchronous
 
 Codex Expansion can be:
+
 - **Synchronous** — real-time session with CC + consulted roles (LW, ST)
 - **Asynchronous** — CC drafts entries, shares for review, iterates
 - **Hybrid** — async drafting + sync review meeting
@@ -921,6 +939,7 @@ All formats use same message protocol: `tu.open` → draft → `gate.report.subm
 **Critical step:** CC validates ALL cross-references ("See also", "relations") resolve
 
 **Options:**
+
 1. Link resolves to existing Cold codex entry → OK
 2. Link references planned entry (stub exists) → OK if stub has TU plan
 3. Link references non-existent entry → Create stub OR remove link
@@ -934,6 +953,7 @@ All formats use same message protocol: `tu.open` → draft → `gate.report.subm
 **Format:** `"Cold @ YYYY-MM-DD"` or equivalent timestamp/commit reference
 
 **Usage:**
+
 - Codex entries include `snapshot` field referencing merge snapshot
 - Binder exports record snapshot ID for reproducibility
 - PN dry-runs cite snapshot ID for consistent play experience
@@ -941,12 +961,15 @@ All formats use same message protocol: `tu.open` → draft → `gate.report.subm
 ### 13.4 Coverage Tracking
 
 **Deliverable:** Coverage report summarizing:
+
 - New terms covered (count + list)
 - Red-links remaining (unresolved cross-references)
 - Hooks filed for future batches (taxonomy/clarity gaps)
 
 **Example:**
-> "Coverage: 3 new terms (Dock 7, Kestrel Var, Station Security); 2 red-links remain (Salvage Permits, Shadow Decks); filed HK-20251030-15 for next batch."
+
+> "Coverage: 3 new terms (Dock 7, Kestrel Var, Station Security); 2 red-links remain (Salvage
+> Permits, Shadow Decks); filed HK-20251030-15 for next batch."
 
 ---
 

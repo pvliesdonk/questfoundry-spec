@@ -1,17 +1,21 @@
 # Language Pack — Localized Slice/Book Bundle (Layer 1, Human-Level)
 
-> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)**
-> Inline field constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
+> **Status:** ✅ **ENRICHED with Layer 2 constraints (Phase 3 — 2025-10-30)** Inline field
+> constraints and validation rules. All Phase 2+3 corrections applied (space-separated deferrals).
 
-> **Use:** Translator's deliverable that ships a **portable bundle** for a locale: localized surfaces (manuscript/codex/captions), **Register Map**, **Glossary Slice**, **anchor/label diffs**, and a **Coverage Report**—all **player-safe**. No spoilers, no internals.
+> **Use:** Translator's deliverable that ships a **portable bundle** for a locale: localized
+> surfaces (manuscript/codex/captions), **Register Map**, **Glossary Slice**, **anchor/label
+> diffs**, and a **Coverage Report**—all **player-safe**. No spoilers, no internals.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/SPOILER_HYGIENE.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
-- Interfaces & lanes: `../interfaces/pair_guides.md` (Style ↔ Translator; Binder ↔ Translator) · `../interfaces/escalation_rules.md`
+- Interfaces & lanes: `../interfaces/pair_guides.md` (Style ↔ Translator; Binder ↔ Translator) ·
+  `../interfaces/escalation_rules.md`
 - Role briefs: `../briefs/translator.md` · `../briefs/book_binder.md` · `../briefs/style_lead.md`
 - Templates: `./register_map.md`
 
@@ -49,7 +53,8 @@ Neighbors: @style @binder @pn @gatekeeper @curator
 <!-- Field: UI Labels/Front-matter | Type: enum | Required: yes | done | partial -->
 <!-- Field: Deferrals | Type: deferral-tags | Optional: yes | deferred:translation (space-separated) -->
 
-> Declare what's localized **now** and what's deferred. Percentages are by characters or sections—state which.
+> Declare what's localized **now** and what's deferred. Percentages are by characters or
+> sections—state which.
 
 ```
 
@@ -145,6 +150,7 @@ Micro-recap (pattern + example): <…>
 - Wrong: Source term: "foreman" | Target term: "guilty supervisor"
 - Right: Source term: "foreman" | Target term: "dock supervisor" | Notes: register: formal
 
-**Total fields: ~25** (7 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5 localization, 2 accessibility, 3 spatial)
+**Total fields: ~25** (7 metadata, 2 content, 1 classification, 4 relationships, 1 validation, 5
+localization, 2 accessibility, 3 spatial)
 
 ---

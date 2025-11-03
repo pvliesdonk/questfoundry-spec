@@ -29,10 +29,7 @@
       "context": {
         "hook_id": "HK-20251030-01"
       },
-      "suggestions": [
-        "morally_gray",
-        "antagonistic"
-      ]
+      "suggestions": ["morally_gray", "antagonistic"]
     }
   },
   "correlation_id": "corr-toll-faction-01"

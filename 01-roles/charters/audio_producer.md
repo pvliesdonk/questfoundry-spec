@@ -1,6 +1,8 @@
 # Role Charter — Audio Producer
 
-> **Purpose:** Transform **Audio Plans** into real, reproducible sound. Record, mix, or synthesize cues that match the plan’s purpose and register. Maintain safety and accessibility while keeping all **technical detail off surfaces**.
+> **Purpose:** Transform **Audio Plans** into real, reproducible sound. Record, mix, or synthesize
+> cues that match the plan’s purpose and register. Maintain safety and accessibility while keeping
+> all **technical detail off surfaces**.
 
 ---
 
@@ -8,7 +10,8 @@
 
 **Canonical name:** Audio Producer  
 **Aliases (optional):** Sound Engineer, Audio Implementer  
-**One-sentence mission:** Produce clean, reproducible audio cues from **Audio Plans**, with text equivalents and safety notes honored—and keep the noise behind the curtain.
+**One-sentence mission:** Produce clean, reproducible audio cues from **Audio Plans**, with text
+equivalents and safety notes honored—and keep the noise behind the curtain.
 
 **Normative references (Layer 0)**
 
@@ -26,7 +29,8 @@
 **In scope (SHOULD focus on):**
 
 - Render **Audio Cues** from approved **Audio Plans**, using real, synthetic, or hybrid production.
-- Maintain **Determinism Logs** for reproducibility (session IDs, DAW/project data, effects chains, etc.), kept **off-surface**.
+- Maintain **Determinism Logs** for reproducibility (session IDs, DAW/project data, effects chains,
+  etc.), kept **off-surface**.
 - Ensure **dynamic range, duration, and safety** match the plan’s notes.
 - Provide **captions/text equivalents** as authored; confirm timing alignment.
 - Deliver **mix-ready assets** or downmixed stems to the Binder.
@@ -40,8 +44,10 @@
 
 **Decisions & authority**
 
-- **May decide alone (MAY):** Production technique, tool choice, mastering approach, micro-timing within plan limits.
-- **Consult first (SHOULD):** Stylistic/tone questions (Style/Director), localization or translation for captions (Translator), safety validation (Gatekeeper).
+- **May decide alone (MAY):** Production technique, tool choice, mastering approach, micro-timing
+  within plan limits.
+- **Consult first (SHOULD):** Stylistic/tone questions (Style/Director), localization or translation
+  for captions (Translator), safety validation (Gatekeeper).
 - **Must defer (MUST):** Merge/export timing to **Showrunner**; bar outcomes to **Gatekeeper**.
 
 ---
@@ -60,7 +66,8 @@
 - **Mixdown Notes** — simple descriptive record (duration, fade, loudness, cue ID).
 - **Safety Checklist** — per cue: intensity, onset, safe playback range.
 
-> Only the **rendered audio** and **player-safe captions** reach surfaces. All production metadata remains internal.
+> Only the **rendered audio** and **player-safe captions** reach surfaces. All production metadata
+> remains internal.
 
 ---
 
@@ -68,7 +75,8 @@
 
 **Primary loops (RACI summary):**
 
-- **Audio Pass** — **R:** Audio Producer (render) · **A:** Showrunner · **C:** Audio Director, Style, Gatekeeper · **I:** Binder, PN
+- **Audio Pass** — **R:** Audio Producer (render) · **A:** Showrunner · **C:** Audio Director,
+  Style, Gatekeeper · **I:** Binder, PN
 
 **Definition of done (for Audio Producer contributions):**
 
@@ -82,7 +90,8 @@
 
 ## 5) Hook Policy (small ideas, big futures)
 
-- **May propose hooks:** sound motif refinement, accessibility enhancement, missing safety metadata, binder layout suggestions.
+- **May propose hooks:** sound motif refinement, accessibility enhancement, missing safety metadata,
+  binder layout suggestions.
 - **Tags:** `audio`, `safety`, `motif`, `accessibility`, `mix`.
 
 ---
@@ -91,7 +100,8 @@
 
 - **Captions and text equivalents** must stay synchronized and player-safe.
 - **No spoiler or technique references** (no plugin, instrument, or seed names).
-- **Accessibility:** avoid extreme panning or frequencies that cause fatigue; ensure volume targets remain comfortable.
+- **Accessibility:** avoid extreme panning or frequencies that cause fatigue; ensure volume targets
+  remain comfortable.
 - **Consistency:** maintain tonal palette per Style Lead’s guidance.
 
 ---
@@ -156,4 +166,5 @@
 ## 12) Metadata
 
 **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`  
-**Related:** `../../00-north-star/LOOPS/audio_pass.md`, `../../00-north-star/PLAYBOOKS/playbook_audio_pass.md`
+**Related:** `../../00-north-star/LOOPS/audio_pass.md`,
+`../../00-north-star/PLAYBOOKS/playbook_audio_pass.md`

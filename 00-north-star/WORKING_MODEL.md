@@ -1,6 +1,8 @@
 # Working Model — How the Studio Operates
 
-This document explains the day-to-day behavior of the QuestFoundry studio: who does what, how work flows, how roles are activated or kept dormant, and how changes move from Hot to Cold Source of Truth.
+This document explains the day-to-day behavior of the QuestFoundry studio: who does what, how work
+flows, how roles are activated or kept dormant, and how changes move from Hot to Cold Source of
+Truth.
 
 ---
 
@@ -8,10 +10,13 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 
 - **Showrunner** sets scope, activates roles and loops, and owns stabilization cadence.
 - **Gatekeeper** enforces quality bars before merging Hot → Cold.
-- Creative roles work in **Hot SoT** (drafts, proposals, hooks). Accepted changes stabilize and merge into **Cold SoT** (canon, style, export-safe).
-- The manuscript is **evergreen**: exports are **views** on Cold at a point in time; loops can be re-run later.
+- Creative roles work in **Hot SoT** (drafts, proposals, hooks). Accepted changes stabilize and
+  merge into **Cold SoT** (canon, style, export-safe).
+- The manuscript is **evergreen**: exports are **views** on Cold at a point in time; loops can be
+  re-run later.
 
-**Cross-domain rule:** roles discuss freely with their stakeholders **inside their domain**; cross-domain changes are coordinated via the **Showrunner**.
+**Cross-domain rule:** roles discuss freely with their stakeholders **inside their domain**;
+cross-domain changes are coordinated via the **Showrunner**.
 
 ---
 
@@ -20,7 +25,8 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 **Always active**
 
 - **Showrunner** — production lead; triggers loops; unblocks decisions.
-- **Gatekeeper** — quality bars: Integrity, Reachability, Nonlinearity, Gateways, Style, Determinism, Presentation, Accessibility.
+- **Gatekeeper** — quality bars: Integrity, Reachability, Nonlinearity, Gateways, Style,
+  Determinism, Presentation, Accessibility.
 
 **Active by default**
 
@@ -28,31 +34,38 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 - **Scene Smith** — writes section prose; generates scene-level hooks.
 - **Style Lead** — voice, register, motifs, visual guardrails; corrects drift.
 - **Lore Weaver** — adjudicates/expands accepted hooks into canon; resolves contradictions.
-- **Codex Curator** — publishes player-safe entries with cross-refs; proposes taxonomy/clarity hooks.
+- **Codex Curator** — publishes player-safe entries with cross-refs; proposes taxonomy/clarity
+  hooks.
 
 **Can be dormant (Showrunner decides)**
 
-- **Researcher** — investigates facts, cites sources; generates factual hooks. _(Dormant ⇒ factual risk noted.)_
-- **Art Director / Illustrator** — plan and/or produce illustrations; deterministic parameters tracked.
+- **Researcher** — investigates facts, cites sources; generates factual hooks. _(Dormant ⇒ factual
+  risk noted.)_
+- **Art Director / Illustrator** — plan and/or produce illustrations; deterministic parameters
+  tracked.
 - **Audio Director / Audio Producer** — plan and/or produce audio assets.
 - **Translator (Localization Lead)** — plan and maintain target-language slices.
 
 **Consumers**
 
 - **Book Binder** — assembles/export a view on Cold (hyperlinked manuscript + codex + checklists).
-- **Player-Narrator (PN)** — spoiler-safe, in-world delivery; supports playtests (Narration Dry-Run).
+- **Player-Narrator (PN)** — spoiler-safe, in-world delivery; supports playtests (Narration
+  Dry-Run).
 
 ---
 
 ## 3) Hooks and Canon
 
-**Hook** = a newly introduced fact/entity/affordance usable immediately in Hot, pending adjudication.
+**Hook** = a newly introduced fact/entity/affordance usable immediately in Hot, pending
+adjudication.
 
-- **May originate from**: Plotwright, Scene Smith, Researcher, Codex Curator (taxonomy/clarity), and Lore Weaver (when backfilling causality).
+- **May originate from**: Plotwright, Scene Smith, Researcher, Codex Curator (taxonomy/clarity), and
+  Lore Weaver (when backfilling causality).
 - **Lifecycle**:
   1. **Creation (Hot)** with rationale and (if factual) citation or uncertainty level.
   2. **Hook Harvest** loop clusters/prioritizes.
-  3. **Lore Deepening** turns accepted hooks into canon; contradictions resolved or logged as deliberate mysteries.
+  3. **Lore Deepening** turns accepted hooks into canon; contradictions resolved or logged as
+     deliberate mysteries.
   4. **Codex Expansion** publishes player-safe entries; spoilers stay out of the codex.
   5. **Gatekeeper checks** → merge to **Cold**.
 
@@ -60,7 +73,8 @@ This document explains the day-to-day behavior of the QuestFoundry studio: who d
 
 ## 4) Loops (human-named)
 
-Loops can be full-scale or small scoped runs. Showrunner triggers and scopes; roles may be dormant unless required by the loop.
+Loops can be full-scale or small scoped runs. Showrunner triggers and scopes; roles may be dormant
+unless required by the loop.
 
 - **Story Spark** — Add/reshape plot topology; ripples to prose, codex, QA.
 - **Hook Harvest** — Collect/cluster/prioritize hooks from all generators.
@@ -75,7 +89,8 @@ Loops can be full-scale or small scoped runs. Showrunner triggers and scopes; ro
 
 Each loop document specifies:
 
-- Trigger (Showrunner), scope, required/optional roles, Hot→Cold path, Gatekeeper checks, and how to proceed if a role is dormant.
+- Trigger (Showrunner), scope, required/optional roles, Hot→Cold path, Gatekeeper checks, and how to
+  proceed if a role is dormant.
 
 ---
 
@@ -104,7 +119,8 @@ For any accepted change:
 
 Exports (Binding Run) record:
 
-- **Cold snapshot ID** (tag/commit) and **export options** used (e.g., include art plan, exclude audio).
+- **Cold snapshot ID** (tag/commit) and **export options** used (e.g., include art plan, exclude
+  audio).
 
 ---
 
@@ -113,7 +129,8 @@ Exports (Binding Run) record:
 - **In-domain discussions**: direct and informal (e.g., Scene Smith ↔ Style Lead).
 - **Cross-domain changes**: routed via **Showrunner** to avoid silent scope creep.
 - **PN boundary**: PN never reveals internals (codewords, hidden gates, asset params).
-- **Codex boundary**: player-safe summaries; spoilers and design notes live in canon, not in the codex.
+- **Codex boundary**: player-safe summaries; spoilers and design notes live in canon, not in the
+  codex.
 
 ---
 
@@ -136,7 +153,8 @@ Gatekeeper reports pass/fail with concrete remediation notes.
 
 - The **Showrunner** explicitly marks roles as **active** or **dormant** per run/scope.
 - Loops specify **required** vs **optional** roles. Optional roles may remain dormant.
-- If **Researcher** is dormant, factual claims carry a research posture flag (uncorroborated:low | uncorroborated:medium | uncorroborated:high) with a reminder to revisit.
+- If **Researcher** is dormant, factual claims carry a research posture flag (uncorroborated:low |
+  uncorroborated:medium | uncorroborated:high) with a reminder to revisit.
 
 ---
 

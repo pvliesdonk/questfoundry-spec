@@ -6,9 +6,22 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "BB" },
     "intent": "view.export.request",
-    "context": { "hot_cold": "cold", "tu": "TU-2025-11-04-BB10", "snapshot": "Cold @ 2025-10-28", "loop": "Binding Run" },
+    "context": {
+      "hot_cold": "cold",
+      "tu": "TU-2025-11-04-BB10",
+      "snapshot": "Cold @ 2025-10-28",
+      "loop": "Binding Run"
+    },
     "safety": { "player_safe": false, "spoilers": "allowed" },
-    "payload": { "type": "view_log", "data": { "title": "milestone-ch3-html", "targets": ["html"], "cold_snapshot": "Cold @ 2025-10-28", "tu": "TU-2025-11-04-BB10" } },
+    "payload": {
+      "type": "view_log",
+      "data": {
+        "title": "milestone-ch3-html",
+        "targets": ["html"],
+        "cold_snapshot": "Cold @ 2025-10-28",
+        "tu": "TU-2025-11-04-BB10"
+      }
+    },
     "correlation_id": "corr-bb-html-2025-11-04"
   },
   {
@@ -18,11 +31,24 @@
     "sender": { "role": "BB", "agent": "bot:binder-v2" },
     "receiver": { "role": "PN" },
     "intent": "view.export.result",
-    "context": { "hot_cold": "cold", "tu": "TU-2025-11-04-BB10", "snapshot": "Cold @ 2025-10-28", "loop": "Binding Run" },
+    "context": {
+      "hot_cold": "cold",
+      "tu": "TU-2025-11-04-BB10",
+      "snapshot": "Cold @ 2025-10-28",
+      "loop": "Binding Run"
+    },
     "safety": { "player_safe": true, "spoilers": "forbidden" },
-    "payload": { "type": "view_log", "data": { "title": "milestone-ch3-html", "targets": ["html"], "cold_snapshot": "Cold @ 2025-10-28", "tu": "TU-2025-11-04-BB10", "export_artifacts": [{ "kind": "html", "path": "exports/milestone-ch3/index.html" }] } },
+    "payload": {
+      "type": "view_log",
+      "data": {
+        "title": "milestone-ch3-html",
+        "targets": ["html"],
+        "cold_snapshot": "Cold @ 2025-10-28",
+        "tu": "TU-2025-11-04-BB10",
+        "export_artifacts": [{ "kind": "html", "path": "exports/milestone-ch3/index.html" }]
+      }
+    },
     "correlation_id": "corr-bb-html-2025-11-04",
     "reply_to": "urn:uuid:sr-req-bb-0001"
   }
 ]
-

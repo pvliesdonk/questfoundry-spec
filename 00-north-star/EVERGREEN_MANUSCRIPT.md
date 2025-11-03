@@ -1,17 +1,21 @@
 # Evergreen Manuscript — Exporting Views, Not Finals
 
-A QuestFoundry manuscript is **never “finished.”** We export **views on Cold SoT** at points in time. New loops can always reshape canon, prose, or presentation. This document defines what a “view” is, how we assemble it, and how we keep it safe, clear, and traceable.
+A QuestFoundry manuscript is **never “finished.”** We export **views on Cold SoT** at points in
+time. New loops can always reshape canon, prose, or presentation. This document defines what a
+“view” is, how we assemble it, and how we keep it safe, clear, and traceable.
 
 ---
 
 ## 1) What is a manuscript “view”?
 
-An **exported bundle** assembled by the **Book Binder** from a specific **Cold snapshot**. It is player-safe and ready for reading/playing, but it’s not the last word—just the current one.
+An **exported bundle** assembled by the **Book Binder** from a specific **Cold snapshot**. It is
+player-safe and ready for reading/playing, but it’s not the last word—just the current one.
 
 Each view records:
 
 - **Cold snapshot ID** (tag/commit, e.g., `cold@2025-10-28T14:05Z`)
-- **Export options** (include/exclude: art plan, art renders, audio plan, audio assets, localization slices)
+- **Export options** (include/exclude: art plan, art renders, audio plan, audio assets, localization
+  slices)
 - **Surface checks** passed (Gatekeeper report id)
 
 ---
@@ -39,7 +43,8 @@ Each view records:
 - Assemble from **Cold** only (never from Hot).
 - Ensure **navigation clarity** (links resolve; breadcrumbs/headers readable).
 - Maintain **spoiler hygiene** (no hidden gates or codeword labels on surface).
-- Provide **accessibility** basics: alt text, descriptive link text, sensible headings, motion/audio cautions.
+- Provide **accessibility** basics: alt text, descriptive link text, sensible headings, motion/audio
+  cautions.
 - Record **snapshot ID** and **export options** inside the bundle.
 
 Binder does not rewrite content; issues get logged as TUs or loop triggers via Showrunner.
@@ -127,7 +132,8 @@ Art/Audio/Translation may be **plan-only** in Cold:
 
 - A view does not freeze canon; it **reflects** canon at a moment in time.
 - New loops can run after publication; the next export cites a new snapshot ID and View Log.
-- Readers and playtesters can always request a refreshed view; the Showrunner schedules Binding Runs.
+- Readers and playtesters can always request a refreshed view; the Showrunner schedules Binding
+  Runs.
 
 ---
 
@@ -141,4 +147,5 @@ Art/Audio/Translation may be **plan-only** in Cold:
 ---
 
 **TL;DR**  
-We don’t ship “finals.” We ship **clean, traceable views** on Cold SoT. The Book Binder assembles them player-safe, accessible, and clearly labeled with what they include and when they were cut.
+We don’t ship “finals.” We ship **clean, traceable views** on Cold SoT. The Book Binder assembles
+them player-safe, accessible, and clearly labeled with what they include and when they were cut.
