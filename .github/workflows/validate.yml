@@ -32,3 +32,8 @@ jobs:
 
       - name: Validate schemas
         run: uv run --directory tools qfspec-validate
+
+      - name: Validate prompts (scaffold)
+        run: |
+          python --version
+          python 05-prompts/tests/validate_prompts.py
