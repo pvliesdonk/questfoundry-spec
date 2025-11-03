@@ -1,11 +1,14 @@
 """
 STATUS: SCAFFOLD
-Validates minimal Layer 3 instances while scaffolding proceeds.
+Validates Layer 3 instances and Layer 4 envelopes.
 
 Current checks:
 - Validate example instances against Layer 3 schemas: codex_entry, edit_notes.
+- Validate envelopes in examples under structure-only mode (skip payload.data).
+- Whitelisted strict examples run full payload validation (envelope + payload).
+
 Future:
-- Validate envelopes in examples; intent coverage; reference checks.
+- Expand strict whitelist to additional examples once they are ready.
 """
 
 from __future__ import annotations
@@ -13,6 +16,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_SRC = REPO_ROOT / "tools" / "src"
@@ -33,6 +37,15 @@ def validate_instance_file(schema_name: str, instance_path: Path) -> tuple[bool,
 
 
 def main() -> int:
+    # Whitelist examples for FULL payload validation (strict mode)
+    # Use paths relative to the repo root
+    strict_examples: set[Path] = {
+        REPO_ROOT / "05-prompts" / "gatekeeper" / "examples" / "pre_gate_strict.json",
+        REPO_ROOT / "05-prompts" / "gatekeeper" / "examples" / "final_decision_strict.json",
+        REPO_ROOT / "05-prompts" / "book_binder" / "examples" / "view_request_strict.json",
+        REPO_ROOT / "05-prompts" / "book_binder" / "examples" / "view_result_strict.json",
+    }
+
     fixtures = {
         "codex_entry": REPO_ROOT / "05-prompts" / "tests" / "fixtures" / "codex_entry.example.json",
         "edit_notes": REPO_ROOT / "05-prompts" / "tests" / "fixtures" / "edit_notes.example.json",
@@ -70,15 +83,30 @@ def main() -> int:
             temp_path.unlink(missing_ok=True)
             return ok_, msg_
 
-        if isinstance(obj, list):
-            for idx, env in enumerate(obj):
-                ok, msg = _structure_only(env)
+        def _full_validate(envelope: dict) -> tuple[bool, str]:
+            # Validate envelope as-is (includes payload.data against Layer 3 schema)
+            from tempfile import NamedTemporaryFile
+
+            with NamedTemporaryFile("w", delete=False, suffix=".json", encoding="utf-8") as tf:
+                json.dump(envelope, tf)
+                temp_path = Path(tf.name)
+            ok_, msg_ = validate_envelope(temp_path, REPO_ROOT)
+            temp_path.unlink(missing_ok=True)
+            return ok_, msg_
+
+        def _validate_sequence(envelopes: Iterable[dict], strict: bool, label: str) -> None:
+            for idx, env in enumerate(envelopes):
+                ok, msg = (_full_validate(env) if strict else _structure_only(env))
                 status = "PASS" if ok else "FAIL"
-                print(f"[{status}] envelope: {ex} [#{idx}]")
+                print(f"[{status}] envelope: {label} [#{idx}]")
                 if not ok:
-                    failures.append(f"{ex} [#{idx}]: {msg}")
+                    failures.append(f"{label} [#{idx}]: {msg}")
+
+        strict_mode = ex in strict_examples
+        if isinstance(obj, list):
+            _validate_sequence(obj, strict_mode, str(ex))
         elif isinstance(obj, dict):
-            ok, msg = _structure_only(obj)
+            ok, msg = (_full_validate(obj) if strict_mode else _structure_only(obj))
             status = "PASS" if ok else "FAIL"
             print(f"[{status}] envelope: {ex}")
             if not ok:
@@ -92,7 +120,7 @@ def main() -> int:
             print(f" - {f}")
         return 1
 
-    print("All instance validations passed (scaffold).")
+    print("All instance & envelope validations passed.")
     return 0
 
 
