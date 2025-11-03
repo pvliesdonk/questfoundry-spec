@@ -4,11 +4,16 @@ TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 
 Inputs
-- Envelope with `intent = tu.checkpoint`, Hot context, TU present.
+- Envelope with `intent = tu.checkpoint`, Hot context, `context.tu` present.
 
 Process
-- Record checkpoint note; update session plan.
+1) Validate envelope; normalize summary text.
+2) Append to TU log with timestamp and author.
+3) If risks/deferrals noted, schedule follow-ups or wake relevant roles.
+4) `ack` with `reply_to` and same `correlation_id`.
 
 Outputs
-- `ack` with correlation to checkpoint.
+- Updated TU log entry; `ack` referencing checkpoint.
 
+References
+- 04-protocol/LIFECYCLES/tu.md

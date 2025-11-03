@@ -4,11 +4,19 @@ TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 
 Inputs
-- Envelope with `intent = role.wake`, Hot context.
+- Envelope with `intent = role.wake`, Hot context, `receiver.role` = role to wake.
 
 Process
-- Activate role session for current TU/loop; share context.
+1) Validate wake reason in `payload.data.reason`.
+2) Activate or create role session; attach TU and loop context.
+3) Share recent checkpoints/decisions and relevant refs.
+4) `ack`; emit `tu.checkpoint` noting activation.
 
 Outputs
-- `ack`; optional activation note via `tu.checkpoint`.
+- `ack`; activation checkpoint.
 
+Errors
+- not_authorized (non-SR sender) → `error(not_authorized)`.
+
+References
+- 01-roles/interfaces/dormancy_signals.md

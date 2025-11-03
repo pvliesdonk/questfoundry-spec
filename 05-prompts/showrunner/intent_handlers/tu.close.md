@@ -4,11 +4,22 @@ TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 
 Inputs
-- Envelope with `intent = tu.close`, Hot context, TU present.
+- Envelope with `intent = tu.close`, Hot context, `context.tu` present.
+
+Preconditions
+- All required handoffs complete or explicitly deferred.
 
 Process
-- Finalize session, archive history, emit summary.
+1) Validate envelope; verify no active blocking tasks remain.
+2) Record final `tu.checkpoint` summary (done/risk/deferrals).
+3) Archive conversation/logs; park all roles with `role.dormant`.
+4) `ack` back to sender.
 
 Outputs
-- `ack` and optional `tu.checkpoint` summary before close.
+- Final checkpoint; dormancy signals; `ack`.
 
+Errors
+- conflict (open blockers) → `error(conflict)` with remediation.
+
+References
+- 04-protocol/LIFECYCLES/tu.md
