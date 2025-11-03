@@ -1,13 +1,21 @@
-# Intent Handler — style.audit (Scaffold)
+# Procedure — style.audit (Scaffold)
 STATUS: SCAFFOLD
-TODO: Provide audit rubric and remediation patterns.
+TODO: Provide audit rubric and remediation patterns. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Candidate text, style guide, register map.
+- Candidate text, style guide, register_map.
+
+Preconditions
+- TU open; target sections identified; desired register clear.
 
 Process
-- Detect tone/register drift; list concrete fixes with examples.
+1) Detect tone/register drift; cite lines and explain why.
+2) Provide concrete rewrites with rationale; note motifs/diction patterns.
+3) Update register_map suggestions; flag banned phrases.
+4) Emit `tu.checkpoint` summarizing findings and linking rewrites.
 
 Outputs
-- Audit report (Hot) and `ack`; action list for roles.
+- Audit notes (Hot), rewrite suggestions, register_map deltas; checkpoint with summary.
 
+References
+- 00-north-star/QUALITY_BARS.md (Style, Presentation)
