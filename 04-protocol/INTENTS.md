@@ -68,11 +68,13 @@ Intents follow the pattern: `<domain>.<verb>[.<subverb>]`
 | Domain     | Purpose                                    | Examples                                    |
 |------------|--------------------------------------------|---------------------------------------------|
 | `hook`     | Hook Card lifecycle operations             | `hook.create`, `hook.update_status`         |
-| `tu`       | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`          |
-| `gate`     | Gatecheck lifecycle operations             | `gate.submit`, `gate.decision`              |
+| `tu`       | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`, `tu.checkpoint` |
+| `gate`     | Quality gate lifecycle operations          | `gate.submit`, `gate.decision`              |
 | `merge`    | Cold merge operations                      | `merge.request`, `merge.approve`, `merge.reject`|
 | `view`     | View/export operations                     | `view.export.request`, `view.export.result` |
 | `pn`       | Player Narrator operations                 | `pn.playtest.submit`                        |
+| `human`    | Human↔agent interactive prompts            | `human.question`, `human.response`          |
+| `role`     | Wake/sleep control signals (orchestration) | `role.wake`, `role.dormant`                 |
 | (none)     | General-purpose operations                 | `ack`, `error`                              |
 
 ---
@@ -300,6 +302,98 @@ When `intent = "error"`, the envelope schema enforces:
 - `04-protocol/CONFORMANCE.md` §4 (Error Taxonomy)
 
 ---
+
+## 5. Human Interaction Intents
+
+Interactive mode allows agents to ask a human collaborator questions mid‑loop. The Showrunner (SR) proxies human I/O via the protocol; no direct human role exists in Layer 4. Payload type is `none` for both intents; `payload.data` carries question/answer content.
+
+### 5.1 `human.question` — Ask Human a Question
+
+Purpose: Agent requests human input during an active TU/loop.
+
+Direction: Any role → SR (SR proxies the question to UI/CLI)
+
+Envelope Requirements:
+- `context.hot_cold = "hot"`
+- `context.loop` SHOULD be present
+- `payload.type = "none"`
+- `payload.data` SHOULD include:
+  - `question` (string, required)
+  - `context` (object, optional)
+  - `suggestions` (array[string], optional)
+
+Example Envelope: `04-protocol/EXAMPLES/human.question.json`
+
+### 5.2 `human.response` — Human Answer to Agent
+
+Purpose: SR relays the human’s answer back to the requesting role.
+
+Direction: SR → requesting role
+
+Envelope Requirements:
+- `reply_to` MUST reference the original `human.question` message id
+- `correlation_id` SHOULD match original message
+- `context` SHOULD mirror original
+- `payload.type = "none"`
+- `payload.data` SHOULD include:
+  - `answer` (string, required) or `choice` (string) when suggestions used
+  - `notes` (string, optional)
+
+Example Envelope: `04-protocol/EXAMPLES/human.response.json`
+
+---
+
+## 6. TU Utility Intents
+
+### 6.1 `tu.checkpoint` — Record a TU Checkpoint
+
+Purpose: Record a mid‑loop checkpoint note without creating a new artifact.
+
+Direction: Any role → SR
+
+Envelope Requirements:
+- `context.tu` SHOULD be present
+- `context.loop` SHOULD be present
+- `payload.type = "none"`
+- `payload.data` SHOULD include:
+  - `summary` (string, required)
+  - `details` (object, optional)
+
+Example Envelope: `04-protocol/EXAMPLES/tu.checkpoint.json`
+
+---
+
+## 7. Role Orchestration Intents
+
+These are control signals used by the Showrunner to manage role dormancy. They carry no artifacts; payload type is `none`.
+
+### 7.1 `role.wake` — Wake a Dormant Role
+
+Purpose: Instruct a role to become active for the current TU/loop.
+
+Direction: SR → <role>
+
+Envelope Requirements:
+- `context.tu` SHOULD be present
+- `payload.type = "none"`
+- `payload.data` SHOULD include:
+  - `reason` (string, required)
+
+Example Envelope: `04-protocol/EXAMPLES/role.wake.json`
+
+### 7.2 `role.dormant` — Return Role to Dormancy
+
+Purpose: Instruct a role to go dormant after handoff.
+
+Direction: SR → <role>
+
+Envelope Requirements:
+- `context.tu` SHOULD be present
+- `payload.type = "none"`
+- `payload.data` MAY include:
+  - `notes` (string, optional)
+
+Example Envelope: `04-protocol/EXAMPLES/role.dormant.json`
 
 ## 5. Hook Lifecycle Intents
 
