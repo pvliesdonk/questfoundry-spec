@@ -1,13 +1,18 @@
-# Intent Handler — image.revise (Scaffold)
+# Procedure — image.revise (Scaffold)
 STATUS: SCAFFOLD
-TODO: Define revision cues and iteration logging.
+TODO: Define revision cues and iteration logging. Note: Internal procedure (no new protocol intent).
 
 Inputs
-- Review notes, prior prompt/params.
+- Review notes, prior prompt/params, known defects to fix.
+
+Preconditions
+- TU open; baseline prompt/params available; change goals specific.
 
 Process
-- Adjust prompt/params per notes; iterate; compare against style constraints.
+1) Translate notes to concrete prompt/param changes (describe delta).
+2) Regenerate; compare against style guardrails and set consistency.
+3) Record iteration logs and rationale; if deterministic, update seed/version policy.
+4) `tu.checkpoint` with iteration summary and decision (keep/discard).
 
 Outputs
-- Updated images and logs; `ack`.
-
+- Updated images (out-of-scope), revised logs, checkpoint entry.
