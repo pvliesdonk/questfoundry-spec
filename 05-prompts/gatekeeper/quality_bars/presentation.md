@@ -4,11 +4,14 @@ TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 
 Checks
-- Player surfaces reveal no spoilers or internal plumbing.
+- Manuscript/codex/PN contain zero spoilers or internal labels.
+- In-world language only; no technique talk on player surfaces.
+
+Evidence
+- Quote offending lines and suggested safe rewrites.
 
 Common Failures
-- Spoilers in codex; PN leaks codewords/state; internal labels visible.
+- Spoilers in codex; PN leaks codewords/state; internal labels visible; meta choices.
 
 Remediation
-- Move spoilers into canon notes; rephrase PN lines diegetically; rename internals.
-
+- Move spoilers into canon notes; rephrase PN lines diegetically; rename internals; rewrite choices.

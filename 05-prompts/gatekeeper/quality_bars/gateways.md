@@ -4,11 +4,14 @@ TODO: Flesh out full guidance, examples, and acceptance criteria.
 
 
 Checks
-- Conditions are single, clear, and enforceable by PN without leaks.
+- Single, clear condition phrased in-world; PN can enforce without leaks.
+- Negative/positive conditions consistent across sections.
+
+Evidence
+- Show PN lines enforcing the gateway diegetically.
 
 Common Failures
-- Ambiguous conditions; hidden unwinnable states.
+- Ambiguous conditions; hidden unwinnable states; PN leaks codewords/state.
 
 Remediation
-- Rewrite conditions; add catch-up or fail-forward beats.
-
+- Rewrite condition and PN phrasing; add catch-up or fail-forward beats.
