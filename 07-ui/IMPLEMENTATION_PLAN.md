@@ -25,9 +25,7 @@ This is primarily about UX, formatting, and command routing - suitable for Copil
 ### Features
 
 #### 1.1: Repository Setup
-
 **Files to create:**
-
 ```
 questfoundry-cli/
   .gitignore
@@ -43,7 +41,6 @@ questfoundry-cli/
 ```
 
 **Tasks:**
-
 - Initialize Python project with UV
 - Configure `pyproject.toml`:
   - Package name: `questfoundry-cli`
@@ -59,7 +56,6 @@ questfoundry-cli/
 - Set up GitHub Actions
 
 **Acceptance Criteria:**
-
 - `uv sync` works
 - `qf --version` works after install
 - CI/CD pipeline runs
@@ -67,9 +63,7 @@ questfoundry-cli/
 ---
 
 #### 1.2: Package Structure
-
 **Files to create:**
-
 ```
 src/qf/
   __init__.py
@@ -79,22 +73,18 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Create src-layout package
 - Set up Typer app
 - Basic `--version` and `--help` commands
 
 **Acceptance Criteria:**
-
 - `qf --help` shows command list
 - `qf --version` shows version
 
 ---
 
 #### 1.3: Development Tools
-
 **Files to create:**
-
 ```
 .pre-commit-config.yaml
 .ruff.toml
@@ -102,12 +92,10 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Configure Ruff, mypy, pre-commit
 - Add pytest configuration
 
 **Acceptance Criteria:**
-
 - Linting and type checking pass
 - Test framework ready
 
@@ -124,9 +112,7 @@ src/qf/
 ### Features
 
 #### 2.1: Project Management Commands
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -143,7 +129,6 @@ tests/
 **Commands to implement:**
 
 **`qf init [path]`**
-
 - Create new `.qfproj` file
 - Initialize `.questfoundry/` workspace
 - Prompt for project metadata (name, description)
@@ -151,13 +136,11 @@ tests/
 - Success message with next steps
 
 **`qf open <project.qfproj>`**
-
 - Validate project file exists
 - Set as current project (store in config or env)
 - Show project info
 
 **`qf status`**
-
 - Show current project
 - List active roles
 - Show pending artifacts
@@ -165,14 +148,12 @@ tests/
 - Use Rich tables for formatting
 
 **Acceptance Criteria:**
-
 - Can create new project
 - Can open existing project
 - Status shows meaningful info
 - Good error messages
 
 **Test Cases:**
-
 - Init new project in empty directory
 - Init in non-empty directory (error)
 - Open non-existent project (error)
@@ -181,9 +162,7 @@ tests/
 ---
 
 #### 2.2: Artifact Listing Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -199,7 +178,6 @@ tests/
 **Command to implement:**
 
 **`qf list <type>`**
-
 - Types: `hooks`, `tus`, `canon`, `codex`, `shotlists`, `views`
 - Query Layer 6 workspace
 - Display as Rich table:
@@ -208,14 +186,12 @@ tests/
 - Pagination for large lists
 
 **Acceptance Criteria:**
-
 - Lists all artifact types
 - Table formatting clear
 - Filters work
 - Empty list handled gracefully
 
 **Test Cases:**
-
 - List hooks in project with hooks
 - List hooks in empty project
 - Filter by status
@@ -223,9 +199,7 @@ tests/
 ---
 
 #### 2.3: Artifact Inspection Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -240,7 +214,6 @@ tests/
 **Command to implement:**
 
 **`qf show <artifact-id>`**
-
 - Retrieve artifact from workspace
 - Render as formatted display:
   - Use Rich panels/syntax highlighting
@@ -250,14 +223,12 @@ tests/
 - Support JSON output: `--format json`
 
 **Acceptance Criteria:**
-
 - Shows artifact clearly
 - Formatting is readable
 - JSON output valid
 - Non-existent artifact errors gracefully
 
 **Test Cases:**
-
 - Show hook card
 - Show TU brief
 - Show with `--format json`
@@ -266,9 +237,7 @@ tests/
 ---
 
 #### 2.4: History Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -281,7 +250,6 @@ tests/
 **Command to implement:**
 
 **`qf history`**
-
 - Show TU timeline
 - Display as Rich tree or table
 - Show: TU ID, loop, role, timestamp, summary
@@ -289,7 +257,6 @@ tests/
 - Link to artifacts created in each TU
 
 **Acceptance Criteria:**
-
 - Timeline is chronological
 - Filters work
 - Can see full TU details
@@ -307,9 +274,7 @@ tests/
 ### Features
 
 #### 3.1: Config Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -323,13 +288,11 @@ tests/
 **Commands to implement:**
 
 **`qf config list`**
-
 - Show current configuration
 - Format as tree or table
 - Mask sensitive values (API keys)
 
 **`qf config set <key> <value>`**
-
 - Set configuration value
 - Examples:
   - `qf config set provider.text.default openai`
@@ -338,25 +301,21 @@ tests/
 - Confirm with success message
 
 **`qf config get <key>`**
-
 - Get specific config value
 - Mask sensitive values
 
 **`qf provider list`**
-
 - List available providers
 - Show: name, type (text/image), status (configured/not configured)
 - Indicate current default
 
 **Acceptance Criteria:**
-
 - Can view config
 - Can set config values
 - Validation prevents invalid values
 - Sensitive values masked
 
 **Test Cases:**
-
 - List empty config
 - Set provider
 - Get provider setting
@@ -375,9 +334,7 @@ tests/
 ### Features
 
 #### 4.1: Validation Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -390,7 +347,6 @@ tests/
 **Commands to implement:**
 
 **`qf validate <artifact-id>`**
-
 - Validate single artifact against Layer 3 schema
 - Show validation results:
   - ✓ Valid or ✗ Invalid
@@ -399,13 +355,11 @@ tests/
 - Use Rich formatting for errors
 
 **Acceptance Criteria:**
-
 - Valid artifact shows success
 - Invalid artifact shows clear errors
 - Error messages actionable
 
 **Test Cases:**
-
 - Validate valid artifact
 - Validate invalid artifact (missing field)
 - Validate non-existent artifact
@@ -413,9 +367,7 @@ tests/
 ---
 
 #### 4.2: Gatecheck Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -430,7 +382,6 @@ tests/
 **Commands to implement:**
 
 **`qf check`**
-
 - Run all 8 quality bars via Layer 6
 - Display results:
   - Table with bar name, status (✓/✗), violations count
@@ -440,14 +391,12 @@ tests/
 - Create gatecheck_report artifact
 
 **Acceptance Criteria:**
-
 - All bars run
 - Results clearly displayed
 - Failures show violations
 - Report artifact created
 
 **Test Cases:**
-
 - Check passing project
 - Check failing project (integrity violations)
 - Check specific bars only
@@ -465,9 +414,7 @@ tests/
 ### Features
 
 #### 5.1: Run Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -482,7 +429,6 @@ tests/
 **Command to implement:**
 
 **`qf run <loop-name>`**
-
 - Execute specified loop via Layer 6 Showrunner
 - Loops: `hook-harvest`, `lore-deepening`, `story-spark`, etc.
 - Show progress:
@@ -496,14 +442,12 @@ tests/
 - Support: `--interactive` flag (for Phase 3)
 
 **Acceptance Criteria:**
-
 - Can run all 11 loops
 - Progress shown during execution
 - Summary clear and informative
 - Errors handled gracefully
 
 **Test Cases:**
-
 - Run hook-harvest successfully
 - Run with no project open (error)
 - Run invalid loop name (error)
@@ -511,9 +455,7 @@ tests/
 ---
 
 #### 5.2: Loop Summary Formatting
-
 **Files to create:**
-
 ```
 src/qf/
   formatting/
@@ -521,7 +463,6 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Create rich summary display:
   - Loop name and duration
   - TU information
@@ -530,7 +471,6 @@ src/qf/
 - Use Rich panels, tables, and trees
 
 **Acceptance Criteria:**
-
 - Summary is visually appealing
 - Information is complete
 - Easy to scan
@@ -548,9 +488,7 @@ src/qf/
 ### Features
 
 #### 6.1: Generate Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -563,7 +501,6 @@ tests/
 **Commands to implement:**
 
 **`qf generate image <shotlist-id>`**
-
 - Load shotlist artifact
 - Execute Illustrator role via Layer 6
 - Show progress (image generation can be slow)
@@ -573,7 +510,6 @@ tests/
 - Support: `--provider dalle`, `--model dall-e-3`
 
 **`qf generate audio <cuelist-id>`**
-
 - Load cuelist artifact
 - Execute Audio Producer role via Layer 6
 - Show progress
@@ -581,14 +517,12 @@ tests/
 - Support: `--provider elevenlabs`
 
 **`qf generate scene <tu-id>`**
-
 - Load TU brief
 - Execute Scene Smith role via Layer 6
 - Show generated prose
 - Save as artifact
 
 **`qf generate canon <hook-id>`**
-
 - Load hook card
 - Execute Lore Weaver role via Layer 6
 - Show canonization result
@@ -596,19 +530,16 @@ tests/
 
 **Batch operations:**
 **`qf generate images --pending`**
-
 - Generate all pending shotlists
 - Progress bar for multiple generations
 
 **Acceptance Criteria:**
-
 - All generate types work
 - Provider override works
 - Progress shown
 - Results saved correctly
 
 **Test Cases:**
-
 - Generate single image
 - Generate with provider override
 - Generate non-existent artifact (error)
@@ -617,9 +548,7 @@ tests/
 ---
 
 #### 6.2: Asset Preview
-
 **Files to create:**
-
 ```
 src/qf/
   formatting/
@@ -627,13 +556,11 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Preview images in terminal (if supported)
 - Use Rich image support or external viewer
 - Format audio info (duration, format)
 
 **Acceptance Criteria:**
-
 - Images can be previewed or opened
 - Audio info displayed
 
@@ -650,9 +577,7 @@ src/qf/
 ### Features
 
 #### 7.1: Quickstart Guided Mode
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -671,7 +596,6 @@ tests/
 **`qf quickstart`** (guided mode default)
 
 **Flow:**
-
 1. Welcome message
 2. Project initialization:
    - Ask setup questions (premise, tone, length)
@@ -690,21 +614,18 @@ tests/
 5. Final completion message
 
 **Prompts to use:**
-
 - Use Questionary or InquirerPy for interactive prompts
 - Text input for premise
 - Select for tone (mystery, horror, adventure, etc.)
 - Select for length (short, medium, long)
 
 **Acceptance Criteria:**
-
 - Smooth guided flow
 - Clear checkpoints
 - Can review before continuing
 - Can exit at any checkpoint
 
 **Test Cases:**
-
 - Complete quickstart with Y/Y/Y
 - Exit at first checkpoint
 - Review artifacts between loops
@@ -712,9 +633,7 @@ tests/
 ---
 
 #### 7.2: Quickstart Interactive Mode
-
 **Files to create:**
-
 ```
 src/qf/
   interactive/
@@ -727,7 +646,6 @@ src/qf/
 **`qf quickstart --interactive`**
 
 **Differences from guided:**
-
 - Agents can ask questions during loops
 - Human responds free-form
 - Conversational collaboration
@@ -735,7 +653,6 @@ src/qf/
 - Responses sent back to agents
 
 **Flow:**
-
 1. Same setup questions
 2. Enable interactive mode in Layer 6 Showrunner
 3. When agent asks question:
@@ -747,21 +664,18 @@ src/qf/
 4. Same checkpoint flow
 
 **Rendering:**
-
 - Use Rich panels for questions
 - Different colors for different roles
 - Context shown clearly
 - Response history visible
 
 **Acceptance Criteria:**
-
 - Agent questions displayed clearly
 - Human can respond freely
 - Conversation flows naturally
 - History visible
 
 **Test Cases:**
-
 - Interactive mode with mocked agent questions
 - Multi-turn conversation
 - Exit during interaction
@@ -769,9 +683,7 @@ src/qf/
 ---
 
 #### 7.3: Progress Tracking
-
 **Files to create:**
-
 ```
 src/qf/
   formatting/
@@ -779,7 +691,6 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Overall progress indicator:
   - Completed loops
   - Current loop
@@ -788,7 +699,6 @@ src/qf/
 - Time estimates (optional)
 
 **Acceptance Criteria:**
-
 - Clear progress indication
 - User knows where they are in process
 
@@ -805,9 +715,7 @@ src/qf/
 ### Features
 
 #### 8.1: Export Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -820,7 +728,6 @@ tests/
 **Commands to implement:**
 
 **`qf export view`**
-
 - Generate player view from latest snapshot
 - Options:
   - `--snapshot <id>`: Use specific snapshot
@@ -830,7 +737,6 @@ tests/
 - Display result path
 
 **`qf export git`**
-
 - Export git-friendly snapshot (YAML files)
 - Options:
   - `--snapshot <id>`: Use specific snapshot
@@ -839,13 +745,11 @@ tests/
 - Success message with path
 
 **Acceptance Criteria:**
-
 - View export works
 - Multiple formats supported
 - Git export creates valid YAML
 
 **Test Cases:**
-
 - Export view to HTML
 - Export view to Markdown
 - Export git-friendly snapshot
@@ -853,9 +757,7 @@ tests/
 ---
 
 #### 8.2: Bind Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -865,7 +767,6 @@ src/qf/
 **Command to implement:**
 
 **`qf bind view <snapshot-id>`**
-
 - Execute Book Binder role
 - Generate view from snapshot
 - Options:
@@ -875,7 +776,6 @@ src/qf/
 - Display result
 
 **Acceptance Criteria:**
-
 - Book Binder executed correctly
 - View generated
 - Multiple formats supported
@@ -893,9 +793,7 @@ src/qf/
 ### Features
 
 #### 9.1: Completion Scripts
-
 **Files to create:**
-
 ```
 src/qf/
   completions/
@@ -906,7 +804,6 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Generate completion scripts for each shell
 - Dynamic completions:
   - Artifact IDs (from current project)
@@ -918,24 +815,20 @@ src/qf/
 **Commands to implement:**
 
 **`qf --install-completion [bash|zsh|fish]`**
-
 - Generate and install completion script
 - Add to appropriate rc file
 - Show instructions for manual installation
 
 **`qf --show-completion [bash|zsh|fish]`**
-
 - Display completion script
 - For manual installation
 
 **Acceptance Criteria:**
-
 - Completion works in all three shells
 - Dynamic completions accurate
 - Easy installation
 
 **Test Cases:**
-
 - Install completion for bash
 - Test artifact ID completion
 - Test loop name completion
@@ -943,9 +836,7 @@ src/qf/
 ---
 
 #### 9.2: Dynamic Completion Functions
-
 **Files to create:**
-
 ```
 src/qf/
   completions/
@@ -953,7 +844,6 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Implement completion functions:
   - `complete_artifact_id()`: List all artifact IDs in project
   - `complete_loop_name()`: List all loop names
@@ -961,7 +851,6 @@ src/qf/
 - Handle no-project case gracefully
 
 **Acceptance Criteria:**
-
 - Completions load quickly (<200ms)
 - No errors when no project open
 - Results are relevant
@@ -979,9 +868,7 @@ src/qf/
 ### Features
 
 #### 10.1: Diff Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -991,7 +878,6 @@ src/qf/
 **Command to implement:**
 
 **`qf diff <artifact-id>`**
-
 - Show changes across versions
 - Use Rich diff rendering
 - Compare:
@@ -1000,16 +886,13 @@ src/qf/
   - Between snapshots
 
 **Acceptance Criteria:**
-
 - Clear diff display
 - Color-coded changes
 
 ---
 
 #### 10.2: Search Command
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -1019,7 +902,6 @@ src/qf/
 **Command to implement:**
 
 **`qf search <query>`**
-
 - Full-text search across artifacts
 - Options:
   - `--type hooks`: Search specific type
@@ -1027,7 +909,6 @@ src/qf/
 - Display results as table with matches highlighted
 
 **Acceptance Criteria:**
-
 - Fast search
 - Relevant results
 - Match highlighting
@@ -1035,9 +916,7 @@ src/qf/
 ---
 
 #### 10.3: Interactive Shell (REPL)
-
 **Files to create:**
-
 ```
 src/qf/
   commands/
@@ -1047,14 +926,12 @@ src/qf/
 **Command to implement:**
 
 **`qf shell`**
-
 - Drop into interactive REPL
 - All commands available without `qf` prefix
 - Context maintained between commands
 - Use prompt_toolkit or similar
 
 **Acceptance Criteria:**
-
 - REPL works
 - Command history
 - Tab completion
@@ -1072,9 +949,7 @@ src/qf/
 ### Features
 
 #### 11.1: User Documentation
-
 **Files to create:**
-
 ```
 docs/
   index.md
@@ -1092,14 +967,12 @@ docs/
 ```
 
 **Tasks:**
-
 - Comprehensive command reference
 - Step-by-step tutorials
 - Screenshots/GIFs of CLI in action
 - Troubleshooting guide
 
 **Acceptance Criteria:**
-
 - All commands documented
 - Tutorials tested and work
 - Clear and beginner-friendly
@@ -1107,39 +980,32 @@ docs/
 ---
 
 #### 11.2: Help Text Polish
-
 **Tasks:**
-
 - Review all command help text
 - Ensure consistency
 - Add examples to help text
 - Group related commands
 
 **Acceptance Criteria:**
-
 - `qf --help` is clear and organized
 - Each command has good help text with examples
 
 ---
 
 #### 11.3: Error Message Improvement
-
 **Files to create:**
-
 ```
 src/qf/
   errors.py          # Custom error messages
 ```
 
 **Tasks:**
-
 - Standardize error messages
 - Make errors actionable
 - Suggest fixes where possible
 - Use Rich formatting for errors
 
 **Acceptance Criteria:**
-
 - Errors are friendly
 - Suggest solutions
 - No cryptic messages
@@ -1157,9 +1023,7 @@ src/qf/
 ### Features
 
 #### 12.1: Package Metadata
-
 **Tasks:**
-
 - Polish README with badges
 - Create CHANGELOG.md
 - Add LICENSE
@@ -1167,7 +1031,6 @@ src/qf/
 - Add keywords for PyPI search
 
 **Acceptance Criteria:**
-
 - Professional README
 - Clear versioning
 - Proper licensing
@@ -1175,9 +1038,7 @@ src/qf/
 ---
 
 #### 12.2: Release Automation
-
 **Files to create:**
-
 ```
 .github/
   workflows/
@@ -1185,14 +1046,12 @@ src/qf/
 ```
 
 **Tasks:**
-
 - Set up GitHub Actions for release
 - Build wheels for multiple platforms
 - Publish to PyPI on tag
 - Create GitHub releases
 
 **Acceptance Criteria:**
-
 - Tagging triggers release
 - Wheels built correctly
 - PyPI upload works
@@ -1200,16 +1059,13 @@ src/qf/
 ---
 
 #### 12.3: Installation Testing
-
 **Tasks:**
-
 - Test installation in clean environments
 - Test on Windows, macOS, Linux
 - Test with different Python versions (3.11, 3.12, 3.13)
 - Verify all dependencies install correctly
 
 **Acceptance Criteria:**
-
 - Installs cleanly everywhere
 - No missing dependencies
 - Entry point works
@@ -1219,16 +1075,13 @@ src/qf/
 ## Testing Strategy
 
 ### Unit Tests
-
 - Each command has test file
 - Mock Layer 6 calls
 - Test command output formatting
 - Test error cases
 
 ### Integration Tests
-
 **Files to create:**
-
 ```
 tests/
   integration/
@@ -1238,16 +1091,13 @@ tests/
 ```
 
 **Tasks:**
-
 - Test complete workflows
 - Use real Layer 6 (with mocked LLMs)
 - Test checkpoint flows
 - Test error recovery
 
 ### Manual Testing
-
 **Checklist:**
-
 - [ ] Install from source
 - [ ] Run quickstart end-to-end
 - [ ] Generate image
@@ -1260,20 +1110,30 @@ tests/
 ## Implementation Order Summary
 
 **Phase 1: Foundation**
-
 1. Epic 1: Project Foundation
 
-**Phase 2: Basic Operations** 2. Epic 2: Core Commands (init, list, show, status, history) 3. Epic 3: Configuration & Providers
+**Phase 2: Basic Operations**
+2. Epic 2: Core Commands (init, list, show, status, history)
+3. Epic 3: Configuration & Providers
 
-**Phase 3: Validation & Execution** 4. Epic 4: Validation & Quality (validate, check) 5. Epic 5: Loop Execution (run)
+**Phase 3: Validation & Execution**
+4. Epic 4: Validation & Quality (validate, check)
+5. Epic 5: Loop Execution (run)
 
-**Phase 4: Asset Generation** 6. Epic 6: Asset Generation (generate)
+**Phase 4: Asset Generation**
+6. Epic 6: Asset Generation (generate)
 
-**Phase 5: Quickstart** 7. Epic 7: Quickstart Workflow (guided and interactive)
+**Phase 5: Quickstart**
+7. Epic 7: Quickstart Workflow (guided and interactive)
 
-**Phase 6: Export** 8. Epic 8: Export & Views (export, bind)
+**Phase 6: Export**
+8. Epic 8: Export & Views (export, bind)
 
-**Phase 7: Polish** 9. Epic 9: Shell Completion 10. Epic 10: Advanced Features (diff, search, shell) 11. Epic 11: Documentation & Polish 12. Epic 12: Package Distribution
+**Phase 7: Polish**
+9. Epic 9: Shell Completion
+10. Epic 10: Advanced Features (diff, search, shell)
+11. Epic 11: Documentation & Polish
+12. Epic 12: Package Distribution
 
 ---
 
@@ -1284,7 +1144,6 @@ tests/
 When working with Copilot on Layer 7:
 
 **Essential Context:**
-
 ```
 You are creating a CLI tool for the QuestFoundry system.
 
@@ -1313,7 +1172,6 @@ Tech stack:
 ### Code Patterns to Follow
 
 **Command structure:**
-
 ```python
 import typer
 from rich.console import Console
@@ -1348,7 +1206,6 @@ def list(
 ```
 
 **Rich formatting:**
-
 ```python
 from rich.table import Table
 from rich.panel import Panel
@@ -1367,7 +1224,6 @@ def create_artifact_table(artifacts):
 ```
 
 **Progress indicators:**
-
 ```python
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
@@ -1382,7 +1238,6 @@ with Progress(
 ```
 
 **Interactive prompts:**
-
 ```python
 import questionary
 
@@ -1400,7 +1255,6 @@ tone = questionary.select(
 ### Quality Checklist
 
 For each command:
-
 - [ ] Help text is clear and has examples
 - [ ] All options have descriptions
 - [ ] Errors show helpful messages
@@ -1434,7 +1288,6 @@ def test_list_no_project():
 ## Success Criteria
 
 Layer 7 is complete when:
-
 - [ ] All 12 epics implemented
 - [ ] All commands work end-to-end
 - [ ] Quickstart works (guided and interactive)
@@ -1461,7 +1314,6 @@ Assumes Copilot with human review at epic boundaries.
 ## Dependencies
 
 **Layer 6 Dependencies:**
-
 - Epic 2 depends on Layer 6 Epic 1-3 (protocol, state)
 - Epic 4 depends on Layer 6 Epic 9 (quality bars)
 - Epic 5 depends on Layer 6 Epic 7-8 (roles, orchestration)
@@ -1478,7 +1330,6 @@ Assumes Copilot with human review at epic boundaries.
 ## Notes for Human Reviewers
 
 **What to look for:**
-
 - Is the UX intuitive?
 - Are error messages helpful?
 - Is the formatting clear and readable?
@@ -1487,7 +1338,6 @@ Assumes Copilot with human review at epic boundaries.
 - Does it feel polished?
 
 **Common issues to watch for:**
-
 - Unclear command names
 - Missing error handling
 - Bare print statements (should use Rich)
@@ -1496,7 +1346,6 @@ Assumes Copilot with human review at epic boundaries.
 - Missing examples in help text
 
 **Best CLIs have:**
-
 - Intuitive command structure
 - Beautiful, color-coded output
 - Clear progress indicators

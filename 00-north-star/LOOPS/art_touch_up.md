@@ -50,25 +50,30 @@ _(Codex Curator and PN are informed to ensure surface wording stays player-safe.
 ## 4) Procedure
 
 1. **Select & Justify (Art Director)**
+
    - For each proposed image:
      - **Subject** (who/what), **Scene anchor** (section), **Purpose** (clarify, foreshadow, mood), **Spoiler risk** (low/med/high).
      - If risk > low, consider **alternate subject** or move to **plan-only**.
 
 2. **Write the Art Plan (Art Director)**
+
    - **Composition intent** (framing, focal points, motion cues).
    - **Caption** (player-safe; no twist reveals).
    - **Constraints** (aspect, palette/motif hooks, negative constraints to avoid clichés).
    - **Accessibility notes** (alt text guidance).
 
 3. **Style Alignment (Style Lead)**
+
    - Tune plan to guardrails; add motif tie-ins; veto style drift.
 
 4. **Render (Illustrator, if active)**
+
    - Produce candidate renders; refine to intent.
    - Record **determinism log**: seed, prompt/version, model/build, aspect, steps/CFG/parameters, post-process chain.
    - Provide **alt text** (succinct, descriptive, spoiler-safe).
 
 5. **Pre-Gate (Gatekeeper)**
+
    - **Style**: guardrails & tone.
    - **Presentation Safety**: no spoilers; captions and alt text safe; PN can reference diegetically.
    - **Determinism**: logs complete when promised; else mark **non-deterministic** explicitly.

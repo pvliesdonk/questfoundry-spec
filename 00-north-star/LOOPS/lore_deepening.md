@@ -51,31 +51,39 @@ Showrunner opens/updates a **Trace Unit (TU)**: `tu-lore-deepening-<topic>` and 
 ## 4) Procedure
 
 1. **Frame the Canon Question (Lore Weaver)**
+
    - For each theme/cluster: write a 1–3 line _canon question_ (“What caused Kestrel’s jaw scar, and who else was involved?”).
 
 2. **Draft Canon Answer**
+
    - Provide a precise, spoiler-level answer: backstory, causal chain, timeline anchor(s), implicated entities/factions, constraints on technology/magic/metaphysics as needed.
    - Tag **sensitivity** (`spoiler-heavy`, `player-safe-summary-possible`).
 
 3. **Check Contradictions & Coupling**
+
    - Compare against **Cold**. Identify clashes; propose reconciliations or mark **deliberate mystery** (include bounds and revisit window).
 
 4. **Factual Pass (if Researcher active)**
+
    - Validate real-world claims; attach citations.
    - If dormant: keep `uncorroborated:<risk>` and note wording guidance for PN/Binder (“use neutral phrasing”).
 
 5. **Topology & Prose Notes**
+
    - List any consequences for **gateways**, **loops**, **hubs**.
    - Suggest hooks for **Story Spark** if structure needs adjustment.
    - Provide Scene Smith with **callout notes** (what can be foreshadowed, recalled, or described).
 
 6. **Style Sweep**
+
    - Style Lead annotates motif ties and tone consistency; no rewrite, only guidance.
 
 7. **Package Canon Entry**
+
    - Each entry includes: **Title**, **Canon Answer**, **Timeline anchors**, **Entities affected**, **Constraints**, **Sensitivity tag**, **Upstream hooks/TUs**, **Downstream impacts**, **Notes**.
 
 8. **Pre-Gate Review (Gatekeeper)**
+
    - Early read for risks: Integrity (referential), Reachability (if topology touched), Gateways (consistency), Presentation (spoiler segregation).
 
 9. **Handoff**

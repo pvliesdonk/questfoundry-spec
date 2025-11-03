@@ -33,6 +33,7 @@ Accepted
 > The policy, stated crisply. Prefer MUST/SHOULD/MAY language.
 
 - **We DECIDE:** Clarify and enforce strict layer boundaries as follows:
+
   - **Layer 0 (North Star)**: Policy, principles, vision, operating model — the WHY
   - **Layer 1 (Roles)**: Role definitions, responsibilities, interactions — the WHO
   - **Layer 2 (Common Language)**: Data dictionary, terminology, artifact structures — the WHAT
@@ -40,6 +41,7 @@ Accepted
   - **Layer 4 (Protocol)**: Interaction rules, messages — HOW TO COMMUNICATE
 
 - **Immediate migrations:**
+
   - Move `00-north-star/TERMINOLOGY.md` → `02-dictionary/glossary.md`
   - Move `01-roles/templates/*.md` (17 files) → `02-dictionary/artifacts/`
 
@@ -57,6 +59,7 @@ Accepted
 2. **Layer 2 exists for this purpose**: The seven-layer model explicitly designates Layer 2 as "Common Language" for human-readable data definitions. Having Layer 2 empty while data definitions live elsewhere violates the architectural intent.
 
 3. **Scalability**: As the system grows, clear boundaries prevent:
+
    - Cross-layer duplication (same structure defined in multiple places)
    - Inconsistent definitions (template in Layer 1 differs from schema in Layer 3)
    - Unclear normative source ("which definition is authoritative?")
@@ -105,10 +108,12 @@ Accepted
 > Tiny, reusable examples that **don't** reveal canon or internals.
 
 - **Rule:** Data structure definitions (what fields an artifact has) live in Layer 2
+
   - _Example:_ "hook_card.md defines: ID, Status, Type, Summary, Hot Details, Exit Criteria"
   - _Counterexample:_ Don't embed the full hook structure in `00-north-star/HOOKS.md` (policy) or `01-roles/charters/plotwright.md` (role definition)
 
 - **Rule:** Policy about WHY we use an artifact stays in Layer 0
+
   - _Example:_ "HOOKS.md explains prioritization heuristics, lifecycle philosophy"
   - _Counterexample:_ Don't move Hook Harvest loop guidance to Layer 2
 
@@ -130,16 +135,19 @@ Accepted
 ## Alternatives Considered
 
 - **Option A: Keep everything as-is** — rejected because:
+
   - Violates stated layer model (Layer 2 for common language)
   - Creates confusion about where to look for artifact structures
   - Makes schema generation path unclear
 
 - **Option B: Move templates to Layer 0** — rejected because:
+
   - Layer 0 is for policy, not data structures
   - Would make Layer 0 even more bloated
   - Still leaves Layer 2 empty despite being designed for this
 
 - **Option C: Keep templates in Layer 1, move only TERMINOLOGY** — rejected because:
+
   - Doesn't solve the fundamental issue (data structures misplaced)
   - Templates are about WHAT artifacts are, not WHO creates them
   - Partial solution creates inconsistency
@@ -153,6 +161,7 @@ Accepted
 > How we'll know the ADR is working.
 
 - Gatekeeper checks:
+
   - **Integrity Bar**: All cross-references resolve correctly
   - **Presentation Bar**: Clear status markings on parked content
   - Quick test: Can trace from role charter → artifact reference → Layer 2 definition → (future) Layer 3 schema

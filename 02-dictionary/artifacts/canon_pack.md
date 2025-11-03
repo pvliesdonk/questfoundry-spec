@@ -150,24 +150,29 @@ _(Repeat per concept needing a surface-safe summary.)_
 > Give each neighbor the **actionable** next steps—still **player-safe** in phrasing.
 
 - **Plotwright:**
+
   - Gate reason(s): <diegetic checks the world enforces>
   - Loop-with-difference seeds: <small state deltas that justify meaningful returns>
   - Keystone resilience: <fallback route or soft-fail suggestion>
 
 - **Scene Smith:**
+
   - Phrasing cues: <what the world would _show/say_ at the gate>
   - Micro-context: <one line to clarify choice contrast>
 
 - **Style Lead:**
+
   - Pattern nudge: <banned/preferred forms tied to this canon>
   - Example (player-safe): "<1–2 lines>"
 
 - **Codex Curator:**
+
   - New/updated entries: <list of titles>
   - Crosslink hints: <A ↔ B ↔ C>
   - Anchor slugs: <kebab-case suggestions>
 
 - **Translator:**
+
   - Terminology risks: <polysemy, diacritics, RTL/anchor policy>
   - Register map nudge: <pronouns/formality if relevant>
 

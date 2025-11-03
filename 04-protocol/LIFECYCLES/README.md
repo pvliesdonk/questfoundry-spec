@@ -9,21 +9,18 @@ All lifecycle transitions are driven by Layer 4 protocol messages within the env
 ### Key Envelope Requirements for Lifecycle Transitions
 
 **For all lifecycle messages:**
-
 - Required fields: `protocol`, `id`, `time`, `sender`, `receiver`, `intent`, `context`, `safety`, `payload`
 - Intent field specifies the transition verb (e.g., `hook.create`, `tu.open`, `gate.decision`)
 - Context fields track: `hot_cold`, `tu` (for traceability), `snapshot` (for Cold operations), `loop`
 - Safety fields: `player_safe`, `spoilers`
 
 **Hot/Cold Boundary:**
-
 - **Hot artifacts** (hooks, TUs in development): `context.hot_cold = "hot"`, `safety.player_safe = false`
 - **Cold artifacts** (merged content): `context.hot_cold = "cold"`, `safety.player_safe = true` (when player-facing)
 
 **PN Safety Invariant:**
 
 When messages involve Player-Narrator (receiver.role = "PN"):
-
 - MUST be Cold-only: `context.hot_cold = "cold"`
 - MUST have snapshot: `context.snapshot` present
 - MUST be player-safe: `safety.player_safe = true`
@@ -34,7 +31,6 @@ This is enforced by `envelope.schema.json` and validated at multiple layers.
 **Merge to Cold Requirements:**
 
 When transitioning to Cold (TU merge, gatecheck approval):
-
 - MUST include: `context.tu` (trace unit ID)
 - MUST include: `context.snapshot` (target Cold snapshot)
 - SHOULD include: `refs` array with upstream TU/hook IDs
@@ -44,12 +40,15 @@ When transitioning to Cold (TU merge, gatecheck approval):
 
 - **`hooks.md`** — Hook Card lifecycle (7 states: proposed → accepted → in-progress → resolved → canonized)
   - Envelope context: Hot-only, internal routing, quality bar tracking
+  
 - **`tu.md`** — Trace Unit lifecycle (6 states: hot-proposed → stabilizing → gatecheck → cold-merged)
   - Envelope context: Hot→Cold transition, snapshot stamping, TU traceability
   - **Critical:** Merge to Cold requires gatecheck pass and snapshot context
+  
 - **`gate.md`** — Gatecheck lifecycle (pre-gate → gatecheck → decision)
   - Envelope context: Quality bar validation, decision routing, remediation tracking
   - **Critical:** Gate decisions reference Cold snapshot and TU
+  
 - **`view.md`** — View/Export lifecycle (snapshot selection → export → distribution)
   - Envelope context: Cold-only exports, PN handoff with safety enforcement
   - **Critical:** PN receives only Cold + player_safe exports
@@ -108,7 +107,6 @@ Envelope:
 See `04-protocol/EXAMPLES/` for example envelopes demonstrating lifecycle transitions.
 
 Validate examples:
-
 ```bash
 ./scripts/validate-examples.sh
 ```

@@ -65,7 +65,9 @@
       ]
     }
   },
-  "refs": ["TU-2025-10-30-BB01"],
+  "refs": [
+    "TU-2025-10-30-BB01"
+  ],
   "correlation_id": "corr-binding-2025-10-30",
   "reply_to": "urn:uuid:f6a7b8c9-d0e1-4234-f567-890abcdef012"
 }

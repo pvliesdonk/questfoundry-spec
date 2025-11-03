@@ -61,7 +61,9 @@
       "gatecheck_report": "GK-2025-10-30-01: All bars green; approved for PN distribution"
     }
   },
-  "refs": ["TU-2025-10-30-BB01"],
+  "refs": [
+    "TU-2025-10-30-BB01"
+  ],
   "correlation_id": "corr-binding-2025-10-30",
   "reply_to": "urn:uuid:e5f6a7b8-c9d0-4123-e456-7890abcdef01"
 }

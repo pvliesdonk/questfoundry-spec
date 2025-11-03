@@ -53,12 +53,14 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
 
 1. **Select & Justify (Audio Director)**  
    For each proposed cue:
+
    - **Cue ID & Scene anchor** (section or moment).
    - **Purpose** (clarify affordance, intensify stakes, transition, recall motif).
    - **Type** (ambience, foley, stinger, VO).
    - **Spoiler risk** (low/med/high) and mitigation (alternate cue or plan-only).
 
 2. **Write the Audio Plan (Audio Director)**
+
    - **Description (player-safe)**: what the listener perceives, not how it was made.
    - **Placement**: entry/exit, loop or one-shot, suggested duration.
    - **Intensity curve**: low/med/high, ramp/fade guidance.
@@ -68,14 +70,17 @@ Open/attach a **Trace Unit (TU)**: `tu-audio-<scope>`. Confirm **Audio Director*
    - **Localization notes** (if VO): dialect, register, terms to preserve.
 
 3. **Style Alignment (Style Lead)**
+
    - Tune language and motif ties; approve or request revisions.
 
 4. **Produce Assets (Audio Producer, if active)**
+
    - Create cues; export masters; provide **stems** when relevant.
    - Record **reproducibility**: DAW name/version, plugin list/versions, session sample rate/bit depth, key settings or presets, normalization target.
    - Provide **text equivalents** and any **lyrics avoidance** if copyrighted texts would otherwise appear.
 
 5. **Pre-Gate (Gatekeeper)**
+
    - **Style**: cohesive with book register.
    - **Presentation Safety**: spoiler-safe cue descriptions; reasonable loudness; caption coverage.
    - **Determinism/Reproducibility**: logs sufficient when promised; otherwise mark **non-deterministic** explicitly.

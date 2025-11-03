@@ -7,7 +7,6 @@
 ## Purpose
 
 Layer 4 specifies HOW roles, tools, and agents exchange information: message envelopes, intents, lifecycles, and handshakes. It builds on:
-
 - Layer 0 policies (PN, Hot/Cold, Quality Bars, Traceability)
 - Layer 1 roles and pair interfaces (who talks to whom, why)
 - Layer 2 common language (artifact types, taxonomies)
@@ -117,7 +116,6 @@ This is an illustrative example only (the normative spec will live in ENVELOPE.m
 **Location:** [`ENVELOPE.md`](./ENVELOPE.md)
 
 The normative specification for the transport-agnostic message envelope. Defines:
-
 - Protocol metadata and versioning (semver)
 - Message identity, routing, and intent
 - Hot/Cold context and snapshot tracking
@@ -138,7 +136,6 @@ See `ENVELOPE.md` for full details, field definitions, MUST/SHOULD rules, and JS
 **Location:** [`LIFECYCLES/hooks.md`](./LIFECYCLES/hooks.md)
 
 The normative specification for Hook Card state transitions and protocol rules. Defines:
-
 - 7-state lifecycle: proposed → accepted → in-progress → resolved → canonized  
   (with deferred/rejected branches)
 - Complete transition matrix with allowed sender roles
@@ -160,7 +157,6 @@ See `LIFECYCLES/hooks.md` for state machine, authorization rules, and JSON messa
 **Location:** [`LIFECYCLES/tu.md`](./LIFECYCLES/tu.md)
 
 The normative specification for Trace Unit (TU) state transitions and protocol rules. Defines:
-
 - 6-state lifecycle: hot-proposed → stabilizing → gatecheck → cold-merged  
   (with deferred/rejected branches)
 - Complete transition matrix with allowed sender roles
@@ -182,7 +178,6 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
 ## Status & Next Steps
 
 **Completed:**
-
 - ✅ Phase 1: Envelope v1.0 specification
 - ✅ Phase 2a (Partial): Lifecycles & state machines
   - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle with all state transitions
@@ -194,7 +189,6 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
   - ✅ `FLOWS/lore_deepening.md` — Lore Deepening message sequences
 
 **Next:**
-
 - Phase 2b (Remaining): Gate and View lifecycles
 - Phase 4 (Remaining): Additional loop flows (Codex Expansion, Gatecheck)
 - Phase 5: Validation & Conformance ✅ Complete
@@ -203,6 +197,8 @@ See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, an
   - ✅ `scripts/validate-examples.sh` and `validate-examples.ps1` — CI validation scripts
 
 See `LAYER4_PLAN.md` at repository root for the full phased implementation plan, success criteria, and rollout timeline.
+
+
 
 ## Continuous Integration
 
@@ -222,15 +218,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
+          python-version: '3.11'
+      
       - name: Install uv
         run: pip install uv
-
+      
       - name: Validate envelope examples
         run: ./scripts/validate-examples.sh
 ```
@@ -249,8 +245,8 @@ jobs:
 ```
 
 The validation scripts check:
-
 - Envelope structure against `envelope.schema.json`
 - Payload data against Layer 3 schemas
 - PN safety constraints
 - Required fields and format patterns
+

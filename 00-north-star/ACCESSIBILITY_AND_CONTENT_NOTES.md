@@ -30,26 +30,32 @@ Player-facing surfaces must be **readable, navigable, and safe**. This doc sets 
 ## 3) Global requirements (apply everywhere)
 
 1. **Headings & structure**
+
    - Logical hierarchy (`#`, `##`, `###`); no orphan headings.
    - One H1 per document; sections start with an H2 or higher.
 
 2. **Links & anchors**
+
    - Descriptive link text (“See Salvage Permits”) — never “click here”.
    - Anchors resolve in **all export formats** (Gatekeeper checks Integrity).
 
 3. **Contrast & color**
+
    - Don’t rely on color alone to convey state or choice grouping.
    - Print-friendly exports use high contrast by default.
 
 4. **Language & register**
+
    - Plain, direct sentences. Avoid jargon unless the codex covers it.
    - Use numerals and units consistently; SI units with localized variants allowed.
 
 5. **Keyboard and reading order (for HTML/EPUB)**
+
    - Natural DOM order; headings outline matches visual order.
    - Focusable elements (if any in UI later) must be reachable without a mouse.
 
 6. **No motion or flashing surprises**
+
    - We don’t ship animation in Layer 0 exports; in later UIs, avoid strobing/flashing and provide “reduce motion” options.
 
 7. **Content notes (CW)**

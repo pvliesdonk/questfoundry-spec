@@ -370,22 +370,27 @@ The Field Registry serves as the **authoritative data dictionary** for QuestFoun
 Several fields directly reference or imply relationships between Phase 1 taxonomies:
 
 1. **Hook Type → TU Type/Loop**
+
    - Hook type influences which loop resolves it
    - Example: `style/pn` hook → `Style Tune-up` loop
 
 2. **Loop → Role Dormancy**
+
    - Each loop specifies awake/dormant roles
    - Example: `Art Touch-up` → wake Art Director/Illustrator
 
 3. **Bars → All Artifacts**
+
    - Every artifact relates to one or more Quality Bars
    - Example: Codex Entry presses `Integrity, Presentation`
 
 4. **Deferral Type → Artifact Status**
+
    - Deferral tags affect artifact production status
    - Example: `deferred:art` → Art Plan status = `planned` not `rendering`
 
 5. **Research Posture → Validation Rules**
+
    - Posture level determines what phrasing is safe
    - Example: `uncorroborated:high` → requires neutral phrasing in Cold
 

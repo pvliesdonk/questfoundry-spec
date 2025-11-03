@@ -51,25 +51,31 @@ Open/attach a **Trace Unit (TU)**: `tu-style-tune-<scope>`.
 ## 4) Procedure
 
 1. **Drift Diagnosis (Style Lead)**
+
    - Sample sections (early/middle/late), PN lines, and recent captions.
    - Tag issues: `voice-shift`, `register-mismatch`, `motif-missing`, `over-exposition`, `jargon-spike`.
 
 2. **Exemplar Pass**
+
    - Provide short **before/after** exemplars for each issue (human prose).
    - Reaffirm motif kit (e.g., “shadow-side neon”, “low-G dust”, “relay hum”).
 
 3. **Style Addendum**
+
    - Add rules or clarifications: sentence rhythm under pressure, idiom boundaries, POV distance, caption tone.
    - Localization notes: avoid puns / provide alternatives.
 
 4. **Edit Notes to Owners**
+
    - Annotated list: `file/section → issue → fix suggestion (1–2 lines)`
    - PN phrase bank updates if needed (diegetic checks phrasing).
 
 5. **Owner Revisions (Scene/PN/Art/Audio)**
+
    - Make minimal changes to hit style; escalate if structure might change.
 
 6. **Pre-Gate (Gatekeeper)**
+
    - Style & Presentation Safety check; ensure no spoilers snuck into captions/PN.
 
 7. **Package**

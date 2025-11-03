@@ -68,25 +68,31 @@ _(Researcher may be consulted if factual claims appear; otherwise factual conten
 ## 5) Procedure
 
 1. **Select Topics**
+
    - From canon deltas, term frequency in manuscript, and taxonomy hooks.
    - Prioritize **player-value**: comprehension bottlenecks first.
 
 2. **Draft Entries (Curator)**
+
    - Write overview and context in **Style Lead**’s register.
    - Add **See also** list that improves navigation (avoid self-loops).
 
 3. **Spoiler Sweep (Lore Weaver)**
+
    - Compare against the spoiler-level canon; mask revelations.
    - If masking makes an entry misleading, add a **neutral phrasing** workaround or defer until a later publication window.
 
 4. **Style Pass (Style Lead)**
+
    - Ensure clarity, consistent terminology, motif harmonization, and reading level.
 
 5. **Link Audit (Curator)**
+
    - Check that every cross-reference resolves (or create the stub if approved).
    - Add disambiguation if a term is overloaded.
 
 6. **Gatekeeper Pre-Check**
+
    - Presentation Safety, Integrity, Style. Flag any gateway logic leaks.
 
 7. **Package & Handoff**

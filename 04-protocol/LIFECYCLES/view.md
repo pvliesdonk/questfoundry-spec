@@ -11,7 +11,6 @@ This specification defines the **View/Export lifecycle**: the state transitions 
 ### Purpose
 
 View lifecycle ensures that exported artifacts and PN narration sessions are reproducible, player-safe, and traceable to Cold snapshots. The lifecycle ensures:
-
 - **Cold-only inputs** — PN and Binder consume only Cold snapshots, never Hot material
 - **Player-safety enforced** — all exported content respects spoiler hygiene
 - **Reproducibility** — snapshot references enable identical re-exports
@@ -38,7 +37,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ```
 
 **States:**
-
 - `snapshot-selected` — Showrunner selects Cold snapshot for export
 - `export-binding` — Book Binder generates player-safe export artifacts (PDF, HTML, EPUB, etc.)
 - `pn-dry-run` — Player Narrator playtests the bound view for UX issues
@@ -54,17 +52,16 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 
 ### 3.1 Transition Matrix
 
-| From State           | To State             | Allowed Sender | Intent             | Required Payload   | Notes                              |
-| -------------------- | -------------------- | -------------- | ------------------ | ------------------ | ---------------------------------- |
-| `snapshot-selected`  | `export-binding`     | BB             | `view.bind`        | view_log (partial) | Binder starts export generation    |
-| `snapshot-selected`  | `export-failed`      | BB             | `view.bind_failed` | error              | Binding errors prevent export      |
-| `export-binding`     | `pn-dry-run`         | BB             | `view.bound`       | view_log (full)    | Export artifacts ready for PN      |
-| `export-binding`     | `export-failed`      | BB             | `view.bind_failed` | error              | Binding errors during generation   |
-| `pn-dry-run`         | `feedback-collected` | PN             | `view.feedback`    | pn_playtest_notes  | PN dry-run complete, issues logged |
-| `feedback-collected` | `view-published`     | SR or BB       | `view.publish`     | view_log (full)    | View archived and announced        |
+| From State          | To State              | Allowed Sender | Intent                 | Required Payload     | Notes                                  |
+|---------------------|-----------------------|----------------|------------------------|----------------------|----------------------------------------|
+| `snapshot-selected` | `export-binding`      | BB             | `view.bind`            | view_log (partial)   | Binder starts export generation        |
+| `snapshot-selected` | `export-failed`       | BB             | `view.bind_failed`     | error                | Binding errors prevent export          |
+| `export-binding`    | `pn-dry-run`          | BB             | `view.bound`           | view_log (full)      | Export artifacts ready for PN          |
+| `export-binding`    | `export-failed`       | BB             | `view.bind_failed`     | error                | Binding errors during generation       |
+| `pn-dry-run`        | `feedback-collected`  | PN             | `view.feedback`        | pn_playtest_notes    | PN dry-run complete, issues logged     |
+| `feedback-collected`| `view-published`      | SR or BB       | `view.publish`         | view_log (full)      | View archived and announced            |
 
 **Role Abbreviations:**
-
 - **BB** — Book Binder (export generation authority)
 - **PN** — Player Narrator (dry-run playtest authority)
 - **SR** — Showrunner (view publication authority)
@@ -76,7 +73,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 4.1 `snapshot-selected` → `export-binding`
 
 **Preconditions:**
-
 - Showrunner selects Cold snapshot for export
 - Gatecheck passed for snapshot content
 - Export targets and options defined (PDF, HTML, EPUB, art/audio/locale coverage)
@@ -88,7 +84,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Payload Schema:** `view_log.schema.json` (partial)
 
 **Required Fields:**
-
 ```json
 {
   "title": "<View name>",
@@ -102,13 +97,11 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ```
 
 **Effects:**
-
 - Binder begins export generation
 - Snapshot locked for reproducibility
 - Export artifacts in progress
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if not in `snapshot-selected` state
 - `NOT_AUTHORIZED` — if sender is not BB
 - `VALIDATION_FAILED` — if snapshot reference missing or invalid
@@ -119,7 +112,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 4.2 `snapshot-selected` → `export-failed` OR `export-binding` → `export-failed`
 
 **Preconditions:**
-
 - Export binding attempted
 - Critical errors prevent artifact generation (broken links, missing assets, schema violations)
 
@@ -130,7 +122,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Payload Schema:** `error` (custom)
 
 **Required Fields:**
-
 ```json
 {
   "code": "EXPORT_BINDING_FAILED",
@@ -138,20 +129,21 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
   "details": {
     "snapshot": "Cold @ YYYY-MM-DD",
     "targets": ["PDF", "HTML"],
-    "errors": ["Broken link in section 17: target 'hub_missing' does not exist", "Missing alt text for image in section 23"],
+    "errors": [
+      "Broken link in section 17: target 'hub_missing' does not exist",
+      "Missing alt text for image in section 23"
+    ],
     "remedy": "Fix broken link and add alt text; resubmit for binding"
   }
 }
 ```
 
 **Effects:**
-
 - Export binding terminated
 - Errors logged and routed to owners
 - Remediation required before retry
 
 **Error Cases:**
-
 - `EXPORT_BINDING_FAILED` — binding process encountered critical errors
 - `SNAPSHOT_CORRUPTED` — snapshot contains invalid or inconsistent data
 - `ASSET_MISSING` — required asset (image, audio) not found
@@ -161,7 +153,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 4.3 `export-binding` → `pn-dry-run`
 
 **Preconditions:**
-
 - Export artifacts successfully generated
 - All targets (PDF, HTML, EPUB, etc.) ready
 - Anchor map validated (no orphans, collisions resolved)
@@ -174,7 +165,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Payload Schema:** `view_log.schema.json` (full)
 
 **Required Fields:**
-
 ```json
 {
   "title": "<View name>",
@@ -212,13 +202,11 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ```
 
 **Effects:**
-
 - Export artifacts ready for PN consumption
 - PN triggered for dry-run playtest
 - View log published (partial state)
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if not in `export-binding` state
 - `NOT_AUTHORIZED` — if sender is not BB
 - `VALIDATION_FAILED` — if view_log fields incomplete
@@ -228,7 +216,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 4.4 `pn-dry-run` → `feedback-collected`
 
 **Preconditions:**
-
 - PN completed dry-run playtest of bound view
 - UX issues logged in playtest notes
 - All issues tagged, prioritized, and assigned to owners
@@ -240,7 +227,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Payload Schema:** `pn_playtest_notes.schema.json` (full)
 
 **Required Fields:**
-
 ```json
 {
   "title": "<View name>",
@@ -274,13 +260,11 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ```
 
 **Effects:**
-
 - PN feedback logged
 - Issues routed to responsible owners
 - View feedback complete
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if not in `pn-dry-run` state
 - `NOT_AUTHORIZED` — if sender is not PN
 - `VALIDATION_FAILED` — if playtest notes incomplete or missing required fields
@@ -291,7 +275,6 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 4.5 `feedback-collected` → `view-published`
 
 **Preconditions:**
-
 - PN feedback reviewed and routed
 - View log finalized with all artifacts, gatechecks, and feedback
 - Showrunner approves view publication
@@ -303,26 +286,23 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Payload Schema:** `view_log.schema.json` (full, final)
 
 **Required Fields:** (same as 4.3, with additional confirmation)
-
 ```json
 {
   "title": "<View name>",
   "bound": "YYYY-MM-DD",
   "binder": "<BB name or agent>",
   "tu": "TU-YYYY-MM-DD-BBnn",
-  "cold_snapshot": "Cold @ YYYY-MM-DD"
+  "cold_snapshot": "Cold @ YYYY-MM-DD",
   // ... (all view_log fields from 4.3)
 }
 ```
 
 **Effects:**
-
 - View log archived (terminal)
 - View announced to stakeholders
 - Export artifacts preserved for reproducibility
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if not in `feedback-collected` state
 - `NOT_AUTHORIZED` — if sender is not SR or BB
 - `VALIDATION_FAILED` — if view log incomplete
@@ -336,14 +316,12 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Rule:** PN MUST consume only Cold snapshots; PN MUST NEVER access Hot material
 
 **Enforcement:**
-
 - All messages with `receiver.role === "PN"` MUST have `context.hot_cold === "cold"`
 - All PN messages MUST include valid `context.snapshot` reference (format: `"Cold @ YYYY-MM-DD"`)
 
 **Error:** `PN_HOT_BOUNDARY_VIOLATION` if PN receives Hot context
 
 **Example error:**
-
 ```json
 {
   "code": "PN_HOT_BOUNDARY_VIOLATION",
@@ -363,14 +341,12 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Rule:** All content consumed by PN MUST be player-safe (`safety.player_safe: true`)
 
 **Enforcement:**
-
 - All messages with `receiver.role === "PN"` MUST have `safety.player_safe === true`
 - All PN outputs (narration, playtest notes) MUST be player-safe (no spoilers)
 
 **Error:** `PN_PLAYER_SAFE_VIOLATION` if PN receives non-player-safe content
 
 **Example error:**
-
 ```json
 {
   "code": "PN_PLAYER_SAFE_VIOLATION",
@@ -390,14 +366,12 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 **Rule:** All PN messages MUST include `context.snapshot` with valid Cold snapshot ID
 
 **Enforcement:**
-
 - `context.snapshot` MUST match pattern `^Cold @ \d{4}-\d{2}-\d{2}$`
 - Snapshot MUST exist in Cold SoT
 
 **Error:** `SNAPSHOT_MISSING` or `SNAPSHOT_INVALID` if snapshot missing or malformed
 
 **Example error:**
-
 ```json
 {
   "code": "SNAPSHOT_MISSING",
@@ -415,14 +389,12 @@ snapshot-selected → export-binding → pn-dry-run → feedback-collected → v
 ### 5.4 What PN May See
 
 **Allowed:**
-
 - Hyperlinked manuscript view (sections, choices, surface text)
 - Player-safe codex pages and cross-refs
 - Style guidance (voice/register motifs)
 - Export options (art plans, audio plans, locale coverage)
 
 **Forbidden:**
-
 - Codeword names or gate logic
 - Hot topology or WIP drafts
 - Author notes, hooks, or canon contradictions
@@ -450,7 +422,6 @@ All view/export lifecycle messages MUST include proper envelope context per `ENV
 ### 6.2 TU Linkage
 
 All view/export messages MUST include:
-
 - `context.tu` — the TU ID coordinating the view/export
 - `context.snapshot` — the Cold snapshot being exported
 - `refs` — array of related TU/gatecheck IDs for traceability
@@ -458,7 +429,6 @@ All view/export messages MUST include:
 ### 6.3 Loop Context
 
 All view/export messages MUST include:
-
 - `context.loop` — loop name from enum:
   - "Binding Run" — for export binding messages
   - "Narration Dry-Run" — for PN playtest messages
@@ -470,13 +440,11 @@ All view/export messages MUST include:
 ### 7.1 Snapshot Reference Validation
 
 **Rule:** All export/PN messages MUST include valid `context.snapshot`
-
 - **Check:** `context.snapshot` matches pattern `^Cold @ \d{4}-\d{2}-\d{2}$`
 - **Check:** Snapshot exists in Cold SoT
 - **Error:** `SNAPSHOT_MISSING` if null, `SNAPSHOT_INVALID` if malformed, `SNAPSHOT_NOT_FOUND` if not in Cold
 
 **Example error:**
-
 ```json
 {
   "code": "SNAPSHOT_INVALID",
@@ -492,12 +460,10 @@ All view/export messages MUST include:
 ### 7.2 PN Boundary Validation
 
 **Rule:** PN messages MUST have `hot_cold: "cold"` and `player_safe: true`
-
 - **Check:** If `receiver.role === "PN"`, verify `context.hot_cold === "cold"` and `safety.player_safe === true`
 - **Error:** `PN_HOT_BOUNDARY_VIOLATION` or `PN_PLAYER_SAFE_VIOLATION` if violated
 
 **Example error:**
-
 ```json
 {
   "code": "PN_HOT_BOUNDARY_VIOLATION",
@@ -514,12 +480,10 @@ All view/export messages MUST include:
 ### 7.3 Snapshot Consistency Validation
 
 **Rule:** All messages in a view lifecycle chain MUST reference the same snapshot
-
 - **Check:** `context.snapshot` consistent across view.bind → view.bound → view.feedback → view.publish
 - **Error:** `SNAPSHOT_MISMATCH` if snapshot differs
 
 **Example error:**
-
 ```json
 {
   "code": "SNAPSHOT_MISMATCH",
@@ -536,12 +500,10 @@ All view/export messages MUST include:
 ### 7.4 Export Artifact Validation
 
 **Rule:** All export artifacts MUST be reproducible (hash recorded)
-
 - **Check:** `export_artifacts[].hash` present for all artifacts
 - **Error:** `VALIDATION_FAILED` if hash missing
 
 **Example error:**
-
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -560,37 +522,36 @@ All view/export messages MUST include:
 
 ### 8.1 Snapshot Errors
 
-| Error Code           | Trigger                                    | Remedy                               |
-| -------------------- | ------------------------------------------ | ------------------------------------ |
-| `SNAPSHOT_MISSING`   | `context.snapshot` is null or undefined    | Include valid snapshot reference     |
-| `SNAPSHOT_INVALID`   | Snapshot format does not match pattern     | Use format `"Cold @ YYYY-MM-DD"`     |
-| `SNAPSHOT_NOT_FOUND` | Snapshot does not exist in Cold SoT        | Verify snapshot exists before export |
-| `SNAPSHOT_CORRUPTED` | Snapshot data is invalid or inconsistent   | Investigate snapshot integrity       |
-| `SNAPSHOT_MISMATCH`  | Snapshot differs across lifecycle messages | Use consistent snapshot ID           |
+| Error Code             | Trigger                                    | Remedy                                |
+|------------------------|--------------------------------------------|---------------------------------------|
+| `SNAPSHOT_MISSING`     | `context.snapshot` is null or undefined    | Include valid snapshot reference      |
+| `SNAPSHOT_INVALID`     | Snapshot format does not match pattern     | Use format `"Cold @ YYYY-MM-DD"`      |
+| `SNAPSHOT_NOT_FOUND`   | Snapshot does not exist in Cold SoT        | Verify snapshot exists before export  |
+| `SNAPSHOT_CORRUPTED`   | Snapshot data is invalid or inconsistent   | Investigate snapshot integrity        |
+| `SNAPSHOT_MISMATCH`    | Snapshot differs across lifecycle messages | Use consistent snapshot ID            |
 
 ### 8.2 PN Boundary Errors
 
-| Error Code                  | Trigger                                        | Remedy                           |
-| --------------------------- | ---------------------------------------------- | -------------------------------- |
-| `PN_HOT_BOUNDARY_VIOLATION` | PN message has `hot_cold: "hot"`               | Change to `hot_cold: "cold"`     |
-| `PN_PLAYER_SAFE_VIOLATION`  | PN message has `player_safe: false`            | Change to `player_safe: true`    |
-| `PN_SPOILER_DETECTED`       | PN content contains spoilers (codewords, etc.) | Filter content for player-safety |
+| Error Code                    | Trigger                                         | Remedy                                |
+|-------------------------------|-------------------------------------------------|---------------------------------------|
+| `PN_HOT_BOUNDARY_VIOLATION`   | PN message has `hot_cold: "hot"`                | Change to `hot_cold: "cold"`          |
+| `PN_PLAYER_SAFE_VIOLATION`    | PN message has `player_safe: false`             | Change to `player_safe: true`         |
+| `PN_SPOILER_DETECTED`         | PN content contains spoilers (codewords, etc.)  | Filter content for player-safety      |
 
 ### 8.3 Export Binding Errors
 
-| Error Code              | Trigger                                    | Remedy                             |
-| ----------------------- | ------------------------------------------ | ---------------------------------- |
-| `EXPORT_BINDING_FAILED` | Critical errors during artifact generation | Fix errors (broken links, etc.)    |
-| `ASSET_MISSING`         | Required asset (image, audio) not found    | Add missing asset or mark deferred |
-| `ANCHOR_COLLISION`      | Duplicate anchor IDs in manuscript         | Resolve anchor collision           |
-| `BROKEN_LINK`           | Link target does not exist                 | Fix or remove broken link          |
+| Error Code                | Trigger                                    | Remedy                                |
+|---------------------------|--------------------------------------------|---------------------------------------|
+| `EXPORT_BINDING_FAILED`   | Critical errors during artifact generation | Fix errors (broken links, etc.)       |
+| `ASSET_MISSING`           | Required asset (image, audio) not found    | Add missing asset or mark deferred    |
+| `ANCHOR_COLLISION`        | Duplicate anchor IDs in manuscript         | Resolve anchor collision              |
+| `BROKEN_LINK`             | Link target does not exist                 | Fix or remove broken link             |
 
 ---
 
 ## 9. Cross-References
 
 ### Layer 0/1 Policy
-
 - `00-north-star/PN_PRINCIPLES.md` — PN boundaries, inputs/outputs, diegetic enforcement
 - `00-north-star/SOURCES_OF_TRUTH.md` — Hot/Cold SoT boundaries and export policy
 - `00-north-star/QUALITY_BARS.md` — Presentation and Accessibility bar definitions
@@ -598,19 +559,16 @@ All view/export messages MUST include:
 - `01-roles/charters/player_narrator.md` — PN dry-run authority
 
 ### Layer 2 Dictionary
-
 - `02-dictionary/taxonomies.md` §3 — Loop names (Binding Run, Narration Dry-Run)
 - `02-dictionary/artifacts/view_log.md` — View Log structure
 - `02-dictionary/artifacts/pn_playtest_notes.md` — PN Playtest Notes structure
 
 ### Layer 3 Schemas
-
 - `03-schemas/view_log.schema.json` — View Log validation schema
 - `03-schemas/pn_playtest_notes.schema.json` — PN Playtest Notes validation schema
 - `03-schemas/gatecheck_report.schema.json` — Gatecheck Report schema (referenced)
 
 ### Layer 4 Protocol
-
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/LIFECYCLES/tu.md` — TU lifecycle (companion spec)
 - `04-protocol/LIFECYCLES/gate.md` — Gate lifecycle (companion spec)
@@ -622,7 +580,6 @@ All view/export messages MUST include:
 ### 10.1 Example: View Bind (Snapshot Selected → Export Binding)
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -661,7 +618,6 @@ All view/export messages MUST include:
 ### 10.2 Example: View Bound (Export Binding Complete)
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -726,7 +682,6 @@ All view/export messages MUST include:
 ### 10.3 Example: PN Dry-Run Feedback
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -787,7 +742,6 @@ All view/export messages MUST include:
 ### 10.4 Example: View Publish
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -852,7 +806,6 @@ All view/export messages MUST include:
 ### 10.5 Example: PN Boundary Violation Error
 
 **Error Response:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -893,7 +846,6 @@ All view/export messages MUST include:
 ### 10.6 Example: Snapshot Missing Error
 
 **Error Response:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },

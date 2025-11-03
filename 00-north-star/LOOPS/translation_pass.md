@@ -69,27 +69,34 @@ _(Lore Weaver/Researcher may advise on cultural specifics or factual terms when 
 ## 5) Procedure
 
 1. **Scope & Coverage Plan (Translator + Showrunner)**
+
    - Decide **slice** (full book, acts, codex subset).
    - Set coverage target and time box; mark partial outputs as `incomplete`.
 
 2. **Glossary First**
+
    - Create/refresh glossary with Style Lead.
    - Decide **register** (T/V distinction, dialect); lock decisions here.
 
 3. **Segment & Localize**
+
    - Translate player surfaces: **no internal labels**, no spoilers, preserve PN diegesis.
    - Keep hyperlinks and anchors intact; choice labels stay distinct and clear.
 
 4. **Motif & Idiom Pass (Style Lead)**
+
    - Validate motif resonance; solve idioms with functionally equivalent phrases.
 
 5. **PN Phrasing Check**
+
    - Confirm gate enforcement phrasing is diegetic and natural in target language.
 
 6. **Link Audit (Curator)**
+
    - Ensure cross-refs resolve to localized targets; add stubs if scoped.
 
 7. **Pre-Gate (Gatekeeper)**
+
    - **Presentation Safety** (no leaks), **Integrity** (links), **Style** (tone/voice).
 
 8. **Package**

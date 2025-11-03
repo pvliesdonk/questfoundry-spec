@@ -11,7 +11,6 @@ This specification defines the **Trace Unit (TU) lifecycle**: the allowed state 
 ### Purpose
 
 Trace Units track all meaningful changes targeting Cold SoT (Source of Truth). The lifecycle ensures:
-
 - **Traceability** — every Cold merge has documented rationale and lineage
 - **Quality gates** — work passes quality bars before Cold merge
 - **Clear ownership** — roles know who can transition states
@@ -39,7 +38,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **States:**
-
 - `hot-proposed` — Initial state when TU is created in Hot
 - `stabilizing` — Work in progress, artifacts being developed
 - `gatecheck` — Ready for quality bar validation by Gatekeeper
@@ -57,20 +55,19 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 
 ### 3.1 Transition Matrix
 
-| From State     | To State      | Allowed Sender  | Intent           | Required Payload   | Notes                               |
-| -------------- | ------------- | --------------- | ---------------- | ------------------ | ----------------------------------- |
-| `hot-proposed` | `stabilizing` | SR or Owner (A) | `tu.start`       | tu_brief (partial) | Work begins, roles activated        |
-| `hot-proposed` | `deferred`    | SR              | `tu.defer`       | tu_brief (partial) | Requires deferral reason + revisit  |
-| `hot-proposed` | `rejected`    | SR              | `tu.reject`      | tu_brief (partial) | Requires rejection reason           |
-| `stabilizing`  | `gatecheck`   | Owner (A)       | `tu.submit_gate` | tu_brief (full)    | Deliverables complete, ready for GK |
-| `stabilizing`  | `deferred`    | SR or Owner     | `tu.defer`       | tu_brief (partial) | If blocked during work              |
-| `gatecheck`    | `cold-merged` | SR              | `tu.merge`       | tu_brief (full)    | GK passed, merged to Cold snapshot  |
-| `gatecheck`    | `stabilizing` | GK or Owner     | `tu.rework`      | tu_brief (partial) | GK failed, remediation needed       |
-| `deferred`     | `stabilizing` | SR              | `tu.reactivate`  | tu_brief (partial) | Reactivating deferred TU            |
-| `deferred`     | `rejected`    | SR              | `tu.reject`      | tu_brief (partial) | Abandoning deferred TU              |
+| From State      | To State       | Allowed Sender | Intent              | Required Payload     | Notes                                  |
+|-----------------|----------------|----------------|---------------------|----------------------|----------------------------------------|
+| `hot-proposed`  | `stabilizing`  | SR or Owner (A)| `tu.start`          | tu_brief (partial)   | Work begins, roles activated           |
+| `hot-proposed`  | `deferred`     | SR             | `tu.defer`          | tu_brief (partial)   | Requires deferral reason + revisit     |
+| `hot-proposed`  | `rejected`     | SR             | `tu.reject`         | tu_brief (partial)   | Requires rejection reason              |
+| `stabilizing`   | `gatecheck`    | Owner (A)      | `tu.submit_gate`    | tu_brief (full)      | Deliverables complete, ready for GK    |
+| `stabilizing`   | `deferred`     | SR or Owner    | `tu.defer`          | tu_brief (partial)   | If blocked during work                 |
+| `gatecheck`     | `cold-merged`  | SR             | `tu.merge`          | tu_brief (full)      | GK passed, merged to Cold snapshot     |
+| `gatecheck`     | `stabilizing`  | GK or Owner    | `tu.rework`         | tu_brief (partial)   | GK failed, remediation needed          |
+| `deferred`      | `stabilizing`  | SR             | `tu.reactivate`     | tu_brief (partial)   | Reactivating deferred TU               |
+| `deferred`      | `rejected`     | SR             | `tu.reject`         | tu_brief (partial)   | Abandoning deferred TU                 |
 
 **Role Abbreviations:**
-
 - **SR** — Showrunner (accountable for TU decisions and Cold merges)
 - **Owner (A)** — The accountable role specified in `owner_a` (usually SR)
 - **GK** — Gatekeeper (quality bar enforcement)
@@ -82,7 +79,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.1 `hot-proposed` → `stabilizing`
 
 **Preconditions:**
-
 - TU status is `hot-proposed`
 - Roles have been identified (awake/dormant)
 - Inputs/prerequisites available
@@ -94,7 +90,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -109,13 +104,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `stabilizing`
 - Work begins, roles activated per awake list
 - Clock starts on timebox
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `hot-proposed`
 - `NOT_AUTHORIZED` — if sender is not SR or owner_a
 - `VALIDATION_FAILED` — if required fields missing (awake/dormant, timebox)
@@ -125,7 +118,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.2 `hot-proposed` → `deferred`
 
 **Preconditions:**
-
 - TU status is `hot-proposed`
 - Decision made to postpone (with reason)
 
@@ -136,7 +128,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -146,13 +137,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `deferred`
 - Deferral reason and revisit condition recorded
 - Work suspended
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `hot-proposed` or `stabilizing`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if deferral_tags or linkage missing
@@ -162,7 +151,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.3 `hot-proposed` → `rejected`
 
 **Preconditions:**
-
 - TU status is `hot-proposed`
 - Decision made not to pursue (with reason)
 
@@ -173,7 +161,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -182,13 +169,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `rejected` (terminal)
 - TU removed from active work queue
 - Rejection reason recorded for audit
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `hot-proposed` or `deferred`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if rejection reason in linkage missing
@@ -198,7 +183,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.4 `stabilizing` → `gatecheck`
 
 **Preconditions:**
-
 - TU status is `stabilizing`
 - All deliverables completed
 - Self-checks passed (owner believes bars are green)
@@ -210,7 +194,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (full)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -222,13 +205,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `gatecheck`
 - Gatekeeper triggered for quality bar validation
 - No further artifact changes until GK decision
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `stabilizing`
 - `NOT_AUTHORIZED` — if sender is not owner_a
 - `VALIDATION_FAILED` — if deliverables, bars_green, or gatecheck plan missing
@@ -239,7 +220,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.5 `gatecheck` → `cold-merged`
 
 **Preconditions:**
-
 - TU status is `gatecheck`
 - Gatekeeper validation passed (all bars green)
 - No blocking issues identified
@@ -251,7 +231,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (full)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -261,14 +240,12 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `cold-merged` (terminal)
 - Artifacts merged to Cold snapshot
 - Snapshot ID recorded for reproducibility
 - Lifecycle complete
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `gatecheck`
 - `NOT_AUTHORIZED` — if sender is not SR
 - `VALIDATION_FAILED` — if snapshot_context missing
@@ -279,7 +256,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.6 `gatecheck` → `stabilizing` (rework)
 
 **Preconditions:**
-
 - TU status is `gatecheck`
 - Gatekeeper validation failed (one or more bars red/yellow)
 - Remediation required
@@ -291,7 +267,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -301,13 +276,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status reverts to `stabilizing`
 - Owner must address failed bars
 - Pre-gate risks updated with remediation tasks
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `gatecheck`
 - `NOT_AUTHORIZED` — if sender is not GK or owner_a
 - `VALIDATION_FAILED` — if remediation tasks not specified
@@ -317,7 +290,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.7 `deferred` → `stabilizing` (reactivate)
 
 **Preconditions:**
-
 - TU status is `deferred`
 - Decision made to reactivate
 - Revisit condition met
@@ -329,7 +301,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Payload Schema:** `tu_brief.schema.json` (partial update)
 
 **Required Fields:**
-
 ```json
 {
   "id": "TU-YYYY-MM-DD-RRnn",
@@ -339,13 +310,11 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
 **Effects:**
-
 - TU status changes to `stabilizing`
 - Work resumes with updated context
 - Deferral tags cleared or updated
 
 **Error Cases:**
-
 - `INVALID_STATE_TRANSITION` — if current status is not `deferred`
 - `NOT_AUTHORIZED` — if sender is not SR
 
@@ -354,7 +323,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 ### 4.8 `deferred` → `rejected` (abandon)
 
 **Preconditions:**
-
 - TU status is `deferred`
 - Decision made not to pursue
 
@@ -367,7 +335,6 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 **Required Fields:** (same as 4.3)
 
 **Effects:**
-
 - TU status changes to `rejected` (terminal)
 - Rejection reason recorded
 
@@ -394,7 +361,6 @@ All TU lifecycle messages MUST include proper envelope context per `ENVELOPE.md`
 ### 5.2 TU Linkage (Self-Reference)
 
 All TU lifecycle messages MUST include:
-
 - `context.tu` — the TU ID being transitioned (self-reference)
 - `context.snapshot` — the Cold snapshot context (updated on merge)
 - `refs` — array of upstream hooks, TUs, ADRs, or artifacts
@@ -402,7 +368,6 @@ All TU lifecycle messages MUST include:
 ### 5.3 Loop Context
 
 All TU messages MUST include:
-
 - `context.loop` — the loop type from `tu_brief.loop` field
 
 ---
@@ -412,12 +377,10 @@ All TU messages MUST include:
 ### 6.1 State Transition Validation
 
 **Rule:** Transitions MUST follow allowed paths from the state machine
-
 - **Check:** Current TU status matches "From State" in transition matrix
 - **Error:** `INVALID_STATE_TRANSITION` if not allowed
 
 **Example error:**
-
 ```json
 {
   "code": "INVALID_STATE_TRANSITION",
@@ -434,12 +397,10 @@ All TU messages MUST include:
 ### 6.2 Role Authorization Validation
 
 **Rule:** Only specified roles can trigger transitions
-
 - **Check:** `sender.role` matches "Allowed Sender" in transition matrix
 - **Error:** `NOT_AUTHORIZED` if role mismatch
 
 **Example error:**
-
 ```json
 {
   "code": "NOT_AUTHORIZED",
@@ -456,12 +417,10 @@ All TU messages MUST include:
 ### 6.3 Required Field Validation
 
 **Rule:** Transitions requiring specific fields must validate
-
 - **Check:** Required fields present and valid per schema
 - **Error:** `VALIDATION_FAILED` if fields missing or invalid
 
 **Example error:**
-
 ```json
 {
   "code": "VALIDATION_FAILED",
@@ -477,12 +436,10 @@ All TU messages MUST include:
 ### 6.4 Terminal State Protection
 
 **Rule:** Terminal states (`cold-merged`, `rejected`) cannot transition further
-
 - **Check:** Current TU status is not terminal
 - **Error:** `INVALID_STATE_TRANSITION` with terminal state reason
 
 **Example error:**
-
 ```json
 {
   "code": "INVALID_STATE_TRANSITION",
@@ -498,12 +455,10 @@ All TU messages MUST include:
 ### 6.5 Cold-Bound Requirement Validation
 
 **Rule:** Any artifact targeting Cold MUST have an associated TU
-
 - **Check:** Merge requests include valid TU ID
 - **Error:** `BUSINESS_RULE_VIOLATION` if TU missing
 
 **Example error:**
-
 ```json
 {
   "code": "BUSINESS_RULE_VIOLATION",
@@ -524,7 +479,6 @@ All TU messages MUST include:
 ### 7.1 Gatecheck Enforcement
 
 TU transitions to `cold-merged` MUST verify:
-
 - All bars in `bars_green` are actually green (validated by Gatekeeper)
 - Gatecheck report shows PASS status
 - No blocking pre-gate risks unresolved
@@ -544,12 +498,10 @@ TU transitions to `cold-merged` MUST verify:
 ### 7.3 Quality Bar Categories
 
 All TU briefs MUST list bars being pressed:
-
 - `press` — bars this TU commits to flipping green
 - `monitor` — bars to watch without green commitment
 
 See `02-dictionary/taxonomies.md` §5 for the 8 Quality Bars:
-
 1. Integrity
 2. Reachability
 3. Nonlinearity
@@ -566,14 +518,12 @@ See `02-dictionary/taxonomies.md` §5 for the 8 Quality Bars:
 ### 8.1 Role Wake/Sleep
 
 TU briefs MUST explicitly list:
-
 - `awake` — roles participating in this TU
 - `dormant` — roles not participating (with deferral tags if optional roles)
 
 ### 8.2 Deferral Tags
 
 If optional roles (Art, Audio, Translation, Research) are dormant:
-
 - MUST include `deferral_tags` array
 - Tags: `deferred:art`, `deferred:audio`, `deferred:translation`, `deferred:research`
 - See `02-dictionary/taxonomies.md` §7 for deferral types
@@ -581,7 +531,6 @@ If optional roles (Art, Audio, Translation, Research) are dormant:
 ### 8.3 Wake Rubric
 
 When deciding to wake optional roles, apply wake rubric:
-
 - Score: Player benefit (0-2) + Bar pressure (0-2) + Scope fit (0-2) + Reuse leverage (0-2)
 - Wake if total ≥ 4 OR hard trigger (Gatekeeper red, export requirement, safety risk)
 
@@ -590,26 +539,22 @@ When deciding to wake optional roles, apply wake rubric:
 ## 9. Cross-References
 
 ### Layer 0/1 Policy
-
 - `00-north-star/TRACEABILITY.md` — TU requirements and Cold-bound rule
 - `00-north-star/QUALITY_BARS.md` — 8 quality bar definitions
 - `01-roles/charters/showrunner.md` — SR merge authority
 - `01-roles/charters/gatekeeper.md` — GK gatecheck authority
 
 ### Layer 2 Dictionary
-
 - `02-dictionary/taxonomies.md` §3 — TU Types & Loop Alignment
 - `02-dictionary/taxonomies.md` §5 — Quality Bar Categories
 - `02-dictionary/taxonomies.md` §7 — Deferral Types
 - `02-dictionary/artifacts/tu_brief.md` — TU Brief structure
 
 ### Layer 3 Schemas
-
 - `03-schemas/tu_brief.schema.json` — Payload validation schema
 - `03-schemas/gatecheck_report.schema.json` — Gatecheck result schema
 
 ### Layer 4 Protocol
-
 - `04-protocol/ENVELOPE.md` — Message envelope requirements
 - `04-protocol/INTENTS.md` — Intent catalog (future)
 - `04-protocol/LIFECYCLES/hooks.md` — Hook lifecycle (companion spec)
@@ -621,7 +566,6 @@ When deciding to wake optional roles, apply wake rubric:
 ### 10.1 Example: Start TU
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -674,7 +618,6 @@ When deciding to wake optional roles, apply wake rubric:
 ### 10.2 Example: Submit for Gatecheck
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -698,7 +641,10 @@ When deciding to wake optional roles, apply wake rubric:
     "$schema": "../03-schemas/tu_brief.schema.json",
     "data": {
       "id": "TU-2025-10-30-SR01",
-      "deliverables": ["Canon pack: manuscript/canon/toll_mechanism.md", "Updated faction relationships in canon/factions.md"],
+      "deliverables": [
+        "Canon pack: manuscript/canon/toll_mechanism.md",
+        "Updated faction relationships in canon/factions.md"
+      ],
       "bars_green": ["Integrity", "Nonlinearity"],
       "gatecheck": "GK validates: Integrity (all IDs resolve, no contradictions), Nonlinearity (toll creates meaningful choice pressure)",
       "linkage": "Canon complete, ready for Cold merge. Impacts sections 8, 17, 33."
@@ -713,7 +659,6 @@ When deciding to wake optional roles, apply wake rubric:
 ### 10.3 Example: Merge to Cold
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -750,7 +695,6 @@ When deciding to wake optional roles, apply wake rubric:
 ### 10.4 Example: Gatecheck Failure (Rework)
 
 **Message:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },
@@ -774,7 +718,10 @@ When deciding to wake optional roles, apply wake rubric:
     "$schema": "../03-schemas/tu_brief.schema.json",
     "data": {
       "id": "TU-2025-10-30-SR01",
-      "pre_gate_risks": ["Integrity FAIL: Canon entry references 'Faction-X7' but no such faction exists in canon/factions.md", "Nonlinearity PASS: Toll creates meaningful choice pressure"],
+      "pre_gate_risks": [
+        "Integrity FAIL: Canon entry references 'Faction-X7' but no such faction exists in canon/factions.md",
+        "Nonlinearity PASS: Toll creates meaningful choice pressure"
+      ],
       "gatecheck": "Remediate: Add Faction-X7 to canon/factions.md OR update toll_mechanism.md to use existing faction. Resubmit for gatecheck."
     }
   },
@@ -787,7 +734,6 @@ When deciding to wake optional roles, apply wake rubric:
 ### 10.5 Example: Invalid Transition Error
 
 **Error Response:**
-
 ```json
 {
   "protocol": { "name": "qf-protocol", "version": "1.0.0" },

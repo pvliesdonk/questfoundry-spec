@@ -14,6 +14,7 @@ We separate _what people do_ (roles) from _how they talk_ (common language) and 
    Distinct roles handle structure, prose, style, lore, codex, art, audio, QA, and production. No role becomes a secret kitchen for everything.
 
 2. **Two Sources of Truth**
+
    - **Hot SoT**: Working drafts, proposals, and **hooks** (new facts/affordances) in flux.
    - **Cold SoT**: Curated canon and stable style, safe to export/play.  
      Hot flows into Cold only after a stabilization loop and Gatekeeper checks.
