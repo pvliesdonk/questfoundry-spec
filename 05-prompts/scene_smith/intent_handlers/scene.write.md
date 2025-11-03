@@ -1,4 +1,4 @@
-# Intent Handler — scene.write (Scaffold)
+# Intent Handler — scene.write
 
 STATUS: SCAFFOLD TODO: Detail prose generation steps and quality checks.
 
@@ -26,3 +26,4 @@ References
 
 - 00-north-star/QUALITY_BARS.md (Style, Presentation)
 - 02-dictionary/artifacts/edit_notes.md
+

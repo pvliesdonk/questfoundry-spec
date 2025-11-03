@@ -1,4 +1,4 @@
-# Intent Handler — gateway.define (Scaffold)
+# Intent Handler — gateway.define
 
 STATUS: SCAFFOLD TODO: Document condition phrasing (in-world), enforcement, and failure paths.
 
@@ -25,3 +25,4 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Gateways, Presentation)
+

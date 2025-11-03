@@ -54,3 +54,4 @@ Acceptance (for this prompt)
 
 - Clear pattern language for hubs/loops/gateways.
 - Concrete proofs for reachability and loop meaningfulness.
+

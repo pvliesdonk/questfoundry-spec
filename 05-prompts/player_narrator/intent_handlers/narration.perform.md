@@ -1,4 +1,4 @@
-# Procedure — narration.perform (Scaffold)
+# Procedure — narration.perform
 
 STATUS: SCAFFOLD TODO: Define pacing, tone, and break/choice cadence. Note: Internal procedure (no
 new protocol intent).
@@ -21,3 +21,4 @@ Process
 Outputs
 
 - Player-safe narration lines (runtime); optional `pn.playtest.submit` later.
+

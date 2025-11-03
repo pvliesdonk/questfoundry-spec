@@ -20,3 +20,4 @@ Remediation
 
 - Add descriptive captions; improve headings/links; add content notes or adjust composition; ensure
   contrast.
+

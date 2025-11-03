@@ -18,3 +18,4 @@ Common Failures
 Remediation
 
 - Move spoilers into canon notes; rephrase PN lines diegetically; rename internals; rewrite choices.
+

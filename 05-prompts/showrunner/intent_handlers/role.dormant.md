@@ -1,4 +1,4 @@
-# Intent Handler — role.dormant (Scaffold)
+# Intent Handler — role.dormant
 
 STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
@@ -20,3 +20,4 @@ Outputs
 References
 
 - 01-roles/interfaces/dormancy_signals.md
+

@@ -1,4 +1,4 @@
-# Procedure — style.guide (Scaffold)
+# Procedure — style.guide
 
 STATUS: SCAFFOLD TODO: Define style guide structure and update flow. Note: Internal procedure (no
 new protocol intent).
@@ -25,3 +25,4 @@ Outputs
 References
 
 - 02-dictionary/artifacts/register_map.md; 00-north-star/QUALITY_BARS.md (Style)
+

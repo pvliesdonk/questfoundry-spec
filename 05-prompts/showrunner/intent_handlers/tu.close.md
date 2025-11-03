@@ -1,4 +1,4 @@
-# Intent Handler — tu.close (Scaffold)
+# Intent Handler — tu.close
 
 STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
@@ -28,3 +28,4 @@ Errors
 References
 
 - 04-protocol/LIFECYCLES/tu.md
+

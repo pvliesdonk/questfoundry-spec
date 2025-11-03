@@ -17,3 +17,4 @@ Common Failures
 Remediation
 
 - Add state effects; diversify outcomes; merge trivial hubs.
+

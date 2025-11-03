@@ -1,4 +1,4 @@
-# Intent Handler — tu.open (Scaffold)
+# Intent Handler — tu.open
 
 STATUS: SCAFFOLD TODO: Flesh out full guidance, examples, and acceptance criteria.
 
@@ -30,3 +30,4 @@ Errors
 References
 
 - 04-protocol/FLOWS/\*, 04-protocol/INTENTS.md, 01-roles/interfaces/dormancy_signals.md
+

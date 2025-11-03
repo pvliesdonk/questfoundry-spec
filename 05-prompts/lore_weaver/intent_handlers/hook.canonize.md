@@ -1,4 +1,4 @@
-# Procedure — hook.canonize (Scaffold)
+# Procedure — hook.canonize
 
 STATUS: SCAFFOLD TODO: Describe step-by-step canonization from hook_card to canon_pack. Note:
 Internal procedure (no new protocol intent).
@@ -19,3 +19,4 @@ Process
 Outputs
 
 - Updated `canon_pack` (Hot) in repo; `tu.checkpoint` emitted.
+

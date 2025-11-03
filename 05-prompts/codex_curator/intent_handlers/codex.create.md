@@ -1,4 +1,4 @@
-# Procedure — codex.create (Scaffold)
+# Procedure — codex.create
 
 STATUS: SCAFFOLD TODO: Specify canonical-to-player-safe transformation steps. Note: Internal
 procedure (no new protocol intent).
@@ -27,3 +27,4 @@ References
 
 - 00-north-star/SPOILER_HYGIENE.md; QUALITY_BARS.md (Presentation)
 - 02-dictionary/artifacts/codex_entry.md
+

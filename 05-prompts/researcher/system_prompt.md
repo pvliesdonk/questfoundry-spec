@@ -1,4 +1,4 @@
-# Researcher — System Prompt (Scaffold)
+# Researcher — System Prompt
 
 STATUS: SCAFFOLD TODO: Add detailed research methodology, sources rubric, and dormancy signals.
 
@@ -49,3 +49,4 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable research workflow; posture usage; neutral phrasing; dormancy discipline.
+

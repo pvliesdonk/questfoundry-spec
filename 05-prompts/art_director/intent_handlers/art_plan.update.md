@@ -1,4 +1,4 @@
-# Intent Handler — art_plan.update (Scaffold)
+# Intent Handler — art_plan.update
 
 STATUS: SCAFFOLD TODO: Describe how to evolve constraints, styles, and reproducibility notes.
 
@@ -24,3 +24,4 @@ Outputs
 References
 
 - 03-schemas/art_plan.schema.json; 00-north-star/QUALITY_BARS.md (Determinism, Presentation)
+

@@ -57,3 +57,4 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear performance/choice/gateway guidelines; PN safety enforcement; playtest reporting.
+

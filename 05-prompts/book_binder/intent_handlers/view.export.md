@@ -1,4 +1,4 @@
-# Intent Handler — view.export (Scaffold)
+# Intent Handler — view.export
 
 STATUS: SCAFFOLD TODO: Define export assembly, safety checks, and view_log writing.
 
@@ -24,3 +24,4 @@ Outputs
 References
 
 - 04-protocol/EXAMPLES/view.export.request.json; 04-protocol/EXAMPLES/view.export.result.json
+

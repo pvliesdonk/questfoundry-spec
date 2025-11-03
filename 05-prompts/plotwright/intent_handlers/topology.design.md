@@ -1,4 +1,4 @@
-# Intent Handler — topology.design (Scaffold)
+# Intent Handler — topology.design
 
 STATUS: SCAFFOLD TODO: Provide stepwise topology drafting and validation checklist.
 
@@ -25,3 +25,4 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Nonlinearity, Reachability)
+
