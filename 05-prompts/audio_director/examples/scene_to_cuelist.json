@@ -6,7 +6,7 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "AuD" },
     "intent": "role.wake",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AuD10", "loop": "Audio Pass" },
+    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AUD10", "loop": "Audio Pass" },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": { "type": "none", "data": { "reason": "Create cuelist for scenes A1–A2 with leitmotif plan" } },
     "correlation_id": "corr-aud-cuelist-2025-11-04"
@@ -18,7 +18,7 @@
     "sender": { "role": "AuD", "agent": "bot:aud" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AuD10", "loop": "Audio Pass" },
+    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AUD10", "loop": "Audio Pass" },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": {
       "type": "none",
@@ -27,4 +27,5 @@
     "correlation_id": "corr-aud-cuelist-2025-11-04"
   }
 ]
+
 

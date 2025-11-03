@@ -6,7 +6,7 @@
     "sender": { "role": "SR", "agent": "human:alice" },
     "receiver": { "role": "AuP" },
     "intent": "role.wake",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AuP10", "loop": "Audio Pass" },
+    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AUP10", "loop": "Audio Pass" },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": { "type": "none", "data": { "reason": "Render cues A1-M1 (music) and A1-S1 (SFX) from cuelist" } },
     "correlation_id": "corr-aup-render-2025-11-04"
@@ -18,7 +18,7 @@
     "sender": { "role": "AuP", "agent": "bot:aup" },
     "receiver": { "role": "SR" },
     "intent": "tu.checkpoint",
-    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AuP10", "loop": "Audio Pass" },
+    "context": { "hot_cold": "hot", "tu": "TU-2025-11-04-AUP10", "loop": "Audio Pass" },
     "safety": { "player_safe": false, "spoilers": "allowed" },
     "payload": {
       "type": "none",
@@ -33,4 +33,5 @@
     "correlation_id": "corr-aup-render-2025-11-04"
   }
 ]
+
 
