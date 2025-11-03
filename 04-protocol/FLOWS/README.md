@@ -4,7 +4,7 @@ This directory contains normative specifications for end-to-end message sequence
 
 ## Envelope Context & Safety
 
-All flows operate within the Layer 4 envelope framework defined in `04-protocol/ENVELOPE.md` and `04-protocol/envelope.schema.json`.
+All flows operate within the Layer 4 envelope framework defined in `04-protocol/ENVELOPE.md` and `04-protocol/envelope.schema.json`.\n\n### Interactive Overlay\n\nIn interactive mode, agents may ask humans clarifying questions using `human.question` and receive `human.response` from SR (proxy). These intents carry `payload.type = "none"` and are orthogonal to core flows.
 
 ### Key Envelope Requirements
 
@@ -78,3 +78,4 @@ uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/hook.create.
 
 **Version:** 1.0.0  
 **Last Updated:** 2025-10-30
+
