@@ -69,7 +69,7 @@ Intents follow the pattern: `<domain>.<verb>[.<subverb>]`
 |------------|--------------------------------------------|---------------------------------------------|
 | `hook`     | Hook Card lifecycle operations             | `hook.create`, `hook.update_status`         |
 | `tu`       | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`, `tu.checkpoint` |
-| `gate`     | Quality gate lifecycle operations          | `gate.submit`, `gate.decision`              |
+| `gate`     | Quality gate lifecycle operations          | `gate.report.submit`, `gate.decision`              |
 | `merge`    | Cold merge operations                      | `merge.request`, `merge.approve`, `merge.reject`|
 | `view`     | View/export operations                     | `view.export.request`, `view.export.result` |
 | `pn`       | Player Narrator operations                 | `pn.playtest.submit`                        |
@@ -918,7 +918,7 @@ All gate decisions use the `gate.decision` intent with the `decision` field in p
 | `tu.rework`               | Rework TU after gatecheck failure    | GK/Owner    | Owner       | `tu_brief.schema.json`      |
 | `tu.reactivate`           | Reactivate deferred TU               | SR          | Broadcast   | `tu_brief.schema.json`      |
 | `tu.close`                | Close TU (merge to Cold)             | SR          | Broadcast   | `tu_brief.schema.json`      |
-| `gate.submit`             | Submit gatecheck report (pre-gate)   | GK          | SR          | `gatecheck_report.schema.json`|
+| `gate.report.submit`             | Submit gatecheck report (pre-gate)   | GK          | SR          | `gatecheck_report.schema.json`|
 | `gate.decision`           | Gate decision (with `decision` field)| GK          | SR/Owner    | `gatecheck_report.schema.json`|
 | `gate.defer`              | Defer gatecheck                      | SR/GK       | Broadcast   | `tu_brief.schema.json`      |
 | `merge.request`           | Request merge to Cold                | Owner (A)   | SR/GK       | `tu_brief.schema.json`      |
@@ -1037,4 +1037,5 @@ For implementers of intent handling systems:
 **Version:** 1.0.0  
 **Last Updated:** 2025-10-30  
 **Authors:** QuestFoundry Layer 4 Working Group
+
 
