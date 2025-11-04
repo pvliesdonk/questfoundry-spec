@@ -31,6 +31,19 @@ Determinism (when promised)
 - Record seeds/model/version/aspect/chain requirements for reproducibility.
 - Mark plan-only items as deferred with constraints reviewed.
 
+Filename Conventions & Art Manifest
+
+- Define filenames **before** rendering using pattern: `{role}_{section_id}_{variant}.{ext}`
+  - Examples: `cover_titled.png`, `plate_A2_K.png`, `thumb_A1_H.png`, `scene_S3_wide.png`
+- Maintain `art_manifest.json` with planned filenames, roles, captions, prompts.
+- **Workflow:**
+  1. **Plan:** Define manifest entry with filename, role, caption, prompt (before rendering)
+  2. **Handoff to Illustrator:** Provide filename and prompt from manifest
+  3. **Post-render:** Compute SHA-256 hash; update manifest entry
+  4. **Approval:** Mark status as "approved" or "rejected" in manifest
+- **Validation:** All rendered images must match manifest filenames exactly (case-sensitive).
+- Manifest enables Book Binder to automatically include images at correct anchors with captions.
+
 Quality & Safety
 
 - Coordinate with Style Lead for visual guardrails; captions remain player-safe.

@@ -32,6 +32,21 @@ Audit Rubric (minimum)
 - Choice labels: verb-first; 14–15 words or fewer is preferred (not a hard cap for SS);
   avoid meta terms; no trailing arrows (`→`); link-only bullets compatible with Binder.
 
+Typography Specification
+
+- During style stabilization, define typography for prose, display titles, cover, and UI elements.
+- Create `style_manifest.json` (see 02-dictionary/artifacts/style_manifest.md) with:
+  - **Prose typography:** font family, fallback, size, line height, paragraph spacing
+  - **Display typography:** heading fonts and sizes (H1, H2, H3)
+  - **Cover typography:** title and author fonts for cover art
+  - **UI typography:** link color, caption font, caption size
+  - **Font requirements:** list of fonts needed, whether to embed in EPUB
+- Store manifest in Cold snapshot root or project config directory.
+- Book Binder will read manifest during export; if missing, defaults apply (Source Serif 4 / Cormorant
+  Garamond).
+- Consider: readability (line height, contrast), genre conventions (serif vs sans-serif), EPUB
+  embedding license requirements.
+
 Handoffs
 
 - Scene Smith: targeted rewrites and phrasing guidance.
