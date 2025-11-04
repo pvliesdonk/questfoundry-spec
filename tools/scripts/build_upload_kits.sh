@@ -12,7 +12,19 @@ MANIFEST_DIR="$ROOT_DIR/05-prompts/upload_kits/manifests"
 mkdir -p "$OUT_DIR"
 
 name_from_rel() {
-  local rel="$1"; rel="${rel#05-prompts/}"; echo "${rel//\//.}"
+  local rel="$1"
+  rel="${rel#05-prompts/}"
+  # Special cases
+  if [[ "$rel" == */system_prompt.md ]]; then
+    printf "%s.md" "${rel%%/*}"
+    return 0
+  fi
+  if [[ "$rel" == _shared/* ]]; then
+    printf "%s" "${rel#_shared/}"
+    return 0
+  fi
+  # Fallback: flatten
+  echo "${rel//\//.}"
 }
 
 ensure_link() {

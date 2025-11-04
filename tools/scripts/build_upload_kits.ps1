@@ -10,7 +10,16 @@ New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 
 function Name-FromRel([string]$rel) {
   $trim = $rel -replace '^05-prompts/', ''
-  return ($trim -replace '/', '.')
+  # Normalize separators
+  $posix = $trim -replace '\\', '/'
+  $parts = $posix.Split('/')
+  if ($parts.Length -eq 2 -and $parts[1] -eq 'system_prompt.md') {
+    return "$($parts[0]).md"
+  }
+  if ($parts.Length -eq 2 -and $parts[0] -eq '_shared') {
+    return $parts[1]
+  }
+  return ($posix -replace '/', '.')
 }
 
 function Ensure-Link([string]$src, [string]$dest) {

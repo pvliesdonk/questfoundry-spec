@@ -36,8 +36,10 @@ def _flatten_rel(rel: str) -> str:
     - 05-prompts/_shared/<name>.md -> <name>.md
     - Otherwise, flatten path separators to dots.
     """
-    if rel.startswith("05-prompts/"):
-        rest = rel[len("05-prompts/") :]
+    # Normalize to POSIX-style separators for matching
+    rel_norm = rel.replace("\\", "/")
+    if rel_norm.startswith("05-prompts/"):
+        rest = rel_norm[len("05-prompts/") :]
         parts = rest.split("/")
         if len(parts) == 2 and parts[1] == "system_prompt.md":
             return f"{parts[0]}.md"
@@ -77,6 +79,7 @@ def _build_folder_from_manifest(repo_root: Path, manifest: Path, out_folder: Pat
         src = (repo_root / rel).resolve()
         if not src.exists():
             raise FileNotFoundError(f"Manifest entry not found: {rel}")
+        # Preserve manifest string semantics for flattening
         dest_name = _flatten_rel(str(rel))
         dest = out_folder / dest_name
         _ensure_link_or_copy(src, dest)
