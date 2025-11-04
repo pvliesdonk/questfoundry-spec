@@ -78,9 +78,22 @@ canon with player-safe summaries
   "dormant": ["PW", "SS", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"],
   "press": ["Presentation", "Integrity", "Style"],
   "monitor": ["Accessibility"],
-  "pre_gate_risks": ["Spoiler leak in overview or context", "Canon details exposed in player-safe surfaces", "Link rot (unresolved 'See also' references)"],
-  "inputs": ["Canon Pack player-safe summaries from Lore Deepening", "Existing codex entries (Cold) for alignment", "Taxonomy/clarity hooks from Hook Harvest", "Style guardrails (tone, register, motif vocabulary)"],
-  "deliverables": ["Codex entries (validated against codex_entry.schema.json)", "Crosslink map ensuring navigability", "Coverage report (terms covered, red-links remaining)"],
+  "pre_gate_risks": [
+    "Spoiler leak in overview or context",
+    "Canon details exposed in player-safe surfaces",
+    "Link rot (unresolved 'See also' references)"
+  ],
+  "inputs": [
+    "Canon Pack player-safe summaries from Lore Deepening",
+    "Existing codex entries (Cold) for alignment",
+    "Taxonomy/clarity hooks from Hook Harvest",
+    "Style guardrails (tone, register, motif vocabulary)"
+  ],
+  "deliverables": [
+    "Codex entries (validated against codex_entry.schema.json)",
+    "Crosslink map ensuring navigability",
+    "Coverage report (terms covered, red-links remaining)"
+  ],
   "bars_green": ["Presentation", "Integrity", "Style"],
   "merge_view": "Merge to Cold after gatecheck pass",
   "timebox": "90 min",
@@ -130,9 +143,20 @@ canon with player-safe summaries
       "dormant": ["PW", "SS", "AD", "IL", "AuD", "AuP", "TR", "BB", "PN", "RS"],
       "press": ["Presentation", "Integrity", "Style"],
       "monitor": ["Accessibility"],
-      "pre_gate_risks": ["Spoiler leak about Dock 7 fire sabotage", "Canon details about Syndicate involvement"],
-      "inputs": ["Canon Pack: Kestrel backstory (player-safe summary only)", "Cold codex: Existing station entries", "Style guardrails: neutral register, reading level plain"],
-      "deliverables": ["Codex entries: Dock 7, Kestrel Var, Station Security", "Crosslink map: 'See also' chains validated", "Coverage report: 3 new terms, 2 red-links remain"],
+      "pre_gate_risks": [
+        "Spoiler leak about Dock 7 fire sabotage",
+        "Canon details about Syndicate involvement"
+      ],
+      "inputs": [
+        "Canon Pack: Kestrel backstory (player-safe summary only)",
+        "Cold codex: Existing station entries",
+        "Style guardrails: neutral register, reading level plain"
+      ],
+      "deliverables": [
+        "Codex entries: Dock 7, Kestrel Var, Station Security",
+        "Crosslink map: 'See also' chains validated",
+        "Coverage report: 3 new terms, 2 red-links remain"
+      ],
       "bars_green": ["Presentation", "Integrity", "Style"],
       "merge_view": "Merge to Cold after gatecheck",
       "timebox": "90 min",
@@ -222,7 +246,16 @@ canon with player-safe summaries
   "anchor_slug": "/codex/kebab-case-anchor",
   "from_canon": "Player-safe fact intake from canon (20-400 chars, NO SPOILERS)",
   "research_posture_touched": "corroborated",
-  "done_checklist": ["✓ Title clear, no codewords", "✓ Overview spoiler-free", "✓ Context spoiler-free", "✓ All 'See also' links resolve", "✓ Reading level appropriate", "✓ Lineage references complete", "✓ TU linkage present", "✓ Style consistent with Cold"]
+  "done_checklist": [
+    "✓ Title clear, no codewords",
+    "✓ Overview spoiler-free",
+    "✓ Context spoiler-free",
+    "✓ All 'See also' links resolve",
+    "✓ Reading level appropriate",
+    "✓ Lineage references complete",
+    "✓ TU linkage present",
+    "✓ Style consistent with Cold"
+  ]
 }
 ```
 
@@ -263,7 +296,16 @@ canon with player-safe summaries
   "anchor_slug": "/codex/dock-7",
   "from_canon": "Dock 7 is a low-traffic repair dock with minimal security presence, site of a historical refinery incident that shaped current safety protocols.",
   "research_posture_touched": "uncorroborated:low",
-  "done_checklist": ["✓ Title clear, no codewords", "✓ Overview spoiler-free (no sabotage mention)", "✓ Context spoiler-free (no Syndicate involvement)", "✓ All 'See also' links resolve", "✓ Reading level appropriate (plain)", "✓ Lineage references complete", "✓ TU linkage present", "✓ Style consistent with Cold"]
+  "done_checklist": [
+    "✓ Title clear, no codewords",
+    "✓ Overview spoiler-free (no sabotage mention)",
+    "✓ Context spoiler-free (no Syndicate involvement)",
+    "✓ All 'See also' links resolve",
+    "✓ Reading level appropriate (plain)",
+    "✓ Lineage references complete",
+    "✓ TU linkage present",
+    "✓ Style consistent with Cold"
+  ]
 }
 ```
 
@@ -320,7 +362,11 @@ in the codex entry. Only player-safe context is included.
   "scope": "Codex entries for <theme>",
   "mode": "pre-gate",
   "cold_snapshot": "Cold @ YYYY-MM-DD",
-  "artifacts_samples": ["codex_entry: Dock 7", "codex_entry: Kestrel Var", "codex_entry: Station Security"],
+  "artifacts_samples": [
+    "codex_entry: Dock 7",
+    "codex_entry: Kestrel Var",
+    "codex_entry: Station Security"
+  ],
   "decision": "conditional pass",
   "why": "Presentation bar at yellow: entry 'Dock 7' hints at sabotage cause",
   "next_actions": "CC to mask sabotage detail in 'Dock 7' context; resubmit for review",
@@ -343,8 +389,17 @@ in the codex entry. Only player-safe context is included.
       "evidence": "Register neutral, reading level plain, motif consistency maintained"
     }
   ],
-  "handoffs": ["CC: Revise 'Dock 7' context to mask sabotage; TU-2025-10-30-CC01; due: next review cycle"],
-  "checklist": ["✓ Decision tied to bar statuses", "✓ Smallest viable fix specified", "✓ Responsible owner assigned", "✓ Player-safe constraint enforced", "✓ Handoff documented", "✓ TU linkage maintained"]
+  "handoffs": [
+    "CC: Revise 'Dock 7' context to mask sabotage; TU-2025-10-30-CC01; due: next review cycle"
+  ],
+  "checklist": [
+    "✓ Decision tied to bar statuses",
+    "✓ Smallest viable fix specified",
+    "✓ Responsible owner assigned",
+    "✓ Player-safe constraint enforced",
+    "✓ Handoff documented",
+    "✓ TU linkage maintained"
+  ]
 }
 ```
 
@@ -375,7 +430,11 @@ in the codex entry. Only player-safe context is included.
       "scope": "Codex entries for station terminology",
       "mode": "pre-gate",
       "cold_snapshot": "Cold @ 2025-10-30",
-      "artifacts_samples": ["codex_entry: Dock 7", "codex_entry: Kestrel Var", "codex_entry: Station Security"],
+      "artifacts_samples": [
+        "codex_entry: Dock 7",
+        "codex_entry: Kestrel Var",
+        "codex_entry: Station Security"
+      ],
       "decision": "conditional pass",
       "why": "Presentation bar at yellow due to spoiler hint in Dock 7 entry",
       "next_actions": "CC to revise 'Dock 7' context phrasing to mask sabotage cause",
@@ -399,7 +458,14 @@ in the codex entry. Only player-safe context is included.
         }
       ],
       "handoffs": ["CC: Revise Dock 7 context; TU-2025-10-30-CC01; due: next cycle"],
-      "checklist": ["✓ Decision tied to bar statuses", "✓ Smallest viable fix specified", "✓ Responsible owner assigned (CC)", "✓ Player-safe constraint enforced", "✓ Handoff documented", "✓ TU linkage maintained"]
+      "checklist": [
+        "✓ Decision tied to bar statuses",
+        "✓ Smallest viable fix specified",
+        "✓ Responsible owner assigned (CC)",
+        "✓ Player-safe constraint enforced",
+        "✓ Handoff documented",
+        "✓ TU linkage maintained"
+      ]
     }
   },
   "refs": ["TU-2025-10-30-CC01"]
@@ -458,7 +524,11 @@ in the codex entry. Only player-safe context is included.
 ```json
 {
   "id": "TU-YYYY-MM-DD-CC<seq>",
-  "deliverables": ["Codex entries: <list>", "Crosslink map: <validated>", "Coverage report: <summary>"],
+  "deliverables": [
+    "Codex entries: <list>",
+    "Crosslink map: <validated>",
+    "Coverage report: <summary>"
+  ],
   "bars_green": ["Presentation", "Integrity", "Style"],
   "gatecheck": "Ready for full gatecheck",
   "linkage": "Canon Pack lineage: <TU>; codex merged to Cold; handoffs: Binder, PN"
@@ -487,7 +557,11 @@ in the codex entry. Only player-safe context is included.
     "$schema": "../03-schemas/tu_brief.schema.json",
     "data": {
       "id": "TU-2025-10-30-CC01",
-      "deliverables": ["Codex entries: Dock 7, Kestrel Var, Station Security", "Crosslink map: all 'See also' chains validated", "Coverage report: 3 new terms, 2 red-links (deferred to next batch)"],
+      "deliverables": [
+        "Codex entries: Dock 7, Kestrel Var, Station Security",
+        "Crosslink map: all 'See also' chains validated",
+        "Coverage report: 3 new terms, 2 red-links (deferred to next batch)"
+      ],
       "bars_green": ["Presentation", "Integrity", "Style"],
       "gatecheck": "Ready for full Presentation, Integrity, Style gatecheck",
       "linkage": "Canon Pack TU-2025-10-30-LW01; codex merged to Cold; handoffs to Binder, PN"
@@ -577,8 +651,18 @@ in the codex entry. Only player-safe context is included.
       "evidence": "Reading level appropriate; alt guidance optional for codex text"
     }
   ],
-  "handoffs": ["Binder: Consume Cold codex entries for export; TU-2025-10-30-CC01; immediate", "PN: Codex available for player reference; TU-2025-10-30-CC01; immediate"],
-  "checklist": ["✓ Decision tied to all 8 bar statuses", "✓ Player-safe constraint verified", "✓ Links integrity validated", "✓ Style consistency verified", "✓ Handoffs documented", "✓ TU linkage complete"]
+  "handoffs": [
+    "Binder: Consume Cold codex entries for export; TU-2025-10-30-CC01; immediate",
+    "PN: Codex available for player reference; TU-2025-10-30-CC01; immediate"
+  ],
+  "checklist": [
+    "✓ Decision tied to all 8 bar statuses",
+    "✓ Player-safe constraint verified",
+    "✓ Links integrity validated",
+    "✓ Style consistency verified",
+    "✓ Handoffs documented",
+    "✓ TU linkage complete"
+  ]
 }
 ```
 
@@ -740,11 +824,13 @@ SR → Broadcast: tu.close
 **Canon (spoiler-level):**
 
 > "[Character backstory with plot-relevant causal details, faction involvement, and specific >
+>
 > > motivations that would spoil narrative reveals]"
 
 **Codex entry (player-safe):**
 
 > "[Same scenario described with neutral phrasing, general context, and surface-level facts that >
+>
 > > provide comprehension without revealing plot twists]"
 
 **Masked:** Faction involvement, causal details, character motivations that spoil plot
