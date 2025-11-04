@@ -1152,6 +1152,377 @@ manifest_entry["status"] = "approved"
 
 ---
 
+## PROPOSAL 8: Showrunner Initial Setup Flow (User Feedback)
+
+### Problem
+Showrunner currently lacks a guided onboarding flow for new projects. Users need help defining:
+- Genre/theme
+- Project title
+- Target length (number of sections/choices)
+- Style/tone preferences
+- Other initial parameters
+
+Without this, users must know the system deeply before starting.
+
+### Proposed Fix
+
+**File:** `/05-prompts/showrunner/system_prompt.md` (or equivalent)
+
+**Location:** Add new section "Project Initialization Flow"
+
+```markdown
+### Project Initialization Flow
+
+**Purpose:** Guide users through initial project setup for new interactive manuscripts.
+
+**Trigger:** When Showrunner detects a new/empty project or user requests initialization.
+
+**Flow:**
+
+#### Step 1: Genre & Theme
+```
+Showrunner: "Let's set up your interactive story. What genre or theme are you exploring?"
+
+Examples:
+- Detective noir / mystery
+- Fantasy adventure
+- Sci-fi thriller
+- Horror survival
+- Historical drama
+- Romance
+- Other (specify)
+
+User provides: [genre/theme]
+```
+
+**Capture:** Store in `project_metadata.json` as `"genre": "detective-noir"`
+
+---
+
+#### Step 2: Title (Provisional)
+```
+Showrunner: "What's your working title? (You can change this later)"
+
+Options:
+1. User provides title → use as-is
+2. User requests suggestions → generate 3-5 title options based on genre
+3. User defers → use placeholder "Untitled [Genre] Project"
+
+User provides: [title or "suggest" or "later"]
+```
+
+**If user requests suggestions:**
+```
+Showrunner suggests (example for detective noir):
+1. "Midnight Deposition"
+2. "The Shadow Verdict"
+3. "Crossfire Protocol"
+4. "Neon Confessional"
+5. "The Last Witness"
+
+User selects: [number or provides own]
+```
+
+**Capture:** Store as `"title": "Midnight Deposition"` (provisional, can change)
+
+---
+
+#### Step 3: Scope & Length
+```
+Showrunner: "How long should this story be?"
+
+Options:
+1. Short (10-15 sections) — ~30min play time
+2. Medium (20-30 sections) — ~1hr play time
+3. Long (40-60 sections) — ~2hr play time
+4. Epic (80+ sections) — multi-session
+5. Custom (specify section count)
+
+User selects: [option or custom number]
+```
+
+**Capture:** Store as `"target_sections": 30, "target_length": "medium"`
+
+**Follow-up (optional):**
+```
+Showrunner: "How branching should the narrative be?"
+
+Options:
+1. Linear (few branches, converging paths)
+2. Moderate (some meaningful choices, 2-3 major branches)
+3. Highly branching (many paths, significant divergence)
+
+User selects: [option]
+```
+
+**Capture:** Store as `"branching_style": "moderate"`
+
+---
+
+#### Step 4: Style & Tone
+```
+Showrunner: "What style and tone are you aiming for?"
+
+Prompts:
+- Writing style: Literary / Pulp / Journalistic / Poetic / Other
+- Paragraph density: Sparse (1-2 paras) / Moderate (2-3) / Rich (3-4+)
+- Tone: Gritty / Lighthearted / Suspenseful / Melancholic / Other
+- POV: First person / Second person / Third person
+
+User provides: [selections or free-form description]
+```
+
+**Capture:** Store as:
+```json
+{
+  "style": {
+    "writing_style": "pulp",
+    "paragraph_density": "rich",
+    "tone": "gritty",
+    "pov": "second-person"
+  }
+}
+```
+
+---
+
+#### Step 5: Licensing & Authorship
+```
+Showrunner: "Who's the author, and what license should we use?"
+
+Author: [User provides name or "Anonymous"]
+License options:
+1. CC BY-NC 4.0 (Attribution, Non-Commercial)
+2. CC BY 4.0 (Attribution)
+3. CC BY-SA 4.0 (Attribution, Share-Alike)
+4. All Rights Reserved
+5. Custom (specify)
+
+User selects: [option]
+```
+
+**Capture:** Store as:
+```json
+{
+  "author": "Peter van Liesdonk",
+  "license": "CC BY-NC 4.0"
+}
+```
+
+---
+
+#### Step 6: Confirmation & Handoff
+```
+Showrunner: "Here's your project setup:
+
+📖 Title: Midnight Deposition
+🎭 Genre: Detective noir
+📏 Length: Medium (~30 sections, 1hr play time)
+🌿 Branching: Moderate (meaningful choices, 2-3 major paths)
+✍️ Style: Pulp writing, rich paragraphs (3-4 each), gritty tone, second-person POV
+👤 Author: Peter van Liesdonk
+⚖️ License: CC BY-NC 4.0
+
+Ready to begin? I'll hand off to:
+1. Lore Deepening (establish world/characters)
+2. Story Spark (generate initial structure)
+
+Or you can adjust any settings above."
+
+User confirms: [yes / adjust X / cancel]
+```
+
+**Actions on confirmation:**
+1. Write `project_metadata.json` with all settings
+2. Create initial directory structure (if needed)
+3. Initiate **Lore Deepening** or **Story Spark** based on user preference
+4. Log initialization in project log
+
+---
+
+### Implementation Notes
+
+**File Structure After Initialization:**
+```
+project_root/
+  project_metadata.json      # Settings from init flow
+  lore/                       # For Lore Deepening output
+  manuscript/                 # Hot/Cold snapshots
+  codex/                      # Game rules, world building
+  art/                        # Cover, plates, etc.
+  exports/                    # EPUB/HTML/MD outputs
+```
+
+**Metadata Schema (`project_metadata.json`):**
+```json
+{
+  "title": "Midnight Deposition",
+  "genre": "detective-noir",
+  "author": "Peter van Liesdonk",
+  "license": "CC BY-NC 4.0",
+  "target_sections": 30,
+  "target_length": "medium",
+  "branching_style": "moderate",
+  "style": {
+    "writing_style": "pulp",
+    "paragraph_density": "rich",
+    "tone": "gritty",
+    "pov": "second-person"
+  },
+  "created": "2025-11-04T12:00:00Z",
+  "last_modified": "2025-11-04T12:00:00Z",
+  "version": "0.1.0"
+}
+```
+
+**Edge Cases:**
+- If user already has a project: detect and ask "Resume existing or start new?"
+- If user skips optional fields: use sensible defaults (e.g., "moderate" branching, "CC BY-NC 4.0" license)
+- If user wants to change settings later: provide `/project/settings` command or similar
+
+---
+
+### Integration with Other Roles
+
+Once initialized, Showrunner hands off to:
+1. **Lore Deepening** (if user wants world/character building first)
+2. **Story Spark** (if user wants structure/outline first)
+3. **Plotwright** (if user already has lore and wants plot structure)
+
+All downstream roles read `project_metadata.json` for context (title, genre, style, length targets).
+
+---
+
+### User Experience Goals
+
+1. **Guided but flexible:** Users can skip/defer questions
+2. **Suggests defaults:** Based on genre conventions
+3. **Non-blocking:** Can change settings anytime
+4. **Educational:** Explains what each choice affects
+5. **Fast:** ~2-3 minutes for full setup
+
+---
+
+### Validation
+
+- [ ] All required fields captured (title, author, license, genre)
+- [ ] Metadata schema is valid JSON
+- [ ] Style preferences are propagated to Style Lead
+- [ ] Length/branching targets are propagated to Plotwright
+- [ ] User can review and confirm before committing
+```
+
+**File:** Create `/05-prompts/showrunner/intent_handlers/project.init.md`
+
+**Purpose:** Detailed handler for project initialization intent
+
+```markdown
+# Intent Handler: project.init
+
+**Trigger:** User requests new project setup OR Showrunner detects empty project
+
+**Protocol Message:**
+```json
+{
+  "intent": "project.init.request",
+  "sender": { "role": "USER" },
+  "receiver": { "role": "SR" },
+  "payload": {
+    "mode": "interactive"  // or "quick" for defaults
+  }
+}
+```
+
+**Flow:** See "Project Initialization Flow" in `system_prompt.md`
+
+**Completion:**
+```json
+{
+  "intent": "project.init.complete",
+  "sender": { "role": "SR" },
+  "receiver": { "role": "USER" },
+  "payload": {
+    "metadata": { ... },  // Full project_metadata.json
+    "next_steps": ["lore_deepening", "story_spark"],
+    "message": "Project initialized. Ready to begin?"
+  }
+}
+```
+
+**Handoff to Next Role:**
+- If user chooses Lore Deepening: `lore.deepen.request`
+- If user chooses Story Spark: `structure.spark.request`
+```
+
+---
+
+## Implementation Priority (Updated)
+
+| Priority | Fix | Files to Modify | Complexity | Impact |
+|----------|-----|-----------------|------------|--------|
+| **P0 Critical** | EPUB Kobo Compat (inline anchors, NCX, landmarks) | `book_binder/system_prompt.md`, `format.render.md` | High | Fixes broken links on Kobo |
+| **P1 High** | Header Hygiene | `book_binder/system_prompt.md`, `format.render.md` | Low | Prevents process leakage |
+| **P1 High** | Choice UX Standardization | `book_binder/system_prompt.md`, `format.render.md` | Low | Improves reader UX |
+| **P1 High** | Metadata Auto-Generation (7B) | `book_binder/system_prompt.md`, `format.render.md` | Medium | Ensures consistent metadata |
+| **P1 High** | Showrunner Init Flow (8) | `showrunner/system_prompt.md`, create `project.init.md` | Medium | Onboarding UX |
+| **P2 Medium** | ID Normalization | `book_binder/system_prompt.md`, `format.render.md` | Medium | Better Kobo compat |
+| **P2 Medium** | CI/QA Gates | Create `/tools/validation/epub_validator.md` | Medium | Prevents regression |
+| **P2 Medium** | JSON Exposure (7A) | `book_binder/system_prompt.md` | Low | Cleaner user-facing outputs |
+| **P2 Medium** | Cover Policy (7C) | `book_binder/system_prompt.md`, CI gates | Low | Enforce title-bearing covers |
+| **P3 Low** | Typography via Style Lead (7D) | `style_lead/system_prompt.md`, `book_binder/system_prompt.md` | Medium | Style Lead authority |
+| **P3 Low** | Art Filename Conventions (7E) | `art_director/system_prompt.md`, `illustrator/system_prompt.md` | Low | Renderer integration |
+
+---
+
+## Summary of Files to Create/Modify (Updated)
+
+### Files to Modify
+
+1. `/05-prompts/book_binder/system_prompt.md`
+   - Add: Header Sanitization rules
+   - Add: Choice Link Normalization (enhanced)
+   - Add: EPUB Anchor Generation (twin anchors)
+   - Add: EPUB2 Legacy Navigation (NCX)
+   - Add: EPUB Landmarks & Guide
+   - Add: ID Normalization & Aliasing (enhanced)
+   - Add: User Communication & Output Format (7A)
+   - Add: Metadata Management (7B)
+   - Update: Cover Art Policy (7C)
+   - Update: Typography & Font Embedding (7D)
+
+2. `/05-prompts/book_binder/intent_handlers/format.render.md`
+   - Add: Header sanitization to pre-render checklist
+   - Add: Choice rendering standardization
+   - Add: Anchor processing (normalization + twin anchors)
+   - Add: NCX generation
+   - Add: Landmarks generation
+   - Add: Metadata gathering and injection (7B)
+
+3. `/05-prompts/style_lead/system_prompt.md`
+   - Add: Typography Specification (7D)
+
+4. `/05-prompts/art_director/system_prompt.md`
+   - Add: Filename Conventions for Rendered Art (7E)
+
+5. `/05-prompts/illustrator/system_prompt.md`
+   - Add: Filename Conventions reference (7E)
+
+6. `/05-prompts/showrunner/system_prompt.md`
+   - Add: Project Initialization Flow (8)
+
+### Files to Create
+
+7. `/tools/validation/epub_validator.md`
+   - Specification for CI/QA gates (includes 7C cover validation)
+
+8. `/resources/fonts/README.md`
+   - Typography policy and font embedding guide
+
+9. `/05-prompts/showrunner/intent_handlers/project.init.md`
+   - Project initialization intent handler (8)
+
+---
+
 ## Approval Checklist
 
 - [ ] Review all proposed changes (including 7A-7E refinements)
