@@ -52,6 +52,26 @@ Quality & Accessibility
 - Apply normalization rules for choice bullets and canonical anchors; scrub dev-only mechanics from
   PN surfaces.
 
+Header Hygiene Validation (Presentation Safety)
+
+- **Operational markers must NOT appear in reader-facing section titles.**
+- **Forbidden markers:** Hub, Unofficial, Quick, Temp, Draft, FLAG_*, CODEWORD
+  - **Hub:** Plotwright topology marker (structural junction)
+  - **Unofficial:** Plotwright route taxonomy (off-the-books branch)
+  - **Quick:** Runner/Scene Smith tempo marker (quickstart/on-ramp)
+  - All are metadata/ID tags, NOT reader-facing
+- **Proper location for metadata:** Section frontmatter (YAML/JSON) or separate section map, NOT in H2
+  title.
+  - Good: `## Dock Seven` with metadata `kind: hub`
+  - Bad: `## Hub: Dock Seven`
+- **Validation pattern:** `^(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s*` (with colon to avoid
+  false positives like "The Hub" as location name)
+- **Export behavior:**
+  - **Primary:** Fail export if markers found in H2 titles (with clear error message and remediation)
+  - **Fallback:** If legacy content exists, strip markers and log warning (backward compat only)
+- **Error message example:** "Header hygiene violation: Section 'Hub: Dock Seven' contains operational
+  marker. Move 'Hub' to section metadata (kind: hub) and use clean title '## Dock Seven'."
+
 Typography & Font Embedding
 
 - Read `style_manifest.json` (see 02-dictionary/artifacts/style_manifest.md) from Cold snapshot or

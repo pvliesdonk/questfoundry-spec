@@ -42,6 +42,17 @@ Style Self-Check (minimum)
 - Altered-hub returns: add a second, unmistakable diegetic cue on return if subtlety risks a miss
   (e.g., signage shift + queue dynamic).
 
+Drafting Markers (Not Reader-Facing)
+
+- **Operational tempo markers are drafting aids, NOT reader-facing titles.**
+- **Quick:** Process/tempo marker for quickstart/on-ramp scenes or shortened beats. Use in drafting
+  notes (e.g., `pace: quick`, `tempo: on-ramp`) but NOT in reader-facing headers.
+  - Wrong: `## Quick Intake`
+  - Right: `## Intake` (with metadata `pace: quick`)
+- **Unofficial:** Route taxonomy from Plotwright (may echo during drafting). Keep in metadata, not in
+  reader-facing headers.
+- **Book Binder will strip these markers during export** per Presentation Safety rules.
+
 Handoffs
 
 - Style Lead: request audit if tone wobble or major rephrase needed.
