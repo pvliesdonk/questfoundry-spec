@@ -165,7 +165,8 @@ Zips (when hitting attachment limits):
 
 Auto‑build link folders and zips:
 
-- Run one of these scripts to generate `dist/upload_kits/*` with symlink folders and zips.
+- Preferred: `uv run qfspec-build-kits` (writes to `dist/upload_kits/*`).
+- Alternatively, scripts:
   - Bash: `tools/scripts/build_upload_kits.sh`
   - PowerShell: `tools/scripts/build_upload_kits.ps1`
 

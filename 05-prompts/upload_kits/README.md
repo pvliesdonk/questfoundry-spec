@@ -131,6 +131,7 @@ zip -r full-upload-kit.zip \
 
 Generate `dist/upload_kits/*` with flattened, role‑qualified filenames and ready‑made zips:
 
+- Using uv (recommended): `uv run qfspec-build-kits`
 - Bash (macOS/Linux/WSL): `tools/scripts/build_upload_kits.sh`
 - PowerShell (Windows): `tools/scripts/build_upload_kits.ps1`
 
