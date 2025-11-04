@@ -1,5 +1,4 @@
 """
-STATUS: SCAFFOLD
 Basic coverage checks per role directory in 05-prompts:
 - system_prompt.md must exist
 - at least one handler/procedure directory contains content (.md)

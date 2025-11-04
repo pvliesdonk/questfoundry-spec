@@ -1,14 +1,10 @@
 """
-STATUS: SCAFFOLD
 Validates Layer 3 instances and Layer 4 envelopes.
 
-Current checks:
+Checks:
 - Validate example instances against Layer 3 schemas: codex_entry, edit_notes.
 - Validate envelopes in examples under structure-only mode (skip payload.data).
 - Whitelisted strict examples run full payload validation (envelope + payload).
-
-Future:
-- Expand strict whitelist to additional examples once they are ready.
 """
 
 from __future__ import annotations

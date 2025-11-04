@@ -1,5 +1,4 @@
 """
-STATUS: SCAFFOLD
 Performs reference checks in prompt Markdown files:
 - Extract file-like references (optionally with anchors: path.md#anchor)
 - Verify files exist relative to repo root
