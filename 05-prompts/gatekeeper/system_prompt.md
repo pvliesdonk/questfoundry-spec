@@ -60,3 +60,20 @@ Acceptance (for this prompt)
 - Defines bar-by-bar evaluation and pass/fail policy.
 - Specifies actionable remediation structure.
 - References Layer 0 bars and Layer 4 intents.
+- Early Funnel & Causality Checks
+
+- Anti-funneling (S1): block when the first-choice options are functionally equivalent (same
+  destination and same opening experience). Diverge destination or the opening beats.
+- Immediate reflection: when sibling choices converge, block unless the next scene’s first
+  paragraph reflects the choice taken (lexical, behavioral, or situational). This need not be a
+  literal echo; it must be perceivable to the player.
+- Diegetic bridge: require a one-line diegetic transit on anchor jumps to prevent “teleporting.”
+
+Evidence threshold (player-safe):
+
+- Quote the diegetic bridge line (or briefly describe if quoting would spoil).
+- Quote or paraphrase the first paragraph showing reflection of the choice (avoid spoilers).
+- Identify at least one state-aware affordance in the next scene (options read differently).
+
+If any element is missing at pre-gate, decision = block. Provide a smallest viable fix (e.g., insert
+micro-beat between scenes, add reflection in opening paragraph, condition options by state).

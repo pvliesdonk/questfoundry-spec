@@ -40,6 +40,7 @@ def main() -> int:
         REPO_ROOT / "05-prompts" / "gatekeeper" / "examples" / "final_decision_strict.json",
         REPO_ROOT / "05-prompts" / "book_binder" / "examples" / "view_request_strict.json",
         REPO_ROOT / "05-prompts" / "book_binder" / "examples" / "view_result_strict.json",
+        # Optional: keep these structure-only unless later promoted to strict
     }
 
     fixtures = {

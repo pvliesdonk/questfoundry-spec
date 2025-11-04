@@ -63,6 +63,10 @@ All player-touching phrasing remains **player-safe**; internals stay in Hot.
   (knowledge → tool → access).
 - **Affordance deltas.** On loop returns, add one small change (unlocked hatch, wary foreman, new
   rumor).
+- **Early converge discipline.** Avoid early funnels on the first choice. If convergence is
+  necessary, define a micro-beat between scenes that sets a visible state flag (e.g., “stamped” vs
+  “cadence-only”) and instruct Scene Smith to reflect that state in the next scene’s first
+  paragraph and condition at least one affordance by state.
 - **Keystone notes.** Mark fragile beats and offer a fallback route or soft failure outcome.
 - **Anchor via codex.** If a concept needs a definition, file a Curator hook instead of expositing
   in a brief.

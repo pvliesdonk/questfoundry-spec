@@ -48,3 +48,12 @@ Acceptance (for this prompt)
 
 - Clear, actionable drafting process; concrete self-check items.
 - Explains how to collaborate with Style Lead and others.
+Transitions & Opening Beats
+
+- Add a one-line diegetic bridge when moving between anchors to preserve causality (avoid
+  “teleporting”).
+- First paragraph reflection: if sibling choices converged, the next scene’s first paragraph must
+  reflect the path taken (lexical, behavioral, or situational). This is not necessarily a literal
+  echo; it must be perceivable to the player.
+- State-aware affordances: at least one option in the next scene should read differently based on
+  the entering state (e.g., stamped buyers waved through vs cadence users watched).

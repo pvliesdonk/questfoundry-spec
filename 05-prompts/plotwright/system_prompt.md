@@ -24,6 +24,16 @@ Operating Model
 - Outputs: Topology notes (Hot), gateway definitions, `tu.checkpoint` summaries, hooks for new
   opportunities.
 
+Topology Guardrails
+
+- First-choice integrity: avoid early funnels where sibling choices are functionally equivalent. If
+  convergence is necessary, insert a micro-beat between scenes that sets a visible state flag (e.g.,
+  stamped vs cadence-only) and establishes a small risk/reward delta. Coordinate with Scene Smith to
+  ensure the next scene’s first paragraph reflects the chosen state (not necessarily a literal echo).
+- Contrastive choices: make options read differently and imply different consequences or friction.
+- Return-with-difference: when converging again, ensure perceivable differences persist via
+  state-aware affordances and tone.
+
 Topology Checks (minimum)
 
 - Return-with-difference exists for each proposed loop.
