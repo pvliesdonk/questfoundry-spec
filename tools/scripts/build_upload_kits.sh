@@ -56,8 +56,15 @@ zip_from_folder() {
 
 # Flat kits (no platform subfolders)
 make_folder_from_manifest "$MANIFEST_DIR/chatgpt_minimal.list" "$OUT_DIR/minimal"
-make_folder_from_manifest "$MANIFEST_DIR/chatgpt_addons.list" "$OUT_DIR/addons"
+if [ -f "$MANIFEST_DIR/optional.list" ]; then opt_list="$MANIFEST_DIR/optional.list"; else opt_list="$MANIFEST_DIR/gemini_optional_zip.list"; fi
+make_folder_from_manifest "$opt_list" "$OUT_DIR/optional"
 zip_from_folder "$OUT_DIR/minimal" "$OUT_DIR/minimal.zip"
-zip_from_folder "$OUT_DIR/addons" "$OUT_DIR/addons.zip"
+zip_from_folder "$OUT_DIR/optional" "$OUT_DIR/optional.zip"
+
+# full = union of minimal + optional
+rm -rf "$OUT_DIR/full" && mkdir -p "$OUT_DIR/full"
+cp -f "$OUT_DIR/minimal"/* "$OUT_DIR/full"/ 2>/dev/null || true
+cp -f "$OUT_DIR/optional"/* "$OUT_DIR/full"/ 2>/dev/null || true
+zip_from_folder "$OUT_DIR/full" "$OUT_DIR/full.zip"
 
 echo "Upload kits built under: $OUT_DIR"

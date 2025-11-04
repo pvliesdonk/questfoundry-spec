@@ -138,7 +138,8 @@ Generate `dist/upload_kits/*` with flattened filenames and ready‑made zips (no
 You’ll get (top‑level):
 
 - `minimal/` (10 files) and `minimal.zip`
-- `addons/` (PN and optional roles) and `addons.zip`
+- `optional/` (PN and optional roles) and `optional.zip`
+- `full/` (union of minimal+optional) and `full.zip`
 
 Filenames are simplified (e.g., `showrunner.md`, `book_binder.md`; shared docs keep their names) to
 avoid collisions when attaching.

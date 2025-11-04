@@ -52,8 +52,18 @@ function Zip-FromFolder([string]$folder, [string]$zipPath) {
 
 # Flat kits (no platform subfolders)
 Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_minimal.list') (Join-Path $OutDir 'minimal')
-Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_addons.list') (Join-Path $OutDir 'addons')
+$optList = (Join-Path $ManifestDir 'optional.list')
+if (-not (Test-Path $optList)) { $optList = (Join-Path $ManifestDir 'gemini_optional_zip.list') }
+Make-FolderFromManifest $optList (Join-Path $OutDir 'optional')
 Zip-FromFolder (Join-Path $OutDir 'minimal') (Join-Path $OutDir 'minimal.zip')
-Zip-FromFolder (Join-Path $OutDir 'addons') (Join-Path $OutDir 'addons.zip')
+Zip-FromFolder (Join-Path $OutDir 'optional') (Join-Path $OutDir 'optional.zip')
+
+# full = union of minimal + optional
+$fullDir = (Join-Path $OutDir 'full')
+if (Test-Path $fullDir) { Remove-Item -Recurse -Force $fullDir }
+New-Item -ItemType Directory -Force -Path $fullDir | Out-Null
+Get-ChildItem -File (Join-Path $OutDir 'minimal') | ForEach-Object { Copy-Item $_.FullName -Destination (Join-Path $fullDir $_.Name) -Force }
+Get-ChildItem -File (Join-Path $OutDir 'optional') | ForEach-Object { Copy-Item $_.FullName -Destination (Join-Path $fullDir $_.Name) -Force }
+Zip-FromFolder $fullDir (Join-Path $OutDir 'full.zip')
 
 Write-Host "Upload kits built under: $OutDir"

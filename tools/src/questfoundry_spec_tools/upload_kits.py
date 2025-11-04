@@ -104,14 +104,36 @@ def build_kits_cli() -> None:
 
     # Flat output (no platform subfolders): minimal/ and addons/ at top-level
     min_folder = out_dir / "minimal"
-    add_folder = out_dir / "addons"
+    opt_folder = out_dir / "optional"
+    full_folder = out_dir / "full"
     min_zip = out_dir / "minimal.zip"
-    add_zip = out_dir / "addons.zip"
+    opt_zip = out_dir / "optional.zip"
+    full_zip = out_dir / "full.zip"
 
+    # Minimal
     _build_folder_from_manifest(repo_root, manifests_dir / "chatgpt_minimal.list", min_folder)
     _zip_folder(min_folder, min_zip)
 
-    _build_folder_from_manifest(repo_root, manifests_dir / "chatgpt_addons.list", add_folder)
-    _zip_folder(add_folder, add_zip)
+    # Optional (PN + additional roles)
+    optional_manifest = (
+        manifests_dir / "optional.list"
+        if (manifests_dir / "optional.list").exists()
+        else manifests_dir / "gemini_optional_zip.list"
+    )
+    _build_folder_from_manifest(repo_root, optional_manifest, opt_folder)
+    _zip_folder(opt_folder, opt_zip)
+
+    # Full = union of minimal + optional
+    if full_folder.exists():
+        shutil.rmtree(full_folder)
+    full_folder.mkdir(parents=True, exist_ok=True)
+    for src_folder in (min_folder, opt_folder):
+        for p in src_folder.iterdir():
+            if p.is_file():
+                dest = full_folder / p.name
+                if dest.exists():
+                    dest.unlink()
+                _ensure_link_or_copy(p, dest)
+    _zip_folder(full_folder, full_zip)
 
     print(f"Upload kits built under: {out_dir}")
