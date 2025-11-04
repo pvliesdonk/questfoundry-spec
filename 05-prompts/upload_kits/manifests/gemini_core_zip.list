@@ -1,0 +1,11 @@
+05-prompts/_shared/context_management.md
+05-prompts/_shared/safety_protocol.md
+05-prompts/_shared/escalation_rules.md
+05-prompts/_shared/human_interaction.md
+05-prompts/showrunner/system_prompt.md
+05-prompts/plotwright/system_prompt.md
+05-prompts/scene_smith/system_prompt.md
+05-prompts/style_lead/system_prompt.md
+05-prompts/gatekeeper/system_prompt.md
+05-prompts/book_binder/system_prompt.md
+

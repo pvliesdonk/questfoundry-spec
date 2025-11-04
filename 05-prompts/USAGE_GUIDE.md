@@ -14,22 +14,22 @@ Audience: humans using ChatGPT, Claude, or Gemini to run QuestFoundry Layer 5 pr
 ## Supported Chatbots And File Uploads
 
 - ChatGPT
-  - Supports attaching multiple files per conversation. Prefer uploading individual `.md` files.
-  - Zips may work but are inconsistently previewed; prefer individual files for transparency.
-  - Keep filenames descriptive (they are visible in the UI for quick reference).
+  - Limit: up to 10 files per upload action. You can upload more overall by repeating uploads, or by using a zip.
+  - Recommendation: use the Minimal Upload Kit (10 files). Upload Player‑Narrator later as an addon, or use the provided zip.
+  - Keep filenames descriptive (the UI shows them for quick reference).
 - Claude
-  - Handles multiple attachments well and summarizes them; large contexts are supported.
-  - Zips are often accepted, but individual files provide better inline citation and grounding.
+  - Handles multiple attachments well; individual files preferred for transparency and grounding.
+  - Zips are accepted; still prefer individual files unless you hit limits.
 - Gemini
-  - Supports attachments; behavior varies by interface. Prefer individual files; if using zips,
-    keep them small and clearly named.
+  - Zip limit: up to 10 files per zip. Use two zips (core + optional) when loading the full set.
+  - Recommendation: upload the core zip first (shared + SR + PW + SS + ST + GK + BB), then the optional zip when needed.
 
 Tip: If your platform drops attachments between threads, reattach the Minimal Upload Kit at the start
 of each new session.
 
 ## Upload Kits (Minimal vs. Full)
 
-Minimal Upload Kit (recommended to start)
+Minimal Upload Kit (10 files — ChatGPT‑friendly)
 
 - 05-prompts/\_shared/context_management.md
 - 05-prompts/\_shared/safety_protocol.md
@@ -41,11 +41,16 @@ Minimal Upload Kit (recommended to start)
 - 05-prompts/style_lead/system_prompt.md
 - 05-prompts/gatekeeper/system_prompt.md
 - 05-prompts/book_binder/system_prompt.md
+
+Addon (upload later when binding/PN is needed)
+
 - 05-prompts/player_narrator/system_prompt.md
 
-Full Upload Kit (add later as needed)
+Full Upload Kit (split for Gemini)
 
-- All Minimal kit files, plus additional role prompts:
+- Core zip (≤10 files): Minimal kit files above
+- Optional zip (≤10 files):
+  - 05-prompts/player_narrator/system_prompt.md
   - 05-prompts/lore_weaver/system_prompt.md
   - 05-prompts/codex_curator/system_prompt.md
   - 05-prompts/researcher/system_prompt.md
@@ -55,7 +60,7 @@ Full Upload Kit (add later as needed)
   - 05-prompts/audio_producer/system_prompt.md
   - 05-prompts/translator/system_prompt.md
 
-See also: 05-prompts/upload_kits/ for copy‑pasta file lists and zip commands.
+See also: 05-prompts/upload_kits/ for manifests and build scripts that generate link folders and zips.
 
 ## Boot Sequence (Paste Or Upload, Then Prompt)
 
@@ -149,38 +154,19 @@ remaining debt if any.
 - Traceability: Maintain `correlation_id` and use `refs` to link artifacts.
 - Escalation: Use `human.question` when blocked; propose options and a default.
 
-## Appendix — Uploading Files And Zipping Kits
+## Appendix — Uploading Files, Zipping, And Link Folders
 
-Upload individually (preferred): Drag the listed `.md` files into your chat. Keep filenames intact.
+Upload individually (preferred): Drag the Minimal kit (10 files) into your chat. Upload PN later as an addon.
 
-Zip (if supported by your chatbot):
+Zips (when hitting attachment limits):
 
-- PowerShell
-  - `Compress-Archive -Path @(
-  '05-prompts/_shared/context_management.md',
-  '05-prompts/_shared/safety_protocol.md',
-  '05-prompts/_shared/escalation_rules.md',
-  '05-prompts/_shared/human_interaction.md',
-  '05-prompts/showrunner/system_prompt.md',
-  '05-prompts/plotwright/system_prompt.md',
-  '05-prompts/scene_smith/system_prompt.md',
-  '05-prompts/style_lead/system_prompt.md',
-  '05-prompts/gatekeeper/system_prompt.md',
-  '05-prompts/book_binder/system_prompt.md',
-  '05-prompts/player_narrator/system_prompt.md'
-) -DestinationPath minimal-upload-kit.zip -Force`
-- Bash
-  - `zip -r minimal-upload-kit.zip \
-  05-prompts/_shared/context_management.md \
-  05-prompts/_shared/safety_protocol.md \
-  05-prompts/_shared/escalation_rules.md \
-  05-prompts/_shared/human_interaction.md \
-  05-prompts/showrunner/system_prompt.md \
-  05-prompts/plotwright/system_prompt.md \
-  05-prompts/scene_smith/system_prompt.md \
-  05-prompts/style_lead/system_prompt.md \
-  05-prompts/gatekeeper/system_prompt.md \
-  05-prompts/book_binder/system_prompt.md \
-  05-prompts/player_narrator/system_prompt.md`
+- ChatGPT: Use the Minimal kit zip (all 10 files) or the Full core/optional zips.
+- Gemini: Upload the core zip first (≤10 files), then the optional zip (≤10 files).
 
-For full kits and platform notes, see 05-prompts/upload_kits/README.md.
+Auto‑build link folders and zips:
+
+- Run one of these scripts to generate `dist/upload_kits/*` with symlink folders and zips.
+  - Bash: `tools/scripts/build_upload_kits.sh`
+  - PowerShell: `tools/scripts/build_upload_kits.ps1`
+
+See 05-prompts/upload_kits/ for manifests and details.
