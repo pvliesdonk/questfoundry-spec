@@ -85,7 +85,7 @@ register. Style Lead: be ready to audit/register‑tune the draft.
 4. Iterate outline → scene → style. Keep messages short and actionable. Encourage Scene Smith to
    emit `tu.checkpoint` summaries after each scene.
 
-5. Run a pre‑gate check:
+5. Run a pre‑gate check (we’ll do PN after expansion in Stage 2):
 
 ```
 Gatekeeper: run a pre‑gate on the manuscript. Evaluate Presentation, Integrity, and Style with
@@ -99,14 +99,7 @@ Book Binder: produce a Markdown view for the current Cold snapshot. Include an a
 Return a view.export.result envelope with export_artifacts.
 ```
 
-7. PN dry‑run (Cold + player‑safe only):
-
-```
-Player‑Narrator: perform a brief dry‑run of the bound Markdown. Enforce gateways diegetically,
-never leak internals. Submit pn.playtest.submit with issues and smallest fixes.
-```
-
-8. Close the TU when satisfied:
+7. Close the TU when satisfied (or keep it open and continue into Stage 2 for full production):
 
 ```
 Showrunner: if all bars are green, close the TU. Summarize outcomes, link artifacts, and record
@@ -153,6 +146,114 @@ remaining debt if any.
 - Context Pressure: Summarize older turns as state notes; keep raw quotes only when needed.
 - Traceability: Maintain `correlation_id` and use `refs` to link artifacts.
 - Escalation: Use `human.question` when blocked; propose options and a default.
+
+## Production Run — Stage 1 (Minimal Kit Only)
+
+Goal: produce a small, player‑safe manuscript using only the Minimal Upload Kit roles (SR, PW, SS, ST, GK, BB).
+
+1. Open TU and plan
+
+```
+Showrunner: open TU for a 3–5 scene manuscript (loop "Story Spark"). Propose plan and wake PW/SS/ST.
+```
+
+2. Outline
+
+```
+Plotwright: propose a compact outline with any gateways and their consequences. Keep hubs modest.
+```
+
+3. Scene drafting
+
+```
+Scene Smith: write Scene 1 per the outline, in the agreed register. Emit tu.checkpoint with a 1–2 line summary.
+```
+
+4. Style audit
+
+```
+Style Lead: audit Scene 1 for register drift; propose minimal rewrites. Keep rationale short.
+```
+
+5. Iterate
+
+- Repeat steps 3–4 for Scene 2…N.
+- Encourage checkpoints after each scene to keep context tight.
+
+6. Pre‑gate and remediation
+
+```
+Gatekeeper: run pre‑gate (Presentation, Integrity, Style). Provide smallest viable fixes and owners.
+```
+
+7. Bind a view
+
+```
+Book Binder: produce a Markdown view for the current Cold snapshot with anchor_map summary; return export_artifacts.
+```
+
+8. Close or proceed
+
+- If satisfied and bars are green, close TU now.
+- Or proceed to Stage 2 to enrich with canon/codex, art, audio, PN, and localization.
+
+## Production Run — Stage 2 (Full Kit Expansion)
+
+Attach the Optional zip (or upload the additional role prompts) and continue in the same TU (preferred) or a follow‑on TU.
+
+1. Canon continuity (Lore Weaver)
+
+```
+Lore Weaver: review the manuscript and provide player‑safe summaries and continuity checks (timeline, invariants, refs).
+If any changes are needed, propose smallest viable edits without leaking spoilers.
+```
+
+2. Codex entries (Codex Curator)
+
+```
+Codex Curator: generate/update codex entries for new terms introduced by the manuscript. Ensure entries are player‑safe and
+validated against codex_entry.schema.json. Provide crosslinks and coverage notes.
+```
+
+3. Art pass (Art Director → Illustrator)
+
+```
+Art Director: produce a shotlist for key scenes (subjects, composition, mood).
+Illustrator: draft image prompts per the shotlist; align with style guardrails. Do not leak spoilers.
+```
+
+4. Audio pass (Audio Director → Audio Producer)
+
+```
+Audio Director: propose a cuelist (music/SFX) with motifs and transitions.
+Audio Producer: render one or two cues; log parameters. Keep outputs player‑safe.
+```
+
+5. Localization (Translator)
+
+```
+Translator: produce a language_pack for one locale (e.g., en‑GB → nl‑NL). Keep register consistent; list terms of art.
+```
+
+6. PN dry‑run (now that PN prompt is uploaded)
+
+```
+Player‑Narrator: perform a dry‑run on the bound Markdown (Cold + player_safe=true + snapshot). Enforce gateways diegetically;
+report issues via pn.playtest.submit with smallest fixes and evidence.
+```
+
+7. Final gatecheck and binding
+
+```
+Gatekeeper: run a full gatecheck (all relevant bars). If green, approve.
+Book Binder: produce final exports (Markdown + HTML; add locale exports if available); update anchor_map and coverage.
+```
+
+8. Close TU and summarize
+
+```
+Showrunner: close TU; summarize outcomes, link artifacts (view exports, cues, images), and list any deferred items.
+```
 
 ## Appendix — Uploading Files, Zipping, And Link Folders
 
