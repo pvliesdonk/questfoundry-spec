@@ -33,12 +33,22 @@ Choice Rendering (Normalization)
   - `- Prose [Link](#ID) more prose` → collapse to `- [Link](#ID)` (use link's text)
   - Multiple links in one bullet: preserve as-is (valid multi-option)
   - No links in bullet: preserve as narrative text (not a choice)
-- **Anchor alias normalization:** (e.g., `S1′`, `S1p` → canonical `s1-return`)
+- **Anchor ID normalization & aliasing:**
+  - **Primary:** All IDs should already be `lowercase-dash` from Hot creation (Plotwright/Scene Smith)
+  - **Legacy handling:** If mixed-case or underscore IDs found, normalize and create alias map:
+    - Convert to lowercase
+    - Replace underscores with dashes
+    - Remove apostrophes/primes (', ′)
+    - Example: `S1′` → `s1-return`, `Section_1` → `section-1`, `DockSeven` → `dock-seven`
+  - **Alias map:** Maintain JSON mapping of legacy → canonical for backward compat
+  - **Link rewriting:** Update all `href="#OldID"` to `href="#canonical-id"` before export
+  - **Twin IDs (optional):** For maximum compat, add secondary inline anchors with legacy IDs alongside
+    canonical
 - **Optional PN coalescing:** when two anchors represent first-arrival/return of the same section,
   coalesce into one visible section with sub-blocks ("First arrival / On return") while keeping both
   anchors pointing to the combined section.
-- **Validation:** Log count of normalized choices in `view_log`; flag any remaining `→` in choice
-  contexts for manual review.
+- **Validation:** Log count of normalized choices, normalized IDs, alias mappings in `view_log`; flag any
+  remaining `→` in choice contexts for manual review.
 
 PN Safety (non-negotiable)
 
@@ -71,6 +81,134 @@ Header Hygiene Validation (Presentation Safety)
   - **Fallback:** If legacy content exists, strip markers and log warning (backward compat only)
 - **Error message example:** "Header hygiene violation: Section 'Hub: Dock Seven' contains operational
   marker. Move 'Hub' to section metadata (kind: hub) and use clean title '## Dock Seven'."
+
+Metadata Management (Auto-Generation)
+
+- **Source Hierarchy:** `project_metadata.json` → Cold snapshot metadata → Auto-generation from content.
+- **Read `project_metadata.json`** (see 02-dictionary/artifacts/project_metadata.md) from Cold snapshot
+  root or project directory.
+- **Extract metadata for export formats:**
+  - **Title:** From `project_metadata.json` → `title` field; fallback to first H1 in manuscript or
+    "Untitled"
+  - **Author:** From `project_metadata.json` → `author` field; fallback to "Unknown Author"
+  - **License:** From `project_metadata.json` → `license` field; fallback to "All Rights Reserved"
+  - **Description:** From `project_metadata.json` → `description` field; auto-generate from first 2-3
+    sentences of manuscript if missing
+  - **Subjects:** From `project_metadata.json` → `subjects` array; auto-generate from genre + prose
+    keywords if missing
+  - **Language:** From `project_metadata.json` → `language` field; default to "en"
+  - **Date:** Auto-generate current ISO 8601 date
+  - **UUID:** Auto-generate UUIDv4 for each export
+- **Inject into format-specific templates:**
+  - **EPUB:** `content.opf` `<metadata>` block (`<dc:title>`, `<dc:creator>`, `<dc:rights>`,
+    `<dc:description>`, `<dc:subject>`, `<dc:language>`, `<dc:date>`, `<dc:identifier>`)
+  - **HTML:** `<head>` with `<title>`, `<meta name="author">`, `<meta name="license">`, `<meta
+    name="description">`, `<meta name="keywords">`, `<html lang="...">`, `<meta name="date">`
+  - **Markdown:** YAML frontmatter at top of file with title, author, license, description, tags, lang,
+    date
+- **Front Matter Integration:** Extract subset for `front_matter` artifact (title, version from
+  `project_metadata.json` → `version`, snapshot from Cold, options/accessibility computed by Binder).
+- **Validation:**
+  - Fail export if title or author missing (unless user explicitly allows "Untitled" / "Anonymous")
+  - Warn in `view_log` if description/subjects auto-generated (may need refinement)
+  - Log metadata source for each field in `view_log` (e.g., "Metadata: project_metadata /
+    auto-generated")
+
+Cover Art Policy (Title-Bearing Requirement)
+
+- **Primary cover must be title-bearing PNG** (title text rendered on image, not added in post).
+- **Read `art_manifest.json`** (see 02-dictionary/artifacts/art_manifest.md) from Cold snapshot or `/art/`
+  directory.
+- **Cover validation:**
+  - Find asset with `role: "cover"` and `status: "approved"` in manifest
+  - Verify `title_bearing: true`
+  - Verify filename exists on disk and matches manifest (case-sensitive)
+  - Verify SHA-256 hash matches (if provided in manifest)
+  - Recommended dimensions: ≥ 1600x2400px (warn if smaller)
+- **SVG backup (optional):**
+  - If asset with `role: "cover_backup"` exists with `format: "SVG"`, include in EPUB as secondary cover
+  - Must also be `title_bearing: true`
+- **Export integration:**
+  - **EPUB:** Use PNG as `cover-image` in `content.opf` (`<meta name="cover" content="cover-image"/>`);
+    include SVG as backup item in manifest
+  - **HTML:** Use PNG in `<meta property="og:image">` and as page banner/hero image
+  - **Markdown:** Reference PNG in frontmatter `cover_image:` field
+- **No textless covers in final exports:**
+  - Textless covers are work-in-progress only (status "planned" or "rejected" in manifest)
+  - Archive as `cover_untitled.png` but do NOT include in EPUB/HTML if `title_bearing: false`
+- **Validation:**
+  - Fail export if no approved title-bearing cover found in manifest
+  - Warn if cover dimensions < 1600x2400px
+  - Log cover art status in `view_log` (filename, dimensions, title_bearing, hash)
+
+EPUB Kobo Compatibility (Critical)
+
+- **Problem:** Kobo Clara 2e and similar devices are picky about cross-file anchor links.
+- **Solution: Twin Anchors** — For every section with an anchor ID, generate BOTH:
+  1. Block-level `id` on `<section>` or `<h2>` (standard EPUB3)
+  2. **Inline `<a id="..."></a>` immediately inside the section** (Kobo compat)
+- **Template for all sections:**
+  ```html
+  <section id="dock-seven">
+    <a id="dock-seven"></a>
+    <h2>Dock Seven</h2>
+    {content}
+  </section>
+  ```
+- **Legacy NCX Navigation (EPUB2 Compat):**
+  - Generate `toc.ncx` file alongside `nav.xhtml`
+  - NCX structure:
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+      <head>
+        <meta name="dtb:uid" content="{book-uuid}"/>
+        <meta name="dtb:depth" content="1"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <meta name="dtb:maxPageNumber" content="0"/>
+      </head>
+      <docTitle><text>{Book Title}</text></docTitle>
+      <navMap>
+        <navPoint id="section-001" playOrder="1">
+          <navLabel><text>{Section Title}</text></navLabel>
+          <content src="001.xhtml"/>
+        </navPoint>
+        <!-- Repeat for all sections in reading order -->
+      </navMap>
+    </ncx>
+    ```
+  - Add to manifest: `<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>`
+  - Reference in spine: `<spine toc="ncx">`
+- **EPUB Landmarks & Guide:**
+  - Add ARIA landmarks in `nav.xhtml`:
+    ```html
+    <nav epub:type="landmarks" hidden="">
+      <h2>Guide</h2>
+      <ol>
+        <li><a epub:type="cover" href="cover.xhtml">Cover</a></li>
+        <li><a epub:type="toc" href="nav.xhtml">Table of Contents</a></li>
+        <li><a epub:type="bodymatter" href="001.xhtml">Start of Content</a></li>
+      </ol>
+    </nav>
+    ```
+  - Add EPUB2 `<guide>` in `content.opf`:
+    ```xml
+    <guide>
+      <reference type="cover" title="Cover" href="cover.xhtml"/>
+      <reference type="toc" title="Table of Contents" href="nav.xhtml"/>
+      <reference type="text" title="Start" href="001.xhtml"/>
+    </guide>
+    ```
+- **Reading Order Policy:**
+  - Cover: `cover.xhtml` (title-bearing PNG)
+  - TOC: `nav.xhtml` (NOT in spine, or `linear="no"`)
+  - **Start: First scene section** (e.g., `001.xhtml`)
+  - Frontmatter: copyright.xhtml, etc. (in spine but NOT start point)
+- **Validation:**
+  - Verify every section has both block ID and inline anchor
+  - Verify NCX includes all spine items with sequential `playOrder` (1..N)
+  - Verify landmarks `epub:type="bodymatter"` points to first scene (not TOC)
+  - Log dual-anchor count, NCX generation, landmarks in `view_log`
 
 Typography & Font Embedding
 

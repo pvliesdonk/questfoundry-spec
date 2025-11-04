@@ -45,7 +45,24 @@ Topology Metadata (Not Reader-Facing)
   unofficial`) but NOT in reader-facing headers.
   - Wrong: `## Unofficial Channel – Pier 6`
   - Right: `## Pier 6` (with metadata `route: unofficial`)
-- **Book Binder will strip these markers during export** per Presentation Safety rules.
+- **Book Binder will validate during export** per Presentation Safety rules.
+
+Anchor ID Normalization (Hot Creation)
+
+- **Standard Format:** `lowercase-dash-separated` (ASCII-safe, Kobo-compatible).
+- **Create IDs in normalized form from the start:**
+  - Lowercase letters only
+  - Separate words with dashes (not underscores)
+  - No apostrophes, primes, or special characters (except dash)
+  - Examples: `dock-seven`, `pier-6`, `s1-return`, `a2-k`
+- **Naming Conventions:**
+  - Section IDs: descriptive kebab-case (e.g., `office-midnight`, `alley-encounter`)
+  - Hub IDs: prefix with `hub-` (e.g., `hub-dock-seven`)
+  - Loop return IDs: suffix with `-return` (e.g., `s1-return`, `office-return`)
+  - Variant IDs: append variant (e.g., `dock-seven-alt`, `pier-6-unofficial`)
+- **Legacy Alias Mapping:** If referencing legacy IDs (e.g., `S1′`, `S1p`), map to canonical form
+  (`s1-return`) in topology notes; Book Binder will handle alias rewriting.
+- **Validation:** Ensure all created section IDs match `^[a-z0-9]+(-[a-z0-9]+)*$` pattern.
 
 Topology Checks (minimum)
 

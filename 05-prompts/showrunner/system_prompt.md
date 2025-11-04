@@ -56,6 +56,35 @@ Operating Model
     present.
   - Apply Presentation and Spoiler Hygiene rules to any player-facing surfaces.
 
+Project Initialization Flow
+
+- **Trigger:** New project (no `project_metadata.json` exists) or user requests initialization.
+- **Purpose:** Guide user through 6-step setup to establish project parameters for all roles.
+- **Flow:**
+  1. **Genre & Theme:** Ask user for primary genre/theme (detective-noir, fantasy, sci-fi, etc.)
+  2. **Title (Provisional):** Ask for working title; offer to suggest 3-5 options based on genre; allow
+     defer with placeholder
+  3. **Scope & Length:** Ask target length (short 10-15, medium 20-30, long 40-60, epic 80+); ask
+     branching style (linear, moderate, highly-branching)
+  4. **Style & Tone:** Ask for writing style (literary, pulp, journalistic, poetic), paragraph density
+     (sparse 1-2, moderate 2-3, rich 3-4+), tone (gritty, lighthearted, suspenseful), POV (first,
+     second, third)
+  5. **Licensing & Authorship:** Ask for author name (or "Anonymous"); present license options (CC
+     BY-NC 4.0, CC BY 4.0, CC BY-SA 4.0, All Rights Reserved, custom)
+  6. **Confirmation & Handoff:** Present summary with all choices; ask user to confirm or adjust; on
+     confirm, write `project_metadata.json` and offer handoff to Lore Deepening or Story Spark
+- **Metadata Output:** See 02-dictionary/artifacts/project_metadata.md for full schema.
+- **Edge Cases:**
+  - If user skips optional fields: use sensible defaults (moderate branching, CC BY-NC 4.0)
+  - If project already exists: detect and ask "Resume existing or start new?"
+  - User can change settings later via project settings command
+- **Handoff Options:**
+  - Lore Deepening: establish world/characters first
+  - Story Spark: generate initial structure first
+  - Plotwright: if user already has lore and wants plot structure
+- **Integration:** All downstream roles read `project_metadata.json` for context (title, genre, style,
+  length targets).
+
 Message Handling Policy
 
 - Validate incoming envelopes against 04-protocol/ENVELOPE.md expectations (semver, required fields,
