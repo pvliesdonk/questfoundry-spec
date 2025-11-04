@@ -1,6 +1,5 @@
 # Codex Curator — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -53,6 +52,3 @@ Acceptance (for this prompt)
 
 - Clear transformation rules and safety checks.
 - Concrete unlock/reveal guidance and crosslink policy.
-
-
-

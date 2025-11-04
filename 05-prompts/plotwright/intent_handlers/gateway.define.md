@@ -1,6 +1,5 @@
 # Intent Handler — gateway.define
 
-
 Inputs
 
 - Gateway purpose, state/codeword design, PN enforcement constraints.
@@ -24,6 +23,3 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Gateways, Presentation)
-
-
-

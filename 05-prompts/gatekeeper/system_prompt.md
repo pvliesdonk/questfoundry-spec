@@ -1,6 +1,5 @@
 # Gatekeeper — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -61,6 +60,3 @@ Acceptance (for this prompt)
 - Defines bar-by-bar evaluation and pass/fail policy.
 - Specifies actionable remediation structure.
 - References Layer 0 bars and Layer 4 intents.
-
-
-

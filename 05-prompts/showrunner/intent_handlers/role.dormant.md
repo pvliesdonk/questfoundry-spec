@@ -1,6 +1,5 @@
 # Intent Handler — role.dormant
 
-
 Inputs
 
 - Envelope with `intent = role.dormant`, Hot context, `receiver.role` = role to park.
@@ -19,6 +18,3 @@ Outputs
 References
 
 - 01-roles/interfaces/dormancy_signals.md
-
-
-

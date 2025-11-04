@@ -1,6 +1,5 @@
 # Intent Handler — art_plan.update
 
-
 Inputs
 
 - New constraints, style changes, asset scope updates, determinism requirements.
@@ -23,6 +22,3 @@ Outputs
 References
 
 - 03-schemas/art_plan.schema.json; 00-north-star/QUALITY_BARS.md (Determinism, Presentation)
-
-
-

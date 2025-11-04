@@ -1,6 +1,5 @@
 # Quality Bar — Nonlinearity
 
-
 Checks
 
 - Planned hubs/loops/gateways exist and change outcomes on revisit.
@@ -16,6 +15,3 @@ Common Failures
 Remediation
 
 - Add state effects; diversify outcomes; merge trivial hubs.
-
-
-

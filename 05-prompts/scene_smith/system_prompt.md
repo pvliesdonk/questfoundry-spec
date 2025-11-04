@@ -1,6 +1,5 @@
 # Scene Smith — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -49,6 +48,3 @@ Acceptance (for this prompt)
 
 - Clear, actionable drafting process; concrete self-check items.
 - Explains how to collaborate with Style Lead and others.
-
-
-

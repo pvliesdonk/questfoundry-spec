@@ -1,6 +1,5 @@
 # Art Director — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -51,6 +50,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable shotlist/plan workflow; determinism handling; clear handoffs.
-
-
-

@@ -1,6 +1,5 @@
 # Intent Handler — scene.write
 
-
 Inputs
 
 - TU brief (scope, beats), style guide/register_map, canon references.
@@ -25,6 +24,3 @@ References
 
 - 00-north-star/QUALITY_BARS.md (Style, Presentation)
 - 02-dictionary/artifacts/edit_notes.md
-
-
-

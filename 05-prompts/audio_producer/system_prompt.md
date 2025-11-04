@@ -1,6 +1,5 @@
 # Audio Producer — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -46,6 +45,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear render workflow; determinism handling; safety/accessibility checks.
-
-
-

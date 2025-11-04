@@ -21,9 +21,11 @@ Primary Triggers
 
 Levels (L1–L3)
 
-- L1: Clarification needed (single question, no artifact block). Prefer `human.question` with options.
+- L1: Clarification needed (single question, no artifact block). Prefer `human.question` with
+  options.
 - L2: Artifact risk (bar could slip to yellow/red). Notify SR; suggest waking a specialist.
-- L3: Blocker (cannot proceed). Request GK review; include a `tu.checkpoint` summary and proposed next steps.
+- L3: Blocker (cannot proceed). Request GK review; include a `tu.checkpoint` summary and proposed
+  next steps.
 
 Signals & Rhythm
 

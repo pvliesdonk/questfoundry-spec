@@ -1,6 +1,5 @@
 # Quality Bar — Style
 
-
 Checks
 
 - Voice/register/motifs align with style guide and register_map.
@@ -17,6 +16,3 @@ Common Failures
 Remediation
 
 - Run Style Tune-up; move detail to codex or canon notes; provide phrasing fixes.
-
-
-

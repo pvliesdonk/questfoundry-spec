@@ -1,6 +1,5 @@
 # Intent Handler — human.question
 
-
 Inputs
 
 - Envelope with `intent = human.question`, any role → SR.
@@ -23,6 +22,3 @@ Notes
 References
 
 - 04-protocol/INTENTS.md §5 Human Interaction Intents
-
-
-

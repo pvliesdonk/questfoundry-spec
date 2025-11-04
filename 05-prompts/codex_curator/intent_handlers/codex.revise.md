@@ -24,6 +24,3 @@ Outputs
 References
 
 - 00-north-star/SPOILER_HYGIENE.md; QUALITY_BARS.md (Presentation)
-
-
-

@@ -1,6 +1,5 @@
 # Plotwright — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -53,6 +52,3 @@ Acceptance (for this prompt)
 
 - Clear pattern language for hubs/loops/gateways.
 - Concrete proofs for reachability and loop meaningfulness.
-
-
-

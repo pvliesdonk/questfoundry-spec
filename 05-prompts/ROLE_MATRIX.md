@@ -5,7 +5,8 @@ Abbreviations from 02-dictionary/role_abbreviations.md.
 Highlights
 
 - Dormancy: SR controls activation; roles may be set dormant between loops.
-- LLM Requirements: Most roles run fine under JSON mode, low temperature; PN surfaces require strict safety.
+- LLM Requirements: Most roles run fine under JSON mode, low temperature; PN surfaces require strict
+  safety.
 
 Examples per Role (minimums)
 

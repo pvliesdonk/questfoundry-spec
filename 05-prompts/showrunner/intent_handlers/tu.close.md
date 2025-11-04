@@ -1,6 +1,5 @@
 # Intent Handler — tu.close
 
-
 Inputs
 
 - Envelope with `intent = tu.close`, Hot context, `context.tu` present.
@@ -27,6 +26,3 @@ Errors
 References
 
 - 04-protocol/LIFECYCLES/tu.md
-
-
-

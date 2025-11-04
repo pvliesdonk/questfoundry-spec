@@ -22,7 +22,8 @@ Few-shot Guidance
 
 LLM Adaptation
 
-- Keep role instructions model-agnostic; isolate model-specific toggles (e.g., JSON mode, temperature) in the harness.
+- Keep role instructions model-agnostic; isolate model-specific toggles (e.g., JSON mode,
+  temperature) in the harness.
 - Avoid relying on hidden system behavior; encode constraints in the prompt and schema.
 
 Adding Intents or Behaviors

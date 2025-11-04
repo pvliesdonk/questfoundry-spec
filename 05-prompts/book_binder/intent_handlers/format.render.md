@@ -1,6 +1,5 @@
 # Intent Handler — format.render
 
-
 Inputs
 
 - View specification and target format (markdown|html|epub|pdf) with options.
@@ -18,6 +17,3 @@ Process
 Outputs
 
 - Rendered artifact reference (out-of-scope) and `ack`; `view_log` updated.
-
-
-

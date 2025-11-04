@@ -24,6 +24,3 @@ Outputs
 References
 
 - 02-dictionary/artifacts/register_map.md; 00-north-star/QUALITY_BARS.md (Style)
-
-
-

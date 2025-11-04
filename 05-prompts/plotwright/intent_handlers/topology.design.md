@@ -1,6 +1,5 @@
 # Intent Handler — topology.design
 
-
 Inputs
 
 - Current sections map, planned beats, canon/style constraints.
@@ -24,6 +23,3 @@ Outputs
 References
 
 - 00-north-star/QUALITY_BARS.md (Nonlinearity, Reachability)
-
-
-

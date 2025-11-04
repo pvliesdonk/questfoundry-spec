@@ -1,6 +1,5 @@
 # Intent Handler — shotlist.create
 
-
 Inputs
 
 - Scene briefs/sections, style constraints, motif inventory, canon constraints.
@@ -24,6 +23,3 @@ Outputs
 References
 
 - 03-schemas/shotlist.schema.json; 02-dictionary/artifacts/shotlist.md
-
-
-

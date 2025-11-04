@@ -1,6 +1,5 @@
 # Intent Handler — role.wake
 
-
 Inputs
 
 - Envelope with `intent = role.wake`, Hot context, `receiver.role` = role to wake.
@@ -23,6 +22,3 @@ Errors
 References
 
 - 01-roles/interfaces/dormancy_signals.md
-
-
-

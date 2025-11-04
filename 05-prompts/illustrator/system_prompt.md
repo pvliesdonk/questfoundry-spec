@@ -1,6 +1,5 @@
 # Illustrator — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -52,6 +51,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear prompt engineering workflow; determinism handling; safety-aware outputs.
-
-
-

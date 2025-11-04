@@ -1,6 +1,5 @@
 # Intent Handler — tu.checkpoint
 
-
 Inputs
 
 - Envelope with `intent = tu.checkpoint`, Hot context, `context.tu` present.
@@ -19,6 +18,3 @@ Outputs
 References
 
 - 04-protocol/LIFECYCLES/tu.md
-
-
-

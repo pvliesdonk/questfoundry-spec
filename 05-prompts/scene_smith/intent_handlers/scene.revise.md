@@ -1,6 +1,5 @@
 # Intent Handler — scene.revise
 
-
 Inputs
 
 - Review notes (Style Lead/Showrunner), diffs, target issues.
@@ -24,6 +23,3 @@ References
 
 - 05-prompts/style_lead/intent_handlers/style.audit.md
 - 02-dictionary/artifacts/edit_notes.md
-
-
-

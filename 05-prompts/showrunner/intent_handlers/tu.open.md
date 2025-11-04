@@ -1,6 +1,5 @@
 # Intent Handler — tu.open
 
-
 Inputs
 
 - Envelope with `intent = tu.open`, Hot context, `context.loop` set.
@@ -29,6 +28,3 @@ Errors
 References
 
 - 04-protocol/FLOWS/\*, 04-protocol/INTENTS.md, 01-roles/interfaces/dormancy_signals.md
-
-
-

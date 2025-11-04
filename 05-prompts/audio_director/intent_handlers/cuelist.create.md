@@ -1,6 +1,5 @@
 # Intent Handler — cuelist.create
 
-
 Inputs
 
 - Scene beats/sections, style guardrails, motif inventory, canon constraints.
@@ -24,6 +23,3 @@ Outputs
 References
 
 - 03-schemas/cuelist.schema.json; 02-dictionary/artifacts/cuelist.md
-
-
-

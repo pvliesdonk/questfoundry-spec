@@ -26,6 +26,3 @@ References
 
 - 00-north-star/SPOILER_HYGIENE.md; QUALITY_BARS.md (Presentation)
 - 02-dictionary/artifacts/codex_entry.md
-
-
-

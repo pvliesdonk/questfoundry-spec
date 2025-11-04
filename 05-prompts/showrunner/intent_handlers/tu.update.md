@@ -1,6 +1,5 @@
 # Intent Handler — tu.update
 
-
 Inputs
 
 - Envelope with `intent = tu.update`, Hot context, `context.tu` present.
@@ -30,6 +29,3 @@ References
 
 - 04-protocol/INTENTS.md §6.2 tu.update
 - 04-protocol/LIFECYCLES/tu.md
-
-
-

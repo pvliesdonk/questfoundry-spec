@@ -1,6 +1,5 @@
 # Quality Bar — Accessibility
 
-
 Checks
 
 - Clear navigation/structure; descriptive headings/links; alt text present; sensory considerations
@@ -19,6 +18,3 @@ Remediation
 
 - Add descriptive captions; improve headings/links; add content notes or adjust composition; ensure
   contrast.
-
-
-

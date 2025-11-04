@@ -18,6 +18,3 @@ Process
 Outputs
 
 - Updated `canon_pack` (Hot) in repo; `tu.checkpoint` emitted.
-
-
-

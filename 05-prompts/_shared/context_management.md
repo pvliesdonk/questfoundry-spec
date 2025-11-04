@@ -17,14 +17,16 @@ References
 
 Required Context Fields
 
-- `context.hot_cold` is always present. If PN is the receiver, it MUST be `cold` and include `snapshot`.
+- `context.hot_cold` is always present. If PN is the receiver, it MUST be `cold` and include
+  `snapshot`.
 - `context.loop` SHOULD be set during an active loop (e.g., Lore Deepening, Binding Run).
 - `context.tu` SHOULD be used for TU-scoped work: `TU-YYYY-MM-DD-<ROLE><NN>`.
 
 Memory Management
 
 - Maintain a rolling buffer of the last N turns (role-dependent). When nearing token limits:
-  - Summarize older turns into a compact “state note” (objectives, constraints, decisions, open questions).
+  - Summarize older turns into a compact “state note” (objectives, constraints, decisions, open
+    questions).
   - Keep raw quotes only when phrasing is critical (style, canonical lines).
 - For long-running loops, emit periodic `tu.checkpoint` with a concise summary and next actions.
 

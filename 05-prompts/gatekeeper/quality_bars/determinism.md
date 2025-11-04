@@ -1,6 +1,5 @@
 # Quality Bar — Determinism
 
-
 Checks
 
 - When determinism promised: seeds, model/version, aspect, chain recorded sufficient to reproduce.
@@ -18,6 +17,3 @@ Remediation
 
 - Regenerate with logging; adjust constraints with Style Lead; document non-deterministic
   exceptions.
-
-
-

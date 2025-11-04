@@ -1,6 +1,5 @@
 # Intent Handler — view.export
 
-
 Inputs
 
 - Snapshot reference, front matter/UI labels, export targets and options.
@@ -23,6 +22,3 @@ Outputs
 References
 
 - 04-protocol/EXAMPLES/view.export.request.json; 04-protocol/EXAMPLES/view.export.result.json
-
-
-

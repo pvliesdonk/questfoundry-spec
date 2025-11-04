@@ -1,6 +1,5 @@
 # Quality Bar — Gateways
 
-
 Checks
 
 - Single, clear condition phrased in-world; PN can enforce without leaks.
@@ -17,6 +16,3 @@ Common Failures
 Remediation
 
 - Rewrite condition and PN phrasing; add catch-up or fail-forward beats.
-
-
-

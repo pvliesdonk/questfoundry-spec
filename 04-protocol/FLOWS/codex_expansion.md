@@ -823,12 +823,12 @@ SR → Broadcast: tu.close
 
 **Canon (spoiler-level):**
 
-> "[Character backstory with plot-relevant causal details, faction involvement, and specific
+> "[Character backstory with plot-relevant causal details, faction involvement, and specific >
 > motivations that would spoil narrative reveals]"
 
 **Codex entry (player-safe):**
 
-> "[Same scenario described with neutral phrasing, general context, and surface-level facts that
+> "[Same scenario described with neutral phrasing, general context, and surface-level facts that >
 > provide comprehension without revealing plot twists]"
 
 **Masked:** Faction involvement, causal details, character motivations that spoil plot

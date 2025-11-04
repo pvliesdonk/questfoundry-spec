@@ -17,7 +17,8 @@ References
 Hard Invariants
 
 - Never route Hot content to PN.
-- If receiver is PN, `context.hot_cold = cold`, `context.snapshot` present, and `safety.player_safe = true`.
+- If receiver is PN, `context.hot_cold = cold`, `context.snapshot` present, and
+  `safety.player_safe = true`.
 - Player-facing text MUST NOT leak internal logic, hidden states, or solution paths.
 
 Spoiler Hygiene

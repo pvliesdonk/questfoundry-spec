@@ -8,7 +8,8 @@ Scope
 
 Versioning
 
-- Use SemVer for protocol/schema changes. Prompt text changes that do not affect wire format are patch-level.
+- Use SemVer for protocol/schema changes. Prompt text changes that do not affect wire format are
+  patch-level.
 - Keep migration notes per release; link to changed intents and examples.
 
 Intent Renames

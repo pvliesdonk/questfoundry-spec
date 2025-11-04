@@ -1,6 +1,5 @@
 # Audio Director — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -52,6 +51,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable cuelist/plan workflow; clear handoffs; safety-aware audio planning.
-
-
-

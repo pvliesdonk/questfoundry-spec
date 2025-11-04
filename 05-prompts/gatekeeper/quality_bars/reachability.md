@@ -1,6 +1,5 @@
 # Quality Bar — Reachability
 
-
 Checks
 
 - Keystone beats are reachable from at least one viable path without paradox.
@@ -17,6 +16,3 @@ Common Failures
 Remediation
 
 - Add alternative routes; shorten chains; surface keys earlier; add fail-forward beats.
-
-
-

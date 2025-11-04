@@ -1,6 +1,5 @@
 # Style Lead — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -45,6 +44,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable audit rubric and outputs; clear collaboration with SS/GK.
-
-
-

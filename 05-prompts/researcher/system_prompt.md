@@ -1,6 +1,5 @@
 # Researcher — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -48,6 +47,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Actionable research workflow; posture usage; neutral phrasing; dormancy discipline.
-
-
-

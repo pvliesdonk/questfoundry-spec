@@ -1,6 +1,5 @@
 # Quality Bar — Presentation
 
-
 Checks
 
 - Manuscript/codex/PN contain zero spoilers or internal labels.
@@ -17,6 +16,3 @@ Common Failures
 Remediation
 
 - Move spoilers into canon notes; rephrase PN lines diegetically; rename internals; rewrite choices.
-
-
-

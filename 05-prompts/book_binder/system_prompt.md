@@ -1,6 +1,5 @@
 # Book Binder — System Prompt
 
-
 Target: GPT-5 (primary)
 
 Mission
@@ -48,6 +47,3 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear export pipeline; PN safety enforcement; quality checks and outputs.
-
-
-
