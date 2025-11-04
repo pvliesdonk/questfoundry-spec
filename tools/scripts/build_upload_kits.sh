@@ -42,17 +42,10 @@ zip_from_folder() {
   (cd "$folder" && zip -q -r "${zip_path}" .)
 }
 
-# ChatGPT kits
-make_folder_from_manifest "$MANIFEST_DIR/chatgpt_minimal.list" "$OUT_DIR/chatgpt/minimal"
-make_folder_from_manifest "$MANIFEST_DIR/chatgpt_addons.list" "$OUT_DIR/chatgpt/addons"
-zip_from_folder "$OUT_DIR/chatgpt/minimal" "$OUT_DIR/chatgpt/minimal.zip"
-zip_from_folder "$OUT_DIR/chatgpt/addons" "$OUT_DIR/chatgpt/addons.zip"
-
-# Gemini kits
-make_folder_from_manifest "$MANIFEST_DIR/gemini_core_zip.list" "$OUT_DIR/gemini/core_zip"
-make_folder_from_manifest "$MANIFEST_DIR/gemini_optional_zip.list" "$OUT_DIR/gemini/optional_zip"
-zip_from_folder "$OUT_DIR/gemini/core_zip" "$OUT_DIR/gemini/core.zip"
-zip_from_folder "$OUT_DIR/gemini/optional_zip" "$OUT_DIR/gemini/optional.zip"
+# Flat kits (no platform subfolders)
+make_folder_from_manifest "$MANIFEST_DIR/chatgpt_minimal.list" "$OUT_DIR/minimal"
+make_folder_from_manifest "$MANIFEST_DIR/chatgpt_addons.list" "$OUT_DIR/addons"
+zip_from_folder "$OUT_DIR/minimal" "$OUT_DIR/minimal.zip"
+zip_from_folder "$OUT_DIR/addons" "$OUT_DIR/addons.zip"
 
 echo "Upload kits built under: $OUT_DIR"
-

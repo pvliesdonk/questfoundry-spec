@@ -41,17 +41,10 @@ function Zip-FromFolder([string]$folder, [string]$zipPath) {
   Compress-Archive -Path (Join-Path $folder '*') -DestinationPath $zipPath -Force
 }
 
-# ChatGPT kits
-Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_minimal.list') (Join-Path $OutDir 'chatgpt/minimal')
-Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_addons.list') (Join-Path $OutDir 'chatgpt/addons')
-Zip-FromFolder (Join-Path $OutDir 'chatgpt/minimal') (Join-Path $OutDir 'chatgpt/minimal.zip')
-Zip-FromFolder (Join-Path $OutDir 'chatgpt/addons') (Join-Path $OutDir 'chatgpt/addons.zip')
-
-# Gemini kits
-Make-FolderFromManifest (Join-Path $ManifestDir 'gemini_core_zip.list') (Join-Path $OutDir 'gemini/core_zip')
-Make-FolderFromManifest (Join-Path $ManifestDir 'gemini_optional_zip.list') (Join-Path $OutDir 'gemini/optional_zip')
-Zip-FromFolder (Join-Path $OutDir 'gemini/core_zip') (Join-Path $OutDir 'gemini/core.zip')
-Zip-FromFolder (Join-Path $OutDir 'gemini/optional_zip') (Join-Path $OutDir 'gemini/optional.zip')
+# Flat kits (no platform subfolders)
+Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_minimal.list') (Join-Path $OutDir 'minimal')
+Make-FolderFromManifest (Join-Path $ManifestDir 'chatgpt_addons.list') (Join-Path $OutDir 'addons')
+Zip-FromFolder (Join-Path $OutDir 'minimal') (Join-Path $OutDir 'minimal.zip')
+Zip-FromFolder (Join-Path $OutDir 'addons') (Join-Path $OutDir 'addons.zip')
 
 Write-Host "Upload kits built under: $OutDir"
-

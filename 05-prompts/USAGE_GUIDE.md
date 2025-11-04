@@ -266,7 +266,8 @@ Zips (when hitting attachment limits):
 
 Auto‑build link folders and zips:
 
-- Preferred: `uv run qfspec-build-kits` (writes to `dist/upload_kits/*`).
+- Preferred: `uv run qfspec-build-kits` (writes to `dist/upload_kits/*`). You’ll get top‑level
+  `minimal/` (10 files) + `minimal.zip`, and `addons/` + `addons.zip`.
 - Alternatively, scripts:
   - Bash: `tools/scripts/build_upload_kits.sh`
   - PowerShell: `tools/scripts/build_upload_kits.ps1`

@@ -129,20 +129,19 @@ zip -r full-upload-kit.zip \
 
 ## Build Link Folders And Zips (Recommended)
 
-Generate `dist/upload_kits/*` with flattened, role‑qualified filenames and ready‑made zips:
+Generate `dist/upload_kits/*` with flattened filenames and ready‑made zips (no platform subfolders):
 
 - Using uv (recommended): `uv run qfspec-build-kits`
 - Bash (macOS/Linux/WSL): `tools/scripts/build_upload_kits.sh`
 - PowerShell (Windows): `tools/scripts/build_upload_kits.ps1`
 
-You’ll get:
+You’ll get (top‑level):
 
-- `chatgpt/minimal/` (10 files) and `chatgpt/minimal.zip`
-- `chatgpt/addons/` (PN) and `chatgpt/addons.zip`
-- `gemini/core_zip/` (10 files) and `gemini/core.zip`
-- `gemini/optional_zip/` (≤10 files) and `gemini/optional.zip`
+- `minimal/` (10 files) and `minimal.zip`
+- `addons/` (PN and optional roles) and `addons.zip`
 
-Filenames are flattened (e.g., `showrunner.system_prompt.md`) to avoid collisions when attaching.
+Filenames are simplified (e.g., `showrunner.md`, `book_binder.md`; shared docs keep their names) to
+avoid collisions when attaching.
 
 ## Platform Notes (General)
 

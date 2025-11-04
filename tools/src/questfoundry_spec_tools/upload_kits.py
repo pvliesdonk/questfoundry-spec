@@ -29,10 +29,22 @@ def _find_repo_root() -> Path:
 
 
 def _flatten_rel(rel: str) -> str:
-    # Convert 05-prompts/foo/bar.md -> foo.bar.md for easier attachments
+    """Return destination filename for a given repo-relative path.
+
+    Rules:
+    - 05-prompts/<role>/system_prompt.md -> <role>.md
+    - 05-prompts/_shared/<name>.md -> <name>.md
+    - Otherwise, flatten path separators to dots.
+    """
     if rel.startswith("05-prompts/"):
-        rel = rel[len("05-prompts/") :]
-    return rel.replace("/", ".")
+        rest = rel[len("05-prompts/") :]
+        parts = rest.split("/")
+        if len(parts) == 2 and parts[1] == "system_prompt.md":
+            return f"{parts[0]}.md"
+        if parts and parts[0] == "_shared" and len(parts) == 2:
+            return parts[1]
+        return rest.replace("/", ".")
+    return Path(rel).name
 
 
 def _ensure_link_or_copy(src: Path, dest: Path) -> None:
@@ -87,37 +99,16 @@ def build_kits_cli() -> None:
         print(f"Manifests not found: {manifests_dir}")
         sys.exit(1)
 
-    # ChatGPT kits
-    cg_min_folder = out_dir / "chatgpt" / "minimal"
-    cg_min_zip = out_dir / "chatgpt" / "minimal.zip"
-    cg_add_folder = out_dir / "chatgpt" / "addons"
-    cg_add_zip = out_dir / "chatgpt" / "addons.zip"
+    # Flat output (no platform subfolders): minimal/ and addons/ at top-level
+    min_folder = out_dir / "minimal"
+    add_folder = out_dir / "addons"
+    min_zip = out_dir / "minimal.zip"
+    add_zip = out_dir / "addons.zip"
 
-    _build_folder_from_manifest(
-        repo_root, manifests_dir / "chatgpt_minimal.list", cg_min_folder
-    )
-    _zip_folder(cg_min_folder, cg_min_zip)
+    _build_folder_from_manifest(repo_root, manifests_dir / "chatgpt_minimal.list", min_folder)
+    _zip_folder(min_folder, min_zip)
 
-    _build_folder_from_manifest(
-        repo_root, manifests_dir / "chatgpt_addons.list", cg_add_folder
-    )
-    _zip_folder(cg_add_folder, cg_add_zip)
-
-    # Gemini kits
-    gm_core_folder = out_dir / "gemini" / "core_zip"
-    gm_core_zip = out_dir / "gemini" / "core.zip"
-    gm_opt_folder = out_dir / "gemini" / "optional_zip"
-    gm_opt_zip = out_dir / "gemini" / "optional.zip"
-
-    _build_folder_from_manifest(
-        repo_root, manifests_dir / "gemini_core_zip.list", gm_core_folder
-    )
-    _zip_folder(gm_core_folder, gm_core_zip)
-
-    _build_folder_from_manifest(
-        repo_root, manifests_dir / "gemini_optional_zip.list", gm_opt_folder
-    )
-    _zip_folder(gm_opt_folder, gm_opt_zip)
+    _build_folder_from_manifest(repo_root, manifests_dir / "chatgpt_addons.list", add_folder)
+    _zip_folder(add_folder, add_zip)
 
     print(f"Upload kits built under: {out_dir}")
-
