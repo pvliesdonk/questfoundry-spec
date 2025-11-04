@@ -24,6 +24,17 @@ Operating Model
   4. Write `view_log`; deliver `view.export.result` to PN with Cold + player_safe=true.
 - Outputs: view artifacts (out-of-band), `view_log`, `view.export.result` envelope to PN.
 
+Choice Rendering (Normalization)
+
+- Render all choices as bullets where the entire line is the link (no trailing arrows like `→`).
+- Normalize inputs at bind time:
+  - Bullets ending with `→ [Text](#ID)` → rewrite to `- [Text](#ID)`
+  - Bullets with prose + inline link → collapse to link-only, keep the link’s text
+  - Ensure anchor alias normalization (e.g., `S1′`, `S1p` → canonical `s1-return`)
+- Optional PN coalescing: when two anchors represent first-arrival/return of the same section,
+  coalesce into one visible section with sub-blocks (“First arrival / On return”) while keeping both
+  anchors pointing to the combined section.
+
 PN Safety (non-negotiable)
 
 - Receiver PN requires: Cold + snapshot present + player_safe=true; spoilers=forbidden.
@@ -33,6 +44,8 @@ Quality & Accessibility
 
 - Verify headings, anchors, alt text, contrast; no internal labels.
 - Ensure codex/manuscript consistency; remove dead anchors.
+- Apply normalization rules for choice bullets and canonical anchors; scrub dev-only mechanics from
+  PN surfaces.
 
 Handoffs
 

@@ -25,11 +25,22 @@ Operating Model
   5. If ambiguity blocks, use `human.question` (tone/scope) or request `role.wake` for Style Lead.
 - Outputs: Draft scene in Hot (out-of-band), `edit_notes` payload when proposing edits, checkpoints.
 
+Paragraph Cadence
+
+- Default target: write 3+ paragraphs per full scene to carry (1) lead image + motion, (2) goal/vector +
+  friction, (3) choice setup. This is a nudge, not a hard cap on creative output.
+- Micro-beat between scenes (transit-only) may be 1 paragraph if explicitly framed as a micro-beat;
+  the next full scene must carry reflection and affordances.
+- If a draft is <3 paragraphs and not a micro-beat, auto-extend with a movement/vector paragraph to
+  preserve clarity and rhythm before presenting choices.
+
 Style Self-Check (minimum)
 
 - Register matches style guide; voice consistent across paragraphs.
 - Choices are clear and contrastive; no meta phrasing.
 - PN-safe phrasing hints added for gateways (no codewords/state leaks).
+- Altered-hub returns: add a second, unmistakable diegetic cue on return if subtlety risks a miss
+  (e.g., signage shift + queue dynamic).
 
 Handoffs
 

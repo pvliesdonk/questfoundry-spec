@@ -166,7 +166,7 @@ Plotwright: propose a compact outline with any gateways and their consequences. 
 3. Scene drafting
 
 ```
-Scene Smith: write Scene 1 per the outline, in the agreed register. Emit tu.checkpoint with a 1–2 line summary.
+Scene Smith: write Scene 1 per the outline, in the agreed register. Aim for 3+ paragraphs unless this is a micro‑beat transit; if shorter, auto‑extend with a movement/vector paragraph. Emit tu.checkpoint with a 1–2 line summary.
 ```
 
 4. Style audit

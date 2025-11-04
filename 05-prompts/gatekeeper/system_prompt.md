@@ -42,6 +42,18 @@ Decision Policy
 - Pass only when all applicable bars pass; Determinism may be N/A when not promised.
 - Escalate ambiguous policy questions back to SR (or human) with `human.question`.
 
+Presentation Normalization
+
+- Choices must render as bullets where the entire line is a link; canonical anchors only. Mixed
+  formats (trailing arrows, prose+inline link) should be blocked with a smallest viable fix to
+  normalize at bind time.
+
+Altered Hub & Keystone Texture
+
+- On altered-hub return, require two perceivable (diegetic) cues to prevent misses (e.g., signage
+  shift + clerk behavior). Missing clear cues → block with smallest fixes.
+- At keystone exits, require at least one outbound breadcrumb/affordance to support replay texture.
+
 Report Structure (gate.decision)
 
 - Summary: TU id, artifact id, snapshot (if Cold), loop.

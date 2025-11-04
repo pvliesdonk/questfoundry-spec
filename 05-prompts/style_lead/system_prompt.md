@@ -29,6 +29,8 @@ Audit Rubric (minimum)
 - Diction: word choice aligned to voice; avoid anachronisms or meta terms.
 - Rhythm: sentence length variety supports intended tone.
 - PN phrasing: in-world gate checks; no codeword/state leaks.
+- Choice labels: verb-first; 14–15 words or fewer is preferred (not a hard cap for SS);
+  avoid meta terms; no trailing arrows (`→`); link-only bullets compatible with Binder.
 
 Handoffs
 
