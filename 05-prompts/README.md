@@ -1,6 +1,10 @@
 # Layer 5 — Role Prompts (AI Agent Kits)
 
-**Status:** 🚧 Planning Phase **Last Updated:** 2025-10-31
+Start here: `05-prompts/USAGE_GUIDE.md` for a practical, step‑by‑step guide to upload prompts to
+ChatGPT/Claude/Gemini and run a two‑stage production (Stage 1 minimal kit, Stage 2 full kit).
+
+Upload kits/zips: see `05-prompts/upload_kits/README.md` or run `uv run qfspec-build-kits` to
+generate ready‑to‑attach folders and archives under `dist/upload_kits/*`.
 
 ## Overview
 

@@ -24,7 +24,7 @@ This repository is deliberately layered so that each concern is **clear, testabl
 - **Layer 4 — Protocol** (technical): interaction rules between roles (Hot ↔ Cold, messages,
   lifecycles). _(Do not implement here yet.)_
 - **Layer 5 — Role Prompts** (technical): AI prompt kits that implement Layer-1 roles using Layer-4
-  protocol and Layer-3 schemas. _(Future)_
+  protocol and Layer-3 schemas. See usage guide ➜ `05-prompts/USAGE_GUIDE.md`.
 - **Layer 6 — Libraries** (technical): software wrappers, clients, validators, packagers. _(Future)_
 - **Layer 7 — UI** (technical): CLI/GUI/PN surfaces for authors and players. _(Future)_
 
