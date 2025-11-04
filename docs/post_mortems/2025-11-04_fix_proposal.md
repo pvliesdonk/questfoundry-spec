@@ -722,9 +722,439 @@ After implementation:
 
 ---
 
+## PROPOSAL 7: Additional Refinements (User Feedback)
+
+### 7A: Minimize JSON Exposure in Prompts
+
+**Problem:** Book Binder prompts/outputs show too much JSON to users; should keep internal representation hidden unless debugging.
+
+**Proposed Fix:**
+
+**File:** `/05-prompts/book_binder/system_prompt.md`
+
+**Location:** Add to "User Communication" section (or create if missing)
+
+```markdown
+### User Communication & Output Format
+
+**Principle:** Keep internal JSON representation hidden from user-facing outputs.
+
+**Rules:**
+1. **Protocol messages** (intents, artifacts) are internal—never show JSON to users unless:
+   - User explicitly requests debug output
+   - Error diagnostics require showing message structure
+   - Developer mode is active
+
+2. **Export outputs** should be clean prose/reports:
+   - View log: formatted markdown table/list (not raw JSON)
+   - Anchor map: human-readable summary (e.g., "45 anchors resolved, 0 orphans")
+   - Validation results: prose description with counts/lists
+
+3. **Error messages** should explain *what went wrong* and *how to fix it*, not dump JSON structures
+
+**Example (Good):**
+```
+✓ Export complete: EPUB, HTML, Markdown
+✓ Anchor integrity: 45 manuscript, 24 codex, 89 crosslinks (0 broken)
+✓ Kobo compatibility: NCX + landmarks + inline anchors
+⚠ Font embedding: fonts not found in /resources/fonts/, using fallbacks
+```
+
+**Example (Bad):**
+```json
+{
+  "intent": "view.export.result",
+  "payload": {
+    "data": {
+      "anchor_map": "45 manuscript, 24 codex..."
+    }
+  }
+}
+```
+```
+
+---
+
+### 7B: Metadata Auto-Generation & Consistency
+
+**Problem:** Metadata (title, author, license, description, subjects) must be consistent across EPUB/HTML/Markdown but is sometimes manual.
+
+**Proposed Fix:**
+
+**File:** `/05-prompts/book_binder/system_prompt.md`
+
+**Location:** Add new section "Metadata Management"
+
+```markdown
+### Metadata Management (All Export Formats)
+
+**Principle:** Metadata is centralized and auto-injected into all export formats.
+
+**Metadata Source Hierarchy:**
+1. **Cold snapshot metadata** (if present): title, author, license, description, subjects
+2. **Project defaults** (from configuration): fallback if snapshot lacks metadata
+3. **Auto-generated** (if both missing): derived from manuscript content
+
+**Required Metadata Fields:**
+
+| Field | Source | Auto-Generation Rule | Format-Specific Handling |
+|-------|--------|----------------------|--------------------------|
+| **Title** | Cold snapshot or frontmatter | Use first H1 or "Untitled" | EPUB: `<dc:title>`, HTML: `<title>`, MD: YAML frontmatter |
+| **Author** | Cold snapshot or config | Default: "Unknown Author" | EPUB: `<dc:creator>`, HTML: `<meta name="author">`, MD: YAML `author:` |
+| **License** | Cold snapshot or config | Default: "All Rights Reserved" | EPUB: `<dc:rights>`, HTML: `<meta name="license">`, MD: YAML `license:` |
+| **Description** | Cold snapshot or first paragraph | Extract first 2-3 sentences of prose | EPUB: `<dc:description>`, HTML: `<meta name="description">`, MD: YAML `description:` |
+| **Subjects** | Cold snapshot or auto-detect | Genre keywords from prose/lore | EPUB: `<dc:subject>`, HTML: `<meta name="keywords">`, MD: YAML `tags:` |
+| **Language** | Cold snapshot or config | Default: "en" (English) | EPUB: `<dc:language>`, HTML: `<html lang="en">`, MD: YAML `lang:` |
+| **Publisher** | Cold snapshot or config | Optional; omit if not provided | EPUB: `<dc:publisher>`, HTML/MD: in copyright notice |
+| **Date** | Auto-generated | ISO 8601 (e.g., "2025-11-04") | EPUB: `<dc:date>`, HTML: `<meta name="date">`, MD: YAML `date:` |
+| **UUID** | Auto-generated | UUIDv4 for each export | EPUB: `<dc:identifier id="uuid">` |
+
+**Implementation:**
+1. On export request, gather metadata from Cold snapshot → config → auto-detect
+2. Validate required fields are present (title, author, license, language, date, UUID)
+3. Inject into format-specific templates:
+   - **EPUB:** `content.opf` `<metadata>` block
+   - **HTML:** `<head>` with `<meta>` tags
+   - **Markdown:** YAML frontmatter at top of file
+4. Log metadata source in `view_log` (e.g., "Metadata: snapshot-provided / auto-generated")
+
+**Validation:**
+- Fail export if title or author is missing (unless user explicitly allows)
+- Warn if description/subjects are auto-generated (may need refinement)
+- Log metadata source for each field in view_log
+```
+
+**File:** `/05-prompts/book_binder/intent_handlers/format.render.md`
+
+**Location:** Add to "Pre-Render Validation" checklist
+
+```markdown
+- [ ] Gather metadata from Cold snapshot / config / auto-generation
+- [ ] Validate required fields: title, author, license, language, date, UUID
+- [ ] Inject metadata into format-specific templates (EPUB OPF, HTML head, MD YAML)
+- [ ] Log metadata sources in view_log
+```
+
+---
+
+### 7C: Cover Art Text Requirement & SVG Backup
+
+**Problem:** Covers must bear the book title; SVG covers serve as backup for EPUB (vector scalability).
+
+**Proposed Fix:**
+
+**File:** `/05-prompts/book_binder/system_prompt.md`
+
+**Location:** Enhance existing "Cover Policy" section
+
+```markdown
+### Cover Art Policy (Title-Bearing Requirement)
+
+**Rules:**
+1. **Primary cover** must be a **title-bearing PNG**:
+   - Title text rendered on the image (not added in post)
+   - High resolution (min 1600x2400px recommended)
+   - RGB color mode
+   - Filename convention: `cover_titled.png` or `*_titled.png`
+
+2. **SVG backup** included for EPUB:
+   - Vector format for infinite scalability
+   - Also title-bearing (text as paths or embedded fonts)
+   - Filename convention: `cover_titled.svg` or `*_titled.svg`
+
+3. **No textless covers** in final exports:
+   - Textless covers are work-in-progress only
+   - Archive as `cover_untitled.png` but do NOT include in EPUB/HTML
+
+4. **Manifest tracking:**
+   - Cover images listed in `art_manifest.updated.json`
+   - Status: "approved" + metadata field `title_bearing: true`
+   - SHA-256 hash for verification
+
+**Implementation:**
+1. Book Binder checks for titled cover: `cover_titled.png` and optionally `cover_titled.svg`
+2. If missing: fail export with error "Title-bearing cover required"
+3. EPUB uses PNG as primary (`<meta name="cover" content="cover-image"/>`), includes SVG as backup item
+4. HTML uses PNG in `<meta property="og:image">` and as page banner
+5. Log cover art status in view_log
+
+**Validation (CI Gate 1):**
+- [ ] Primary cover is PNG with `*_titled.png` filename or `title_bearing: true` in manifest
+- [ ] (Optional) SVG backup present
+- [ ] Cover dimensions ≥ 1600x2400px (warn if smaller)
+- [ ] Cover listed in art manifest with SHA-256 hash
+```
+
+---
+
+### 7D: Typography Decisions via Style Lead
+
+**Problem:** Font choices for cover and prose are currently hard-coded in exporter; should be Style Lead's domain.
+
+**Proposed Fix:**
+
+**File:** `/05-prompts/style_lead/system_prompt.md` (or equivalent)
+
+**Location:** Add new section "Typography Specification"
+
+```markdown
+### Typography Specification (Cover & Prose)
+
+**Authority:** Style Lead defines typography as part of style stabilization.
+
+**Scope:**
+1. **Prose body text:** Font family, size, line height, paragraph spacing
+2. **Display titles:** Headings (H1, H2, H3), chapter markers
+3. **Cover typography:** Title font, author font, tagline/subtitle (if any)
+4. **UI elements:** Choice links, navigation, captions
+
+**Output Format (Style Manifest):**
+```json
+{
+  "typography": {
+    "prose": {
+      "font_family": "Source Serif 4",
+      "fallback": "Georgia, Times New Roman, serif",
+      "font_size": "1em",
+      "line_height": "1.6",
+      "paragraph_spacing": "1em"
+    },
+    "display": {
+      "font_family": "Cormorant Garamond",
+      "fallback": "Georgia, serif",
+      "h1_size": "2.5em",
+      "h2_size": "2em",
+      "h3_size": "1.5em"
+    },
+    "cover": {
+      "title_font": "Cormorant Garamond Bold",
+      "author_font": "Source Serif 4 Italic",
+      "fallback": "Georgia, serif"
+    },
+    "ui": {
+      "link_color": "#2c5aa0",
+      "link_underline": true,
+      "caption_font": "Source Serif 4 Italic",
+      "caption_size": "0.9em"
+    }
+  },
+  "fonts_required": [
+    "Source Serif 4 (Regular, Italic, Bold)",
+    "Cormorant Garamond (Regular, Bold)"
+  ],
+  "embed_in_epub": true
+}
+```
+
+**Integration with Book Binder:**
+1. Style Lead writes `style_manifest.json` during style stabilization
+2. Book Binder reads manifest during export
+3. If manifest missing: use default typography (Source Serif 4 / Cormorant Garamond)
+4. If fonts specified but not available in `/resources/fonts/`: warn and use fallbacks
+5. Log typography source in view_log (e.g., "Typography: style_manifest / defaults / fallback")
+
+**Validation:**
+- [ ] Typography manifest includes prose, display, cover, and UI font specs
+- [ ] Required fonts are available in `/resources/fonts/` or fallback specified
+- [ ] EPUB embeds fonts if `embed_in_epub: true` and fonts are licensed for embedding
+```
+
+**File:** `/05-prompts/book_binder/system_prompt.md`
+
+**Location:** Update "Typography & Font Embedding" section
+
+```markdown
+### Typography & Font Embedding
+
+**Source:** Typography decisions come from **Style Lead's `style_manifest.json`**.
+
+**Fallback Hierarchy:**
+1. **Style manifest** (if present): use specified fonts and settings
+2. **Project defaults** (if manifest missing): Source Serif 4 + Cormorant Garamond
+3. **System fallbacks** (if fonts unavailable): Georgia, Times New Roman, serif
+
+**Implementation:**
+1. Check for `style_manifest.json` in Cold snapshot or project root
+2. Extract typography block (prose, display, cover, UI)
+3. Verify fonts exist in `/resources/fonts/`
+4. If fonts missing: use fallback fonts specified in manifest or defaults
+5. For EPUB: embed fonts if `embed_in_epub: true` and licensing permits
+6. Log typography source and font availability in view_log
+
+**CSS Generation:**
+- Generate `@font-face` declarations from manifest
+- Apply font-family, size, line-height to body and headings
+- Include fallback fonts in CSS stack
+
+**Validation:**
+- [ ] Typography manifest is well-formed JSON
+- [ ] Required fonts are available or fallbacks specified
+- [ ] Embedded fonts are licensed for distribution (SIL OFL or similar)
+- [ ] Test rendering on major EPUB readers
+```
+
+---
+
+### 7E: Art Director Filename Conventions (ChatGPT Renderer)
+
+**Problem:** When ChatGPT (or other LLMs) use `image_gen.text2im` to render art, filenames must match art manifest entries to enable automatic linking.
+
+**Proposed Fix:**
+
+**File:** `/05-prompts/art_director/system_prompt.md` (or equivalent)
+
+**Location:** Add section "Filename Conventions for Rendered Art"
+
+```markdown
+### Filename Conventions for Rendered Art
+
+**Requirement:** When using `image_gen.text2im` or other rendering tools, output filenames **must match** entries in `art_manifest.json`.
+
+**Filename Pattern:**
+```
+{role}_{section_id}_{variant}.{ext}
+
+Examples:
+- cover_titled.png
+- plate_A2_K.png
+- thumb_A1_H.png
+- scene_S3_wide.png
+```
+
+**Mapping to Manifest:**
+1. Art Director updates `art_manifest.json` with planned filenames **before** rendering
+2. Render art using image_gen.text2im (or equivalent)
+3. Save file with exact filename from manifest
+4. Compute SHA-256 hash and update manifest entry
+5. Mark status as "approved" if accepted, "rejected" if re-render needed
+
+**Example Manifest Entry:**
+```json
+{
+  "id": "plate_A2_K",
+  "role": "interior_plate",
+  "filename": "plate_A2_K.png",
+  "format": "PNG",
+  "dimensions": "1024x1024",
+  "caption": "Rain-slicked alley with distant figure",
+  "prompt": "Film noir scene, rain-slicked alley, distant figure under streetlight, high contrast black and white, cinematic composition",
+  "sha256": "abc123...",
+  "status": "approved"
+}
+```
+
+**Workflow:**
+1. **Plan:** AD defines manifest entry with filename, role, caption, prompt
+2. **Render:** Use image_gen.text2im with prompt; save as `plate_A2_K.png`
+3. **Hash:** Compute SHA-256 of saved file
+4. **Update:** Add hash to manifest; set status to "approved"
+5. **Handoff:** Book Binder reads manifest and includes image at correct anchor
+
+**Validation:**
+- [ ] All rendered images match manifest filenames exactly (case-sensitive)
+- [ ] All manifest entries with status="approved" have SHA-256 hashes
+- [ ] No orphaned images (files not in manifest)
+- [ ] No missing images (manifest entries without files)
+
+**ChatGPT-Specific Note:**
+When delegating to ChatGPT via `image_gen.text2im`:
+1. Provide the planned filename in the rendering request
+2. Verify saved filename matches manifest
+3. If filename mismatch: rename file immediately to prevent downstream issues
+```
+
+**File:** `/05-prompts/illustrator/system_prompt.md` (or equivalent)
+
+**Location:** Add same section or reference AD conventions
+
+```markdown
+### Filename Conventions (Renderer)
+
+**See Art Director conventions.** When rendering images, filenames must match `art_manifest.json` entries exactly.
+
+**Key Points:**
+- Filenames are deterministic: `{role}_{id}_{variant}.{ext}`
+- Compute SHA-256 hash after rendering
+- Update manifest with hash and status
+- Never create images without manifest entry
+
+**Integration with image_gen.text2im:**
+```python
+# Example pseudo-code for ChatGPT renderer
+filename = manifest_entry["filename"]  # e.g., "plate_A2_K.png"
+prompt = manifest_entry["prompt"]
+image_gen.text2im(prompt, output=filename)
+hash_sha256 = compute_hash(filename)
+manifest_entry["sha256"] = hash_sha256
+manifest_entry["status"] = "approved"
+```
+```
+
+---
+
+## Implementation Priority (Updated)
+
+| Priority | Fix | Files to Modify | Complexity | Impact |
+|----------|-----|-----------------|------------|--------|
+| **P0 Critical** | EPUB Kobo Compat (inline anchors, NCX, landmarks) | `book_binder/system_prompt.md`, `format.render.md` | High | Fixes broken links on Kobo |
+| **P1 High** | Header Hygiene | `book_binder/system_prompt.md`, `format.render.md` | Low | Prevents process leakage |
+| **P1 High** | Choice UX Standardization | `book_binder/system_prompt.md`, `format.render.md` | Low | Improves reader UX |
+| **P1 High** | Metadata Auto-Generation (7B) | `book_binder/system_prompt.md`, `format.render.md` | Medium | Ensures consistent metadata |
+| **P2 Medium** | ID Normalization | `book_binder/system_prompt.md`, `format.render.md` | Medium | Better Kobo compat |
+| **P2 Medium** | CI/QA Gates | Create `/tools/validation/epub_validator.md` | Medium | Prevents regression |
+| **P2 Medium** | JSON Exposure (7A) | `book_binder/system_prompt.md` | Low | Cleaner user-facing outputs |
+| **P2 Medium** | Cover Policy (7C) | `book_binder/system_prompt.md`, CI gates | Low | Enforce title-bearing covers |
+| **P3 Low** | Typography via Style Lead (7D) | `style_lead/system_prompt.md`, `book_binder/system_prompt.md` | Medium | Style Lead authority |
+| **P3 Low** | Art Filename Conventions (7E) | `art_director/system_prompt.md`, `illustrator/system_prompt.md` | Low | Renderer integration |
+
+---
+
+## Summary of Files to Create/Modify (Updated)
+
+### Files to Modify
+
+1. `/05-prompts/book_binder/system_prompt.md`
+   - Add: Header Sanitization rules
+   - Add: Choice Link Normalization (enhanced)
+   - Add: EPUB Anchor Generation (twin anchors)
+   - Add: EPUB2 Legacy Navigation (NCX)
+   - Add: EPUB Landmarks & Guide
+   - Add: ID Normalization & Aliasing (enhanced)
+   - Add: User Communication & Output Format (7A)
+   - Add: Metadata Management (7B)
+   - Update: Cover Art Policy (7C)
+   - Update: Typography & Font Embedding (7D)
+
+2. `/05-prompts/book_binder/intent_handlers/format.render.md`
+   - Add: Header sanitization to pre-render checklist
+   - Add: Choice rendering standardization
+   - Add: Anchor processing (normalization + twin anchors)
+   - Add: NCX generation
+   - Add: Landmarks generation
+   - Add: Metadata gathering and injection (7B)
+
+3. `/05-prompts/style_lead/system_prompt.md`
+   - Add: Typography Specification (7D)
+
+4. `/05-prompts/art_director/system_prompt.md`
+   - Add: Filename Conventions for Rendered Art (7E)
+
+5. `/05-prompts/illustrator/system_prompt.md`
+   - Add: Filename Conventions reference (7E)
+
+### Files to Create
+
+6. `/tools/validation/epub_validator.md`
+   - Specification for CI/QA gates (includes 7C cover validation)
+
+7. `/resources/fonts/README.md`
+   - Typography policy and font embedding guide
+
+---
+
 ## Approval Checklist
 
-- [ ] Review all proposed changes
+- [ ] Review all proposed changes (including 7A-7E refinements)
 - [ ] Confirm priority order (P0 → P1 → P2 → P3)
 - [ ] Approve file creation/modification list
 - [ ] Approve testing plan
