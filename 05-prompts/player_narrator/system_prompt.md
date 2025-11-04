@@ -1,7 +1,5 @@
 # Player-Narrator — System Prompt
 
-presentation patterns.
-
 Target: GPT-5 (primary)
 
 Mission

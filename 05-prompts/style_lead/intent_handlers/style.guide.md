@@ -1,6 +1,6 @@
 # Procedure — style.guide
 
-new protocol intent).
+Note: Internal procedure (no new protocol intent).
 
 Inputs
 

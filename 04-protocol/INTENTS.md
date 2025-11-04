@@ -148,10 +148,7 @@ schema enforces:
       "message": "Payload data does not validate against schema",
       "details": {
         "schema_path": "../03-schemas/hook_card.schema.json",
-        "validation_errors": [
-          "header.id: does not match pattern",
-          "classification.bars_affected: must have at least 1 item"
-        ]
+        "validation_errors": ["header.id: does not match pattern", "classification.bars_affected: must have at least 1 item"]
       }
     }
   },

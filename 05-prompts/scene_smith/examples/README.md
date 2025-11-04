@@ -2,4 +2,4 @@
 
 - scene_creation.json
 - style_consistency.json
-- revision_request.json
+- edit_notes_submit.json
