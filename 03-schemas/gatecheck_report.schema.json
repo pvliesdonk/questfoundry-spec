@@ -99,13 +99,14 @@
           },
           "evidence": {
             "type": "string",
-            "description": "Player-safe evidence supporting the status.",
+            "description": "Player-safe evidence supporting the status. For Nonlinearity/Determinism when branches converge, cite choice integrity evidence: diegetic bridge, first-paragraph reflection of chosen path (not necessarily literal echo), and a state-aware affordance. See 02-dictionary/conventions/choice_integrity.md.",
             "minLength": 5,
             "maxLength": 400
           },
           "smallest_viable_fix": {
             "type": "string",
-            "description": "Smallest fix needed to move the bar to green.",
+            "description": "Smallest fix needed to move the bar to green. For "
+              "fake agency" issues, propose: add a micro-beat between scenes to set a visible state flag; add a diegetic bridge; reflect the chosen path in the next scene’s first paragraph; condition one affordance by state.",
             "minLength": 5,
             "maxLength": 400
           },

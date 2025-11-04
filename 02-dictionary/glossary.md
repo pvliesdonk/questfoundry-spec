@@ -112,6 +112,18 @@ no internal labels, no technique talk.
 (spoiler hygiene), **Accessibility** (navigation, alt text, sensory considerations). See
 `taxonomies.md` §5 and `../00-north-star/QUALITY_BARS.md` for details.
 
+**Choice Integrity** — How to converge branches without “fake agency.” Key terms:
+
+- **Immediate reflection** — When sibling choices converge, the next scene’s first paragraph reflects
+  the chosen path (lexical, behavioral, or situational). Not necessarily a literal echo, but
+  perceivable to the player.
+- **Diegetic bridge** — A short, in-world transit line that bridges anchors and preserves causality.
+- **State-aware affordances** — At least one option reads differently based on the entering state.
+- **Micro-beat between** — A short beat between scenes (when convergence is necessary) that sets a
+  visible state flag and can grow into a larger scene later.
+
+See also: `conventions/choice_integrity.md`.
+
 **Determinism (assets)** — If promised, renders/cues carry reproducibility notes (seed/model or
 DAW/session). Never surface technique to players.
 

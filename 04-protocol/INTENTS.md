@@ -692,6 +692,15 @@ gatecheck).
 - `bars` — Array of 8 quality bar evaluations (for full gatecheck)
 - `decision` — `"pass"`, `"conditional pass"`, or `"block"`
 
+**Guidance**
+
+- Use `gatecheck_report.schema.json` and include all 8 bars.
+- Tie `decision` to bar statuses (pass / conditional pass / block).
+- When reporting Nonlinearity/Determinism issues on converged branches, use Choice Integrity terms
+  (Immediate reflection, Diegetic bridge, State-aware affordances) and provide player-safe evidence
+  (first-paragraph reflection is required; not necessarily a literal echo). See
+  `02-dictionary/conventions/choice_integrity.md`.
+
 **Expected Replies:**
 
 - `ack` — Report received
