@@ -255,6 +255,70 @@ Book Binder: produce final exports (Markdown + HTML; add locale exports if avail
 Showrunner: close TU; summarize outcomes, link artifacts (view exports, cues, images), and list any deferred items.
 ```
 
+## Calling Explicit Loops (Copy/Paste Prompts)
+
+Use these when you want to explicitly start or switch loops mid‑thread. Send to Showrunner unless otherwise noted.
+
+- Story Spark (outline → first scenes)
+```
+Showrunner: open a TU for Story Spark (3–5 scenes). Wake Plotwright, Scene Smith, Style Lead. Propose plan and checkpoints.
+```
+
+- Hook Harvest (turn sparks into discrete hooks)
+```
+Showrunner: start Hook Harvest. Ask Plotwright to extract 3–5 actionable hooks from current notes and file them.
+```
+
+- Lore Deepening (lore pass; LW)
+```
+Showrunner: start Lore Deepening. Wake Lore Weaver. LW: provide player‑safe summaries + continuity checks for the active slice.
+```
+
+- Codex Expansion (codex pass; CC)
+```
+Showrunner: start Codex Expansion. Wake Codex Curator. CC: draft/update codex entries for new terms; validate against schema; provide crosslinks.
+```
+
+- Style Tune‑up (register/voice tightening; ST)
+```
+Showrunner: start Style Tune‑up. Wake Style Lead. ST: audit the current scenes for register drift and propose minimal rewrites.
+```
+
+- Binding Run (export views; BB)
+```
+Showrunner: start Binding Run. Wake Book Binder. BB: bind a Markdown view for the current Cold snapshot; return export_artifacts + anchor_map.
+```
+
+- Narration Dry‑Run (player narrates; PN — Cold only)
+```
+Showrunner: start Narration Dry‑Run. Wake PN. PN: perform a brief dry‑run on the bound Markdown (Cold + player_safe=true + snapshot). Report issues via pn.playtest.submit.
+```
+
+- Gatecheck (pre‑gate or full)
+```
+Showrunner: run pre‑gate. GK: evaluate Presentation, Integrity, Style; provide smallest fixes. If green, proceed to full gatecheck for all relevant bars.
+```
+
+- Translation Pass (localization; TR)
+```
+Showrunner: start Translation Pass. Wake Translator. TR: produce a language_pack for <locale>; keep register; list terms of art.
+```
+
+- Art Touch‑up (AD/IL)
+```
+Showrunner: start Art Touch‑up. Wake Art Director + Illustrator. AD: shotlist key scenes. IL: prompts for each shot (player‑safe).
+```
+
+- Audio Pass (AuD/AuP)
+```
+Showrunner: start Audio Pass. Wake Audio Director + Producer. AuD: cuelist with motifs. AuP: render 1–2 cues and log parameters.
+```
+
+- Post‑Mortem (optional health check)
+```
+Showrunner: run a quick Post‑Mortem. Summarize what worked, what didn’t, and next loop candidates. Emit tu.checkpoint.
+```
+
 ## Appendix — Uploading Files, Zipping, And Link Folders
 
 Upload individually (preferred): Drag the Minimal kit (10 files) into your chat. Upload PN later as an addon.
