@@ -1,153 +1,477 @@
-# QuestFoundry — A Layered Studio for Nonlinear Gamebooks
+# QuestFoundry Specification
 
-QuestFoundry is a **multi-agent, compositional studio** for making interactive, branching gamebooks.
-It separates _what we do_ (roles, loops, quality bars) from _how machines speak_ (schemas, protocol)
-and _how tools run_ (prompts, libraries, UI). Humans and AI can both play the roles—as long as they
-communicate via structured, validated data (lower layers).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![JSON Schema](https://img.shields.io/badge/JSON%20Schema-2020--12-blue)](https://json-schema.org/)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-This repository is deliberately layered so that each concern is **clear, testable, and traceable**.
+**A layered, multi-agent specification for creating interactive nonlinear gamebooks**
 
----
+QuestFoundry separates _what we do_ (roles, loops, quality bars) from _how machines speak_ (schemas, protocol) and _how tools run_ (prompts, libraries, UI). Both humans and AI agents can play the roles—as long as they communicate via structured, validated data.
 
-## What’s in this repo (at a glance)
-
-- **Layer 0 — North Star** (human): vision, operating model, SoT (Hot/Cold), PN principles, quality
-  bars, loops & playbooks, traceability, spoiler hygiene, accessibility.  
-  Start here ➜ `00-north-star/README.md` (Navigator)
-- **Layer 1 — Roles** (human): role charters, responsibilities, dormancy policy, RACI patterns.  
-  Entry ➜ `01-roles/README.md`
-- **Layer 2 — Common Language** (human): data dictionary & controlled terms used by roles
-  (non-technical).  
-  Entry ➜ `02-dictionary/README.md`
-- **Layer 3 — Codification** (technical): JSON Schemas for the common language. _(Do not implement
-  here yet.)_
-- **Layer 4 — Protocol** (technical): interaction rules between roles (Hot ↔ Cold, messages,
-  lifecycles). _(Do not implement here yet.)_
-- **Layer 5 — Role Prompts** (technical): AI prompt kits that implement Layer-1 roles using Layer-4
-  protocol and Layer-3 schemas. See usage guide ➜ `05-prompts/USAGE_GUIDE.md`.
-- **Layer 6 — Libraries** (technical): software wrappers, clients, validators, packagers. _(Future)_
-- **Layer 7 — UI** (technical): CLI/GUI/PN surfaces for authors and players. _(Future)_
-
-> Today’s focus: **Layer 0 & 1**. Layers 2–7 are first-class directories but intentionally empty or
-> stubs until we define them.
+📚 **[Full Documentation](https://questfoundry.liesdonk.nl)** | 🔗 **[Schema Registry](https://questfoundry.liesdonk.nl/schemas/)** | 🐛 **[Issues](https://github.com/pvliesdonk/questfoundry-spec/issues)**
 
 ---
 
-## Why layers?
+## Table of Contents
 
-- **Clarity** — People can understand the studio without reading code.
-- **Replaceability** — You can swap AI models/tools without changing canon or roles.
-- **Traceability** — Every change has a **Trace Unit (TU)** and a **Cold snapshot** you can export
-  and play.
-- **Safety** — The **Player-Narrator (PN)** sees only player-safe surfaces; spoilers live in
-  Hot/Canon.
-
----
-
-## The studio in one breath
-
-- **Showrunner** coordinates **targeted loops** (micro-runs), wakes dormant roles, and merges **Hot
-  → Cold**.
-- **Plotwright** shapes topology (hubs/loops/gateways). **Scene Smith** writes prose.
-- **Lore Weaver** turns **hooks** into canon; **Codex Curator** publishes player-safe pages.
-- **Style Lead** keeps the voice tight.
-- **Art/Audio Directors** plan visuals/sound; **Illustrator/Producer** create assets
-  (optional/dormant).
-- **Translator** maintains language slices.
-- **Gatekeeper** enforces **Quality Bars** before anything touches **Cold**.
-- **Book Binder** exports **views** on Cold; **PN** narrates them diegetically.
-
-See: `00-north-star/WORKING_MODEL.md`, `00-north-star/QUALITY_BARS.md`,
-`00-north-star/PN_PRINCIPLES.md`.
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Architecture Layers](#architecture-layers)
+- [Installation](#installation)
+- [Core Concepts](#core-concepts)
+- [The Studio Workflow](#the-studio-workflow)
+- [Validation Tools](#validation-tools)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## Micro-loops you’ll run a lot
+## Overview
 
-- **Story Spark** → **Hook Harvest** → **Lore Deepening** → **Codex Expansion**
-- **Style Tune-up** (as needed)
-- **Art Touch-up** / **Audio Pass** (plan-only or plan+assets; optional)
-- **Binding Run** (export a view on Cold) → **Narration Dry-Run** (PN playtest)
-- **Translation Pass** (target-language slice)
+QuestFoundry is a **complete specification** for a collaborative interactive fiction authoring studio. It defines:
 
-Pick loops via: `00-north-star/LOOPS/README.md` and `00-north-star/PLAYBOOKS/README.md`.
+- **15 roles** (Showrunner, Gatekeeper, Plotwright, Scene Smith, Lore Weaver, etc.)
+- **17 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
+- **21 JSON schemas** for machine-readable validation
+- **Communication protocol** with state machines for workflows
+- **AI agent prompts** implementing roles for Claude/ChatGPT/Gemini
+- **Quality bars** ensuring integrity, reachability, style consistency
 
----
-
-## Sources of Truth (SoT)
-
-- **Hot**: where discovery, drafts, and **hooks** live.
-- **Cold**: curated canon and player-safe surfaces; exports are cut from **Cold snapshots**.
-- Change is tracked with **Trace Units (TUs)**; merges require **Gatekeeper** pass.  
-  Details: `00-north-star/SOURCES_OF_TRUTH.md`, `00-north-star/TRACEABILITY.md`,
-  `00-north-star/EVERGREEN_MANUSCRIPT.md`.
+The specification is deliberately **layered** for clarity, testability, and traceability.
 
 ---
 
-## Repository layout
+## Quick Start
 
+### For Readers (Understanding the Spec)
+
+1. **Start here**: Read [`00-north-star/README.md`](00-north-star/README.md) (5 min overview)
+2. **Learn the model**: [`00-north-star/WORKING_MODEL.md`](00-north-star/WORKING_MODEL.md)
+3. **Understand roles**: Browse [`01-roles/charters/`](01-roles/charters/)
+4. **Explore artifacts**: [`02-dictionary/artifacts/`](02-dictionary/artifacts/)
+
+### For Implementers (Building Tools)
+
+1. **Protocol first**: [`04-protocol/ENVELOPE.md`](04-protocol/ENVELOPE.md)
+2. **Schema reference**: [`03-schemas/`](03-schemas/)
+3. **Validation tools**: [`spec-tools/README.md`](spec-tools/README.md)
+4. **Implementation roadmap**: [`IMPLEMENTATION_ROADMAP.md`](IMPLEMENTATION_ROADMAP.md)
+
+### For AI Agents (Running Roles)
+
+1. **Browse prompts**: [`05-prompts/`](05-prompts/)
+2. **Usage guide**: [`05-prompts/USAGE_GUIDE.md`](05-prompts/USAGE_GUIDE.md)
+3. **Example conversations**: Each role directory contains `/examples/`
+
+---
+
+## Architecture Layers
+
+QuestFoundry is organized into **7 layers**, each with clear separation of concerns:
+
+| Layer | Name | Focus | Status | Entry Point |
+|-------|------|-------|--------|-------------|
+| **0** | **North Star** | Vision, principles, operating model | ✅ 95% | [`00-north-star/README.md`](00-north-star/README.md) |
+| **1** | **Roles** | Role charters, responsibilities, workflows | 🚧 60% | [`01-roles/README.md`](01-roles/README.md) |
+| **2** | **Common Language** | Data dictionary, artifact templates | 🚧 80% | [`02-dictionary/README.md`](02-dictionary/README.md) |
+| **3** | **Schemas** | JSON Schema specifications (Draft 2020-12) | ✅ 100% | [`03-schemas/README.md`](03-schemas/README.md) |
+| **4** | **Protocol** | Message envelopes, intents, state machines | 🚧 85% | [`04-protocol/README.md`](04-protocol/README.md) |
+| **5** | **Prompts** | AI agent system prompts | 🚧 40% | [`05-prompts/README.md`](05-prompts/README.md) |
+| **6** | **Libraries** | Python SDK, validators, clients | 📋 Planned | [`06-libraries/`](06-libraries/) |
+| **7** | **UI** | CLI/GUI/Player-Narrator interfaces | 📋 Planned | [`07-ui/`](07-ui/) |
+
+**Legend:** ✅ Complete | 🚧 In Progress | 📋 Planned
+
+### Why Layers?
+
+- **Clarity** — Understand the studio without reading code
+- **Replaceability** — Swap AI models/tools without changing canon or roles
+- **Traceability** — Every change has a Trace Unit (TU) and Cold snapshot
+- **Safety** — Player-Narrator (PN) sees only player-safe surfaces
+
+---
+
+## Installation
+
+### Using the Validation Tools
+
+QuestFoundry includes `spec-tools`, a Python toolkit for validating schemas, artifacts, and protocol messages.
+
+**Prerequisites:**
+- Python 3.11 or higher
+- [uv](https://github.com/astral-sh/uv) package manager
+
+**Install:**
+
+```bash
+cd spec-tools
+uv sync
 ```
 
-00-north-star/
-README.md                # Navigator for Layer 0
-WORKING_MODEL.md         # Studio operating model (Hot/Cold, loops, merges)
-ROLE_INDEX.md            # Canonical role names & dormancy
-PN_PRINCIPLES.md         # Player-Narrator boundaries
-SOURCES_OF_TRUTH.md      # Hot vs Cold SoT
-QUALITY_BARS.md          # Gatekeeper checks
-TRACEABILITY.md          # Trace Units & snapshots
-EVERGREEN_MANUSCRIPT.md  # Export views policy
-SPOILER_HYGIENE.md       # Player-surface rules
-ACCESSIBILITY_AND_CONTENT_NOTES.md
-LOOPS/                   # Loop guides (full_production_run, story_spark, …)
-PLAYBOOKS/               # Quick “use-when/outcome” playbooks
-01-roles/
-README.md                # Role charters & briefs (human-level)
-02-dictionary/
-README.md                # Non-technical terminology (human-level)
-03-codification/           # JSON Schemas (reserved; not authored yet)
-04-protocol/               # Interaction protocol (reserved; not authored yet)
-05-prompts/                # Role prompt kits (reserved; not authored yet)
-06-libraries/              # Software wrappers/validators (reserved)
-07-ui/                     # CLI/GUI/PN surfaces (reserved)
-DECISIONS/
-README.md                # ADR policy & records
+**Commands:**
 
+```bash
+# Validate all schemas (meta-validation)
+uv run qfspec-validate
+
+# Validate a specific artifact instance
+uv run qfspec-check-instance hook_card my-hook.json
+
+# Validate a protocol envelope (two-pass: structure + payload)
+uv run qfspec-check-envelope my-message.json
+
+# Build AI prompt kits for uploading to LLMs
+uv run qfspec-build-kits
 ```
 
-_(Empty/stub folders for Layers 2–7 exist to keep the layered map navigable now.)_
+See [`spec-tools/README.md`](spec-tools/README.md) for detailed usage.
+
+---
+
+## Core Concepts
+
+### 🎭 The 15 Roles
+
+QuestFoundry defines **15 roles** that can be played by humans or AI agents:
+
+**Always On:**
+- **Showrunner (SR)** — Orchestrates work, wakes roles, sequences loops
+- **Gatekeeper (GK)** — Enforces quality bars, validates merges
+
+**Default On:**
+- **Plotwright (PW)** — Designs topology (hubs, loops, gateways)
+- **Scene Smith (SS)** — Writes prose to topology & style
+- **Style Lead (ST)** — Maintains voice, register, motifs
+- **Lore Weaver (LW)** — Converts hooks into spoiler-level canon
+- **Codex Curator (CC)** — Creates player-safe encyclopedia entries
+
+**Optional/Dormant:**
+- **Researcher (RS)** — Fact verification & corroboration
+- **Art Director (AD)** / **Illustrator (IL)** — Visual planning/creation
+- **Audio Director (AuD)** / **Audio Producer (AuP)** — Sound planning/creation
+- **Translator (TR)** — Localization
+
+**Downstream:**
+- **Book Binder (BB)** — Assembles export views from Cold snapshots
+- **Player-Narrator (PN)** — Performs the book in-world, enforces diegetic gates
+
+See [`00-north-star/ROLE_INDEX.md`](00-north-star/ROLE_INDEX.md) for the complete directory.
+
+### 📦 The 17 Artifact Types
+
+All work in QuestFoundry produces **structured artifacts** with JSON schemas:
+
+**Core Workflow:**
+- `hook_card` — Small, traceable follow-ups to discovered needs
+- `tu_brief` — Trace Unit work order tracking changes
+
+**Content Creation:**
+- `canon_pack` — Spoiler-level canon compilation
+- `codex_entry` — Player-safe encyclopedia entries
+- `style_addendum` — Voice/register/motif guidance
+- `edit_notes` — Copyediting instructions
+
+**Planning:**
+- `research_memo` — Fact-checking & corroboration
+- `shotlist` / `cuelist` — Visual/audio asset planning
+- `art_plan` / `audio_plan` — Asset design briefs
+
+**Quality:**
+- `gatecheck_report` — Quality bar validation results
+- `view_log` — Export manifest
+- `front_matter` — Book metadata
+- `pn_playtest_notes` — Player-Narrator testing feedback
+
+**Localization:**
+- `language_pack` — Translation structure
+- `register_map` — Terminology mapping across languages
+
+**Project:**
+- `project_metadata` — Project-wide settings
+- `art_manifest` / `style_manifest` — Asset catalogs
+
+Browse templates: [`02-dictionary/artifacts/`](02-dictionary/artifacts/)
+
+### 🔄 Hot vs. Cold (Sources of Truth)
+
+QuestFoundry uses **two Sources of Truth**:
+
+- **Hot** — Discovery space: drafts, hooks, spoilers, internal reasoning
+- **Cold** — Curated canon & player-safe surfaces approved by Gatekeeper
+- **Snapshots** — Immutable Cold exports tagged by date (`Cold @ YYYY-MM-DD`)
+- **Views** — Specific exports of Cold snapshots (EPUB, web, etc.)
+
+Changes move through **Trace Units (TUs)** with states:
+```
+hot-proposed → stabilizing → gatecheck → cold-merged
+```
+
+See [`00-north-star/SOURCES_OF_TRUTH.md`](00-north-star/SOURCES_OF_TRUTH.md) for details.
+
+### 🎯 The 7 Quality Bars
+
+Before anything merges to Cold, **Gatekeeper** validates against 7 criteria:
+
+1. **Integrity** — No dead references, valid IDs
+2. **Reachability** — Keystones reachable from start
+3. **Nonlinearity** — Hubs/loops/gateways meaningful
+4. **Gateways** — Coherent diegetic checks
+5. **Style** — Voice/register/motifs consistent
+6. **Determinism** — Promised for assets when needed
+7. **Presentation** — No spoilers on player surfaces, accessibility baseline
+
+See [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) for full criteria.
+
+---
+
+## The Studio Workflow
+
+### 🎬 Micro-Loops (Targeted Work Cycles)
+
+QuestFoundry organizes work into **11 focused loops**:
+
+**Discovery:**
+- **Story Spark** — Initial brainstorming
+- **Hook Harvest** — Capture follow-up ideas
+- **Lore Deepening** — Expand canon from hooks
+- **Codex Expansion** — Create player-safe entries
+
+**Refinement:**
+- **Style Tune-up** — Voice/register consistency pass
+
+**Assets:**
+- **Art Touch-up** — Visual planning/creation
+- **Audio Pass** — Sound planning/creation
+
+**Localization:**
+- **Translation Pass** — Target-language slice
+
+**Export:**
+- **Binding Run** — Export view on Cold
+- **Narration Dry-Run** — PN playtesting
+
+**Full Cycle:**
+- **Full Production Run** — Orchestrates all loops
+
+Detailed guides: [`00-north-star/LOOPS/`](00-north-star/LOOPS/)
+Quick playbooks: [`00-north-star/PLAYBOOKS/`](00-north-star/PLAYBOOKS/)
+
+### 📋 Example Workflow
+
+1. **Showrunner** scopes a Story Spark loop
+2. **Plotwright** + **Scene Smith** create draft topology & prose in **Hot**
+3. **Lore Weaver** documents hooks for canon expansion
+4. **Gatekeeper** reviews against Quality Bars
+5. Approved changes merge to **Cold**
+6. **Book Binder** exports a Cold snapshot as EPUB
+7. **Player-Narrator** playtests and files feedback
+
+---
+
+## Validation Tools
+
+### Schema Validation
+
+All 21 schemas conform to **JSON Schema Draft 2020-12** and are validated with `qfspec-validate`:
+
+```bash
+cd spec-tools
+uv run qfspec-validate
+```
+
+### Instance Validation
+
+Validate artifact JSON files against their schemas:
+
+```bash
+uv run qfspec-check-instance hook_card examples/hook-001.json
+```
+
+### Envelope Validation (Two-Pass)
+
+Protocol messages undergo **two-pass validation**:
+1. **Envelope structure** (Layer 4 schema)
+2. **Payload data** (Layer 3 schema matching `payload.type`)
+
+```bash
+uv run qfspec-check-envelope examples/hook.create.json
+```
+
+### Pre-Commit Hooks
+
+Automatic validation runs on commit:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+See [`.pre-commit-config.yaml`](.pre-commit-config.yaml) for configuration.
+
+---
+
+## Documentation
+
+### 📖 Full Documentation Site
+
+Comprehensive documentation is hosted at **[questfoundry.liesdonk.nl](https://questfoundry.liesdonk.nl)**
+
+### 🔍 Key Documents
+
+**Getting Started:**
+- [`00-north-star/README.md`](00-north-star/README.md) — Navigator for Layer 0
+- [`00-north-star/WORKING_MODEL.md`](00-north-star/WORKING_MODEL.md) — Studio operating model
+- [`00-north-star/PN_PRINCIPLES.md`](00-north-star/PN_PRINCIPLES.md) — Player-Narrator boundaries
+
+**Policy & Governance:**
+- [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) — Gatekeeper validation criteria
+- [`00-north-star/TRACEABILITY.md`](00-north-star/TRACEABILITY.md) — Trace Unit system
+- [`00-north-star/SPOILER_HYGIENE.md`](00-north-star/SPOILER_HYGIENE.md) — Player-surface safety
+
+**Technical Specs:**
+- [`04-protocol/ENVELOPE.md`](04-protocol/ENVELOPE.md) — Message format specification
+- [`04-protocol/INTENTS.md`](04-protocol/INTENTS.md) — Complete intent catalog
+- [`04-protocol/LIFECYCLES/`](04-protocol/LIFECYCLES/) — State machines for hooks & TUs
+- [`03-schemas/README.md`](03-schemas/README.md) — Schema generation methodology
+
+**Implementation:**
+- [`IMPLEMENTATION_ROADMAP.md`](IMPLEMENTATION_ROADMAP.md) — 26-week phased plan
+- [`05-prompts/USAGE_GUIDE.md`](05-prompts/USAGE_GUIDE.md) — AI agent prompt usage
+- [`spec-tools/README.md`](spec-tools/README.md) — Validation toolkit documentation
+
+**Governance:**
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — Contribution workflow
+- [`DECISIONS/`](DECISIONS/) — Architectural Decision Records (ADRs)
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — Community standards
+
+### 📊 Repository Structure
+
+```
+questfoundry-spec/
+├── 00-north-star/          # Layer 0: Vision, principles, loops
+│   ├── README.md           # Navigator
+│   ├── WORKING_MODEL.md    # Operating model (Hot/Cold, roles, loops)
+│   ├── QUALITY_BARS.md     # Gatekeeper validation criteria
+│   ├── LOOPS/              # 11 detailed loop guides
+│   └── PLAYBOOKS/          # Quick one-page playbooks
+├── 01-roles/               # Layer 1: Role charters & briefs
+│   ├── charters/           # 15 role charter documents
+│   ├── briefs/             # Agent briefs for each role
+│   └── interfaces/         # Role interaction patterns
+├── 02-dictionary/          # Layer 2: Common language (human-level)
+│   ├── artifacts/          # 17 artifact templates (markdown)
+│   └── glossary.md         # Terminology reference
+├── 03-schemas/             # Layer 3: JSON Schema specifications
+│   ├── *.schema.json       # 21 JSON schemas (Draft 2020-12)
+│   └── README.md           # Schema generation guide
+├── 04-protocol/            # Layer 4: Communication protocol
+│   ├── ENVELOPE.md         # Message format spec
+│   ├── INTENTS.md          # Intent catalog
+│   ├── LIFECYCLES/         # State machines (hooks, TUs)
+│   ├── FLOWS/              # Message sequence diagrams
+│   └── EXAMPLES/           # 20+ example messages
+├── 05-prompts/             # Layer 5: AI agent prompts
+│   ├── {role_name}/        # Per-role system prompts
+│   │   ├── system_prompt.md
+│   │   ├── intent_handlers/
+│   │   └── examples/
+│   └── _shared/            # Shared patterns (context, safety, escalation)
+├── 06-libraries/           # Layer 6: Reserved for Python SDK
+├── 07-ui/                  # Layer 7: Reserved for CLI/GUI
+├── spec-tools/             # Validation toolkit (uv project)
+│   ├── src/                # Python validators
+│   └── validation/         # Test fixtures
+├── docs/                   # GitHub Pages documentation site
+│   ├── index.html          # Landing page
+│   ├── schemas/            # Canonical schema URLs
+│   ├── design_guidelines/  # Industry best practices
+│   ├── proposals/          # Design proposals
+│   └── post_mortems/       # Development retrospectives
+├── DECISIONS/              # ADRs (Architectural Decision Records)
+├── CONTRIBUTING.md         # Contribution guide
+├── IMPLEMENTATION_ROADMAP.md  # 26-week implementation plan
+└── README.md               # This file
+```
 
 ---
 
 ## Contributing
 
-- Read `00-north-star/README.md` and `WORKING_MODEL.md` to understand the studio.
-- Propose changes via **Trace Units (TUs)** in Hot; **Gatekeeper** must pass before Cold merges.
-- See `/CONTRIBUTING.md` and `/CODE_OF_CONDUCT.md` (root) for etiquette and review flow.
-- Architectural rule changes use **ADRs** (`/DECISIONS`), not TUs.
+We welcome contributions to the QuestFoundry specification!
+
+### 📝 Contribution Workflow
+
+1. **Understand the model**: Read [`00-north-star/WORKING_MODEL.md`](00-north-star/WORKING_MODEL.md)
+2. **Propose changes**: Create a **Trace Unit (TU)** in Hot describing your change
+3. **Make focused edits**: Keep PRs small and traceable
+4. **Reference TU**: Link your PR to the TU
+5. **Gatekeeper review**: Wait for quality bar validation
+6. **Merge to Cold**: Approved changes merge to Cold
+
+### 🏗️ Architectural Changes
+
+For changes to architectural rules (not content), use **ADRs** instead of TUs:
+
+1. Copy [`DECISIONS/ADR_TEMPLATE.md`](DECISIONS/ADR_TEMPLATE.md)
+2. Document your proposal with context, decision, and consequences
+3. Submit PR for review
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for detailed guidelines.
+
+### 🐛 Reporting Issues
+
+Found a bug or have a question? [Open an issue](https://github.com/pvliesdonk/questfoundry-spec/issues).
+
+### 📜 Code of Conduct
+
+All contributors must follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ---
 
-## Licensing
+## License
 
-This repository is licensed under **MIT**. See `LICENSE`.
-
----
-
-## Status
-
-Layer-0 is **actively authored**. Layer-1 is in progress. Layers 2–7 are reserved and will be filled
-once Layer-0/1 stabilize.
+This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 
 ---
 
-## Quick start for evaluators
+## Project Status
 
-1. Read `00-north-star/README.md` (5 minutes).
-2. Skim `QUALITY_BARS.md` and `PN_PRINCIPLES.md`.
-3. Pick a loop from `PLAYBOOKS/README.md` and run a **Story Spark** micro-loop on a tiny slice.
-4. Export a **Binding Run** view and do a **Narration Dry-Run**.
-5. File **TUs** for any findings and march them through Gatekeeper.
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Layer 0 (North Star) | ✅ 95% complete | Active maintenance |
+| Layer 1 (Roles) | 🚧 60% complete | Core roles defined, briefs in progress |
+| Layer 2 (Dictionary) | 🚧 80% complete | Phase 3 enrichment complete |
+| Layer 3 (Schemas) | ✅ 100% complete | 21 schemas validated |
+| Layer 4 (Protocol) | 🚧 85% complete | Envelopes, intents, 5 lifecycles done; gate/view pending |
+| Layer 5 (Prompts) | 🚧 40% complete | Frameworks ready, individual prompts in progress |
+| Layer 6 (Libraries) | 📋 Planned | SDK for Python/TypeScript |
+| Layer 7 (UI) | 📋 Planned | CLI, GUI, PN player |
+| Validation Tools | ✅ Complete | `spec-tools` fully functional |
 
-> The book is never “done.” We export **views** on Cold—safe, traceable snapshots you can ship or
-> play today.
+**Last Updated:** 2025-11-05
+
+---
+
+## Acknowledgments
+
+QuestFoundry is designed for **collaborative authoring** of interactive narrative. It draws inspiration from:
+
+- **Multi-agent systems** in software engineering
+- **State machines** for workflow orchestration
+- **JSON Schema** for data validation
+- **Gamebook traditions** (Choose Your Own Adventure, Fighting Fantasy, Inkle Studios)
+
+---
+
+## Quick Links
+
+- 🌐 **Website**: [questfoundry.liesdonk.nl](https://questfoundry.liesdonk.nl)
+- 📖 **Schema Registry**: [questfoundry.liesdonk.nl/schemas](https://questfoundry.liesdonk.nl/schemas/)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/pvliesdonk/questfoundry-spec/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/pvliesdonk/questfoundry-spec/issues)
+- 📦 **Releases**: [GitHub Releases](https://github.com/pvliesdonk/questfoundry-spec/releases)
+
+---
+
+**Built with ❤️ for interactive storytellers, game designers, and AI collaborators.**
