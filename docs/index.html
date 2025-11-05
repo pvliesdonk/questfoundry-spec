@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestFoundry - Specification &amp; Schemas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 8px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.95;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      font-weight: 600;
+    }
+    h3 {
+      color: #555;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    .url-box {
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95em;
+      word-break: break-all;
+    }
+    .button {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #5568d3;
+    }
+    .button-secondary {
+      background: #6c757d;
+    }
+    .button-secondary:hover {
+      background: #5a6268;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .schema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .schema-link {
+      background: #f8f9fa;
+      padding: 10px 15px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #667eea;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      transition: background 0.2s;
+    }
+    .schema-link:hover {
+      background: #e9ecef;
+    }
+    .info-badge {
+      display: inline-block;
+      background: #e7f3ff;
+      color: #0066cc;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🏰 QuestFoundry</h1>
+      <p>Specification & JSON Schemas for Interactive Narrative Systems</p>
+    </header>
+
+    <div class="card">
+      <h2>📖 Specification</h2>
+      <p>QuestFoundry is a layered, multi-agent system for creating interactive branching gamebooks. This site hosts the canonical JSON schemas for artifact validation.</p>
+
+      <div style="margin-top: 20px;">
+        <a href="https://github.com/pvliesdonk/questfoundry-spec" class="button">View Specification</a>
+        <a href="https://github.com/pvliesdonk/questfoundry-spec/releases" class="button button-secondary">Releases</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🔗 Schema Access</h2>
+
+      <div class="info-badge">✅ Canonical URLs Active</div>
+
+      <p>All QuestFoundry schemas are available at canonical URLs:</p>
+
+      <div class="url-box">
+        https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json
+      </div>
+
+      <h3>Examples</h3>
+      <ul>
+        <li><code>https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json</code></li>
+        <li><code>https://questfoundry.liesdonk.nl/schemas/tu_brief.schema.json</code></li>
+        <li><code>https://questfoundry.liesdonk.nl/schemas/canon_pack.schema.json</code></li>
+      </ul>
+
+      <h3>Alternative Access</h3>
+      <ul>
+        <li><strong>GitHub Raw:</strong> <code>https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/03-schemas/</code></li>
+        <li><strong>GitHub Releases:</strong> Download schema bundles from <a href="https://github.com/pvliesdonk/questfoundry-spec/releases">releases</a></li>
+        <li><strong>Python Package:</strong> <code>pip install questfoundry-py</code></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>📦 Available Schemas (18 total)</h2>
+
+      <h3>Core Artifacts</h3>
+      <div class="schema-grid">
+        <a href="/schemas/hook_card.schema.json" class="schema-link">hook_card</a>
+        <a href="/schemas/tu_brief.schema.json" class="schema-link">tu_brief</a>
+        <a href="/schemas/canon_pack.schema.json" class="schema-link">canon_pack</a>
+        <a href="/schemas/gatecheck_report.schema.json" class="schema-link">gatecheck_report</a>
+      </div>
+
+      <h3>Content Artifacts</h3>
+      <div class="schema-grid">
+        <a href="/schemas/codex_entry.schema.json" class="schema-link">codex_entry</a>
+        <a href="/schemas/style_manifest.schema.json" class="schema-link">style_manifest</a>
+        <a href="/schemas/style_addendum.schema.json" class="schema-link">style_addendum</a>
+        <a href="/schemas/register_map.schema.json" class="schema-link">register_map</a>
+        <a href="/schemas/edit_notes.schema.json" class="schema-link">edit_notes</a>
+        <a href="/schemas/research_memo.schema.json" class="schema-link">research_memo</a>
+      </div>
+
+      <h3>Asset Artifacts</h3>
+      <div class="schema-grid">
+        <a href="/schemas/art_plan.schema.json" class="schema-link">art_plan</a>
+        <a href="/schemas/art_manifest.schema.json" class="schema-link">art_manifest</a>
+        <a href="/schemas/shotlist.schema.json" class="schema-link">shotlist</a>
+        <a href="/schemas/audio_plan.schema.json" class="schema-link">audio_plan</a>
+        <a href="/schemas/cuelist.schema.json" class="schema-link">cuelist</a>
+      </div>
+
+      <h3>Export & Project</h3>
+      <div class="schema-grid">
+        <a href="/schemas/view_log.schema.json" class="schema-link">view_log</a>
+        <a href="/schemas/front_matter.schema.json" class="schema-link">front_matter</a>
+        <a href="/schemas/language_pack.schema.json" class="schema-link">language_pack</a>
+        <a href="/schemas/pn_playtest_notes.schema.json" class="schema-link">pn_playtest_notes</a>
+        <a href="/schemas/project_metadata.schema.json" class="schema-link">project_metadata</a>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a href="/schemas/" class="button button-secondary">Browse All Schemas</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🛠️ Usage</h2>
+
+      <h3>Validation with ajv-cli</h3>
+      <div class="url-box">
+$ npm install -g ajv-cli
+$ ajv validate \
+  -s https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json \
+  -d your-hook.json
+      </div>
+
+      <h3>Python Validation</h3>
+      <div class="url-box">
+$ pip install jsonschema requests
+$ python -c "
+import requests, jsonschema, json
+schema = requests.get('https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json').json()
+instance = json.load(open('your-hook.json'))
+jsonschema.validate(instance, schema)
+print('✓ Valid!')
+"
+      </div>
+
+      <h3>Using questfoundry-py</h3>
+      <div class="url-box">
+$ pip install questfoundry-py
+
+from questfoundry.resources import get_schema
+schema = get_schema('hook_card')
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📚 Documentation</h2>
+      <ul>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/00-north-star">Layer 0: North Star</a> - Vision and principles</li>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/01-roles">Layer 1: Roles</a> - Role charters and responsibilities</li>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/02-dictionary">Layer 2: Dictionary</a> - Common language and terminology</li>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas">Layer 3: Schemas</a> - JSON Schema specifications</li>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol">Layer 4: Protocol</a> - Communication protocol</li>
+        <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts">Layer 5: Prompts</a> - AI agent implementations</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p><strong>QuestFoundry</strong> - A layered studio for nonlinear gamebooks</p>
+      <p>Schemas conform to JSON Schema Draft 2020-12</p>
+      <p><a href="https://github.com/pvliesdonk/questfoundry-spec">GitHub</a> | Version: 0.1.0</p>
+    </footer>
+  </div>
+</body>
+</html>
