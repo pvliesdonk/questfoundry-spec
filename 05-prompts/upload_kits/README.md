@@ -128,6 +128,46 @@ zip -r full-upload-kit.zip \
   05-prompts/translator/system_prompt.md
 ```
 
+## Optional Schema Kit (Advanced Cold SoT Validation)
+
+For advanced users working with Cold builds, asset management, or deterministic builds, include
+these Layer 3 schemas:
+
+```
+03-schemas/cold_manifest.schema.json
+03-schemas/cold_book.schema.json
+03-schemas/cold_art_manifest.schema.json
+03-schemas/hot_manifest.schema.json
+03-schemas/project_metadata.schema.json
+```
+
+**When to use**: Include schemas when asking agents to validate Cold files, build manifests, or
+troubleshoot deterministic build issues. Book Binder and Gatekeeper reference these schemas in their
+prompts. Not required for basic manuscript drafting.
+
+Bash (macOS/Linux):
+
+```
+zip -r schemas-kit.zip \
+  03-schemas/cold_manifest.schema.json \
+  03-schemas/cold_book.schema.json \
+  03-schemas/cold_art_manifest.schema.json \
+  03-schemas/hot_manifest.schema.json \
+  03-schemas/project_metadata.schema.json
+```
+
+PowerShell (Windows):
+
+```
+Compress-Archive -Path @(
+  '03-schemas/cold_manifest.schema.json',
+  '03-schemas/cold_book.schema.json',
+  '03-schemas/cold_art_manifest.schema.json',
+  '03-schemas/hot_manifest.schema.json',
+  '03-schemas/project_metadata.schema.json'
+) -DestinationPath schemas-kit.zip -Force
+```
+
 ## Build Link Folders And Zips (Recommended)
 
 Generate `dist/upload_kits/*` with flattened filenames and ready‑made zips (no platform subfolders):
@@ -136,11 +176,12 @@ Generate `dist/upload_kits/*` with flattened filenames and ready‑made zips (no
 - Bash (macOS/Linux/WSL): `spec-tools/scripts/build_upload_kits.sh`
 - PowerShell (Windows): `spec-tools/scripts/build_upload_kits.ps1`
 
-You’ll get (top‑level):
+You'll get (top‑level):
 
 - `minimal/` (10 files) and `minimal.zip`
 - `optional/` (PN and optional roles) and `optional.zip`
 - `full/` (union of minimal+optional) and `full.zip`
+- **NEW**: `schemas/` (5 schema files) and `schemas.zip` for Cold SoT validation
 
 Filenames are simplified (e.g., `showrunner.md`, `book_binder.md`; shared docs keep their names) to
 avoid collisions when attaching.

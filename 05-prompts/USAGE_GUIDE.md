@@ -49,6 +49,20 @@ Addon (upload later when binding/PN is needed)
 
 - 05-prompts/player_narrator/system_prompt.md
 
+Optional Schema Kit (for advanced Cold SoT validation)
+
+Upload these Layer 3 schemas when working with Cold builds, asset management, or validating
+deterministic builds. Book Binder and Gatekeeper reference these schemas in their prompts:
+
+- 03-schemas/cold_manifest.schema.json
+- 03-schemas/cold_book.schema.json
+- 03-schemas/cold_art_manifest.schema.json
+- 03-schemas/hot_manifest.schema.json
+- 03-schemas/project_metadata.schema.json
+
+**When to use**: Include schemas when asking agents to validate Cold files, build manifests, or
+troubleshoot deterministic build issues. Not required for basic manuscript drafting.
+
 Full Upload Kit (split for Gemini)
 
 - Core zip (≤10 files): Minimal kit files above
@@ -125,11 +139,14 @@ remaining debt if any.
   - Audit tone/register; propose targeted rewrites, update register hints.
   - Useful prompt: “Audit Scene 1 for register drift; propose minimal rewrites.”
 - Gatekeeper (GK)
-  - Evaluate bars (Presentation, Integrity, Style, etc.) with player‑safe evidence.
-  - Useful prompt: “Pre‑gate manuscript; list smallest fixes per bar; don’t leak spoilers.”
+  - Evaluate bars (Presentation, Integrity, Style, Determinism, etc.) with player‑safe evidence.
+  - **NEW**: Runs Cold SoT validation before allowing Binder (8 preflight checks: manifest
+    validation, file existence, SHA-256 verification, asset approval metadata).
+  - Useful prompt: "Pre‑gate manuscript; list smallest fixes per bar; don't leak spoilers."
 - Book Binder (BB)
-  - Bind views (Markdown/HTML), summarize anchors, return export artifacts.
-  - Useful prompt: “Bind to Markdown for PN; include anchor_map summary; return paths.”
+  - Bind views (Markdown/HTML) from Cold manifest, summarize anchors, return export artifacts.
+  - **NEW**: All inputs MUST come from `cold/manifest.json` (no directory scanning/heuristics).
+  - Useful prompt: "Bind to Markdown for PN; include anchor_map summary; return paths."
 - Player‑Narrator (PN)
   - Perform in‑world; enforce gateways diegetically; report issues.
   - Useful prompt: “Dry‑run performance; never leak internals; send pn.playtest.submit with issues.”

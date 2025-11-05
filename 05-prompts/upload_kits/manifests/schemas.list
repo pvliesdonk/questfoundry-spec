@@ -1,0 +1,5 @@
+03-schemas/cold_manifest.schema.json
+03-schemas/cold_book.schema.json
+03-schemas/cold_art_manifest.schema.json
+03-schemas/hot_manifest.schema.json
+03-schemas/project_metadata.schema.json
