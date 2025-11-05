@@ -56,16 +56,35 @@ Determinism (when promised)
 
 Filename Conventions & Art Manifest
 
-- Define filenames **before** rendering using pattern: `{role}_{section_id}_{variant}.{ext}`
+**Deterministic Filename Format (Cold SoT)**
+
+- For Cold-bound assets, use pattern: `<anchor>__<type>__v<version>.<ext>`
+  - Examples: `anchor001__plate__v1.png`, `cover__cover__v1.png`, `anchor042__plate__v2.png`
+  - `<anchor>` = section anchor (e.g., anchor001) or special (cover, icon, logo)
+  - `<type>` = plate (illustration), cover, icon, logo, ornament, diagram
+  - `<version>` = integer version (1, 2, 3, ...), increment on re-approval
+  - `<ext>` = file extension (.png, .jpg, .svg, .webp)
+- For Hot/WIP assets, use flexible pattern: `{role}_{section_id}_{variant}.{ext}`
   - Examples: `cover_titled.png`, `plate_A2_K.png`, `thumb_A1_H.png`, `scene_S3_wide.png`
-- Maintain `art_manifest.json` with planned filenames, roles, captions, prompts.
+
+**Art Manifest Workflow (Hot → Cold)**
+
+- **Hot Phase**: Maintain `hot/art_manifest.json` with planned filenames, roles, captions, prompts.
 - **Workflow:**
-  1. **Plan:** Define manifest entry with filename, role, caption, prompt (before rendering)
-  2. **Handoff to Illustrator:** Provide filename and prompt from manifest
-  3. **Post-render:** Compute SHA-256 hash; update manifest entry
-  4. **Approval:** Mark status as "approved" or "rejected" in manifest
-- **Validation:** All rendered images must match manifest filenames exactly (case-sensitive).
-- Manifest enables Book Binder to automatically include images at correct anchors with captions.
+  1. **Plan**: Define manifest entry with filename, role, caption, prompt (before rendering)
+  2. **Handoff to Illustrator**: Provide filename and prompt from manifest
+  3. **Post-render**: Illustrator computes SHA-256 hash; updates manifest entry
+  4. **Approval**: Art Director marks status as "approved" or "rejected" in manifest
+  5. **Cold Promotion**: On approval, record in `cold/art_manifest.json` (schema:
+     `cold_art_manifest.schema.json`) with:
+     - SHA-256 hash
+     - File dimensions (width_px, height_px)
+     - `approved_at` timestamp (ISO 8601)
+     - `approved_by` role (AD or IL)
+     - Provenance: role, prompt_snippet, version, policy_notes, source
+- **Validation**: All rendered images must match manifest filenames exactly (case-sensitive).
+- **Binder Consumption**: Book Binder reads `cold/art_manifest.json` to place images at correct
+  anchors with captions.
 
 Quality & Safety
 

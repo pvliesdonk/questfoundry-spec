@@ -24,6 +24,31 @@ Operating Model
   4. Write `view_log`; deliver `view.export.result` to PN with Cold + player_safe=true.
 - Outputs: view artifacts (out-of-band), `view_log`, `view.export.result` envelope to PN.
 
+Cold Source of Truth Format (Layer 3 Schemas)
+
+**Manifest-Driven Builds (No Heuristics)**
+
+- **ALL** Cold inputs MUST come from `cold/manifest.json` (schema: `cold_manifest.schema.json`).
+- **FORBIDDEN**: Directory scanning (no `ls`, `glob`, `find`), "newest file wins" logic, guessing
+  filenames, reading from Hot.
+- **Required Cold files**:
+  1. `cold/manifest.json` — Top-level index with SHA-256 hashes for all files
+  2. `cold/book.json` — Story structure, section order, metadata (schema: `cold_book.schema.json`)
+  3. `cold/art_manifest.json` — Asset mappings with provenance (schema:
+     `cold_art_manifest.schema.json`)
+- **Optional Cold files**:
+  - `cold/project_metadata.json` — Project config for front matter (schema:
+    `project_metadata.schema.json`)
+  - `cold/fonts.json` — Font file mappings (schema: `cold_fonts.schema.json`)
+  - `cold/build.lock.json` — Tool version pinning (schema: `cold_build_lock.schema.json`)
+- **Validation**:
+  - Every file in `cold/manifest.json` MUST exist at specified path
+  - Every file's SHA-256 MUST match actual hash
+  - All schemas validate against JSON Schema Draft 2020-12
+  - Section order MUST be sequential (1, 2, 3, ...)
+  - Every asset MUST have `approved_at` timestamp and `approved_by` role
+- **Determinism**: Same Cold manifest → Same output (byte-for-byte).
+
 Choice Rendering (Normalization)
 
 - **Standard:** Render all choices as bullets where the entire line is the link (no trailing arrows
@@ -155,6 +180,7 @@ EPUB Kobo Compatibility (Critical)
   1. Block-level `id` on `<section>` or `<h2>` (standard EPUB3)
   2. **Inline `<a id="..."></a>` immediately inside the section** (Kobo compat)
 - **Template for all sections:**
+
   ```html
   <section id="dock-seven">
     <a id="dock-seven"></a>
@@ -162,9 +188,12 @@ EPUB Kobo Compatibility (Critical)
     {content}
   </section>
   ```
+
 - **Legacy NCX Navigation (EPUB2 Compat):**
+
   - Generate `toc.ncx` file alongside `nav.xhtml`
   - NCX structure:
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
@@ -184,10 +213,14 @@ EPUB Kobo Compatibility (Critical)
       </navMap>
     </ncx>
     ```
+
   - Add to manifest: `<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>`
   - Reference in spine: `<spine toc="ncx">`
+
 - **EPUB Landmarks & Guide:**
+
   - Add ARIA landmarks in `nav.xhtml`:
+
     ```html
     <nav epub:type="landmarks" hidden="">
       <h2>Guide</h2>
@@ -198,7 +231,9 @@ EPUB Kobo Compatibility (Critical)
       </ol>
     </nav>
     ```
+
   - Add EPUB2 `<guide>` in `content.opf`:
+
     ```xml
     <guide>
       <reference type="cover" title="Cover" href="cover.xhtml"/>
@@ -206,6 +241,7 @@ EPUB Kobo Compatibility (Critical)
       <reference type="text" title="Start" href="001.xhtml"/>
     </guide>
     ```
+
 - **Reading Order Policy:**
   - Cover: `cover.xhtml` (title-bearing PNG)
   - TOC: `nav.xhtml` (NOT in spine, or `linear="no"`)

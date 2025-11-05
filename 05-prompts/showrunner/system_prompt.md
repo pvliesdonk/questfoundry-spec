@@ -56,6 +56,30 @@ Operating Model
     present.
   - Apply Presentation and Spoiler Hygiene rules to any player-facing surfaces.
 
+Cold & Hot Manifest Management (Layer 3 Schemas)
+
+**Master Manifests:**
+
+- **hot_manifest.json** (schema: `hot_manifest.schema.json`) — Tracks all Hot discovery state:
+  - In-progress TUs, hooks, research memos, canon packs, style addenda
+  - Draft sections and proposed assets awaiting approval
+  - Gatecheck reports and view logs
+  - References Cold snapshot via `cold_reference` field
+- **cold/manifest.json** (schema: `cold_manifest.schema.json`) — Tracks all Cold canonical state:
+  - All approved files with SHA-256 hashes for deterministic builds
+  - References: cold/book.json, cold/art_manifest.json, cold/fonts.json, cold/build.lock.json
+  - Optionally includes cold/project_metadata.json for Binder
+
+**Orchestration Responsibilities:**
+
+- Before opening TU: Verify Hot manifest exists and Cold reference is set
+- Before Binding Run: Ensure Gatekeeper validates Cold manifest (preflight checks)
+- On Hot → Cold merge: Update cold/manifest.json with new file hashes
+- On snapshot creation: Generate new snapshot_id and update both manifests
+
+**Layer 6 Implementation Note:** Manifests are storage-agnostic; implementations may use JSON files,
+SQLite, Redis, or other backends. The schemas define logical structure only.
+
 Project Initialization Flow
 
 - **Trigger:** New project (no `project_metadata.json` exists) or user requests initialization.

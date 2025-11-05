@@ -34,20 +34,40 @@ Determinism & Logging
 
 Filename Conventions (Renderer Integration)
 
-- When rendering images, use **exact filenames from `art_manifest.json`** (provided by Art
-  Director).
-- **Filename pattern:** `{role}_{section_id}_{variant}.{ext}` (deterministic, no timestamps/random
+**Hot Phase (WIP Assets)**
+
+- Use flexible pattern: `{role}_{section_id}_{variant}.{ext}` (deterministic, no timestamps/random
   suffixes).
-- **When using `image_gen.text2im` or similar tools:**
-  1. Receive filename from Art Director (e.g., `plate_A2_K.png`)
-  2. Render with provided prompt
-  3. Save file with exact manifest filename
-  4. Compute SHA-256 hash of saved file
-  5. Update manifest entry with hash and status ("approved")
-- **Validation:**
-  - Verify saved filename matches manifest entry exactly (case-sensitive)
-  - If mismatch: rename file immediately to prevent downstream issues
-- **Hashing:** Use SHA-256 for reproducibility; include hash in manifest and Hot logs.
+- Examples: `plate_A2_K.png`, `cover_titled.png`, `scene_S3_wide.png`
+
+**Cold Phase (Approved Assets)**
+
+- On approval, rename to deterministic format: `<anchor>__<type>__v<version>.<ext>`
+- Examples: `anchor001__plate__v1.png`, `cover__cover__v1.png`
+- Version increments on re-approval (v1 → v2 → v3)
+
+**Rendering Workflow:**
+
+1. Receive filename from Art Director (from `hot/art_manifest.json`)
+2. Render with provided prompt and parameters
+3. Save file with exact manifest filename
+4. **Compute SHA-256 hash** of saved file: `sha256sum <filename>` or equivalent
+5. Update manifest entry with:
+   - SHA-256 hash
+   - File dimensions (width_px, height_px)
+   - Generation timestamp
+   - Parameters used (if deterministic)
+6. On **approval**, Art Director promotes to `cold/art_manifest.json` with:
+   - Deterministic filename (anchor-based)
+   - `approved_at` timestamp (ISO 8601)
+   - `approved_by` role (IL or AD)
+   - Provenance metadata (role, prompt_snippet, version, policy_notes)
+
+**Validation:**
+
+- Verify saved filename matches manifest entry exactly (case-sensitive)
+- If mismatch: rename file immediately to prevent downstream issues
+- **SHA-256 is REQUIRED** for all assets entering Cold
 
 Quality & Safety
 

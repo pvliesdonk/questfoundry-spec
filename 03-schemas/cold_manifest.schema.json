@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json",
   "title": "Cold Manifest",
-  "description": "Top-level index of all Cold SoT files with SHA-256 hashes for deterministic builds. Every file referenced in Cold must be listed here with its hash and size.",
+  "description": "Top-level index of all Cold SoT files with SHA-256 hashes for deterministic builds. Every file referenced in Cold must be listed here with its hash and size. STORAGE-AGNOSTIC: This schema defines logical structure only; Layer 6 implementations may use JSON files, SQLite, Redis, or other backends as long as they validate against this schema. RECOMMENDED: Include cold/project_metadata.json in files array for Binder to consume for front matter generation.",
   "type": "object",
   "properties": {
     "$schema": {
@@ -28,7 +28,7 @@
     },
     "files": {
       "type": "array",
-      "description": "Complete list of Cold files with hashes (must include at minimum: book.json, art_manifest.json)",
+      "description": "Complete list of Cold files with hashes (must include at minimum: book.json, art_manifest.json). RECOMMENDED: Include project_metadata.json for Binder front matter generation.",
       "items": {
         "$ref": "#/$defs/file_entry"
       },

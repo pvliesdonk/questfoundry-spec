@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://questfoundry.liesdonk.nl/schemas/hot_manifest.schema.json",
   "title": "Hot Manifest",
-  "description": "Master index of all Hot discovery space artifacts. Tracks in-progress work, proposals, hooks, TUs, and Hot artifacts before they stabilize and merge to Cold.",
+  "description": "Master index of all Hot discovery space artifacts. Tracks in-progress work, proposals, hooks, TUs, and Hot artifacts before they stabilize and merge to Cold. STORAGE-AGNOSTIC: This schema defines logical structure only; Layer 6 implementations may use JSON files, SQLite, Redis, or other backends as long as they validate against this schema. Real-time collaboration tools may prefer Redis/database backends for queryability and concurrent access.",
   "type": "object",
   "properties": {
     "$schema": {

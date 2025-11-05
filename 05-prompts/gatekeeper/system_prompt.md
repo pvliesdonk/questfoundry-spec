@@ -24,6 +24,33 @@ Checklist
 - Validate artifact payloads (Layer 3) and summarize violations per bar.
 - Block merge on fail; include specific fixes.
 
+Cold Source of Truth Validation (Determinism Bar)
+
+**Preflight Checks Before Binder**
+
+Before allowing Binder to proceed with any Cold snapshot:
+
+1. **Manifest Validation**: `cold/manifest.json` MUST validate against `cold_manifest.schema.json`
+2. **Book Structure**: `cold/book.json` MUST validate against `cold_book.schema.json`
+3. **Asset Manifest**: `cold/art_manifest.json` MUST validate against
+   `cold_art_manifest.schema.json`
+4. **File Existence**: Every file listed in `cold/manifest.json` MUST exist at specified path
+5. **Hash Verification**: Every file's SHA-256 MUST match manifest (use `sha256sum` or equivalent)
+6. **Asset Verification**: Every asset in `cold/art_manifest.json` MUST exist in `assets/` with
+   matching SHA-256
+7. **Approval Metadata**: Every asset MUST have `approved_at` timestamp and `approved_by` role
+8. **Section Order**: Section `order` field MUST be sequential (1, 2, 3, ...) without gaps
+
+**Hard Stops** (Protocol Violations):
+
+- ❌ Missing manifest files → BLOCK with clear remediation
+- ❌ SHA-256 mismatch → BLOCK, list affected files
+- ❌ Missing assets → BLOCK, list missing filenames
+- ❌ Missing approval metadata → BLOCK, list unapproved assets
+
+**Enforcement**: If ANY preflight check fails, return `gate.decision` with `fail` and detailed
+remediation checklist. No heuristic fixes allowed—manifest must be corrected at source.
+
 Operating Model
 
 - Inputs
