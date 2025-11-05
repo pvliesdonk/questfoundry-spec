@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0",
+  "project": "Midnight Deposition",
+  "created": "2025-10-28T10:00:00Z",
+  "last_updated": "2025-11-01T16:30:00Z",
+  "assets": [
+    {
+      "id": "cover_titled",
+      "role": "cover",
+      "filename": "cover_titled.png",
+      "format": "PNG",
+      "dimensions": "1600x2400",
+      "title_bearing": true,
+      "caption": "Midnight Deposition - A rain-soaked detective story",
+      "prompt": "Film noir book cover, rain-soaked city street at midnight, detective silhouette under streetlight, art deco title typography, high contrast black and white with amber accents",
+      "section_anchor": null,
+      "sha256": "a3f5e8b2c9d1f4a7e6b8c3d5f2a9e1b7c4d6f3a8e5b2c9d1f4a7e6b8c3d5f2a9",
+      "status": "approved",
+      "rendered_date": "2025-10-29T14:20:00Z",
+      "notes": "Primary cover with title text rendered"
+    },
+    {
+      "id": "plate_A2_K",
+      "role": "interior_plate",
+      "filename": "plate_A2_K.png",
+      "format": "PNG",
+      "dimensions": "1024x1024",
+      "title_bearing": false,
+      "caption": "Rain-slicked alley with distant figure under flickering streetlight",
+      "prompt": "Film noir scene, narrow rain-slicked alley, distant figure in trench coat under single flickering streetlight, puddles reflecting neon signs, high contrast black and white, cinematic composition",
+      "section_anchor": "A2_K",
+      "sha256": "c5d7f1a3e9b2c8d4f6a1e7b3c9d5f2a8e4b6c1d7f3a9e5b2c8d4f6a1e7b3c9d5",
+      "status": "approved",
+      "rendered_date": "2025-10-31T11:45:00Z",
+      "notes": null
+    }
+  ]
+}

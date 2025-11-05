@@ -1,0 +1,21 @@
+{
+  "title": "Midnight Deposition",
+  "genre": "detective-noir",
+  "author": "Peter van Liesdonk",
+  "license": "CC BY-NC 4.0",
+  "description": "A rain-soaked detective story where choices shape the investigation and every lead has a cost.",
+  "subjects": ["noir", "detective", "mystery", "interactive fiction"],
+  "language": "en",
+  "target_sections": 30,
+  "target_length": "medium",
+  "branching_style": "moderate",
+  "style": {
+    "writing_style": "pulp",
+    "paragraph_density": "rich",
+    "tone": "gritty",
+    "pov": "second-person"
+  },
+  "created": "2025-11-04T12:00:00Z",
+  "last_modified": "2025-11-04T14:30:00Z",
+  "version": "0.1.0"
+}
