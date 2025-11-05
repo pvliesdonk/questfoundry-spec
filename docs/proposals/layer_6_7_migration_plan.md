@@ -1,16 +1,18 @@
 # Layer 6 & 7 Migration Plan
 
-**Date:** 2025-11-05
-**Status:** Proposal
-**Decision Required:** Repository architecture, schema hosting strategy
+**Date:** 2025-11-05 **Status:** Proposal **Decision Required:** Repository architecture, schema
+hosting strategy
 
 ---
 
 ## Executive Summary
 
-This document outlines the migration plan for setting up Layer 6 (Python library) and Layer 7 (CLI tool) as separate repositories, with considerations for schema publishing and the existing schema URL structure.
+This document outlines the migration plan for setting up Layer 6 (Python library) and Layer 7 (CLI
+tool) as separate repositories, with considerations for schema publishing and the existing schema
+URL structure.
 
 **Key Decisions:**
+
 1. Rename current repo `questfoundry` → `questfoundry-spec`
 2. Create `questfoundry-py` (Layer 6) and `questfoundry-cli` (Layer 7)
 3. Establish schema publishing strategy that respects existing `$id` URLs
@@ -101,6 +103,7 @@ Benefit: Stable, canonical URLs; no breaking changes needed
 ```
 
 **Setup:**
+
 1. Enable GitHub Pages for questfoundry-spec
 2. Configure custom domain `questfoundry.liesdonk.nl` in repo settings
 3. Add CNAME record in DNS: `questfoundry.liesdonk.nl → pvliesdonk.github.io`
@@ -115,8 +118,8 @@ Benefit: Stable, canonical URLs; no breaking changes needed
 }
 ```
 
-**Pros:** No custom domain needed
-**Cons:** Breaking change; requires updating all schemas and documentation
+**Pros:** No custom domain needed **Cons:** Breaking change; requires updating all schemas and
+documentation
 
 **Alternative: Option C - Dual Publishing**
 
@@ -143,6 +146,7 @@ Keep `$id` URLs as-is, but document multiple access methods:
 - **Update Frequency:** On version tags (e.g., `v0.1.0`, `v0.2.0`)
 
 **Release Structure:**
+
 ```
 questfoundry-schemas-v0.1.0.zip
 ├── schemas/
@@ -234,6 +238,7 @@ Add banner to README.md:
 > GitHub automatically redirects, but please update your bookmarks and git remotes.
 >
 > **Looking for implementations?**
+>
 > - Python Library: [questfoundry-py](https://github.com/pvliesdonk/questfoundry-py)
 > - CLI Tool: [questfoundry-cli](https://github.com/pvliesdonk/questfoundry-cli)
 ```
@@ -311,6 +316,7 @@ See implementation in next section.
 **Trigger:** On tag push matching `schemas-v*`
 
 **Actions:**
+
 1. Validate all schemas
 2. Create schema bundle zip
 3. Create GitHub Release with bundle
@@ -323,6 +329,7 @@ See implementation in next section.
 **Trigger:** On push to `main` branch affecting `03-schemas/`
 
 **Actions:**
+
 1. Copy schemas to `docs/schemas/`
 2. Generate index page
 3. Deploy to GitHub Pages
@@ -365,11 +372,13 @@ Examples:
 ## [0.1.0] - 2025-11-05
 
 ### Added
+
 - Initial release of all 18 artifact schemas
 - hook_card, tu_brief, canon_pack, ...
 - Full JSON Schema Draft 2020-12 compliance
 
 ### Schema IDs
+
 All schemas use canonical URL: https://questfoundry.liesdonk.nl/schemas/
 ```
 
@@ -436,7 +445,7 @@ Documentation = "https://github.com/pvliesdonk/questfoundry-spec"
 
 **Add to `03-schemas/README.md`:**
 
-```markdown
+````markdown
 # Layer 3 — Schemas
 
 JSON Schema definitions for all QuestFoundry artifacts.
@@ -448,6 +457,7 @@ JSON Schema definitions for all QuestFoundry artifacts.
 ```bash
 curl https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json
 ```
+````
 
 All schemas use this base URL in their `$id` field.
 
@@ -487,6 +497,7 @@ Changelog: See [CHANGELOG.md](./CHANGELOG.md)
 ## Schema Validation
 
 See [spec-tools/README.md](../spec-tools/README.md) for validation tools.
+
 ```
 
 ---
@@ -571,3 +582,4 @@ After approval of this plan:
 **Author:** Claude
 **Reviewer:** [Your name]
 **Approval Date:** [TBD]
+```

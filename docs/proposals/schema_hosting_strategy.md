@@ -1,8 +1,7 @@
 # Schema Hosting Strategy
 
-**Date:** 2025-11-05
-**Status:** Proposal
-**Context:** `questfoundry.liesdonk.nl` is a placeholder; `liesdonk.nl` domain is owned
+**Date:** 2025-11-05 **Status:** Proposal **Context:** `questfoundry.liesdonk.nl` is a placeholder;
+`liesdonk.nl` domain is owned
 
 ---
 
@@ -34,7 +33,8 @@ All 18 schemas currently reference canonical URLs:
    - **Works immediately**, no domain setup needed
 
 2. **GitHub Raw URLs** (direct access)
-   - Pattern: `https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/03-schemas/{schema}.json`
+   - Pattern:
+     `https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/03-schemas/{schema}.json`
    - **Works immediately**, no configuration needed
    - Good for CI/CD validation
 
@@ -48,16 +48,19 @@ All 18 schemas currently reference canonical URLs:
 ```markdown
 ## Accessing Schemas
 
-**Note:** Canonical URLs (`questfoundry.liesdonk.nl`) are being configured.
-Currently use these alternatives:
+**Note:** Canonical URLs (`questfoundry.liesdonk.nl`) are being configured. Currently use these
+alternatives:
 
 ### 1. GitHub Releases (Recommended for offline use)
+
 [Download schema bundle](releases/latest)
 
 ### 2. Raw GitHub (Direct access)
+
 https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/03-schemas/hook_card.schema.json
 
 ### 3. Python Package
+
 pip install questfoundry-py
 ```
 
@@ -66,6 +69,7 @@ pip install questfoundry-py
 **Steps to activate canonical URLs:**
 
 1. **Configure DNS** (at `liesdonk.nl` registrar):
+
    ```
    Type: CNAME
    Name: questfoundry
@@ -80,6 +84,7 @@ pip install questfoundry-py
    - Enforce HTTPS: Yes
 
 3. **Create schema directory structure**:
+
    ```bash
    mkdir -p docs/schemas
    # Copy or symlink from 03-schemas/
@@ -87,16 +92,23 @@ pip install questfoundry-py
    ```
 
 4. **Add index page** (`docs/index.html`):
+
    ```html
    <!DOCTYPE html>
    <html>
-   <head>
-     <title>QuestFoundry Schemas</title>
-     <meta http-equiv="refresh" content="0; url=https://github.com/pvliesdonk/questfoundry-spec">
-   </head>
-   <body>
-     <p>Redirecting to <a href="https://github.com/pvliesdonk/questfoundry-spec">QuestFoundry Specification</a></p>
-   </body>
+     <head>
+       <title>QuestFoundry Schemas</title>
+       <meta
+         http-equiv="refresh"
+         content="0; url=https://github.com/pvliesdonk/questfoundry-spec"
+       />
+     </head>
+     <body>
+       <p>
+         Redirecting to
+         <a href="https://github.com/pvliesdonk/questfoundry-spec">QuestFoundry Specification</a>
+       </p>
+     </body>
    </html>
    ```
 
@@ -114,16 +126,19 @@ pip install questfoundry-py
 **Option B:** Change schema `$id` to GitHub Raw URLs immediately.
 
 **Pros:**
+
 - URLs work immediately
 - No future domain setup needed
 - Simpler long-term
 
 **Cons:**
+
 - Breaking change (need to update all 18 schemas)
 - Less professional-looking URLs
 - GitHub dependency explicit
 
 **Example change:**
+
 ```json
 {
   "$id": "https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/v0.1.0/03-schemas/hook_card.schema.json"
@@ -136,12 +151,12 @@ pip install questfoundry-py
 
 ## Comparison Matrix
 
-| Method | Works Now | Professional | Stable | Setup |
-|--------|-----------|--------------|--------|-------|
-| GitHub Releases | ✅ Yes | ⭐⭐⭐ | ✅ Very | None |
-| GitHub Raw | ✅ Yes | ⭐⭐ | ✅ Very | None |
-| PyPI Package | ✅ Yes (once published) | ⭐⭐⭐⭐ | ✅ Very | Package setup |
-| Custom Domain | ❌ Not yet | ⭐⭐⭐⭐⭐ | ✅ Very | DNS + GitHub Pages |
+| Method          | Works Now               | Professional | Stable  | Setup              |
+| --------------- | ----------------------- | ------------ | ------- | ------------------ |
+| GitHub Releases | ✅ Yes                  | ⭐⭐⭐       | ✅ Very | None               |
+| GitHub Raw      | ✅ Yes                  | ⭐⭐         | ✅ Very | None               |
+| PyPI Package    | ✅ Yes (once published) | ⭐⭐⭐⭐     | ✅ Very | Package setup      |
+| Custom Domain   | ❌ Not yet              | ⭐⭐⭐⭐⭐   | ✅ Very | DNS + GitHub Pages |
 
 ---
 
@@ -155,10 +170,11 @@ pip install questfoundry-py
 ### Canonical URLs (Future)
 
 All schemas use canonical URLs in their `$id` field:
+```
 
-```
 https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json
-```
+
+````
 
 **Note:** These URLs are being configured. Use alternatives below in the meantime.
 
@@ -171,7 +187,7 @@ Download the complete schema set:
 ```bash
 # Latest release
 wget https://github.com/pvliesdonk/questfoundry-spec/releases/latest/download/questfoundry-schemas-v0.1.0.zip
-```
+````
 
 #### 2. Raw GitHub (Direct Access)
 
@@ -204,6 +220,7 @@ For production use, pin to specific version:
 # Pin to release tag
 curl https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/schemas-v0.1.0/03-schemas/hook_card.schema.json
 ```
+
 ```
 
 ---
@@ -256,3 +273,4 @@ curl https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/schemas-v0.1
 **Recommendation:** ✅ GitHub-first approach
 **Priority:** High (schema distribution) → Low (custom domain)
 **Blocker:** None - proceed with migration
+```

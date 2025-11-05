@@ -1,9 +1,7 @@
 # QuestFoundry Layer 6/7 Migration - Execution Checklist
 
-**Status:** Ready to Execute
-**Domain:** ✅ questfoundry.liesdonk.nl configured
-**Approval:** ✅ Three-repository architecture approved
-**Date:** 2025-11-05
+**Status:** Ready to Execute **Domain:** ✅ questfoundry.liesdonk.nl configured **Approval:** ✅
+Three-repository architecture approved **Date:** 2025-11-05
 
 ---
 
@@ -42,6 +40,7 @@ curl https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json | jq '.title
 ```
 
 **Checklist:**
+
 - [ ] GitHub Pages enabled
 - [ ] Custom domain configured
 - [ ] HTTPS enforced
@@ -79,6 +78,7 @@ git push origin schemas-v0.1.0
    - `questfoundry-schemas-v0.1.0.zip.sha256`
 
 **Checklist:**
+
 - [ ] Tag created and pushed
 - [ ] GitHub Action completed successfully
 - [ ] GitHub Release published
@@ -130,16 +130,17 @@ git remote -v
 **Banner text to add at top of README:**
 
 ```markdown
-> **📦 Repository Renamed**
-> This repository was renamed from `questfoundry` to `questfoundry-spec` on 2025-11-05.
-> GitHub automatically redirects, but please update your bookmarks.
+> **📦 Repository Renamed** This repository was renamed from `questfoundry` to `questfoundry-spec`
+> on 2025-11-05. GitHub automatically redirects, but please update your bookmarks.
 >
 > **Looking for implementations?**
+>
 > - 🐍 Python Library: [questfoundry-py](https://github.com/pvliesdonk/questfoundry-py)
 > - 🖥️ CLI Tool: [questfoundry-cli](https://github.com/pvliesdonk/questfoundry-cli)
 ```
 
 **Checklist:**
+
 - [ ] Backups created
 - [ ] Repository renamed to `questfoundry-spec`
 - [ ] Local remote URL updated
@@ -175,6 +176,7 @@ git push
 ```
 
 **Checklist:**
+
 - [ ] Directory renamed
 - [ ] README references updated
 - [ ] Workflow files updated
@@ -187,7 +189,7 @@ git push
 
 ### Step 5.1: Create questfoundry-py Repository
 
-```bash
+````bash
 # Create repository
 gh repo create pvliesdonk/questfoundry-py --public \
   --description "Layer 6: Python library for QuestFoundry protocol and artifact management"
@@ -252,7 +254,7 @@ Layer 6 implementation for QuestFoundry - protocol client, validators, and artif
 
 ```bash
 pip install questfoundry-py
-```
+````
 
 ## Quick Start
 
@@ -275,63 +277,43 @@ schema = get_schema('hook_card')
 
 ## Development
 
-See implementation plan: [06-libraries/IMPLEMENTATION_PLAN.md](https://github.com/pvliesdonk/questfoundry-spec/blob/main/06-libraries/IMPLEMENTATION_PLAN.md)
+See implementation plan:
+[06-libraries/IMPLEMENTATION_PLAN.md](https://github.com/pvliesdonk/questfoundry-spec/blob/main/06-libraries/IMPLEMENTATION_PLAN.md)
 
 ## License
 
-MIT
-EOF
+MIT EOF
 
 # Create .gitignore
+
 cat > .gitignore << 'EOF'
+
 # Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+
+**pycache**/ _.py[cod] _$py.class _.so .Python build/ develop-eggs/ dist/ downloads/ eggs/ .eggs/
+lib/ lib64/ parts/ sdist/ var/ wheels/ _.egg-info/ .installed.cfg \*.egg
 
 # Virtual environments
-.venv/
-venv/
-ENV/
+
+.venv/ venv/ ENV/
 
 # IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
+
+.vscode/ .idea/ _.swp _.swo
 
 # Testing
-.pytest_cache/
-.coverage
-htmlcov/
+
+.pytest_cache/ .coverage htmlcov/
 
 # UV
-.uv/
-uv.lock
-EOF
+
+.uv/ uv.lock EOF
 
 # Commit
-git add -A
-git commit -m "Initial project structure - Epic 1 foundation"
-git push -u origin main
-```
+
+git add -A git commit -m "Initial project structure - Epic 1 foundation" git push -u origin main
+
+````
 
 ### Step 5.2: Create questfoundry-cli Repository
 
@@ -399,7 +381,7 @@ Layer 7 command-line interface for QuestFoundry.
 
 ```bash
 pip install questfoundry-cli
-```
+````
 
 ## Quick Start
 
@@ -421,21 +403,22 @@ qf generate image SHOTLIST-001
 
 ## Development
 
-See implementation plan: [07-ui/IMPLEMENTATION_PLAN.md](https://github.com/pvliesdonk/questfoundry-spec/blob/main/07-ui/IMPLEMENTATION_PLAN.md)
+See implementation plan:
+[07-ui/IMPLEMENTATION_PLAN.md](https://github.com/pvliesdonk/questfoundry-spec/blob/main/07-ui/IMPLEMENTATION_PLAN.md)
 
 ## License
 
-MIT
-EOF
+MIT EOF
 
 # Same .gitignore as questfoundry-py
+
 cp ../questfoundry-py/.gitignore .
 
 # Commit
-git add -A
-git commit -m "Initial project structure - Epic 1 foundation"
-git push -u origin main
-```
+
+git add -A git commit -m "Initial project structure - Epic 1 foundation" git push -u origin main
+
+````
 
 **Checklist:**
 - [ ] questfoundry-py repo created
@@ -465,7 +448,7 @@ This is the **specification repository** for QuestFoundry.
 **Schemas:**
 - 🔗 Canonical URLs: https://questfoundry.liesdonk.nl/schemas/
 - 📦 Downloads: [GitHub Releases](https://github.com/pvliesdonk/questfoundry-spec/releases)
-```
+````
 
 ### Step 6.2: Update 03-schemas/README.md
 
@@ -476,6 +459,7 @@ Update schema access section to reflect canonical URLs are now live.
 Create GitHub Discussion announcing migration and new repositories.
 
 **Checklist:**
+
 - [ ] questfoundry-spec README updated
 - [ ] 03-schemas/README.md updated
 - [ ] Layer 6 and 7 README files reference spec repo
@@ -513,6 +497,7 @@ cd ../questfoundry-cli && git submodule status
 ```
 
 **Checklist:**
+
 - [ ] Canonical URLs resolve correctly
 - [ ] Old repo name redirects work
 - [ ] GitHub Pages deployed successfully
@@ -570,6 +555,7 @@ Migration is successful when:
 ## Current Status
 
 **Completed:**
+
 - ✅ Migration plan approved
 - ✅ Domain configured (questfoundry.liesdonk.nl)
 - ✅ GitHub Pages structure prepared (docs/ directory)
