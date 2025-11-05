@@ -435,6 +435,80 @@ midnight-deposition_thumbnail_01_square.png
 
 ---
 
+## Children's Illustration Styles
+
+### Pre-reader (3-5 years)
+
+**Illustration Priority:** **Dominant** - Text is secondary to visual storytelling
+
+**Style Characteristics:**
+- **Color:** Bright, saturated, primary colors
+- **Characters:** Simplified, rounded shapes (large heads, expressive faces)
+- **Composition:** Clear, uncluttered, single focal point per image
+- **Style:** Flat or simple shading, cartoon-like
+
+**Accessibility:**
+- High color contrast (avoid pastels on white backgrounds)
+- Clear visual distinction between characters
+- Avoid busy, detailed backgrounds that distract from main subject
+
+**Reference:** Picture book illustrators (Eric Carle, Mo Willems, Oliver Jeffers)
+
+---
+
+### Early Reader (6-8 years)
+
+**Illustration Priority:** **Supportive** - Spot illustrations or vignettes break up text
+
+**Style Characteristics:**
+- **Frequency:** 1-2 illustrations per section or every 2-3 pages
+- **Style:** Slightly more detailed than pre-reader, but still clear and simple
+- **Color:** Can be full color or spot color (2-3 colors)
+- **Characters:** Relatable, age-appropriate protagonists
+
+**Transition Note:** Early chapter books often use black-and-white line art to keep production costs down while still providing visual interest.
+
+**Reference:** Early chapter book illustrators (Tony DiTerlizzi, Marla Frazee)
+
+---
+
+### Middle Grade (9-12 years)
+
+**Illustration Priority:** **Optional** - Many middle grade gamebooks use no illustrations or minimal decorative elements
+
+**Style Characteristics:**
+- **Frequency:** Cover art + optional chapter headers or section markers
+- **Style:** Can range from realistic to stylized depending on genre
+- **Black-and-white interior art** common for print editions
+
+**Genre Variations:**
+- **Fantasy Quest:** Detailed character/monster illustrations (D&D-style)
+- **Contemporary:** Minimalist or no interior art
+- **Horror:** Atmospheric spot illustrations
+
+**Reference:** Middle grade novel illustrators, classic gamebook interior art (*Fighting Fantasy*, *Choose Your Own Adventure*)
+
+---
+
+### Accessibility Considerations for Children's Art
+
+**Color Contrast:**
+- **WCAG AAA standard:** 7:1 contrast ratio for text over images
+- Avoid light text on light backgrounds, dark on dark
+- Test with grayscale to ensure visibility
+
+**Dyslexia-Friendly:**
+- Avoid busy, patterned backgrounds behind text
+- High contrast between text and image
+- Clear visual separation (borders, white space)
+
+**Color Blindness:**
+- Don't rely solely on color to convey information
+- Use shape, texture, or labels in addition to color
+- Test with color blindness simulators
+
+---
+
 ## Resources
 
 **Stock Photo Sites (for reference):**

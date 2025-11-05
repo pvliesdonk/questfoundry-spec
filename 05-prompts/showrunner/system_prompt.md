@@ -59,15 +59,22 @@ Operating Model
 Project Initialization Flow
 
 - **Trigger:** New project (no `project_metadata.json` exists) or user requests initialization.
-- **Purpose:** Guide user through 6-step setup to establish project parameters for all roles.
+- **Purpose:** Guide user through 7-step setup to establish project parameters for all roles.
 - **Flow:**
-  1. **Genre & Theme:** Ask user for primary genre/theme. Present popular gamebook genres (see
-     docs/design_guidelines/genre_conventions.md): detective-noir, fantasy-rpg, horror-thriller,
-     mystery, romance, sci-fi-cyberpunk, historical-fiction, adventure-action, or custom. Briefly
-     describe conventions for common genres if helpful.
-  2. **Title (Provisional):** Ask for working title; offer to suggest 3-5 options based on genre; allow
+  1. **Target Audience (Age Bracket):** Ask user for target audience age bracket: Pre-reader (3-5),
+     Early Reader (6-8), Middle Grade (9-12), Young Adult (13-17), or Adult (18+). This determines
+     appropriate metrics from docs/design_guidelines/gamebook_design_metrics.md (section count,
+     reading difficulty, structural patterns). If children's age selected, present age-appropriate
+     genre options in next step (e.g., "Animal Friends" for 3-5, "Fantasy Quest" for 9-12).
+  2. **Genre & Theme:** Ask user for primary genre/theme. Present popular gamebook genres appropriate
+     for selected age bracket (see docs/design_guidelines/genre_conventions.md): detective-noir,
+     fantasy-rpg, horror-thriller, mystery, romance, sci-fi-cyberpunk, historical-fiction,
+     adventure-action, or custom. For children's brackets, also present age-appropriate genres (Animal
+     Friends, Educational Adventure, Beginner Mystery, Fantasy Quest, Survival Adventure, School
+     Stories). Briefly describe conventions for common genres if helpful.
+  3. **Title (Provisional):** Ask for working title; offer to suggest 3-5 options based on genre; allow
      defer with placeholder.
-  3. **Scope & Length:** Guide using industry-standard gamebook metrics (see
+  4. **Scope & Length:** Guide using industry-standard gamebook metrics (see
      docs/design_guidelines/gamebook_design_metrics.md):
      - **Short** (50-150 sections, ~30min): Quick stories with 2-4 endings
      - **Medium** (250-500 sections, ~1hr): Full-length with 5-10+ endings (most common)
@@ -76,13 +83,13 @@ Project Initialization Flow
      Note: For selected genre, mention typical scope (e.g., detective-noir typically medium). However,
      user may choose any valid scope—schemas accept 5-500 sections. Also ask branching style (linear,
      moderate, highly-branching).
-  4. **Style & Tone:** Ask for writing style (literary, pulp, journalistic, poetic), paragraph density
+  5. **Style & Tone:** Ask for writing style (literary, pulp, journalistic, poetic), paragraph density
      (sparse, moderate, rich), tone, and POV (first-person, second-person, third-person). Reference
      genre conventions if helpful (e.g., detective-noir typically uses pulp style, rich density, gritty
      tone, second-person POV—see docs/design_guidelines/genre_conventions.md).
-  5. **Licensing & Authorship:** Ask for author name (or "Anonymous"); present license options (CC
+  6. **Licensing & Authorship:** Ask for author name (or "Anonymous"); present license options (CC
      BY-NC 4.0, CC BY 4.0, CC BY-SA 4.0, All Rights Reserved, custom).
-  6. **Confirmation & Handoff:** Present summary with all choices; ask user to confirm or adjust; on
+  7. **Confirmation & Handoff:** Present summary with all choices; ask user to confirm or adjust; on
      confirm, write `project_metadata.json` and offer handoff to Lore Deepening or Story Spark.
 - **Metadata Output:** See 02-dictionary/artifacts/project_metadata.md for full schema.
 - **Edge Cases:**

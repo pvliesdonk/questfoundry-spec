@@ -87,6 +87,42 @@ Each genre entry contains:
 
 ---
 
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 8.0 - 9.0
+- **Flesch Reading Ease:** 60 - 70 (Plain English)
+- **Dale-Chall Score:** 7.0 - 7.9
+
+**Rationale:** Detective noir defaults to the "Plain English" baseline. The primary goal is **clarity**—the text must be precise and unambiguous to fairly present clues and deductions. Avoid overly simplistic prose (condescending) and overly complex prose (obscures information).
+
+**Critical Rule:** Regardless of prose complexity, **choice text must be simpler**—aim for low end of range (F-K 7.0-8.0) for decision points.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Declarative sentences, terse and vivid. Mix short punchy sentences with occasional longer descriptive passages.
+- **Tense:** Past tense common ("You examined the clue...") framing story as investigation. Present tense works for immediacy.
+- **Vocabulary:** Accessible but atmospheric—avoid ten-dollar words, use vivid verbs and sensory details.
+
+**Narrative Tone:**
+- Cynical, world-weary, observant
+- Morally ambiguous—protagonist is flawed
+- Gritty and atmospheric (rain, smoke, shadows)
+- Urban decay and social commentary
+
+**Dialogue:**
+- Snappy, sardonic, revealing subtext
+- Hard-boiled wit and double entendres
+- Characters speak in character (slang, period-appropriate)
+
+**Example Opening:**
+> "The dame walked into my office like trouble in a red dress. Outside, the rain hammered the pavement. Inside, my bourbon was getting warm. She wanted me to find someone. I wanted her to leave. We both knew neither was going to happen."
+
+---
+
 ### Common Themes
 
 - Investigation and deduction
@@ -182,6 +218,44 @@ See `art_style_references.md` for detailed guidance.
 | **Medium** | 400-800 | 50k-120k | ~2hr | Full adventure with character progression. 3-5 major questlines. |
 | **Long** | 800-1500 | 120k-250k | ~3-4hr | Epic campaign with multiple regions, complex stat systems, many side quests. |
 | **Epic** | 1500+ | 250k-500k+ | 5hr+ | Open-world sandbox. Persistent state, character builds, faction systems. Rare but iconic. |
+
+---
+
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 9.0 - 11.0
+- **Flesch Reading Ease:** 50 - 65
+- **Dale-Chall Score:** 8.0 - 9.9
+
+**Rationale:** Fantasy/RPG defaults to the **most difficult readability**. This is not because prose is necessarily complex, but because readability formulas **penalize specialized, multi-syllabic, invented vocabulary** inherent to world-building (e.g., "grimoire," "thaumaturgy," "psionic," names of cities/gods/artifacts). This vocabulary increases Dale-Chall score (unfamiliar words) and F-K Grade (long words).
+
+**Don't over-simplify:** Fantasy readers expect and enjoy rich worldbuilding vocabulary. The higher score is natural and appropriate for the genre.
+
+**Critical Rule:** **Choice text must be simpler**—aim for F-K 7.0-8.0 for decision points, even if surrounding prose is 10.0+.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Descriptive and "epic." Can be longer, flowing sentences for lore and world-building. Action scenes use shorter, punchy sentences.
+- **Tense:** Second-person present ("You enter the dungeon...") or third-person past ("The hero ventured into...").
+- **Vocabulary:** Rich in specialized fantasy terms—magic systems, creatures, locations. Must establish terms clearly on first use.
+
+**Narrative Tone:**
+- Epic, grand, adventurous (high fantasy)
+- Dark, grim, oppressive (dark fantasy)
+- Immersive world-building focus
+- Strong sense of place and history
+
+**Dialogue:**
+- Varies by sub-genre (formal medieval, modern fantasy, etc.)
+- Often uses archaic or formal register for gravitas
+- Character voice distinguishes cultures/races
+
+**Example Opening (Epic Fantasy):**
+> "The Crystalspire looms before you, its ancient walls shimmering with residual thaumaturgy. Your mentor warned of the lich-king's phylactery hidden within—destroy it, or the undead legions will never cease. You check your grimoire one last time. Three paths lie ahead: the collapsed eastern gate, the sewer grate, or scaling the cliffs to the balcony."
 
 ---
 
@@ -297,6 +371,44 @@ See `art_style_references.md` for detailed guidance.
 | **Medium** | 200-400 | 20k-50k | ~1hr | Full horror scenario (haunted house, zombie outbreak). Puzzle structure. |
 | **Long** | 400-800 | 50k-100k | ~2hr | Extended survival campaign. Character death and restart mechanics. |
 | **Epic** | 800+ | 100k+ | 3hr+ | Rare for pure horror. More common in horror-RPG hybrids with resource management. |
+
+---
+
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 6.0 - 8.0
+- **Flesch Reading Ease:** 70 - 80
+- **Dale-Chall Score:** 5.0 - 6.9
+
+**Rationale:** Horror/thriller defaults to the **easiest readability**. The goal is **tension and rapid pacing**, achieved with short, declarative sentences, high-frequency verbs, and visceral (but common) language. Complex sentence structures and "ten-dollar words" slow the reader and break immersion.
+
+**Pacing priority:** Readability supports page-turning momentum. Simple prose = faster reading = heightened tension.
+
+**Critical Rule:** **Choice text must be crystal clear**—aim for F-K 5.0-6.0 for decision points to ensure instant comprehension during high-tension moments.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Short, staccato sentences and fragments. Builds pace and urgency. "You run. Footsteps behind you. Closer. Closer."
+- **Tense:** Present tense for immediacy ("You open the door..."). Creates in-the-moment dread.
+- **Vocabulary:** Sensory and visceral—focus on sounds, smells, textures. Avoid flowery or complex words.
+
+**Narrative Tone:**
+- Tense, immediate, anxious
+- Focus on sensory details (creaking floorboards, musty smell, cold touch)
+- Atmospheric dread builds slowly before jump scares
+- Isolation and vulnerability
+
+**Dialogue:**
+- Minimal (heightens isolation and dread)
+- Staccato and panicked when present
+- "Where are you?" "Run!" "Don't look back!"
+
+**Example Opening:**
+> "The door slams behind you. You spin. Nothing. Just darkness and the smell of rot. Somewhere above, floorboards creak. Slow. Deliberate. Coming closer. You have two choices: the basement stairs or the hallway. Both are black as pitch. Choose fast."
 
 ---
 
@@ -417,6 +529,44 @@ See `art_style_references.md` for detailed guidance.
 | **Medium** | 250-500 | 30k-70k | ~1-1.5hr | Murder investigation with 5-7 suspects. Multiple clues and red herrings. |
 | **Long** | 500-900 | 70k-120k | ~2-3hr | Serial crime or conspiracy. Multiple interconnected cases. |
 | **Epic** | 900+ | 120k+ | 3hr+ | Detective series format. Recurring characters, ongoing mysteries. |
+
+---
+
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 8.0 - 9.0
+- **Flesch Reading Ease:** 60 - 70 (Plain English)
+- **Dale-Chall Score:** 7.0 - 7.9
+
+**Rationale:** Mystery defaults to the "Plain English" baseline. The primary goal is **clarity**—text must be precise and unambiguous to fairly present clues and deductions. Readers must be able to follow logic without confusion.
+
+**Fair play principle:** Mysteries must present all information clearly. Overly complex prose can obscure clues unfairly.
+
+**Critical Rule:** **Choice text and clue descriptions must be crystal clear**—aim for F-K 7.0-8.0 to ensure fair puzzle-solving.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Declarative, observational. Mix of detail-rich descriptions (clues) and clear, simple navigation.
+- **Tense:** Past tense common ("You examined...") or present tense ("You notice...").
+- **Vocabulary:** Precise and specific—avoid ambiguity. "The vase was cracked" not "The vase looked damaged."
+
+**Narrative Tone:**
+- Cerebral, analytical, methodical
+- Observant and detail-oriented
+- Suspenseful but not rushed
+- Dry wit or charm (Holmesian style)
+
+**Dialogue:**
+- Interrogation-focused—reveals character, motive, alibis
+- Subtext and social dynamics
+- "Where were you at midnight?" "The library, as always."
+
+**Example Opening:**
+> "The body lies in the study, a single stab wound to the chest. The letter opener from the desk—now missing. Three suspects remain in the manor: the butler, the widow, and the business partner. Each claims an alibi. Only one is telling the truth. You begin your investigation."
 
 ---
 
@@ -543,6 +693,44 @@ See `art_style_references.md` for detailed guidance.
 
 ---
 
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 8.0 - 10.0
+- **Flesch Reading Ease:** 60 - 70 (Plain English)
+- **Dale-Chall Score:** 7.0 - 8.9
+
+**Rationale:** Romance targets the "Plain English" baseline. Focus is on **emotional resonance and character voice**. While prose can be more complex to explore internal monologues, it generally relies on accessible language. (Note: Historical subgenres may trend higher due to setting-specific vocabulary).
+
+**Emotional clarity:** Feelings and motivations must be clear to readers for emotional investment.
+
+**Critical Rule:** **Dialogue choices must be clear**—aim for F-K 7.0-8.0 for decision points to ensure readers understand emotional nuances.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Can be more complex for internal monologue and emotional exploration. Dialogue-heavy with emotional subtext.
+- **Tense:** First-person past ("I fell for him...") or present ("I'm falling..."). Second-person also works.
+- **Vocabulary:** Emotive language—feelings, sensations, internal reactions. Can be more "purple prose" for emotional beats.
+
+**Narrative Tone:**
+- Intimate, emotional, introspective
+- Focus on feelings, not just events
+- Varies by subgenre: sweet (warm, optimistic), steamy (sensual, intense), angsty (conflicted, dramatic)
+
+**Dialogue:**
+- Extensive—conversations are core mechanic
+- Subtext and emotional layering
+- Banter, flirting, vulnerability
+- "I didn't mean to..." "But you did."
+
+**Example Opening (Contemporary Romance):**
+> "You weren't supposed to see him again. That was the plan—clean break, move on, be the strong independent person everyone thinks you are. But here he is, standing in the coffee shop like he belongs there, like your heart didn't shatter into a thousand pieces the last time you spoke. He sees you. Smiles. And just like that, you're seventeen again, and nothing has changed."
+
+---
+
 ### Common Themes
 
 - Falling in love and attraction
@@ -664,6 +852,44 @@ See `art_style_references.md` for detailed guidance.
 | **Medium** | 300-600 | 40k-80k | ~1-2hr | Full sci-fi adventure. Exploration of AI, augmentation, or space travel. |
 | **Long** | 600-1200 | 80k-180k | ~2-4hr | Epic space opera or cyberpunk conspiracy. Multiple factions, tech systems. |
 | **Epic** | 1200+ | 180k+ | 4hr+ | Series-length sci-fi saga. Persistent universe, complex tech trees. |
+
+---
+
+### Reading Difficulty
+
+**Target Metrics (YA / Adult Audience):**
+- **Flesch-Kincaid Grade Level:** 8.0 - 10.0
+- **Flesch Reading Ease:** 60 - 70 (Plain English)
+- **Dale-Chall Score:** 7.0 - 8.9
+
+**Rationale:** Sci-Fi targets the "Plain English" baseline, similar to Mystery and Romance. While sci-fi includes technical jargon, the goal is **accessibility and clarity** to explore complex ideas without alienating readers.
+
+**Technical jargon balance:** Introduce terms clearly, use them consistently, avoid over-loading any single section with unexplained concepts.
+
+**Critical Rule:** **Choice text must be clear**—aim for F-K 7.0-8.0 for decision points, even when surrounding prose discusses complex tech concepts.
+
+---
+
+### Prose Style & Tone
+
+**Language Style:**
+- **Sentence Structure:** Balance between technical exposition and narrative flow. Action scenes use shorter sentences; world-building can be more complex.
+- **Tense:** Varies—present for immediacy, past for retrospective framing.
+- **Vocabulary:** Jargon-rich but accessible. Establish terms on first use. (e.g., "You jack into the mainframe—plug the neural interface behind your ear...")
+
+**Narrative Tone:**
+- Hardboiled and noir (cyberpunk)
+- Epic and optimistic (space opera)
+- Clinical and precise (hard sci-fi)
+- Philosophical and questioning (ethical dilemmas)
+
+**Dialogue:**
+- Can be jargon-heavy but must remain comprehensible
+- Characters speak in-world (tech slang, corporate-speak)
+- "Run the ICE-breaker. We've got thirty seconds before security traces us."
+
+**Example Opening (Cyberpunk):**
+> "The neon rain hammers the pavement outside your cube. Another sleepless night jacked into the net, running data for corporations that would kill you if they knew who you really were. Tonight's job: infiltrate Arasaka's mainframe, ghost the security AI, and extract the encrypted files. Three routes in: brute-force the firewall, social-engineer an access code, or buy a backdoor from your fixer. Each has risks. Choose fast—the target window closes in ten minutes."
 
 ---
 

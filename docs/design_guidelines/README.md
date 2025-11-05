@@ -94,19 +94,25 @@ See "Contributing to Design Guidelines" section below.
 - Content pacing defaults (words per section, choices per section)
 - Structural patterns (branch-and-merge vs. exponential branching)
 - Genre-based metric variations
+- ⭐ **NEW:** Children's gamebooks (age 3-5, 6-8, 9-12) with structural metrics
+- ⭐ **NEW:** Reading difficulty metrics by age (Flesch-Kincaid, Reading Ease, Dale-Chall)
+- ⭐ **NEW:** Young Adult (13-17) as bridge category
 
 **Use this when:**
 - Guiding users on project scope
 - Setting expectations for playtime
 - Designing branching structures
+- Determining age-appropriate metrics
 
 ### 2. Genre Conventions
 
 **File:** `genre_conventions.md`
 
 **Contains:**
-- 15+ popular gamebook genres (detective-noir, fantasy, horror, romance, sci-fi, etc.)
+- 6 popular gamebook genres (detective-noir, fantasy, horror, mystery, romance, sci-fi)
 - Typical project characteristics per genre (scope, pacing, style)
+- ⭐ **NEW:** Reading difficulty targets per genre (F-K Grade, Reading Ease, Dale-Chall)
+- ⭐ **NEW:** Prose style & tone guidance (sentence structure, tense, vocabulary)
 - Common themes and locations
 - Writing style recommendations (tone, POV, dialogue)
 - Cross-references to typography and art style
@@ -115,22 +121,26 @@ See "Contributing to Design Guidelines" section below.
 - Helping users select appropriate genres
 - Providing genre-specific recommendations
 - Understanding typical conventions for a genre
+- Checking prose against readability targets
 
 ### 3. Typography Recommendations
 
 **File:** `typography_recommendations.md`
 
 **Contains:**
+- ⭐ **NEW:** "Readability Over Theme" hard rule (thematic fonts only for headers)
 - 2-3 font pairings per genre with rationale
 - Prose + display font combinations
+- ⭐ **NEW:** Font recommendations by age (3-5, 6-8, 9-12, 13-17) with sizes and line spacing
 - Fallback recommendations
 - License information (SIL OFL, Google Fonts, etc.)
-- Examples of what aesthetic each pairing creates
+- Accessibility considerations (dyslexia-friendly, color contrast)
 
 **Use this when:**
 - Guiding Style Lead on font selection
 - Creating style_manifest artifacts
 - Explaining font pairing choices to users
+- Ensuring readability compliance
 
 ### 4. Art Style References
 
@@ -142,12 +152,14 @@ See "Contributing to Design Guidelines" section below.
 - Reference artists and visual styles
 - Prompt template fragments for consistency
 - Mood and tone guidance
+- ⭐ **NEW:** Children's illustration styles (3-5, 6-8, 9-12) with accessibility guidance
 
 **Use this when:**
 - Guiding Art Director on visual style
 - Creating shotlist prompts
 - Building art_manifest artifacts
 - Maintaining consistent visual aesthetic
+- Designing age-appropriate illustrations
 
 ---
 

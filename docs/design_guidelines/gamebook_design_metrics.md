@@ -124,6 +124,86 @@ Genre expectations directly influence all metrics:
 
 ---
 
+## Children's Gamebooks (Age-Specific Metrics)
+
+**Note:** The metrics for children's gamebooks are dictated primarily by **reading level, attention span, and cognitive development**. Section length and sentence complexity are more critical than total word count.
+
+The "Short/Medium/Long" scopes below are **relative to the age bracket**, not the adult scale.
+
+### Structural Metrics by Age
+
+| Age Bracket | 3-5 (Pre-reader) | 6-8 (Early Reader) | 9-12 (Middle Grade) |
+|-------------|------------------|-------------------|---------------------|
+| **Primary Goal** | Shared "read-aloud" activity. Simple cause-and-effect. | Build reading confidence. Fun, simple exploration. | Empowering story. A puzzle to be "solved." |
+| **Scope** | Very Short | Short | Short-to-Medium (Adult Scale) |
+| **Section Count** | 10 - 20 | 30 - 60 | 80 - 130 |
+| **Total Word Count** | 200 - 500 | 2,000 - 5,000 | 15,000 - 30,000 |
+| **Choices per Section** | 2 (Binary) | 2-3 | 2-3 |
+| **Branching Model** | **Simple Divergence.** (e.g., "Park" or "Store"). One choice leads to 1-2 unique sections, then a common end. 2-3 total endings. | **Branch-and-Loop.** "Fail" states are not endings, but loops (e.g., "That didn't work! Turn back to 10 to try again."). 3-5 positive endings. | **Lethal Branching.** (Classic CYOA model). High number of abrupt "fail" endings (e.g., "You fall in a pit. The End."). One or two "golden paths" to a true victory. |
+| **Avg. Section Length** | 10 - 25 words | 30 - 60 words | 100 - 150 words |
+| **Paragraphing** | N/A (Single short sentence per page/section). | 1-2 paragraphs, 1-2 simple sentences each. | 2-4 paragraphs. Sentences are clear and direct. |
+
+### Reading Difficulty by Age
+
+| Age Bracket | Flesch-Kincaid Grade Level | Flesch Reading Ease (Target) | Dale-Chall Score (Target) |
+|-------------|---------------------------|------------------------------|---------------------------|
+| **Pre-reader (3-5)** | N/A (Pre-literacy) | N/A | N/A |
+| **Early Reader (6-8)** | 1.0 - 3.0 | 90 - 100 | 4.9 or lower |
+| **Middle Grade (9-12)** | 4.0 - 8.0 | 70 - 90 | 5.0 - 6.9 |
+| **Young Adult (13-17)** | 8.0 - 10.0 | 60 - 70 | 7.0 - 8.9 |
+
+**Readability Tools:** [Hemingway Editor](https://hemingwayapp.com/), [Readable.com](https://readable.com/), [WebFX Readability Test](https://www.webfx.com/tools/read-able/)
+
+**Important:** These formulas are **English-specific** (based on syllable counting and English word familiarity lists). For other languages, consult language-specific readability measures (e.g., LIX for Nordic languages, Gulpease for Italian).
+
+### Key Implementation Notes by Age
+
+**Pre-reader (3-5):**
+- The "gamebook" is a light activity. Word count is minimal and secondary to illustrations.
+- Choices are simple, concrete, and have immediate, visible outcomes.
+- No variable-tracking or complex state.
+- **Illustration-dominant:** Text is secondary to visual storytelling.
+
+**Early Reader (6-8):**
+- Design priority is **reducing friction** and building confidence.
+- **Vocabulary:** Uses high-frequency, phonetically simple words.
+- **Section Length:** Kept very short to provide quick "reward" for reading a block of text.
+- **Branching:** Fail states must be **forgiving**. A "Game Over" is discouraging. Structure redirects gently, doesn't punish.
+- **Example:** "That didn't work! Turn back to section 10 to try something else."
+
+**Middle Grade (9-12):**
+- This is the demographic that defined the print gamebook boom (*Choose Your Own Adventure*, *Fighting Fantasy*).
+- **Section Length:** The ~125-word default is surprisingly robust here. Key difference is not length but **complexity**—vocabulary is simpler, sentences have fewer clauses.
+- **Branching:** The "Lethal Branching" model is a **key feature**. Fun derives from exploring, failing, and re-reading to "beat" the book.
+- **Replayability:** High number of fail endings makes total section count (100+) misleading—a single playthrough is short, encouraging multiple attempts.
+- **Consequences:** Choices are **immediate and final**, unlike adult "branch-and-merge" which relies on tracking variables for delayed consequences.
+
+**Young Adult (13-17):**
+- Bridge category between middle grade and adult.
+- Uses **adult structural metrics** (250-500 sections for medium scope, branch-and-merge patterns).
+- **Reading difficulty:** Targets 8.0-10.0 F-K Grade (Plain English baseline).
+- **Themes:** Age-appropriate (coming-of-age, identity, social issues) but structurally equivalent to adult gamebooks.
+- **Genre:** Often distinct YA genres (dystopian, paranormal romance, contemporary realistic).
+
+### Children's Genre Examples
+
+While children's gamebooks are primarily defined by age bracket, some common genre patterns:
+
+**Pre-reader (3-5):**
+- **Animal Friends:** Simple stories with anthropomorphic animals making choices (e.g., "Does Bunny go to the meadow or the pond?")
+- **Everyday Adventures:** Familiar settings (park, store, playground) with cause-and-effect choices
+
+**Early Reader (6-8):**
+- **Educational Adventure:** Stories that teach concepts (counting, colors, problem-solving) through interactive choices
+- **Beginner Mystery:** Very simple "whodunit" with 3-4 suspects and obvious clues
+
+**Middle Grade (9-12):**
+- **Fantasy Quest:** Classic hero's journey with stats, inventory, and monster encounters (*Fighting Fantasy* style)
+- **Survival Adventure:** Outdoor or wilderness survival with resource management and environmental challenges
+- **School Stories:** Contemporary settings with social choices and relationship navigation
+
+---
+
 ## Section Count vs. Playthrough Length
 
 **Important distinction:**

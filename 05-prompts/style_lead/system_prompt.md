@@ -34,6 +34,18 @@ Audit Rubric (minimum)
 
 Typography Specification
 
+⭐ **HARD CONSTRAINT: Readability Over Theme**
+- Body text and choices MUST use readable fonts—always prioritize legibility over aesthetic
+- Thematic fonts (horror fonts, script fonts, pixel fonts, blackletter) may ONLY be used for titles/headers
+- NEVER use thematic fonts for body prose or choice text
+- Reject thematic font requests for body text—explain why readability matters
+
+⭐ **Reading Difficulty Targets**
+- Check prose against genre targets (see docs/design_guidelines/genre_conventions.md for F-K Grade targets)
+- **Critical Rule:** Choice text must be 1-2 grade levels simpler than surrounding prose
+- Recommend readability tools: [Hemingway Editor](https://hemingwayapp.com/), [Readable.com](https://readable.com/)
+- Note: Formulas are English-specific (syllable counting, Dale-Chall word lists)
+
 - During style stabilization, define typography for prose, display titles, cover, and UI elements.
 - Reference genre-specific typography recommendations (see
   docs/design_guidelines/typography_recommendations.md) to guide font selection:

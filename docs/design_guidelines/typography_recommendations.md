@@ -24,6 +24,26 @@ Each genre has 2-3 recommended font pairings:
 
 ## General Typography Principles
 
+### ⭐ Readability Over Theme (HARD RULE)
+
+**This is the primary typography principle for gamebooks:**
+
+- **Body text and choices MUST use readable fonts**—always prioritize legibility over aesthetic
+- **Thematic fonts** (horror fonts, script fonts, pixel fonts, blackletter, etc.) may ONLY be used for:
+  - Titles and chapter headings
+  - Decorative headers
+  - Non-essential flourishes
+- **NEVER use thematic fonts for:**
+  - Body prose
+  - Choice text
+  - Any text the user must read to progress
+
+**Why this matters:** Gamebooks require sustained reading and frequent decision-making. Decorative fonts cause eye strain, slow reading speed, and frustrate users. A horror story with Comic Sans body text is more readable (and therefore better) than one with a "spooky" illegible font.
+
+**For Style Lead:** This is a **hard constraint**. Reject thematic fonts for body text even if user requests them. Explain why readability matters.
+
+---
+
 ### Readability First
 
 - **Prose fonts must be readable** at small sizes (12-16px)
@@ -418,6 +438,74 @@ If creating custom pairings:
 - **Horror:** Gothic, angular, unsettling
 - **Romance:** Elegant, warm, friendly
 - **Mystery:** Classic, readable, sophisticated
+
+---
+
+## Font Recommendations by Age (Children's Gamebooks)
+
+### Pre-reader (3-5 years)
+
+**Font Requirements:**
+- **Very large size:** 18-24pt minimum
+- **Rounded, friendly sans-serif:** Poppins, Baloo, Comic Sans (yes, really—it's effective here)
+- **Unambiguous letterforms:** Clear distinction between "a/g", avoid stylized characters
+- **Line spacing:** 1.8-2.0 (generous white space)
+
+**Prose:** Baloo 2 or Poppins (rounded, friendly)
+**Display:** Same font, larger size (simplicity priority)
+**Rationale:** Pre-readers need maximum clarity. Illustration-dominant layout with minimal text.
+
+---
+
+### Early Reader (6-8 years)
+
+**Font Requirements:**
+- **Large size:** 16-20pt
+- **High readability:** Designed for beginning readers
+- **Line spacing:** 1.5-2.0
+
+**Prose:** Sassoon Primary, Atkinson Hyperlegible, or Open Sans
+**Display:** Same family, bold weight
+**Rationale:** Fonts designed specifically for reading education. Atkinson Hyperlegible has exceptional letter distinction for emerging readers.
+
+**Accessibility Note:** Sassoon Primary was designed for teaching handwriting and is excellent for dyslexic readers.
+
+---
+
+### Middle Grade (9-12 years)
+
+**Font Requirements:**
+- **Standard book size:** 11-13pt
+- **Clear navigation:** Section numbers must be bold and easily scannable
+- **Line spacing:** 1.4-1.6
+
+**Prose:** Garamond, Times New Roman, Georgia (traditional book fonts)
+**Display:** Same font, bold or a complementary sans-serif
+**Rationale:** Middle grade readers can handle adult book typography. Focus on clear section numbering for CYOA-style navigation.
+
+**Critical:** Section numbers and choice options must be **bolded and clearly separated** from prose for easy navigation.
+
+---
+
+### Young Adult (13-17 years)
+
+**Font Requirements:**
+- Same as adult (see genre-specific recommendations above)
+- May prefer slightly larger base size (12-14pt vs. 11-12pt)
+
+**Prose & Display:** Use adult genre recommendations
+**Rationale:** YA readers have adult reading capability. Typography should match genre (detective, fantasy, romance, etc.).
+
+---
+
+### Layout Guidance by Age
+
+| Age | Font Size (Prose) | Line Height | Paragraph Spacing | White Space Priority |
+|-----|-------------------|-------------|-------------------|---------------------|
+| **3-5** | 18-24pt | 1.8-2.0 | Generous (1.5-2x line height) | Very High |
+| **6-8** | 16-20pt | 1.5-2.0 | Generous (1.2-1.5x line height) | High |
+| **9-12** | 11-13pt | 1.4-1.6 | Standard (1x line height) | Moderate |
+| **13-17** | 11-14pt | 1.4-1.6 | Standard | Standard |
 
 ---
 
