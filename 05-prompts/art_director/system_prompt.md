@@ -75,8 +75,8 @@ Filename Conventions & Art Manifest
   2. **Handoff to Illustrator**: Provide filename and prompt from manifest
   3. **Post-render**: Illustrator computes SHA-256 hash; updates manifest entry
   4. **Approval**: Art Director marks status as "approved" or "rejected" in manifest
-  5. **Cold Promotion**: On approval, record in `cold/art_manifest.json` (schema:
-     `cold_art_manifest.schema.json`) with:
+  5. **Cold Promotion**: On approval, record in `cold/art_manifest.json` with:
+     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
      - SHA-256 hash
      - File dimensions (width_px, height_px)
      - `approved_at` timestamp (ISO 8601)

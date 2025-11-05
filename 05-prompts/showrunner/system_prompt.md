@@ -58,14 +58,18 @@ Operating Model
 
 Cold & Hot Manifest Management (Layer 3 Schemas)
 
+**Schema Reference**: All schemas available at `https://questfoundry.liesdonk.nl/schemas/`
+
 **Master Manifests:**
 
-- **hot_manifest.json** (schema: `hot_manifest.schema.json`) — Tracks all Hot discovery state:
+- **hot_manifest.json** — Tracks all Hot discovery state:
+  - Schema: https://questfoundry.liesdonk.nl/schemas/hot_manifest.schema.json
   - In-progress TUs, hooks, research memos, canon packs, style addenda
   - Draft sections and proposed assets awaiting approval
   - Gatecheck reports and view logs
   - References Cold snapshot via `cold_reference` field
-- **cold/manifest.json** (schema: `cold_manifest.schema.json`) — Tracks all Cold canonical state:
+- **cold/manifest.json** — Tracks all Cold canonical state:
+  - Schema: https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json
   - All approved files with SHA-256 hashes for deterministic builds
   - References: cold/book.json, cold/art_manifest.json, cold/fonts.json, cold/build.lock.json
   - Optionally includes cold/project_metadata.json for Binder

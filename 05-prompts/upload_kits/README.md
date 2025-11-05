@@ -128,45 +128,21 @@ zip -r full-upload-kit.zip \
   05-prompts/translator/system_prompt.md
 ```
 
-## Optional Schema Kit (Advanced Cold SoT Validation)
+## Layer 3 Schema Reference (No Upload Required)
 
-For advanced users working with Cold builds, asset management, or deterministic builds, include
-these Layer 3 schemas:
+**All Cold SoT schemas are available at canonical URLs**:
+`https://questfoundry.liesdonk.nl/schemas/`
 
-```
-03-schemas/cold_manifest.schema.json
-03-schemas/cold_book.schema.json
-03-schemas/cold_art_manifest.schema.json
-03-schemas/hot_manifest.schema.json
-03-schemas/project_metadata.schema.json
-```
+Book Binder and Gatekeeper system prompts reference these schemas by canonical URL for validation:
 
-**When to use**: Include schemas when asking agents to validate Cold files, build manifests, or
-troubleshoot deterministic build issues. Book Binder and Gatekeeper reference these schemas in their
-prompts. Not required for basic manuscript drafting.
+- cold_manifest.schema.json — Top-level file index with SHA-256 hashes
+- cold_book.schema.json — Story structure, section order, metadata
+- cold_art_manifest.schema.json — Asset mappings with provenance tracking
+- hot_manifest.schema.json — Hot discovery space index
+- project_metadata.schema.json — Project configuration
 
-Bash (macOS/Linux):
-
-```
-zip -r schemas-kit.zip \
-  03-schemas/cold_manifest.schema.json \
-  03-schemas/cold_book.schema.json \
-  03-schemas/cold_art_manifest.schema.json \
-  03-schemas/hot_manifest.schema.json \
-  03-schemas/project_metadata.schema.json
-```
-
-PowerShell (Windows):
-
-```
-Compress-Archive -Path @(
-  '03-schemas/cold_manifest.schema.json',
-  '03-schemas/cold_book.schema.json',
-  '03-schemas/cold_art_manifest.schema.json',
-  '03-schemas/hot_manifest.schema.json',
-  '03-schemas/project_metadata.schema.json'
-) -DestinationPath schemas-kit.zip -Force
-```
+**No upload needed**: Agents reference schemas by URL. The schemas define the Cold SoT format that
+prevents protocol violations (e.g., Adventure Bay Binder Breakdown).
 
 ## Build Link Folders And Zips (Recommended)
 
@@ -181,10 +157,12 @@ You'll get (top‑level):
 - `minimal/` (10 files) and `minimal.zip`
 - `optional/` (PN and optional roles) and `optional.zip`
 - `full/` (union of minimal+optional) and `full.zip`
-- **NEW**: `schemas/` (5 schema files) and `schemas.zip` for Cold SoT validation
 
 Filenames are simplified (e.g., `showrunner.md`, `book_binder.md`; shared docs keep their names) to
 avoid collisions when attaching.
+
+**Note**: Layer 3 schemas are not included in upload kits as they are available at canonical URLs
+(`https://questfoundry.liesdonk.nl/schemas/`) and referenced directly by prompts.
 
 ## Platform Notes (General)
 

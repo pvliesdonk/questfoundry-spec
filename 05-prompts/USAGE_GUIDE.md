@@ -49,19 +49,21 @@ Addon (upload later when binding/PN is needed)
 
 - 05-prompts/player_narrator/system_prompt.md
 
-Optional Schema Kit (for advanced Cold SoT validation)
+Layer 3 Schema Reference (No Upload Required)
 
-Upload these Layer 3 schemas when working with Cold builds, asset management, or validating
-deterministic builds. Book Binder and Gatekeeper reference these schemas in their prompts:
+**All Cold SoT schemas are available at canonical URLs**:
+`https://questfoundry.liesdonk.nl/schemas/`
 
-- 03-schemas/cold_manifest.schema.json
-- 03-schemas/cold_book.schema.json
-- 03-schemas/cold_art_manifest.schema.json
-- 03-schemas/hot_manifest.schema.json
-- 03-schemas/project_metadata.schema.json
+Book Binder and Gatekeeper prompts reference these schemas for validation:
 
-**When to use**: Include schemas when asking agents to validate Cold files, build manifests, or
-troubleshoot deterministic build issues. Not required for basic manuscript drafting.
+- cold_manifest.schema.json — Top-level file index with SHA-256 hashes
+- cold_book.schema.json — Story structure, section order, metadata
+- cold_art_manifest.schema.json — Asset mappings with provenance tracking
+- hot_manifest.schema.json — Hot discovery space index
+- project_metadata.schema.json — Project configuration
+
+**No upload needed**: Agents reference schemas by canonical URL. The schemas define the Cold SoT
+format that prevents protocol violations (e.g., Adventure Bay Binder Breakdown).
 
 Full Upload Kit (split for Gemini)
 
@@ -140,12 +142,14 @@ remaining debt if any.
   - Useful prompt: “Audit Scene 1 for register drift; propose minimal rewrites.”
 - Gatekeeper (GK)
   - Evaluate bars (Presentation, Integrity, Style, Determinism, etc.) with player‑safe evidence.
-  - **NEW**: Runs Cold SoT validation before allowing Binder (8 preflight checks: manifest
-    validation, file existence, SHA-256 verification, asset approval metadata).
+  - **Runs Cold SoT validation** before allowing Binder (8 preflight checks: manifest validation,
+    file existence, SHA-256 verification, asset approval metadata). Schemas at
+    https://questfoundry.liesdonk.nl/schemas/
   - Useful prompt: "Pre‑gate manuscript; list smallest fixes per bar; don't leak spoilers."
 - Book Binder (BB)
   - Bind views (Markdown/HTML) from Cold manifest, summarize anchors, return export artifacts.
-  - **NEW**: All inputs MUST come from `cold/manifest.json` (no directory scanning/heuristics).
+  - **All inputs MUST come from `cold/manifest.json`** (no directory scanning/heuristics). Validates
+    against schemas at https://questfoundry.liesdonk.nl/schemas/
   - Useful prompt: "Bind to Markdown for PN; include anchor_map summary; return paths."
 - Player‑Narrator (PN)
   - Perform in‑world; enforce gateways diegetically; report issues.

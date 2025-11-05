@@ -58,6 +58,7 @@ Filename Conventions (Renderer Integration)
    - Generation timestamp
    - Parameters used (if deterministic)
 6. On **approval**, Art Director promotes to `cold/art_manifest.json` with:
+   - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
    - Deterministic filename (anchor-based)
    - `approved_at` timestamp (ISO 8601)
    - `approved_by` role (IL or AD)

@@ -26,14 +26,18 @@ Checklist
 
 Cold Source of Truth Validation (Determinism Bar)
 
+**Schema Reference**: All Cold SoT schemas available at `https://questfoundry.liesdonk.nl/schemas/`
+
 **Preflight Checks Before Binder**
 
 Before allowing Binder to proceed with any Cold snapshot:
 
-1. **Manifest Validation**: `cold/manifest.json` MUST validate against `cold_manifest.schema.json`
-2. **Book Structure**: `cold/book.json` MUST validate against `cold_book.schema.json`
-3. **Asset Manifest**: `cold/art_manifest.json` MUST validate against
-   `cold_art_manifest.schema.json`
+1. **Manifest Validation**: `cold/manifest.json` MUST validate against schema
+   - https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json
+2. **Book Structure**: `cold/book.json` MUST validate against schema
+   - https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json
+3. **Asset Manifest**: `cold/art_manifest.json` MUST validate against schema
+   - https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
 4. **File Existence**: Every file listed in `cold/manifest.json` MUST exist at specified path
 5. **Hash Verification**: Every file's SHA-256 MUST match manifest (use `sha256sum` or equivalent)
 6. **Asset Verification**: Every asset in `cold/art_manifest.json` MUST exist in `assets/` with

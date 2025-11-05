@@ -26,21 +26,27 @@ Operating Model
 
 Cold Source of Truth Format (Layer 3 Schemas)
 
+**Schema Reference**: All Cold SoT schemas available at `https://questfoundry.liesdonk.nl/schemas/`
+
 **Manifest-Driven Builds (No Heuristics)**
 
-- **ALL** Cold inputs MUST come from `cold/manifest.json` (schema: `cold_manifest.schema.json`).
+- **ALL** Cold inputs MUST come from `cold/manifest.json`
+  - Schema: https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json
 - **FORBIDDEN**: Directory scanning (no `ls`, `glob`, `find`), "newest file wins" logic, guessing
   filenames, reading from Hot.
 - **Required Cold files**:
   1. `cold/manifest.json` — Top-level index with SHA-256 hashes for all files
-  2. `cold/book.json` — Story structure, section order, metadata (schema: `cold_book.schema.json`)
-  3. `cold/art_manifest.json` — Asset mappings with provenance (schema:
-     `cold_art_manifest.schema.json`)
+  2. `cold/book.json` — Story structure, section order, metadata
+     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json
+  3. `cold/art_manifest.json` — Asset mappings with provenance
+     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
 - **Optional Cold files**:
-  - `cold/project_metadata.json` — Project config for front matter (schema:
-    `project_metadata.schema.json`)
-  - `cold/fonts.json` — Font file mappings (schema: `cold_fonts.schema.json`)
-  - `cold/build.lock.json` — Tool version pinning (schema: `cold_build_lock.schema.json`)
+  - `cold/project_metadata.json` — Project config for front matter
+    - Schema: https://questfoundry.liesdonk.nl/schemas/project_metadata.schema.json
+  - `cold/fonts.json` — Font file mappings
+    - Schema: https://questfoundry.liesdonk.nl/schemas/cold_fonts.schema.json
+  - `cold/build.lock.json` — Tool version pinning
+    - Schema: https://questfoundry.liesdonk.nl/schemas/cold_build_lock.schema.json
 - **Validation**:
   - Every file in `cold/manifest.json` MUST exist at specified path
   - Every file's SHA-256 MUST match actual hash
