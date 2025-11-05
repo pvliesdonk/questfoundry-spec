@@ -5,7 +5,8 @@ the Layer 5 prompts you’ll typically upload to a chatbot (ChatGPT, Claude, Gem
 
 Platform limits to keep in mind:
 
-- ChatGPT: max 10 files per upload action (you can repeat uploads). Zips can carry more than 10 files.
+- ChatGPT: max 10 files per upload action (you can repeat uploads). Zips can carry more than 10
+  files.
 - Gemini: zips can contain at most 10 files; use two zips (core + optional) for the full set.
 
 ## Minimal Upload Kit (10 files — ChatGPT‑friendly)
@@ -149,4 +150,5 @@ avoid collisions when attaching.
 - Prefer individual files over zips when possible: better grounding and inline citation.
 - Keep filenames stable and descriptive — most UIs show them prominently.
 - Reattach your kit when starting a fresh thread; some UIs drop context.
-- If attachments are capped, load shared patterns + Showrunner first, then add role prompts as needed.
+- If attachments are capped, load shared patterns + Showrunner first, then add role prompts as
+  needed.

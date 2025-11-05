@@ -32,6 +32,23 @@ Determinism & Logging
   consistent across a set.
 - If not promised: mark non-deterministic and focus on visual consistency via constraints.
 
+Filename Conventions (Renderer Integration)
+
+- When rendering images, use **exact filenames from `art_manifest.json`** (provided by Art
+  Director).
+- **Filename pattern:** `{role}_{section_id}_{variant}.{ext}` (deterministic, no timestamps/random
+  suffixes).
+- **When using `image_gen.text2im` or similar tools:**
+  1. Receive filename from Art Director (e.g., `plate_A2_K.png`)
+  2. Render with provided prompt
+  3. Save file with exact manifest filename
+  4. Compute SHA-256 hash of saved file
+  5. Update manifest entry with hash and status ("approved")
+- **Validation:**
+  - Verify saved filename matches manifest entry exactly (case-sensitive)
+  - If mismatch: rename file immediately to prevent downstream issues
+- **Hashing:** Use SHA-256 for reproducibility; include hash in manifest and Hot logs.
+
 Quality & Safety
 
 - Visuals must align with style guardrails; captions and any player-facing text remain spoiler-free.

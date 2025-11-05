@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "jsonschema>=4.20.0",
+    "lxml>=5.0.0",
 ]
 
 [project.scripts]
@@ -13,6 +14,7 @@ qfspec-validate = "questfoundry_spec_tools.cli:validate_schemas_cli"
 qfspec-check-instance = "questfoundry_spec_tools.cli:validate_instance_cli"
 qfspec-check-envelope = "questfoundry_spec_tools.cli:validate_envelope_cli"
 qfspec-build-kits = "questfoundry_spec_tools.upload_kits:build_kits_cli"
+qfspec-validate-epub = "questfoundry_spec_tools.epub_validator:validate_epub_cli"
 
 [build-system]
 requires = ["hatchling"]

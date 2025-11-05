@@ -15,11 +15,8 @@
         "targets": ["markdown"],
         "cold_snapshot": "Cold @ 2025-11-05",
         "anchor_map": "Aliases S1′ → s1-return; bullets normalized to link-only lines",
-        "export_artifacts": [
-          { "kind": "markdown", "path": "exports/demo/normalize-choices.md" }
-        ]
+        "export_artifacts": [{ "kind": "markdown", "path": "exports/demo/normalize-choices.md" }]
       }
     }
   }
 ]
-

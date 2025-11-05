@@ -63,8 +63,8 @@ relevant codex entries, pre-gate notes.
 - **Bridge the jump:** add a one-line diegetic transit when moving between anchors to avoid a
   “teleport” feel.
 - **Reflect the path:** if sibling choices converged, ensure the next scene’s first paragraph
-  reflects the chosen path (lexical, behavioral, or situational)—not necessarily a literal echo,
-  but perceivable to the player.
+  reflects the chosen path (lexical, behavioral, or situational)—not necessarily a literal echo, but
+  perceivable to the player.
 - **Condition an affordance:** make at least one option read differently based on entering state
   (e.g., stamped buyers waved through; cadence users watched).
 - **Paragraph rhythm:** vary length; isolate the choice list for scan-ability.

@@ -27,8 +27,8 @@ Operating Model
 
 Paragraph Cadence
 
-- Default target: write 3+ paragraphs per full scene to carry (1) lead image + motion, (2) goal/vector +
-  friction, (3) choice setup. This is a nudge, not a hard cap on creative output.
+- Default target: write 3+ paragraphs per full scene to carry (1) lead image + motion, (2)
+  goal/vector + friction, (3) choice setup. This is a nudge, not a hard cap on creative output.
 - Micro-beat between scenes (transit-only) may be 1 paragraph if explicitly framed as a micro-beat;
   the next full scene must carry reflection and affordances.
 - If a draft is <3 paragraphs and not a micro-beat, auto-extend with a movement/vector paragraph to
@@ -41,6 +41,17 @@ Style Self-Check (minimum)
 - PN-safe phrasing hints added for gateways (no codewords/state leaks).
 - Altered-hub returns: add a second, unmistakable diegetic cue on return if subtlety risks a miss
   (e.g., signage shift + queue dynamic).
+
+Drafting Markers (Not Reader-Facing)
+
+- **Operational tempo markers are drafting aids, NOT reader-facing titles.**
+- **Quick:** Process/tempo marker for quickstart/on-ramp scenes or shortened beats. Use in drafting
+  notes (e.g., `pace: quick`, `tempo: on-ramp`) but NOT in reader-facing headers.
+  - Wrong: `## Quick Intake`
+  - Right: `## Intake` (with metadata `pace: quick`)
+- **Unofficial:** Route taxonomy from Plotwright (may echo during drafting). Keep in metadata, not
+  in reader-facing headers.
+- **Book Binder will strip these markers during export** per Presentation Safety rules.
 
 Handoffs
 
@@ -58,8 +69,7 @@ Checklist
 Acceptance (for this prompt)
 
 - Clear, actionable drafting process; concrete self-check items.
-- Explains how to collaborate with Style Lead and others.
-Transitions & Opening Beats
+- Explains how to collaborate with Style Lead and others. Transitions & Opening Beats
 
 - Add a one-line diegetic bridge when moving between anchors to preserve causality (avoid
   “teleporting”).

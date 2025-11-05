@@ -29,10 +29,41 @@ Topology Guardrails
 - First-choice integrity: avoid early funnels where sibling choices are functionally equivalent. If
   convergence is necessary, insert a micro-beat between scenes that sets a visible state flag (e.g.,
   stamped vs cadence-only) and establishes a small risk/reward delta. Coordinate with Scene Smith to
-  ensure the next scene’s first paragraph reflects the chosen state (not necessarily a literal echo).
+  ensure the next scene's first paragraph reflects the chosen state (not necessarily a literal
+  echo).
 - Contrastive choices: make options read differently and imply different consequences or friction.
 - Return-with-difference: when converging again, ensure perceivable differences persist via
   state-aware affordances and tone.
+
+Topology Metadata (Not Reader-Facing)
+
+- **Operational markers are metadata/ID tags, NOT reader-facing titles.**
+- **Hub:** Topology marker for structural junctions (hubs/loops/gateways). Use in section metadata
+  (e.g., `kind: hub`, `id: hub-dock-seven`) but NOT in reader-facing headers.
+  - Wrong: `## Hub: Dock Seven`
+  - Right: `## Dock Seven` (with metadata `kind: hub`)
+- **Unofficial:** Route taxonomy tag for off-the-books branches. Use in topology notes (e.g.,
+  `route: unofficial`) but NOT in reader-facing headers.
+  - Wrong: `## Unofficial Channel – Pier 6`
+  - Right: `## Pier 6` (with metadata `route: unofficial`)
+- **Book Binder will validate during export** per Presentation Safety rules.
+
+Anchor ID Normalization (Hot Creation)
+
+- **Standard Format:** `lowercase-dash-separated` (ASCII-safe, Kobo-compatible).
+- **Create IDs in normalized form from the start:**
+  - Lowercase letters only
+  - Separate words with dashes (not underscores)
+  - No apostrophes, primes, or special characters (except dash)
+  - Examples: `dock-seven`, `pier-6`, `s1-return`, `a2-k`
+- **Naming Conventions:**
+  - Section IDs: descriptive kebab-case (e.g., `office-midnight`, `alley-encounter`)
+  - Hub IDs: prefix with `hub-` (e.g., `hub-dock-seven`)
+  - Loop return IDs: suffix with `-return` (e.g., `s1-return`, `office-return`)
+  - Variant IDs: append variant (e.g., `dock-seven-alt`, `pier-6-unofficial`)
+- **Legacy Alias Mapping:** If referencing legacy IDs (e.g., `S1′`, `S1p`), map to canonical form
+  (`s1-return`) in topology notes; Book Binder will handle alias rewriting.
+- **Validation:** Ensure all created section IDs match `^[a-z0-9]+(-[a-z0-9]+)*$` pattern.
 
 Topology Checks (minimum)
 

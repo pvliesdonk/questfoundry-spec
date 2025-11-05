@@ -30,9 +30,9 @@ Gatecheck and Merge flows enable:
 - **Snapshot stamping** — merge approvals MUST record Cold snapshot per TRACEABILITY
 - **Player-safe reporting** — gate reports may contain spoilers (Hot-only) but follow spoiler
   hygiene
- - **Choice integrity** — when sibling choices converge, the next scene’s first paragraph should
-   reflect the choice made; include a one-line diegetic bridge on anchor jumps. Missing reflection
-   is a Nonlinearity/Determinism issue and should block at pre-gate.
+- **Choice integrity** — when sibling choices converge, the next scene’s first paragraph should
+  reflect the choice made; include a one-line diegetic bridge on anchor jumps. Missing reflection is
+  a Nonlinearity/Determinism issue and should block at pre-gate.
 
 ---
 

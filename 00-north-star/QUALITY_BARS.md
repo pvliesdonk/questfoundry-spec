@@ -73,9 +73,9 @@ Each bar has quick checks, common failures, and remediation hints.
 
 - Identify planned hubs/loops/gateways → show them in the current topology.
 - For loops: show at least one meaningful “return with difference” (usually via codeword/state).
- - First-choice integrity: avoid early funnels where sibling choices are functionally equivalent.
-   If convergence is necessary, the next scene’s first paragraph must reflect the chosen path
-   (lexical, behavioral, or situational).
+- First-choice integrity: avoid early funnels where sibling choices are functionally equivalent. If
+  convergence is necessary, the next scene’s first paragraph must reflect the chosen path (lexical,
+  behavioral, or situational).
 
 **Common failures & fixes**
 
@@ -137,8 +137,8 @@ Each bar has quick checks, common failures, and remediation hints.
 
 - Parameters logged and sufficient to re-render/re-generate.
 - If plan-only (no execution yet), marked `deferred:<asset>` with constraints reviewed.
- - When branches converge, the next scene’s first paragraph reflects the entering state; at least
-   one affordance is conditioned by that state.
+- When branches converge, the next scene’s first paragraph reflects the entering state; at least one
+  affordance is conditioned by that state.
 
 **Common failures & fixes**
 
@@ -160,7 +160,7 @@ Each bar has quick checks, common failures, and remediation hints.
 - Codex omits hidden gate logic, reveals only player-safe summaries.
 - PN lines never mention codewords/state directly; uses in-world wording.
 - No technique talk (seeds, models, DAW sessions) on player surfaces.
- - Diegetic transit present on anchor jumps (avoid “teleporting”).
+- Diegetic transit present on anchor jumps (avoid “teleporting”).
 
 **Common failures & fixes**
 

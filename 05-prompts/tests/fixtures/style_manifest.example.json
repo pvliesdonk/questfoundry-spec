@@ -1,0 +1,34 @@
+{
+  "typography": {
+    "prose": {
+      "font_family": "Source Serif 4",
+      "fallback": "Georgia, Times New Roman, serif",
+      "font_size": "1em",
+      "line_height": "1.6",
+      "paragraph_spacing": "1em"
+    },
+    "display": {
+      "font_family": "Cormorant Garamond",
+      "fallback": "Georgia, serif",
+      "h1_size": "2.5em",
+      "h2_size": "2em",
+      "h3_size": "1.5em"
+    },
+    "cover": {
+      "title_font": "Cormorant Garamond Bold",
+      "author_font": "Source Serif 4 Italic",
+      "fallback": "Georgia, serif"
+    },
+    "ui": {
+      "link_color": "#2c5aa0",
+      "link_underline": true,
+      "caption_font": "Source Serif 4 Italic",
+      "caption_size": "0.9em"
+    }
+  },
+  "fonts_required": [
+    "Source Serif 4 (Regular, Italic, Bold)",
+    "Cormorant Garamond (Regular, Bold)"
+  ],
+  "embed_in_epub": true
+}

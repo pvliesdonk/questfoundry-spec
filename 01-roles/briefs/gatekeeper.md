@@ -61,8 +61,8 @@
   cue.
 - **Block fake agency early.** First-scene choices must not be functionally equivalent (same
   destination and same opening experience). If branches converge, require: (1) a one-line diegetic
-  bridge; (2) first-paragraph reflection of the chosen path (lexical/behavioral/situational);
-  (3) at least one state-aware affordance. Missing elements → block at pre-gate with smallest fixes.
+  bridge; (2) first-paragraph reflection of the chosen path (lexical/behavioral/situational); (3) at
+  least one state-aware affordance. Missing elements → block at pre-gate with smallest fixes.
 - **Presentation hygiene.** Ban technique on surfaces (seeds/models/DAW). Captions/alt are concise
   and atmospheric.
 - **Determinism stays off-surface.** Confirm logs exist when promised; surfaces remain clean.
