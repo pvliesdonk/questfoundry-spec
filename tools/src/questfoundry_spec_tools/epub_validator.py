@@ -9,7 +9,6 @@ Validates EPUB exports against post-mortem policies:
 - Gate 6: Header Hygiene (no operational markers)
 """
 
-import json
 import re
 import zipfile
 from dataclasses import dataclass
@@ -77,7 +76,7 @@ class EPUBValidator:
             self.results.append(ValidationResult(
                 "EPUB Parsing",
                 "fail",
-                f"Error parsing EPUB: {e}",
+                f"Error parsing EPUB {self.epub_path}: {e}",
                 []
             ))
             return False, self.results
@@ -499,6 +498,7 @@ class EPUBValidator:
             if rootfile:
                 return rootfile[0]
         except Exception:
+            # Silently fall back to searching for content.opf if container.xml is malformed or missing
             pass
 
         # Fallback: search for content.opf

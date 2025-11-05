@@ -103,7 +103,7 @@ tension-driven pacing. Think Chandler, Hammett, and film noir classics.
 
 **Rationale:** Detective noir defaults to the "Plain English" baseline. The primary goal is
 **clarity**—the text must be precise and unambiguous to fairly present clues and deductions. Avoid
-overly simplistic prose (condescending) and overly complex prose (obscures information).
+overly simplistic prose (condescending) and overly complex prose (obscure information).
 
 **Critical Rule:** Regardless of prose complexity, **choice text must be simpler**—aim for low end
 of range (F-K 7.0-8.0) for decision points.

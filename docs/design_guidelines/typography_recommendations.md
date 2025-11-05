@@ -27,7 +27,7 @@ custom fonts.
 
 ## General Typography Principles
 
-### ⭐ Readability Over Theme (HARD RULE)
+### **IMPORTANT:** Readability Over Theme (HARD RULE)
 
 **This is the primary typography principle for gamebooks:**
 
