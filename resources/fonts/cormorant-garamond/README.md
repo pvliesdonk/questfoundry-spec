@@ -17,6 +17,7 @@
 **SIL Open Font License 1.1**
 
 The license permits:
+
 - ✓ Embedding in EPUB/PDF
 - ✓ Redistribution
 - ✓ Commercial use
@@ -37,9 +38,11 @@ cormorant-garamond/
 
 ## About Cormorant
 
-Cormorant is a free display font family developed by Christian Thalmann. The Garamond variant is inspired by Claude Garamond's classical typefaces, making it ideal for literary titles and headers.
+Cormorant is a free display font family developed by Christian Thalmann. The Garamond variant is
+inspired by Claude Garamond's classical typefaces, making it ideal for literary titles and headers.
 
 **Design Characteristics:**
+
 - Elegant serifs with fine details
 - High contrast between thick and thin strokes
 - Excellent for display sizes (titles, headers)

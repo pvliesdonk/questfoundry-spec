@@ -1,14 +1,13 @@
 # Preset Integration Patterns — How Prompts Use Presets
 
-**Date:** 2025-11-05
-**Status:** 🔵 DESIGN REFERENCE
-**Related:** genre_aware_defaults.md
+**Date:** 2025-11-05 **Status:** 🔵 DESIGN REFERENCE **Related:** genre_aware_defaults.md
 
 ---
 
 ## Overview
 
-This document shows **exactly how** roles (Layer 2 prompts) access and use preset data (Layer 0 resources).
+This document shows **exactly how** roles (Layer 2 prompts) access and use preset data (Layer 0
+resources).
 
 ---
 
@@ -16,7 +15,8 @@ This document shows **exactly how** roles (Layer 2 prompts) access and use prese
 
 **Approach:** Prompts reference preset files by path. The SDK/runtime environment provides the data.
 
-This matches QuestFoundry's existing pattern where prompts reference artifacts like `02-dictionary/artifacts/front_matter.md`.
+This matches QuestFoundry's existing pattern where prompts reference artifacts like
+`02-dictionary/artifacts/front_matter.md`.
 
 ---
 
@@ -30,6 +30,7 @@ This matches QuestFoundry's existing pattern where prompts reference artifacts l
 Project Initialization Flow
 
 Step 1: Genre & Theme
+
 - Ask user for primary genre/theme (detective-noir, fantasy, sci-fi, etc.)
 ```
 
@@ -39,7 +40,7 @@ Step 1: Genre & Theme
 
 ### After (Preset-Driven)
 
-```markdown
+````markdown
 # Showrunner — System Prompt
 
 Project Initialization Flow
@@ -72,7 +73,7 @@ Step 1: Genre Selection
    - Use `target_sections_range` for Step 3 (Length)
    - Use `style` defaults for Step 4 (Style & Tone)
    - Use `suggested_sections` to present length options with context
-```
+````
 
 ---
 
@@ -143,7 +144,7 @@ Typography Specification
 
 ### After (Preset-Driven)
 
-```markdown
+````markdown
 # Style Lead — System Prompt
 
 Typography Specification
@@ -159,6 +160,7 @@ Typography Specification
 3. **Present font options to user (if multiple presets exist):**
    - List available typography presets for this genre
    - Example for detective-noir:
+
      ```
      Available typography presets for Detective Noir:
 
@@ -185,7 +187,7 @@ Typography Specification
 6. **Create style_manifest.json:**
    - Populate with selected typography preset
    - Set `embed_in_epub` based on font availability
-```
+````
 
 ---
 
@@ -252,7 +254,7 @@ Art Director currently has no genre-specific guidance in prompt.
 
 ### After (Preset-Driven)
 
-```markdown
+````markdown
 # Art Director — System Prompt
 
 Art Style Guidance
@@ -272,6 +274,7 @@ Art Style Guidance
    - When converting Scene Smith output to shotlist
    - Build image prompts using template fragments
    - Example for detective-noir:
+
      ```
      Base scene: "Rain-slicked alley with distant figure"
 
@@ -294,7 +297,7 @@ Art Style Guidance
 5. **Store in shotlist:**
    - Include full prompt in shotlist entry
    - Enables Illustrator to render with consistent genre aesthetic
-```
+````
 
 ---
 
@@ -356,7 +359,7 @@ Plotwright might have hardcoded assumptions about scope.
 
 ### After (Preset-Driven)
 
-```markdown
+````markdown
 # Plotwright — System Prompt
 
 Scope Planning
@@ -393,7 +396,7 @@ Scope Planning
    - Fantasy → Wide branching (exploration)
    - Horror → Lethal branching (many fail states)
    - Romance → Deep variables (relationship states)
-```
+````
 
 ---
 
@@ -504,12 +507,12 @@ final_config = {
 
 ## Summary: Integration Points
 
-| Layer | Component | How Presets Are Used |
-|-------|-----------|---------------------|
-| **Layer 0** | `/resources/presets/*.json` | Source of truth for genre defaults |
-| **Layer 2** | Prompt system_prompt.md | References preset files by path (e.g., "Read /resources/presets/genres.json") |
-| **Layer 6** | SDK (questfoundry-lib) | Reads JSON files, provides data to LLM as context, applies fallback hierarchy |
-| **Layer 7** | CLI (qf commands) | Lists genres (`qf genres list`), passes user selections to SDK |
+| Layer       | Component                   | How Presets Are Used                                                          |
+| ----------- | --------------------------- | ----------------------------------------------------------------------------- |
+| **Layer 0** | `/resources/presets/*.json` | Source of truth for genre defaults                                            |
+| **Layer 2** | Prompt system_prompt.md     | References preset files by path (e.g., "Read /resources/presets/genres.json") |
+| **Layer 6** | SDK (questfoundry-lib)      | Reads JSON files, provides data to LLM as context, applies fallback hierarchy |
+| **Layer 7** | CLI (qf commands)           | Lists genres (`qf genres list`), passes user selections to SDK                |
 
 ---
 

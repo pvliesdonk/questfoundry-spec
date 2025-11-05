@@ -29,21 +29,26 @@ Audit Rubric (minimum)
 - Diction: word choice aligned to voice; avoid anachronisms or meta terms.
 - Rhythm: sentence length variety supports intended tone.
 - PN phrasing: in-world gate checks; no codeword/state leaks.
-- Choice labels: verb-first; 14–15 words or fewer is preferred (not a hard cap for SS);
-  avoid meta terms; no trailing arrows (`→`); link-only bullets compatible with Binder.
+- Choice labels: verb-first; 14–15 words or fewer is preferred (not a hard cap for SS); avoid meta
+  terms; no trailing arrows (`→`); link-only bullets compatible with Binder.
 
 Typography Specification
 
 ⭐ **HARD CONSTRAINT: Readability Over Theme**
+
 - Body text and choices MUST use readable fonts—always prioritize legibility over aesthetic
-- Thematic fonts (horror fonts, script fonts, pixel fonts, blackletter) may ONLY be used for titles/headers
+- Thematic fonts (horror fonts, script fonts, pixel fonts, blackletter) may ONLY be used for
+  titles/headers
 - NEVER use thematic fonts for body prose or choice text
 - Reject thematic font requests for body text—explain why readability matters
 
 ⭐ **Reading Difficulty Targets**
-- Check prose against genre targets (see docs/design_guidelines/genre_conventions.md for F-K Grade targets)
+
+- Check prose against genre targets (see docs/design_guidelines/genre_conventions.md for F-K Grade
+  targets)
 - **Critical Rule:** Choice text must be 1-2 grade levels simpler than surrounding prose
-- Recommend readability tools: [Hemingway Editor](https://hemingwayapp.com/), [Readable.com](https://readable.com/)
+- Recommend readability tools: [Hemingway Editor](https://hemingwayapp.com/),
+  [Readable.com](https://readable.com/)
 - Note: Formulas are English-specific (syllable counting, Dale-Chall word lists)
 
 - During style stabilization, define typography for prose, display titles, cover, and UI elements.
@@ -53,17 +58,17 @@ Typography Specification
     Serif + Bebas Neue)
   - **Fantasy/RPG:** Epic Fantasy (Cinzel + Crimson Pro), High Fantasy (EB Garamond + Alegreya), or
     Dark Fantasy (Source Serif 4 + Spectral)
-  - **Horror/Thriller:** Gothic Horror (Crimson Text + Spectral), Modern Horror (Lora + Work Sans), or
-    Cosmic Horror (Libre Baskerville + Raleway)
-  - **Mystery:** Classic Mystery (Libre Baskerville + Playfair Display), Modern Mystery (Source Serif
-    4 + Source Sans 3), or Cozy Mystery (Crimson Text + Montserrat)
+  - **Horror/Thriller:** Gothic Horror (Crimson Text + Spectral), Modern Horror (Lora + Work Sans),
+    or Cosmic Horror (Libre Baskerville + Raleway)
+  - **Mystery:** Classic Mystery (Libre Baskerville + Playfair Display), Modern Mystery (Source
+    Serif 4 + Source Sans 3), or Cozy Mystery (Crimson Text + Montserrat)
   - **Romance:** Sweet Romance (Lora + Montserrat), Steamy Romance (Lato + Playfair Display), or
     Contemporary Romance (Merriweather + Inter)
-  - **Sci-Fi/Cyberpunk:** Cyberpunk (Inter + Share Tech Mono), Space Opera (Source Sans 3 + Exo 2), or
-    Hard Sci-Fi (IBM Plex Serif + IBM Plex Sans)
+  - **Sci-Fi/Cyberpunk:** Cyberpunk (Inter + Share Tech Mono), Space Opera (Source Sans 3 + Exo 2),
+    or Hard Sci-Fi (IBM Plex Serif + IBM Plex Sans)
   - **Universal Fallback:** Georgia (serif) or Arial (sans-serif) for maximum compatibility
-- Present 2-3 pairing options to user based on genre; explain rationale (readability, aesthetic, genre
-  conventions). Always allow custom font choices.
+- Present 2-3 pairing options to user based on genre; explain rationale (readability, aesthetic,
+  genre conventions). Always allow custom font choices.
 - Create `style_manifest.json` (see 02-dictionary/artifacts/style_manifest.md) with:
   - **Prose typography:** font family, fallback, size, line height, paragraph spacing
   - **Display typography:** heading fonts and sizes (H1, H2, H3)

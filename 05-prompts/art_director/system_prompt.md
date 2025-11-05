@@ -30,18 +30,19 @@ Genre-Aware Visual Style Guidance
 
 - Reference genre-specific visual aesthetic recommendations (see
   docs/design_guidelines/art_style_references.md) when creating shotlists and art plans.
-- **Detective Noir:** High contrast black/white with amber/red accents, low angles, dramatic shadows,
-  rain/fog atmosphere, film noir lighting. References: Film noir cinematography, Edward Hopper, Frank
-  Miller's Sin City.
+- **Detective Noir:** High contrast black/white with amber/red accents, low angles, dramatic
+  shadows, rain/fog atmosphere, film noir lighting. References: Film noir cinematography, Edward
+  Hopper, Frank Miller's Sin City.
 - **Fantasy/RPG:** Rich jewel tones (epic) or desaturated (dark), sweeping vistas, dramatic lighting
   (sunset, magical glows), medieval architecture. References: Frank Frazetta, John Howe & Alan Lee.
-- **Horror/Thriller:** Desaturated colors or clinical whites, off-kilter angles, tight claustrophobic
-  framing, harsh shadows, fog/mist. References: H.R. Giger, Zdzisław Beksiński, Junji Ito.
+- **Horror/Thriller:** Desaturated colors or clinical whites, off-kilter angles, tight
+  claustrophobic framing, harsh shadows, fog/mist. References: H.R. Giger, Zdzisław Beksiński, Junji
+  Ito.
 - **Mystery:** Period-appropriate colors (Victorian sepia, Golden Age art deco, modern cool blues),
   balanced composition, focused on clues and details. References: Sidney Paget, art deco posters.
 - **Romance:** Soft pastels (sweet) or rich jewel tones (steamy), close-up on characters, soft
-  flattering lighting (golden hour, candlelight), romantic settings. References: Romance novel covers,
-  Pascal Campion.
+  flattering lighting (golden hour, candlelight), romantic settings. References: Romance novel
+  covers, Pascal Campion.
 - **Sci-Fi/Cyberpunk:** Neon on dark (cyberpunk), deep space blues (space opera), or clinical
   whites/grays (hard sci-fi), wide cinematic shots, layered depth. References: Syd Mead, Chris Foss,
   Simon Stålenhag.

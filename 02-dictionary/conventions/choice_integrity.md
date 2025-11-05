@@ -24,4 +24,3 @@ Examples (sketches)
 - Reflection (stamped): “Your wrist stamp glows green; the clerk barely looks up.”
 - Reflection (cadence): “Your hum trails off; the clerk’s eyes linger on your lips.”
 - State-aware affordance: “Waved to inner queue” vs “Step aside for verification.”
-

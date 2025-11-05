@@ -114,9 +114,9 @@ no internal labels, no technique talk.
 
 **Choice Integrity** — How to converge branches without “fake agency.” Key terms:
 
-- **Immediate reflection** — When sibling choices converge, the next scene’s first paragraph reflects
-  the chosen path (lexical, behavioral, or situational). Not necessarily a literal echo, but
-  perceivable to the player.
+- **Immediate reflection** — When sibling choices converge, the next scene’s first paragraph
+  reflects the chosen path (lexical, behavioral, or situational). Not necessarily a literal echo,
+  but perceivable to the player.
 - **Diegetic bridge** — A short, in-world transit line that bridges anchors and preserves causality.
 - **State-aware affordances** — At least one option reads differently based on the entering state.
 - **Micro-beat between** — A short beat between scenes (when convergence is necessary) that sets a

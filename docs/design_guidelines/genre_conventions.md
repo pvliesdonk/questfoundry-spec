@@ -2,7 +2,8 @@
 
 **Purpose:** Genre-specific best practices for popular gamebook/CYOA genres.
 
-**Note:** These are **recommendations based on published works**, not enforced rules. Users may choose any genre or mix conventions freely.
+**Note:** These are **recommendations based on published works**, not enforced rules. Users may
+choose any genre or mix conventions freely.
 
 ---
 
@@ -25,6 +26,7 @@ Each genre entry contains:
 ## Table of Contents
 
 ### Tier 1 Genres (Most Popular)
+
 1. [Detective Noir](#detective-noir)
 2. [Fantasy / RPG](#fantasy--rpg)
 3. [Horror / Thriller](#horror--thriller)
@@ -33,11 +35,12 @@ Each genre entry contains:
 6. [Sci-Fi / Cyberpunk](#sci-fi--cyberpunk)
 
 ### Tier 2 Genres (Secondary)
-- Historical Fiction *(to be added)*
-- Adventure / Action *(to be added)*
-- Western *(to be added)*
-- Superhero *(to be added)*
-- Post-Apocalyptic / Survival *(to be added)*
+
+- Historical Fiction _(to be added)_
+- Adventure / Action _(to be added)_
+- Western _(to be added)_
+- Superhero _(to be added)_
+- Post-Apocalyptic / Survival _(to be added)_
 
 ---
 
@@ -49,7 +52,8 @@ Each genre entry contains:
 
 **Display Name:** Detective Noir
 
-**Description:** Hard-boiled detective stories with moral ambiguity, atmospheric urban settings, and tension-driven pacing. Think Chandler, Hammett, and film noir classics.
+**Description:** Hard-boiled detective stories with moral ambiguity, atmospheric urban settings, and
+tension-driven pacing. Think Chandler, Hammett, and film noir classics.
 
 **Tags:** mystery, crime, urban, atmospheric, investigation
 
@@ -58,6 +62,7 @@ Each genre entry contains:
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Medium (250-500 sections)
 - **Word Count:** 30,000-70,000 words
 - **Playtime:** ~1 hour
@@ -67,6 +72,7 @@ Each genre entry contains:
 - **Choices per Section:** 3 (standard ergonomic)
 
 **Writing Style:**
+
 - **Style:** Pulp (terse, vivid, action-oriented prose)
 - **Paragraph Density:** Rich (atmospheric description balanced with pacing)
 - **Tone:** Gritty (cynical, world-weary, morally complex)
@@ -78,48 +84,61 @@ Each genre entry contains:
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 50-150 | 10k-30k | ~30min | Single case or incident. Quick mystery with 2-4 endings. |
-| **Medium** | 250-500 | 30k-70k | ~1hr | Full investigation with twists. Most common for noir. 5-10+ endings. |
-| **Long** | 500-1000 | 70k-150k | ~2hr | Complex case with subplots, multiple suspects, layered conspiracy. 15-20+ endings. |
-| **Epic** | 1000+ | 150k+ | 3hr+ | Multi-case saga or deep conspiracy. Noir detective series format. Dozens of endings. |
+| Scope      | Sections | Words    | Playtime | Description                                                                          |
+| ---------- | -------- | -------- | -------- | ------------------------------------------------------------------------------------ |
+| **Short**  | 50-150   | 10k-30k  | ~30min   | Single case or incident. Quick mystery with 2-4 endings.                             |
+| **Medium** | 250-500  | 30k-70k  | ~1hr     | Full investigation with twists. Most common for noir. 5-10+ endings.                 |
+| **Long**   | 500-1000 | 70k-150k | ~2hr     | Complex case with subplots, multiple suspects, layered conspiracy. 15-20+ endings.   |
+| **Epic**   | 1000+    | 150k+    | 3hr+     | Multi-case saga or deep conspiracy. Noir detective series format. Dozens of endings. |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 8.0 - 9.0
 - **Flesch Reading Ease:** 60 - 70 (Plain English)
 - **Dale-Chall Score:** 7.0 - 7.9
 
-**Rationale:** Detective noir defaults to the "Plain English" baseline. The primary goal is **clarity**—the text must be precise and unambiguous to fairly present clues and deductions. Avoid overly simplistic prose (condescending) and overly complex prose (obscures information).
+**Rationale:** Detective noir defaults to the "Plain English" baseline. The primary goal is
+**clarity**—the text must be precise and unambiguous to fairly present clues and deductions. Avoid
+overly simplistic prose (condescending) and overly complex prose (obscures information).
 
-**Critical Rule:** Regardless of prose complexity, **choice text must be simpler**—aim for low end of range (F-K 7.0-8.0) for decision points.
+**Critical Rule:** Regardless of prose complexity, **choice text must be simpler**—aim for low end
+of range (F-K 7.0-8.0) for decision points.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Declarative sentences, terse and vivid. Mix short punchy sentences with occasional longer descriptive passages.
-- **Tense:** Past tense common ("You examined the clue...") framing story as investigation. Present tense works for immediacy.
-- **Vocabulary:** Accessible but atmospheric—avoid ten-dollar words, use vivid verbs and sensory details.
+
+- **Sentence Structure:** Declarative sentences, terse and vivid. Mix short punchy sentences with
+  occasional longer descriptive passages.
+- **Tense:** Past tense common ("You examined the clue...") framing story as investigation. Present
+  tense works for immediacy.
+- **Vocabulary:** Accessible but atmospheric—avoid ten-dollar words, use vivid verbs and sensory
+  details.
 
 **Narrative Tone:**
+
 - Cynical, world-weary, observant
 - Morally ambiguous—protagonist is flawed
 - Gritty and atmospheric (rain, smoke, shadows)
 - Urban decay and social commentary
 
 **Dialogue:**
+
 - Snappy, sardonic, revealing subtext
 - Hard-boiled wit and double entendres
 - Characters speak in character (slang, period-appropriate)
 
 **Example Opening:**
-> "The dame walked into my office like trouble in a red dress. Outside, the rain hammered the pavement. Inside, my bourbon was getting warm. She wanted me to find someone. I wanted her to leave. We both knew neither was going to happen."
+
+> "The dame walked into my office like trouble in a red dress. Outside, the rain hammered the
+> pavement. Inside, my bourbon was getting warm. She wanted me to find someone. I wanted her to
+> leave. We both knew neither was going to happen."
 
 ---
 
@@ -154,6 +173,7 @@ Each genre entry contains:
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Classic Noir:** Source Serif 4 + Cormorant Garamond (traditional pulp aesthetic)
 - **Modern Noir:** IBM Plex Serif + Bebas Neue (contemporary urban feel)
 
@@ -164,15 +184,18 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - High contrast black and white
 - Selective color: amber (streetlights), red (danger, blood)
 
 **Composition:**
+
 - Low angles emphasizing looming threats
 - Deep shadows with single dramatic light sources
 - Rain and fog for atmosphere
 
 **Reference Artists:**
+
 - Film noir cinematography (1940s-50s)
 - Edward Hopper (urban isolation)
 - Frank Miller's Sin City (high-contrast style)
@@ -183,7 +206,8 @@ See `art_style_references.md` for detailed guidance.
 
 **Display Name:** Fantasy / RPG
 
-**Description:** Epic quests in magical worlds with exploration, character progression, and stat-driven mechanics. Think classic D&D campaigns, *Fabled Lands*, *Sorcery!*
+**Description:** Epic quests in magical worlds with exploration, character progression, and
+stat-driven mechanics. Think classic D&D campaigns, _Fabled Lands_, _Sorcery!_
 
 **Tags:** fantasy, adventure, magic, exploration, quests, stats
 
@@ -192,6 +216,7 @@ See `art_style_references.md` for detailed guidance.
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Long to Epic (500-1500+ sections)
 - **Word Count:** 70,000-300,000+ words
 - **Playtime:** 2-4+ hours
@@ -201,6 +226,7 @@ See `art_style_references.md` for detailed guidance.
 - **Choices per Section:** 3-6 (more options due to exploration focus)
 
 **Writing Style:**
+
 - **Style:** Literary to Epic (rich description, world-building focus)
 - **Paragraph Density:** Rich to Sparse (depends on section type—lore vs. action)
 - **Tone:** Epic (grand, adventurous, heroic or dark fantasy)
@@ -212,50 +238,67 @@ See `art_style_references.md` for detailed guidance.
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 150-300 | 20k-50k | ~1hr | Single dungeon crawl or focused quest. Character creation lite. |
-| **Medium** | 400-800 | 50k-120k | ~2hr | Full adventure with character progression. 3-5 major questlines. |
-| **Long** | 800-1500 | 120k-250k | ~3-4hr | Epic campaign with multiple regions, complex stat systems, many side quests. |
-| **Epic** | 1500+ | 250k-500k+ | 5hr+ | Open-world sandbox. Persistent state, character builds, faction systems. Rare but iconic. |
+| Scope      | Sections | Words      | Playtime | Description                                                                               |
+| ---------- | -------- | ---------- | -------- | ----------------------------------------------------------------------------------------- |
+| **Short**  | 150-300  | 20k-50k    | ~1hr     | Single dungeon crawl or focused quest. Character creation lite.                           |
+| **Medium** | 400-800  | 50k-120k   | ~2hr     | Full adventure with character progression. 3-5 major questlines.                          |
+| **Long**   | 800-1500 | 120k-250k  | ~3-4hr   | Epic campaign with multiple regions, complex stat systems, many side quests.              |
+| **Epic**   | 1500+    | 250k-500k+ | 5hr+     | Open-world sandbox. Persistent state, character builds, faction systems. Rare but iconic. |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 9.0 - 11.0
 - **Flesch Reading Ease:** 50 - 65
 - **Dale-Chall Score:** 8.0 - 9.9
 
-**Rationale:** Fantasy/RPG defaults to the **most difficult readability**. This is not because prose is necessarily complex, but because readability formulas **penalize specialized, multi-syllabic, invented vocabulary** inherent to world-building (e.g., "grimoire," "thaumaturgy," "psionic," names of cities/gods/artifacts). This vocabulary increases Dale-Chall score (unfamiliar words) and F-K Grade (long words).
+**Rationale:** Fantasy/RPG defaults to the **most difficult readability**. This is not because prose
+is necessarily complex, but because readability formulas **penalize specialized, multi-syllabic,
+invented vocabulary** inherent to world-building (e.g., "grimoire," "thaumaturgy," "psionic," names
+of cities/gods/artifacts). This vocabulary increases Dale-Chall score (unfamiliar words) and F-K
+Grade (long words).
 
-**Don't over-simplify:** Fantasy readers expect and enjoy rich worldbuilding vocabulary. The higher score is natural and appropriate for the genre.
+**Don't over-simplify:** Fantasy readers expect and enjoy rich worldbuilding vocabulary. The higher
+score is natural and appropriate for the genre.
 
-**Critical Rule:** **Choice text must be simpler**—aim for F-K 7.0-8.0 for decision points, even if surrounding prose is 10.0+.
+**Critical Rule:** **Choice text must be simpler**—aim for F-K 7.0-8.0 for decision points, even if
+surrounding prose is 10.0+.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Descriptive and "epic." Can be longer, flowing sentences for lore and world-building. Action scenes use shorter, punchy sentences.
-- **Tense:** Second-person present ("You enter the dungeon...") or third-person past ("The hero ventured into...").
-- **Vocabulary:** Rich in specialized fantasy terms—magic systems, creatures, locations. Must establish terms clearly on first use.
+
+- **Sentence Structure:** Descriptive and "epic." Can be longer, flowing sentences for lore and
+  world-building. Action scenes use shorter, punchy sentences.
+- **Tense:** Second-person present ("You enter the dungeon...") or third-person past ("The hero
+  ventured into...").
+- **Vocabulary:** Rich in specialized fantasy terms—magic systems, creatures, locations. Must
+  establish terms clearly on first use.
 
 **Narrative Tone:**
+
 - Epic, grand, adventurous (high fantasy)
 - Dark, grim, oppressive (dark fantasy)
 - Immersive world-building focus
 - Strong sense of place and history
 
 **Dialogue:**
+
 - Varies by sub-genre (formal medieval, modern fantasy, etc.)
 - Often uses archaic or formal register for gravitas
 - Character voice distinguishes cultures/races
 
 **Example Opening (Epic Fantasy):**
-> "The Crystalspire looms before you, its ancient walls shimmering with residual thaumaturgy. Your mentor warned of the lich-king's phylactery hidden within—destroy it, or the undead legions will never cease. You check your grimoire one last time. Three paths lie ahead: the collapsed eastern gate, the sewer grate, or scaling the cliffs to the balcony."
+
+> "The Crystalspire looms before you, its ancient walls shimmering with residual thaumaturgy. Your
+> mentor warned of the lich-king's phylactery hidden within—destroy it, or the undead legions will
+> never cease. You check your grimoire one last time. Three paths lie ahead: the collapsed eastern
+> gate, the sewer grate, or scaling the cliffs to the balcony."
 
 ---
 
@@ -296,7 +339,8 @@ Fantasy/RPG gamebooks often include:
 - **Character Classes:** Warrior, Mage, Rogue, etc.
 - **Skills:** Lockpicking, Persuasion, Stealth, etc.
 
-**Note:** QuestFoundry doesn't enforce mechanics, but prompts can guide users on incorporating stat checks into section text.
+**Note:** QuestFoundry doesn't enforce mechanics, but prompts can guide users on incorporating stat
+checks into section text.
 
 ---
 
@@ -305,6 +349,7 @@ Fantasy/RPG gamebooks often include:
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Epic Fantasy:** Cinzel + Crimson Pro (medieval, ornate, classic fantasy feel)
 - **High Fantasy:** EB Garamond + Alegreya (traditional, readable, literary)
 - **Dark Fantasy:** Spectral + Source Serif 4 (gothic, mysterious)
@@ -316,16 +361,19 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - Rich jewel tones (emerald, sapphire, ruby, gold)
 - Earth tones for grounded medieval settings
 - Dark palettes for grimdark fantasy
 
 **Composition:**
+
 - Sweeping vistas and grand landscapes
 - Dramatic lighting (magic glows, torch-lit dungeons)
 - Medieval architecture and period details
 
 **Reference Artists:**
+
 - Frank Frazetta (classic fantasy illustration)
 - John Howe & Alan Lee (Tolkien-inspired)
 - Michael Whelan (epic fantasy book covers)
@@ -336,7 +384,8 @@ See `art_style_references.md` for detailed guidance.
 
 **Display Name:** Horror / Thriller
 
-**Description:** Tension-driven stories with atmospheric dread, survival mechanics, and frequent fail states. Think *House of Hell*, *The Walking Dead*, survival horror games.
+**Description:** Tension-driven stories with atmospheric dread, survival mechanics, and frequent
+fail states. Think _House of Hell_, _The Walking Dead_, survival horror games.
 
 **Tags:** horror, thriller, survival, tension, fear, supernatural
 
@@ -345,6 +394,7 @@ See `art_style_references.md` for detailed guidance.
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Short to Medium (50-400 sections)
 - **Word Count:** 10,000-50,000 words
 - **Playtime:** 30min-90min
@@ -354,6 +404,7 @@ See `art_style_references.md` for detailed guidance.
 - **Choices per Section:** 2-3 (limited options increase tension)
 
 **Writing Style:**
+
 - **Style:** Terse and atmospheric (balance showing vs. telling for dread)
 - **Paragraph Density:** Sparse (short bursts for page-turning tension)
 - **Tone:** Dark, ominous, unsettling
@@ -365,50 +416,64 @@ See `art_style_references.md` for detailed guidance.
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 50-150 | 5k-15k | ~20-30min | Single night of terror. 1-2 survival paths among many deaths. |
-| **Medium** | 200-400 | 20k-50k | ~1hr | Full horror scenario (haunted house, zombie outbreak). Puzzle structure. |
-| **Long** | 400-800 | 50k-100k | ~2hr | Extended survival campaign. Character death and restart mechanics. |
-| **Epic** | 800+ | 100k+ | 3hr+ | Rare for pure horror. More common in horror-RPG hybrids with resource management. |
+| Scope      | Sections | Words    | Playtime  | Description                                                                       |
+| ---------- | -------- | -------- | --------- | --------------------------------------------------------------------------------- |
+| **Short**  | 50-150   | 5k-15k   | ~20-30min | Single night of terror. 1-2 survival paths among many deaths.                     |
+| **Medium** | 200-400  | 20k-50k  | ~1hr      | Full horror scenario (haunted house, zombie outbreak). Puzzle structure.          |
+| **Long**   | 400-800  | 50k-100k | ~2hr      | Extended survival campaign. Character death and restart mechanics.                |
+| **Epic**   | 800+     | 100k+    | 3hr+      | Rare for pure horror. More common in horror-RPG hybrids with resource management. |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 6.0 - 8.0
 - **Flesch Reading Ease:** 70 - 80
 - **Dale-Chall Score:** 5.0 - 6.9
 
-**Rationale:** Horror/thriller defaults to the **easiest readability**. The goal is **tension and rapid pacing**, achieved with short, declarative sentences, high-frequency verbs, and visceral (but common) language. Complex sentence structures and "ten-dollar words" slow the reader and break immersion.
+**Rationale:** Horror/thriller defaults to the **easiest readability**. The goal is **tension and
+rapid pacing**, achieved with short, declarative sentences, high-frequency verbs, and visceral (but
+common) language. Complex sentence structures and "ten-dollar words" slow the reader and break
+immersion.
 
-**Pacing priority:** Readability supports page-turning momentum. Simple prose = faster reading = heightened tension.
+**Pacing priority:** Readability supports page-turning momentum. Simple prose = faster reading =
+heightened tension.
 
-**Critical Rule:** **Choice text must be crystal clear**—aim for F-K 5.0-6.0 for decision points to ensure instant comprehension during high-tension moments.
+**Critical Rule:** **Choice text must be crystal clear**—aim for F-K 5.0-6.0 for decision points to
+ensure instant comprehension during high-tension moments.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Short, staccato sentences and fragments. Builds pace and urgency. "You run. Footsteps behind you. Closer. Closer."
+
+- **Sentence Structure:** Short, staccato sentences and fragments. Builds pace and urgency. "You
+  run. Footsteps behind you. Closer. Closer."
 - **Tense:** Present tense for immediacy ("You open the door..."). Creates in-the-moment dread.
-- **Vocabulary:** Sensory and visceral—focus on sounds, smells, textures. Avoid flowery or complex words.
+- **Vocabulary:** Sensory and visceral—focus on sounds, smells, textures. Avoid flowery or complex
+  words.
 
 **Narrative Tone:**
+
 - Tense, immediate, anxious
 - Focus on sensory details (creaking floorboards, musty smell, cold touch)
 - Atmospheric dread builds slowly before jump scares
 - Isolation and vulnerability
 
 **Dialogue:**
+
 - Minimal (heightens isolation and dread)
 - Staccato and panicked when present
 - "Where are you?" "Run!" "Don't look back!"
 
 **Example Opening:**
-> "The door slams behind you. You spin. Nothing. Just darkness and the smell of rot. Somewhere above, floorboards creak. Slow. Deliberate. Coming closer. You have two choices: the basement stairs or the hallway. Both are black as pitch. Choose fast."
+
+> "The door slams behind you. You spin. Nothing. Just darkness and the smell of rot. Somewhere
+> above, floorboards creak. Slow. Deliberate. Coming closer. You have two choices: the basement
+> stairs or the hallway. Both are black as pitch. Choose fast."
 
 ---
 
@@ -441,16 +506,19 @@ See `art_style_references.md` for detailed guidance.
 ### Horror Mechanics
 
 **Fail States:**
+
 - Frequent bad endings (death, madness, corruption)
 - Signal consequence clearly ("This door looks dangerous...")
 - Keep fail-state text short (25-75 words)
 
 **Atmosphere Building:**
+
 - Use sensory details (sounds, smells, textures)
 - Build dread slowly before jump scares
 - Foreshadow danger without over-explaining
 
 **Pacing:**
+
 - Short sections = rapid page-turning
 - Occasional longer section for breather (before next scare)
 - Vary tension (escalate → release → escalate)
@@ -462,6 +530,7 @@ See `art_style_references.md` for detailed guidance.
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Gothic Horror:** Spectral + Crimson Text (classic, unsettling)
 - **Modern Horror:** Work Sans + Lora (clean, clinical, contemporary)
 - **Cosmic Horror:** Libre Baskerville + Raleway (literary, otherworldly)
@@ -473,17 +542,20 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - Desaturated colors (faded, sickly tones)
 - Black, gray, deep reds, sickly greens
 - High contrast for stark horror
 
 **Composition:**
+
 - Off-kilter angles (Dutch angles)
 - Obscured figures and shadows
 - Claustrophobic framing
 - Empty spaces suggesting lurking presence
 
 **Reference Artists:**
+
 - H.R. Giger (biomechanical horror)
 - Zdzisław Beksiński (nightmarish surrealism)
 - Francisco Goya (dark romanticism)
@@ -494,7 +566,8 @@ See `art_style_references.md` for detailed guidance.
 
 **Display Name:** Mystery / Detective
 
-**Description:** Investigation-focused stories where player gathers clues, interviews suspects, and solves puzzles. Think *Agatha Christie*, *Sherlock Holmes*, classic whodunits.
+**Description:** Investigation-focused stories where player gathers clues, interviews suspects, and
+solves puzzles. Think _Agatha Christie_, _Sherlock Holmes_, classic whodunits.
 
 **Tags:** mystery, investigation, puzzle, detective, clues, deduction
 
@@ -503,6 +576,7 @@ See `art_style_references.md` for detailed guidance.
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Medium (250-500 sections)
 - **Word Count:** 30,000-70,000 words
 - **Playtime:** ~1-1.5 hours
@@ -512,6 +586,7 @@ See `art_style_references.md` for detailed guidance.
 - **Choices per Section:** 3-5 (multiple investigation options)
 
 **Writing Style:**
+
 - **Style:** Analytical and observational (Holmesian deduction)
 - **Paragraph Density:** Moderate to Rich (detail-oriented for clues)
 - **Tone:** Cerebral, suspenseful, methodical
@@ -523,50 +598,63 @@ See `art_style_references.md` for detailed guidance.
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 100-200 | 15k-30k | ~30-45min | Single-room mystery or theft investigation. 2-3 suspects. |
-| **Medium** | 250-500 | 30k-70k | ~1-1.5hr | Murder investigation with 5-7 suspects. Multiple clues and red herrings. |
-| **Long** | 500-900 | 70k-120k | ~2-3hr | Serial crime or conspiracy. Multiple interconnected cases. |
-| **Epic** | 900+ | 120k+ | 3hr+ | Detective series format. Recurring characters, ongoing mysteries. |
+| Scope      | Sections | Words    | Playtime  | Description                                                              |
+| ---------- | -------- | -------- | --------- | ------------------------------------------------------------------------ |
+| **Short**  | 100-200  | 15k-30k  | ~30-45min | Single-room mystery or theft investigation. 2-3 suspects.                |
+| **Medium** | 250-500  | 30k-70k  | ~1-1.5hr  | Murder investigation with 5-7 suspects. Multiple clues and red herrings. |
+| **Long**   | 500-900  | 70k-120k | ~2-3hr    | Serial crime or conspiracy. Multiple interconnected cases.               |
+| **Epic**   | 900+     | 120k+    | 3hr+      | Detective series format. Recurring characters, ongoing mysteries.        |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 8.0 - 9.0
 - **Flesch Reading Ease:** 60 - 70 (Plain English)
 - **Dale-Chall Score:** 7.0 - 7.9
 
-**Rationale:** Mystery defaults to the "Plain English" baseline. The primary goal is **clarity**—text must be precise and unambiguous to fairly present clues and deductions. Readers must be able to follow logic without confusion.
+**Rationale:** Mystery defaults to the "Plain English" baseline. The primary goal is
+**clarity**—text must be precise and unambiguous to fairly present clues and deductions. Readers
+must be able to follow logic without confusion.
 
-**Fair play principle:** Mysteries must present all information clearly. Overly complex prose can obscure clues unfairly.
+**Fair play principle:** Mysteries must present all information clearly. Overly complex prose can
+obscure clues unfairly.
 
-**Critical Rule:** **Choice text and clue descriptions must be crystal clear**—aim for F-K 7.0-8.0 to ensure fair puzzle-solving.
+**Critical Rule:** **Choice text and clue descriptions must be crystal clear**—aim for F-K 7.0-8.0
+to ensure fair puzzle-solving.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Declarative, observational. Mix of detail-rich descriptions (clues) and clear, simple navigation.
+
+- **Sentence Structure:** Declarative, observational. Mix of detail-rich descriptions (clues) and
+  clear, simple navigation.
 - **Tense:** Past tense common ("You examined...") or present tense ("You notice...").
-- **Vocabulary:** Precise and specific—avoid ambiguity. "The vase was cracked" not "The vase looked damaged."
+- **Vocabulary:** Precise and specific—avoid ambiguity. "The vase was cracked" not "The vase looked
+  damaged."
 
 **Narrative Tone:**
+
 - Cerebral, analytical, methodical
 - Observant and detail-oriented
 - Suspenseful but not rushed
 - Dry wit or charm (Holmesian style)
 
 **Dialogue:**
+
 - Interrogation-focused—reveals character, motive, alibis
 - Subtext and social dynamics
 - "Where were you at midnight?" "The library, as always."
 
 **Example Opening:**
-> "The body lies in the study, a single stab wound to the chest. The letter opener from the desk—now missing. Three suspects remain in the manor: the butler, the widow, and the business partner. Each claims an alibi. Only one is telling the truth. You begin your investigation."
+
+> "The body lies in the study, a single stab wound to the chest. The letter opener from the desk—now
+> missing. Three suspects remain in the manor: the butler, the widow, and the business partner. Each
+> claims an alibi. Only one is telling the truth. You begin your investigation."
 
 ---
 
@@ -598,12 +686,14 @@ See `art_style_references.md` for detailed guidance.
 ### Mystery Mechanics
 
 **Clue Gathering:**
+
 - Players choose which lead to investigate next
 - Each path reveals 1-3 clues
 - Clues can be revisited (hub structure)
 - Some clues unlock new investigation paths
 
 **Hub-and-Spoke Pattern:**
+
 1. Central hub (detective's office, crime scene)
 2. Choose which suspect/location to investigate
 3. Gather clues (2-3 sections per branch)
@@ -612,6 +702,7 @@ See `art_style_references.md` for detailed guidance.
 6. Final accusation once sufficient clues gathered
 
 **Win Conditions:**
+
 - Multiple valid solutions (different levels of truth)
 - Perfect solution requires finding all clues
 - Partial solutions possible with incomplete evidence
@@ -623,6 +714,7 @@ See `art_style_references.md` for detailed guidance.
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Classic Mystery:** Libre Baskerville + Playfair Display (Victorian, elegant)
 - **Modern Mystery:** Source Sans 3 + Source Serif 4 (clean, contemporary)
 - **Cozy Mystery:** Crimson Text + Montserrat (warm, approachable)
@@ -634,16 +726,19 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - Period-appropriate colors (Victorian: sepia, burgundy; Modern: slate, navy)
 - Emphasis on lighting and shadow for atmosphere
 - Clue visuals: magnifying glass, evidence markers
 
 **Composition:**
+
 - Overhead angles (surveying crime scene)
 - Close-ups on clues and details
 - Period architecture (Victorian manors, Art Deco apartments)
 
 **Reference Artists:**
+
 - Sidney Paget (original Sherlock Holmes illustrator)
 - Art Deco poster art (1920s-30s mysteries)
 - Murder mystery board games visual style
@@ -654,7 +749,8 @@ See `art_style_references.md` for detailed guidance.
 
 **Display Name:** Romance
 
-**Description:** Character-driven stories focused on relationships, emotional development, and interpersonal dynamics. Think *Choice of Romance*, *Love Island*, otome games.
+**Description:** Character-driven stories focused on relationships, emotional development, and
+interpersonal dynamics. Think _Choice of Romance_, _Love Island_, otome games.
 
 **Tags:** romance, relationships, character-driven, emotional, dialogue-heavy
 
@@ -663,6 +759,7 @@ See `art_style_references.md` for detailed guidance.
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Long to Epic (word count, not necessarily section count)
 - **Word Count:** 80,000-300,000+ words
 - **Section Count:** 400-1000+ sections
@@ -673,6 +770,7 @@ See `art_style_references.md` for detailed guidance.
 - **Choices per Section:** 2-4 (dialogue options, emotional responses)
 
 **Writing Style:**
+
 - **Style:** Character-focused and emotional (interiority, feelings, subtext)
 - **Paragraph Density:** Rich (nuanced dialogue and emotional description)
 - **Tone:** Varies (sweet, steamy, angsty, humorous)
@@ -684,50 +782,66 @@ See `art_style_references.md` for detailed guidance.
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 200-400 | 30k-60k | ~1hr | Single romantic arc. One or two love interests. |
-| **Medium** | 400-700 | 80k-150k | ~2-3hr | Full romance with multiple love interests (3-5). Relationship progression. |
-| **Long** | 700-1200 | 150k-250k | ~3-5hr | Ensemble cast, complex relationship web, subplots. |
-| **Epic** | 1200+ | 250k-400k+ | 5hr+ | Romance series format. Multiple books/seasons worth of content. |
+| Scope      | Sections | Words      | Playtime | Description                                                                |
+| ---------- | -------- | ---------- | -------- | -------------------------------------------------------------------------- |
+| **Short**  | 200-400  | 30k-60k    | ~1hr     | Single romantic arc. One or two love interests.                            |
+| **Medium** | 400-700  | 80k-150k   | ~2-3hr   | Full romance with multiple love interests (3-5). Relationship progression. |
+| **Long**   | 700-1200 | 150k-250k  | ~3-5hr   | Ensemble cast, complex relationship web, subplots.                         |
+| **Epic**   | 1200+    | 250k-400k+ | 5hr+     | Romance series format. Multiple books/seasons worth of content.            |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 8.0 - 10.0
 - **Flesch Reading Ease:** 60 - 70 (Plain English)
 - **Dale-Chall Score:** 7.0 - 8.9
 
-**Rationale:** Romance targets the "Plain English" baseline. Focus is on **emotional resonance and character voice**. While prose can be more complex to explore internal monologues, it generally relies on accessible language. (Note: Historical subgenres may trend higher due to setting-specific vocabulary).
+**Rationale:** Romance targets the "Plain English" baseline. Focus is on **emotional resonance and
+character voice**. While prose can be more complex to explore internal monologues, it generally
+relies on accessible language. (Note: Historical subgenres may trend higher due to setting-specific
+vocabulary).
 
 **Emotional clarity:** Feelings and motivations must be clear to readers for emotional investment.
 
-**Critical Rule:** **Dialogue choices must be clear**—aim for F-K 7.0-8.0 for decision points to ensure readers understand emotional nuances.
+**Critical Rule:** **Dialogue choices must be clear**—aim for F-K 7.0-8.0 for decision points to
+ensure readers understand emotional nuances.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Can be more complex for internal monologue and emotional exploration. Dialogue-heavy with emotional subtext.
-- **Tense:** First-person past ("I fell for him...") or present ("I'm falling..."). Second-person also works.
-- **Vocabulary:** Emotive language—feelings, sensations, internal reactions. Can be more "purple prose" for emotional beats.
+
+- **Sentence Structure:** Can be more complex for internal monologue and emotional exploration.
+  Dialogue-heavy with emotional subtext.
+- **Tense:** First-person past ("I fell for him...") or present ("I'm falling..."). Second-person
+  also works.
+- **Vocabulary:** Emotive language—feelings, sensations, internal reactions. Can be more "purple
+  prose" for emotional beats.
 
 **Narrative Tone:**
+
 - Intimate, emotional, introspective
 - Focus on feelings, not just events
-- Varies by subgenre: sweet (warm, optimistic), steamy (sensual, intense), angsty (conflicted, dramatic)
+- Varies by subgenre: sweet (warm, optimistic), steamy (sensual, intense), angsty (conflicted,
+  dramatic)
 
 **Dialogue:**
+
 - Extensive—conversations are core mechanic
 - Subtext and emotional layering
 - Banter, flirting, vulnerability
 - "I didn't mean to..." "But you did."
 
 **Example Opening (Contemporary Romance):**
-> "You weren't supposed to see him again. That was the plan—clean break, move on, be the strong independent person everyone thinks you are. But here he is, standing in the coffee shop like he belongs there, like your heart didn't shatter into a thousand pieces the last time you spoke. He sees you. Smiles. And just like that, you're seventeen again, and nothing has changed."
+
+> "You weren't supposed to see him again. That was the plan—clean break, move on, be the strong
+> independent person everyone thinks you are. But here he is, standing in the coffee shop like he
+> belongs there, like your heart didn't shatter into a thousand pieces the last time you spoke. He
+> sees you. Smiles. And just like that, you're seventeen again, and nothing has changed."
 
 ---
 
@@ -758,23 +872,27 @@ See `art_style_references.md` for detailed guidance.
 ### Romance Mechanics
 
 **Relationship Variables:**
+
 - Track affection/attraction levels per character
 - Relationship status (stranger → friend → romantic interest → partner)
 - Personality compatibility metrics
 - Past choices affecting future conversations
 
 **Dialogue Choices:**
+
 - Flirty vs. reserved
 - Honest vs. guarded
 - Supportive vs. challenging
 - Each choice shifts relationship variables
 
 **Multiple Love Interests:**
+
 - Player pursues one or multiple characters
 - Choices lock in certain routes
 - Polyamorous options in some stories
 
 **Conflict and Resolution:**
+
 - Misunderstandings based on dialogue choices
 - Make-or-break moments (player can save or ruin relationship)
 - Happy endings, bittersweet endings, heartbreak endings
@@ -786,6 +904,7 @@ See `art_style_references.md` for detailed guidance.
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Sweet Romance:** Lora + Montserrat (warm, friendly, approachable)
 - **Steamy Romance:** Playfair Display + Lato (elegant, sensual)
 - **Contemporary Romance:** Inter + Merriweather (modern, clean, readable)
@@ -797,16 +916,19 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - Warm pastels (soft pinks, peach, cream)
 - Rich jewel tones (burgundy, emerald, gold) for dramatic romance
 - Seasonal colors matching story tone (spring florals, winter coziness)
 
 **Composition:**
+
 - Character-focused (close-ups on faces, emotions)
 - Soft lighting and atmospheric backgrounds
 - Romantic settings (sunsets, fairy lights, flowers)
 
 **Reference Artists:**
+
 - Romance novel cover art (contemporary and historical)
 - Shoujo manga art style (for anime-inspired romance)
 - Romantic illustration (e.g., Pascal Campion's slice-of-life art)
@@ -817,7 +939,8 @@ See `art_style_references.md` for detailed guidance.
 
 **Display Name:** Sci-Fi / Cyberpunk
 
-**Description:** Futuristic settings with technology themes, ethical dilemmas, and exploration of humanity's relationship with tech. Think *Neuromancer*, *Blade Runner*, *Mass Effect*.
+**Description:** Futuristic settings with technology themes, ethical dilemmas, and exploration of
+humanity's relationship with tech. Think _Neuromancer_, _Blade Runner_, _Mass Effect_.
 
 **Tags:** sci-fi, cyberpunk, technology, future, dystopia, AI, space
 
@@ -826,6 +949,7 @@ See `art_style_references.md` for detailed guidance.
 ### Typical Project Characteristics
 
 **Scope & Pacing:**
+
 - **Target Length:** Medium to Long (300-900 sections)
 - **Word Count:** 40,000-150,000 words
 - **Playtime:** 1-3 hours
@@ -835,6 +959,7 @@ See `art_style_references.md` for detailed guidance.
 - **Choices per Section:** 3-4 (moral/ethical decisions)
 
 **Writing Style:**
+
 - **Style:** Speculative and world-building focused
 - **Paragraph Density:** Moderate to Rich (tech exposition balanced with action)
 - **Tone:** Noir (cyberpunk), optimistic (space opera), clinical (hard sci-fi)
@@ -846,50 +971,65 @@ See `art_style_references.md` for detailed guidance.
 
 ### Scope Variations
 
-| Scope | Sections | Words | Playtime | Description |
-|-------|----------|-------|----------|-------------|
-| **Short** | 150-300 | 20k-40k | ~45min-1hr | Single mission or cyberpunk heist. Focused tech concept. |
-| **Medium** | 300-600 | 40k-80k | ~1-2hr | Full sci-fi adventure. Exploration of AI, augmentation, or space travel. |
-| **Long** | 600-1200 | 80k-180k | ~2-4hr | Epic space opera or cyberpunk conspiracy. Multiple factions, tech systems. |
-| **Epic** | 1200+ | 180k+ | 4hr+ | Series-length sci-fi saga. Persistent universe, complex tech trees. |
+| Scope      | Sections | Words    | Playtime   | Description                                                                |
+| ---------- | -------- | -------- | ---------- | -------------------------------------------------------------------------- |
+| **Short**  | 150-300  | 20k-40k  | ~45min-1hr | Single mission or cyberpunk heist. Focused tech concept.                   |
+| **Medium** | 300-600  | 40k-80k  | ~1-2hr     | Full sci-fi adventure. Exploration of AI, augmentation, or space travel.   |
+| **Long**   | 600-1200 | 80k-180k | ~2-4hr     | Epic space opera or cyberpunk conspiracy. Multiple factions, tech systems. |
+| **Epic**   | 1200+    | 180k+    | 4hr+       | Series-length sci-fi saga. Persistent universe, complex tech trees.        |
 
 ---
 
 ### Reading Difficulty
 
 **Target Metrics (YA / Adult Audience):**
+
 - **Flesch-Kincaid Grade Level:** 8.0 - 10.0
 - **Flesch Reading Ease:** 60 - 70 (Plain English)
 - **Dale-Chall Score:** 7.0 - 8.9
 
-**Rationale:** Sci-Fi targets the "Plain English" baseline, similar to Mystery and Romance. While sci-fi includes technical jargon, the goal is **accessibility and clarity** to explore complex ideas without alienating readers.
+**Rationale:** Sci-Fi targets the "Plain English" baseline, similar to Mystery and Romance. While
+sci-fi includes technical jargon, the goal is **accessibility and clarity** to explore complex ideas
+without alienating readers.
 
-**Technical jargon balance:** Introduce terms clearly, use them consistently, avoid over-loading any single section with unexplained concepts.
+**Technical jargon balance:** Introduce terms clearly, use them consistently, avoid over-loading any
+single section with unexplained concepts.
 
-**Critical Rule:** **Choice text must be clear**—aim for F-K 7.0-8.0 for decision points, even when surrounding prose discusses complex tech concepts.
+**Critical Rule:** **Choice text must be clear**—aim for F-K 7.0-8.0 for decision points, even when
+surrounding prose discusses complex tech concepts.
 
 ---
 
 ### Prose Style & Tone
 
 **Language Style:**
-- **Sentence Structure:** Balance between technical exposition and narrative flow. Action scenes use shorter sentences; world-building can be more complex.
+
+- **Sentence Structure:** Balance between technical exposition and narrative flow. Action scenes use
+  shorter sentences; world-building can be more complex.
 - **Tense:** Varies—present for immediacy, past for retrospective framing.
-- **Vocabulary:** Jargon-rich but accessible. Establish terms on first use. (e.g., "You jack into the mainframe—plug the neural interface behind your ear...")
+- **Vocabulary:** Jargon-rich but accessible. Establish terms on first use. (e.g., "You jack into
+  the mainframe—plug the neural interface behind your ear...")
 
 **Narrative Tone:**
+
 - Hardboiled and noir (cyberpunk)
 - Epic and optimistic (space opera)
 - Clinical and precise (hard sci-fi)
 - Philosophical and questioning (ethical dilemmas)
 
 **Dialogue:**
+
 - Can be jargon-heavy but must remain comprehensible
 - Characters speak in-world (tech slang, corporate-speak)
 - "Run the ICE-breaker. We've got thirty seconds before security traces us."
 
 **Example Opening (Cyberpunk):**
-> "The neon rain hammers the pavement outside your cube. Another sleepless night jacked into the net, running data for corporations that would kill you if they knew who you really were. Tonight's job: infiltrate Arasaka's mainframe, ghost the security AI, and extract the encrypted files. Three routes in: brute-force the firewall, social-engineer an access code, or buy a backdoor from your fixer. Each has risks. Choose fast—the target window closes in ten minutes."
+
+> "The neon rain hammers the pavement outside your cube. Another sleepless night jacked into the
+> net, running data for corporations that would kill you if they knew who you really were. Tonight's
+> job: infiltrate Arasaka's mainframe, ghost the security AI, and extract the encrypted files. Three
+> routes in: brute-force the firewall, social-engineer an access code, or buy a backdoor from your
+> fixer. Each has risks. Choose fast—the target window closes in ten minutes."
 
 ---
 
@@ -922,18 +1062,21 @@ See `art_style_references.md` for detailed guidance.
 ### Sci-Fi Mechanics
 
 **Technology Systems:**
+
 - Hacking minigames (text-based puzzles)
 - Augmentation choices (trade-offs)
 - Resource management (credits, reputation)
 - Faction standings (corporate, rebel, AI)
 
 **Ethical Dilemmas:**
+
 - Save humanity or AI consciousness?
 - Augment yourself and lose humanity?
 - Corporate profit vs. societal good?
 - Choices create philosophical branches
 
 **Sub-Genres:**
+
 - **Cyberpunk:** Urban, noir, anti-corporate, hacker culture
 - **Space Opera:** Epic scale, alien encounters, interstellar politics
 - **Hard Sci-Fi:** Scientific accuracy, near-future, grounded tech
@@ -946,6 +1089,7 @@ See `art_style_references.md` for detailed guidance.
 See `typography_recommendations.md` for detailed guidance.
 
 **Recommended Pairings:**
+
 - **Cyberpunk:** Share Tech Mono + Inter (techy, futuristic, monospace aesthetic)
 - **Space Opera:** Exo 2 + Source Sans 3 (clean, optimistic, forward-looking)
 - **Hard Sci-Fi:** IBM Plex Sans + IBM Plex Serif (technical, precise, contemporary)
@@ -957,17 +1101,20 @@ See `typography_recommendations.md` for detailed guidance.
 See `art_style_references.md` for detailed guidance.
 
 **Color Palette:**
+
 - Cyberpunk: Neon (pink, cyan, purple) on dark backgrounds
 - Space Opera: Deep space blues, starlight whites, alien world colors
 - Hard Sci-Fi: Clinical whites, grays, metallic accents
 
 **Composition:**
+
 - Wide shots of futuristic cityscapes
 - Tech interfaces and HUDs
 - Atmospheric lighting (neon reflections, holographic glows)
 - Contrast between high-tech and urban decay (cyberpunk)
 
 **Reference Artists:**
+
 - Syd Mead (Blade Runner concept art)
 - Simon Stålenhag (dystopian sci-fi landscapes)
 - Chris Foss (classic sci-fi book covers)
@@ -995,4 +1142,5 @@ More genres coming soon:
 
 **Last Updated:** 2025-11-05
 
-**Note:** These conventions are descriptive (how published gamebooks work), not prescriptive (how you must write). Use as reference, adapt as needed.
+**Note:** These conventions are descriptive (how published gamebooks work), not prescriptive (how
+you must write). Use as reference, adapt as needed.

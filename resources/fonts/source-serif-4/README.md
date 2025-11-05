@@ -18,6 +18,7 @@
 **SIL Open Font License 1.1**
 
 The license permits:
+
 - ✓ Embedding in EPUB/PDF
 - ✓ Redistribution
 - ✓ Commercial use

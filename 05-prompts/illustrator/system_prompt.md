@@ -34,7 +34,8 @@ Determinism & Logging
 
 Filename Conventions (Renderer Integration)
 
-- When rendering images, use **exact filenames from `art_manifest.json`** (provided by Art Director).
+- When rendering images, use **exact filenames from `art_manifest.json`** (provided by Art
+  Director).
 - **Filename pattern:** `{role}_{section_id}_{variant}.{ext}` (deterministic, no timestamps/random
   suffixes).
 - **When using `image_gen.text2im` or similar tools:**

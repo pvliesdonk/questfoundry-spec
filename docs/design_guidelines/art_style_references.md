@@ -2,7 +2,8 @@
 
 **Purpose:** Visual aesthetic guidance for gamebook cover art and interior illustrations by genre.
 
-**Note:** These are **reference suggestions**, not requirements. Users may choose any visual style or work with artists to create custom aesthetics.
+**Note:** These are **reference suggestions**, not requirements. Users may choose any visual style
+or work with artists to create custom aesthetics.
 
 ---
 
@@ -27,12 +28,14 @@ Each genre has visual guidance including:
 ### Cover Art vs. Interior Art
 
 **Cover Art:**
+
 - **Purpose:** Attract attention, signal genre, set tone
 - **Composition:** Central focal point (character, scene, symbolic object)
 - **Text:** Title must be readable—avoid busy backgrounds behind title area
 - **Aspect Ratio:** Portrait (6:9 or 2:3) for most ebook stores
 
 **Interior Art:**
+
 - **Purpose:** Enhance immersion, break up text, visualize key scenes
 - **Composition:** Vignettes or full-page illustrations
 - **Consistency:** Maintain style across all interior illustrations
@@ -41,28 +44,31 @@ Each genre has visual guidance including:
 ### Color Theory Basics
 
 **Warm Colors (red, orange, yellow):**
+
 - Energy, passion, danger, comfort
 - Good for: Action, romance, adventure
 
 **Cool Colors (blue, green, purple):**
+
 - Calm, mystery, sadness, otherworldly
 - Good for: Sci-fi, mystery, fantasy, horror
 
 **Desaturated/Grayscale:**
+
 - Serious, historical, noir, horror
 - Good for: Detective noir, historical, gothic horror
 
 **High Contrast:**
+
 - Drama, tension, striking visuals
 - Good for: Horror, thriller, noir
 
 ### Composition Techniques
 
-**Rule of Thirds:** Place focal points on thirds (not dead center)
-**Leading Lines:** Guide eye toward focal point
-**Framing:** Use environmental elements to frame subject
-**Negative Space:** Empty space creates mood (isolation, dread, emptiness)
-**Symmetry vs. Asymmetry:** Symmetry = order, stability; Asymmetry = tension, chaos
+**Rule of Thirds:** Place focal points on thirds (not dead center) **Leading Lines:** Guide eye
+toward focal point **Framing:** Use environmental elements to frame subject **Negative Space:**
+Empty space creates mood (isolation, dread, emptiness) **Symmetry vs. Asymmetry:** Symmetry = order,
+stability; Asymmetry = tension, chaos
 
 ---
 
@@ -73,30 +79,37 @@ Each genre has visual guidance including:
 ### Detective Noir
 
 **Color Palette:**
+
 - **Primary:** Black, white, grays (high contrast)
 - **Accent:** Amber (streetlights, cigarette glow), red (danger, blood, neon signs)
 - **Mood:** Moody, atmospheric, urban decay
 - **Desaturation:** High (noir is often near-monochrome)
 
 **Composition:**
-- **Camera Angles:** Low angles (emphasize looming threats, power dynamics), Dutch angles (disorientation, unease)
+
+- **Camera Angles:** Low angles (emphasize looming threats, power dynamics), Dutch angles
+  (disorientation, unease)
 - **Framing:** Tight framing, claustrophobic (alleyways, cramped offices)
 - **Leading Lines:** Urban geometry (building edges, street lines converging)
 - **Negative Space:** Shadows and darkness dominating frame
 
 **Lighting & Atmosphere:**
+
 - **Lighting:** Single dramatic light source (street lamp, window, desk lamp)
 - **Shadows:** Deep, inky blacks with sharp edges (venetian blinds, silhouettes)
 - **Weather:** Rain, fog, mist (constant in noir aesthetic)
 - **Time of Day:** Night, twilight, overcast day (never bright sunny)
 
 **Reference Artists:**
-- **Film Noir Cinematography** (1940s-50s classics: *The Maltese Falcon*, *Double Indemnity*, *The Third Man*)
-- **Edward Hopper** (urban isolation, dramatic lighting, *Nighthawks*)
-- **Frank Miller** (*Sin City* graphic novels—high-contrast black and white)
+
+- **Film Noir Cinematography** (1940s-50s classics: _The Maltese Falcon_, _Double Indemnity_, _The
+  Third Man_)
+- **Edward Hopper** (urban isolation, dramatic lighting, _Nighthawks_)
+- **Frank Miller** (_Sin City_ graphic novels—high-contrast black and white)
 - **José Muñoz** (Argentine comic artist, noir cityscapes)
 
 **Prompt Template Fragments:**
+
 ```
 Atmosphere: rain-soaked streets, high contrast lighting, dramatic shadows, film noir aesthetic, moody urban environment
 Color: black and white with amber accents from streetlights, selective red highlights
@@ -110,31 +123,36 @@ Composition: low angle, Dutch angle, tight framing, negative space dominated by 
 ### Fantasy / RPG
 
 **Color Palette:**
+
 - **Epic Fantasy:** Rich jewel tones (emerald, sapphire, ruby, gold), earthy greens and browns
 - **Dark Fantasy:** Desaturated colors, black, deep burgundy, sickly greens, tarnished silver
 - **High Fantasy:** Vibrant colors, magical glows (blue, purple, gold), lush landscapes
 - **Mood:** Grand, adventurous (epic), ominous (dark), whimsical (high)
 
 **Composition:**
+
 - **Camera Angles:** Sweeping vistas, wide shots (show scale of world), hero shots from below
 - **Framing:** Epic scale—mountains, castles, forests stretching to horizon
 - **Leading Lines:** Natural formations (rivers, mountain ridges, roads) toward focal point
 - **Negative Space:** Sky, open landscapes (convey vastness)
 
 **Lighting & Atmosphere:**
+
 - **Lighting:** Dramatic (sunset, sunrise), magical glows, torch-lit dungeons
 - **Weather:** Varies (epic storms for drama, clear skies for heroism, fog for mystery)
 - **Time of Day:** Golden hour (heroic), twilight (transitional), moonlit (mysterious)
 - **Atmosphere:** Mist in valleys, dust motes in sunbeams, magical particles
 
 **Reference Artists:**
+
 - **Frank Frazetta** (classic fantasy illustration, muscular heroes, dramatic action)
 - **John Howe & Alan Lee** (Tolkien illustrators, detailed landscapes and architecture)
-- **Michael Whelan** (epic fantasy book covers, *Dragonlance*, *Elric*)
+- **Michael Whelan** (epic fantasy book covers, _Dragonlance_, _Elric_)
 - **Larry Elmore** (D&D art, classic RPG aesthetic)
 - **Donato Giancola** (realistic fantasy paintings)
 
 **Prompt Template Fragments:**
+
 ```
 Epic Fantasy:
 Atmosphere: grand sweeping vistas, medieval castles, enchanted forests, magical glows
@@ -156,31 +174,40 @@ Composition: low angle, looming threats, claustrophobic ruins
 ### Horror / Thriller
 
 **Color Palette:**
+
 - **Gothic Horror:** Desaturated, sepia tones, black, deep reds, sickly greens
 - **Modern Horror:** Clinical whites and grays, sterile environments, blood red accents
-- **Cosmic Horror:** Deep space colors (void blacks, alien purples, unnatural greens), bioluminescence
+- **Cosmic Horror:** Deep space colors (void blacks, alien purples, unnatural greens),
+  bioluminescence
 - **Mood:** Unsettling, dreadful, oppressive, visceral
 
 **Composition:**
-- **Camera Angles:** Off-kilter (Dutch angles), extreme close-ups (loss of context), low angles (towering threats)
-- **Framing:** Tight, claustrophobic, obscured (partial views of threats), empty space suggesting lurking presence
+
+- **Camera Angles:** Off-kilter (Dutch angles), extreme close-ups (loss of context), low angles
+  (towering threats)
+- **Framing:** Tight, claustrophobic, obscured (partial views of threats), empty space suggesting
+  lurking presence
 - **Leading Lines:** Converging lines creating disorientation
 - **Negative Space:** Darkness, shadows, emptiness (fear of the unknown)
 
 **Lighting & Atmosphere:**
-- **Lighting:** Harsh shadows, single flickering light, backlighting (silhouettes), no light (pure black)
+
+- **Lighting:** Harsh shadows, single flickering light, backlighting (silhouettes), no light (pure
+  black)
 - **Weather:** Fog, mist, oppressive darkness, storms
 - **Time of Day:** Night, complete darkness, dim twilight
 - **Atmosphere:** Decay, rot, mold, dust, abandonment
 
 **Reference Artists:**
-- **H.R. Giger** (biomechanical horror, *Alien* creature design)
+
+- **H.R. Giger** (biomechanical horror, _Alien_ creature design)
 - **Zdzisław Beksiński** (nightmarish surrealism, decayed landscapes)
-- **Francisco Goya** (*The Black Paintings*, dark romanticism)
+- **Francisco Goya** (_The Black Paintings_, dark romanticism)
 - **Junji Ito** (Japanese horror manga, body horror, spirals)
-- **Trevor Henderson** (internet horror art, *Siren Head*)
+- **Trevor Henderson** (internet horror art, _Siren Head_)
 
 **Prompt Template Fragments:**
+
 ```
 Gothic Horror:
 Atmosphere: abandoned mansion, foggy graveyard, decaying Victorian architecture
@@ -209,30 +236,36 @@ Composition: scale contrast (tiny humans vs. cosmic entities), distorted perspec
 ### Mystery / Detective
 
 **Color Palette:**
+
 - **Victorian Mystery:** Sepia tones, burgundy, dark woods, gaslight amber
 - **Golden Age (Christie):** Warm period colors (1920s-30s), art deco palettes
 - **Modern Mystery:** Cool blues, grays, investigative realism
 - **Cozy Mystery:** Warm, inviting colors (autumnal, countryside)
 
 **Composition:**
-- **Camera Angles:** Overhead (surveying crime scene), eye-level (neutral observation), close-ups on clues
+
+- **Camera Angles:** Overhead (surveying crime scene), eye-level (neutral observation), close-ups on
+  clues
 - **Framing:** Balanced, methodical, focused on details
 - **Leading Lines:** Objects pointing to clues, organized investigation grids
 - **Negative Space:** Less than noir—mystery prioritizes clarity over mood
 
 **Lighting & Atmosphere:**
+
 - **Lighting:** Well-lit interiors (libraries, drawing rooms), focused light on clues
 - **Weather:** Varies by tone (stormy for dramatic, sunny for cozy)
 - **Time of Day:** Varies (investigations happen in daylight unlike noir)
 - **Atmosphere:** Period-appropriate (Victorian fog, 1920s glamour, modern realism)
 
 **Reference Artists:**
-- **Sidney Paget** (original *Sherlock Holmes* illustrator for *The Strand*)
+
+- **Sidney Paget** (original _Sherlock Holmes_ illustrator for _The Strand_)
 - **Art Deco Poster Artists** (Cassandre, A.M. Cassandre—1920s-30s aesthetic)
 - **Agatha Christie Book Covers** (various—vintage Penguin covers, 1930s-50s)
-- **Murder Mystery Board Games** (*Clue/Cluedo* visual style)
+- **Murder Mystery Board Games** (_Clue/Cluedo_ visual style)
 
 **Prompt Template Fragments:**
+
 ```
 Victorian Mystery:
 Atmosphere: gaslit Victorian London, fog-shrouded cobblestones, elegant drawing rooms
@@ -261,30 +294,36 @@ Composition: documentary-style, focused on evidence
 ### Romance
 
 **Color Palette:**
+
 - **Sweet Romance:** Soft pastels (blush pink, cream, lavender, peach), warm and inviting
 - **Steamy Romance:** Rich jewel tones (burgundy, emerald, gold), dramatic and sensual
 - **Contemporary Romance:** Modern palettes (coral, teal, millennial pink), bright and clean
 - **Historical Romance:** Period-appropriate (Regency pastels, Victorian jewel tones)
 
 **Composition:**
+
 - **Camera Angles:** Eye-level or slightly above (flattering, intimate), close-ups on faces
 - **Framing:** Tight on characters (focus on emotions), romantic settings in background
 - **Leading Lines:** Guide eye toward couple's connection (hands touching, eyes meeting)
 - **Negative Space:** Soft backgrounds (bokeh effect, blurred settings)
 
 **Lighting & Atmosphere:**
+
 - **Lighting:** Soft, flattering (golden hour, window light, candlelight, fairy lights)
 - **Weather:** Romantic (light rain, snow, sunny, warm breeze)
-- **Time of Day:** Golden hour (warm and romantic), twilight (intimate), daylight (fresh and optimistic)
+- **Time of Day:** Golden hour (warm and romantic), twilight (intimate), daylight (fresh and
+  optimistic)
 - **Atmosphere:** Flowers, soft fabrics, cozy interiors, romantic destinations
 
 **Reference Artists:**
+
 - **Romance Novel Cover Art** (contemporary and historical—Jon Paul, Paul Marron)
 - **Shoujo Manga Artists** (for anime-inspired romance—Natsuki Takaya, Yuu Watase)
 - **Pascal Campion** (slice-of-life illustration, warm everyday moments)
-- **Puuung** (*Love is in Small Things* illustration series)
+- **Puuung** (_Love is in Small Things_ illustration series)
 
 **Prompt Template Fragments:**
+
 ```
 Sweet Romance:
 Atmosphere: cozy coffee shops, sunlit parks, flower gardens, warm domestic interiors
@@ -313,31 +352,37 @@ Composition: candid moments, lifestyle photography aesthetic
 ### Sci-Fi / Cyberpunk
 
 **Color Palette:**
+
 - **Cyberpunk:** Neon (hot pink, cyan, purple, green) on dark backgrounds, high saturation
 - **Space Opera:** Deep space blues, starlight whites, alien world colors (varies), metallic accents
 - **Hard Sci-Fi:** Clinical (whites, grays, blacks), metallic, understated and realistic
 - **Post-Apocalyptic:** Desaturated earth tones, rust, decay, nuclear greens/oranges
 
 **Composition:**
-- **Camera Angles:** Wide shots (show scale of sci-fi environments), low angles (towering megastructures)
+
+- **Camera Angles:** Wide shots (show scale of sci-fi environments), low angles (towering
+  megastructures)
 - **Framing:** Cinematic widescreen aesthetic, layered depth (foreground, midground, background)
 - **Leading Lines:** Futuristic architecture, light trails, tech interfaces
 - **Negative Space:** Vast empty space (showing isolation or scale)
 
 **Lighting & Atmosphere:**
+
 - **Cyberpunk:** Neon reflections on wet streets, holographic glows, harsh artificial light
 - **Space Opera:** Starlight, nebulae glows, ship interior lighting, alien sunsets
 - **Hard Sci-Fi:** Clinical fluorescent, screen glows, realistic space lighting (harsh shadows)
 - **Atmosphere:** Varies (smog and pollution for cyberpunk, vacuum for space, dust for post-apoc)
 
 **Reference Artists:**
-- **Syd Mead** (*Blade Runner* concept art, futuristic vehicles and cities)
+
+- **Syd Mead** (_Blade Runner_ concept art, futuristic vehicles and cities)
 - **Chris Foss** (classic sci-fi book covers, colorful spaceships)
-- **Simon Stålenhag** (dystopian sci-fi landscapes, *Tales from the Loop*)
-- **Moebius (Jean Giraud)** (*The Incal*, surreal sci-fi illustration)
+- **Simon Stålenhag** (dystopian sci-fi landscapes, _Tales from the Loop_)
+- **Moebius (Jean Giraud)** (_The Incal_, surreal sci-fi illustration)
 - **Cyberpunk 2077 / Akira** (visual reference for cyberpunk aesthetic)
 
 **Prompt Template Fragments:**
+
 ```
 Cyberpunk:
 Atmosphere: neon-lit megacity, rain-soaked streets, holographic advertisements, tech noir
@@ -378,16 +423,17 @@ When using AI tools (Midjourney, DALL-E, Stable Diffusion):
 7. **Details:** Specific elements (e.g., "rain," "neon signs," "venetian blinds")
 
 ### Example Prompt (Detective Noir):
+
 ```
 A lone detective standing in a rain-soaked alley, film noir style, dramatic shadows from a single street lamp, black and white with amber accents, low angle shot, atmospheric and moody, venetian blind shadows on brick walls, 1940s aesthetic, high contrast
 ```
 
 ### Common Issues
 
-**Too generic:** Add specific details (not just "city," but "neon-lit megacity at night")
-**Wrong style:** Reference specific artists or media (e.g., "Blade Runner aesthetic")
-**Bad composition:** Specify camera angle and framing (e.g., "wide cinematic shot")
-**Colors off:** Be explicit about color palette (e.g., "desaturated with only red as accent color")
+**Too generic:** Add specific details (not just "city," but "neon-lit megacity at night") **Wrong
+style:** Reference specific artists or media (e.g., "Blade Runner aesthetic") **Bad composition:**
+Specify camera angle and framing (e.g., "wide cinematic shot") **Colors off:** Be explicit about
+color palette (e.g., "desaturated with only red as accent color")
 
 ---
 
@@ -397,7 +443,8 @@ A lone detective standing in a rain-soaked alley, film noir style, dramatic shad
 
 1. **Project Overview:** Genre, tone, target audience
 2. **Specific Piece:** Cover art or interior illustration?
-3. **Dimensions & Format:** Size, resolution, file format (e.g., 6"x9" @300dpi, PNG with transparency)
+3. **Dimensions & Format:** Size, resolution, file format (e.g., 6"x9" @300dpi, PNG with
+   transparency)
 4. **Visual Reference:** Provide 3-5 reference images showing desired style
 5. **Scene Description:** What should be depicted?
 6. **Mood & Atmosphere:** Emotional tone, lighting, color palette
@@ -405,6 +452,7 @@ A lone detective standing in a rain-soaked alley, film noir style, dramatic shad
 8. **Deadline & Budget:** Be clear upfront
 
 **Rights & Licensing:**
+
 - **Exclusive vs. Non-Exclusive:** Can artist resell or reuse the work?
 - **Usage Rights:** Print, ebook, merchandise, promotional materials?
 - **Credit:** How should artist be credited?
@@ -415,6 +463,7 @@ A lone detective standing in a rain-soaked alley, film noir style, dramatic shad
 ## Asset Organization
 
 **Naming Convention:**
+
 ```
 projectname_assettype_number_descriptor.format
 Examples:
@@ -424,12 +473,14 @@ midnight-deposition_thumbnail_01_square.png
 ```
 
 **File Formats:**
+
 - **Cover:** PNG or JPG, high resolution (2400x3600px minimum for print)
 - **Interior:** PNG (with transparency if needed), 1500px wide minimum
 - **Thumbnail:** Square PNG, 512x512px minimum
 - **Source Files:** Keep layered PSD/XCF for future edits
 
 **Version Control:**
+
 - Keep draft, approved, and final versions organized
 - Use SHA-256 checksums to verify file integrity (see art_manifest.schema.json)
 
@@ -442,12 +493,14 @@ midnight-deposition_thumbnail_01_square.png
 **Illustration Priority:** **Dominant** - Text is secondary to visual storytelling
 
 **Style Characteristics:**
+
 - **Color:** Bright, saturated, primary colors
 - **Characters:** Simplified, rounded shapes (large heads, expressive faces)
 - **Composition:** Clear, uncluttered, single focal point per image
 - **Style:** Flat or simple shading, cartoon-like
 
 **Accessibility:**
+
 - High color contrast (avoid pastels on white backgrounds)
 - Clear visual distinction between characters
 - Avoid busy, detailed backgrounds that distract from main subject
@@ -461,12 +514,14 @@ midnight-deposition_thumbnail_01_square.png
 **Illustration Priority:** **Supportive** - Spot illustrations or vignettes break up text
 
 **Style Characteristics:**
+
 - **Frequency:** 1-2 illustrations per section or every 2-3 pages
 - **Style:** Slightly more detailed than pre-reader, but still clear and simple
 - **Color:** Can be full color or spot color (2-3 colors)
 - **Characters:** Relatable, age-appropriate protagonists
 
-**Transition Note:** Early chapter books often use black-and-white line art to keep production costs down while still providing visual interest.
+**Transition Note:** Early chapter books often use black-and-white line art to keep production costs
+down while still providing visual interest.
 
 **Reference:** Early chapter book illustrators (Tony DiTerlizzi, Marla Frazee)
 
@@ -474,35 +529,42 @@ midnight-deposition_thumbnail_01_square.png
 
 ### Middle Grade (9-12 years)
 
-**Illustration Priority:** **Optional** - Many middle grade gamebooks use no illustrations or minimal decorative elements
+**Illustration Priority:** **Optional** - Many middle grade gamebooks use no illustrations or
+minimal decorative elements
 
 **Style Characteristics:**
+
 - **Frequency:** Cover art + optional chapter headers or section markers
 - **Style:** Can range from realistic to stylized depending on genre
 - **Black-and-white interior art** common for print editions
 
 **Genre Variations:**
+
 - **Fantasy Quest:** Detailed character/monster illustrations (D&D-style)
 - **Contemporary:** Minimalist or no interior art
 - **Horror:** Atmospheric spot illustrations
 
-**Reference:** Middle grade novel illustrators, classic gamebook interior art (*Fighting Fantasy*, *Choose Your Own Adventure*)
+**Reference:** Middle grade novel illustrators, classic gamebook interior art (_Fighting Fantasy_,
+_Choose Your Own Adventure_)
 
 ---
 
 ### Accessibility Considerations for Children's Art
 
 **Color Contrast:**
+
 - **WCAG AAA standard:** 7:1 contrast ratio for text over images
 - Avoid light text on light backgrounds, dark on dark
 - Test with grayscale to ensure visibility
 
 **Dyslexia-Friendly:**
+
 - Avoid busy, patterned backgrounds behind text
 - High contrast between text and image
 - Clear visual separation (borders, white space)
 
 **Color Blindness:**
+
 - Don't rely solely on color to convey information
 - Use shape, texture, or labels in addition to color
 - Test with color blindness simulators
@@ -512,20 +574,24 @@ midnight-deposition_thumbnail_01_square.png
 ## Resources
 
 **Stock Photo Sites (for reference):**
+
 - Unsplash, Pexels, Pixabay (free for commercial use)
 - Adobe Stock, Shutterstock (paid, high quality)
 
 **AI Art Tools:**
+
 - Midjourney (subscription, highest quality)
 - DALL-E 3 (OpenAI, integrated in ChatGPT)
 - Stable Diffusion (open-source, requires setup)
 
 **Artist Marketplaces:**
+
 - ArtStation (hire professional artists)
 - Fiverr (budget-friendly commissions)
 - DeviantArt (commissions from fan artists)
 
 **Color Palette Tools:**
+
 - [Coolors](https://coolors.co/) - Generate and explore palettes
 - [Adobe Color](https://color.adobe.com/) - Color wheel and harmony rules
 - [Paletton](https://paletton.com/) - Advanced palette designer
@@ -534,4 +600,5 @@ midnight-deposition_thumbnail_01_square.png
 
 **Last Updated:** 2025-11-05
 
-**Contributing:** Visual style references can be updated with new artists, techniques, and AI prompting strategies. Submit PRs with examples and rationale.
+**Contributing:** Visual style references can be updated with new artists, techniques, and AI
+prompting strategies. Submit PRs with examples and rationale.

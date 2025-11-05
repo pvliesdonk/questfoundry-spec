@@ -2,15 +2,15 @@
 
 **Status:** ✅ Defined (2025-11-04)
 
-**Purpose:** Establish embeddable fonts for EPUB/HTML exports with consistent cross-device rendering.
+**Purpose:** Establish embeddable fonts for EPUB/HTML exports with consistent cross-device
+rendering.
 
 ---
 
 ## Fonts for EPUB/HTML Exports
 
-**Body Text:** Source Serif 4
-**Display Titles:** Cormorant Garamond
-**License:** SIL Open Font License (embeddable, redistributable)
+**Body Text:** Source Serif 4 **Display Titles:** Cormorant Garamond **License:** SIL Open Font
+License (embeddable, redistributable)
 
 ---
 
@@ -40,12 +40,14 @@
 **Download:** https://github.com/adobe-fonts/source-serif/releases
 
 **Files needed:**
+
 - SourceSerif4-Regular.otf
 - SourceSerif4-Italic.otf
 - SourceSerif4-Bold.otf
 - SourceSerif4-BoldItalic.otf
 
 **Installation:**
+
 ```bash
 cd /resources/fonts/source-serif-4/
 # Download release from GitHub
@@ -53,8 +55,7 @@ cd /resources/fonts/source-serif-4/
 # Include LICENSE.txt from source repository
 ```
 
-**License:** SIL Open Font License 1.1
-**Embeddable:** Yes (redistributable in EPUB/PDF)
+**License:** SIL Open Font License 1.1 **Embeddable:** Yes (redistributable in EPUB/PDF)
 
 ---
 
@@ -63,11 +64,13 @@ cd /resources/fonts/source-serif-4/
 **Download:** https://github.com/CatharsisFonts/Cormorant/releases
 
 **Files needed:**
+
 - CormorantGaramond-Regular.ttf
 - CormorantGaramond-Italic.ttf
 - CormorantGaramond-Bold.ttf
 
 **Installation:**
+
 ```bash
 cd /resources/fonts/cormorant-garamond/
 # Download release from GitHub
@@ -75,8 +78,7 @@ cd /resources/fonts/cormorant-garamond/
 # Include LICENSE.txt from source repository
 ```
 
-**License:** SIL Open Font License 1.1
-**Embeddable:** Yes (redistributable in EPUB/PDF)
+**License:** SIL Open Font License 1.1 **Embeddable:** Yes (redistributable in EPUB/PDF)
 
 ---
 
@@ -85,64 +87,66 @@ cd /resources/fonts/cormorant-garamond/
 ```css
 /* Source Serif 4 - Body Text */
 @font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Regular.otf');
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-Regular.otf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Italic.otf');
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-Italic.otf");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Bold.otf');
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-Bold.otf");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-BoldItalic.otf');
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-BoldItalic.otf");
   font-weight: bold;
   font-style: italic;
 }
 
 /* Cormorant Garamond - Display Titles */
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Regular.ttf');
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Italic.ttf');
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Italic.ttf");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Bold.ttf');
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Bold.ttf");
   font-weight: bold;
   font-style: normal;
 }
 
 /* Typography Application */
 body {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: "Source Serif 4", Georgia, serif;
   font-size: 1em;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
 }
 
 h1 {
@@ -168,15 +172,18 @@ h3 {
 If fonts not available in `/resources/fonts/`:
 
 **Body Text Fallback:**
+
 - Georgia (serif, widely available)
 - Times New Roman (serif, universal)
 - serif (system default)
 
 **Display Titles Fallback:**
+
 - Georgia (serif, elegant)
 - serif (system default)
 
 **Book Binder Behavior:**
+
 1. Check if fonts exist in `/resources/fonts/`
 2. If present: embed in EPUB, include `@font-face` CSS
 3. If absent: use system fallback fonts (Georgia, Times New Roman)
@@ -187,16 +194,19 @@ If fonts not available in `/resources/fonts/`:
 ## Typography Principles
 
 ### Readability
+
 - Source Serif 4 is designed for screen reading with large x-height and open counters
 - Body text at 1em with 1.6 line-height provides comfortable reading
 - Paragraph spacing (1em) creates visual separation
 
 ### Hierarchy
+
 - Cormorant Garamond provides elegant contrast for titles and headers
 - Display fonts are larger (2-2.5em) to establish clear hierarchy
 - Bold weights available for emphasis
 
 ### Device Compatibility
+
 - Both fonts render well on e-ink displays (Kobo, Kindle)
 - OTF/TTF formats supported by all major EPUB readers
 - Fallback fonts ensure graceful degradation
@@ -205,9 +215,11 @@ If fonts not available in `/resources/fonts/`:
 
 ## Style Lead Integration
 
-Typography decisions are made by **Style Lead** during style stabilization and stored in `style_manifest.json`.
+Typography decisions are made by **Style Lead** during style stabilization and stored in
+`style_manifest.json`.
 
 **Example `style_manifest.json`:**
+
 ```json
 {
   "typography": {

@@ -2,9 +2,9 @@
 
 > **Status:** ✅ **DEFINED (2025-11-04)** Registry of planned and rendered visual assets.
 
-> **Use:** Art Director's inventory of all visual assets (covers, plates, thumbnails, scene art) with
-> filenames, captions, prompts, hashes, and approval status. Enables Book Binder to automatically include
-> images at correct anchors with player-safe captions.
+> **Use:** Art Director's inventory of all visual assets (covers, plates, thumbnails, scene art)
+> with filenames, captions, prompts, hashes, and approval status. Enables Book Binder to
+> automatically include images at correct anchors with player-safe captions.
 
 ---
 
@@ -185,6 +185,7 @@ Unique identifier for asset. Used internally for tracking and referencing.
 Asset type/role in the manuscript.
 
 **Values:**
+
 - `"cover"` — Primary cover image (title-bearing)
 - `"cover_backup"` — Backup cover (e.g., SVG for scalability)
 - `"interior_plate"` — Full-page interior illustration
@@ -204,6 +205,7 @@ Exact filename for rendered asset. **Must match actual file on disk.**
 **Format:** `{role}_{section_id}_{variant}.{ext}` (deterministic, no timestamps/random suffixes)
 
 **Examples:**
+
 - `"cover_titled.png"`
 - `"plate_A2_K.png"`
 - `"thumb_A1_H.png"`
@@ -248,6 +250,7 @@ Whether image includes book title text (rendered, not added in post).
 Player-safe caption for image. Used in `<figcaption>`, alt text, accessibility.
 
 **Rules:**
+
 - No spoilers, no internals
 - Describe what's visible, not narrative implications
 - Keep concise (1-2 sentences max)
@@ -293,6 +296,7 @@ SHA-256 hash of rendered file. Used for integrity verification and reproducibili
 Asset approval status.
 
 **Values:**
+
 - `"planned"` — Not yet rendered; entry defines intent
 - `"rendered"` — Rendered but not yet reviewed
 - `"approved"` — Reviewed and approved for inclusion
@@ -348,15 +352,18 @@ Internal notes for tracking, re-work requests, or context.
 ### Cross-Field Validation
 
 **If `status` is "approved":**
+
 - `sha256` must be present (not null)
 - `rendered_date` must be present (not null)
 - Filename must match actual file on disk
 
 **If `role` is "cover":**
+
 - `title_bearing` should be `true` (warn if false)
 - `section_anchor` should be `null`
 
 **If `role` is "cover_backup":**
+
 - Primary cover with `role: "cover"` must exist in manifest
 
 ### Common Errors
@@ -366,7 +373,7 @@ Internal notes for tracking, re-work requests, or context.
 ```json
 {
   "status": "approved",
-  "sha256": null  // Wrong: approved assets must have hash
+  "sha256": null // Wrong: approved assets must have hash
 }
 ```
 
@@ -384,7 +391,7 @@ Internal notes for tracking, re-work requests, or context.
 ```json
 {
   "role": "cover",
-  "title_bearing": false  // Warning: covers should bear title
+  "title_bearing": false // Warning: covers should bear title
 }
 ```
 
@@ -426,6 +433,7 @@ Art Director creates manifest entries with status "planned":
 ### 2. Handoff to Illustrator
 
 Art Director provides:
+
 - Filename from manifest
 - Prompt from manifest
 - Dimensions/format from manifest
@@ -433,6 +441,7 @@ Art Director provides:
 ### 3. Rendering (Illustrator)
 
 Illustrator:
+
 1. Uses `image_gen.text2im` or other tool with provided prompt
 2. Saves file with **exact filename from manifest** (case-sensitive)
 3. Computes SHA-256 hash of saved file
@@ -444,12 +453,14 @@ Illustrator:
 ### 4. Review & Approval (Art Director)
 
 Art Director reviews rendered asset:
+
 - **Approve:** Change `status` to "approved"
 - **Reject:** Change `status` to "rejected", add `notes` with re-work request
 
 ### 5. Book Binder Integration
 
 Book Binder reads manifest during export:
+
 1. Filter assets by `status: "approved"`
 2. For each asset with non-null `section_anchor`:
    - Find matching anchor in manuscript

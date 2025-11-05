@@ -76,9 +76,9 @@ Acceptance (for this prompt)
 
 - Anti-funneling (S1): block when the first-choice options are functionally equivalent (same
   destination and same opening experience). Diverge destination or the opening beats.
-- Immediate reflection: when sibling choices converge, block unless the next scene’s first
-  paragraph reflects the choice taken (lexical, behavioral, or situational). This need not be a
-  literal echo; it must be perceivable to the player.
+- Immediate reflection: when sibling choices converge, block unless the next scene’s first paragraph
+  reflects the choice taken (lexical, behavioral, or situational). This need not be a literal echo;
+  it must be perceivable to the player.
 - Diegetic bridge: require a one-line diegetic transit on anchor jumps to prevent “teleporting.”
 
 Evidence threshold (player-safe):

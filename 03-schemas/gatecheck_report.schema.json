@@ -105,8 +105,7 @@
           },
           "smallest_viable_fix": {
             "type": "string",
-            "description": "Smallest fix needed to move the bar to green. For "
-              "fake agency" issues, propose: add a micro-beat between scenes to set a visible state flag; add a diegetic bridge; reflect the chosen path in the next scene’s first paragraph; condition one affordance by state.",
+            "description": "Smallest fix needed to move the bar to green. For \"fake agency\" issues, propose: add a micro-beat between scenes to set a visible state flag; add a diegetic bridge; reflect the chosen path in the next scene's first paragraph; condition one affordance by state.",
             "minLength": 5,
             "maxLength": 400
           },

@@ -1,14 +1,15 @@
 # Fix Proposal — "Midnight Deposition" Post-Mortem Action Items
 
-**Date:** 2025-11-04
-**Status:** PROPOSAL (awaiting approval)
-**Related:** `2025-11-04_midnight_deposition.md` (§8, §10, §11)
+**Date:** 2025-11-04 **Status:** PROPOSAL (awaiting approval) **Related:**
+`2025-11-04_midnight_deposition.md` (§8, §10, §11)
 
 ---
 
 ## Overview
 
-This document proposes specific code/prompt changes to address the 11 action items from the "Midnight Deposition" post-mortem. All fixes target **Book Binder** prompt logic and export templates, with QA/CI validation rules to prevent regression.
+This document proposes specific code/prompt changes to address the 11 action items from the
+"Midnight Deposition" post-mortem. All fixes target **Book Binder** prompt logic and export
+templates, with QA/CI validation rules to prevent regression.
 
 ---
 
@@ -25,19 +26,27 @@ This document proposes specific code/prompt changes to address the 11 action ite
 ## PROPOSAL 1: Header Hygiene (Binder)
 
 ### Problem
-Section headers contain operational markers like "Hub," "Unofficial," "Quick," "Temp," "Draft" that leak process into reader-facing prose.
+
+Section headers contain operational markers like "Hub," "Unofficial," "Quick," "Temp," "Draft" that
+leak process into reader-facing prose.
 
 **Example bad headers:**
+
 ```markdown
 ## Hub: Dock Seven
+
 ## Quick: Decision Point
+
 ## Unofficial: Alternate Path
 ```
 
 **Expected good headers:**
+
 ```markdown
 ## Dock Seven
+
 ## Decision Point
+
 ## Alternate Path
 ```
 
@@ -53,10 +62,12 @@ Section headers contain operational markers like "Hub," "Unofficial," "Quick," "
 Strip operational markers from reader-facing section titles during export:
 
 **Markers to Remove:**
+
 - Prefixes: `Hub:`, `Unofficial:`, `Quick:`, `Temp:`, `Draft:`, `FLAG_*:`, `CODEWORD:`
 - Pattern: `^(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s*`
 
 **Implementation:**
+
 1. Scan all H2 headers in manuscript sections
 2. Apply regex replacement: `^(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s*` → ``
 3. Preserve markers in:
@@ -66,9 +77,9 @@ Strip operational markers from reader-facing section titles during export:
 
 **Example:**
 ```
-INPUT:  ## Hub: Dock Seven
-OUTPUT: ## Dock Seven
-ID:     hub-dock-seven (preserved)
+
+INPUT: ## Hub: Dock Seven OUTPUT: ## Dock Seven ID: hub-dock-seven (preserved)
+
 ```
 
 **Validation:**
@@ -91,7 +102,9 @@ ID:     hub-dock-seven (preserved)
 ## PROPOSAL 2: Choice UX Standardization (Binder)
 
 ### Problem
+
 Inconsistent choice presentation:
+
 - Sometimes: entire choice is a link (good)
 - Sometimes: label with trailing arrow `→ [Link](#id)` (confusing)
 
@@ -102,12 +115,14 @@ Inconsistent choice presentation:
 **Location:** Enhance existing "Choice Normalization" section
 
 **Current rule:**
+
 ```markdown
 - Bullets ending with → [Text](#ID) → rewrite to - [Text](#ID)
 - Bullets with prose + inline link → collapse to link-only, keep link text
 ```
 
 **Enhanced rule:**
+
 ```markdown
 ### Choice Link Normalization
 
@@ -115,14 +130,15 @@ Inconsistent choice presentation:
 
 **Patterns to normalize:**
 
-| Input Pattern | Output | Notes |
-|---------------|--------|-------|
-| `- Prose → [Link Text](#id)` | `- [Link Text](#id)` | Remove prose + arrow |
-| `- [Link Text](#id) →` | `- [Link Text](#id)` | Remove trailing arrow |
-| `- Prose [Link](#id) more prose` | `- [Link](#id)` | Collapse to link only, use link's text |
-| `- Multiple [Link1](#a) and [Link2](#b)` | Keep as-is | Multi-link choices allowed |
+| Input Pattern                            | Output               | Notes                                  |
+| ---------------------------------------- | -------------------- | -------------------------------------- |
+| `- Prose → [Link Text](#id)`             | `- [Link Text](#id)` | Remove prose + arrow                   |
+| `- [Link Text](#id) →`                   | `- [Link Text](#id)` | Remove trailing arrow                  |
+| `- Prose [Link](#id) more prose`         | `- [Link](#id)`      | Collapse to link only, use link's text |
+| `- Multiple [Link1](#a) and [Link2](#b)` | Keep as-is           | Multi-link choices allowed             |
 
 **Algorithm:**
+
 1. For each bullet list item in a choice block
 2. If pattern matches `prose → [link](#id)` or `[link](#id) →`:
    - Extract link text and target
@@ -131,6 +147,7 @@ Inconsistent choice presentation:
 4. If no links: preserve as narrative text (not a choice)
 
 **Validation:**
+
 - Count normalized choices in view_log
 - Flag any remaining `→` in choice contexts for manual review
 ```
@@ -146,9 +163,8 @@ Inconsistent choice presentation:
 2. Validate all choice links resolve to valid anchors
 3. Log normalization count in view_log
 
-**HTML/EPUB:** Render as `<li><a href="#target">Choice text</a></li>`
-**Markdown:** Render as `- [Choice text](#target)`
-**PDF:** Render as clickable text with underline/color (via HTML)
+**HTML/EPUB:** Render as `<li><a href="#target">Choice text</a></li>` **Markdown:** Render as
+`- [Choice text](#target)` **PDF:** Render as clickable text with underline/color (via HTML)
 ```
 
 ---
@@ -156,7 +172,9 @@ Inconsistent choice presentation:
 ## PROPOSAL 3: EPUB Kobo Compatibility (Critical)
 
 ### Problem
+
 EPUBs work on mobile readers but fail on **Kobo Clara 2e**:
+
 - Cross-file anchor links don't trigger
 - Missing legacy navigation (NCX)
 - No EPUB2 landmarks/guide
@@ -169,14 +187,16 @@ EPUBs work on mobile readers but fail on **Kobo Clara 2e**:
 
 **Location:** Add new section "EPUB Anchor Generation"
 
-```markdown
+````markdown
 ### EPUB Anchor Generation (Kobo Compatibility)
 
-**Problem:** Kobo devices require explicit inline anchor elements, not just `id` attributes on block elements.
+**Problem:** Kobo devices require explicit inline anchor elements, not just `id` attributes on block
+elements.
 
 **Solution: Twin Anchors**
 
 For every section with an anchor ID, generate both:
+
 1. Block-level `id` on `<section>` or `<h2>` (standard EPUB3)
 2. Inline `<a>` or `<span>` immediately inside the section (Kobo compat)
 
@@ -196,8 +216,10 @@ For every section with an anchor ID, generate both:
   ...
 </section>
 ```
+````
 
 **Template for All Sections:**
+
 ```html
 <section id="{section-id}">
   <a id="{section-id}"></a>
@@ -207,9 +229,11 @@ For every section with an anchor ID, generate both:
 ```
 
 **Validation:**
+
 - Verify every section has both block ID and inline anchor
 - Log dual-anchor count in view_log
-```
+
+````
 
 #### 3B: Legacy NCX Navigation
 
@@ -247,14 +271,16 @@ For every section with an anchor ID, generate both:
     <!-- Repeat for all sections -->
   </navMap>
 </ncx>
-```
+````
 
 **Manifest Entry:**
+
 ```xml
 <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
 ```
 
 **Spine Reference:**
+
 ```xml
 <spine toc="ncx">
   <itemref idref="section-001"/>
@@ -263,10 +289,12 @@ For every section with an anchor ID, generate both:
 ```
 
 **Validation:**
+
 - Verify NCX includes all spine items in reading order
 - Verify playOrder is sequential 1..N
 - Log NCX generation in view_log
-```
+
+````
 
 #### 3C: EPUB Landmarks & Guide
 
@@ -291,9 +319,10 @@ For every section with an anchor ID, generate both:
     <li><a epub:type="bodymatter" href="001.xhtml">Start of Content</a></li>
   </ol>
 </nav>
-```
+````
 
 **EPUB2 Guide (in `content.opf`):**
+
 ```xml
 <guide>
   <reference type="cover" title="Cover" href="cover.xhtml"/>
@@ -303,16 +332,19 @@ For every section with an anchor ID, generate both:
 ```
 
 **Reading Order Policy:**
+
 - Cover: `cover.xhtml` (title-bearing PNG)
 - TOC: `nav.xhtml` (NOT in spine)
 - Start: First scene section (e.g., `001.xhtml`)
 - Frontmatter: copyright.xhtml, etc. (in spine but not start point)
 
 **Validation:**
+
 - Verify landmarks match spine items
 - Verify `epub:type="bodymatter"` points to first scene (not TOC)
 - Log landmark count in view_log
-```
+
+````
 
 ---
 
@@ -330,30 +362,33 @@ Mixed-case and underscore IDs may cause issues on Kobo; also, legacy aliases (`S
 **Current rule:**
 ```markdown
 - S1′, S1p, variants → canonical s1-return
-```
+````
 
 **Enhanced rule:**
-```markdown
+
+````markdown
 ### Anchor ID Normalization & Aliasing
 
 **Standard Format:** `lowercase-dash-separated` (ASCII-safe, Kobo-compatible)
 
 **Normalization Rules:**
 
-| Input Format | Normalized | Alias Mapping |
-|--------------|------------|---------------|
-| `Section_1`, `Section-1` | `section-1` | `Section_1` → `section-1` |
-| `S1′`, `S1p`, `S1'` | `s1-return` | All variants → `s1-return` |
-| `DockSeven`, `Dock_Seven` | `dock-seven` | Case variants aliased |
-| `A1_H`, `a1_h` | `a1-h` | Underscores to dashes |
+| Input Format              | Normalized   | Alias Mapping              |
+| ------------------------- | ------------ | -------------------------- |
+| `Section_1`, `Section-1`  | `section-1`  | `Section_1` → `section-1`  |
+| `S1′`, `S1p`, `S1'`       | `s1-return`  | All variants → `s1-return` |
+| `DockSeven`, `Dock_Seven` | `dock-seven` | Case variants aliased      |
+| `A1_H`, `a1_h`            | `a1-h`       | Underscores to dashes      |
 
 **Algorithm:**
+
 1. Convert all IDs to lowercase
 2. Replace underscores with dashes
 3. Remove apostrophes/primes (', ′)
 4. Generate alias map for backward compatibility
 
 **Alias Map (JSON):**
+
 ```json
 {
   "S1′": "s1-return",
@@ -363,16 +398,20 @@ Mixed-case and underscore IDs may cause issues on Kobo; also, legacy aliases (`S
   "A1_H": "a1-h"
 }
 ```
+````
 
 **Link Rewriting:**
+
 - Before export, rewrite all `href="#OldID"` to `href="#new-id"`
 - Preserve original IDs as secondary anchors (twin IDs for compat)
 
 **Validation:**
+
 - Log alias count in view_log
 - Verify 0 collisions after normalization
 - Test all cross-file links resolve to normalized IDs
-```
+
+````
 
 **File:** `/05-prompts/book_binder/intent_handlers/format.render.md`
 
@@ -387,13 +426,14 @@ Mixed-case and underscore IDs may cause issues on Kobo; also, legacy aliases (`S
 4. (Optional) Add secondary inline anchors with legacy IDs for backward compat
 5. Validate 0 collisions, 0 orphaned links
 6. Log normalization count and alias map in view_log
-```
+````
 
 ---
 
 ## PROPOSAL 5: CI/QA Validation Gates
 
 ### Problem
+
 Manual validation is error-prone; need automated checks to enforce policies.
 
 ### Proposed Fix
@@ -404,6 +444,7 @@ Manual validation is error-prone; need automated checks to enforce policies.
 # EPUB Validator — CI/QA Gates
 
 ## Purpose
+
 Automated validation to enforce post-mortem policies and prevent regression.
 
 ---
@@ -413,6 +454,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** Final EPUB must use a title-bearing PNG as designated cover-image.
 
 **Checks:**
+
 - [ ] `content.opf` has `<meta name="cover" content="cover-image"/>`
 - [ ] Cover image is PNG format
 - [ ] Cover image metadata includes "title-bearing: true" or filename matches `*_titled.png`
@@ -427,6 +469,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** Reading order begins at first scene; frontmatter not in spine start.
 
 **Checks:**
+
 - [ ] First `<itemref>` in spine is a scene section (matches pattern `^\d{3}\.xhtml$`)
 - [ ] TOC/nav.xhtml has `linear="no"` attribute (not in reading flow)
 - [ ] Frontmatter (copyright, etc.) appears in spine but AFTER first scene OR has `linear="no"`
@@ -440,6 +483,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** Every link target must exist; every section must have inline anchor.
 
 **Checks:**
+
 - [ ] Parse all `href="#id"` and `href="file.xhtml#id"` links
 - [ ] Verify each target ID exists in referenced file
 - [ ] Verify each section has both `<section id="x">` AND `<a id="x"></a>` (twin anchors)
@@ -455,6 +499,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** EPUB must include Kobo-specific navigation and anchor patterns.
 
 **Checks:**
+
 - [ ] `toc.ncx` file present in manifest (`application/x-dtbncx+xml`)
 - [ ] `toc.ncx` includes all spine items with sequential `playOrder`
 - [ ] ARIA landmarks present in `nav.xhtml` (cover, toc, bodymatter)
@@ -470,6 +515,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** All images must be listed in art manifest with captions and hashes.
 
 **Checks:**
+
 - [ ] Parse all `<img src="...">` tags in EPUB
 - [ ] Verify each image path exists in `art_manifest.updated.json`
 - [ ] Verify each image has non-empty `caption` field
@@ -485,6 +531,7 @@ Automated validation to enforce post-mortem policies and prevent regression.
 **Rule:** Reader-facing section titles must not contain operational markers.
 
 **Checks:**
+
 - [ ] Parse all `<h2>` (sections) and `<h1>` (title) in EPUB
 - [ ] Regex match: `(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s`
 - [ ] Count matches (should be 0)
@@ -495,9 +542,11 @@ Automated validation to enforce post-mortem policies and prevent regression.
 
 ## Implementation Notes
 
-This specification should be implemented as a Python/Node.js script or integrated into the Book Binder export flow as validation steps.
+This specification should be implemented as a Python/Node.js script or integrated into the Book
+Binder export flow as validation steps.
 
 **Suggested Flow:**
+
 1. Book Binder generates EPUB
 2. Run validator script: `./tools/validation/epub_validator.py book.epub`
 3. Validator outputs: PASS / WARN / FAIL with detailed report
@@ -506,6 +555,7 @@ This specification should be implemented as a Python/Node.js script or integrate
 6. If PASS/WARN: proceed with handoff
 
 **Future Work:**
+
 - Integrate into CI pipeline (GitHub Actions, etc.)
 - Add HTML/Markdown validators with similar gates
 - Generate badge/status for README
@@ -516,6 +566,7 @@ This specification should be implemented as a Python/Node.js script or integrate
 ## PROPOSAL 6: Font Embedding (Typography Policy)
 
 ### Problem
+
 No agreed typeface; need embeddable fonts for EPUB.
 
 ### Proposed Fix
@@ -527,28 +578,19 @@ No agreed typeface; need embeddable fonts for EPUB.
 
 ## Fonts for EPUB/HTML Exports
 
-**Body Text:** Source Serif 4
-**Display Titles:** Cormorant Garamond OR Playfair Display
+**Body Text:** Source Serif 4 **Display Titles:** Cormorant Garamond OR Playfair Display
 **License:** SIL Open Font License (embeddable)
 
 ---
 
 ## Directory Structure
+```
 
-```
-/resources/fonts/
-  source-serif-4/
-    SourceSerif4-Regular.otf
-    SourceSerif4-Italic.otf
-    SourceSerif4-Bold.otf
-    SourceSerif4-BoldItalic.otf
-    LICENSE.txt
-  cormorant-garamond/
-    CormorantGaramond-Regular.ttf
-    CormorantGaramond-Italic.ttf
-    CormorantGaramond-Bold.ttf
-    LICENSE.txt
-```
+/resources/fonts/ source-serif-4/ SourceSerif4-Regular.otf SourceSerif4-Italic.otf
+SourceSerif4-Bold.otf SourceSerif4-BoldItalic.otf LICENSE.txt cormorant-garamond/
+CormorantGaramond-Regular.ttf CormorantGaramond-Italic.ttf CormorantGaramond-Bold.ttf LICENSE.txt
+
+````
 
 ---
 
@@ -585,18 +627,20 @@ body {
 h1, h2, h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
-```
+````
 
 ---
 
 ## Fallback Strategy
 
 If fonts not available:
+
 - Body: Georgia, Times New Roman, serif
 - Display: Georgia, serif
 
 Book Binder should check `/resources/fonts/` and embed if present; otherwise use fallback fonts.
-```
+
+````
 
 **File:** `/05-prompts/book_binder/system_prompt.md`
 
@@ -622,20 +666,20 @@ Book Binder should check `/resources/fonts/` and embed if present; otherwise use
 **Validation:**
 - Verify embedded fonts are licensed for distribution
 - Test rendering on major EPUB readers (Apple Books, Kobo, Kindle)
-```
+````
 
 ---
 
 ## Implementation Priority
 
-| Priority | Fix | Files to Modify | Complexity | Impact |
-|----------|-----|-----------------|------------|--------|
-| **P0 Critical** | EPUB Kobo Compat (inline anchors, NCX, landmarks) | `book_binder/system_prompt.md`, `format.render.md` | High | Fixes broken links on Kobo |
-| **P1 High** | Header Hygiene | `book_binder/system_prompt.md`, `format.render.md` | Low | Prevents process leakage |
-| **P1 High** | Choice UX Standardization | `book_binder/system_prompt.md`, `format.render.md` | Low | Improves reader UX |
-| **P2 Medium** | ID Normalization | `book_binder/system_prompt.md`, `format.render.md` | Medium | Better Kobo compat |
-| **P2 Medium** | CI/QA Gates | Create `/tools/validation/epub_validator.md` | Medium | Prevents regression |
-| **P3 Low** | Font Embedding | Create `/resources/fonts/README.md`, update `system_prompt.md` | Low | Typography consistency |
+| Priority        | Fix                                               | Files to Modify                                                | Complexity | Impact                     |
+| --------------- | ------------------------------------------------- | -------------------------------------------------------------- | ---------- | -------------------------- |
+| **P0 Critical** | EPUB Kobo Compat (inline anchors, NCX, landmarks) | `book_binder/system_prompt.md`, `format.render.md`             | High       | Fixes broken links on Kobo |
+| **P1 High**     | Header Hygiene                                    | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Prevents process leakage   |
+| **P1 High**     | Choice UX Standardization                         | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Improves reader UX         |
+| **P2 Medium**   | ID Normalization                                  | `book_binder/system_prompt.md`, `format.render.md`             | Medium     | Better Kobo compat         |
+| **P2 Medium**   | CI/QA Gates                                       | Create `/tools/validation/epub_validator.md`                   | Medium     | Prevents regression        |
+| **P3 Low**      | Font Embedding                                    | Create `/resources/fonts/README.md`, update `system_prompt.md` | Low        | Typography consistency     |
 
 ---
 
@@ -712,13 +756,18 @@ After implementation:
 
 ## Open Questions
 
-1. **Single-file EPUB variant:** Should we generate a Kobo-optimized single-file spine variant as mentioned in post-mortem §6.5? (Defer to Phase 4 testing)
+1. **Single-file EPUB variant:** Should we generate a Kobo-optimized single-file spine variant as
+   mentioned in post-mortem §6.5? (Defer to Phase 4 testing)
 
-2. **Alias backward compat:** Should we add secondary inline anchors with legacy IDs (`<a id="S1p"></a>` alongside `<a id="s1-return"></a>`) for external links? (Recommend: yes, minimal cost)
+2. **Alias backward compat:** Should we add secondary inline anchors with legacy IDs
+   (`<a id="S1p"></a>` alongside `<a id="s1-return"></a>`) for external links? (Recommend: yes,
+   minimal cost)
 
-3. **NCX depth:** Post-mortem specifies `depth="1"` (flat TOC). Should we support nested sections in future? (Recommend: defer until multi-chapter books)
+3. **NCX depth:** Post-mortem specifies `depth="1"` (flat TOC). Should we support nested sections in
+   future? (Recommend: defer until multi-chapter books)
 
-4. **PDF rendering:** PDF currently inherits HTML structure. Should we add PDF-specific formatting (page breaks, headers/footers)? (Recommend: separate proposal)
+4. **PDF rendering:** PDF currently inherits HTML structure. Should we add PDF-specific formatting
+   (page breaks, headers/footers)? (Recommend: separate proposal)
 
 ---
 
@@ -726,7 +775,8 @@ After implementation:
 
 ### 7A: Minimize JSON Exposure in Prompts
 
-**Problem:** Book Binder prompts/outputs show too much JSON to users; should keep internal representation hidden unless debugging.
+**Problem:** Book Binder prompts/outputs show too much JSON to users; should keep internal
+representation hidden unless debugging.
 
 **Proposed Fix:**
 
@@ -740,6 +790,7 @@ After implementation:
 **Principle:** Keep internal JSON representation hidden from user-facing outputs.
 
 **Rules:**
+
 1. **Protocol messages** (intents, artifacts) are internal—never show JSON to users unless:
    - User explicitly requests debug output
    - Error diagnostics require showing message structure
@@ -750,15 +801,16 @@ After implementation:
    - Anchor map: human-readable summary (e.g., "45 anchors resolved, 0 orphans")
    - Validation results: prose description with counts/lists
 
-3. **Error messages** should explain *what went wrong* and *how to fix it*, not dump JSON structures
+3. **Error messages** should explain _what went wrong_ and _how to fix it_, not dump JSON structures
 
 **Example (Good):**
 ```
-✓ Export complete: EPUB, HTML, Markdown
-✓ Anchor integrity: 45 manuscript, 24 codex, 89 crosslinks (0 broken)
-✓ Kobo compatibility: NCX + landmarks + inline anchors
-⚠ Font embedding: fonts not found in /resources/fonts/, using fallbacks
-```
+
+✓ Export complete: EPUB, HTML, Markdown ✓ Anchor integrity: 45 manuscript, 24 codex, 89 crosslinks
+(0 broken) ✓ Kobo compatibility: NCX + landmarks + inline anchors ⚠ Font embedding: fonts not found
+in /resources/fonts/, using fallbacks
+
+````
 
 **Example (Bad):**
 ```json
@@ -770,8 +822,9 @@ After implementation:
     }
   }
 }
-```
-```
+````
+
+````
 
 ---
 
@@ -822,7 +875,7 @@ After implementation:
 - Fail export if title or author is missing (unless user explicitly allows)
 - Warn if description/subjects are auto-generated (may need refinement)
 - Log metadata source for each field in view_log
-```
+````
 
 **File:** `/05-prompts/book_binder/intent_handlers/format.render.md`
 
@@ -839,7 +892,8 @@ After implementation:
 
 ### 7C: Cover Art Text Requirement & SVG Backup
 
-**Problem:** Covers must bear the book title; SVG covers serve as backup for EPUB (vector scalability).
+**Problem:** Covers must bear the book title; SVG covers serve as backup for EPUB (vector
+scalability).
 
 **Proposed Fix:**
 
@@ -851,6 +905,7 @@ After implementation:
 ### Cover Art Policy (Title-Bearing Requirement)
 
 **Rules:**
+
 1. **Primary cover** must be a **title-bearing PNG**:
    - Title text rendered on the image (not added in post)
    - High resolution (min 1600x2400px recommended)
@@ -872,13 +927,16 @@ After implementation:
    - SHA-256 hash for verification
 
 **Implementation:**
+
 1. Book Binder checks for titled cover: `cover_titled.png` and optionally `cover_titled.svg`
 2. If missing: fail export with error "Title-bearing cover required"
-3. EPUB uses PNG as primary (`<meta name="cover" content="cover-image"/>`), includes SVG as backup item
+3. EPUB uses PNG as primary (`<meta name="cover" content="cover-image"/>`), includes SVG as backup
+   item
 4. HTML uses PNG in `<meta property="og:image">` and as page banner
 5. Log cover art status in view_log
 
 **Validation (CI Gate 1):**
+
 - [ ] Primary cover is PNG with `*_titled.png` filename or `title_bearing: true` in manifest
 - [ ] (Optional) SVG backup present
 - [ ] Cover dimensions ≥ 1600x2400px (warn if smaller)
@@ -889,7 +947,8 @@ After implementation:
 
 ### 7D: Typography Decisions via Style Lead
 
-**Problem:** Font choices for cover and prose are currently hard-coded in exporter; should be Style Lead's domain.
+**Problem:** Font choices for cover and prose are currently hard-coded in exporter; should be Style
+Lead's domain.
 
 **Proposed Fix:**
 
@@ -897,18 +956,20 @@ After implementation:
 
 **Location:** Add new section "Typography Specification"
 
-```markdown
+````markdown
 ### Typography Specification (Cover & Prose)
 
 **Authority:** Style Lead defines typography as part of style stabilization.
 
 **Scope:**
+
 1. **Prose body text:** Font family, size, line height, paragraph spacing
 2. **Display titles:** Headings (H1, H2, H3), chapter markers
 3. **Cover typography:** Title font, author font, tagline/subtitle (if any)
 4. **UI elements:** Choice links, navigation, captions
 
 **Output Format (Style Manifest):**
+
 ```json
 {
   "typography": {
@@ -945,8 +1006,10 @@ After implementation:
   "embed_in_epub": true
 }
 ```
+````
 
 **Integration with Book Binder:**
+
 1. Style Lead writes `style_manifest.json` during style stabilization
 2. Book Binder reads manifest during export
 3. If manifest missing: use default typography (Source Serif 4 / Cormorant Garamond)
@@ -954,10 +1017,12 @@ After implementation:
 5. Log typography source in view_log (e.g., "Typography: style_manifest / defaults / fallback")
 
 **Validation:**
+
 - [ ] Typography manifest includes prose, display, cover, and UI font specs
 - [ ] Required fonts are available in `/resources/fonts/` or fallback specified
 - [ ] EPUB embeds fonts if `embed_in_epub: true` and fonts are licensed for embedding
-```
+
+````
 
 **File:** `/05-prompts/book_binder/system_prompt.md`
 
@@ -991,13 +1056,14 @@ After implementation:
 - [ ] Required fonts are available or fallbacks specified
 - [ ] Embedded fonts are licensed for distribution (SIL OFL or similar)
 - [ ] Test rendering on major EPUB readers
-```
+````
 
 ---
 
 ### 7E: Art Director Filename Conventions (ChatGPT Renderer)
 
-**Problem:** When ChatGPT (or other LLMs) use `image_gen.text2im` to render art, filenames must match art manifest entries to enable automatic linking.
+**Problem:** When ChatGPT (or other LLMs) use `image_gen.text2im` to render art, filenames must
+match art manifest entries to enable automatic linking.
 
 **Proposed Fix:**
 
@@ -1008,18 +1074,22 @@ After implementation:
 ```markdown
 ### Filename Conventions for Rendered Art
 
-**Requirement:** When using `image_gen.text2im` or other rendering tools, output filenames **must match** entries in `art_manifest.json`.
+**Requirement:** When using `image_gen.text2im` or other rendering tools, output filenames **must
+match** entries in `art_manifest.json`.
 
 **Filename Pattern:**
 ```
+
 {role}_{section_id}_{variant}.{ext}
 
 Examples:
+
 - cover_titled.png
 - plate_A2_K.png
 - thumb_A1_H.png
 - scene_S3_wide.png
-```
+
+````
 
 **Mapping to Manifest:**
 1. Art Director updates `art_manifest.json` with planned filenames **before** rendering
@@ -1041,9 +1111,10 @@ Examples:
   "sha256": "abc123...",
   "status": "approved"
 }
-```
+````
 
 **Workflow:**
+
 1. **Plan:** AD defines manifest entry with filename, role, caption, prompt
 2. **Render:** Use image_gen.text2im with prompt; save as `plate_A2_K.png`
 3. **Hash:** Compute SHA-256 of saved file
@@ -1051,17 +1122,19 @@ Examples:
 5. **Handoff:** Book Binder reads manifest and includes image at correct anchor
 
 **Validation:**
+
 - [ ] All rendered images match manifest filenames exactly (case-sensitive)
 - [ ] All manifest entries with status="approved" have SHA-256 hashes
 - [ ] No orphaned images (files not in manifest)
 - [ ] No missing images (manifest entries without files)
 
-**ChatGPT-Specific Note:**
-When delegating to ChatGPT via `image_gen.text2im`:
+**ChatGPT-Specific Note:** When delegating to ChatGPT via `image_gen.text2im`:
+
 1. Provide the planned filename in the rendering request
 2. Verify saved filename matches manifest
 3. If filename mismatch: rename file immediately to prevent downstream issues
-```
+
+````
 
 **File:** `/05-prompts/illustrator/system_prompt.md` (or equivalent)
 
@@ -1087,8 +1160,9 @@ image_gen.text2im(prompt, output=filename)
 hash_sha256 = compute_hash(filename)
 manifest_entry["sha256"] = hash_sha256
 manifest_entry["status"] = "approved"
-```
-```
+````
+
+````
 
 ---
 
@@ -1180,10 +1254,12 @@ Without this, users must know the system deeply before starting.
 **Flow:**
 
 #### Step 1: Genre & Theme
-```
+````
+
 Showrunner: "Let's set up your interactive story. What genre or theme are you exploring?"
 
 Examples:
+
 - Detective noir / mystery
 - Fantasy adventure
 - Sci-fi thriller
@@ -1193,6 +1269,7 @@ Examples:
 - Other (specify)
 
 User provides: [genre/theme]
+
 ```
 
 **Capture:** Store in `project_metadata.json` as `"genre": "detective-noir"`
@@ -1201,19 +1278,24 @@ User provides: [genre/theme]
 
 #### Step 2: Title (Provisional)
 ```
+
 Showrunner: "What's your working title? (You can change this later)"
 
 Options:
+
 1. User provides title → use as-is
 2. User requests suggestions → generate 3-5 title options based on genre
 3. User defers → use placeholder "Untitled [Genre] Project"
 
 User provides: [title or "suggest" or "later"]
+
 ```
 
 **If user requests suggestions:**
 ```
+
 Showrunner suggests (example for detective noir):
+
 1. "Midnight Deposition"
 2. "The Shadow Verdict"
 3. "Crossfire Protocol"
@@ -1221,6 +1303,7 @@ Showrunner suggests (example for detective noir):
 5. "The Last Witness"
 
 User selects: [number or provides own]
+
 ```
 
 **Capture:** Store as `"title": "Midnight Deposition"` (provisional, can change)
@@ -1229,9 +1312,11 @@ User selects: [number or provides own]
 
 #### Step 3: Scope & Length
 ```
+
 Showrunner: "How long should this story be?"
 
 Options:
+
 1. Short (10-15 sections) — ~30min play time
 2. Medium (20-30 sections) — ~1hr play time
 3. Long (40-60 sections) — ~2hr play time
@@ -1239,20 +1324,24 @@ Options:
 5. Custom (specify section count)
 
 User selects: [option or custom number]
+
 ```
 
 **Capture:** Store as `"target_sections": 30, "target_length": "medium"`
 
 **Follow-up (optional):**
 ```
+
 Showrunner: "How branching should the narrative be?"
 
 Options:
+
 1. Linear (few branches, converging paths)
 2. Moderate (some meaningful choices, 2-3 major branches)
 3. Highly branching (many paths, significant divergence)
 
 User selects: [option]
+
 ```
 
 **Capture:** Store as `"branching_style": "moderate"`
@@ -1261,16 +1350,19 @@ User selects: [option]
 
 #### Step 4: Style & Tone
 ```
+
 Showrunner: "What style and tone are you aiming for?"
 
 Prompts:
+
 - Writing style: Literary / Pulp / Journalistic / Poetic / Other
 - Paragraph density: Sparse (1-2 paras) / Moderate (2-3) / Rich (3-4+)
 - Tone: Gritty / Lighthearted / Suspenseful / Melancholic / Other
 - POV: First person / Second person / Third person
 
 User provides: [selections or free-form description]
-```
+
+````
 
 **Capture:** Store as:
 ```json
@@ -1282,11 +1374,12 @@ User provides: [selections or free-form description]
     "pov": "second-person"
   }
 }
-```
+````
 
 ---
 
 #### Step 5: Licensing & Authorship
+
 ```
 Showrunner: "Who's the author, and what license should we use?"
 
@@ -1302,6 +1395,7 @@ User selects: [option]
 ```
 
 **Capture:** Store as:
+
 ```json
 {
   "author": "Peter van Liesdonk",
@@ -1312,6 +1406,7 @@ User selects: [option]
 ---
 
 #### Step 6: Confirmation & Handoff
+
 ```
 Showrunner: "Here's your project setup:
 
@@ -1333,6 +1428,7 @@ User confirms: [yes / adjust X / cancel]
 ```
 
 **Actions on confirmation:**
+
 1. Write `project_metadata.json` with all settings
 2. Create initial directory structure (if needed)
 3. Initiate **Lore Deepening** or **Story Spark** based on user preference
@@ -1343,6 +1439,7 @@ User confirms: [yes / adjust X / cancel]
 ### Implementation Notes
 
 **File Structure After Initialization:**
+
 ```
 project_root/
   project_metadata.json      # Settings from init flow
@@ -1354,6 +1451,7 @@ project_root/
 ```
 
 **Metadata Schema (`project_metadata.json`):**
+
 ```json
 {
   "title": "Midnight Deposition",
@@ -1376,8 +1474,10 @@ project_root/
 ```
 
 **Edge Cases:**
+
 - If user already has a project: detect and ask "Resume existing or start new?"
-- If user skips optional fields: use sensible defaults (e.g., "moderate" branching, "CC BY-NC 4.0" license)
+- If user skips optional fields: use sensible defaults (e.g., "moderate" branching, "CC BY-NC 4.0"
+  license)
 - If user wants to change settings later: provide `/project/settings` command or similar
 
 ---
@@ -1385,6 +1485,7 @@ project_root/
 ### Integration with Other Roles
 
 Once initialized, Showrunner hands off to:
+
 1. **Lore Deepening** (if user wants world/character building first)
 2. **Story Spark** (if user wants structure/outline first)
 3. **Plotwright** (if user already has lore and wants plot structure)
@@ -1410,7 +1511,8 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
 - [ ] Style preferences are propagated to Style Lead
 - [ ] Length/branching targets are propagated to Plotwright
 - [ ] User can review and confirm before committing
-```
+
+````
 
 **File:** Create `/05-prompts/showrunner/intent_handlers/project.init.md`
 
@@ -1431,11 +1533,12 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
     "mode": "interactive"  // or "quick" for defaults
   }
 }
-```
+````
 
 **Flow:** See "Project Initialization Flow" in `system_prompt.md`
 
 **Completion:**
+
 ```json
 {
   "intent": "project.init.complete",
@@ -1450,8 +1553,10 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
 ```
 
 **Handoff to Next Role:**
+
 - If user chooses Lore Deepening: `lore.deepen.request`
 - If user chooses Story Spark: `structure.spark.request`
+
 ```
 
 ---
@@ -1535,3 +1640,4 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
 ---
 
 **Once approved, proceed with implementation in priority order.**
+```

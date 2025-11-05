@@ -26,7 +26,8 @@ Operating Model
 
 Choice Rendering (Normalization)
 
-- **Standard:** Render all choices as bullets where the entire line is the link (no trailing arrows like `→`).
+- **Standard:** Render all choices as bullets where the entire line is the link (no trailing arrows
+  like `→`).
 - **Normalize inputs at bind time:**
   - `- Prose → [Text](#ID)` → rewrite to `- [Text](#ID)` (remove prose + arrow)
   - `- [Text](#ID) →` → rewrite to `- [Text](#ID)` (remove trailing arrow)
@@ -34,7 +35,8 @@ Choice Rendering (Normalization)
   - Multiple links in one bullet: preserve as-is (valid multi-option)
   - No links in bullet: preserve as narrative text (not a choice)
 - **Anchor ID normalization & aliasing:**
-  - **Primary:** All IDs should already be `lowercase-dash` from Hot creation (Plotwright/Scene Smith)
+  - **Primary:** All IDs should already be `lowercase-dash` from Hot creation (Plotwright/Scene
+    Smith)
   - **Legacy handling:** If mixed-case or underscore IDs found, normalize and create alias map:
     - Convert to lowercase
     - Replace underscores with dashes
@@ -42,13 +44,13 @@ Choice Rendering (Normalization)
     - Example: `S1′` → `s1-return`, `Section_1` → `section-1`, `DockSeven` → `dock-seven`
   - **Alias map:** Maintain JSON mapping of legacy → canonical for backward compat
   - **Link rewriting:** Update all `href="#OldID"` to `href="#canonical-id"` before export
-  - **Twin IDs (optional):** For maximum compat, add secondary inline anchors with legacy IDs alongside
-    canonical
+  - **Twin IDs (optional):** For maximum compat, add secondary inline anchors with legacy IDs
+    alongside canonical
 - **Optional PN coalescing:** when two anchors represent first-arrival/return of the same section,
   coalesce into one visible section with sub-blocks ("First arrival / On return") while keeping both
   anchors pointing to the combined section.
-- **Validation:** Log count of normalized choices, normalized IDs, alias mappings in `view_log`; flag any
-  remaining `→` in choice contexts for manual review.
+- **Validation:** Log count of normalized choices, normalized IDs, alias mappings in `view_log`;
+  flag any remaining `→` in choice contexts for manual review.
 
 PN Safety (non-negotiable)
 
@@ -65,35 +67,38 @@ Quality & Accessibility
 Header Hygiene Validation (Presentation Safety)
 
 - **Operational markers must NOT appear in reader-facing section titles.**
-- **Forbidden markers:** Hub, Unofficial, Quick, Temp, Draft, FLAG_*, CODEWORD
+- **Forbidden markers:** Hub, Unofficial, Quick, Temp, Draft, FLAG\_\*, CODEWORD
   - **Hub:** Plotwright topology marker (structural junction)
   - **Unofficial:** Plotwright route taxonomy (off-the-books branch)
   - **Quick:** Runner/Scene Smith tempo marker (quickstart/on-ramp)
   - All are metadata/ID tags, NOT reader-facing
-- **Proper location for metadata:** Section frontmatter (YAML/JSON) or separate section map, NOT in H2
-  title.
+- **Proper location for metadata:** Section frontmatter (YAML/JSON) or separate section map, NOT in
+  H2 title.
   - Good: `## Dock Seven` with metadata `kind: hub`
   - Bad: `## Hub: Dock Seven`
-- **Validation pattern:** `^(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s*` (with colon to avoid
-  false positives like "The Hub" as location name)
+- **Validation pattern:** `^(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s*` (with colon to
+  avoid false positives like "The Hub" as location name)
 - **Export behavior:**
-  - **Primary:** Fail export if markers found in H2 titles (with clear error message and remediation)
+  - **Primary:** Fail export if markers found in H2 titles (with clear error message and
+    remediation)
   - **Fallback:** If legacy content exists, strip markers and log warning (backward compat only)
-- **Error message example:** "Header hygiene violation: Section 'Hub: Dock Seven' contains operational
-  marker. Move 'Hub' to section metadata (kind: hub) and use clean title '## Dock Seven'."
+- **Error message example:** "Header hygiene violation: Section 'Hub: Dock Seven' contains
+  operational marker. Move 'Hub' to section metadata (kind: hub) and use clean title '## Dock
+  Seven'."
 
 Metadata Management (Auto-Generation)
 
-- **Source Hierarchy:** `project_metadata.json` → Cold snapshot metadata → Auto-generation from content.
-- **Read `project_metadata.json`** (see 02-dictionary/artifacts/project_metadata.md) from Cold snapshot
-  root or project directory.
+- **Source Hierarchy:** `project_metadata.json` → Cold snapshot metadata → Auto-generation from
+  content.
+- **Read `project_metadata.json`** (see 02-dictionary/artifacts/project_metadata.md) from Cold
+  snapshot root or project directory.
 - **Extract metadata for export formats:**
   - **Title:** From `project_metadata.json` → `title` field; fallback to first H1 in manuscript or
     "Untitled"
   - **Author:** From `project_metadata.json` → `author` field; fallback to "Unknown Author"
   - **License:** From `project_metadata.json` → `license` field; fallback to "All Rights Reserved"
-  - **Description:** From `project_metadata.json` → `description` field; auto-generate from first 2-3
-    sentences of manuscript if missing
+  - **Description:** From `project_metadata.json` → `description` field; auto-generate from first
+    2-3 sentences of manuscript if missing
   - **Subjects:** From `project_metadata.json` → `subjects` array; auto-generate from genre + prose
     keywords if missing
   - **Language:** From `project_metadata.json` → `language` field; default to "en"
@@ -102,12 +107,13 @@ Metadata Management (Auto-Generation)
 - **Inject into format-specific templates:**
   - **EPUB:** `content.opf` `<metadata>` block (`<dc:title>`, `<dc:creator>`, `<dc:rights>`,
     `<dc:description>`, `<dc:subject>`, `<dc:language>`, `<dc:date>`, `<dc:identifier>`)
-  - **HTML:** `<head>` with `<title>`, `<meta name="author">`, `<meta name="license">`, `<meta
-    name="description">`, `<meta name="keywords">`, `<html lang="...">`, `<meta name="date">`
-  - **Markdown:** YAML frontmatter at top of file with title, author, license, description, tags, lang,
-    date
+  - **HTML:** `<head>` with `<title>`, `<meta name="author">`, `<meta name="license">`,
+    `<meta name="description">`, `<meta name="keywords">`, `<html lang="...">`, `<meta name="date">`
+  - **Markdown:** YAML frontmatter at top of file with title, author, license, description, tags,
+    lang, date
 - **Front Matter Integration:** Extract subset for `front_matter` artifact (title, version from
-  `project_metadata.json` → `version`, snapshot from Cold, options/accessibility computed by Binder).
+  `project_metadata.json` → `version`, snapshot from Cold, options/accessibility computed by
+  Binder).
 - **Validation:**
   - Fail export if title or author missing (unless user explicitly allows "Untitled" / "Anonymous")
   - Warn in `view_log` if description/subjects auto-generated (may need refinement)
@@ -117,8 +123,8 @@ Metadata Management (Auto-Generation)
 Cover Art Policy (Title-Bearing Requirement)
 
 - **Primary cover must be title-bearing PNG** (title text rendered on image, not added in post).
-- **Read `art_manifest.json`** (see 02-dictionary/artifacts/art_manifest.md) from Cold snapshot or `/art/`
-  directory.
+- **Read `art_manifest.json`** (see 02-dictionary/artifacts/art_manifest.md) from Cold snapshot or
+  `/art/` directory.
 - **Cover validation:**
   - Find asset with `role: "cover"` and `status: "approved"` in manifest
   - Verify `title_bearing: true`
@@ -126,11 +132,12 @@ Cover Art Policy (Title-Bearing Requirement)
   - Verify SHA-256 hash matches (if provided in manifest)
   - Recommended dimensions: ≥ 1600x2400px (warn if smaller)
 - **SVG backup (optional):**
-  - If asset with `role: "cover_backup"` exists with `format: "SVG"`, include in EPUB as secondary cover
+  - If asset with `role: "cover_backup"` exists with `format: "SVG"`, include in EPUB as secondary
+    cover
   - Must also be `title_bearing: true`
 - **Export integration:**
-  - **EPUB:** Use PNG as `cover-image` in `content.opf` (`<meta name="cover" content="cover-image"/>`);
-    include SVG as backup item in manifest
+  - **EPUB:** Use PNG as `cover-image` in `content.opf`
+    (`<meta name="cover" content="cover-image"/>`); include SVG as backup item in manifest
   - **HTML:** Use PNG in `<meta property="og:image">` and as page banner/hero image
   - **Markdown:** Reference PNG in frontmatter `cover_image:` field
 - **No textless covers in final exports:**
@@ -244,7 +251,7 @@ User Communication & Output Format
   - User explicitly requests debug output
   - Error diagnostics require showing message structure
   - Developer mode is active
-- Error messages should explain *what went wrong* and *how to fix it*, not dump JSON structures.
+- Error messages should explain _what went wrong_ and _how to fix it_, not dump JSON structures.
 
 Checklist
 

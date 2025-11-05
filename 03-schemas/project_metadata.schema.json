@@ -36,12 +36,7 @@
       "description": "Content license. Appears in front matter, EPUB rights metadata, copyright page.",
       "minLength": 3,
       "maxLength": 200,
-      "examples": [
-        "CC BY-NC 4.0",
-        "CC BY 4.0",
-        "CC BY-SA 4.0",
-        "All Rights Reserved"
-      ]
+      "examples": ["CC BY-NC 4.0", "CC BY 4.0", "CC BY-SA 4.0", "All Rights Reserved"]
     },
     "description": {
       "type": "string",

@@ -2,7 +2,9 @@
 
 **Purpose:** Reference documentation for humans writing QuestFoundry charters and prompts.
 
-These guidelines are **informational, not programmatic constraints**. They provide best practices based on published gamebook/CYOA industry standards to help create sensible defaults without hardcoding values.
+These guidelines are **informational, not programmatic constraints**. They provide best practices
+based on published gamebook/CYOA industry standards to help create sensible defaults without
+hardcoding values.
 
 ---
 
@@ -16,12 +18,14 @@ Design guidelines are markdown documentation containing:
 - **Visual aesthetic guidance** for art direction by genre
 
 **They are NOT:**
+
 - ❌ JSON preset files loaded at runtime
 - ❌ Schema validation rules
 - ❌ Enforced constraints on user choices
 - ❌ Required values that must be used
 
 **They ARE:**
+
 - ✅ Reference material for humans writing Layer 1 charters
 - ✅ Best practices embedded in Layer 2 prompts as LLM context
 - ✅ Genre-specific recommendations (not requirements)
@@ -41,10 +45,12 @@ When writing custom prompts or modifying system prompts:
 4. **Allow user overrides** - recommendations are not requirements
 
 **Example:**
+
 ```markdown
 When guiding users on project length, reference docs/design_guidelines/gamebook_design_metrics.md:
-- Medium scope: 250-500 sections (~1hr playtime, 5-10+ endings)
-However, user may choose any valid scope (5-500 sections per schema).
+
+- Medium scope: 250-500 sections (~1hr playtime, 5-10+ endings) However, user may choose any valid
+  scope (5-500 sections per schema).
 ```
 
 ### For Prompt Engineers (Layer 2)
@@ -89,6 +95,7 @@ See "Contributing to Design Guidelines" section below.
 **File:** `gamebook_design_metrics.md`
 
 **Contains:**
+
 - Length categories (Short, Medium, Long, Epic) with section counts
 - Industry-standard word counts and playtimes
 - Content pacing defaults (words per section, choices per section)
@@ -99,6 +106,7 @@ See "Contributing to Design Guidelines" section below.
 - ⭐ **NEW:** Young Adult (13-17) as bridge category
 
 **Use this when:**
+
 - Guiding users on project scope
 - Setting expectations for playtime
 - Designing branching structures
@@ -109,6 +117,7 @@ See "Contributing to Design Guidelines" section below.
 **File:** `genre_conventions.md`
 
 **Contains:**
+
 - 6 popular gamebook genres (detective-noir, fantasy, horror, mystery, romance, sci-fi)
 - Typical project characteristics per genre (scope, pacing, style)
 - ⭐ **NEW:** Reading difficulty targets per genre (F-K Grade, Reading Ease, Dale-Chall)
@@ -118,6 +127,7 @@ See "Contributing to Design Guidelines" section below.
 - Cross-references to typography and art style
 
 **Use this when:**
+
 - Helping users select appropriate genres
 - Providing genre-specific recommendations
 - Understanding typical conventions for a genre
@@ -128,6 +138,7 @@ See "Contributing to Design Guidelines" section below.
 **File:** `typography_recommendations.md`
 
 **Contains:**
+
 - ⭐ **NEW:** "Readability Over Theme" hard rule (thematic fonts only for headers)
 - 2-3 font pairings per genre with rationale
 - Prose + display font combinations
@@ -137,6 +148,7 @@ See "Contributing to Design Guidelines" section below.
 - Accessibility considerations (dyslexia-friendly, color contrast)
 
 **Use this when:**
+
 - Guiding Style Lead on font selection
 - Creating style_manifest artifacts
 - Explaining font pairing choices to users
@@ -147,6 +159,7 @@ See "Contributing to Design Guidelines" section below.
 **File:** `art_style_references.md`
 
 **Contains:**
+
 - Color palettes by genre
 - Composition notes (angles, lighting, atmosphere)
 - Reference artists and visual styles
@@ -155,6 +168,7 @@ See "Contributing to Design Guidelines" section below.
 - ⭐ **NEW:** Children's illustration styles (3-5, 6-8, 9-12) with accessibility guidance
 
 **Use this when:**
+
 - Guiding Art Director on visual style
 - Creating shotlist prompts
 - Building art_manifest artifacts
@@ -176,6 +190,7 @@ To add a new genre to `genre_conventions.md`:
 5. **Submit PR** with clear rationale
 
 **Required sections for genre entries:**
+
 - Description and tags
 - Typical project characteristics (scope, pacing, style)
 - Scope variations (short/medium/long/epic)
@@ -192,6 +207,7 @@ To improve existing documentation:
 4. **Submit PR** with rationale
 
 **Examples of good updates:**
+
 - Adding new font pairing option with rationale
 - Updating word count ranges based on recent published gamebooks
 - Clarifying structural pattern explanations
@@ -248,15 +264,18 @@ Design guideline PRs are reviewed for:
 
 **Q: Why markdown instead of JSON?**
 
-A: Markdown is more human-readable, easier to review/contribute to, better for prose explanations with rationale, and doesn't require parsing logic.
+A: Markdown is more human-readable, easier to review/contribute to, better for prose explanations
+with rationale, and doesn't require parsing logic.
 
 **Q: How do prompts access this information?**
 
-A: Prompts embed guidance directly as text (context for LLMs), rather than loading external files at runtime.
+A: Prompts embed guidance directly as text (context for LLMs), rather than loading external files at
+runtime.
 
 **Q: Can users override recommendations?**
 
-A: Yes, absolutely. Guidelines are informational, not constraints. Schemas accept full range of valid values.
+A: Yes, absolutely. Guidelines are informational, not constraints. Schemas accept full range of
+valid values.
 
 **Q: Should I validate user input against guidelines?**
 
@@ -264,15 +283,18 @@ A: No. Only validate against schema constraints (type, min/max). Don't enforce "
 
 **Q: How do I know which genre a user selected?**
 
-A: Check `project_metadata.genre` field. It's a free-form string, so treat it as informational rather than an enum.
+A: Check `project_metadata.genre` field. It's a free-form string, so treat it as informational
+rather than an enum.
 
 **Q: What if a user chooses a genre not in the guidelines?**
 
-A: That's fine. Use generic fallback recommendations, or ask user for details to provide custom guidance.
+A: That's fine. Use generic fallback recommendations, or ask user for details to provide custom
+guidance.
 
 **Q: Can Layer 6/7 (SDK/CLI) add user custom presets?**
 
-A: Potentially in the future, but it's not part of this proposal. The focus here is on providing baseline guidance, not building a preset system.
+A: Potentially in the future, but it's not part of this proposal. The focus here is on providing
+baseline guidance, not building a preset system.
 
 ---
 
@@ -285,6 +307,7 @@ Design guidelines should be updated:
 - **Community-driven:** Accept PRs from contributors
 
 Guidelines are living documents and should evolve with:
+
 - New published gamebook releases
 - User feedback and usage patterns
 - Industry trends and conventions

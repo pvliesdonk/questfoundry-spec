@@ -66,27 +66,27 @@ Project Initialization Flow
      appropriate metrics from docs/design_guidelines/gamebook_design_metrics.md (section count,
      reading difficulty, structural patterns). If children's age selected, present age-appropriate
      genre options in next step (e.g., "Animal Friends" for 3-5, "Fantasy Quest" for 9-12).
-  2. **Genre & Theme:** Ask user for primary genre/theme. Present popular gamebook genres appropriate
-     for selected age bracket (see docs/design_guidelines/genre_conventions.md): detective-noir,
-     fantasy-rpg, horror-thriller, mystery, romance, sci-fi-cyberpunk, historical-fiction,
-     adventure-action, or custom. For children's brackets, also present age-appropriate genres (Animal
-     Friends, Educational Adventure, Beginner Mystery, Fantasy Quest, Survival Adventure, School
-     Stories). Briefly describe conventions for common genres if helpful.
-  3. **Title (Provisional):** Ask for working title; offer to suggest 3-5 options based on genre; allow
-     defer with placeholder.
+  2. **Genre & Theme:** Ask user for primary genre/theme. Present popular gamebook genres
+     appropriate for selected age bracket (see docs/design_guidelines/genre_conventions.md):
+     detective-noir, fantasy-rpg, horror-thriller, mystery, romance, sci-fi-cyberpunk,
+     historical-fiction, adventure-action, or custom. For children's brackets, also present
+     age-appropriate genres (Animal Friends, Educational Adventure, Beginner Mystery, Fantasy Quest,
+     Survival Adventure, School Stories). Briefly describe conventions for common genres if helpful.
+  3. **Title (Provisional):** Ask for working title; offer to suggest 3-5 options based on genre;
+     allow defer with placeholder.
   4. **Scope & Length:** Guide using industry-standard gamebook metrics (see
      docs/design_guidelines/gamebook_design_metrics.md):
      - **Short** (50-150 sections, ~30min): Quick stories with 2-4 endings
      - **Medium** (250-500 sections, ~1hr): Full-length with 5-10+ endings (most common)
      - **Long** (500-1000 sections, ~2hr): Complex with 15-20+ endings
-     - **Epic** (1000+ sections, 3hr+): Dozens of endings, highly divergent paths
-     Note: For selected genre, mention typical scope (e.g., detective-noir typically medium). However,
-     user may choose any valid scope—schemas accept 5-500 sections. Also ask branching style (linear,
-     moderate, highly-branching).
-  5. **Style & Tone:** Ask for writing style (literary, pulp, journalistic, poetic), paragraph density
-     (sparse, moderate, rich), tone, and POV (first-person, second-person, third-person). Reference
-     genre conventions if helpful (e.g., detective-noir typically uses pulp style, rich density, gritty
-     tone, second-person POV—see docs/design_guidelines/genre_conventions.md).
+     - **Epic** (1000+ sections, 3hr+): Dozens of endings, highly divergent paths Note: For selected
+       genre, mention typical scope (e.g., detective-noir typically medium). However, user may
+       choose any valid scope—schemas accept 5-500 sections. Also ask branching style (linear,
+       moderate, highly-branching).
+  5. **Style & Tone:** Ask for writing style (literary, pulp, journalistic, poetic), paragraph
+     density (sparse, moderate, rich), tone, and POV (first-person, second-person, third-person).
+     Reference genre conventions if helpful (e.g., detective-noir typically uses pulp style, rich
+     density, gritty tone, second-person POV—see docs/design_guidelines/genre_conventions.md).
   6. **Licensing & Authorship:** Ask for author name (or "Anonymous"); present license options (CC
      BY-NC 4.0, CC BY 4.0, CC BY-SA 4.0, All Rights Reserved, custom).
   7. **Confirmation & Handoff:** Present summary with all choices; ask user to confirm or adjust; on
@@ -100,8 +100,8 @@ Project Initialization Flow
   - Lore Deepening: establish world/characters first
   - Story Spark: generate initial structure first
   - Plotwright: if user already has lore and wants plot structure
-- **Integration:** All downstream roles read `project_metadata.json` for context (title, genre, style,
-  length targets).
+- **Integration:** All downstream roles read `project_metadata.json` for context (title, genre,
+  style, length targets).
 - **Design Guidelines Reference:** Showrunner should reference docs/design_guidelines/ for informed
   recommendations but always allow user overrides. Guidelines are informational, not enforced
   constraints.

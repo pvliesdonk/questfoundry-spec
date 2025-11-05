@@ -2,15 +2,16 @@
 
 > **Status:** ✅ **DEFINED (2025-11-04)** Typography specification for export formatting.
 
-> **Use:** Style Lead's typography and style decisions for Book Binder export formatting. Defines font
-> families, sizes, line heights, and other typographic parameters for prose, display, cover, and UI
-> elements. Used by Book Binder during export to EPUB/HTML/PDF.
+> **Use:** Style Lead's typography and style decisions for Book Binder export formatting. Defines
+> font families, sizes, line heights, and other typographic parameters for prose, display, cover,
+> and UI elements. Used by Book Binder during export to EPUB/HTML/PDF.
 
 ---
 
 ## Normative references
 
-- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` · `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
+- Bars & hygiene: `../../00-north-star/QUALITY_BARS.md` ·
+  `../../00-north-star/ACCESSIBILITY_AND_CONTENT_NOTES.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md`
 - Role briefs: `../briefs/style_lead.md` · `../briefs/book_binder.md`
 
@@ -84,6 +85,7 @@ Body text typography for manuscript sections.
 - **`paragraph_spacing`** (string, required): Space between paragraphs
 
 **Example:**
+
 ```json
 {
   "font_family": "Source Serif 4",
@@ -105,6 +107,7 @@ Heading and title typography.
 - **`h3_size`** (string, required): H3 sub-heading size
 
 **Example:**
+
 ```json
 {
   "font_family": "Cormorant Garamond",
@@ -124,6 +127,7 @@ Typography for cover art (when text is embedded in cover).
 - **`fallback`** (string, required): CSS fallback stack
 
 **Example:**
+
 ```json
 {
   "title_font": "Cormorant Garamond Bold",
@@ -142,6 +146,7 @@ Typography and styling for UI elements (choice links, captions, navigation).
 - **`caption_size`** (string, required): Caption font size
 
 **Example:**
+
 ```json
 {
   "link_color": "#2c5aa0",
@@ -161,11 +166,9 @@ List of fonts needed for this typography specification. Used by Book Binder to c
 **Format:** `"Font Name (Styles)"` where styles are comma-separated (e.g., Regular, Italic, Bold)
 
 **Example:**
+
 ```json
-[
-  "Source Serif 4 (Regular, Italic, Bold)",
-  "Cormorant Garamond (Regular, Bold)"
-]
+["Source Serif 4 (Regular, Italic, Bold)", "Cormorant Garamond (Regular, Bold)"]
 ```
 
 ---
@@ -176,6 +179,7 @@ Whether to embed fonts in EPUB exports. If `true`, Book Binder will include font
 generate `@font-face` CSS declarations. If `false`, only fallback fonts will be used.
 
 **Requirements for embedding:**
+
 - Fonts must exist in `/resources/fonts/` directory
 - Fonts must be licensed for embedding (e.g., SIL Open Font License)
 
@@ -252,11 +256,13 @@ Book Binder reads `style_manifest.json` during export and applies typography set
 4. **Markdown:** Typography stored as metadata; rendered by downstream tools
 
 **Fallback hierarchy:**
+
 1. Style manifest (if present and valid)
 2. Project defaults (Source Serif 4 + Cormorant Garamond)
 3. System fallbacks (Georgia, Times New Roman, serif)
 
 **Font availability check:**
+
 - If `embed_in_epub: true` but fonts missing in `/resources/fonts/`, Book Binder:
   - Logs warning in `view_log`
   - Falls back to system fonts
@@ -271,6 +277,7 @@ Book Binder reads `style_manifest.json` during export and applies typography set
 **When:** After style voice/tone is established and before first export
 
 **Updated when:**
+
 - Typography refinement needed
 - Font changes requested
 - Accessibility improvements (e.g., increase line-height for readability)
@@ -319,4 +326,5 @@ If Style Lead wants to use system fonts without embedding:
 
 ---
 
-**Total fields: 24** (1 container, 4 typography sections with 3-5 fields each, 1 font list, 1 boolean)
+**Total fields: 24** (1 container, 4 typography sections with 3-5 fields each, 1 font list, 1
+boolean)

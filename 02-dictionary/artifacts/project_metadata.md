@@ -2,9 +2,9 @@
 
 > **Status:** ✅ **DEFINED (2025-11-04)** Project-wide settings from Showrunner initialization.
 
-> **Use:** Showrunner's project configuration established during initialization and updated throughout
-> project lifecycle. Drives creative decisions across all roles (Plotwright scope, Style Lead tone,
-> Book Binder front matter). Stored in Cold snapshot or project root.
+> **Use:** Showrunner's project configuration established during initialization and updated
+> throughout project lifecycle. Drives creative decisions across all roles (Plotwright scope, Style
+> Lead tone, Book Binder front matter). Stored in Cold snapshot or project root.
 
 ---
 
@@ -61,7 +61,8 @@
 
 #### `title` (string, required)
 
-Project title. Used in exports, front matter, cover art. Can be provisional during init; refined later.
+Project title. Used in exports, front matter, cover art. Can be provisional during init; refined
+later.
 
 **Format:** Player-safe, no internal code names (e.g., "PROJ_FG_ACT1")
 
@@ -73,8 +74,8 @@ Project title. Used in exports, front matter, cover art. Can be provisional duri
 
 Primary genre or theme. Guides tone, style conventions, art direction.
 
-**Common values:** detective-noir, fantasy-adventure, sci-fi-thriller, horror-survival, historical-drama,
-romance, other
+**Common values:** detective-noir, fantasy-adventure, sci-fi-thriller, horror-survival,
+historical-drama, romance, other
 
 **Example:** `"detective-noir"`
 
@@ -95,6 +96,7 @@ Author name. Appears in front matter, EPUB metadata, cover art.
 Content license. Appears in front matter, EPUB rights metadata, copyright page.
 
 **Common values:**
+
 - `"CC BY-NC 4.0"` (Attribution, Non-Commercial)
 - `"CC BY 4.0"` (Attribution)
 - `"CC BY-SA 4.0"` (Attribution, Share-Alike)
@@ -109,11 +111,13 @@ Content license. Appears in front matter, EPUB rights metadata, copyright page.
 
 #### `description` (string, optional)
 
-Brief project description (1-3 sentences). Used in EPUB metadata, HTML meta tags, promotional materials.
+Brief project description (1-3 sentences). Used in EPUB metadata, HTML meta tags, promotional
+materials.
 
 **Auto-generation rule:** If missing, Book Binder extracts first 2-3 sentences of manuscript prose.
 
-**Example:** `"A rain-soaked detective story where choices shape the investigation and every lead has a cost."`
+**Example:**
+`"A rain-soaked detective story where choices shape the investigation and every lead has a cost."`
 
 ---
 
@@ -121,8 +125,8 @@ Brief project description (1-3 sentences). Used in EPUB metadata, HTML meta tags
 
 Genre keywords/tags. Used in EPUB `<dc:subject>`, HTML meta keywords, search/discovery.
 
-**Auto-generation rule:** If missing, extract from genre + prose analysis (e.g., "detective-noir" → ["noir",
-"detective", "mystery"])
+**Auto-generation rule:** If missing, extract from genre + prose analysis (e.g., "detective-noir" →
+["noir", "detective", "mystery"])
 
 **Example:** `["noir", "detective", "mystery", "interactive fiction"]`
 
@@ -147,6 +151,7 @@ Target number of manuscript sections. Guides Plotwright scope planning.
 **Format:** Positive integer
 
 **Common values:**
+
 - 10-15 (short, ~30min play time)
 - 20-30 (medium, ~1hr play time)
 - 40-60 (long, ~2hr play time)
@@ -171,6 +176,7 @@ Human-readable length category. Derived from `target_sections`.
 Narrative branching complexity. Guides Plotwright topology decisions.
 
 **Values:**
+
 - `"linear"` — Few branches, converging paths
 - `"moderate"` — Some meaningful choices, 2-3 major branches
 - `"highly-branching"` — Many paths, significant divergence
@@ -186,12 +192,14 @@ Narrative branching complexity. Guides Plotwright topology decisions.
 Style/tone specifications established during Showrunner init or Style Lead stabilization.
 
 **Fields:**
+
 - **`writing_style`** (string, required): Literary, Pulp, Journalistic, Poetic, Other
 - **`paragraph_density`** (string, required): Sparse (1-2 paras), Moderate (2-3), Rich (3-4+)
 - **`tone`** (string, required): Gritty, Lighthearted, Suspenseful, Melancholic, Other
 - **`pov`** (string, required): first-person, second-person, third-person
 
 **Example:**
+
 ```json
 {
   "writing_style": "pulp",
@@ -295,25 +303,27 @@ Project version. Semantic versioning (semver) or date-based.
 
 ## Relationship to front_matter
 
-**Project metadata** is the full configuration.
-**Front matter** (see `front_matter.md`) is the export-facing subset that appears in PDF/EPUB/HTML headers.
+**Project metadata** is the full configuration. **Front matter** (see `front_matter.md`) is the
+export-facing subset that appears in PDF/EPUB/HTML headers.
 
 **Extraction mapping:**
 
-| front_matter field | project_metadata source |
-|--------------------|-------------------------|
-| Title | `title` |
-| Version | `version` |
-| Snapshot | (from Cold snapshot, not in project_metadata) |
-| Options | (computed by Book Binder: art/audio/locales) |
-| Accessibility | (computed by Book Binder) |
-| Notes | (optional, not in project_metadata) |
+| front_matter field | project_metadata source                       |
+| ------------------ | --------------------------------------------- |
+| Title              | `title`                                       |
+| Version            | `version`                                     |
+| Snapshot           | (from Cold snapshot, not in project_metadata) |
+| Options            | (computed by Book Binder: art/audio/locales)  |
+| Accessibility      | (computed by Book Binder)                     |
+| Notes              | (optional, not in project_metadata)           |
 
 **Book Binder behavior:**
+
 1. Read `project_metadata.json` from Cold snapshot or project root
 2. Extract `title`, `version` for front matter
 3. Combine with `author`, `license` for EPUB/HTML metadata
-4. Use `description`, `subjects`, `language` for format-specific metadata (EPUB `<dc:*>`, HTML `<meta>`)
+4. Use `description`, `subjects`, `language` for format-specific metadata (EPUB `<dc:*>`, HTML
+   `<meta>`)
 
 ---
 
@@ -324,12 +334,14 @@ Project version. Semantic versioning (semver) or date-based.
 **When:** User starts new project; guided 6-step setup flow
 
 **Updated when:**
+
 - Title refined (provisional → final)
 - Scope adjusted (target_sections, branching_style)
 - Style settings finalized by Style Lead
 - Version bumped (milestone releases)
 
 **Consumed by:**
+
 - **Showrunner:** Orchestration, handoffs
 - **Plotwright:** Scope (target_sections, branching_style)
 - **Style Lead:** Style settings (tone, pov, paragraph_density)
@@ -367,5 +379,5 @@ If user skips optional fields during init:
 
 ---
 
-**Total fields: 15** (4 core metadata, 2 descriptive, 3 scope/structure, 1 style object with 4 sub-fields,
-3 lifecycle)
+**Total fields: 15** (4 core metadata, 2 descriptive, 3 scope/structure, 1 style object with 4
+sub-fields, 3 lifecycle)

@@ -37,6 +37,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Rule:** Final EPUB must use a title-bearing PNG as designated cover-image.
 
 **Checks:**
+
 - ✓ `content.opf` has `<meta name="cover" content="cover-image"/>`
 - ✓ Cover image is PNG format
 - ✓ Cover item exists in manifest
@@ -51,6 +52,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Rule:** Reading order begins at first scene; frontmatter not in spine start.
 
 **Checks:**
+
 - ✓ First `<itemref>` in spine is a scene section (matches pattern `^\d{3}\.xhtml$`)
 - ⚠ TOC/nav.xhtml has `linear="no"` attribute (optional check)
 
@@ -63,6 +65,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Rule:** Every link target must exist; every section must have inline anchor.
 
 **Checks:**
+
 - ✓ Parse all `href="#id"` and `href="file.xhtml#id"` links
 - ✓ Verify each target ID exists in referenced file
 - ✓ Count inline anchors (`<a id="...">` or `<span id="...">`)
@@ -79,6 +82,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Rule:** EPUB must include Kobo-specific navigation and anchor patterns.
 
 **Checks:**
+
 - ✓ `toc.ncx` file present in manifest (`application/x-dtbncx+xml`)
 - ✓ `toc.ncx` includes all spine items with sequential `playOrder` (1..N)
 - ✓ ARIA landmarks present in `nav.xhtml` (cover, toc, bodymatter)
@@ -95,6 +99,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Status:** Not yet implemented (requires access to `art_manifest.json` outside EPUB).
 
 **Planned Checks:**
+
 - Parse all `<img src="...">` tags in EPUB
 - Verify each image path exists in `art_manifest.updated.json`
 - Verify each image has non-empty `caption` field
@@ -110,6 +115,7 @@ qfspec-validate-epub ../exports/midnight_deposition.epub
 **Rule:** Reader-facing section titles must not contain operational markers.
 
 **Checks:**
+
 - ✓ Parse all `<h2>` (sections) and `<h1>` (title) in EPUB
 - ✓ Regex match: `(Hub|Unofficial|Quick|Temp|Draft|FLAG_\w+|CODEWORD):\s`
 - ✓ Count matches (should be 0)
