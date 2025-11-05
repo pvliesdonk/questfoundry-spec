@@ -1,0 +1,332 @@
+name: Publish Schemas
+
+# Trigger on schema version tags (e.g., schemas-v0.1.0)
+on:
+  push:
+    tags:
+      - 'schemas-v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install UV
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd spec-tools
+          uv sync
+
+      - name: Validate all schemas
+        id: validate
+        run: |
+          cd spec-tools
+          uv run qfspec-validate
+        continue-on-error: false
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          # Extract version from tag (schemas-v0.1.0 -> 0.1.0)
+          VERSION=${GITHUB_REF#refs/tags/schemas-v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "Schema version: $VERSION"
+
+      - name: Read schema changelog
+        id: changelog
+        run: |
+          if [ -f "03-schemas/CHANGELOG.md" ]; then
+            # Extract the latest version section from changelog
+            echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+            awk '/^## \[/{if(p)exit;p=1;next}p' 03-schemas/CHANGELOG.md >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "CHANGELOG=No changelog available" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create schema bundle
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          BUNDLE_NAME="questfoundry-schemas-v${VERSION}"
+
+          # Create bundle directory
+          mkdir -p "${BUNDLE_NAME}/schemas"
+
+          # Copy all schemas
+          cp 03-schemas/*.json "${BUNDLE_NAME}/schemas/"
+
+          # Create README for bundle
+          cat > "${BUNDLE_NAME}/README.md" << EOF
+          # QuestFoundry Schemas v${VERSION}
+
+          JSON Schema definitions for QuestFoundry artifacts.
+
+          ## Contents
+
+          This bundle contains all Layer 3 schemas (JSON Schema Draft 2020-12):
+
+          - **18 Artifact Schemas** in \`schemas/\` directory
+          - Schema IDs reference canonical URLs: \`https://questfoundry.liesdonk.nl/schemas/\`
+
+          ## Usage
+
+          ### Direct Validation
+
+          **Using ajv-cli:**
+
+          \`\`\`bash
+          npm install -g ajv-cli
+          ajv validate -s schemas/hook_card.schema.json -d your-hook.json
+          \`\`\`
+
+          **Using Python jsonschema:**
+
+          \`\`\`bash
+          pip install jsonschema
+          jsonschema -i your-hook.json schemas/hook_card.schema.json
+          \`\`\`
+
+          ### With Python Package
+
+          \`\`\`bash
+          pip install questfoundry-py
+          \`\`\`
+
+          \`\`\`python
+          from questfoundry.resources import get_schema
+          schema = get_schema('hook_card')
+          \`\`\`
+
+          ### Online Access
+
+          **GitHub Raw URLs (always available):**
+
+          \`\`\`
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/03-schemas/{schema-name}.schema.json
+          \`\`\`
+
+          **Pin to specific version:**
+
+          \`\`\`
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/schemas-v${VERSION}/03-schemas/{schema-name}.schema.json
+          \`\`\`
+
+          **Canonical URLs (when configured):**
+
+          \`\`\`
+          https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json
+          \`\`\`
+
+          ## Schema List
+
+          EOF
+
+          # List all schemas with brief description
+          for schema in 03-schemas/*.json; do
+            filename=$(basename "$schema")
+            # Extract title from schema if possible
+            title=$(grep -m 1 '"title"' "$schema" | sed 's/.*"title": "\(.*\)".*/\1/' || echo "")
+            if [ -n "$title" ]; then
+              echo "- \`$filename\` - $title" >> "${BUNDLE_NAME}/README.md"
+            else
+              echo "- \`$filename\`" >> "${BUNDLE_NAME}/README.md"
+            fi
+          done
+
+          cat >> "${BUNDLE_NAME}/README.md" << EOF
+
+          ## Documentation
+
+          - **Full Specification:** https://github.com/pvliesdonk/questfoundry-spec
+          - **Schema Documentation:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas
+          - **Validation Tools:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/spec-tools
+
+          ## Version
+
+          **Schema Version:** ${VERSION}
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Tag:** schemas-v${VERSION}
+
+          ## License
+
+          See [LICENSE](https://github.com/pvliesdonk/questfoundry-spec/blob/main/LICENSE) in the main repository.
+          EOF
+
+          # Add version file
+          echo "$VERSION" > "${BUNDLE_NAME}/VERSION.txt"
+
+          # Copy changelog if exists
+          if [ -f "03-schemas/CHANGELOG.md" ]; then
+            cp 03-schemas/CHANGELOG.md "${BUNDLE_NAME}/"
+          fi
+
+          # Copy schema README if exists
+          if [ -f "03-schemas/README.md" ]; then
+            cp 03-schemas/README.md "${BUNDLE_NAME}/SCHEMAS_README.md"
+          fi
+
+          # Create zip archive
+          zip -r "${BUNDLE_NAME}.zip" "${BUNDLE_NAME}/"
+
+          # Create checksum
+          sha256sum "${BUNDLE_NAME}.zip" > "${BUNDLE_NAME}.zip.sha256"
+
+          echo "✅ Bundle created: ${BUNDLE_NAME}.zip"
+          ls -lh "${BUNDLE_NAME}.zip"
+          echo ""
+          echo "📦 Contents:"
+          unzip -l "${BUNDLE_NAME}.zip" | head -30
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          REPO="pvliesdonk/questfoundry-spec"
+
+          cat > release_notes.md << EOF
+          # QuestFoundry Schemas v${VERSION}
+
+          Complete JSON Schema bundle for QuestFoundry artifact validation.
+
+          ## 📦 What's Included
+
+          - **18 Artifact Schemas** (JSON Schema Draft 2020-12)
+          - Complete documentation and usage examples
+          - Version information and changelog
+          - Validation instructions
+
+          ## 🔗 Access Methods
+
+          ### 1. Download Bundle (Offline Use)
+
+          Download \`questfoundry-schemas-v${VERSION}.zip\` from the assets below for offline validation and reference.
+
+          ### 2. Raw GitHub URLs (Direct Access)
+
+          Access individual schemas directly:
+
+          \`\`\`bash
+          # Latest (main branch)
+          curl https://raw.githubusercontent.com/${REPO}/main/03-schemas/hook_card.schema.json
+
+          # This version (pinned)
+          curl https://raw.githubusercontent.com/${REPO}/schemas-v${VERSION}/03-schemas/hook_card.schema.json
+          \`\`\`
+
+          ### 3. Python Package
+
+          Install the QuestFoundry Python library (includes bundled schemas):
+
+          \`\`\`bash
+          pip install questfoundry-py
+          \`\`\`
+
+          \`\`\`python
+          from questfoundry.resources import get_schema
+          schema = get_schema('hook_card')
+          \`\`\`
+
+          ### 4. Canonical URLs (Future)
+
+          Schema \`\$id\` fields reference \`https://questfoundry.liesdonk.nl/schemas/\` which will be configured in the future. Use Raw GitHub URLs above in the meantime.
+
+          ## 📋 Changelog
+
+          EOF
+
+          # Add changelog content
+          if [ -f "03-schemas/CHANGELOG.md" ]; then
+            awk '/^## \[/{if(p)exit;p=1}p' 03-schemas/CHANGELOG.md >> release_notes.md
+          else
+            echo "Initial release of all schemas." >> release_notes.md
+          fi
+
+          cat >> release_notes.md << EOF
+
+          ## ✅ Validation
+
+          All schemas validated against JSON Schema Draft 2020-12 meta-schema.
+
+          **SHA-256 Checksum:**
+
+          See \`questfoundry-schemas-v${VERSION}.zip.sha256\` asset below.
+
+          ## 📖 Documentation
+
+          - **Specification:** https://github.com/${REPO}
+          - **Schema Documentation:** https://github.com/${REPO}/tree/main/03-schemas
+          - **Validation Tools:** https://github.com/${REPO}/tree/main/spec-tools
+          - **Implementation Plan:** https://github.com/${REPO}/tree/main/06-libraries
+
+          ## 🛠️ Quick Start
+
+          **Validate a hook card:**
+
+          \`\`\`bash
+          # Download bundle
+          wget https://github.com/${REPO}/releases/download/schemas-v${VERSION}/questfoundry-schemas-v${VERSION}.zip
+          unzip questfoundry-schemas-v${VERSION}.zip
+
+          # Validate with ajv
+          npm install -g ajv-cli
+          ajv validate -s questfoundry-schemas-v${VERSION}/schemas/hook_card.schema.json -d your-hook.json
+          \`\`\`
+
+          ---
+
+          **Schema Version:** v${VERSION}
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Commit:** ${GITHUB_SHA:0:7}
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Schemas v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          files: |
+            questfoundry-schemas-v${{ steps.version.outputs.version }}.zip
+            questfoundry-schemas-v${{ steps.version.outputs.version }}.zip.sha256
+          draft: false
+          prerelease: false
+          tag_name: ${{ steps.version.outputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          echo "## 🎉 Schema Release Published!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** schemas-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Assets Created" >> $GITHUB_STEP_SUMMARY
+          echo "- \`questfoundry-schemas-v${VERSION}.zip\` (bundle)" >> $GITHUB_STEP_SUMMARY
+          echo "- \`questfoundry-schemas-v${VERSION}.zip.sha256\` (checksum)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Access URLs" >> $GITHUB_STEP_SUMMARY
+          echo "- **GitHub Release:** https://github.com/${{ github.repository }}/releases/tag/schemas-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Raw GitHub:** https://raw.githubusercontent.com/${{ github.repository }}/main/03-schemas/" >> $GITHUB_STEP_SUMMARY
+          echo "- **Pinned Version:** https://raw.githubusercontent.com/${{ github.repository }}/schemas-v${VERSION}/03-schemas/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All schemas validated successfully"
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📝 Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Test schema bundle download" >> $GITHUB_STEP_SUMMARY
+          echo "2. Update Python package to reference this version" >> $GITHUB_STEP_SUMMARY
+          echo "3. Announce release in discussions" >> $GITHUB_STEP_SUMMARY
