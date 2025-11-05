@@ -43,7 +43,7 @@ repos:
       # JSON Syntax Validation - Basic JSON parsing check
       - id: validate-json-syntax
         name: Validate JSON syntax
-        entry: python -m json.tool
+        entry: bash -c 'for file in "$@"; do python -m json.tool "$file" > /dev/null || exit 1; done' --
         language: system
         types: [json]
         description: Validate that all JSON files have valid syntax
