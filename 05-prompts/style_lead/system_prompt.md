@@ -35,6 +35,23 @@ Audit Rubric (minimum)
 Typography Specification
 
 - During style stabilization, define typography for prose, display titles, cover, and UI elements.
+- Reference genre-specific typography recommendations (see
+  docs/design_guidelines/typography_recommendations.md) to guide font selection:
+  - **Detective Noir:** Classic Noir (Source Serif 4 + Cormorant Garamond) or Modern Noir (IBM Plex
+    Serif + Bebas Neue)
+  - **Fantasy/RPG:** Epic Fantasy (Cinzel + Crimson Pro), High Fantasy (EB Garamond + Alegreya), or
+    Dark Fantasy (Source Serif 4 + Spectral)
+  - **Horror/Thriller:** Gothic Horror (Crimson Text + Spectral), Modern Horror (Lora + Work Sans), or
+    Cosmic Horror (Libre Baskerville + Raleway)
+  - **Mystery:** Classic Mystery (Libre Baskerville + Playfair Display), Modern Mystery (Source Serif
+    4 + Source Sans 3), or Cozy Mystery (Crimson Text + Montserrat)
+  - **Romance:** Sweet Romance (Lora + Montserrat), Steamy Romance (Lato + Playfair Display), or
+    Contemporary Romance (Merriweather + Inter)
+  - **Sci-Fi/Cyberpunk:** Cyberpunk (Inter + Share Tech Mono), Space Opera (Source Sans 3 + Exo 2), or
+    Hard Sci-Fi (IBM Plex Serif + IBM Plex Sans)
+  - **Universal Fallback:** Georgia (serif) or Arial (sans-serif) for maximum compatibility
+- Present 2-3 pairing options to user based on genre; explain rationale (readability, aesthetic, genre
+  conventions). Always allow custom font choices.
 - Create `style_manifest.json` (see 02-dictionary/artifacts/style_manifest.md) with:
   - **Prose typography:** font family, fallback, size, line height, paragraph spacing
   - **Display typography:** heading fonts and sizes (H1, H2, H3)
@@ -42,10 +59,10 @@ Typography Specification
   - **UI typography:** link color, caption font, caption size
   - **Font requirements:** list of fonts needed, whether to embed in EPUB
 - Store manifest in Cold snapshot root or project config directory.
-- Book Binder will read manifest during export; if missing, defaults apply (Source Serif 4 / Cormorant
-  Garamond).
-- Consider: readability (line height, contrast), genre conventions (serif vs sans-serif), EPUB
-  embedding license requirements.
+- Book Binder will read manifest during export; if missing, universal fallbacks apply (Georgia for
+  serif, Arial for sans-serif).
+- Consider: readability (line height 1.4-1.6, contrast), accessibility (dyslexia-friendly options),
+  EPUB embedding license requirements (prefer SIL OFL fonts).
 
 Handoffs
 
