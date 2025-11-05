@@ -7,6 +7,42 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-11-05
+
+### Added
+
+- **Cold Source of Truth (Cold SoT) Schemas:**
+  - `cold_manifest.schema.json` - Top-level file index with SHA-256 hashes for deterministic builds
+  - `cold_book.schema.json` - Story structure, section order, and bibliographic metadata
+  - `cold_art_manifest.schema.json` - Asset mappings with SHA-256 hashes and provenance tracking
+  - `cold_fonts.schema.json` - Optional font file mappings for consistent typography
+  - `cold_build_lock.schema.json` - Optional tool version pinning for reproducible builds
+- **Hot Discovery Space Schema:**
+  - `hot_manifest.schema.json` - Master index for Hot discovery space (TUs, hooks, proposals,
+    drafts)
+
+### Changed
+
+- **Storage-Agnostic Architecture**: Added notes to `cold_manifest` and `hot_manifest` schemas
+  clarifying that Layer 3 defines logical structure only; Layer 6 implementations may use JSON
+  files, SQLite, Redis, or other backends
+- Updated all Cold SoT-aware schemas to reference canonical URLs:
+  `https://questfoundry.liesdonk.nl/schemas/`
+
+### Documentation
+
+- Updated Layer 5 system prompts (Book Binder, Gatekeeper, Art Director, Illustrator, Showrunner)
+  with Cold SoT format sections and schema URLs
+- Updated `05-prompts/USAGE_GUIDE.md` to reference schemas by canonical URL (no upload required)
+- Updated `05-prompts/upload_kits/README.md` to clarify schemas are accessed via URL, not uploaded
+
+### Context
+
+This release adds the complete Cold Source of Truth format specification, enabling deterministic
+builds and preventing protocol violations (e.g., Adventure Bay Binder Breakdown incident). The 6 new
+schemas define manifest-driven builds with SHA-256 validation, eliminating heuristics and "newest
+file wins" logic.
+
 ## [0.1.0] - 2025-11-05
 
 ### Added
@@ -51,5 +87,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Linked to Layer 2 source documents (`02-dictionary/artifacts/`)
 - Validation tools available in `spec-tools/`
 
-[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/compare/schemas-v0.1.0...HEAD
+[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/compare/schemas-v0.2.0...HEAD
+[0.2.0]: https://github.com/pvliesdonk/questfoundry-spec/compare/schemas-v0.1.0...schemas-v0.2.0
 [0.1.0]: https://github.com/pvliesdonk/questfoundry-spec/releases/tag/schemas-v0.1.0
