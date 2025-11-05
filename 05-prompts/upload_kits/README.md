@@ -133,8 +133,8 @@ zip -r full-upload-kit.zip \
 Generate `dist/upload_kits/*` with flattened filenames and ready‑made zips (no platform subfolders):
 
 - Using uv (recommended): `uv run qfspec-build-kits`
-- Bash (macOS/Linux/WSL): `tools/scripts/build_upload_kits.sh`
-- PowerShell (Windows): `tools/scripts/build_upload_kits.ps1`
+- Bash (macOS/Linux/WSL): `spec-tools/scripts/build_upload_kits.sh`
+- PowerShell (Windows): `spec-tools/scripts/build_upload_kits.ps1`
 
 You’ll get (top‑level):
 

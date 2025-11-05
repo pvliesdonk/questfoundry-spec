@@ -35,15 +35,15 @@ if ! command -v uv &> /dev/null; then
 fi
 
 # Check if tools package is set up
-if [ ! -d "$REPO_ROOT/tools" ]; then
-    echo -e "${RED}Error: tools/ directory not found${NC}"
+if [ ! -d "$REPO_ROOT/spec-tools" ]; then
+    echo -e "${RED}Error: spec-tools/ directory not found${NC}"
     echo "Please ensure you're running from the repository root"
     exit 1
 fi
 
 # Set up tools if needed
 echo "Setting up validation tools..."
-cd "$REPO_ROOT/tools"
+cd "$REPO_ROOT/spec-tools"
 uv sync --quiet || {
     echo -e "${RED}Failed to set up validation tools${NC}"
     exit 1
@@ -55,20 +55,20 @@ cd "$REPO_ROOT"
 if [ $# -eq 0 ]; then
     # No arguments: validate all examples
     EXAMPLES_DIR="$REPO_ROOT/04-protocol/EXAMPLES"
-    
+
     if [ ! -d "$EXAMPLES_DIR" ]; then
         echo -e "${RED}Error: 04-protocol/EXAMPLES/ directory not found${NC}"
         exit 1
     fi
-    
+
     # Find all .json files in EXAMPLES directory
     ENVELOPE_FILES=($(find "$EXAMPLES_DIR" -name "*.json" -type f | sort))
-    
+
     if [ ${#ENVELOPE_FILES[@]} -eq 0 ]; then
         echo -e "${YELLOW}Warning: No envelope examples found in $EXAMPLES_DIR${NC}"
         exit 0
     fi
-    
+
     echo "Validating ${#ENVELOPE_FILES[@]} envelope examples..."
     echo ""
 else
@@ -87,15 +87,15 @@ for envelope_file in "${ENVELOPE_FILES[@]}"; do
     if [[ ! "$envelope_file" = /* ]]; then
         envelope_file="$REPO_ROOT/$envelope_file"
     fi
-    
+
     if [ ! -f "$envelope_file" ]; then
         echo -e "${RED}✗${NC} $(basename "$envelope_file") - File not found"
         ((FAILED++))
         continue
     fi
-    
+
     # Validate using qfspec-check-envelope
-    if uv run --directory "$REPO_ROOT/tools" qfspec-check-envelope "$envelope_file" > /tmp/validate-output.txt 2>&1; then
+    if uv run --directory "$REPO_ROOT/spec-tools" qfspec-check-envelope "$envelope_file" > /tmp/validate-output.txt 2>&1; then
         # Extract just the filename for cleaner output
         filename=$(basename "$envelope_file")
         echo -e "${GREEN}✓${NC} $filename"

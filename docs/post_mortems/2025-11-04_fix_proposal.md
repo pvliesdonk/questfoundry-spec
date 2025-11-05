@@ -438,7 +438,7 @@ Manual validation is error-prone; need automated checks to enforce policies.
 
 ### Proposed Fix
 
-**File:** Create `/tools/validation/epub_validator.md` (specification for future implementation)
+**File:** Create `/spec-tools/validation/epub_validator.md` (specification for future implementation)
 
 ```markdown
 # EPUB Validator — CI/QA Gates
@@ -548,7 +548,7 @@ Binder export flow as validation steps.
 **Suggested Flow:**
 
 1. Book Binder generates EPUB
-2. Run validator script: `./tools/validation/epub_validator.py book.epub`
+2. Run validator script: `./spec-tools/validation/epub_validator.py book.epub`
 3. Validator outputs: PASS / WARN / FAIL with detailed report
 4. Append validator report to `view_log`
 5. If FAIL: block delivery to Production Nexus
@@ -678,7 +678,7 @@ Book Binder should check `/resources/fonts/` and embed if present; otherwise use
 | **P1 High**     | Header Hygiene                                    | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Prevents process leakage   |
 | **P1 High**     | Choice UX Standardization                         | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Improves reader UX         |
 | **P2 Medium**   | ID Normalization                                  | `book_binder/system_prompt.md`, `format.render.md`             | Medium     | Better Kobo compat         |
-| **P2 Medium**   | CI/QA Gates                                       | Create `/tools/validation/epub_validator.md`                   | Medium     | Prevents regression        |
+| **P2 Medium**   | CI/QA Gates                                       | Create `/spec-tools/validation/epub_validator.md`                   | Medium     | Prevents regression        |
 | **P3 Low**      | Font Embedding                                    | Create `/resources/fonts/README.md`, update `system_prompt.md` | Low        | Typography consistency     |
 
 ---
@@ -705,7 +705,7 @@ Book Binder should check `/resources/fonts/` and embed if present; otherwise use
 
 ### Files to Create
 
-3. `/tools/validation/epub_validator.md`
+3. `/spec-tools/validation/epub_validator.md`
    - Specification for CI/QA gates
 
 4. `/resources/fonts/README.md`
@@ -1175,7 +1175,7 @@ manifest_entry["status"] = "approved"
 | **P1 High** | Choice UX Standardization | `book_binder/system_prompt.md`, `format.render.md` | Low | Improves reader UX |
 | **P1 High** | Metadata Auto-Generation (7B) | `book_binder/system_prompt.md`, `format.render.md` | Medium | Ensures consistent metadata |
 | **P2 Medium** | ID Normalization | `book_binder/system_prompt.md`, `format.render.md` | Medium | Better Kobo compat |
-| **P2 Medium** | CI/QA Gates | Create `/tools/validation/epub_validator.md` | Medium | Prevents regression |
+| **P2 Medium** | CI/QA Gates | Create `/spec-tools/validation/epub_validator.md` | Medium | Prevents regression |
 | **P2 Medium** | JSON Exposure (7A) | `book_binder/system_prompt.md` | Low | Cleaner user-facing outputs |
 | **P2 Medium** | Cover Policy (7C) | `book_binder/system_prompt.md`, CI gates | Low | Enforce title-bearing covers |
 | **P3 Low** | Typography via Style Lead (7D) | `style_lead/system_prompt.md`, `book_binder/system_prompt.md` | Medium | Style Lead authority |
@@ -1218,7 +1218,7 @@ manifest_entry["status"] = "approved"
 
 ### Files to Create
 
-6. `/tools/validation/epub_validator.md`
+6. `/spec-tools/validation/epub_validator.md`
    - Specification for CI/QA gates (includes 7C cover validation)
 
 7. `/resources/fonts/README.md`
@@ -1571,7 +1571,7 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
 | **P1 High** | Metadata Auto-Generation (7B) | `book_binder/system_prompt.md`, `format.render.md` | Medium | Ensures consistent metadata |
 | **P1 High** | Showrunner Init Flow (8) | `showrunner/system_prompt.md`, create `project.init.md` | Medium | Onboarding UX |
 | **P2 Medium** | ID Normalization | `book_binder/system_prompt.md`, `format.render.md` | Medium | Better Kobo compat |
-| **P2 Medium** | CI/QA Gates | Create `/tools/validation/epub_validator.md` | Medium | Prevents regression |
+| **P2 Medium** | CI/QA Gates | Create `/spec-tools/validation/epub_validator.md` | Medium | Prevents regression |
 | **P2 Medium** | JSON Exposure (7A) | `book_binder/system_prompt.md` | Low | Cleaner user-facing outputs |
 | **P2 Medium** | Cover Policy (7C) | `book_binder/system_prompt.md`, CI gates | Low | Enforce title-bearing covers |
 | **P3 Low** | Typography via Style Lead (7D) | `style_lead/system_prompt.md`, `book_binder/system_prompt.md` | Medium | Style Lead authority |
@@ -1617,7 +1617,7 @@ All downstream roles read `project_metadata.json` for context (title, genre, sty
 
 ### Files to Create
 
-7. `/tools/validation/epub_validator.md`
+7. `/spec-tools/validation/epub_validator.md`
    - Specification for CI/QA gates (includes 7C cover validation)
 
 8. `/resources/fonts/README.md`

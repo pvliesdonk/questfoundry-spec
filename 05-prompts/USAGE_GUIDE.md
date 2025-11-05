@@ -354,7 +354,7 @@ Auto‑build link folders and zips:
 - Preferred: `uv run qfspec-build-kits` (writes to `dist/upload_kits/*`). You’ll get top‑level
   `minimal/` (10 files) + `minimal.zip`, `optional/` + `optional.zip`, and `full/` + `full.zip`.
 - Alternatively, scripts:
-  - Bash: `tools/scripts/build_upload_kits.sh`
-  - PowerShell: `tools/scripts/build_upload_kits.ps1`
+  - Bash: `spec-tools/scripts/build_upload_kits.sh`
+  - PowerShell: `spec-tools/scripts/build_upload_kits.ps1`
 
 See 05-prompts/upload_kits/ for manifests and details.

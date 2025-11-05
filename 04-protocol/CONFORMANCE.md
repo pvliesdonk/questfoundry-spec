@@ -348,7 +348,7 @@ uv run --directory tools qfspec-check-envelope 04-protocol/EXAMPLES/pn.playtest.
 - **Intents:** `04-protocol/INTENTS.md`
 - **Schemas:** `03-schemas/*.schema.json`, `04-protocol/envelope.schema.json`
 - **PN Principles:** `00-north-star/PN_PRINCIPLES.md`
-- **Tools:** `tools/README.md`
+- **Tools:** `spec-tools/README.md`
 
 ---
 

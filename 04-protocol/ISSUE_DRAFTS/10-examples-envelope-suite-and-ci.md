@@ -23,12 +23,12 @@ Acceptance Criteria
 - All examples validate against `04-protocol/envelope.schema.json` AND their Layer 3 payload
   schemas.
 - Script exits non-zero on failure; CI snippet included in `README.md` under `04-protocol/` or
-  `tools/`.
+  `spec-tools/`.
 
 References
 
 - `04-protocol/envelope.schema.json`
-- `tools/README.md`
+- `spec-tools/README.md`
 
 Branch & Validation
 

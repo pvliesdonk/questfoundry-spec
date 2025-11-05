@@ -23,7 +23,7 @@ NC = '\033[0m'  # No Color
 def find_repo_root() -> Path:
     """
     Find the QuestFoundry repository root.
-    Assumes tools/ is in the repo root.
+    Assumes spec-tools/ is in the repo root.
     """
     # When running as installed package, start from current directory
     current = Path.cwd()
@@ -33,7 +33,7 @@ def find_repo_root() -> Path:
         if (parent / "03-schemas").exists():
             return parent
 
-    # Fallback: assume we're in tools/ directory
+    # Fallback: assume we're in spec-tools/ directory
     tools_dir = Path(__file__).parent.parent.parent
     repo_root = tools_dir.parent
     if (repo_root / "03-schemas").exists():

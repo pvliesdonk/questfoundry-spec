@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: validate-schemas
         name: Validate Layer 3 and Layer 4 schemas (Draft 2020-12)
-        entry: bash -c 'cd tools && uv run qfspec-validate'
+        entry: bash -c 'cd spec-tools && uv run qfspec-validate'
         language: system
         files: ^(03-schemas|04-protocol)/.*\.schema\.json$
         pass_filenames: false
@@ -18,7 +18,7 @@ repos:
       # Uncomment when ready to enforce envelope validation in CI
       # - id: validate-envelope-examples
       #   name: Validate Layer 4 envelope examples
-      #   entry: bash -c 'REPO_ROOT=$PWD && cd tools && uv run qfspec-check-envelope $REPO_ROOT/04-protocol/EXAMPLES/*.json'
+      #   entry: bash -c 'REPO_ROOT=$PWD && cd spec-tools && uv run qfspec-check-envelope $REPO_ROOT/04-protocol/EXAMPLES/*.json'
       #   language: system
       #   files: ^04-protocol/EXAMPLES/.*\.json$
       #   pass_filenames: false

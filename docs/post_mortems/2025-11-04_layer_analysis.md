@@ -25,7 +25,7 @@ layer and identify information gaps before proceeding.
 - **Examples:** system_prompt.md, intent_handlers/\*.md
 - **Change impact:** Medium (affects role behavior)
 
-### Layer 3: Tools & Validation (tools/)
+### Layer 3: Tools ### Layer 3: Tools & Validation (tools/) Validation (spec-tools/)
 
 - **Purpose:** Scripts, validators, CI/QA automation
 - **Examples:** build-kits, epub_validator (proposed)
@@ -76,7 +76,7 @@ implementing regex rules.
 2. Confirm sanitization timing (export only vs. Cold stabilization)
 3. Add header sanitization section to `book_binder/system_prompt.md` (similar to existing choice
    normalization)
-4. Add CI gate in `tools/validation/epub_validator.md` (regex match check)
+4. Add CI gate in `spec-tools/validation/epub_validator.md` (regex match check)
 
 ---
 
@@ -211,12 +211,12 @@ manifest compliance, header hygiene).
 
 **Layer Assignment:**
 
-- **Primary:** Layer 3 (Tools) — Create `tools/validation/epub_validator.md` (spec)
+- **Primary:** Layer 3 (Tools) — Create `spec-tools/validation/epub_validator.md` (spec)
 - **Secondary:** Layer 4 (Implementation) — Actual validator script (Python/Node/etc.)
 
 **Current State:**
 
-- No automated validation tooling found in `/tools/` directory
+- No automated validation tooling found in `/spec-tools/` directory
 - Manual quality checks implied in Gatekeeper role (04-protocol/FLOWS/gatecheck.md)
 - `view_log` artifact includes manual validation fields (Presentation, Accessibility bars)
 
@@ -233,7 +233,7 @@ tooling decisions.
 
 **Recommended Next Steps:**
 
-1. **Phase 1:** Create specification document (`tools/validation/epub_validator.md`) ✅ (already in
+1. **Phase 1:** Create specification document (`spec-tools/validation/epub_validator.md`) ✅ (already in
    proposal)
 2. **Phase 2:** Choose implementation approach:
    - Option A: Python with `lxml` + `zipfile` for EPUB parsing

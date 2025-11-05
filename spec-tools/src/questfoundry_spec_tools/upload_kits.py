@@ -23,7 +23,7 @@ def _find_repo_root() -> Path:
     for parent in [current, *current.parents]:
         if (parent / "03-schemas").exists():
             return parent
-    # Fallback: assume tools/ layout
+    # Fallback: assume spec-tools/ layout
     repo_root = Path(__file__).resolve().parents[3]
     return repo_root
 

@@ -24,7 +24,7 @@ Out of scope: Implementing prompts (L5), libraries/SDKs (L6), or UI (L7).
 - Roles & interfaces: `01-roles/` (charters, briefs, pair guides)
 - Common language: `02-dictionary/` (taxonomies, field registry, artifacts)
 - Schemas: `03-schemas/*.schema.json` (canonical payload shapes)
-- Tools: `tools/` (schema/instance validators; extend to Layer 4 later)
+- Tools: `spec-tools/` (schema/instance validators; extend to Layer 4 later)
 
 Constraints:
 
@@ -179,7 +179,7 @@ Deliverables:
 
 - `04-protocol/README.md` (overview) — done
 - Populate ENVELOPE/INTENTS/LIFECYCLES/FLOWS/APPENDIX/EXAMPLES incrementally
-- Update `tools/README.md` “Adding New Layers” checklists (already present)
+- Update `spec-tools/README.md` "Adding New Layers" checklists (already present)
 - Prepare PR checklist additions (no Hot→PN leaks; envelope completeness)
 
 Success criteria:

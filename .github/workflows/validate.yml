@@ -21,17 +21,17 @@ jobs:
         run: uv python install 3.11
 
       - name: Install dependencies
-        run: cd tools && uv sync
+        run: cd spec-tools && uv sync
 
       - name: Check formatting (Prettier)
-        run: npx prettier --check "**/*.{json,md}" --ignore-path tools/.prettierignore --config tools/.prettierrc.json
+        run: npx prettier --check "**/*.{json,md}" --ignore-path spec-tools/.prettierignore --config spec-tools/.prettierrc.json
 
       - name: Lint Markdown
-        run: npx markdownlint-cli2 "**/*.md" --config tools/.markdownlint.json
+        run: npx markdownlint-cli2 "**/*.md" --config spec-tools/.markdownlint.json
         continue-on-error: true # Lenient - don't fail build
 
       - name: Validate schemas
-        run: uv run --directory tools qfspec-validate
+        run: uv run --directory spec-tools qfspec-validate
 
       - name: Validate prompts (scaffold)
         run: |

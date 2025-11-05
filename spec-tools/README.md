@@ -17,8 +17,8 @@ This UV project provides three types of validation:
 ## Quick Start
 
 ```bash
-# One-time setup (from tools/ directory)
-cd tools
+# One-time setup (from spec-tools/ directory)
+cd spec-tools
 uv sync
 
 # Validate all schemas (Layer 3 + Layer 4)
@@ -36,7 +36,7 @@ uv run qfspec-check-envelope ../04-protocol/EXAMPLES/hook.create.json
 ### Development Setup
 
 ```bash
-cd tools
+cd spec-tools
 uv sync
 ```
 
@@ -49,7 +49,7 @@ This installs:
 
 ```bash
 # Install globally using uv tool
-uv tool install ./tools
+uv tool install ./spec-tools
 
 # Now available system-wide
 qfspec-validate
@@ -59,7 +59,7 @@ qfspec-check-envelope my-envelope.json
 
 ## Usage
 
-All commands should be run from the **repository root**, not from the `tools/` directory.
+All commands should be run from the **repository root**, not from the `spec-tools/` directory.
 
 ### 1. Validate Schemas (Meta-validation)
 
@@ -68,10 +68,10 @@ Validates that all Layer 3 and Layer 4 schemas comply with JSON Schema Draft 202
 ```bash
 # From repository root
 cd /path/to/questfoundry
-uv run --directory tools qfspec-validate
+uv run --directory spec-tools qfspec-validate
 
-# Or shorter (from tools/ directory)
-cd tools
+# Or shorter (from spec-tools/ directory)
+cd spec-tools
 uv run qfspec-validate
 ```
 
@@ -448,7 +448,7 @@ uv run --directory tools qfspec-validate
 ### Project Structure
 
 ```
-tools/
+spec-tools/
 ├── README.md                          # This file
 ├── pyproject.toml                     # UV project configuration
 ├── uv.lock                           # Dependency lock file (auto-generated)

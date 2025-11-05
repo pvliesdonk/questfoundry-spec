@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-cd tools/
+cd spec-tools/
 uv sync
 ```
 
@@ -207,7 +207,7 @@ else:
 Run tests (when implemented):
 
 ```bash
-cd tools/
+cd spec-tools/
 uv run pytest tests/test_epub_validator.py
 ```
 
