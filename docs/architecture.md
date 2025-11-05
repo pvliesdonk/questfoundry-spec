@@ -1,6 +1,7 @@
 # QuestFoundry Architecture
 
-This document provides a comprehensive overview of the QuestFoundry specification architecture, design principles, and component relationships.
+This document provides a comprehensive overview of the QuestFoundry specification architecture,
+design principles, and component relationships.
 
 ---
 
@@ -26,12 +27,14 @@ QuestFoundry is built on several key principles:
 ### 1. **Separation of Concerns**
 
 The 7-layer architecture ensures each concern is isolated:
+
 - **What we do** (Layers 0-1): Vision, roles, workflows
 - **What we say** (Layers 2-3): Data structures, schemas
 - **How we communicate** (Layer 4): Protocol, state machines
 - **How we implement** (Layers 5-7): Prompts, code, interfaces
 
 This separation allows:
+
 - **Human understanding** without code
 - **Machine validation** without ambiguity
 - **Tool replaceability** without breaking canon
@@ -40,6 +43,7 @@ This separation allows:
 ### 2. **Clarity Over Cleverness**
 
 Every design choice prioritizes **explainability**:
+
 - Human-readable markdown for vision/roles
 - Self-documenting JSON schemas
 - Explicit state transitions
@@ -48,6 +52,7 @@ Every design choice prioritizes **explainability**:
 ### 3. **Replaceability**
 
 No component is irreplaceable:
+
 - Swap AI models (Claude → ChatGPT → custom)
 - Change validation tools (Python → TypeScript)
 - Replace UI frameworks
@@ -56,6 +61,7 @@ No component is irreplaceable:
 ### 4. **Traceability**
 
 Every change is tracked:
+
 - **Trace Units (TUs)** for all modifications
 - **Hot/Cold snapshots** for reproducibility
 - **Git-based versioning** for history
@@ -64,6 +70,7 @@ Every change is tracked:
 ### 5. **Safety First**
 
 Player-facing content is protected:
+
 - **Player-Narrator (PN)** sees only Cold
 - **Spoiler hygiene** enforced at protocol level
 - **Quality bars** prevent broken experiences
@@ -75,7 +82,7 @@ Player-facing content is protected:
 
 ### Visual Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Layer 7: UI (CLI, GUI, Player-Narrator)                    │ 📋 Planned
 │ ├─ Command-line tools for authors                          │
@@ -139,10 +146,12 @@ Player-facing content is protected:
 ### 1. Roles (15 Total)
 
 **Always Active:**
+
 - **Showrunner (SR)** — Orchestrator, scopes work, wakes dormant roles
 - **Gatekeeper (GK)** — Quality enforcer, validates against Quality Bars
 
 **Default Active:**
+
 - **Plotwright (PW)** — Topology design (hubs, loops, gateways)
 - **Scene Smith (SS)** — Prose writing to topology & style
 - **Style Lead (ST)** — Voice, register, motifs
@@ -150,34 +159,42 @@ Player-facing content is protected:
 - **Codex Curator (CC)** — Player-safe encyclopedia entries
 
 **Optional/Dormant:**
+
 - **Researcher (RS)** — Fact verification
 - **Art Director (AD)** / **Illustrator (IL)** — Visual planning/creation
 - **Audio Director (AuD)** / **Audio Producer (AuP)** — Sound planning/creation
 - **Translator (TR)** — Localization
 
 **Downstream:**
+
 - **Book Binder (BB)** — Export views from Cold
 - **Player-Narrator (PN)** — Performs book in-world
 
 ### 2. Artifacts (17 Types)
 
 **Core Workflow:**
+
 - `hook_card` — Traceable follow-ups
 - `tu_brief` — Work order for changes
 
 **Content:**
+
 - `canon_pack`, `codex_entry`, `style_addendum`, `edit_notes`
 
 **Planning:**
+
 - `research_memo`, `shotlist`, `cuelist`, `art_plan`, `audio_plan`
 
 **Quality:**
+
 - `gatecheck_report`, `view_log`, `front_matter`, `pn_playtest_notes`
 
 **Localization:**
+
 - `language_pack`, `register_map`
 
 **Project:**
+
 - `project_metadata`, `art_manifest`, `style_manifest`
 
 ### 3. Workflow Loops (11 Total)
@@ -200,7 +217,7 @@ Player-facing content is protected:
 
 ### Hot → Cold Pipeline
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │                        HOT (Discovery)                       │
 │  - Draft content                                             │
@@ -248,7 +265,7 @@ Player-facing content is protected:
 
 ### Message Flow Example (Hook Harvest)
 
-```
+```text
 Showrunner                 Lore Weaver              Gatekeeper
     │                           │                         │
     │ 1. hook.create            │                         │
@@ -276,7 +293,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 
 ### Hook Lifecycle (7 States)
 
-```
+```text
       proposed
          │
          ├──────> deferred
@@ -300,6 +317,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 ```
 
 **Allowed Transitions:**
+
 - `proposed → investigating` (Lore Weaver starts work)
 - `proposed → deferred` (Showrunner deprioritizes)
 - `proposed → rejected` (Showrunner declines)
@@ -310,7 +328,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 
 ### Trace Unit (TU) Lifecycle (6 States)
 
-```
+```text
   hot-proposed
        │
        ↓
@@ -332,6 +350,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 ```
 
 **Key Transition Rules:**
+
 - Only **Gatekeeper** can advance `gatecheck → cold-merged`
 - Only **Showrunner** can trigger `snapshotted`
 - Only **Book Binder** can trigger `exported`
@@ -345,6 +364,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Purpose:** Experimentation, brainstorming, spoiler content
 
 **Contains:**
+
 - Draft topology (unstable)
 - Hook cards (unresolved ideas)
 - Canon packs (spoiler-level lore)
@@ -362,6 +382,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Purpose:** Curated, player-safe, export-ready content
 
 **Contains:**
+
 - Stable topology (validated reachability)
 - Codex entries (no spoilers)
 - Player-facing prose
@@ -392,6 +413,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** No broken references, valid IDs, consistent structure
 
 **Checks:**
+
 - All section IDs exist
 - All gateway references valid
 - All asset IDs in manifests
@@ -401,6 +423,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** All keystone sections reachable from start
 
 **Checks:**
+
 - Graph traversal from `start_section_id`
 - All mandatory gates accessible
 - No orphaned subgraphs
@@ -410,6 +433,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** Hubs, loops, gateways are meaningful (not fake branching)
 
 **Checks:**
+
 - At least N% hubs (sections with 3+ choices)
 - At least M loops (paths that revisit sections)
 - Gateways have actual consequences
@@ -419,6 +443,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** Diegetic checks are coherent and fair
 
 **Checks:**
+
 - Gateway logic is in-world explainable
 - Gateway failures have narrative justification
 - Gateway successes feel earned
@@ -428,6 +453,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** Voice, register, motifs consistent
 
 **Checks:**
+
 - Tense consistency (present/past)
 - POV consistency (2nd/1st person)
 - Motif references valid
@@ -438,6 +464,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** Assets promised are present or scheduled
 
 **Checks:**
+
 - All referenced art IDs in `art_manifest`
 - All audio cues in `cuelist`
 - All translation keys in `language_pack`
@@ -447,6 +474,7 @@ Showrunner                 Lore Weaver              Gatekeeper
 **Definition:** No spoilers on player surfaces, accessibility baseline met
 
 **Checks:**
+
 - Codex entries contain no spoilers
 - Front matter contains no plot reveals
 - Alt text for images
@@ -508,6 +536,7 @@ All messages use a **transport-agnostic envelope**:
 2. **Pass 2:** Validate `payload.data` against `payload.type` schema (Layer 3)
 
 Example:
+
 ```bash
 qfspec-check-envelope message.json
 # → Validates envelope structure
@@ -564,12 +593,13 @@ qfspec-check-envelope message.json
 
 ## Design Decisions
 
-QuestFoundry's design is documented in **Architectural Decision Records (ADRs)** in the [`DECISIONS/`](../DECISIONS/) directory.
+QuestFoundry's design is documented in **Architectural Decision Records (ADRs)** in the
+[`DECISIONS/`](../DECISIONS/) directory.
 
 ### Key ADRs
 
 - **ADR-20251029-01:** Layer Boundary Clarification (Layer 0/1/2 separation)
-- *(More ADRs to be added as architectural decisions are made)*
+- _(More ADRs to be added as architectural decisions are made)_
 
 ### Decision-Making Process
 
@@ -583,17 +613,17 @@ QuestFoundry's design is documented in **Architectural Decision Records (ADRs)**
 
 ## Implementation Status
 
-| Component | Status | Completion |
-|-----------|--------|------------|
-| Layer 0 (North Star) | ✅ Active | 95% |
-| Layer 1 (Roles) | 🚧 In Progress | 60% |
-| Layer 2 (Dictionary) | 🚧 In Progress | 80% |
-| Layer 3 (Schemas) | ✅ Complete | 100% |
-| Layer 4 (Protocol) | 🚧 In Progress | 85% |
-| Layer 5 (Prompts) | 🚧 In Progress | 40% |
-| Layer 6 (Libraries) | 📋 Planned | 0% |
-| Layer 7 (UI) | 📋 Planned | 0% |
-| Validation Tools | ✅ Complete | 100% |
+| Component            | Status         | Completion |
+| -------------------- | -------------- | ---------- |
+| Layer 0 (North Star) | ✅ Complete    | 98%        |
+| Layer 1 (Roles)      | ✅ Complete    | 95%        |
+| Layer 2 (Dictionary) | ✅ Complete    | 95%        |
+| Layer 3 (Schemas)    | ✅ Complete    | 100%       |
+| Layer 4 (Protocol)   | ✅ Complete    | 95%        |
+| Layer 5 (Prompts)    | 🚧 In Progress | 85%        |
+| Layer 6 (Libraries)  | 📋 Planned     | 0%         |
+| Layer 7 (UI)         | 📋 Planned     | 0%         |
+| Validation Tools     | ✅ Complete    | 100%       |
 
 ---
 
