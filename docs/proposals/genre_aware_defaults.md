@@ -13,12 +13,14 @@ Current implementation has hardcoded values in various places:
 - Genre options: Listed inline in Showrunner init flow
 - Style presets: No recommendations for writing_style, tone, paragraph_density
 - Length defaults: No guidance on "typical" section counts per genre
+- No alignment with industry-standard gamebook/CYOA metrics
 
 **Issues:**
 1. Hardcoded values make it hard to adapt to different genres
 2. No discoverability - users don't know what options exist
 3. No genre-specific recommendations (noir vs. fantasy have different conventions)
 4. Defaults scattered across prompts, schemas, examples
+5. Length categories don't reflect published gamebook standards (50-1000+ sections)
 
 ---
 
@@ -29,6 +31,58 @@ Current implementation has hardcoded values in various places:
 2. **Genre-specific recommendations** (not hardcodes)
 3. **Fallback hierarchy**: user override → genre preset → global default
 4. **Discoverability**: CLI/UI can list available presets
+
+---
+
+## Gamebook Design Metrics (Industry Standards)
+
+This proposal incorporates established metrics from published gamebook (CYOA) design. These metrics provide realistic defaults for scope, pacing, and structure.
+
+### Length Categories by Scope
+
+Based on analysis of published print and digital gamebooks:
+
+| Category | Section Count | Total Word Count | Branching Complexity |
+|----------|--------------|------------------|---------------------|
+| **Short** | 50 - 150 | 10,000 - 30,000 | **Low.** Simple paths with 2-4 distinct endings. Choices frequently merge back to central trunk. Ideal for tutorials or focused stories. |
+| **Medium** | 250 - 500 | 30,000 - 70,000 | **Moderate.** Standard for full-length title. Supports 5-10+ endings and several distinct sub-plots. Good replayability. |
+| **Long** | 500 - 1,000 | 70,000 - 150,000 | **High.** Complex digital titles. Can support 15-20+ endings. Major choices lead to significantly different mid-games. |
+| **Epic** | 1,000+ | 150,000 - 500,000+ | **Very High / Sandboxy.** Dozens of endings or persistent states. Paths deeply divergent; often impossible to see all content in few playthroughs. |
+
+### Content Pacing Defaults
+
+Default pacing targets **Medium scope** (scalable up/down):
+
+| Unit | Default Value | Rationale |
+|------|--------------|-----------|
+| **Standard Section** | ~125 words | Core "beat" of the game. Long enough to set scene and present problem, short enough to maintain momentum. (e.g., 50,000 words / 400 sections) |
+| **Standard Paragraph** | ~50 words | Readability default. 125-word section = 2-3 visual chunks to avoid "wall of text." |
+| **"Fail" Section** | < 50 words | Clear "Game Over" or "Bad Ending." Purpose is finality, not exposition. |
+| **"Hub" Section** | < 100 words | Recurring location (e.g., town square). Short and functional for re-orientation. |
+| **Choices per Section** | 3 | Ergonomic standard. 2 is binary; 4+ causes decision fatigue. |
+
+### Default Structural Logic: "Branch and Merge"
+
+Pure exponential branching is logistically unwritable. Default model:
+
+1. **Branch:** Choice leads to divergent path (A, B, C)
+2. **Diverge:** Path continues for several unique sections (3-5 sections per path)
+3. **Set Consequence:** Variable records choice (e.g., `ally_status = "angered"`)
+4. **Merge:** All paths link back to common major plot-point section
+5. **Check:** Later, logic checks variable (`IF ally_status = "angered"`) for long-term consequence
+
+This creates the *feel* of fully branched story while keeping scope manageable.
+
+### Genre-Based Metric Variations
+
+Genre expectations directly influence all metrics:
+
+| Genre | Impact on Length & Branching | Primary Focus |
+|-------|----------------------------|---------------|
+| **Fantasy / RPG** | Long to Epic. High section count (exploration) and high word count (lore). "Wide" branching (hub-and-spoke). | **World-building & Systems.** Supports stat-tracking, combat, inventory, explorable world. |
+| **Romance** | Long to Epic (word count). "Deep" branching (many variables) but not structurally divergent. Same core plot, choices modify relationships. | **Character & State-Tracking.** High word count for nuanced dialogue. 300k-word romance may have fewer sections than 70k-word fantasy. |
+| **Horror / Thriller** | Short to Medium. "Lethal" branching—few golden paths to survival, many short fail-state branches. Sections often < 125 words. | **Pacing & Tension.** Short sections = rapid page-turning. Game is puzzle: find survival path. |
+| **Mystery** | Medium. "Hub-and-spoke" branching. Gather clues (detailed sections), return to central point to decide next lead. | **Information Gathering.** Structure is "web" not "tree." Replayability from exploring different leads. |
 
 ---
 
@@ -67,8 +121,12 @@ Each genre preset file contains:
 
   "project_defaults": {
     "target_length": "medium",
-    "target_sections_range": [25, 35],
+    "target_sections_range": [250, 500],
+    "target_word_count_range": [30000, 70000],
+    "avg_words_per_section": 125,
     "branching_style": "moderate",
+    "branching_pattern": "branch-and-merge",
+    "choices_per_section": 3,
     "style": {
       "writing_style": "pulp",
       "paragraph_density": "rich",
@@ -117,10 +175,30 @@ Each genre preset file contains:
   },
 
   "suggested_sections": {
-    "short": { "min": 10, "max": 15, "playtime": "~30min" },
-    "medium": { "min": 25, "max": 35, "playtime": "~1hr" },
-    "long": { "min": 45, "max": 65, "playtime": "~2hr" },
-    "epic": { "min": 80, "max": 120, "playtime": "3hr+" }
+    "short": {
+      "sections": [50, 150],
+      "words": [10000, 30000],
+      "playtime": "~30min",
+      "endings": "2-4 distinct endings"
+    },
+    "medium": {
+      "sections": [250, 500],
+      "words": [30000, 70000],
+      "playtime": "~1hr",
+      "endings": "5-10+ endings"
+    },
+    "long": {
+      "sections": [500, 1000],
+      "words": [70000, 150000],
+      "playtime": "~2hr",
+      "endings": "15-20+ endings"
+    },
+    "epic": {
+      "sections": [1000, 2000],
+      "words": [150000, 500000],
+      "playtime": "3hr+",
+      "endings": "Dozens of endings"
+    }
   },
 
   "common_themes": [
@@ -166,10 +244,38 @@ Each genre preset file contains:
   },
 
   "lengths": {
-    "short": { "sections": 15, "playtime": "~30min" },
-    "medium": { "sections": 30, "playtime": "~1hr" },
-    "long": { "sections": 60, "playtime": "~2hr" },
-    "epic": { "sections": 100, "playtime": "3hr+" }
+    "short": {
+      "sections": [50, 150],
+      "words": [10000, 30000],
+      "playtime": "~30min",
+      "branching_complexity": "low"
+    },
+    "medium": {
+      "sections": [250, 500],
+      "words": [30000, 70000],
+      "playtime": "~1hr",
+      "branching_complexity": "moderate"
+    },
+    "long": {
+      "sections": [500, 1000],
+      "words": [70000, 150000],
+      "playtime": "~2hr",
+      "branching_complexity": "high"
+    },
+    "epic": {
+      "sections": [1000, 2000],
+      "words": [150000, 500000],
+      "playtime": "3hr+",
+      "branching_complexity": "very-high"
+    }
+  },
+
+  "pacing": {
+    "standard_section_words": 125,
+    "standard_paragraph_words": 50,
+    "fail_section_max_words": 50,
+    "hub_section_max_words": 100,
+    "choices_per_section": 3
   }
 }
 ```
@@ -398,18 +504,52 @@ qf init --genre fantasy-adventure --length long --style pulp
 
 ---
 
+## Popular Genres to Include
+
+Based on gamebook/CYOA market analysis, include these popular genres in initial implementation:
+
+### Tier 1: Core Genres (Must Have)
+1. **Fantasy / RPG** - Most popular gamebook genre. High section count, stat systems, exploration.
+2. **Horror / Thriller** - Classic gamebook format. Lethal branching, tension-focused pacing.
+3. **Mystery / Detective** - Investigation-focused. Hub-and-spoke structure, clue gathering.
+4. **Sci-Fi / Cyberpunk** - Futuristic settings. Technology themes, moral dilemmas.
+5. **Romance** - Growing market. Character-focused, relationship variables, dialogue-heavy.
+
+### Tier 2: Secondary Genres (Should Have)
+6. **Historical Fiction** - Period settings. Research-grounded, educational potential.
+7. **Adventure / Action** - Straightforward branching. Focus on exciting set pieces.
+8. **Western** - Classic genre with established tropes. Moral choices, frontier justice.
+9. **Superhero** - Powers & consequences. Moral dilemmas, secret identity mechanics.
+10. **Post-Apocalyptic / Survival** - Resource management. Harsh choices, group dynamics.
+
+### Tier 3: Specialized Genres (Nice to Have)
+11. **Comedy / Satire** - Tone-driven. Absurdist branches, meta-commentary.
+12. **Slice of Life / Contemporary** - Everyday choices. Relationship-focused, low stakes.
+13. **War / Military** - Strategic choices. Squad dynamics, mission planning.
+14. **Sports** - Competition-focused. Training montages, rivalry paths.
+
+### Generic Fallback
+15. **Generic / Other** - Minimal assumptions. Flexible baseline for non-standard genres.
+
+Each genre preset includes: length recommendations, branching patterns, typography suggestions, art style guidance, pacing defaults, and common themes.
+
+---
+
 ## Implementation Plan
 
 ### Phase 1: Core Structure (P1 High)
 
 1. Create `/resources/presets/` directory
-2. Define preset JSON schemas
-3. Create `global_defaults.json`
+2. Define preset JSON schemas (validate with CI)
+3. Create `global_defaults.json` with gamebook metrics
 4. Create `genres.json` catalog
-5. Create 3 initial genre presets:
-   - `detective-noir.json` (most complete)
-   - `generic.json` (minimal fallback)
-   - `fantasy-adventure.json` (example alternative)
+5. Create **Tier 1 genre presets** (5 presets):
+   - `fantasy-rpg.json` - Most popular gamebook genre
+   - `horror-thriller.json` - Classic gamebook format
+   - `mystery-detective.json` - Investigation-focused (most detailed example)
+   - `sci-fi-cyberpunk.json` - Futuristic settings
+   - `romance.json` - Character & relationship-focused
+   - `generic.json` - Minimal fallback
 
 ### Phase 2: Prompt Integration (P1 High)
 
@@ -426,9 +566,10 @@ qf init --genre fantasy-adventure --length long --style pulp
 
 ### Phase 4: Expansion (P3 Low)
 
-1. Add remaining genre presets (horror, sci-fi, romance, etc.)
-2. Add typography preset alternatives per genre
-3. Community contribution guidelines for new presets
+1. Add **Tier 2 genre presets** (5 presets): historical, adventure, western, superhero, post-apocalyptic
+2. Add **Tier 3 genre presets** (4 presets): comedy, slice-of-life, war, sports
+3. Add typography preset alternatives per genre (2-3 options each)
+4. Community contribution guidelines for new presets
 
 ---
 
@@ -445,8 +586,12 @@ qf init --genre fantasy-adventure --length long --style pulp
 
   "project_defaults": {
     "target_length": "medium",
-    "target_sections_range": [25, 35],
+    "target_sections_range": [250, 500],
+    "target_word_count_range": [30000, 70000],
+    "avg_words_per_section": 125,
     "branching_style": "moderate",
+    "branching_pattern": "branch-and-merge",
+    "choices_per_section": 3,
     "style": {
       "writing_style": "pulp",
       "paragraph_density": "rich",
@@ -534,17 +679,19 @@ qf init --genre fantasy-adventure --length long --style pulp
 
 ---
 
-## Open Questions
+## Design Decisions (Resolved)
 
-1. **Preset versioning:** Should genre presets have versions? (e.g., "detective-noir-v2.json")
+1. **Preset versioning:** ✅ No versioning by default. Only create alternative versions (e.g., "detective-noir-v2") if we want to maintain multiple variants.
 
-2. **User custom presets:** Should users be able to save their own presets in project directories?
+2. **User custom presets:** ✅ Yes in Layer 6/7 (SDK/CLI). Not default behavior - plenty of opportunity to customize during init flow.
 
-3. **Preset inheritance:** Should presets support inheritance? (e.g., "cyberpunk-noir" extends "detective-noir")
+3. **Preset inheritance:** ✅ Yes, sounds good for extending presets (e.g., "cyberpunk-noir" extends "detective-noir"). Implementation deferred - may not be convenient for Layers 0-5.
 
-4. **Preset validation:** Should there be a `qf validate-preset` command?
+4. **Genre selection:** ✅ Take popular genres from gamebook/CYOA space (fantasy, horror, mystery, romance, sci-fi, etc.)
 
-5. **Preset marketplace:** Future: community-contributed presets repository?
+5. **Preset validation:** Should there be a `qf validate-preset` command? (To be determined)
+
+6. **Preset marketplace:** Future: community-contributed presets repository? (To be determined)
 
 ---
 
