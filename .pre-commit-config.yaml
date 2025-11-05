@@ -3,7 +3,33 @@
 # Run manually: pre-commit run --all-files
 
 repos:
-  # Validate that JSON Schema files comply with Draft 2020-12
+  # Prettier - Auto-format JSON and Markdown files
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        name: Format with Prettier (JSON, Markdown)
+        types_or: [json, markdown]
+        args:
+          - --config=spec-tools/.prettierrc.json
+          - --ignore-path=spec-tools/.prettierignore
+          - --write
+        description: Auto-format JSON and Markdown files using Prettier
+
+  # Markdownlint - Lint Markdown files (lenient, won't fail)
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.39.0
+    hooks:
+      - id: markdownlint
+        name: Lint Markdown files
+        args:
+          - --config=spec-tools/.markdownlint.json
+          - --fix
+        description: Lint and auto-fix Markdown files (lenient)
+        # Note: Some rules may not auto-fix, manual review may be needed
+        verbose: true
+
+  # JSON Schema Validation - Validate all schemas
   - repo: local
     hooks:
       - id: validate-schemas
@@ -14,12 +40,51 @@ repos:
         pass_filenames: false
         description: Ensure all Layer 3 and Layer 4 schemas are valid JSON Schema Draft 2020-12
 
-      # Optional: Validate Layer 4 envelope examples
-      # Uncomment when ready to enforce envelope validation in CI
-      # - id: validate-envelope-examples
-      #   name: Validate Layer 4 envelope examples
-      #   entry: bash -c 'REPO_ROOT=$PWD && cd spec-tools && uv run qfspec-check-envelope $REPO_ROOT/04-protocol/EXAMPLES/*.json'
-      #   language: system
-      #   files: ^04-protocol/EXAMPLES/.*\.json$
-      #   pass_filenames: false
-      #   description: Validate envelope examples against envelope.schema.json and Layer 3 payload schemas
+      # JSON Syntax Validation - Basic JSON parsing check
+      - id: validate-json-syntax
+        name: Validate JSON syntax
+        entry: python -m json.tool
+        language: system
+        types: [json]
+        description: Validate that all JSON files have valid syntax
+
+      # Validate envelope examples (if present)
+      - id: validate-envelope-examples
+        name: Validate Layer 4 envelope examples
+        entry: bash -c 'if [ -d 04-protocol/EXAMPLES ] && [ "$(ls -A 04-protocol/EXAMPLES/*.json 2>/dev/null)" ]; then cd spec-tools && for file in ../04-protocol/EXAMPLES/*.json; do echo "Validating $file..." && uv run qfspec-check-envelope "$file" || exit 1; done; else echo "No envelope examples found, skipping..."; fi'
+        language: system
+        files: ^04-protocol/EXAMPLES/.*\.json$
+        pass_filenames: false
+        description: Validate envelope examples against envelope.schema.json and Layer 3 payload schemas
+
+      # Validate prompt structure (if test script exists)
+      - id: validate-prompts
+        name: Validate Layer 5 prompts structure
+        entry: bash -c 'if [ -f 05-prompts/tests/validate_prompts.py ]; then python 05-prompts/tests/validate_prompts.py; else echo "Prompt validation script not found, skipping..."; fi'
+        language: system
+        files: ^05-prompts/.*\.(md|py)$
+        pass_filenames: false
+        description: Validate Layer 5 prompt structure and completeness
+
+  # Trailing whitespace and file endings
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: Remove trailing whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+        name: Ensure files end with newline
+      - id: mixed-line-ending
+        name: Normalize line endings to LF
+        args: [--fix=lf]
+      - id: check-yaml
+        name: Validate YAML files
+        exclude: ^\.pre-commit-config\.yaml$
+      - id: check-added-large-files
+        name: Check for large files
+        args: [--maxkb=1000]
+      - id: check-merge-conflict
+        name: Check for merge conflict markers
+      - id: check-case-conflict
+        name: Check for case conflicts

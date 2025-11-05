@@ -6,9 +6,13 @@
 
 **A layered, multi-agent specification for creating interactive nonlinear gamebooks**
 
-QuestFoundry separates _what we do_ (roles, loops, quality bars) from _how machines speak_ (schemas, protocol) and _how tools run_ (prompts, libraries, UI). Both humans and AI agents can play the roles—as long as they communicate via structured, validated data.
+QuestFoundry separates _what we do_ (roles, loops, quality bars) from _how machines speak_ (schemas,
+protocol) and _how tools run_ (prompts, libraries, UI). Both humans and AI agents can play the
+roles—as long as they communicate via structured, validated data.
 
-📚 **[Full Documentation](https://questfoundry.liesdonk.nl)** | 🔗 **[Schema Registry](https://questfoundry.liesdonk.nl/schemas/)** | 🐛 **[Issues](https://github.com/pvliesdonk/questfoundry-spec/issues)**
+📚 **[Full Documentation](https://questfoundry.liesdonk.nl)** | 🔗
+**[Schema Registry](https://questfoundry.liesdonk.nl/schemas/)** | 🐛
+**[Issues](https://github.com/pvliesdonk/questfoundry-spec/issues)**
 
 ---
 
@@ -29,7 +33,8 @@ QuestFoundry separates _what we do_ (roles, loops, quality bars) from _how machi
 
 ## Overview
 
-QuestFoundry is a **complete specification** for a collaborative interactive fiction authoring studio. It defines:
+QuestFoundry is a **complete specification** for a collaborative interactive fiction authoring
+studio. It defines:
 
 - **15 roles** (Showrunner, Gatekeeper, Plotwright, Scene Smith, Lore Weaver, etc.)
 - **17 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
@@ -70,16 +75,16 @@ The specification is deliberately **layered** for clarity, testability, and trac
 
 QuestFoundry is organized into **7 layers**, each with clear separation of concerns:
 
-| Layer | Name | Focus | Status | Entry Point |
-|-------|------|-------|--------|-------------|
-| **0** | **North Star** | Vision, principles, operating model | ✅ 95% | [`00-north-star/README.md`](00-north-star/README.md) |
-| **1** | **Roles** | Role charters, responsibilities, workflows | 🚧 60% | [`01-roles/README.md`](01-roles/README.md) |
-| **2** | **Common Language** | Data dictionary, artifact templates | 🚧 80% | [`02-dictionary/README.md`](02-dictionary/README.md) |
-| **3** | **Schemas** | JSON Schema specifications (Draft 2020-12) | ✅ 100% | [`03-schemas/README.md`](03-schemas/README.md) |
-| **4** | **Protocol** | Message envelopes, intents, state machines | 🚧 85% | [`04-protocol/README.md`](04-protocol/README.md) |
-| **5** | **Prompts** | AI agent system prompts | 🚧 40% | [`05-prompts/README.md`](05-prompts/README.md) |
-| **6** | **Libraries** | Python SDK, validators, clients | 📋 Planned | [`06-libraries/`](06-libraries/) |
-| **7** | **UI** | CLI/GUI/Player-Narrator interfaces | 📋 Planned | [`07-ui/`](07-ui/) |
+| Layer | Name                | Focus                                      | Status     | Entry Point                                          |
+| ----- | ------------------- | ------------------------------------------ | ---------- | ---------------------------------------------------- |
+| **0** | **North Star**      | Vision, principles, operating model        | ✅ 95%     | [`00-north-star/README.md`](00-north-star/README.md) |
+| **1** | **Roles**           | Role charters, responsibilities, workflows | 🚧 60%     | [`01-roles/README.md`](01-roles/README.md)           |
+| **2** | **Common Language** | Data dictionary, artifact templates        | 🚧 80%     | [`02-dictionary/README.md`](02-dictionary/README.md) |
+| **3** | **Schemas**         | JSON Schema specifications (Draft 2020-12) | ✅ 100%    | [`03-schemas/README.md`](03-schemas/README.md)       |
+| **4** | **Protocol**        | Message envelopes, intents, state machines | 🚧 85%     | [`04-protocol/README.md`](04-protocol/README.md)     |
+| **5** | **Prompts**         | AI agent system prompts                    | 🚧 40%     | [`05-prompts/README.md`](05-prompts/README.md)       |
+| **6** | **Libraries**       | Python SDK, validators, clients            | 📋 Planned | [`06-libraries/`](06-libraries/)                     |
+| **7** | **UI**              | CLI/GUI/Player-Narrator interfaces         | 📋 Planned | [`07-ui/`](07-ui/)                                   |
 
 **Legend:** ✅ Complete | 🚧 In Progress | 📋 Planned
 
@@ -96,9 +101,11 @@ QuestFoundry is organized into **7 layers**, each with clear separation of conce
 
 ### Using the Validation Tools
 
-QuestFoundry includes `spec-tools`, a Python toolkit for validating schemas, artifacts, and protocol messages.
+QuestFoundry includes `spec-tools`, a Python toolkit for validating schemas, artifacts, and protocol
+messages.
 
 **Prerequisites:**
+
 - Python 3.11 or higher
 - [uv](https://github.com/astral-sh/uv) package manager
 
@@ -136,10 +143,12 @@ See [`spec-tools/README.md`](spec-tools/README.md) for detailed usage.
 QuestFoundry defines **15 roles** that can be played by humans or AI agents:
 
 **Always On:**
+
 - **Showrunner (SR)** — Orchestrates work, wakes roles, sequences loops
 - **Gatekeeper (GK)** — Enforces quality bars, validates merges
 
 **Default On:**
+
 - **Plotwright (PW)** — Designs topology (hubs, loops, gateways)
 - **Scene Smith (SS)** — Writes prose to topology & style
 - **Style Lead (ST)** — Maintains voice, register, motifs
@@ -147,12 +156,14 @@ QuestFoundry defines **15 roles** that can be played by humans or AI agents:
 - **Codex Curator (CC)** — Creates player-safe encyclopedia entries
 
 **Optional/Dormant:**
+
 - **Researcher (RS)** — Fact verification & corroboration
 - **Art Director (AD)** / **Illustrator (IL)** — Visual planning/creation
 - **Audio Director (AuD)** / **Audio Producer (AuP)** — Sound planning/creation
 - **Translator (TR)** — Localization
 
 **Downstream:**
+
 - **Book Binder (BB)** — Assembles export views from Cold snapshots
 - **Player-Narrator (PN)** — Performs the book in-world, enforces diegetic gates
 
@@ -163,31 +174,37 @@ See [`00-north-star/ROLE_INDEX.md`](00-north-star/ROLE_INDEX.md) for the complet
 All work in QuestFoundry produces **structured artifacts** with JSON schemas:
 
 **Core Workflow:**
+
 - `hook_card` — Small, traceable follow-ups to discovered needs
 - `tu_brief` — Trace Unit work order tracking changes
 
 **Content Creation:**
+
 - `canon_pack` — Spoiler-level canon compilation
 - `codex_entry` — Player-safe encyclopedia entries
 - `style_addendum` — Voice/register/motif guidance
 - `edit_notes` — Copyediting instructions
 
 **Planning:**
+
 - `research_memo` — Fact-checking & corroboration
 - `shotlist` / `cuelist` — Visual/audio asset planning
 - `art_plan` / `audio_plan` — Asset design briefs
 
 **Quality:**
+
 - `gatecheck_report` — Quality bar validation results
 - `view_log` — Export manifest
 - `front_matter` — Book metadata
 - `pn_playtest_notes` — Player-Narrator testing feedback
 
 **Localization:**
+
 - `language_pack` — Translation structure
 - `register_map` — Terminology mapping across languages
 
 **Project:**
+
 - `project_metadata` — Project-wide settings
 - `art_manifest` / `style_manifest` — Asset catalogs
 
@@ -203,7 +220,8 @@ QuestFoundry uses **two Sources of Truth**:
 - **Views** — Specific exports of Cold snapshots (EPUB, web, etc.)
 
 Changes move through **Trace Units (TUs)** with states:
-```
+
+```text
 hot-proposed → stabilizing → gatecheck → cold-merged
 ```
 
@@ -232,30 +250,36 @@ See [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) for full cr
 QuestFoundry organizes work into **11 focused loops**:
 
 **Discovery:**
+
 - **Story Spark** — Initial brainstorming
 - **Hook Harvest** — Capture follow-up ideas
 - **Lore Deepening** — Expand canon from hooks
 - **Codex Expansion** — Create player-safe entries
 
 **Refinement:**
+
 - **Style Tune-up** — Voice/register consistency pass
 
 **Assets:**
+
 - **Art Touch-up** — Visual planning/creation
 - **Audio Pass** — Sound planning/creation
 
 **Localization:**
+
 - **Translation Pass** — Target-language slice
 
 **Export:**
+
 - **Binding Run** — Export view on Cold
 - **Narration Dry-Run** — PN playtesting
 
 **Full Cycle:**
+
 - **Full Production Run** — Orchestrates all loops
 
-Detailed guides: [`00-north-star/LOOPS/`](00-north-star/LOOPS/)
-Quick playbooks: [`00-north-star/PLAYBOOKS/`](00-north-star/PLAYBOOKS/)
+Detailed guides: [`00-north-star/LOOPS/`](00-north-star/LOOPS/) Quick playbooks:
+[`00-north-star/PLAYBOOKS/`](00-north-star/PLAYBOOKS/)
 
 ### 📋 Example Workflow
 
@@ -291,6 +315,7 @@ uv run qfspec-check-instance hook_card examples/hook-001.json
 ### Envelope Validation (Two-Pass)
 
 Protocol messages undergo **two-pass validation**:
+
 1. **Envelope structure** (Layer 4 schema)
 2. **Payload data** (Layer 3 schema matching `payload.type`)
 
@@ -300,14 +325,22 @@ uv run qfspec-check-envelope examples/hook.create.json
 
 ### Pre-Commit Hooks
 
-Automatic validation runs on commit:
+Automatic validation and formatting runs on every commit:
 
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
-See [`.pre-commit-config.yaml`](.pre-commit-config.yaml) for configuration.
+**What the hooks do:**
+
+- **Auto-format** JSON and Markdown with Prettier
+- **Lint** Markdown files with Markdownlint
+- **Validate** JSON syntax and schema compliance
+- **Check** envelope examples (Layer 4 protocol)
+- **Normalize** line endings and trailing whitespace
+
+See [`.pre-commit-README.md`](.pre-commit-README.md) for detailed setup and troubleshooting.
 
 ---
 
@@ -315,39 +348,45 @@ See [`.pre-commit-config.yaml`](.pre-commit-config.yaml) for configuration.
 
 ### 📖 Full Documentation Site
 
-Comprehensive documentation is hosted at **[questfoundry.liesdonk.nl](https://questfoundry.liesdonk.nl)**
+Comprehensive documentation is hosted at
+**[questfoundry.liesdonk.nl](https://questfoundry.liesdonk.nl)**
 
 ### 🔍 Key Documents
 
 **Getting Started:**
+
 - [`00-north-star/README.md`](00-north-star/README.md) — Navigator for Layer 0
 - [`00-north-star/WORKING_MODEL.md`](00-north-star/WORKING_MODEL.md) — Studio operating model
 - [`00-north-star/PN_PRINCIPLES.md`](00-north-star/PN_PRINCIPLES.md) — Player-Narrator boundaries
 
 **Policy & Governance:**
+
 - [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) — Gatekeeper validation criteria
 - [`00-north-star/TRACEABILITY.md`](00-north-star/TRACEABILITY.md) — Trace Unit system
 - [`00-north-star/SPOILER_HYGIENE.md`](00-north-star/SPOILER_HYGIENE.md) — Player-surface safety
 
 **Technical Specs:**
+
 - [`04-protocol/ENVELOPE.md`](04-protocol/ENVELOPE.md) — Message format specification
 - [`04-protocol/INTENTS.md`](04-protocol/INTENTS.md) — Complete intent catalog
 - [`04-protocol/LIFECYCLES/`](04-protocol/LIFECYCLES/) — State machines for hooks & TUs
 - [`03-schemas/README.md`](03-schemas/README.md) — Schema generation methodology
 
 **Implementation:**
+
 - [`IMPLEMENTATION_ROADMAP.md`](IMPLEMENTATION_ROADMAP.md) — 26-week phased plan
 - [`05-prompts/USAGE_GUIDE.md`](05-prompts/USAGE_GUIDE.md) — AI agent prompt usage
 - [`spec-tools/README.md`](spec-tools/README.md) — Validation toolkit documentation
 
 **Governance:**
+
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — Contribution workflow
 - [`DECISIONS/`](DECISIONS/) — Architectural Decision Records (ADRs)
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — Community standards
 
 ### 📊 Repository Structure
 
-```
+```text
 questfoundry-spec/
 ├── 00-north-star/          # Layer 0: Vision, principles, loops
 │   ├── README.md           # Navigator
@@ -421,7 +460,8 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for detailed guidelines.
 
 ### 🐛 Reporting Issues
 
-Found a bug or have a question? [Open an issue](https://github.com/pvliesdonk/questfoundry-spec/issues).
+Found a bug or have a question?
+[Open an issue](https://github.com/pvliesdonk/questfoundry-spec/issues).
 
 ### 📜 Code of Conduct
 
@@ -437,17 +477,17 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 
 ## Project Status
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| Layer 0 (North Star) | ✅ 95% complete | Active maintenance |
-| Layer 1 (Roles) | 🚧 60% complete | Core roles defined, briefs in progress |
-| Layer 2 (Dictionary) | 🚧 80% complete | Phase 3 enrichment complete |
-| Layer 3 (Schemas) | ✅ 100% complete | 21 schemas validated |
-| Layer 4 (Protocol) | 🚧 85% complete | Envelopes, intents, 5 lifecycles done; gate/view pending |
-| Layer 5 (Prompts) | 🚧 40% complete | Frameworks ready, individual prompts in progress |
-| Layer 6 (Libraries) | 📋 Planned | SDK for Python/TypeScript |
-| Layer 7 (UI) | 📋 Planned | CLI, GUI, PN player |
-| Validation Tools | ✅ Complete | `spec-tools` fully functional |
+| Component            | Status           | Notes                                                    |
+| -------------------- | ---------------- | -------------------------------------------------------- |
+| Layer 0 (North Star) | ✅ 95% complete  | Active maintenance                                       |
+| Layer 1 (Roles)      | 🚧 60% complete  | Core roles defined, briefs in progress                   |
+| Layer 2 (Dictionary) | 🚧 80% complete  | Phase 3 enrichment complete                              |
+| Layer 3 (Schemas)    | ✅ 100% complete | 21 schemas validated                                     |
+| Layer 4 (Protocol)   | 🚧 85% complete  | Envelopes, intents, 5 lifecycles done; gate/view pending |
+| Layer 5 (Prompts)    | 🚧 40% complete  | Frameworks ready, individual prompts in progress         |
+| Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                                |
+| Layer 7 (UI)         | 📋 Planned       | CLI, GUI, PN player                                      |
+| Validation Tools     | ✅ Complete      | `spec-tools` fully functional                            |
 
 **Last Updated:** 2025-11-05
 
@@ -455,7 +495,8 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 
 ## Acknowledgments
 
-QuestFoundry is designed for **collaborative authoring** of interactive narrative. It draws inspiration from:
+QuestFoundry is designed for **collaborative authoring** of interactive narrative. It draws
+inspiration from:
 
 - **Multi-agent systems** in software engineering
 - **State machines** for workflow orchestration
@@ -467,8 +508,10 @@ QuestFoundry is designed for **collaborative authoring** of interactive narrativ
 ## Quick Links
 
 - 🌐 **Website**: [questfoundry.liesdonk.nl](https://questfoundry.liesdonk.nl)
-- 📖 **Schema Registry**: [questfoundry.liesdonk.nl/schemas](https://questfoundry.liesdonk.nl/schemas/)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/pvliesdonk/questfoundry-spec/discussions)
+- 📖 **Schema Registry**:
+  [questfoundry.liesdonk.nl/schemas](https://questfoundry.liesdonk.nl/schemas/)
+- 💬 **Discussions**:
+  [GitHub Discussions](https://github.com/pvliesdonk/questfoundry-spec/discussions)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/pvliesdonk/questfoundry-spec/issues)
 - 📦 **Releases**: [GitHub Releases](https://github.com/pvliesdonk/questfoundry-spec/releases)
 
