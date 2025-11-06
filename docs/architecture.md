@@ -112,10 +112,10 @@ Player-facing content is protected:
 │ ├─ Envelope schema (protocol structure)                    │
 │ └─ Validation metadata ($id, $schema, examples)            │
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 2: Common Language (Data Dictionary)                 │ 🚧 80% (templates enriched)
-│ ├─ 17 artifact templates (markdown)                        │
-│ ├─ Glossary (shared terminology)                           │
-│ └─ Taxonomies (hook types, TU types)                       │
+│ Layer 2: Common Language (Data Dictionary)                 │ ✅ 100% complete
+│ ├─ 20 artifact templates enriched (markdown + constraints) │
+│ ├─ Glossary and taxonomies (8 sections)                    │
+│ └─ Field registry and cross-references                     │
 ├─────────────────────────────────────────────────────────────┤
 │ Layer 1: Roles (Who Does What)                             │ ✅ 100% complete
 │ ├─ 15 role charters (mission, scope, authorities)          │
@@ -618,9 +618,9 @@ QuestFoundry's design is documented in **Architectural Decision Records (ADRs)**
 
 | Component            | Status      | Completion |
 | -------------------- | ----------- | ---------- |
-| Layer 0 (North Star) | ✅ Complete | 98%        |
-| Layer 1 (Roles)      | ✅ Complete | 95%        |
-| Layer 2 (Dictionary) | ✅ Complete | 95%        |
+| Layer 0 (North Star) | ✅ Complete | 100%       |
+| Layer 1 (Roles)      | ✅ Complete | 100%       |
+| Layer 2 (Dictionary) | ✅ Complete | 100%       |
 | Layer 3 (Schemas)    | ✅ Complete | 100%       |
 | Layer 4 (Protocol)   | ✅ Complete | 95%        |
 | Layer 5 (Prompts)    | ✅ Complete | 100%       |

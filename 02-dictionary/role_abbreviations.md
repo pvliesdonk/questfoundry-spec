@@ -105,9 +105,9 @@ When a role is **dormant**, use deferral tags in TU briefs and hook cards:
 ## Cross-References
 
 - **Role definitions:** `02-dictionary/glossary.md` §D (prose definitions)
-- **Role charters:** TBD in Layer 1 (detailed responsibilities)
-- **Role workflows:** TBD in Layer 4 protocol
-- **Dormancy policy:** `00-north-star/` TBD
+- **Role charters:** `01-roles/charters/*.md` (15 roles)
+- **Role workflows:** Layer 4 protocol (pending Layer 4 completion)
+- **Dormancy policy:** `01-roles/interfaces/dormancy_signals.md`
 
 ---
 

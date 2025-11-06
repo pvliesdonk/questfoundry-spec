@@ -44,11 +44,13 @@
 ## Formatting Conventions
 
 1. **Display Name:**
+
    - Title Case for each word
    - Hyphenated compound words (e.g., "Tune-up", "Dry-Run", "Touch-up")
    - No hyphen before compound words (e.g., "Style Tune-up" not "Style-Tune-up")
 
 2. **File Name:**
+
    - All lowercase
    - Hyphen-separated words
    - No spaces
@@ -87,8 +89,8 @@
 
 - **Loop definitions:** `00-north-star/LOOPS/*.md` (13 files)
 - **Loop taxonomy:** `02-dictionary/taxonomies.md` §3 (TU Types)
-- **Loop RACI:** TBD in Layer 1 roles documentation
-- **Loop workflows:** TBD in Layer 4 protocol
+- **Loop RACI:** `01-roles/raci/by_loop.md`
+- **Loop workflows:** Layer 4 protocol (pending Layer 4 completion)
 
 ---
 

@@ -48,7 +48,7 @@ across all roles and loops.
 
 ## Layer 2 Structure (Planned)
 
-```
+```text
 02-dictionary/
 ├── README.md                    # This file
 ├── glossary.md                  # All system terms (✅ parked)
@@ -139,6 +139,9 @@ Once Layer 2 drafting begins:
 
 - ✅ Structure created
 - ✅ Parked documents migrated
-- 🚧 Taxonomies pending
-- 🚧 Full Layer 2 draft pending
-- 🚧 Cross-layer consistency review pending
+- ✅ Taxonomies complete (`taxonomies.md` with 8 sections)
+- ✅ Field registry complete (`field_registry.md`)
+- ✅ All 17 artifact templates enriched with constraints (Phase 3, 2025-10-29/30)
+- ✅ Cross-references updated (loop_names.md, role_abbreviations.md)
+- ✅ Conventions documented (choice_integrity.md)
+- ✅ Cross-layer consistency review complete (2025-11-06)
