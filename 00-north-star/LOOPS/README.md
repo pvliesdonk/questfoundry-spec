@@ -112,17 +112,31 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 
 ## Links to full guides
 
+**Discovery:**
+
 - `story_spark.md`
 - `hook_harvest.md`
 - `lore_deepening.md`
+
+**Refinement:**
+
 - `codex_expansion.md`
 - `style_tune_up.md` _(see filename note below)_
+
+**Asset:**
+
 - `art_touch_up.md`
 - `audio_pass.md`
 - `translation_pass.md`
+
+**Export:**
+
 - `binding_run.md`
 - `narration_dry_run.md`
-- `full_production_run.md`
+- `gatecheck.md` _(Layer 4 only, no Layer 0 definition yet)_
+- `post_mortem.md` _(retrospective analysis)_
+- `archive_snapshot.md` _(Layer 5 only, no Layer 0 definition yet)_
+- `full_production_run.md` _(coordinated multi-slice)_
 
 > **Filename note**: If your tree currently has `style_rune_up.md`, rename it to `style_tune_up.md`
 > for consistency.
