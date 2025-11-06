@@ -1,7 +1,8 @@
 """
 Builds Layer 5 upload kits (symlink folders + zip archives) for chat platforms.
 
-Creates dist/upload_kits/* with role‑qualified filenames to avoid collisions.
+Creates dist/upload_kits/* with ORIGINAL DIRECTORY STRUCTURE PRESERVED in zips.
+This allows multiple files named system_prompt.md to coexist via their parent paths.
 Falls back to copying if symlinks are not permitted on the system.
 
 Usage via uv:
@@ -28,27 +29,6 @@ def _find_repo_root() -> Path:
     return repo_root
 
 
-def _flatten_rel(rel: str) -> str:
-    """Return destination filename for a given repo-relative path.
-
-    Rules:
-    - 05-prompts/<role>/system_prompt.md -> <role>.md
-    - 05-prompts/_shared/<name>.md -> <name>.md
-    - Otherwise, flatten path separators to dots.
-    """
-    # Normalize to POSIX-style separators for matching
-    rel_norm = rel.replace("\\", "/")
-    if rel_norm.startswith("05-prompts/"):
-        rest = rel_norm[len("05-prompts/") :]
-        parts = rest.split("/")
-        if len(parts) == 2 and parts[1] == "system_prompt.md":
-            return f"{parts[0]}.md"
-        if parts and parts[0] == "_shared" and len(parts) == 2:
-            return parts[1]
-        return rest.replace("/", ".")
-    return Path(rel).name
-
-
 def _ensure_link_or_copy(src: Path, dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     try:
@@ -60,17 +40,18 @@ def _ensure_link_or_copy(src: Path, dest: Path) -> None:
         shutil.copy2(src, dest)
 
 
-def _read_manifest(manifest: Path) -> list[Path]:
-    items: list[Path] = []
+def _read_manifest(manifest: Path) -> list[str]:
+    items: list[str] = []
     for line in manifest.read_text(encoding="utf-8").splitlines():
         rel = line.strip()
         if not rel:
             continue
-        items.append(Path(rel))
+        items.append(rel)
     return items
 
 
 def _build_folder_from_manifest(repo_root: Path, manifest: Path, out_folder: Path) -> None:
+    """Build a folder with files from manifest, preserving original directory structure."""
     if out_folder.exists():
         shutil.rmtree(out_folder)
     out_folder.mkdir(parents=True, exist_ok=True)
@@ -79,9 +60,8 @@ def _build_folder_from_manifest(repo_root: Path, manifest: Path, out_folder: Pat
         src = (repo_root / rel).resolve()
         if not src.exists():
             raise FileNotFoundError(f"Manifest entry not found: {rel}")
-        # Preserve manifest string semantics for flattening
-        dest_name = _flatten_rel(str(rel))
-        dest = out_folder / dest_name
+        # Preserve original directory structure (e.g., 05-prompts/showrunner/system_prompt.md)
+        dest = out_folder / rel
         _ensure_link_or_copy(src, dest)
 
 
@@ -93,6 +73,21 @@ def _zip_folder(folder: Path, zip_path: Path) -> None:
                 zf.write(p, p.relative_to(folder))
 
 
+def _build_kit(repo_root: Path, manifests_dir: Path, out_dir: Path, manifest_name: str, output_name: str) -> None:
+    """Build a single kit from a manifest file."""
+    manifest_path = manifests_dir / manifest_name
+    if not manifest_path.exists():
+        print(f"  Skipping {output_name}: manifest {manifest_name} not found")
+        return
+
+    folder = out_dir / output_name
+    zip_path = out_dir / f"{output_name}.zip"
+
+    _build_folder_from_manifest(repo_root, manifest_path, folder)
+    _zip_folder(folder, zip_path)
+    print(f"  ✓ {output_name}.zip ({len(_read_manifest(manifest_path))} files)")
+
+
 def build_kits_cli() -> None:
     repo_root = _find_repo_root()
     manifests_dir = repo_root / "05-prompts" / "upload_kits" / "manifests"
@@ -102,38 +97,36 @@ def build_kits_cli() -> None:
         print(f"Manifests not found: {manifests_dir}")
         sys.exit(1)
 
-    # Flat output (no platform subfolders): minimal/ and addons/ at top-level
-    min_folder = out_dir / "minimal"
-    opt_folder = out_dir / "optional"
-    full_folder = out_dir / "full"
-    min_zip = out_dir / "minimal.zip"
-    opt_zip = out_dir / "optional.zip"
-    full_zip = out_dir / "full.zip"
+    print("Building upload kits with preserved directory structure...\n")
 
-    # Minimal
-    _build_folder_from_manifest(repo_root, manifests_dir / "chatgpt_minimal.list", min_folder)
-    _zip_folder(min_folder, min_zip)
+    # Standalone kits (for traditional role-based usage)
+    print("Standalone Kits:")
+    _build_kit(repo_root, manifests_dir, out_dir, "chatgpt_minimal.list", "minimal-standalone")
+    _build_kit(repo_root, manifests_dir, out_dir, "optional.list", "optional-standalone")
+    _build_kit(repo_root, manifests_dir, out_dir, "full-standalone.list", "full-standalone")
 
-    # Optional (PN + additional roles)
-    optional_manifest = (
-        manifests_dir / "optional.list"
-        if (manifests_dir / "optional.list").exists()
-        else manifests_dir / "gemini_optional_zip.list"
-    )
-    _build_folder_from_manifest(repo_root, optional_manifest, opt_folder)
-    _zip_folder(opt_folder, opt_zip)
+    # Gemini splits for full standalone (10-file limit per zip)
+    print("\nGemini Standalone Splits:")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini_core_zip.list", "gemini-minimal-standalone")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini_optional_zip.list", "gemini-optional-standalone")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-full-standalone-1.list", "gemini-full-standalone-1")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-full-standalone-2.list", "gemini-full-standalone-2")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-full-standalone-3.list", "gemini-full-standalone-3")
 
-    # Full = union of minimal + optional
-    if full_folder.exists():
-        shutil.rmtree(full_folder)
-    full_folder.mkdir(parents=True, exist_ok=True)
-    for src_folder in (min_folder, opt_folder):
-        for p in src_folder.iterdir():
-            if p.is_file():
-                dest = full_folder / p.name
-                if dest.exists():
-                    dest.unlink()
-                _ensure_link_or_copy(p, dest)
-    _zip_folder(full_folder, full_zip)
+    # Orchestration kits (for loop-focused architecture)
+    print("\nOrchestration Kits:")
+    _build_kit(repo_root, manifests_dir, out_dir, "orchestration-complete.list", "orchestration-complete")
 
-    print(f"Upload kits built under: {out_dir}")
+    # Gemini splits for orchestration (10-file limit per zip)
+    print("\nGemini Orchestration Splits:")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-orchestration-1-foundation.list", "gemini-orchestration-1-foundation")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-orchestration-2-playbooks.list", "gemini-orchestration-2-playbooks")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-orchestration-3-playbooks-extra.list", "gemini-orchestration-3-playbooks-extra")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-orchestration-4-adapters-core.list", "gemini-orchestration-4-adapters-core")
+    _build_kit(repo_root, manifests_dir, out_dir, "gemini-orchestration-5-adapters-extra.list", "gemini-orchestration-5-adapters-extra")
+
+    print(f"\n✓ Upload kits built under: {out_dir}")
+
+
+if __name__ == "__main__":
+    build_kits_cli()

@@ -4,12 +4,30 @@ Audience: humans using ChatGPT, Claude, or Gemini to run QuestFoundry Layer 5 pr
 
 ## Quick Start
 
-- Choose a chatbot (ChatGPT, Claude, or Gemini).
-- Upload the Minimal Upload Kit (files listed below) or paste the core prompts in order.
-- Tell the bot to act as Showrunner and open a TU for your manuscript.
-- Wake Plotwright, Scene Smith, and Style Lead; iterate outline → scenes → style.
-- Pre-gate with Gatekeeper, bind with Book Binder, and do a PN dry-run.
-- Close the TU when satisfied.
+Layer 5 supports **two usage modes**: Standalone (human-led) and **Orchestration (AI-led)** ⭐.
+
+### Quick Start: Orchestration Mode ⭐ **RECOMMENDED**
+
+Best for: **Production workflows with multiple roles**
+
+1. Choose a chatbot (ChatGPT, Claude, or Gemini)
+2. Upload `orchestration-complete.zip` (or Gemini splits: `gemini-orchestration-1` through `-5`)
+3. Prompt: "Load the Story Spark playbook from loops/ and execute it for a 3-scene mystery."
+4. Showrunner coordinates all roles via loop playbook (single-source-of-truth procedure)
+5. Result: Gate-approved manuscript with full traceability
+
+**Why recommended?** 70% context reduction, clear coordination, role interchangeability.
+
+### Quick Start: Standalone Mode
+
+Best for: **Learning, single-role tasks, exploration**
+
+1. Choose a chatbot (ChatGPT, Claude, or Gemini)
+2. Upload `minimal-standalone.zip` (10 files)
+3. Tell the bot to act as Showrunner and open a TU for your manuscript
+4. Wake Plotwright, Scene Smith, and Style Lead; iterate outline → scenes → style
+5. Pre-gate with Gatekeeper, bind with Book Binder, and do a PN dry-run
+6. Close the TU when satisfied
 
 ## Working with Loop Playbooks
 
@@ -50,92 +68,70 @@ loops/lore_deepening.playbook.md        # Load procedure
 
 ## Supported Chatbots And File Uploads
 
-- ChatGPT
-  - Limit: up to 10 files per upload action. You can upload more overall by repeating uploads, or by
-    using a zip.
-  - Recommendation: use the Minimal Upload Kit (10 files). Upload Player‑Narrator later as an addon,
-    or use the provided zip.
-  - Keep filenames descriptive (the UI shows them for quick reference).
-- Claude
-  - Handles multiple attachments well; individual files preferred for transparency and grounding.
-  - Zips are accepted; still prefer individual files unless you hit limits.
-- Gemini
-  - Zip limit: up to 10 files per zip. Use two zips (core + optional) when loading the full set.
-  - Recommendation: upload the core zip first (shared + SR + PW + SS + ST + GK + BB), then the
-    optional zip when needed.
+- **ChatGPT**
+  - Limit: up to 10 files per upload action (can repeat uploads or use zip)
+  - **Orchestration:** Upload `orchestration-complete.zip` (single upload, 36 files)
+  - **Standalone:** Upload `minimal-standalone.zip` (10 files), add `optional-standalone.zip` later
+- **Claude**
+  - No strict limit; handles multiple attachments well
+  - **Orchestration:** Upload `orchestration-complete.zip` or individual files (preferred for grounding)
+  - **Standalone:** Upload `minimal-standalone.zip` + `optional-standalone.zip`
+- **Gemini**
+  - Limit: 10 files max per zip
+  - **Orchestration:** Upload `gemini-orchestration-1` through `-5` in sequence (5 zips, 36 files total)
+  - **Standalone:** Upload `gemini-minimal-standalone.zip` + `gemini-optional-standalone.zip`
 
-Tip: If your platform drops attachments between threads, reattach the Minimal Upload Kit at the
-start of each new session.
+Tip: If your platform drops attachments between threads, reattach your kit at the start of each new
+session.
 
-## Upload Kits (Minimal vs. Full)
+## Upload Kits: Standalone vs. Orchestration
 
-**Note on Dual Formats:**
+**Choose your mode:**
 
-- **Full prompts** (`[role]/system_prompt.md`) — Use for standalone work or learning
-- **Role adapters** (`role_adapters/[role].adapter.md`) — Use for multi-role orchestration with loop
-  playbooks (more efficient)
+### Orchestration Mode ⭐ **RECOMMENDED for Production**
 
-The kits below use full prompts for simplicity. For orchestrated workflows with loop playbooks,
-consider using role adapters instead.
+**Files:** `orchestration-complete.zip` (36 files) or `gemini-orchestration-1` through `-5` splits
 
-Minimal Upload Kit (10 files — ChatGPT‑friendly, Full Prompts)
+**Contains:**
+- 4 shared patterns (`_shared/*.md`)
+- 4 showrunner modules (system_prompt, loop_orchestration, manifest_management, protocol_handlers)
+- 13 loop playbooks (`loops/*.playbook.md`)
+- 15 role adapters (`role_adapters/*.adapter.md`)
 
-- 05-prompts/\_shared/context_management.md
-- 05-prompts/\_shared/safety_protocol.md
-- 05-prompts/\_shared/escalation_rules.md
-- 05-prompts/\_shared/human_interaction.md
-- 05-prompts/showrunner/system_prompt.md
-- 05-prompts/plotwright/system_prompt.md
-- 05-prompts/scene_smith/system_prompt.md
-- 05-prompts/style_lead/system_prompt.md
-- 05-prompts/gatekeeper/system_prompt.md
-- 05-prompts/book_binder/system_prompt.md
+**Benefits:**
+- **70% context reduction** vs. standalone mode (adapters are 50-100 lines vs. full prompts at 200-300 lines)
+- Single-source-of-truth loop procedures (1 playbook vs 7 role prompts for a loop)
+- Clear RACI matrix and role coordination
+- Role interchangeability (swap implementations without changing playbooks)
 
-Orchestrated Loop Kit (Alternative — Loop Playbooks + Adapters)
+**Best for:** Multi-role workflows, production runs, efficient orchestration
 
-For running specific loops with multi-role coordination:
+### Standalone Mode (Traditional)
 
-- Upload target loop playbook: `loops/[loop_name].playbook.md`
-- Upload role adapters: `role_adapters/[role].adapter.md` (only needed roles)
-- Example: Lore Deepening loop → upload `loops/lore_deepening.playbook.md` + adapters for
-  Showrunner, Lore Weaver, Gatekeeper, Codex Curator
+**Minimal:** `minimal-standalone.zip` (10 files)
+- 4 shared patterns
+- 1 showrunner prompt
+- 5 core role prompts (Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder)
 
-Addon (upload later when binding/PN is needed)
+**Optional Addon:** `optional-standalone.zip` (9 files)
+- Player Narrator, Lore Weaver, Codex Curator, Researcher
+- Art Director, Illustrator, Audio Director, Audio Producer, Translator
 
-- 05-prompts/player_narrator/system_prompt.md
+**Full:** `full-standalone.zip` (23 files)
+- All shared patterns + all showrunner modules + all 15 role prompts
 
-Layer 3 Schema Reference (No Upload Required)
+**Best for:** Learning, single-role tasks, human-led exploration
 
-**All Cold SoT schemas are available at canonical URLs**:
+### Layer 3 Schema Reference (No Upload Required)
+
+**All Cold SoT schemas are available at canonical URLs:**
 `https://questfoundry.liesdonk.nl/schemas/`
 
-Book Binder and Gatekeeper prompts reference these schemas for validation:
+Gatekeeper and Book Binder prompts reference these schemas by URL for validation. No upload needed.
 
-- cold_manifest.schema.json — Top-level file index with SHA-256 hashes
-- cold_book.schema.json — Story structure, section order, metadata
-- cold_art_manifest.schema.json — Asset mappings with provenance tracking
-- hot_manifest.schema.json — Hot discovery space index
-- project_metadata.schema.json — Project configuration
+**Build kits:** `uv run qfspec-build-kits` (output: `dist/upload_kits/`)
 
-**No upload needed**: Agents reference schemas by canonical URL. The schemas define the Cold SoT
-format that prevents protocol violations (e.g., Adventure Bay Binder Breakdown).
-
-Full Upload Kit (split for Gemini)
-
-- Core zip (≤10 files): Minimal kit files above
-- Optional zip (≤10 files):
-  - 05-prompts/player_narrator/system_prompt.md
-  - 05-prompts/lore_weaver/system_prompt.md
-  - 05-prompts/codex_curator/system_prompt.md
-  - 05-prompts/researcher/system_prompt.md
-  - 05-prompts/art_director/system_prompt.md
-  - 05-prompts/illustrator/system_prompt.md
-  - 05-prompts/audio_director/system_prompt.md
-  - 05-prompts/audio_producer/system_prompt.md
-  - 05-prompts/translator/system_prompt.md
-
-See also: 05-prompts/upload_kits/ for manifests and build scripts that generate link folders and
-zips.
+See also: `05-prompts/upload_kits/README.md` for complete kit descriptions and platform guidance.
 
 ## Boot Sequence (Paste Or Upload, Then Prompt)
 

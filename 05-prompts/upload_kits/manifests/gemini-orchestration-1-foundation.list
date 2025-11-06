@@ -1,0 +1,9 @@
+05-prompts/_shared/context_management.md
+05-prompts/_shared/safety_protocol.md
+05-prompts/_shared/escalation_rules.md
+05-prompts/_shared/human_interaction.md
+05-prompts/showrunner/system_prompt.md
+05-prompts/showrunner/loop_orchestration.md
+05-prompts/showrunner/manifest_management.md
+05-prompts/showrunner/protocol_handlers.md
+05-prompts/role_adapters/showrunner.adapter.md
