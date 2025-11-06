@@ -64,6 +64,12 @@
       margin-bottom: 10px;
       font-size: 1.3em;
     }
+    h4 {
+      color: #666;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
     p {
       margin-bottom: 15px;
     }
@@ -94,6 +100,14 @@
     .button-success:hover {
       background: #218838;
     }
+    .button-version {
+      background: #17a2b8;
+      font-size: 0.9em;
+      padding: 8px 16px;
+    }
+    .button-version:hover {
+      background: #138496;
+    }
     .quick-nav {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -116,6 +130,7 @@
       color: #667eea;
       margin-bottom: 8px;
       font-size: 1.1em;
+      margin-top: 0;
     }
     .quick-nav-item p {
       font-size: 0.9em;
@@ -171,6 +186,18 @@
       border-radius: 4px;
       font-size: 0.9em;
       margin-bottom: 15px;
+      margin-right: 10px;
+    }
+    .version-badge {
+      display: inline-block;
+      background: #d4edda;
+      color: #155724;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      font-weight: 600;
     }
     .layer-status {
       display: inline-block;
@@ -220,6 +247,24 @@
       color: #555;
       margin-top: 5px;
     }
+    .version-box {
+      background: #f8f9fa;
+      border: 2px solid #667eea;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .version-box h4 {
+      color: #667eea;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .version-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -244,14 +289,23 @@
           <div class="stat-label">Specialized Roles</div>
         </div>
         <div class="stat-box">
-          <div class="stat-number">21</div>
-          <div class="stat-label">JSON Schemas</div>
+          <div class="stat-number">13</div>
+          <div class="stat-label">Loop Playbooks</div>
         </div>
         <div class="stat-box">
-          <div class="stat-number">17</div>
-          <div class="stat-label">Artifact Types</div>
+          <div class="stat-number">18</div>
+          <div class="stat-label">JSON Schemas</div>
         </div>
       </div>
+
+      <p><strong>Architecture Highlights:</strong></p>
+      <ul>
+        <li><strong>Loop-Focused Architecture</strong> — Single-source-of-truth procedures for 13 canonical workflows</li>
+        <li><strong>Hot/Cold Separation</strong> — Discovery space vs. production canon with merge gates</li>
+        <li><strong>Protocol-Driven</strong> — Message envelopes, state machines, and 30+ intents</li>
+        <li><strong>Quality Enforced</strong> — 8 mandatory validation checks before production</li>
+        <li><strong>Player-Safe</strong> — Spoiler hygiene enforced at protocol level</li>
+      </ul>
 
       <div style="margin-top: 20px;">
         <a href="getting-started.html" class="button button-success">📚 Get Started</a>
@@ -259,6 +313,67 @@
         <a href="architecture.html" class="button button-secondary">🏗️ Architecture</a>
         <a href="faq.html" class="button button-secondary">❓ FAQ</a>
       </div>
+    </div>
+
+    <div class="card">
+      <h2>📦 Releases & Downloads</h2>
+
+      <div class="version-box">
+        <h4>📐 Layer 3: Schemas <span class="version-badge">v0.2.0</span></h4>
+        <p>18 JSON schemas (Draft 2020-12) for artifact validation.</p>
+        <div class="version-links">
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/schemas-v0.2.0" class="button button-version">Download v0.2.0</a>
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas" class="button button-secondary">View Source</a>
+          <a href="/schemas/" class="button button-secondary">Browse Schemas</a>
+        </div>
+      </div>
+
+      <div class="version-box">
+        <h4>📡 Layer 4: Protocol <span class="version-badge">v0.2.1</span></h4>
+        <p>Message envelopes, 30+ intents, 4 state machines, 6 workflow sequences.</p>
+        <div class="version-links">
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/protocol-v0.2.1" class="button button-version">Download v0.2.1</a>
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol" class="button button-secondary">View Source</a>
+        </div>
+      </div>
+
+      <div class="version-box">
+        <h4>🤖 Layer 5: Prompts <span class="version-badge">v0.1.0</span></h4>
+        <p>15 AI roles, 13 loop playbooks, 14 upload kits for ChatGPT/Claude/Gemini.</p>
+        <div class="version-links">
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.1.0" class="button button-version">Download v0.1.0</a>
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts" class="button button-secondary">View Source</a>
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/USAGE_GUIDE.md" class="button button-secondary">Usage Guide</a>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+          <strong>Featured kits:</strong>
+          <code>orchestration-complete.zip</code> (36 files, loop-focused),
+          <code>minimal-standalone.zip</code> (10 files, quick start)
+        </p>
+      </div>
+
+      <p style="margin-top: 20px;"><strong>All releases include:</strong> Complete bundles, SHA-256 checksums, version tags, changelog</p>
+    </div>
+
+    <div class="card">
+      <h2>🔨 Implementation Repositories</h2>
+
+      <div class="quick-nav">
+        <a href="https://github.com/pvliesdonk/questfoundry-spec" class="quick-nav-item">
+          <h4>📋 Specification (Layers 0-5)</h4>
+          <p>Complete specification with schemas, protocol, prompts, and validation tools.</p>
+        </a>
+        <a href="https://github.com/pvliesdonk/questfoundry-py" class="quick-nav-item">
+          <h4>🐍 Layer 6: Python SDK</h4>
+          <p>Python library for validators, protocol clients, and export engines.</p>
+        </a>
+        <a href="https://github.com/pvliesdonk/questfoundry-cli" class="quick-nav-item">
+          <h4>⚙️ Layer 7: CLI & Tools</h4>
+          <p>Command-line interface for project management, validation, and exports.</p>
+        </a>
+      </div>
+
+      <p style="margin-top: 20px;"><strong>Note:</strong> Layers 6-7 are under active development. Check repositories for current status and contribution guidelines.</p>
     </div>
 
     <div class="card">
@@ -284,85 +399,108 @@
           <h4>🎭 Roles</h4>
           <p>15 specialized role charters and responsibilities (Layer 1).</p>
         </a>
-        <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol" class="quick-nav-item">
-          <h4>📡 Protocol</h4>
-          <p>Communication rules, envelopes, and state machines (Layer 4).</p>
+        <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/02-dictionary" class="quick-nav-item">
+          <h4>📖 Common Language</h4>
+          <p>Data dictionary, glossary, and 17 artifact templates (Layer 2).</p>
         </a>
       </div>
     </div>
 
     <div class="card">
       <h2>📊 The 7 Layers</h2>
-      <p>QuestFoundry organizes the specification into 7 clear layers:</p>
+      <p>QuestFoundry organizes the specification into 7 clear layers, each building on the previous:</p>
 
-      <h3>Layer 0: North Star <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 0: North Star <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>Vision, principles, operating model</strong> — The "why" and "what" of QuestFoundry.</p>
       <ul>
-        <li>Working model (Hot/Cold, loops, merges)</li>
-        <li>Quality bars (8 mandatory validation checks)</li>
-        <li>PN principles (player safety)</li>
-        <li>13 workflow loops (full guides + playbook one-pagers)</li>
+        <li><strong>Working Model</strong> — Hot/Cold separation, loops, merges, traceability</li>
+        <li><strong>Quality Bars</strong> — 8 mandatory validation checks for production</li>
+        <li><strong>PN Principles</strong> — Player safety, spoiler hygiene, accessibility</li>
+        <li><strong>13 Workflow Loops</strong> — Full guides + playbook one-pagers</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/00-north-star" class="button button-secondary">Explore Layer 0</a>
 
-      <h3>Layer 1: Roles <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 1: Roles <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>Role charters, responsibilities, workflows</strong> — Who does what in the studio.</p>
       <ul>
-        <li>All 15 role charters complete</li>
-        <li>All 15 agent briefs (practical heuristics)</li>
-        <li>Interfaces (role interaction patterns)</li>
+        <li><strong>15 Role Charters</strong> — Showrunner, Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder, etc.</li>
+        <li><strong>15 Agent Briefs</strong> — Practical heuristics for AI implementations</li>
+        <li><strong>Interfaces</strong> — Role interaction patterns and RACI matrices</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/01-roles" class="button button-secondary">Explore Layer 1</a>
 
-      <h3>Layer 2: Common Language <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 2: Common Language <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>Data dictionary, artifact templates</strong> — Shared vocabulary and structures.</p>
       <ul>
-        <li>All 20 artifact templates enriched with constraints</li>
-        <li>Glossary and taxonomies (8 sections)</li>
-        <li>Cross-references and field registry complete</li>
+        <li><strong>17 Artifact Templates</strong> — Hook Cards, Trace Units, Canon Packs, Gatecheck Reports, etc.</li>
+        <li><strong>Glossary & Taxonomies</strong> — 8 sections defining terms and classifications</li>
+        <li><strong>Field Registry</strong> — Cross-references and constraint documentation</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/02-dictionary" class="button button-secondary">Explore Layer 2</a>
 
-      <h3>Layer 3: Schemas <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 3: Schemas <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>JSON Schema specifications</strong> — Machine-readable validation rules.</p>
       <ul>
-        <li>21 JSON schemas (Draft 2020-12)</li>
-        <li>Canonical URLs at <code>questfoundry.liesdonk.nl/schemas/</code></li>
-        <li>Validation toolkit (<code>spec-tools</code>)</li>
+        <li><strong>18 JSON Schemas</strong> — Draft 2020-12 compliant, versioned (v0.2.0)</li>
+        <li><strong>Canonical URLs</strong> — <code>questfoundry.liesdonk.nl/schemas/</code></li>
+        <li><strong>Validation Toolkit</strong> — <code>spec-tools</code> for meta-validation and instance checking</li>
+        <li><strong>GitHub Releases</strong> — Downloadable bundles with checksums</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas" class="button button-secondary">Explore Layer 3</a>
       <a href="/schemas/" class="button">Browse Schemas</a>
+      <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/schemas-v0.2.0" class="button button-version">Download v0.2.0</a>
 
-      <h3>Layer 4: Protocol <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 4: Protocol <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>Communication protocol</strong> — Message envelopes, intents, state machines.</p>
       <ul>
-        <li>protocol-v1.0.0 release (2025-11-06)</li>
-        <li>4 lifecycle state machines (hook, TU, gate, view)</li>
-        <li>6 core workflow message sequences</li>
-        <li>Complete intent catalog and conformance suite</li>
+        <li><strong>Envelope Specification</strong> — v0.2.1 message format with context fields</li>
+        <li><strong>30+ Intents</strong> — Complete catalog across all domains (tu, hook, gate, merge, etc.)</li>
+        <li><strong>4 Lifecycle State Machines</strong> — Hook, TU, Gate, View with transition rules</li>
+        <li><strong>6 Core Workflow Sequences</strong> — Hook Harvest, Lore Deepening, Gatecheck, etc.</li>
+        <li><strong>Conformance Suite</strong> — Validation examples and test cases</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol" class="button button-secondary">Explore Layer 4</a>
+      <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/protocol-v0.2.1" class="button button-version">Download v0.2.1</a>
 
-      <h3>Layer 5: Prompts <span class="layer-status status-complete">✅ 100% Complete</span></h3>
+      <h3>Layer 5: Prompts <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>AI agent implementations</strong> — System prompts for Claude/ChatGPT/Gemini.</p>
       <ul>
-        <li>All 15 system prompts complete</li>
-        <li>Shared resources (context, safety, escalation)</li>
-        <li>Intent handlers and examples</li>
+        <li><strong>Loop-Focused Architecture</strong> — 13 playbooks as single-source-of-truth procedures</li>
+        <li><strong>Dual-Format Strategy</strong> — Full prompts (standalone) + role adapters (orchestration)</li>
+        <li><strong>15 AI Roles</strong> — Complete system prompts with domain expertise and loop participation</li>
+        <li><strong>14 Upload Kits</strong> — Optimized for ChatGPT, Claude, Gemini (including 10-file Gemini splits)</li>
+        <li><strong>70% Context Reduction</strong> — Orchestration mode vs. standalone (adapters: 50-100 lines)</li>
+        <li><strong>4 Shared Patterns</strong> — Context management, safety protocol, escalation, human interaction</li>
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts" class="button button-secondary">Explore Layer 5</a>
+      <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/USAGE_GUIDE.md" class="button button-secondary">Usage Guide</a>
+      <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.1.0" class="button button-version">Download v0.1.0</a>
 
-      <h3>Layer 6: Libraries <span class="layer-status status-planned">📋 Planned</span></h3>
+      <h3>Layer 6: Libraries <span class="layer-status status-progress">🚧 In Development</span></h3>
       <p><strong>Python/TypeScript SDKs</strong> — Software libraries for tool builders.</p>
+      <ul>
+        <li><strong>Validation Libraries</strong> — Schema validation, protocol checking</li>
+        <li><strong>Protocol Clients</strong> — Message handlers, state machines</li>
+        <li><strong>Export Engines</strong> — EPUB, PDF, HTML5 generators</li>
+        <li><strong>Resource Bundling</strong> — Schema and protocol access helpers</li>
+      </ul>
+      <a href="https://github.com/pvliesdonk/questfoundry-py" class="button button-success">View Python SDK</a>
 
-      <h3>Layer 7: UI <span class="layer-status status-planned">📋 Planned</span></h3>
+      <h3>Layer 7: UI <span class="layer-status status-progress">🚧 In Development</span></h3>
       <p><strong>User interfaces</strong> — CLI, GUI, and Player-Narrator surfaces.</p>
+      <ul>
+        <li><strong>CLI Tools</strong> — Project management, validation, exports</li>
+        <li><strong>Authoring Interface</strong> — Web-based studio for collaborative writing</li>
+        <li><strong>Player-Narrator Engine</strong> — Player-facing narrative interface</li>
+      </ul>
+      <a href="https://github.com/pvliesdonk/questfoundry-cli" class="button button-success">View CLI Tools</a>
     </div>
 
     <div class="card">
       <h2>🔗 Schema Access</h2>
 
       <div class="info-badge">✅ Canonical URLs Active</div>
+      <div class="version-badge">v0.2.0</div>
 
       <p>All QuestFoundry schemas are available at stable, canonical URLs:</p>
 
@@ -377,7 +515,7 @@
         <li><code>https://questfoundry.liesdonk.nl/schemas/canon_pack.schema.json</code></li>
       </ul>
 
-      <h3>Available Schemas (21 total)</h3>
+      <h3>Available Schemas (18 total)</h3>
 
       <h4>Core Artifacts</h4>
       <div class="schema-grid">
@@ -401,22 +539,21 @@
       <div class="schema-grid">
         <a href="/schemas/art_plan.schema.json" class="schema-link">art_plan</a>
         <a href="/schemas/art_manifest.schema.json" class="schema-link">art_manifest</a>
-        <a href="/schemas/shotlist.schema.json" class="schema-link">shotlist</a>
         <a href="/schemas/audio_plan.schema.json" class="schema-link">audio_plan</a>
         <a href="/schemas/cuelist.schema.json" class="schema-link">cuelist</a>
       </div>
 
       <h4>Export & Project</h4>
       <div class="schema-grid">
-        <a href="/schemas/view_log.schema.json" class="schema-link">view_log</a>
+        <a href="/schemas/cold_manifest.schema.json" class="schema-link">cold_manifest</a>
+        <a href="/schemas/cold_book.schema.json" class="schema-link">cold_book</a>
         <a href="/schemas/front_matter.schema.json" class="schema-link">front_matter</a>
-        <a href="/schemas/language_pack.schema.json" class="schema-link">language_pack</a>
-        <a href="/schemas/pn_playtest_notes.schema.json" class="schema-link">pn_playtest_notes</a>
         <a href="/schemas/project_metadata.schema.json" class="schema-link">project_metadata</a>
       </div>
 
       <div style="margin-top: 20px;">
         <a href="/schemas/" class="button button-secondary">Browse All Schemas</a>
+        <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/schemas-v0.2.0" class="button button-version">Download Bundle v0.2.0</a>
       </div>
     </div>
 
@@ -441,7 +578,7 @@ $ uv run qfspec-check-instance hook_card my-hook.json
 # Validate a protocol envelope (two-pass: structure + payload)
 $ uv run qfspec-check-envelope my-message.json
 
-# Build AI prompt kits for uploading to LLMs
+# Build AI prompt upload kits
 $ uv run qfspec-build-kits
       </div>
 
@@ -449,9 +586,60 @@ $ uv run qfspec-build-kits
     </div>
 
     <div class="card">
+      <h2>🎯 Key Design Principles</h2>
+
+      <h3>1. Separation of Concerns</h3>
+      <p>Each layer has a clear purpose:</p>
+      <ul>
+        <li><strong>What we do</strong> (Layers 0-1) — Vision, roles, workflows</li>
+        <li><strong>What we say</strong> (Layers 2-3) — Data structures, schemas</li>
+        <li><strong>How we communicate</strong> (Layer 4) — Protocol, state machines</li>
+        <li><strong>How we implement</strong> (Layers 5-7) — Prompts, code, interfaces</li>
+      </ul>
+
+      <h3>2. Hot/Cold Architecture</h3>
+      <p>Separates discovery from production:</p>
+      <ul>
+        <li><strong>Hot</strong> — Discovery space, work-in-progress, experimentation</li>
+        <li><strong>Cold</strong> — Production canon, validated, immutable snapshots</li>
+        <li><strong>Merge Gates</strong> — Quality checks before Hot → Cold promotion</li>
+      </ul>
+
+      <h3>3. Loop-Focused Workflows</h3>
+      <p>13 canonical loops as single-source-of-truth procedures:</p>
+      <ul>
+        <li><strong>Discovery</strong> — Story Spark, Hook Harvest, Lore Deepening</li>
+        <li><strong>Refinement</strong> — Codex Expansion, Style Tune-up</li>
+        <li><strong>Assets</strong> — Art Touch-up, Audio Pass, Translation Pass</li>
+        <li><strong>Quality & Export</strong> — Gatecheck, Binding Run, Narration Dry-Run, Post-Mortem, Archive</li>
+      </ul>
+
+      <h3>4. Quality Enforced</h3>
+      <p>8 mandatory validation checks before production:</p>
+      <ul>
+        <li><strong>Integrity</strong> — No dangling references, all sections reachable</li>
+        <li><strong>Completeness</strong> — Required fields present, metadata complete</li>
+        <li><strong>Style</strong> — Register consistency, voice alignment</li>
+        <li><strong>Presentation</strong> — No spoilers in player text, accessibility checks</li>
+        <li><strong>Schema Conformance</strong> — All artifacts validate against JSON schemas</li>
+        <li><strong>Protocol Compliance</strong> — Messages follow envelope v0.2.1 specification</li>
+      </ul>
+
+      <h3>5. Player Safety First</h3>
+      <p>Player-Narrator (PN) sees only validated, spoiler-free content:</p>
+      <ul>
+        <li><strong>PN Boundary</strong> — Only Cold content, never Hot</li>
+        <li><strong>Spoiler Hygiene</strong> — Enforced at protocol level via <code>safe_for_pn</code> field</li>
+        <li><strong>Accessibility</strong> — Built into quality bars and validation</li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h2>💬 Community & Support</h2>
       <ul>
-        <li><strong>GitHub Repository:</strong> <a href="https://github.com/pvliesdonk/questfoundry-spec">pvliesdonk/questfoundry-spec</a></li>
+        <li><strong>Main Repository:</strong> <a href="https://github.com/pvliesdonk/questfoundry-spec">pvliesdonk/questfoundry-spec</a></li>
+        <li><strong>Python SDK:</strong> <a href="https://github.com/pvliesdonk/questfoundry-py">pvliesdonk/questfoundry-py</a></li>
+        <li><strong>CLI Tools:</strong> <a href="https://github.com/pvliesdonk/questfoundry-cli">pvliesdonk/questfoundry-cli</a></li>
         <li><strong>Issues:</strong> <a href="https://github.com/pvliesdonk/questfoundry-spec/issues">Report bugs or request features</a></li>
         <li><strong>Discussions:</strong> <a href="https://github.com/pvliesdonk/questfoundry-spec/discussions">Ask questions and share ideas</a></li>
         <li><strong>Contributing:</strong> <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/CONTRIBUTING.md">Contribution guidelines</a></li>
@@ -467,7 +655,13 @@ $ uv run qfspec-build-kits
     <footer>
       <p><strong>QuestFoundry</strong> — A layered studio for nonlinear gamebooks</p>
       <p>Schemas conform to JSON Schema Draft 2020-12</p>
-      <p>Licensed under MIT | Version: 0.2.0 | Last Updated: 2025-11-05</p>
+      <p>
+        <strong>Current Versions:</strong>
+        schemas-v0.2.0 |
+        protocol-v0.2.1 |
+        prompts-v0.1.0
+      </p>
+      <p>Last Updated: 2025-11-06</p>
       <p><a href="https://github.com/pvliesdonk/questfoundry-spec">GitHub</a> | <a href="getting-started.html">Get Started</a> | <a href="faq.html">FAQ</a></p>
     </footer>
   </div>
