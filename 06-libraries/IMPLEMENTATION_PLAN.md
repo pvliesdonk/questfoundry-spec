@@ -911,6 +911,8 @@ tests/
 
 ## Epic 7: Role Execution
 
+> **⚠️ IMPORTANT:** This epic has been significantly updated based on the loop-focused architecture introduced in commit 428140c. Please refer to **[EPIC_7_8_REVISED.md](./EPIC_7_8_REVISED.md)** for the recommended hardcoded loop approach. The sections below represent the original plan and should be read in conjunction with the revised document.
+
 **Goal:** Load prompts, execute with LLMs, manage sessions.
 
 **Dependencies:** Epic 6
@@ -1048,6 +1050,8 @@ tests/
 ---
 
 ## Epic 8: Orchestration
+
+> **⚠️ IMPORTANT:** This epic has been significantly updated based on the loop-focused architecture introduced in commit 428140c. Please refer to **[EPIC_7_8_REVISED.md](./EPIC_7_8_REVISED.md)** for the recommended hardcoded loop approach. The implementation should use hardcoded Python classes for loops (not playbook parsing) with LLM-loaded prompts for expertise. The sections below represent the original plan and should be read in conjunction with the revised document.
 
 **Goal:** Implement Showrunner loop orchestration.
 
