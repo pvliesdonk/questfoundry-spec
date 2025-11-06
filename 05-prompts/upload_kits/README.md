@@ -22,6 +22,45 @@ Output: `dist/upload_kits/` with folders and zips for all kits.
 
 ---
 
+## What's New in v0.2.0 — Schema Validation Enforcement
+
+**BREAKING CHANGE:** Schema validation is now **mandatory** for all JSON artifacts.
+
+All kits now include **validation enforcement** infrastructure:
+
+1. **validation_contract.md** (file #1) — Non-negotiable validation requirements
+   - Preflight protocol before producing artifacts
+   - Hard gate enforcement (validation failures STOP workflow)
+   - Schema discovery via SCHEMA_INDEX.json
+
+2. **SCHEMA_INDEX.json** (file #2) — Canonical registry of 26 Layer 3 schemas
+   - Schema $id, path, draft version, SHA-256 hash
+   - Role-to-schema and intent-to-schema mappings
+
+3. **Role prompts** — All 15 roles updated with "Output Validation (Required)" sections
+   - Reference to validation_contract.md
+   - Preflight/validation protocol
+   - Hard gate enforcement
+
+4. **Loop playbooks** — All 13 playbooks updated with validation checkpoints
+   - Showrunner verifies validation_report.json at every handoff
+   - STOP loop on validation failure
+
+5. **Gatekeeper** — Enhanced with "Schema Validation Quality Bar"
+   - Audits ALL artifacts in TU before merge
+   - BLOCKS merge if any artifact lacks validation_report.json
+
+**File ordering matters:** LLMs read files sequentially. validation_contract.md is always file #1.
+
+**Impact:**
+- Agents will validate all artifacts before handoff
+- Invalid artifacts cause workflow STOP (hard gate)
+- 0% → 100% validation compliance (expected)
+
+**See:** `CHANGELOG.md` for complete v0.2.0 details and migration notes.
+
+---
+
 ## Architecture: Two Usage Modes
 
 Layer 5 supports two primary usage modes introduced in commit 428140c:
@@ -33,6 +72,8 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 **Best for:** Learning, single-role tasks, human-led workflows
 
 **Files needed:**
+- `_shared/validation_contract.md` — Validation requirements (v0.2.0+)
+- `SCHEMA_INDEX.json` — Schema registry (v0.2.0+)
 - `_shared/*.md` (4 files) — Cross-role patterns
 - `[role]/system_prompt.md` — Full role prompt with domain expertise + loop participation
 
@@ -45,6 +86,8 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 **Best for:** Multi-role workflows, production runs, efficient orchestration
 
 **Files needed:**
+- `_shared/validation_contract.md` — Validation requirements (v0.2.0+)
+- `SCHEMA_INDEX.json` — Schema registry (v0.2.0+)
 - `_shared/*.md` (4 files) — Cross-role patterns
 - `showrunner/system_prompt.md` + modules — Orchestration index and tools
 - `loops/[loop_name].playbook.md` — Complete procedure for one loop
@@ -58,7 +101,8 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 
 ### Standalone Kits
 
-**minimal-standalone.zip** (10 files — ChatGPT/Claude friendly)
+**minimal-standalone.zip** (12 files — ChatGPT/Claude friendly)
+- validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
 - 1 showrunner prompt
 - 5 core role prompts (Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder)
@@ -67,7 +111,8 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 - Player Narrator, Lore Weaver, Codex Curator, Researcher
 - Art Director, Illustrator, Audio Director, Audio Producer, Translator
 
-**full-standalone.zip** (23 files — all roles + showrunner modules)
+**full-standalone.zip** (25 files — all roles + showrunner modules)
+- validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
 - 5 showrunner modules (system_prompt, loop_orchestration, manifest_management,
   initialization, protocol_handlers)
@@ -75,7 +120,8 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 
 ### Orchestration Kits ⭐ **RECOMMENDED**
 
-**orchestration-complete.zip** (36 files — complete loop-focused environment)
+**orchestration-complete.zip** (38 files — complete loop-focused environment)
+- validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
 - 4 showrunner modules (system_prompt, loop_orchestration, manifest_management,
   protocol_handlers)
@@ -85,14 +131,14 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 ### Gemini Splits (10-file limit per zip)
 
 **Standalone Mode:**
-1. `gemini-minimal-standalone.zip` (10 files) — Same as minimal-standalone
+1. `gemini-minimal-standalone.zip` (11 files) — validation files + minimal set (removed human_interaction.md to fit limit)
 2. `gemini-optional-standalone.zip` (9 files) — Same as optional-standalone
-3. `gemini-full-standalone-1.zip` (10 files) — Shared + showrunner modules + 1 role
+3. `gemini-full-standalone-1.zip` (10 files) — Validation + shared + showrunner modules + 1 role (removed human_interaction.md + initialization.md to fit limit)
 4. `gemini-full-standalone-2.zip` (10 files) — 10 role prompts
 5. `gemini-full-standalone-3.zip` (3 files) — 3 role prompts
 
 **Orchestration Mode:** ⭐ **RECOMMENDED**
-1. `gemini-orchestration-1-foundation.zip` (9 files) — Shared + showrunner modules + SR adapter
+1. `gemini-orchestration-1-foundation.zip` (10 files) — Validation + shared + showrunner modules + SR adapter (removed human_interaction.md to fit limit)
 2. `gemini-orchestration-2-playbooks.zip` (10 files) — Core loop playbooks
 3. `gemini-orchestration-3-playbooks-extra.zip` (3 files) — Additional loops
 4. `gemini-orchestration-4-adapters-core.zip` (10 files) — Core role adapters

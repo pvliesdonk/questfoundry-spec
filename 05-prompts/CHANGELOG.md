@@ -5,6 +5,265 @@ All notable changes to Layer 5 prompts will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-11-06
+
+### Added
+
+#### Schema Validation Enforcement (Complete Implementation)
+
+**BREAKING CHANGE:** Schema validation is now **mandatory** for all JSON artifacts. Agents producing artifacts without validation will be blocked at merge.
+
+**Motivation:** Post-mortem analysis revealed that agents consistently failed to validate artifacts despite schemas being available. Root cause: Document existence ≠ agent compliance. Solution: Three-layer enforcement with file ordering and hard gates.
+
+---
+
+#### Phase 1: Validation Contract & Schema Index
+
+**Validation Contract** (`_shared/validation_contract.md`)
+- **Purpose:** Non-negotiable validation requirements for all roles
+- **Position:** File #1 in all upload kits (LLMs read files sequentially)
+- **Content:**
+  - Preflight protocol (mandatory before producing artifacts)
+  - Hard gate enforcement (validation failures STOP workflow)
+  - Schema discovery via SCHEMA_INDEX.json
+  - Integrity verification (SHA-256 checksums)
+  - validation_report.json format specification
+  - Role-specific schema mappings
+  - Troubleshooting guide
+
+**Schema Index** (`SCHEMA_INDEX.json`)
+- **Purpose:** Canonical registry of all 26 Layer 3 schemas
+- **Position:** File #2 in all upload kits
+- **Content:** For each schema:
+  - `$id` - Canonical URL for `"$schema"` field
+  - `path` - Relative path to schema file
+  - `draft` - JSON Schema draft version (2020-12)
+  - `sha256` - Integrity checksum
+  - `roles` - Roles that produce this artifact type
+  - `intent` - Protocol intents that use this schema
+
+**Index Generator** (`spec-tools/src/.../generate_schema_index.py`)
+- Automated SCHEMA_INDEX.json generation
+- Computes SHA-256 hashes for all schemas
+- Extracts metadata from schema files
+- Maps schemas to roles and protocol intents
+- CLI command: `qfspec-generate-schema-index`
+- Added to pyproject.toml
+
+**Upload Kit Updates:**
+- All 14 manifests updated to place validation files first
+- `upload_kits.py` updated to preserve manifest order in zips
+- File ordering enforced: validation_contract.md → SCHEMA_INDEX.json → other files
+- Orchestration kits: 36 → 38 files
+- Full standalone: 23 → 25 files
+- Minimal standalone: 10 → 12 files
+- All Gemini kits maintained 10-file limit (removed human_interaction.md where needed)
+
+---
+
+#### Phase 2: Role Prompt Validation Sections
+
+**All 15 role system_prompts updated** with "Output Validation (Required)" section:
+
+**Roles with explicit schema mappings (6):**
+- **Plotwright** → hook_card
+- **Showrunner** → hot_manifest, project_metadata
+  - Added orchestration responsibility: verify all roles produce validation_report.json
+- **Gatekeeper** → gatecheck_report
+  - Added gate integrity note: invalid reports undermine quality enforcement
+- **Book Binder** → cold_book, cold_manifest
+- **Codex Curator** → codex_entry
+- **Illustrator** → cold_art_manifest
+
+**Roles with generic validation (9):**
+- Scene Smith, Style Lead, Lore Weaver, Player Narrator
+- Art Director, Audio Director, Audio Producer
+- Translator, Researcher
+- Instructed to check SCHEMA_INDEX.json for their schemas
+
+**Each validation section includes:**
+1. Reference to validation_contract.md (file #1)
+2. 6-step preflight/validation protocol
+3. Schema discovery instructions
+4. Hard gate enforcement (STOP on failure)
+5. validation_report.json format
+6. Role-specific schema listings (where applicable)
+7. Validation workflow example
+
+---
+
+#### Phase 3: Loop Playbook Validation Checkpoints
+
+**All 13 loop playbooks updated** with "Validation Requirements (All Artifacts)" section:
+
+**Updated playbooks:**
+- archive_snapshot, art_touch_up, audio_pass, binding_run
+- codex_expansion, gatecheck, hook_harvest, lore_deepening
+- narration_dry_run, post_mortem, story_spark, style_tune_up
+- translation_pass
+
+**Each validation section specifies:**
+1. Reference to validation_contract.md
+2. 7-step validation protocol for artifact-producing steps:
+   - Producer looks up schema in SCHEMA_INDEX.json
+   - Producer runs preflight protocol
+   - Producer validates and emits validation_report.json
+   - **If validation fails: STOP loop, escalate to Showrunner**
+   - Showrunner verifies both files exist before handoff
+   - Showrunner checks `"valid": true` in validation_report.json
+   - Only then proceed to next step
+3. Hard gate enforcement at loop level
+4. Showrunner responsibility to verify validation_report.json at every handoff
+
+**Placement:** Inserted after "## Inputs" and before "## Procedure" for visibility
+
+---
+
+#### Phase 4: Gatekeeper Schema Validation Quality Bar
+
+**New quality bar:** "Schema Validation Quality Bar (All Artifacts)"
+
+**Position:** Added to Gatekeeper prompt after Checklist, before Cold Source of Truth Validation
+
+**Requirements:**
+
+Before issuing ANY `gate.decision` with `pass`, Gatekeeper MUST verify:
+1. All JSON artifacts in TU have corresponding validation_report.json
+2. All validation_report.json files show `"valid": true`
+3. All validation_report.json files have empty `"errors": []`
+4. All artifacts have `"$schema"` field pointing to canonical schema $id
+
+**Validation Audit Protocol:**
+- 7-step audit for each artifact in TU
+- Check artifact has `"$schema"` field
+- Verify validation_report.json structure
+- BLOCK merge if any validation missing or failed
+- Provide specific remediation for each failed artifact
+
+**Hard Stops:**
+- Missing validation_report.json → BLOCK
+- `"valid": false` in validation_report.json → BLOCK
+- Non-empty `"errors"` array → BLOCK
+- Missing `"$schema"` field in artifact → BLOCK
+
+**Enforcement:**
+- List ALL artifacts with validation issues (not just first)
+- Provide clear remediation for each
+- Escalate to Showrunner with role assignments
+
+**Integration:** Schema validation is prerequisite for Determinism Bar checks
+
+---
+
+### Changed
+
+**Upload Kit File Counts:**
+- orchestration-complete.zip: 36 → 38 files (+validation_contract.md, +SCHEMA_INDEX.json)
+- full-standalone.zip: 23 → 25 files (+validation_contract.md, +SCHEMA_INDEX.json)
+- minimal-standalone.zip: 10 → 12 files (+validation_contract.md, +SCHEMA_INDEX.json)
+- gemini-orchestration-1-foundation.zip: 9 → 10 files (removed human_interaction.md to stay within limit)
+- gemini-minimal-standalone.zip: 10 → 10 files (removed human_interaction.md)
+- gemini-full-standalone-1.zip: 10 → 10 files (removed human_interaction.md + initialization.md)
+
+**SCHEMA_INDEX.json Version:** 0.2.0
+
+---
+
+### Technical Details
+
+**File Ordering Strategy:**
+
+Critical insight: LLMs read uploaded files sequentially. File order determines agent behavior.
+
+**Enforced order in all kits:**
+1. validation_contract.md (file #1) ← Rules loaded FIRST
+2. SCHEMA_INDEX.json (file #2) ← Discovery mechanism
+3. Shared patterns ← Cross-role standards
+4. Role/loop content ← Builds on validation foundation
+
+**Implementation:** `upload_kits.py` modified to preserve manifest order when creating zips
+
+**Three-Layer Enforcement:**
+
+1. **Foundation Layer:** validation_contract.md loaded first sets hard gates
+2. **Role Layer:** Each role knows to validate their artifacts
+3. **Orchestration Layer:** Showrunner enforces validation_report.json at every handoff
+4. **Quality Gate Layer:** Gatekeeper audits ALL artifacts before merge
+
+**Result:** 0% → 100% validation compliance (expected)
+
+---
+
+### Migration Notes
+
+**For existing v0.1.0 users:**
+
+1. **Immediate impact:** Agents will see validation requirements as first loaded file
+2. **Expected behavior change:**
+   - Agents will perform preflight checks before producing artifacts
+   - Agents will validate artifacts and emit validation_report.json
+   - Invalid artifacts will cause workflow STOP (hard gate)
+3. **Compatibility:** v0.1.0 kits remain available for backward compatibility
+4. **Migration path:**
+   - Test with v0.2.0 kits in non-production workflows
+   - Verify agents produce validation_report.json correctly
+   - Switch production workflows once validated
+
+**For new users:**
+
+- Start with v0.2.0 kits (includes validation enforcement)
+- Follow validation workflow in USAGE_GUIDE.md
+- Expect validation_report.json alongside all artifacts
+
+---
+
+### Documentation Updates
+
+**USAGE_GUIDE.md:**
+- Added "Schema Validation Workflow" section (150+ lines)
+- Explains preflight protocol, validation workflow, file ordering importance
+- Provides validation examples and troubleshooting
+
+**Implementation Plan:**
+- `docs/post_mortems/2025-11-06_validation_enforcement_implementation_plan.md`
+- Complete 5-phase implementation plan (Phases 1-4 complete)
+- Critical file ordering rules
+- Success metrics and timeline
+
+**Post-Mortem:**
+- `docs/post_mortems/2025-11-06_schema_enforcement_and_validation_contracts.md`
+- Root cause analysis of validation failures
+- Proposed solutions and enforcement mechanisms
+
+---
+
+### Success Criteria
+
+**Achieved:**
+- ✅ validation_contract.md created and placed as file #1
+- ✅ SCHEMA_INDEX.json generated with 26 schemas and SHA-256 hashes
+- ✅ All 15 role prompts updated with validation sections
+- ✅ All 13 loop playbooks updated with validation checkpoints
+- ✅ Gatekeeper enhanced with schema validation quality bar
+- ✅ File ordering enforced in all 14 upload kits
+- ✅ All kits rebuild successfully
+
+**Expected outcome:** 100% validation compliance for agents using v0.2.0 kits
+
+---
+
+### Breaking Changes
+
+**BREAKING:** Schema validation is now mandatory. Agents producing artifacts without:
+- `"$schema"` field in artifacts
+- validation_report.json with `"valid": true`
+
+Will be **blocked at merge** by Gatekeeper.
+
+**Migration required:** Update any custom workflows to include validation steps.
+
+---
+
 ## [0.1.0] - 2025-11-06
 
 ### Added

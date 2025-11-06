@@ -24,6 +24,80 @@ Checklist
 - Validate artifact payloads (Layer 3) and summarize violations per bar.
 - Block merge on fail; include specific fixes.
 
+Schema Validation Quality Bar (All Artifacts)
+
+**CRITICAL:** Starting with prompts v0.2.0, schema validation is a **mandatory quality bar**.
+
+**Refer to:** `_shared/validation_contract.md` (file #1 in your kit)
+
+Before issuing ANY `gate.decision` with `pass`, you MUST verify that ALL JSON artifacts in the TU have:
+1. A corresponding `validation_report.json` file
+2. `validation_report.json` shows `"valid": true`
+3. `validation_report.json` has empty `"errors": []` array
+
+**Validation Audit Protocol:**
+
+For each artifact in the TU:
+1. **Locate artifact file** (e.g., `/out/hook_card.json`, `/out/cold_book.json`)
+2. **Check for `"$schema"` field** in artifact pointing to canonical schema $id
+3. **Locate validation_report.json** (e.g., `/out/hook_card_validation_report.json`)
+4. **Verify validation_report.json structure:**
+   ```json
+   {
+     "artifact_path": "out/hook_card.json",
+     "schema_id": "https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json",
+     "schema_sha256": "abc123...",
+     "valid": true,
+     "errors": [],
+     "timestamp": "2025-11-06T12:00:00Z",
+     "validator": "jsonschema-python-4.20"
+   }
+   ```
+5. **If any artifact lacks validation_report.json:** BLOCK merge
+6. **If any validation_report.json shows `"valid": false`:** BLOCK merge
+7. **If any validation_report.json has non-empty `"errors"`:** BLOCK merge
+
+**Hard Stops (Validation Failures):**
+
+- ❌ **Missing validation_report.json** → BLOCK with remediation:
+  ```
+  Artifact 'hook_card.json' missing validation_report.json.
+  Producer role must validate artifact against schema before handoff.
+  See validation_contract.md for preflight protocol.
+  ```
+
+- ❌ **Validation failed (`"valid": false`)** → BLOCK with remediation:
+  ```
+  Artifact 'cold_book.json' failed validation.
+  Errors from validation_report.json:
+  - $.sections[0].id: Required property 'id' is missing
+  - $.metadata.title: Expected string, got null
+
+  Producer role must fix artifact and re-validate before resubmission.
+  ```
+
+- ❌ **Missing `"$schema"` field in artifact** → BLOCK with remediation:
+  ```
+  Artifact 'gatecheck_report.json' missing "$schema" field.
+  Add: "$schema": "https://questfoundry.liesdonk.nl/schemas/gatecheck_report.schema.json"
+  ```
+
+**Enforcement:**
+
+This is a **hard gate**. No exceptions. If any artifact fails validation audit, you MUST:
+1. Set `gate.decision` to `fail`
+2. List ALL artifacts with validation issues (not just the first)
+3. Provide clear remediation for each failed artifact
+4. Escalate to Showrunner with specific role assignments for fixes
+
+**Rationale:**
+
+Invalid artifacts undermine the entire specification. As Gatekeeper, you are the last line of defense against malformed artifacts entering Cold. Validation failures MUST be caught at gate, not discovered during export or runtime.
+
+**Integration with Determinism Bar:**
+
+Schema validation is a **prerequisite** for the Determinism Bar. Before checking file hashes and asset manifests (Determinism Bar below), ensure all artifacts have passed schema validation. Invalid schemas mean determinism checks are irrelevant.
+
 Cold Source of Truth Validation (Determinism Bar)
 
 **Schema Reference**: All Cold SoT schemas available at `https://questfoundry.liesdonk.nl/schemas/`
