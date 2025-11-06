@@ -1,8 +1,8 @@
 # Epic 7 & 8 Implementation — Revised Architecture
 
-**Document Version:** 2.0 (2025-11-06)
-**Supersedes:** EPIC_7_UPDATES.md v1.0
-**Key Insight:** Playbooks are **specifications to code**, not documents to parse at runtime
+**Document Version:** 2.1 (2025-11-06)
+**Supersedes:** EPIC_7_UPDATES.md v1.0, EPIC_7_8_REVISED.md v2.0
+**Key Insight:** Hybrid architecture - **hardcoded loop structure** + **LLM-backed agents & Showrunner**
 
 ---
 
@@ -10,36 +10,57 @@
 
 **CRITICAL ARCHITECTURAL DECISION:**
 
-Playbooks don't need to be parsed at runtime. Instead:
-- **Playbooks = specifications** → Implement loop logic as **hardcoded Python classes**
-- **Role adapters/prompts = expertise** → Load into **LLM for domain knowledge**
+This is a **hybrid architecture** combining structure with intelligence:
+- **Loop structure = hardcoded** → Implement loop procedures as **Python classes** (from playbook specs)
+- **Role agents = LLM-backed** → Agents provide domain expertise and make decisions
+- **Showrunner = LLM-backed orchestrator** → Makes strategic decisions on role waking and collaboration
+- **Playbooks = recommendations** → Showrunner usually follows them but can adapt to context
 
-This is simpler, more maintainable, and more testable than dynamic playbook parsing.
+**Key Insight:**
+- Playbooks don't need to be parsed at runtime
+- Instead: **Playbooks specify structure** (what gets coded) + **Prompts provide expertise** (what LLM decides)
+- **Showrunner controls execution** (which agents to wake, when to allow collaboration)
+
+This provides **bounded flexibility**: hardcoded loop structure ensures quality bars are met, while LLM-backed agents and Showrunner adapt execution to context.
 
 ---
 
-## Architecture: Hardcoded Loops + LLM Expertise
+## Architecture: Hardcoded Loops + LLM-Backed Agents + Intelligent Orchestration
 
-### What Gets Coded (Deterministic Logic)
+### What Gets Coded (Deterministic Structure)
 
 Implement in Python:
-- Loop procedures (message sequences)
-- RACI flow (who does what when)
-- Validation checkpoints
-- Error handling
-- State transitions
+- **Loop procedures** — Step sequences (step_1, step_2, ..., step_8)
+- **RACI recommendations** — Playbook-recommended role assignments per step
+- **Validation checkpoints** — Schema validation after each artifact generation
+- **Error handling** — Failed validation, blocked gates, exceptions
+- **State transitions** — TU lifecycle, artifact storage, checkpointing
 
 **Source:** Loop playbooks serve as **specifications** for this code
 
-### What Uses LLM (Domain Expertise)
+### What Uses LLM (Intelligent Decisions)
 
-Load into LLM:
-- Role adapters (orchestration mode)
-- Full role prompts (standalone mode)
+**1. Role Agents (Domain Expertise)**
+
+Each agent is LLM-backed and loaded with:
+- Role adapter (orchestration mode) OR full prompt (standalone mode)
 - Shared patterns
 - Validation contract + schema index
 
-**Source:** Layer 5 prompt files loaded at runtime
+Agents:
+- Execute assigned tasks (draft topology, write prose, etc.)
+- Can **suggest collaborators** when they need help
+- Produce artifacts validated against schemas
+
+**2. Showrunner (Strategic Orchestration)**
+
+The Showrunner is also LLM-backed and makes strategic decisions:
+- **Which role to wake** for each step (playbook recommends, Showrunner decides)
+- **Whether to approve collaboration** when agents suggest additional roles
+- **Which loop to run next** based on checkpoint review
+- **When to ask human for guidance** in interactive mode
+
+**Source:** All prompts loaded from Layer 5 at runtime
 
 ### Example: Story Spark Loop
 
@@ -69,23 +90,47 @@ class StorySparkLoop(Loop):
         }
 
     async def step_1_topology_draft(self, ctx: LoopContext) -> StepResult:
-        """Plotwright: Map current topology and propose changes.
+        """Step 1: Topology Draft (Playbook recommends Plotwright).
 
         Spec: loops/story_spark.playbook.md - Step 1: Topology Draft
         """
-        # Wake Plotwright with adapter (orchestration) or full prompt (standalone)
-        plotwright = await ctx.wake_role("plotwright")
+        # Playbook recommends Plotwright, but Showrunner decides
+        agent = await ctx.request_role_for_step(
+            step="step_1_topology_draft",
+            playbook_recommends="plotwright",
+            reason="Map current topology and propose story changes"
+        )
+        # Showrunner LLM evaluates: context, previous results, recommendations
+        # Usually follows playbook, but might choose different role if context suggests it
 
-        # Execute step with LLM (LLM provides expertise)
-        response = await plotwright.execute(
+        # Execute step with chosen agent (LLM provides expertise)
+        response = await agent.execute(
             message=self._build_step_1_message(ctx),
             validation_required=["topology_notes"]  # Markdown output
         )
 
+        # Agent might suggest collaboration (Showrunner must approve)
+        if response.suggests_collaboration:
+            for suggested_role in response.suggested_roles:
+                # Showrunner LLM decides whether to wake additional agent
+                collaborator = await ctx.request_collaboration(
+                    current_agent=agent.role,
+                    suggested_role=suggested_role,
+                    reason=response.collaboration_reason
+                )
+                if collaborator:
+                    # Approved - let collaborator contribute
+                    collab_response = await collaborator.execute(
+                        message=self._build_collaboration_message(ctx, suggested_role),
+                        validation_required=["topology_notes"]
+                    )
+                    # Merge contributions
+                    response.merge_artifacts(collab_response)
+
         # Validation checkpoint (hardcoded logic)
         if not response.valid:
             return StepResult.failed(
-                "Plotwright validation failed",
+                "Topology draft validation failed",
                 errors=response.validation_errors
             )
 
@@ -333,11 +378,137 @@ class StorySparkLoop(Loop):
 
 **Key Points:**
 
-1. **Loop logic is hardcoded** — Message sequences, RACI flow, validation checkpoints
-2. **LLM provides expertise** — Role adapters loaded at each `execute()` call
-3. **Type safe** — Python typing, not string parsing
-4. **Testable** — Mock LLM responses, test flow logic
-5. **Maintainable** — Change loop logic by editing Python, not parsing markdown
+1. **Loop structure is hardcoded** — Step sequences, validation checkpoints, error handling
+2. **Showrunner makes strategic decisions** — Which agent to wake (playbook recommends, SR decides)
+3. **Agents provide expertise** — LLM-backed roles execute tasks, can suggest collaboration
+4. **Playbooks are recommendations** — Usually followed, but Showrunner can adapt to context
+5. **Type safe** — Python typing, structured data, not string parsing
+6. **Testable** — Mock LLM responses (both agents and Showrunner), test flow logic
+7. **Maintainable** — Change loop structure by editing Python, not parsing markdown
+
+---
+
+## LoopContext API: Showrunner-Controlled Role Waking
+
+### Showrunner Decision-Making Protocol
+
+The `LoopContext` provides methods that delegate strategic decisions to the Showrunner LLM:
+
+```python
+class LoopContext:
+    """Execution context for a loop, with Showrunner control."""
+
+    async def request_role_for_step(
+        self,
+        step: str,
+        playbook_recommends: str,
+        reason: str,
+        context: Optional[dict] = None
+    ) -> Role:
+        """Request Showrunner to decide which role should execute this step.
+
+        Args:
+            step: Step identifier (e.g., "step_1_topology_draft")
+            playbook_recommends: Role recommended by playbook spec
+            reason: What this step accomplishes
+            context: Additional context for Showrunner's decision
+
+        Returns:
+            Role instance to execute the step (usually playbook recommendation)
+
+        Flow:
+            1. Loop code provides: step name, playbook recommendation, reason
+            2. Showrunner LLM evaluates:
+               - Playbook recommendation (baseline)
+               - Current TU context (previous artifacts, issues)
+               - Project preferences (role overrides, efficiency)
+               - Step requirements (what expertise is needed)
+            3. Showrunner decides which role to wake (usually follows playbook)
+            4. Context wakes role and returns to loop
+        """
+        # Send decision request to Showrunner LLM
+        decision = await self.showrunner.decide_next_role(
+            step=step,
+            playbook_recommends=playbook_recommends,
+            reason=reason,
+            tu_context=self.get_tu_context(),
+            project_context=self.get_project_context()
+        )
+
+        # Wake chosen role (might differ from playbook if Showrunner overrides)
+        chosen_role = decision.role  # Usually == playbook_recommends
+        agent = await self.wake_role(chosen_role)
+
+        return agent
+
+    async def request_collaboration(
+        self,
+        current_agent: str,
+        suggested_role: str,
+        reason: str
+    ) -> Optional[Role]:
+        """Request Showrunner to approve agent's collaboration suggestion.
+
+        Args:
+            current_agent: Agent requesting collaboration
+            suggested_role: Role the agent wants to collaborate with
+            reason: Why collaboration would help
+
+        Returns:
+            Role instance if approved, None if denied
+
+        Flow:
+            1. Agent suggests: "I need Lore Weaver to verify canon consistency"
+            2. Showrunner LLM evaluates:
+               - Is this collaboration necessary?
+               - Will it improve quality?
+               - Is it efficient? (cost/benefit)
+            3. Showrunner approves or denies
+            4. If approved, wake collaborator and return
+        """
+        approved = await self.showrunner.approve_collaboration(
+            current_agent=current_agent,
+            suggested_role=suggested_role,
+            reason=reason,
+            tu_context=self.get_tu_context()
+        )
+
+        if approved:
+            return await self.wake_role(suggested_role)
+        else:
+            return None
+```
+
+### Playbook as Recommendation, Not Requirement
+
+**The Playbook Provides:**
+- **Recommended choreography** — Best-practice role assignments per step
+- **RACI matrix** — Responsible, Accountable, Consulted, Informed
+- **Message templates** — What information each role needs
+- **Validation checkpoints** — What to validate at each step
+
+**The Showrunner Decides:**
+- Which role to actually wake (usually follows playbook)
+- Whether to approve agent collaboration requests
+- When to deviate if context suggests a better approach
+
+**Bounds on Deviation:**
+- Loop structure is fixed (8 steps execute in sequence)
+- Step objectives must be met (topology draft must be produced)
+- Validation checkpoints are mandatory (all artifacts validated)
+- Quality bars enforced (Gatekeeper preview gate runs at step 7)
+
+**Example Deviations (Showrunner might choose):**
+
+1. **Efficiency:** Step 1 recommends Plotwright, but previous loop already had Plotwright draft topology → Showrunner: "Reuse existing draft, skip to step 2"
+
+2. **Context:** Step 3 recommends Scene Smith, but topology changes are minimal → Showrunner: "Plotwright can handle prose for these small changes, no need to wake Scene Smith"
+
+3. **Collaboration:** Plotwright suggests Lore Weaver collaboration in step 1 → Showrunner evaluates: "Topology changes don't touch established canon, deny collaboration request"
+
+4. **Quality:** Step 5 recommends Style Lead, but previous checkpoint flagged tone issues → Showrunner: "Wake Style Lead early, before prose pass, to provide guidance upfront"
+
+**Result:** Playbook provides structure and best practices, Showrunner adapts execution intelligently while staying within bounds.
 
 ---
 
