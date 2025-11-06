@@ -7,6 +7,7 @@ on:
     paths:
       - '03-schemas/**'
       - '04-protocol/**'
+      - 'docs/**'
   workflow_dispatch: # Allow manual trigger
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -31,15 +32,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare content for GitHub Pages
+      - name: Update schemas and protocol in docs directory
         run: |
-          # Create docs directory structure
-          mkdir -p docs/schemas docs/protocol
+          # The docs/ directory already contains the website
+          # We just need to update the schemas and protocol subdirectories
 
-          # Copy all schemas
+          # Update schemas (preserve existing docs/schemas/ structure)
+          echo "Updating schemas..."
+          mkdir -p docs/schemas
           cp 03-schemas/*.json docs/schemas/
+          echo "✅ Schemas updated in docs/schemas/"
 
-          # Copy protocol files
+          # Create/update protocol directory
+          echo "Updating protocol..."
+          mkdir -p docs/protocol
           cp 04-protocol/ENVELOPE.md docs/protocol/
           cp 04-protocol/INTENTS.md docs/protocol/
           cp 04-protocol/CONFORMANCE.md docs/protocol/
@@ -47,166 +53,11 @@ jobs:
           cp -r 04-protocol/LIFECYCLES docs/protocol/
           cp -r 04-protocol/FLOWS docs/protocol/
           cp -r 04-protocol/EXAMPLES docs/protocol/
+          echo "✅ Protocol updated in docs/protocol/"
 
-          # Create main index page
-          cat > docs/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>QuestFoundry Specifications</title>
-            <style>
-              body {
-                font-family: system-ui, -apple-system, sans-serif;
-                max-width: 900px;
-                margin: 40px auto;
-                padding: 20px;
-                line-height: 1.6;
-                color: #333;
-              }
-              h1 { color: #2c3e50; margin-bottom: 10px; }
-              .subtitle { color: #7f8c8d; margin-bottom: 30px; }
-              .notice {
-                background: #e7f3ff;
-                border-left: 4px solid #2196F3;
-                padding: 15px;
-                margin: 20px 0;
-              }
-              .section {
-                background: #f8f9fa;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                padding: 20px;
-                margin: 20px 0;
-              }
-              .section h2 {
-                margin-top: 0;
-                color: #2c3e50;
-              }
-              code {
-                background: #e9ecef;
-                padding: 2px 6px;
-                border-radius: 3px;
-                font-family: 'Courier New', monospace;
-              }
-              ul { list-style: none; padding: 0; }
-              li { margin: 10px 0; padding-left: 20px; }
-              li:before { content: "→ "; color: #2196F3; font-weight: bold; }
-              a { color: #2196F3; text-decoration: none; }
-              a:hover { text-decoration: underline; }
-              .badge {
-                display: inline-block;
-                padding: 3px 8px;
-                background: #28a745;
-                color: white;
-                border-radius: 4px;
-                font-size: 0.85em;
-                margin-left: 10px;
-              }
-            </style>
-          </head>
-          <body>
-            <h1>QuestFoundry Specifications</h1>
-            <p class="subtitle">Canonical URLs for schemas and protocol specifications</p>
-
-            <div class="notice">
-              <strong>Note:</strong> This page provides canonical URL access to QuestFoundry
-              specifications. For the complete repository, see
-              <a href="https://github.com/pvliesdonk/questfoundry-spec">GitHub</a>.
-            </div>
-
-            <div class="section">
-              <h2>🗂️ Schemas <span class="badge">v0.2.0</span></h2>
-              <p>JSON Schema definitions for QuestFoundry artifacts (Layer 3)</p>
-              <p><strong>Access:</strong>
-                <code>https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json</code>
-              </p>
-              <ul>
-                <li><a href="/schemas/">Browse all schemas</a></li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas">Schema documentation</a></li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/releases?q=schemas">Schema releases</a></li>
-              </ul>
-            </div>
-
-            <div class="section">
-              <h2>📡 Protocol <span class="badge">v0.2.1</span></h2>
-              <p>Message protocol specifications for role collaboration (Layer 4)</p>
-              <p><strong>Access:</strong>
-                <code>https://questfoundry.liesdonk.nl/protocol/{specification}.md</code>
-              </p>
-              <ul>
-                <li><a href="/protocol/ENVELOPE.md">ENVELOPE.md</a> - Message envelope spec</li>
-                <li><a href="/protocol/INTENTS.md">INTENTS.md</a> - Intent catalog</li>
-                <li><a href="/protocol/CONFORMANCE.md">CONFORMANCE.md</a> - Conformance requirements</li>
-                <li><a href="/protocol/envelope.schema.json">envelope.schema.json</a> - Envelope schema</li>
-                <li><a href="/protocol/LIFECYCLES/">LIFECYCLES/</a> - State machines</li>
-                <li><a href="/protocol/FLOWS/">FLOWS/</a> - Message sequences</li>
-                <li><a href="/protocol/EXAMPLES/">EXAMPLES/</a> - Example messages</li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol">Protocol documentation</a></li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/releases?q=protocol">Protocol releases</a></li>
-              </ul>
-            </div>
-
-            <div class="section">
-              <h2>🔗 Additional Resources</h2>
-              <ul>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec">📖 Complete Specification</a></li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/releases">📦 All Releases</a></li>
-                <li><a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/spec-tools">🔧 Validation Tools</a></li>
-                <li><a href="https://pypi.org/project/questfoundry-py/">🐍 Python Package</a></li>
-              </ul>
-            </div>
-          </body>
-          </html>
-          EOF
-
-          # Create schemas index
-          cat > docs/schemas/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>QuestFoundry Schemas</title>
-            <style>
-              body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-              h1 { color: #2c3e50; }
-              ul { list-style: none; padding: 0; }
-              li { margin: 8px 0; }
-              a { color: #2196F3; text-decoration: none; }
-              a:hover { text-decoration: underline; }
-            </style>
-          </head>
-          <body>
-            <h1>QuestFoundry Schemas</h1>
-            <p>JSON Schema Draft 2020-12 definitions for QuestFoundry artifacts.</p>
-            <h2>Available Schemas</h2>
-            <ul>
-          EOF
-
-          # List all schemas
-          for schema in docs/schemas/*.json; do
-            if [ -f "$schema" ]; then
-              filename=$(basename "$schema")
-              title=$(grep -m 1 '"title"' "$schema" | sed 's/.*"title": "\(.*\)".*/\1/' || echo "")
-              if [ -n "$title" ]; then
-                echo "      <li><a href=\"$filename\">$filename</a> - $title</li>" >> docs/schemas/index.html
-              else
-                echo "      <li><a href=\"$filename\">$filename</a></li>" >> docs/schemas/index.html
-              fi
-            fi
-          done
-
-          cat >> docs/schemas/index.html << 'EOF'
-            </ul>
-            <p><a href="/">← Back to main page</a></p>
-          </body>
-          </html>
-          EOF
-
-          # Create protocol index
-          cat > docs/protocol/index.html << 'EOF'
+          # Create protocol index if it doesn't exist
+          if [ ! -f "docs/protocol/index.html" ]; then
+            cat > docs/protocol/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
           <head>
@@ -262,10 +113,25 @@ jobs:
           </body>
           </html>
           EOF
+            echo "✅ Created docs/protocol/index.html"
+          fi
 
-          echo "✅ GitHub Pages structure prepared"
-          echo "📁 Contents:"
-          find docs -type f | head -30
+          echo ""
+          echo "📁 Pages deployment structure:"
+          echo "docs/"
+          echo "├── index.html (main website - preserved)"
+          echo "├── architecture.md (preserved)"
+          echo "├── CNAME (preserved)"
+          echo "├── schemas/ (updated)"
+          echo "│   └── *.schema.json"
+          echo "└── protocol/ (updated)"
+          echo "    ├── ENVELOPE.md"
+          echo "    ├── INTENTS.md"
+          echo "    ├── CONFORMANCE.md"
+          echo "    ├── envelope.schema.json"
+          echo "    ├── LIFECYCLES/"
+          echo "    ├── FLOWS/"
+          echo "    └── EXAMPLES/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -290,4 +156,7 @@ jobs:
           echo "- **Schemas:** https://questfoundry.liesdonk.nl/schemas/" >> $GITHUB_STEP_SUMMARY
           echo "- **Protocol:** https://questfoundry.liesdonk.nl/protocol/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "ℹ️ **Note:** Custom domain must be configured in repository settings"
+          echo "### 📝 What was updated" >> $GITHUB_STEP_SUMMARY
+          echo "- Updated schemas in \`docs/schemas/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Updated protocol in \`docs/protocol/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Preserved existing website (index.html, architecture.md, etc.)" >> $GITHUB_STEP_SUMMARY
