@@ -65,12 +65,27 @@ def _build_folder_from_manifest(repo_root: Path, manifest: Path, out_folder: Pat
         _ensure_link_or_copy(src, dest)
 
 
-def _zip_folder(folder: Path, zip_path: Path) -> None:
+def _zip_folder(folder: Path, zip_path: Path, manifest_order: list[str] | None = None) -> None:
+    """
+    Create a zip archive from a folder.
+
+    If manifest_order is provided, files are added to the zip in that order.
+    This ensures validation files (validation_contract.md, SCHEMA_INDEX.json)
+    appear first in the zip, which is critical for LLM file loading order.
+    """
     zip_path.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(zip_path, "w", ZIP_DEFLATED) as zf:
-        for p in folder.rglob("*"):
-            if p.is_file():
-                zf.write(p, p.relative_to(folder))
+        if manifest_order:
+            # Add files in manifest order (preserves validation file precedence)
+            for rel_path in manifest_order:
+                file_path = folder / rel_path
+                if file_path.is_file():
+                    zf.write(file_path, rel_path)
+        else:
+            # Fallback to rglob (alphabetical/filesystem order)
+            for p in folder.rglob("*"):
+                if p.is_file():
+                    zf.write(p, p.relative_to(folder))
 
 
 def _build_kit(repo_root: Path, manifests_dir: Path, out_dir: Path, manifest_name: str, output_name: str) -> None:
@@ -83,9 +98,10 @@ def _build_kit(repo_root: Path, manifests_dir: Path, out_dir: Path, manifest_nam
     folder = out_dir / output_name
     zip_path = out_dir / f"{output_name}.zip"
 
+    manifest_order = _read_manifest(manifest_path)
     _build_folder_from_manifest(repo_root, manifest_path, folder)
-    _zip_folder(folder, zip_path)
-    print(f"  ✓ {output_name}.zip ({len(_read_manifest(manifest_path))} files)")
+    _zip_folder(folder, zip_path, manifest_order=manifest_order)
+    print(f"  ✓ {output_name}.zip ({len(manifest_order)} files)")
 
 
 def build_kits_cli() -> None:

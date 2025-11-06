@@ -15,6 +15,7 @@ qfspec-check-instance = "questfoundry_spec_tools.cli:validate_instance_cli"
 qfspec-check-envelope = "questfoundry_spec_tools.cli:validate_envelope_cli"
 qfspec-build-kits = "questfoundry_spec_tools.upload_kits:build_kits_cli"
 qfspec-validate-epub = "questfoundry_spec_tools.epub_validator:validate_epub_cli"
+qfspec-generate-schema-index = "questfoundry_spec_tools.generate_schema_index:main"
 
 [build-system]
 requires = ["hatchling"]
