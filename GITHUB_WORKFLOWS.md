@@ -195,3 +195,50 @@ workflow
 2. Verify Pages deployment runs
 3. Test canonical URLs
 4. Configure custom domain (optional)
+
+---
+
+## CRITICAL FIX (2025-11-06)
+
+### Issue: Workflow Would Have Destroyed Website
+
+**The Problem:** The initial version of `deploy-to-pages.yml` created a **fresh** `docs/` directory,
+which would have **completely wiped out** the existing QuestFoundry website including:
+
+- `docs/index.html` (main website)
+- `docs/CNAME` (custom domain configuration)
+- `docs/architecture.md`, `docs/faq.md`, `docs/getting-started.md`
+- `docs/design_guidelines/`, `docs/post_mortems/`, `docs/proposals/`
+
+**The Fix:** The corrected workflow now:
+
+1. ✅ Checks out the repository (includes existing `docs/`)
+2. ✅ **Updates ONLY** `docs/schemas/` and `docs/protocol/`
+3. ✅ **Preserves everything else** in `docs/`
+4. ✅ Deploys the complete `docs/` directory
+
+### How It Works Now
+
+```bash
+# The workflow does:
+mkdir -p docs/schemas docs/protocol           # Create subdirs if needed
+cp 03-schemas/*.json docs/schemas/            # Update schemas
+cp 04-protocol/* docs/protocol/               # Update protocol
+# Then deploys entire docs/ directory (preserving website)
+```
+
+**Key Insight:** The repository's `docs/` directory serves **two purposes**:
+
+1. **Main website** - QuestFoundry documentation and guides
+2. **Canonical URLs** - Schemas and protocol specifications
+
+The workflow must update #2 without destroying #1.
+
+### Verification
+
+After deployment, these should all work:
+
+- ✅ `https://questfoundry.liesdonk.nl/` (main website)
+- ✅ `https://questfoundry.liesdonk.nl/architecture.md` (docs)
+- ✅ `https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json` (schemas)
+- ✅ `https://questfoundry.liesdonk.nl/protocol/ENVELOPE.md` (protocol)
