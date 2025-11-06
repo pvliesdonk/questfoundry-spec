@@ -30,7 +30,7 @@ The refactored Layer 5 makes **loops the primary executable units** with roles p
 
 ## Structure
 
-```
+```text
 05-prompts/
   loops/                          # PRIMARY: 13 executable loop playbooks
     *.playbook.md
@@ -289,12 +289,12 @@ playbook, executes steps sequentially
 
 ### Phase 4: Modularize Showrunner ✅
 
-- Split 213-line monolith into 5 focused modules
-- system_prompt.md → navigation index
-- 4 modules: loop_orchestration, manifest_management, initialization, protocol_handlers
+- Split 213-line monolith into 5 files total
+- system_prompt.md → navigation index (1)
+- 4 focused modules: loop_orchestration, manifest_management, initialization, protocol_handlers (4)
 - Cross-referenced modules
 
-### Phase 5: Documentation ✅ (In Progress)
+### Phase 5: Documentation ✅
 
 - Update README.md with architecture explanation
 - Update USAGE_GUIDE.md with playbook guidance

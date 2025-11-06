@@ -3,9 +3,6 @@
 **Category:** Export **Abbreviation:** AS **Schema:**
 <https://questfoundry.liesdonk.nl/schemas/tu_brief.schema.json>
 
-> **Note:** Full specification pending in Layer 0. This playbook provides a skeletal structure based
-> on taxonomy and canonical naming conventions.
-
 ## Purpose
 
 Create a comprehensive, versioned snapshot of the entire project state (Hot and Cold) at a
@@ -48,11 +45,42 @@ process.
 
 ## Procedure (Message Sequences)
 
-> **Note:** Detailed message sequences pending in Layer 4 protocol specification.
-
 ### Step 1: Prepare Snapshot
 
-Freeze current state of all repositories/surfaces:
+**Showrunner** opens TU with `tu.open` intent, broadcasting to all roles:
+
+```json
+{
+  "intent": "tu.open",
+  "context": {
+    "hot_cold": "cold",
+    "tu": "TU-YYYY-MM-DD-SR##",
+    "snapshot": "Cold @ YYYY-MM-DD",
+    "loop": "Archive Snapshot"
+  },
+  "payload": {
+    "type": "tu_brief",
+    "data": {
+      "loop": "Archive Snapshot",
+      "slice": "Create comprehensive snapshot at [milestone]",
+      "awake": ["SR", "BB", "GK"],
+      "press": ["Integrity", "Determinism"],
+      "inputs": [
+        "Cold snapshot with all merged artifacts",
+        "Hot snapshot with active TUs",
+        "All TU records, Gatecheck reports, Hook cards"
+      ],
+      "deliverables": [
+        "Archive package with complete project state",
+        "Manifest with checksums",
+        "Archive index entry"
+      ]
+    }
+  }
+}
+```
+
+Freeze current state:
 
 - Cold snapshot with merge date
 - Hot snapshot with active TU states
@@ -60,7 +88,7 @@ Freeze current state of all repositories/surfaces:
 
 ### Step 2: Collect Artifacts
 
-Gather all files and metadata:
+**Book Binder** gathers all artifacts and metadata:
 
 - Manuscript sections (all versions in Cold/Hot)
 - Canon Packs (spoiler-level lore)
@@ -77,7 +105,40 @@ Gather all files and metadata:
 
 ### Step 3: Generate Manifest
 
-Create comprehensive manifest listing:
+**Book Binder** sends `archive.manifest` intent to Showrunner with comprehensive listing:
+
+```json
+{
+  "intent": "archive.manifest",
+  "payload": {
+    "type": "tu_brief",
+    "data": {
+      "manifest": {
+        "snapshot_ids": {
+          "cold": "Cold @ YYYY-MM-DD",
+          "hot": "Hot @ YYYY-MM-DD"
+        },
+        "artifacts_collected": {
+          "manuscript_sections": ##,
+          "canon_packs": ##,
+          "codex_entries": ##,
+          "hook_cards": ##,
+          "tu_briefs": ##,
+          "gatecheck_reports": ##
+        },
+        "schema_versions": {
+          "hook_card": "0.2.0",
+          "tu_brief": "0.2.0"
+        },
+        "checksums": "SHA-256 for all files",
+        "total_files": ##
+      }
+    }
+  }
+}
+```
+
+Manifest includes:
 
 - All files with checksums (SHA-256)
 - Directory structure
@@ -89,7 +150,21 @@ Create comprehensive manifest listing:
 
 ### Step 4: Verify Integrity
 
-Gatekeeper spot-checks archive:
+**Gatekeeper** sends `archive.verify` intent to Showrunner after spot-checking:
+
+```json
+{
+  "intent": "archive.verify",
+  "payload": {
+    "type": "ack",
+    "data": {
+      "message": "Archive integrity verified; all checksums valid; critical artifacts present (## TUs, ## gatechecks, ## hooks); manifest completeness confirmed; restoration instructions testable"
+    }
+  }
+}
+```
+
+Verification checks:
 
 - All checksums valid
 - Critical artifacts present
@@ -98,7 +173,31 @@ Gatekeeper spot-checks archive:
 
 ### Step 5: Package and Store
 
-Create archive package:
+**Book Binder** sends `archive.package` intent to Showrunner:
+
+```json
+{
+  "intent": "archive.package",
+  "payload": {
+    "type": "tu_brief",
+    "data": {
+      "archive_package": {
+        "filename": "questfoundry-[milestone]-YYYY-MM-DD.tar.gz",
+        "size_mb": ##,
+        "checksum_sha256": "[64-char hash]",
+        "storage_locations": [
+          "/archives/local/...",
+          "s3://questfoundry-archives/...",
+          "/backup/offline/..."
+        ],
+        "restoration_tested": "yes"
+      }
+    }
+  }
+}
+```
+
+Package creation:
 
 - Compressed archive (tar.gz or zip)
 - Signed with checksum/signature
@@ -106,6 +205,25 @@ Create archive package:
 - Cataloged in archive index
 
 ### Step 6: Document Snapshot
+
+**Showrunner** broadcasts `tu.update` intent with final cataloging:
+
+```json
+{
+  "intent": "tu.update",
+  "payload": {
+    "type": "tu_brief",
+    "data": {
+      "deliverables": [
+        "Archive package: [filename] ([size] MB, [count] files)",
+        "Archive stored in 3 locations: local, cloud, offline",
+        "Archive index entry cataloged"
+      ],
+      "linkage": "[Milestone] project state archived; restoration tested; team notified"
+    }
+  }
+}
+```
 
 Record in project history:
 
