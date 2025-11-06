@@ -34,6 +34,35 @@ Gatekeeper receives `tu.submit_gate` intent and evaluates all 8 bars.
 - Current Cold snapshot for reference
 - Prior pre-gate notes (if any)
 
+## Validation Requirements (All Artifacts)
+
+**CRITICAL:** All roles producing JSON artifacts in this loop MUST validate before handoff.
+
+**Refer to:** `_shared/validation_contract.md` (file #1 in your kit)
+
+**For every artifact-producing step:**
+
+1. **Producer role** looks up artifact schema in `SCHEMA_INDEX.json`
+2. **Producer role** runs preflight protocol (echo schema metadata + examples)
+3. **Producer role** produces artifact with `"$schema"` field
+4. **Producer role** validates and emits `validation_report.json`
+5. **If validation fails:** STOP loop immediately, escalate to Showrunner
+6. **Showrunner** verifies both files exist before accepting handoff:
+   - `/out/artifact.json` (with valid `"$schema"` field)
+   - `/out/artifact_validation_report.json` (with `"valid": true`)
+7. **Only then** proceed to next step
+
+**Hard gate:** Invalid artifacts STOP the loop. No exceptions.
+
+**Showrunner responsibility:**
+
+Before allowing any role-to-role handoff, verify:
+- Artifact file exists and has `"$schema"` field
+- validation_report.json exists
+- validation_report.json shows `"valid": true` with empty `"errors": []`
+
+If any validation fails, STOP the loop and escalate to human for guidance.
+
 ## Procedure (Message Sequences)
 
 ### Step 1: Gate Report Submission
