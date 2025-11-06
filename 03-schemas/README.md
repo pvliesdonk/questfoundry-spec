@@ -6,11 +6,17 @@
 
 ## Status
 
-🚧 **IN PROGRESS** — Schema generation from enriched templates
+✅ **COMPLETE** — All schemas generated and validated
 
-- **Source:** 17 enriched artifact templates in `02-dictionary/artifacts/*_ENRICHED.md`
-- **Target:** 17 JSON Schema files (Draft 2020-12)
-- **Method:** Extract constraints from HTML comments in enriched templates
+- **Current version:** `schemas-v0.2.0` (2025-11-05)
+- **Total schemas:** 26 JSON Schema files (Draft 2020-12)
+  - 20 artifact schemas (from Layer 2 templates)
+  - 6 system schemas (Cold SoT manifests, Hot manifest, envelope)
+- **Source:** Layer 2 artifact templates in `02-dictionary/artifacts/*.md`
+- **Validation:** All schemas pass JSON Schema Draft 2020-12 meta-validation
+- **Published:** Canonical URLs at `https://questfoundry.liesdonk.nl/schemas/`
+
+See [CHANGELOG.md](./CHANGELOG.md) for version history.
 
 ---
 
@@ -73,39 +79,65 @@ See `hook_card.schema.json` for a complete reference example.
 
 ---
 
-## Schema Index (17 Total)
+## Schema Index (26 Total)
 
-### Core Workflow (2)
+### Artifact Schemas (20)
 
-- [ ] `hook_card.schema.json` — ✅ REFERENCE EXAMPLE
-- [ ] `tu_brief.schema.json`
+**Core Workflow:**
 
-### Creation & Content (4)
+- ✅ `hook_card.schema.json` — Hook tracking and routing
+- ✅ `tu_brief.schema.json` — Trace Unit (work unit) tracking
 
-- [ ] `canon_pack.schema.json`
-- [ ] `codex_entry.schema.json`
-- [ ] `style_addendum.schema.json`
-- [ ] `edit_notes.schema.json`
+**Creation & Content:**
 
-### Research & Planning (5)
+- ✅ `canon_pack.schema.json` — Canonical story facts
+- ✅ `codex_entry.schema.json` — Player-facing encyclopedia
+- ✅ `style_addendum.schema.json` — Style and voice guidelines
+- ✅ `edit_notes.schema.json` — Editorial feedback
 
-- [ ] `research_memo.schema.json`
-- [ ] `shotlist.schema.json`
-- [ ] `cuelist.schema.json`
-- [ ] `art_plan.schema.json`
-- [ ] `audio_plan.schema.json`
+**Research & Planning:**
 
-### Localization (2)
+- ✅ `research_memo.schema.json` — Factual research documentation
+- ✅ `shotlist.schema.json` — Individual illustration specs
+- ✅ `cuelist.schema.json` — Audio cue specifications
+- ✅ `art_plan.schema.json` — Illustration planning
+- ✅ `audio_plan.schema.json` — Audio production planning
 
-- [ ] `language_pack.schema.json`
-- [ ] `register_map.schema.json`
+**Localization:**
 
-### Quality & Export (4)
+- ✅ `language_pack.schema.json` — Localization translations
+- ✅ `register_map.schema.json` — Language register specs
 
-- [ ] `gatecheck_report.schema.json`
-- [ ] `view_log.schema.json`
-- [ ] `front_matter.schema.json`
-- [ ] `pn_playtest_notes.schema.json`
+**Quality & Export:**
+
+- ✅ `gatecheck_report.schema.json` — Quality validation reports
+- ✅ `view_log.schema.json` — Export metadata
+- ✅ `front_matter.schema.json` — Book front matter
+- ✅ `pn_playtest_notes.schema.json` — Player-Narrator feedback
+
+**Project Metadata:**
+
+- ✅ `project_metadata.schema.json` — Project configuration
+- ✅ `art_manifest.schema.json` — Complete art asset inventory
+- ✅ `style_manifest.schema.json` — Typography and style settings
+
+### System Schemas (6)
+
+**Cold Source of Truth:**
+
+- ✅ `cold_manifest.schema.json` — Top-level file index with SHA-256 hashes
+- ✅ `cold_book.schema.json` — Story structure and bibliographic metadata
+- ✅ `cold_art_manifest.schema.json` — Asset mappings with provenance
+- ✅ `cold_fonts.schema.json` — Font file mappings
+- ✅ `cold_build_lock.schema.json` — Tool version pinning
+
+**Hot Discovery Space:**
+
+- ✅ `hot_manifest.schema.json` — Master index for Hot discovery space
+
+**Protocol:**
+
+- ✅ `envelope.schema.json` — Message envelope structure (Layer 4)
 
 ---
 
@@ -135,10 +167,11 @@ Schemas will be used for:
 
 ## Cross-References
 
-- **Source templates:** `../02-dictionary/artifacts/*_ENRICHED.md`
+- **Source templates:** `../02-dictionary/artifacts/*.md` (enriched with HTML constraint comments)
 - **Taxonomies:** `../02-dictionary/taxonomies.md` (enumerations)
 - **Field registry:** `../02-dictionary/field_registry.md` (field catalog)
-- **Validation rules:** Embedded in enriched template comments
+- **Validation rules:** Embedded in Layer 2 artifact template comments
+- **Changelog:** `./CHANGELOG.md` (version history)
 
 ---
 

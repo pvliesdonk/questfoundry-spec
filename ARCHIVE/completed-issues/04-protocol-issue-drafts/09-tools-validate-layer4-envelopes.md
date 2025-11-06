@@ -2,8 +2,8 @@ Title: Tools: Add Layer 4 envelope validation (schema + instances)
 
 Summary
 
-- Extend `spec-tools/` to validate Layer 4 envelopes and the payloads they carry against Layer 3 schemas.
-  Update pre-commit to cover 04-protocol schemas.
+- Extend `spec-tools/` to validate Layer 4 envelopes and the payloads they carry against Layer 3
+  schemas. Update pre-commit to cover 04-protocol schemas.
 
 Tasks
 

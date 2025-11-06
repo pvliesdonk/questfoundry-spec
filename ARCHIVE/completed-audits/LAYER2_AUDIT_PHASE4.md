@@ -140,7 +140,7 @@ in glossary.md, which could optionally be moved to Layer 1.
 
 **Layer 0** (`00-north-star/QUALITY_BARS.md`):
 
-```
+```text
 7 bars listed:
 1. Integrity
 2. Reachability
@@ -155,7 +155,7 @@ in glossary.md, which could optionally be moved to Layer 1.
 
 **Layer 2** (`02-dictionary/taxonomies.md` §5):
 
-```
+```text
 8 Quality Bar Categories (line 344 explicitly states "8 mandatory checks"):
 1. Integrity
 2. Reachability
@@ -171,7 +171,7 @@ in glossary.md, which could optionally be moved to Layer 1.
 
 **Layer 2** (`02-dictionary/glossary.md` Section F):
 
-```
+```text
 7 bars mentioned:
 Integrity, Reachability, Nonlinearity, Gateways, Style,
 Determinism (when promised), Presentation (spoiler & accessibility hygiene)
