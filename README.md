@@ -77,8 +77,8 @@ QuestFoundry is organized into **7 layers**, each with clear separation of conce
 
 | Layer | Name                | Focus                                      | Status     | Entry Point                                          |
 | ----- | ------------------- | ------------------------------------------ | ---------- | ---------------------------------------------------- |
-| **0** | **North Star**      | Vision, principles, operating model        | ✅ 98%     | [`00-north-star/README.md`](00-north-star/README.md) |
-| **1** | **Roles**           | Role charters, responsibilities, workflows | ✅ 95%     | [`01-roles/README.md`](01-roles/README.md)           |
+| **0** | **North Star**      | Vision, principles, operating model        | ✅ 100%    | [`00-north-star/README.md`](00-north-star/README.md) |
+| **1** | **Roles**           | Role charters, responsibilities, workflows | ✅ 100%    | [`01-roles/README.md`](01-roles/README.md)           |
 | **2** | **Common Language** | Data dictionary, artifact templates        | ✅ 95%     | [`02-dictionary/README.md`](02-dictionary/README.md) |
 | **3** | **Schemas**         | JSON Schema specifications (Draft 2020-12) | ✅ 100%    | [`03-schemas/README.md`](03-schemas/README.md)       |
 | **4** | **Protocol**        | Message envelopes, intents, state machines | ✅ 95%     | [`04-protocol/README.md`](04-protocol/README.md)     |
@@ -477,17 +477,17 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 
 ## Project Status
 
-| Component            | Status           | Notes                                               |
-| -------------------- | ---------------- | --------------------------------------------------- |
-| Layer 0 (North Star) | ✅ 98% complete  | All 11 loops, playbooks, policies complete          |
-| Layer 1 (Roles)      | ✅ 95% complete  | All 15 charters, 14 briefs, interfaces complete     |
-| Layer 2 (Dictionary) | ✅ 95% complete  | All 21 artifacts, glossary, Phase 3-4 complete      |
-| Layer 3 (Schemas)    | ✅ 100% complete | 21 schemas (20 artifacts + envelope) validated      |
-| Layer 4 (Protocol)   | ✅ 95% complete  | Envelope, intents, lifecycles, flows, examples done |
+| Component            | Status           | Notes                                                                 |
+| -------------------- | ---------------- | --------------------------------------------------------------------- |
+| Layer 0 (North Star) | ✅ 100% complete | 13 loops with full guides + playbook one-pagers, 8 quality bars       |
+| Layer 1 (Roles)      | ✅ 100% complete | All 15 charters, 15 briefs, interfaces complete                       |
+| Layer 2 (Dictionary) | ✅ 95% complete  | All 21 artifacts, glossary, Phase 3-4 complete                        |
+| Layer 3 (Schemas)    | ✅ 100% complete | 21 schemas (20 artifacts + envelope) validated                        |
+| Layer 4 (Protocol)   | ✅ 95% complete  | Envelope, intents, lifecycles, flows, examples done                   |
 | Layer 5 (Prompts)    | ✅ 100% complete | Loop-focused architecture: 13 playbooks, 15 adapters, 15 full prompts |
-| Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                           |
-| Layer 7 (UI)         | 📋 Planned       | CLI, GUI, PN player                                 |
-| Validation Tools     | ✅ Complete      | `spec-tools` fully functional                       |
+| Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                                             |
+| Layer 7 (UI)         | 📋 Planned       | CLI, GUI, PN player                                                   |
+| Validation Tools     | ✅ Complete      | `spec-tools` fully functional                                         |
 
 **Last Updated:** 2025-11-05
 

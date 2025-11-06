@@ -117,16 +117,17 @@ Player-facing content is protected:
 │ ├─ Glossary (shared terminology)                           │
 │ └─ Taxonomies (hook types, TU types)                       │
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 1: Roles (Who Does What)                             │ 🚧 60% (core roles done)
+│ Layer 1: Roles (Who Does What)                             │ ✅ 100% complete
 │ ├─ 15 role charters (mission, scope, authorities)          │
-│ ├─ Agent briefs (practical heuristics)                     │
+│ ├─ 15 agent briefs (practical heuristics)                  │
 │ └─ Interfaces (role interactions)                          │
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 0: North Star (Vision & Principles)                  │ ✅ 95% (active maintenance)
+│ Layer 0: North Star (Vision & Principles)                  │ ✅ 100% complete
 │ ├─ Working model (Hot/Cold, loops, merges)                 │
-│ ├─ Quality bars (7 validation criteria)                    │
+│ ├─ Quality bars (8 mandatory validation checks)            │
 │ ├─ PN principles (player safety)                           │
-│ └─ 11 workflow loops                                       │
+│ ├─ 13 workflow loops (full guides)                         │
+│ └─ 13 playbook one-pagers (quick reference)                │
 └─────────────────────────────────────────────────────────────┘
 
                     ↓ Dependencies flow downward ↓
@@ -615,17 +616,17 @@ QuestFoundry's design is documented in **Architectural Decision Records (ADRs)**
 
 ## Implementation Status
 
-| Component            | Status         | Completion |
-| -------------------- | -------------- | ---------- |
-| Layer 0 (North Star) | ✅ Complete    | 98%        |
-| Layer 1 (Roles)      | ✅ Complete    | 95%        |
-| Layer 2 (Dictionary) | ✅ Complete    | 95%        |
-| Layer 3 (Schemas)    | ✅ Complete    | 100%       |
-| Layer 4 (Protocol)   | ✅ Complete    | 95%        |
-| Layer 5 (Prompts)    | ✅ Complete    | 100%       |
-| Layer 6 (Libraries)  | 📋 Planned     | 0%         |
-| Layer 7 (UI)         | 📋 Planned     | 0%         |
-| Validation Tools     | ✅ Complete    | 100%       |
+| Component            | Status      | Completion |
+| -------------------- | ----------- | ---------- |
+| Layer 0 (North Star) | ✅ Complete | 98%        |
+| Layer 1 (Roles)      | ✅ Complete | 95%        |
+| Layer 2 (Dictionary) | ✅ Complete | 95%        |
+| Layer 3 (Schemas)    | ✅ Complete | 100%       |
+| Layer 4 (Protocol)   | ✅ Complete | 95%        |
+| Layer 5 (Prompts)    | ✅ Complete | 100%       |
+| Layer 6 (Libraries)  | 📋 Planned  | 0%         |
+| Layer 7 (UI)         | 📋 Planned  | 0%         |
+| Validation Tools     | ✅ Complete | 100%       |
 
 ---
 
