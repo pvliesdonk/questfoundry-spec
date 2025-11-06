@@ -7,7 +7,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [1.0.0] - 2025-11-06
+## [0.2.1] - 2025-11-06
 
 ### Summary
 
@@ -19,7 +19,7 @@ lifecycles, flows, and conformance requirements are specified and ready for impl
 
 **Core Protocol Specifications:**
 
-- **`ENVELOPE.md`** — Complete envelope v1.0 specification
+- **`ENVELOPE.md`** — Complete envelope v0.2.1 specification
   - Protocol metadata and semver versioning
   - Message identity, routing, and correlation
   - Hot/Cold context tracking
@@ -43,22 +43,22 @@ lifecycles, flows, and conformance requirements are specified and ready for impl
 
 **Lifecycle State Machines (4 Complete):**
 
-- **`LIFECYCLES/hooks.md`** — Hook Card lifecycle v1.0
+- **`LIFECYCLES/hooks.md`** — Hook Card lifecycle v0.2.1
   - 7-state machine (proposed → accepted → in-progress → resolved → canonized/deferred/rejected)
   - Complete transition matrix with sender role authorization
   - Required intents and payload schemas per transition
   - Blocking hook enforcement and quality bar integration
-- **`LIFECYCLES/tu.md`** — Trace Unit lifecycle v1.0
+- **`LIFECYCLES/tu.md`** — Trace Unit lifecycle v0.2.1
   - 6-state machine (hot-proposed → stabilizing → gatecheck → cold-merged/deferred/rejected)
   - TU-bound requirement for all Cold artifacts
   - Gatecheck enforcement and quality gates
   - Dormancy/deferral integration with wake rubric
-- **`LIFECYCLES/gate.md`** — Gatecheck lifecycle v1.0
+- **`LIFECYCLES/gate.md`** — Gatecheck lifecycle v0.2.1
   - 4-state machine (pre-gate → gatecheck → decision)
   - Quality bar evaluation rules (green/yellow/red per bar)
   - Smallest viable fix requirements
   - Merge approval and snapshot stamping coordination
-- **`LIFECYCLES/view.md`** — View/Export lifecycle v1.0
+- **`LIFECYCLES/view.md`** — View/Export lifecycle v0.2.1
   - 5-state machine (snapshot-selected → export-binding → pn-dry-run → feedback-collected →
     view-published)
   - Cold-only enforcement (PN never sees Hot)
@@ -117,7 +117,7 @@ event-driven architectures. See CONFORMANCE.md for implementation requirements.
 
 ### Design Decisions
 
-**Included in v1.0.0:**
+**Included in v0.2.1:**
 
 - All 4 core lifecycles (Hook, TU, Gate, View) — covers creation through export
 - 6 core workflow flows — covers primary collaboration patterns
@@ -184,7 +184,7 @@ When cutting a protocol release:
 
 Example:
 
-- `protocol-v1.0.0` may work with `schemas-v0.2.0` through `schemas-v0.5.0`
+- `protocol-v0.2.1` may work with `schemas-v0.2.0` through `schemas-v0.5.0`
 - If envelope structure changes, bump protocol version
 - If artifact payload structure changes, bump schema version
 
@@ -192,7 +192,7 @@ Example:
 
 ## Notes
 
-- Protocol v1.0.0 released 2025-11-06
+- Protocol v0.2.1 released 2025-11-06
 - Layer 4 (Protocol) now at 100% completion
 - See `03-schemas/CHANGELOG.md` for artifact schema version history (current: `schemas-v0.2.0`)
 - See root `README.md` for overall layer completion status
@@ -200,7 +200,7 @@ Example:
 
 ---
 
-**Changelog created:** 2025-11-06 **First release:** protocol-v1.0.0 (2025-11-06)
+**Changelog created:** 2025-11-06 **First release:** protocol-v0.2.1 (2025-11-06)
 
-[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/compare/protocol-v1.0.0...HEAD
-[1.0.0]: https://github.com/pvliesdonk/questfoundry-spec/releases/tag/protocol-v1.0.0
+[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/compare/protocol-v0.2.1...HEAD
+[0.2.1]: https://github.com/pvliesdonk/questfoundry-spec/releases/tag/protocol-v0.2.1

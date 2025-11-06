@@ -1,0 +1,340 @@
+name: Publish Protocol
+
+# Trigger on protocol version tags (e.g., protocol-v0.2.1)
+on:
+  push:
+    tags:
+      - 'protocol-v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          # Extract version from tag (protocol-v0.2.1 -> 0.2.1)
+          VERSION=${GITHUB_REF#refs/tags/protocol-v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "Protocol version: $VERSION"
+
+      - name: Read protocol changelog
+        id: changelog
+        run: |
+          if [ -f "04-protocol/CHANGELOG.md" ]; then
+            # Extract the latest version section from changelog
+            echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+            awk '/^## \[/{if(p)exit;p=1;next}p' 04-protocol/CHANGELOG.md >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "CHANGELOG=No changelog available" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create protocol bundle
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          BUNDLE_NAME="questfoundry-protocol-v${VERSION}"
+
+          # Create bundle directory
+          mkdir -p "${BUNDLE_NAME}/protocol"
+
+          # Copy protocol files
+          cp 04-protocol/ENVELOPE.md "${BUNDLE_NAME}/protocol/"
+          cp 04-protocol/INTENTS.md "${BUNDLE_NAME}/protocol/"
+          cp 04-protocol/CONFORMANCE.md "${BUNDLE_NAME}/protocol/"
+          cp 04-protocol/envelope.schema.json "${BUNDLE_NAME}/protocol/"
+          cp -r 04-protocol/LIFECYCLES "${BUNDLE_NAME}/protocol/"
+          cp -r 04-protocol/FLOWS "${BUNDLE_NAME}/protocol/"
+          cp -r 04-protocol/EXAMPLES "${BUNDLE_NAME}/protocol/"
+
+          # Create README for bundle
+          cat > "${BUNDLE_NAME}/README.md" << EOF
+          # QuestFoundry Protocol v${VERSION}
+
+          Layer 4 protocol specifications for QuestFoundry role-based collaboration.
+
+          ## Contents
+
+          This bundle contains the complete Layer 4 protocol specification:
+
+          ### Core Specifications
+
+          - **\`protocol/ENVELOPE.md\`** - Message envelope specification
+          - **\`protocol/INTENTS.md\`** - Complete intent catalog
+          - **\`protocol/CONFORMANCE.md\`** - Conformance requirements
+          - **\`protocol/envelope.schema.json\`** - Envelope JSON Schema
+
+          ### Lifecycle State Machines
+
+          - **\`protocol/LIFECYCLES/hooks.md\`** - Hook Card lifecycle (7 states)
+          - **\`protocol/LIFECYCLES/tu.md\`** - Trace Unit lifecycle (6 states)
+          - **\`protocol/LIFECYCLES/gate.md\`** - Gatecheck lifecycle (4 states)
+          - **\`protocol/LIFECYCLES/view.md\`** - View/Export lifecycle (5 states)
+
+          ### Workflow Message Sequences
+
+          - **\`protocol/FLOWS/hook_harvest.md\`** - Hook Harvest sequences
+          - **\`protocol/FLOWS/lore_deepening.md\`** - Lore Deepening sequences
+          - **\`protocol/FLOWS/codex_expansion.md\`** - Codex Expansion sequences
+          - **\`protocol/FLOWS/gatecheck.md\`** - Gatecheck and Merge sequences
+          - **\`protocol/FLOWS/binding_run.md\`** - Binding Run sequences
+          - **\`protocol/FLOWS/narration_dry_run.md\`** - Narration Dry-Run sequences
+
+          ### Examples and Validation
+
+          - **\`protocol/EXAMPLES/\`** - Complete example message suite with validation
+
+          ## Usage
+
+          ### Access Protocol Specifications
+
+          **GitHub Raw URLs (always available):**
+
+          \`\`\`
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/04-protocol/ENVELOPE.md
+          \`\`\`
+
+          **Pin to specific version:**
+
+          \`\`\`
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/protocol-v${VERSION}/04-protocol/ENVELOPE.md
+          \`\`\`
+
+          **Canonical URLs (when configured):**
+
+          \`\`\`
+          https://questfoundry.liesdonk.nl/protocol/ENVELOPE.md
+          https://questfoundry.liesdonk.nl/protocol/envelope.schema.json
+          \`\`\`
+
+          ### Validate Envelopes
+
+          **Using validation scripts:**
+
+          \`\`\`bash
+          # Clone repository with spec-tools
+          git clone https://github.com/pvliesdonk/questfoundry-spec.git
+          cd questfoundry-spec
+
+          # Validate envelope examples
+          ./scripts/validate-examples.sh
+          \`\`\`
+
+          **Using Python:**
+
+          \`\`\`bash
+          pip install jsonschema
+          jsonschema -i your-envelope.json protocol/envelope.schema.json
+          \`\`\`
+
+          ## Documentation
+
+          - **Full Specification:** https://github.com/pvliesdonk/questfoundry-spec
+          - **Protocol Documentation:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol
+          - **Schema Documentation:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/03-schemas
+          - **Validation Tools:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/spec-tools
+
+          ## Version
+
+          **Protocol Version:** ${VERSION}
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Tag:** protocol-v${VERSION}
+          **Compatible with:** schemas-v0.2.x
+
+          ## Design Principles
+
+          - **Transport-agnostic** - Works over HTTP, files, or events
+          - **Player-safety enforced** - PN boundaries protected at protocol level
+          - **Traceability** - All messages carry TU and snapshot context
+          - **Forward-compatible** - Versioned envelopes with defaulting rules
+
+          ## License
+
+          See [LICENSE](https://github.com/pvliesdonk/questfoundry-spec/blob/main/LICENSE) in the main repository.
+          EOF
+
+          # Add version file
+          echo "$VERSION" > "${BUNDLE_NAME}/VERSION.txt"
+
+          # Copy changelog if exists
+          if [ -f "04-protocol/CHANGELOG.md" ]; then
+            cp 04-protocol/CHANGELOG.md "${BUNDLE_NAME}/"
+          fi
+
+          # Copy protocol README if exists
+          if [ -f "04-protocol/README.md" ]; then
+            cp 04-protocol/README.md "${BUNDLE_NAME}/PROTOCOL_README.md"
+          fi
+
+          # Create zip archive
+          zip -r "${BUNDLE_NAME}.zip" "${BUNDLE_NAME}/"
+
+          # Create checksum
+          sha256sum "${BUNDLE_NAME}.zip" > "${BUNDLE_NAME}.zip.sha256"
+
+          echo "✅ Bundle created: ${BUNDLE_NAME}.zip"
+          ls -lh "${BUNDLE_NAME}.zip"
+          echo ""
+          echo "📦 Contents:"
+          unzip -l "${BUNDLE_NAME}.zip" | head -40
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          REPO="pvliesdonk/questfoundry-spec"
+
+          cat > release_notes.md << EOF
+          # QuestFoundry Protocol v${VERSION}
+
+          Complete Layer 4 protocol specification for role-based collaboration.
+
+          ## 📦 What's Included
+
+          - **4 Lifecycle State Machines** (hook, TU, gate, view)
+          - **6 Core Workflow Message Sequences**
+          - **Complete Intent Catalog** (30+ intents)
+          - **Conformance Requirements** and validation suite
+          - **Envelope Schema** (JSON Schema Draft 2020-12)
+          - **Examples and Validation Scripts**
+
+          ## 🔗 Access Methods
+
+          ### 1. Download Bundle (Offline Use)
+
+          Download \`questfoundry-protocol-v${VERSION}.zip\` from the assets below for offline reference.
+
+          ### 2. Raw GitHub URLs (Direct Access)
+
+          Access protocol specifications directly:
+
+          \`\`\`bash
+          # Latest (main branch)
+          curl https://raw.githubusercontent.com/${REPO}/main/04-protocol/ENVELOPE.md
+
+          # This version (pinned)
+          curl https://raw.githubusercontent.com/${REPO}/protocol-v${VERSION}/04-protocol/ENVELOPE.md
+          \`\`\`
+
+          ### 3. Canonical URLs (Future)
+
+          Protocol specifications will be available at \`https://questfoundry.liesdonk.nl/protocol/\` when configured. Use Raw GitHub URLs above in the meantime.
+
+          ## 📋 Changelog
+
+          EOF
+
+          # Add changelog content
+          if [ -f "04-protocol/CHANGELOG.md" ]; then
+            awk '/^## \[/{if(p)exit;p=1}p' 04-protocol/CHANGELOG.md >> release_notes.md
+          else
+            echo "Initial protocol release." >> release_notes.md
+          fi
+
+          cat >> release_notes.md << EOF
+
+          ## ✅ Components
+
+          ### Core Specifications
+          - ENVELOPE.md - Complete envelope v0.2.1 specification
+          - INTENTS.md - Complete intent catalog for all domains
+          - CONFORMANCE.md - Protocol conformance requirements
+          - envelope.schema.json - JSON Schema for envelope validation
+
+          ### Lifecycle State Machines (4 complete)
+          - LIFECYCLES/hooks.md - 7-state Hook lifecycle
+          - LIFECYCLES/tu.md - 6-state TU lifecycle
+          - LIFECYCLES/gate.md - 4-state Gatecheck lifecycle
+          - LIFECYCLES/view.md - 5-state View/Export lifecycle
+
+          ### Workflow Message Sequences (6 core flows)
+          - FLOWS/hook_harvest.md - Hook creation and classification
+          - FLOWS/lore_deepening.md - Canon development
+          - FLOWS/codex_expansion.md - Player-safe knowledge base
+          - FLOWS/gatecheck.md - Quality validation and merge
+          - FLOWS/binding_run.md - Export binding from Cold snapshots
+          - FLOWS/narration_dry_run.md - PN playtesting workflow
+
+          ### Validation and Conformance
+          - EXAMPLES/ - Complete example message suite
+          - Validation scripts for CI integration
+          - Conformance test matrix
+
+          ## 🔄 Version Alignment
+
+          **Protocol Version:** v${VERSION}
+          **Compatible with:** schemas-v0.2.x
+
+          Protocol and schema versions are aligned but independent. Protocol changes do not require schema updates and vice versa.
+
+          ## 📖 Documentation
+
+          - **Specification:** https://github.com/${REPO}
+          - **Protocol Documentation:** https://github.com/${REPO}/tree/main/04-protocol
+          - **Schema Documentation:** https://github.com/${REPO}/tree/main/03-schemas
+          - **Validation Tools:** https://github.com/${REPO}/tree/main/spec-tools
+
+          ## 🛠️ Quick Start
+
+          **Validate an envelope:**
+
+          \`\`\`bash
+          # Download bundle
+          wget https://github.com/${REPO}/releases/download/protocol-v${VERSION}/questfoundry-protocol-v${VERSION}.zip
+          unzip questfoundry-protocol-v${VERSION}.zip
+
+          # Validate with jsonschema
+          pip install jsonschema
+          jsonschema -i your-envelope.json questfoundry-protocol-v${VERSION}/protocol/envelope.schema.json
+          \`\`\`
+
+          ---
+
+          **Protocol Version:** v${VERSION}
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Commit:** ${GITHUB_SHA:0:7}
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Protocol v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          files: |
+            questfoundry-protocol-v${{ steps.version.outputs.version }}.zip
+            questfoundry-protocol-v${{ steps.version.outputs.version }}.zip.sha256
+          draft: false
+          prerelease: false
+          tag_name: ${{ steps.version.outputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          echo "## 🎉 Protocol Release Published!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** protocol-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Assets Created" >> $GITHUB_STEP_SUMMARY
+          echo "- \`questfoundry-protocol-v${VERSION}.zip\` (bundle)" >> $GITHUB_STEP_SUMMARY
+          echo "- \`questfoundry-protocol-v${VERSION}.zip.sha256\` (checksum)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Access URLs" >> $GITHUB_STEP_SUMMARY
+          echo "- **GitHub Release:** https://github.com/${{ github.repository }}/releases/tag/protocol-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Raw GitHub:** https://raw.githubusercontent.com/${{ github.repository }}/main/04-protocol/" >> $GITHUB_STEP_SUMMARY
+          echo "- **Pinned Version:** https://raw.githubusercontent.com/${{ github.repository }}/protocol-v${VERSION}/04-protocol/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📝 Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Test protocol bundle download" >> $GITHUB_STEP_SUMMARY
+          echo "2. Verify canonical URLs resolve (after Pages deploy)" >> $GITHUB_STEP_SUMMARY
+          echo "3. Announce release in discussions" >> $GITHUB_STEP_SUMMARY

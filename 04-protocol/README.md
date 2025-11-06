@@ -1,6 +1,6 @@
 # Layer 4 — Protocol (Interaction Rules)
 
-> **Status:** ✅ **COMPLETE (v1.0.0)** — Layer 4 defines how roles communicate using validated,
+> **Status:** ✅ **COMPLETE (v0.2.1)** — Layer 4 defines how roles communicate using validated,
 > structured messages on top of Layer 3 schemas.
 
 ---
@@ -147,7 +147,7 @@ The normative specification for the transport-agnostic message envelope. Defines
 - Error handling and correlation
 - Forward compatibility rules
 
-**Status:** ✅ **Complete** — v1.0.0 specification with examples
+**Status:** ✅ **Complete** — v0.2.1 specification with examples
 
 See `ENVELOPE.md` for full details, field definitions, MUST/SHOULD rules, and JSON examples.
 
@@ -169,7 +169,7 @@ The normative specification for Hook Card state transitions and protocol rules. 
 - Quality bar integration and blocking hook enforcement
 - Envelope context requirements and examples
 
-**Status:** ✅ **Complete** — v1.0.0 specification with transition matrix and examples
+**Status:** ✅ **Complete** — v0.2.1 specification with transition matrix and examples
 
 See `LIFECYCLES/hooks.md` for state machine, authorization rules, and JSON message examples.
 
@@ -193,7 +193,7 @@ The normative specification for Trace Unit (TU) state transitions and protocol r
 - Dormancy/deferral integration with wake rubric
 - Envelope context requirements and examples
 
-**Status:** ✅ **Complete** — v1.0.0 specification with transition matrix and examples
+**Status:** ✅ **Complete** — v0.2.1 specification with transition matrix and examples
 
 See `LIFECYCLES/tu.md` for state machine, authorization rules, quality gates, and JSON message
 examples.
@@ -215,7 +215,7 @@ The normative specification for Gatecheck state transitions and quality bar enfo
 - Merge approval coordination and snapshot stamping
 - Envelope context requirements and examples
 
-**Status:** ✅ **Complete** — v1.0.0 specification with decision matrix and examples
+**Status:** ✅ **Complete** — v0.2.1 specification with decision matrix and examples
 
 See `LIFECYCLES/gate.md` for decision rubric, bar validation rules, and remediation protocols.
 
@@ -238,7 +238,7 @@ The normative specification for View/Export state transitions and PN boundary en
 - PN feedback routing and UX improvement cycles
 - Envelope context requirements and examples
 
-**Status:** ✅ **Complete** — v1.0.0 specification with PN boundary rules and examples
+**Status:** ✅ **Complete** — v0.2.1 specification with PN boundary rules and examples
 
 See `LIFECYCLES/view.md` for snapshot enforcement, PN safety rules, and export validation.
 
@@ -246,7 +246,7 @@ See `LIFECYCLES/view.md` for snapshot enforcement, PN safety rules, and export v
 
 ## Version & Release Status
 
-**Current Version:** `protocol-v1.0.0` (2025-11-06)
+**Current Version:** `protocol-v0.2.1` (2025-11-06)
 
 **Completed Components:**
 
