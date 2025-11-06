@@ -503,6 +503,13 @@ inspiration from:
 - **JSON Schema** for data validation
 - **Gamebook traditions** (Choose Your Own Adventure, Fighting Fantasy, Inkle Studios)
 
+### Development
+
+This specification was written almost entirely by **Claude (Anthropic's AI assistant)** under the
+direction of **Peter van Liesdonk**, made possible by generous free API credits from Anthropic. The
+collaborative process demonstrates the practical application of multi-agent authoring systems that
+QuestFoundry aims to enable.
+
 ---
 
 ## Quick Links
