@@ -16,12 +16,15 @@ This is a **hybrid architecture** combining structure with intelligence:
 - **Showrunner = LLM-backed orchestrator** → Makes strategic decisions on role waking and collaboration
 - **Playbooks = recommendations** → Showrunner usually follows them but can adapt to context
 
-**Key Insight:**
-- Playbooks don't need to be parsed at runtime
-- Instead: **Playbooks specify structure** (what gets coded) + **Prompts provide expertise** (what LLM decides)
-- **Showrunner controls execution** (which agents to wake, when to allow collaboration)
+**Key Insights:**
+1. **Playbooks don't need to be parsed at runtime** — Instead: Playbooks specify structure (what gets coded) + Prompts provide expertise (what LLM decides)
+2. **Showrunner controls execution** — Which agents to wake, when to allow collaboration, when loop stabilizes
+3. **Two-tier context architecture** — Showrunner knows lightweight registry of all loops (strategic) but only detailed context for current loop (tactical)
 
-This provides **bounded flexibility**: hardcoded loop structure ensures quality bars are met, while LLM-backed agents and Showrunner adapt execution to context.
+**Major Benefits:**
+- **Bounded flexibility:** Hardcoded loop structure ensures quality bars are met, while LLM-backed agents and Showrunner adapt execution to context
+- **Context efficiency:** ~97% reduction vs Layer 5 LLM-only approach (600 lines vs 10,000 lines per execution)
+- **Modularity:** Add new loops without changing Showrunner prompt; agents don't need to know all playbooks
 
 ---
 
@@ -61,6 +64,333 @@ The Showrunner is also LLM-backed and makes strategic decisions:
 - **When to ask human for guidance** in interactive mode
 
 **Source:** All prompts loaded from Layer 5 at runtime
+
+---
+
+## Two-Tier Context Architecture
+
+A key advantage of hardcoded loops over Layer 5's LLM-only approach is **context efficiency**. The Showrunner doesn't need to know all 13 playbooks in detail—just enough to make strategic decisions.
+
+### Tier 1: Loop Registry (Strategic - Lightweight)
+
+**Purpose:** Enable Showrunner to select the next loop without loading full playbooks.
+
+**What Showrunner knows about all loops:**
+
+```python
+# Auto-generated from Loop subclasses
+LOOP_REGISTRY = {
+    "story_spark": {
+        "purpose": "Develop new story beats and plot progression",
+        "typical_inputs": ["existing canon", "hook cards"],
+        "typical_outputs": ["scene drafts", "topology notes", "new hooks"],
+        "scope": "Plot and narrative structure (no style/art changes)",
+        "often_follows": ["hook_harvest"],
+        "often_precedes": ["canon_weaving", "hook_harvest"]
+    },
+    "hook_harvest": {
+        "purpose": "Evaluate and triage proposed hooks",
+        "typical_inputs": ["hook cards"],
+        "typical_outputs": ["accepted hooks", "canon packs"],
+        "scope": "Hook evaluation and prioritization",
+        "often_follows": ["story_spark", "lore_deepening"],
+        "often_precedes": ["canon_weaving"]
+    },
+    "style_tune_up": {
+        "purpose": "Refine tone, voice, and stylistic consistency",
+        "typical_inputs": ["existing prose", "style guide"],
+        "typical_outputs": ["revised prose", "style addendums"],
+        "scope": "Style and tone only (no plot changes)",
+        "often_follows": ["canon_weaving"],
+        "often_precedes": ["art_touch_up"]
+    },
+    "art_touch_up": {
+        "purpose": "Polish visual assets for scenes",
+        "typical_inputs": ["scene descriptions", "art prompts"],
+        "typical_outputs": ["images", "visual descriptions"],
+        "scope": "Visual assets only (no plot/prose changes)",
+        "often_follows": ["style_tune_up"],
+        "often_precedes": ["final_review"]
+    },
+    # ... all 13 loops (just ~6-7 lines each = ~90 lines total)
+}
+```
+
+**Size:** ~90 lines for all 13 loops
+
+**Used for:**
+- "Story Spark just completed. What loop should run next?"
+- "We have hook cards in the TU. Which loop can process them?"
+- "Is Style Tune Up an appropriate follow-up to Canon Weaving?"
+
+**Loaded:** Once at Showrunner initialization, kept in memory
+
+### Tier 2: Active Loop Context (Tactical - Detailed)
+
+**Purpose:** Enable Showrunner to orchestrate the currently executing loop.
+
+**What Showrunner knows about the CURRENT loop:**
+
+```python
+class StorySparkLoop(Loop):
+    """Story Spark loop implementation."""
+
+    # Registry metadata (Tier 1)
+    name = "story_spark"
+    purpose = "Develop new story beats and plot progression"
+    typical_inputs = ["existing canon", "hook cards"]
+    typical_outputs = ["scene drafts", "topology notes", "new hooks"]
+    scope = "Plot and narrative structure (no style/art changes)"
+    often_follows = ["hook_harvest"]
+    often_precedes = ["canon_weaving", "hook_harvest"]
+
+    def get_execution_context(self) -> dict:
+        """Detailed context for orchestrating THIS loop.
+
+        Only loaded when this loop is actively executing.
+        """
+        return {
+            "goal": "Develop new story beats and plot progression",
+
+            "available_steps": {
+                "step_1_topology_draft": {
+                    "description": "Map current topology and propose changes",
+                    "playbook_recommends": "plotwright",
+                    "produces": ["topology_notes"],
+                    "can_iterate": True
+                },
+                "step_2_section_briefs": {
+                    "description": "Create briefs for affected sections",
+                    "playbook_recommends": "plotwright",
+                    "produces": ["section_briefs"],
+                    "requires": ["topology_notes"],
+                    "can_iterate": True
+                },
+                "step_3_prose_pass": {
+                    "description": "Draft prose for sections",
+                    "playbook_recommends": "scene_smith",
+                    "produces": ["scene_drafts"],
+                    "requires": ["topology_notes", "section_briefs"],
+                    "can_iterate": True
+                },
+                # ... all 8 steps with full details
+            },
+
+            "scope_constraints": {
+                "can": [
+                    "Draft topology and story structure",
+                    "Write new scenes and prose",
+                    "Generate hook cards for new beats",
+                    "Check canon feasibility with Lore Weaver"
+                ],
+                "cannot": [
+                    "Update style guide or change tone",
+                    "Generate visual art or images",
+                    "Produce audio assets",
+                    "Directly modify canon (must go through Canon Weaving)"
+                ]
+            },
+
+            "stabilization_criteria": {
+                "required_steps": ["step_1", "step_2", "step_3", "step_7", "step_8"],
+                "all_artifacts_valid": True,
+                "gatekeeper_approved": True,
+                "no_pending_revisions": True
+            },
+
+            "typical_flow": [
+                "step_1", "step_2", "step_3", "step_4",
+                "step_5", "step_6", "step_7", "step_8"
+            ]
+        }
+```
+
+**Size:** ~500 lines (detailed step descriptions, constraints, criteria)
+
+**Used for:**
+- "Which step should run next?"
+- "Can Plotwright revise topology based on Gatekeeper feedback?"
+- "Is this loop stable and ready to complete?"
+- "What artifacts must be present for completion?"
+
+**Loaded:** Only when this loop is actively executing, unloaded when loop completes
+
+### Context Size Comparison
+
+**Layer 5 Approach (LLM-only Showrunner):**
+```
+Showrunner LLM Context:
+  - Showrunner system prompt: ~500 lines
+  - All 13 loop playbooks: 13 × 500 lines = 6,500 lines
+  - All role adapters (orchestration): 15 × 200 lines = 3,000 lines
+  - Validation contract + schema index: 300 lines
+  ---------------------------------------------------
+  TOTAL: ~10,300 lines PER EXECUTION
+```
+
+**Layer 6 Approach (Hardcoded loops + two-tier context):**
+```
+Showrunner LLM Context:
+  - Showrunner system prompt: ~500 lines
+  - Loop registry (all 13 loops): ~90 lines [TIER 1]
+  - Active loop execution context: ~500 lines [TIER 2]
+  - Validation contract + schema index: 300 lines
+  ---------------------------------------------------
+  TOTAL: ~1,390 lines per execution (strategic decisions)
+         ~600 lines per execution (tactical decisions)
+```
+
+**Context Reduction:** ~97% for strategic decisions, ~94% for tactical decisions
+
+### Auto-Generation of Loop Registry
+
+The Loop Registry is automatically generated from Loop subclasses, ensuring it's always in sync:
+
+```python
+class Loop(ABC):
+    """Base class for all loops."""
+
+    # Registry metadata (defined in each subclass)
+    name: str
+    purpose: str
+    typical_inputs: list[str]
+    typical_outputs: list[str]
+    scope: str
+    often_follows: list[str]
+    often_precedes: list[str]
+
+    @classmethod
+    def get_registry_metadata(cls) -> dict:
+        """Extract registry metadata for Tier 1 context."""
+        return {
+            "purpose": cls.purpose,
+            "typical_inputs": cls.typical_inputs,
+            "typical_outputs": cls.typical_outputs,
+            "scope": cls.scope,
+            "often_follows": cls.often_follows,
+            "often_precedes": cls.often_precedes
+        }
+
+    @abstractmethod
+    def get_execution_context(self) -> dict:
+        """Get detailed execution context for Tier 2."""
+        pass
+
+
+class LoopRegistry:
+    """Registry of all available loops."""
+
+    def __init__(self):
+        """Auto-discover all Loop subclasses."""
+        self.loops = {
+            cls.name: cls.get_registry_metadata()
+            for cls in Loop.__subclasses__()
+        }
+
+    def get_context_for_showrunner(self) -> str:
+        """Format registry for Showrunner LLM (Tier 1 context)."""
+        return yaml.dump(self.loops, sort_keys=True)
+
+    def get_loop(self, loop_name: str) -> Loop:
+        """Get loop instance for execution."""
+        for cls in Loop.__subclasses__():
+            if cls.name == loop_name:
+                return cls()
+        raise ValueError(f"Loop not found: {loop_name}")
+
+
+# Usage in Showrunner
+class Showrunner:
+    def __init__(self):
+        self.registry = LoopRegistry()
+        self.llm = LLMClient()
+
+        # Load Tier 1 context once
+        self.tier1_context = self.registry.get_context_for_showrunner()
+
+    async def decide_next_loop(self, tu_context: dict) -> str:
+        """Strategic decision: which loop to run next?"""
+        response = await self.llm.chat(
+            system=self.showrunner_prompt,
+            context=self.tier1_context,  # Just registry (~90 lines)
+            user=f"TU completed. Available artifacts: {tu_context['artifacts']}. What loop next?"
+        )
+        return response.suggested_loop
+
+    async def orchestrate_loop(self, loop_name: str, ctx: LoopContext):
+        """Tactical orchestration: run the loop."""
+        loop = self.registry.get_loop(loop_name)
+
+        # Load Tier 2 context for THIS loop only
+        tier2_context = loop.get_execution_context()
+
+        while not await self.is_loop_stable(loop, ctx, tier2_context):
+            next_step = await self.decide_next_step(loop, ctx, tier2_context)
+            await loop.execute_step(next_step, ctx)
+```
+
+**Key Benefits:**
+
+1. **No manual maintenance:** Registry updates automatically when loops added
+2. **Always in sync:** Registry metadata comes from Loop class definitions
+3. **Type safe:** Python classes enforce structure
+4. **Extensible:** Custom loops work seamlessly
+
+### Advantages Over Layer 5
+
+| Aspect | Layer 5 (LLM-only) | Layer 6 (Two-tier) |
+|--------|-------------------|-------------------|
+| **Context per execution** | ~10,000 lines | ~600-1,400 lines |
+| **Showrunner needs to know** | All 13 playbooks in detail | Registry + active loop only |
+| **Adding new loop** | Update Showrunner prompt | Add Loop subclass (auto-discovered) |
+| **Agent context** | Must understand all loops | Only receives task for current step |
+| **Modularity** | Monolithic (all or nothing) | Modular (loops independent) |
+| **Testing** | Hard (LLM interprets playbooks) | Easy (mock Showrunner decisions) |
+
+### Example: Showrunner Deciding Next Loop
+
+**After Story Spark completes:**
+
+```python
+# Showrunner LLM receives (Tier 1 context only):
+"""
+You are the Showrunner. A Story Spark loop just completed.
+
+Current TU artifacts:
+  - topology_notes (markdown)
+  - section_briefs (markdown)
+  - scene_drafts (markdown)
+  - hooks (12 hook cards, JSON)
+  - gatecheck_report (passed)
+
+Available loops:
+  story_spark: Develop new story beats (often_precedes: canon_weaving, hook_harvest)
+  hook_harvest: Evaluate hooks (typical_inputs: hook cards)
+  canon_weaving: Weave changes into canon (typical_inputs: accepted hooks, scene drafts)
+  style_tune_up: Refine tone (scope: style only, no plot)
+  lore_deepening: Expand worldbuilding
+  ... [rest of registry]
+
+What loop should run next?
+"""
+
+# Showrunner responds:
+"""
+Suggested loop: hook_harvest
+
+Reasoning:
+- Story Spark produced 12 hook cards
+- hook_harvest.typical_inputs includes "hook cards"
+- story_spark.often_precedes includes "hook_harvest"
+- Need to triage hooks before weaving into canon
+"""
+```
+
+**Total context:** ~600 lines (no playbook details needed!)
+
+**Compare to Layer 5:** Would need all 13 playbooks (~6,500 lines) to make same decision
+
+---
 
 ### Example: Story Spark Loop
 
@@ -306,49 +636,64 @@ class StorySparkLoop(Loop):
             next_loop="hook_harvest"
         )
 
+    async def execute_step(self, step_name: str, ctx: LoopContext) -> StepResult:
+        """Execute a specific step by name.
+
+        Called by Showrunner when it decides which step to run next.
+        """
+        step_methods = {
+            "step_1_topology_draft": self.step_1_topology_draft,
+            "step_2_section_briefs": self.step_2_section_briefs,
+            "step_3_prose_pass": self.step_3_prose_pass,
+            "step_4_hook_generation": self.step_4_hook_generation,
+            "step_5_style_check": self.step_5_style_check,
+            "step_6_feasibility_check": self.step_6_feasibility_check,
+            "step_7_preview_gate": self.step_7_preview_gate,
+            "step_8_triage_handoff": self.step_8_triage_handoff,
+        }
+
+        if step_name not in step_methods:
+            raise ValueError(f"Unknown step: {step_name}")
+
+        return await step_methods[step_name](ctx)
+
     async def execute(self, ctx: LoopContext) -> LoopResult:
-        """Execute complete Story Spark loop.
+        """Execute Story Spark loop until stabilization.
 
         This is the main entry point called by Showrunner.
+        Loop provides available steps, Showrunner orchestrates execution.
         """
         try:
             # Open TU
             ctx.open_tu(loop_name="story_spark")
 
-            # Execute steps in sequence (hardcoded flow)
-            step_1 = await self.step_1_topology_draft(ctx)
-            if not step_1.success:
-                return LoopResult.failed(step_1.error)
+            # Showrunner orchestrates until loop stabilizes
+            # (This is Showrunner's responsibility, not hardcoded here)
+            while not await ctx.is_loop_stable():
+                # Showrunner decides next step based on:
+                # - Execution context (available steps, typical flow)
+                # - Current state (which steps completed, artifacts present)
+                # - Agent feedback (revision requests, quality issues)
+                next_step = await ctx.showrunner.decide_next_step(
+                    loop=self,
+                    execution_context=self.get_execution_context(),
+                    current_state=ctx.get_state()
+                )
 
-            step_2 = await self.step_2_section_briefs(ctx)
-            if not step_2.success:
-                return LoopResult.failed(step_2.error)
+                # Execute the step Showrunner chose
+                result = await self.execute_step(next_step, ctx)
 
-            step_3 = await self.step_3_prose_pass(ctx)
-            if not step_3.success:
-                return LoopResult.failed(step_3.error)
+                # If step blocked (e.g., Gatekeeper preview gate),
+                # Showrunner might decide to revise earlier steps
+                if result.blocked:
+                    await ctx.showrunner.handle_blocked_step(
+                        step=next_step,
+                        remediation=result.remediation
+                    )
+                    # Showrunner will decide: which step to revise?
+                    # Loop continues until stabilization
 
-            step_4 = await self.step_4_hook_generation(ctx)
-            if not step_4.success:
-                return LoopResult.failed(step_4.error)
-
-            step_5 = await self.step_5_style_check(ctx)
-            if not step_5.success:
-                return LoopResult.failed(step_5.error)
-
-            step_6 = await self.step_6_feasibility_check(ctx)
-            if not step_6.success:
-                return LoopResult.failed(step_6.error)
-
-            step_7 = await self.step_7_preview_gate(ctx)
-            if not step_7.success:
-                if step_7.blocked:
-                    return LoopResult.blocked(step_7.remediation)
-                return LoopResult.failed(step_7.error)
-
-            step_8 = await self.step_8_triage_handoff(ctx)
-
-            # Collect all artifacts
+            # Loop stabilized - all steps complete, validation passed, no revisions
             all_artifacts = ctx.get_all_artifacts()
 
             # Create checkpoint
@@ -368,7 +713,7 @@ class StorySparkLoop(Loop):
                 loop="story_spark",
                 artifacts=all_artifacts,
                 checkpoint=checkpoint,
-                next_loop=step_8.next_loop
+                next_loop="hook_harvest"  # From step 8
             )
 
         except Exception as e:
@@ -378,13 +723,15 @@ class StorySparkLoop(Loop):
 
 **Key Points:**
 
-1. **Loop structure is hardcoded** — Step sequences, validation checkpoints, error handling
-2. **Showrunner makes strategic decisions** — Which agent to wake (playbook recommends, SR decides)
-3. **Agents provide expertise** — LLM-backed roles execute tasks, can suggest collaboration
-4. **Playbooks are recommendations** — Usually followed, but Showrunner can adapt to context
-5. **Type safe** — Python typing, structured data, not string parsing
-6. **Testable** — Mock LLM responses (both agents and Showrunner), test flow logic
-7. **Maintainable** — Change loop structure by editing Python, not parsing markdown
+1. **Loop provides step library** — Available steps defined as methods (step_1, step_2, ..., step_8)
+2. **Showrunner orchestrates execution** — Decides which step to run next, when to iterate, when loop stabilizes
+3. **Loops stabilize through iteration** — Not linear execution; steps can repeat until quality achieved
+4. **Agents provide expertise** — LLM-backed roles execute tasks, can suggest collaboration
+5. **Playbooks provide recommendations** — Typical flow + role recommendations, but Showrunner decides
+6. **Loop goals bound scope** — Story Spark develops plot (can't change style), Style Tune Up refines tone (can't change plot)
+7. **Type safe** — Python typing, structured data, not string parsing
+8. **Testable** — Mock LLM responses (agents + Showrunner), test step logic independently
+9. **Maintainable** — Change step logic by editing methods, not parsing markdown
 
 ---
 
@@ -493,22 +840,40 @@ class LoopContext:
 - When to deviate if context suggests a better approach
 
 **Bounds on Deviation:**
-- Loop structure is fixed (8 steps execute in sequence)
-- Step objectives must be met (topology draft must be produced)
-- Validation checkpoints are mandatory (all artifacts validated)
-- Quality bars enforced (Gatekeeper preview gate runs at step 7)
+- **Loop goal is fixed** — Story Spark develops plot, Style Tune Up refines tone, etc.
+- **Step library is fixed** — Available steps defined by loop class (can't invent new steps)
+- **Required steps must execute** — Core steps (e.g., step_1, step_7, step_8) must run at least once
+- **Validation checkpoints are mandatory** — All artifacts must validate against schemas
+- **Quality bars enforced** — Gatekeeper must approve before loop can complete
+- **Scope constraints enforced** — Story Spark can't update style guide, Style Tune Up can't change plot
 
-**Example Deviations (Showrunner might choose):**
+**But loops STABILIZE through iteration (not linear execution):**
+- Later agents can request earlier agents to revise work
+- Steps can execute multiple times until quality is achieved
+- Showrunner decides when loop has stabilized and is complete
+
+**Example Deviations & Iterations (Showrunner might choose):**
 
 1. **Efficiency:** Step 1 recommends Plotwright, but previous loop already had Plotwright draft topology → Showrunner: "Reuse existing draft, skip to step 2"
 
-2. **Context:** Step 3 recommends Scene Smith, but topology changes are minimal → Showrunner: "Plotwright can handle prose for these small changes, no need to wake Scene Smith"
+2. **Context-aware role selection:** Step 3 recommends Scene Smith, but topology changes are minimal → Showrunner: "Plotwright can handle prose for these small changes, no need to wake Scene Smith"
 
-3. **Collaboration:** Plotwright suggests Lore Weaver collaboration in step 1 → Showrunner evaluates: "Topology changes don't touch established canon, deny collaboration request"
+3. **Collaboration control:** Plotwright suggests Lore Weaver collaboration in step 1 → Showrunner evaluates: "Topology changes don't touch established canon, deny collaboration request"
 
-4. **Quality:** Step 5 recommends Style Lead, but previous checkpoint flagged tone issues → Showrunner: "Wake Style Lead early, before prose pass, to provide guidance upfront"
+4. **Quality-driven reordering:** Step 5 recommends Style Lead, but previous checkpoint flagged tone issues → Showrunner: "Wake Style Lead early, before prose pass, to provide guidance upfront"
 
-**Result:** Playbook provides structure and best practices, Showrunner adapts execution intelligently while staying within bounds.
+5. **Revision cycle (STABILIZATION):** Gatekeeper (step 7) finds topology inconsistencies → Showrunner: "Go back to step_1_topology_draft, have Plotwright revise. Then re-run steps 2-7 with revised topology. Loop is NOT stable yet."
+
+6. **Iterative refinement:** Scene Smith (step 3) prose doesn't match Lore Weaver's feasibility notes (step 6) → Showrunner: "Return to step_3_prose_pass, have Scene Smith revise with Lore Weaver's input. Re-validate at step 7. Loop stabilizes when all agents are satisfied."
+
+**Stabilization Criteria (when loop completes):**
+- All required steps have executed at least once
+- All artifacts validate against schemas
+- Gatekeeper preview gate passes (step 7)
+- No pending revisions requested by any agent
+- Showrunner determines loop goal has been achieved
+
+**Result:** Playbook provides available steps and typical flow, Showrunner orchestrates execution adaptively (forward progress + revision cycles) until loop stabilizes.
 
 ---
 
