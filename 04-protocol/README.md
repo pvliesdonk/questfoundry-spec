@@ -1,7 +1,7 @@
 # Layer 4 — Protocol (Interaction Rules)
 
-> Status: Planned — this layer defines how roles communicate using validated, structured messages on
-> top of Layer 3 schemas.
+> **Status:** ✅ **COMPLETE (v1.0.0)** — Layer 4 defines how roles communicate using validated,
+> structured messages on top of Layer 3 schemas.
 
 ---
 
@@ -45,7 +45,7 @@ appendices.
 
 ## Directory Layout
 
-```
+```text
 04-protocol/
   README.md                  # Overview and pointers (this file)
   ENVELOPE.md                # ✅ Normative envelope spec (fields, versioning, safety)
@@ -53,19 +53,15 @@ appendices.
   LIFECYCLES/                # State machines (hooks, TU, gate, view)
     hooks.md                 # ✅ Hook lifecycle with state transitions
     tu.md                    # ✅ TU lifecycle with state transitions
-    gate.md                  # [planned]
-    view.md                  # [planned]
+    gate.md                  # ✅ Gate lifecycle with state transitions
+    view.md                  # ✅ View/Export lifecycle with state transitions
   FLOWS/                     # End-to-end handshakes per loop
     hook_harvest.md          # ✅ Hook Harvest message sequences
     lore_deepening.md        # ✅ Lore Deepening message sequences
     codex_expansion.md       # ✅ Codex Expansion message sequences
-    gatecheck.md             # [planned]
+    gatecheck.md             # ✅ Gatecheck and Merge message sequences
     binding_run.md           # ✅ Binding Run message sequences
     narration_dry_run.md     # ✅ Narration Dry-Run message sequences
-  APPENDIX/                  # Non-normative mappings [planned]
-    transport-http.md
-    transport-files.md
-    transport-events.md
   EXAMPLES/                  # ✅ Player-safe example messages and sequences
   CONFORMANCE.md             # ✅ Conformance requirements and validation procedures
 ```
@@ -204,31 +200,82 @@ examples.
 
 ---
 
-## Status & Next Steps
+### Gate Lifecycle v1.0
 
-**Completed:**
+**Location:** [`LIFECYCLES/gate.md`](./LIFECYCLES/gate.md)
 
-- ✅ Phase 1: Envelope v1.0 specification
-- ✅ Phase 2a (Partial): Lifecycles & state machines
-  - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle with all state transitions
-  - ✅ `LIFECYCLES/tu.md` — Trace Unit lifecycle with all state transitions
-- ✅ Phase 3: Message intents & catalogs
-  - ✅ `INTENTS.md` — Complete intent catalog with all domains
-- ✅ Phase 4 (Partial): End-to-end flows per loop
-  - ✅ `FLOWS/hook_harvest.md` — Hook Harvest message sequences
-  - ✅ `FLOWS/lore_deepening.md` — Lore Deepening message sequences
+The normative specification for Gatecheck state transitions and quality bar enforcement. Defines:
 
-**Next:**
+- 4-state lifecycle: pre-gate → gatecheck → decision (pass | conditional pass | block) (with
+  deferred branch)
+- Complete transition matrix with gatekeeper decision rules
+- Required message intents for each transition (gate.report.submit, gate.decision, gate.remediation)
+- Quality bar evaluation rules (green/yellow/red status per bar)
+- Smallest viable fix requirements for yellow/red bars
+- Merge approval coordination and snapshot stamping
+- Envelope context requirements and examples
 
-- Phase 2b (Remaining): Gate and View lifecycles
-- Phase 4 (Remaining): Additional loop flows (Codex Expansion, Gatecheck)
-- Phase 5: Validation & Conformance ✅ Complete
+**Status:** ✅ **Complete** — v1.0.0 specification with decision matrix and examples
+
+See `LIFECYCLES/gate.md` for decision rubric, bar validation rules, and remediation protocols.
+
+---
+
+### View/Export Lifecycle v1.0
+
+**Location:** [`LIFECYCLES/view.md`](./LIFECYCLES/view.md)
+
+The normative specification for View/Export state transitions and PN boundary enforcement. Defines:
+
+- 5-state lifecycle: snapshot-selected → export-binding → pn-dry-run → feedback-collected →
+  view-published (with export-failed branch)
+- Complete transition matrix with Book Binder and PN roles
+- Required message intents for each transition (view.snapshot_select, view.bind, pn.feedback.submit,
+  view.publish)
+- Cold-only enforcement (PN never sees Hot material)
+- Player-safety validation at every boundary
+- Snapshot reference requirements for reproducibility
+- PN feedback routing and UX improvement cycles
+- Envelope context requirements and examples
+
+**Status:** ✅ **Complete** — v1.0.0 specification with PN boundary rules and examples
+
+See `LIFECYCLES/view.md` for snapshot enforcement, PN safety rules, and export validation.
+
+---
+
+## Version & Release Status
+
+**Current Version:** `protocol-v1.0.0` (2025-11-06)
+
+**Completed Components:**
+
+- ✅ **Phase 1:** Envelope v1.0 specification (`ENVELOPE.md`)
+- ✅ **Phase 2:** All lifecycles & state machines
+  - ✅ `LIFECYCLES/hooks.md` — Hook Card lifecycle (7 states)
+  - ✅ `LIFECYCLES/tu.md` — Trace Unit lifecycle (6 states)
+  - ✅ `LIFECYCLES/gate.md` — Gatecheck lifecycle (4 states)
+  - ✅ `LIFECYCLES/view.md` — View/Export lifecycle (5 states)
+- ✅ **Phase 3:** Message intents & catalogs
+  - ✅ `INTENTS.md` — Complete intent catalog for all domains
+- ✅ **Phase 4:** Core workflow message sequences
+  - ✅ `FLOWS/hook_harvest.md` — Hook creation and classification
+  - ✅ `FLOWS/lore_deepening.md` — Canon development and player-safe summaries
+  - ✅ `FLOWS/codex_expansion.md` — Player-safe knowledge base construction
+  - ✅ `FLOWS/gatecheck.md` — Quality bar validation and merge coordination
+  - ✅ `FLOWS/binding_run.md` — Export binding with Cold snapshots
+  - ✅ `FLOWS/narration_dry_run.md` — PN playtesting and UX feedback
+- ✅ **Phase 5:** Validation & Conformance
   - ✅ `CONFORMANCE.md` — Conformance requirements and test matrix
-  - ✅ `EXAMPLES/` — Example envelopes with validation procedures
-  - ✅ `scripts/validate-examples.sh` and `validate-examples.ps1` — CI validation scripts
+  - ✅ `EXAMPLES/` — Complete example message suite with validation
+  - ✅ Validation scripts for CI integration
 
-See `LAYER4_PLAN.md` at repository root for the full phased implementation plan, success criteria,
-and rollout timeline.
+**Changelog:** See [`CHANGELOG.md`](./CHANGELOG.md) for detailed version history and release notes.
+
+**Future Work:**
+
+Additional loop flows (Story Spark, Style Tune-up, Art/Audio passes, Translation, Post-Mortem) will
+follow the established patterns and may be added in minor releases (v1.1.0+) as needed.
 
 ## Continuous Integration
 

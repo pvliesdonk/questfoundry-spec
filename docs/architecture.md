@@ -101,11 +101,11 @@ Player-facing content is protected:
 │ ├─ 31 intent handlers                                      │
 │ └─ Example conversations                                   │
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 4: Protocol (Communication Rules)                    │ 🚧 85% (envelopes, intents done)
+│ Layer 4: Protocol (Communication Rules)                    │ ✅ 100% complete (v1.0.0)
 │ ├─ Message envelopes (protocol versioning)                 │
-│ ├─ Intent catalog (30+ intents)                            │
-│ ├─ State machines (hook, TU lifecycles)                    │
-│ └─ Message flows (sequence diagrams)                       │
+│ ├─ 4 lifecycle state machines (hook, TU, gate, view)       │
+│ ├─ 6 core workflow message sequences                       │
+│ └─ Intent catalog, conformance, validation suite           │
 ├─────────────────────────────────────────────────────────────┤
 │ Layer 3: Schemas (JSON Schema Draft 2020-12)               │ ✅ 100% (21 schemas)
 │ ├─ Artifact schemas (hook_card, tu_brief, etc.)            │
@@ -622,7 +622,7 @@ QuestFoundry's design is documented in **Architectural Decision Records (ADRs)**
 | Layer 1 (Roles)      | ✅ Complete | 100%       |
 | Layer 2 (Dictionary) | ✅ Complete | 100%       |
 | Layer 3 (Schemas)    | ✅ Complete | 100%       |
-| Layer 4 (Protocol)   | ✅ Complete | 95%        |
+| Layer 4 (Protocol)   | ✅ Complete | 100%       |
 | Layer 5 (Prompts)    | ✅ Complete | 100%       |
 | Layer 6 (Libraries)  | 📋 Planned  | 0%         |
 | Layer 7 (UI)         | 📋 Planned  | 0%         |

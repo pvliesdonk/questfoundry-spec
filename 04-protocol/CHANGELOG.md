@@ -7,77 +7,130 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Status
+## [1.0.0] - 2025-11-06
 
-Layer 4 (Protocol) is currently at **95% completion** and has not yet been formally versioned.
-Protocol specifications are evolving as a living document.
+### Summary
 
-When Layer 4 stabilizes, the first formal release will be tagged as `protocol-v1.0.0`.
+Initial stable release of QuestFoundry Protocol specification. Defines complete message-passing
+protocol for role collaboration, quality enforcement, and player-safe export boundaries. All core
+lifecycles, flows, and conformance requirements are specified and ready for implementation.
 
-### Current Components (Unversioned)
+### Added
 
-**Core Protocol:**
+**Core Protocol Specifications:**
 
-- `ENVELOPE.md` — Message envelope structure (transport-agnostic, versioned wrapper)
-- `envelope.schema.json` — JSON Schema for envelope validation
-- `CONFORMANCE.md` — Protocol conformance requirements
+- **`ENVELOPE.md`** — Complete envelope v1.0 specification
+  - Protocol metadata and semver versioning
+  - Message identity, routing, and correlation
+  - Hot/Cold context tracking
+  - PN safety boundaries (non-negotiable)
+  - TU traceability requirements
+  - Payload structure and schema validation
+  - Error handling and forward compatibility
+- **`envelope.schema.json`** — JSON Schema Draft 2020-12 for envelope validation
+- **`INTENTS.md`** — Complete intent catalog for all protocol domains
+  - Hook lifecycle intents (create, accept, start, resolve, canonize, etc.)
+  - TU lifecycle intents (open, submit, merge, defer, etc.)
+  - Gate intents (report, decision, remediation)
+  - View/export intents (snapshot selection, binding, PN feedback, publish)
+  - Artifact submission intents for all Layer 2 types
+- **`CONFORMANCE.md`** — Protocol conformance requirements and validation procedures
+  - Envelope validation rules
+  - Payload schema validation requirements
+  - PN safety enforcement rules
+  - Traceability requirements
+  - Test matrix and validation scripts
 
-**Intent Specifications:**
+**Lifecycle State Machines (4 Complete):**
 
-- `INTENTS.md` — Intent taxonomy and routing rules
-- Intent examples in `EXAMPLES/intents/`
+- **`LIFECYCLES/hooks.md`** — Hook Card lifecycle v1.0
+  - 7-state machine (proposed → accepted → in-progress → resolved → canonized/deferred/rejected)
+  - Complete transition matrix with sender role authorization
+  - Required intents and payload schemas per transition
+  - Blocking hook enforcement and quality bar integration
+- **`LIFECYCLES/tu.md`** — Trace Unit lifecycle v1.0
+  - 6-state machine (hot-proposed → stabilizing → gatecheck → cold-merged/deferred/rejected)
+  - TU-bound requirement for all Cold artifacts
+  - Gatecheck enforcement and quality gates
+  - Dormancy/deferral integration with wake rubric
+- **`LIFECYCLES/gate.md`** — Gatecheck lifecycle v1.0
+  - 4-state machine (pre-gate → gatecheck → decision)
+  - Quality bar evaluation rules (green/yellow/red per bar)
+  - Smallest viable fix requirements
+  - Merge approval and snapshot stamping coordination
+- **`LIFECYCLES/view.md`** — View/Export lifecycle v1.0
+  - 5-state machine (snapshot-selected → export-binding → pn-dry-run → feedback-collected →
+    view-published)
+  - Cold-only enforcement (PN never sees Hot)
+  - Player-safety validation at every boundary
+  - Snapshot reference requirements for reproducibility
 
-**Lifecycle Definitions:**
+**End-to-End Flow Specifications (6 Core Flows):**
 
-- `LIFECYCLES/hooks.md` — Hook lifecycle states and transitions
-- `LIFECYCLES/tu.md` — Trace Unit (TU) lifecycle
-- `LIFECYCLES/gate.md` — Gatecheck workflow
-- `LIFECYCLES/view.md` — View export workflow
+- **`FLOWS/hook_harvest.md`** — Hook Harvest message sequences
+  - Hook creation, classification, and routing
+  - Showrunner triage and loop assignment
+- **`FLOWS/lore_deepening.md`** — Lore Deepening message sequences
+  - Canon development from accepted hooks
+  - Player-safe summary generation
+  - Handoff to Codex Expansion
+- **`FLOWS/codex_expansion.md`** — Codex Expansion message sequences
+  - Player-safe codex entry creation
+  - Spoiler hygiene enforcement
+  - Gatecheck and Cold merge coordination
+- **`FLOWS/gatecheck.md`** — Gatecheck and Merge message sequences
+  - Gate report submission with bar status
+  - Gatekeeper decision (pass/conditional pass/block)
+  - Remediation coordination and merge approval
+  - Snapshot stamping per TRACEABILITY
+- **`FLOWS/binding_run.md`** — Binding Run message sequences
+  - Export binding from Cold snapshots
+  - Player-safe surface assembly
+  - View log generation
+- **`FLOWS/narration_dry_run.md`** — Narration Dry-Run message sequences
+  - PN playtesting workflow
+  - UX feedback collection and routing
+  - Friction point identification
 
-**Flow Specifications:**
+**Examples and Validation:**
 
-- `FLOWS/hook_harvest_lore.md` — Hook Harvest + Lore Deepening flow
-- `FLOWS/codex_gate_merge.md` — Codex Expansion + Gatecheck + Merge flow
-- `FLOWS/binding_pn.md` — Binding Run + Narration Dry-Run flow
-- Additional loop flows
+- **`EXAMPLES/`** — Complete example message suite
+  - Envelope examples for all lifecycle states
+  - Intent payload examples for all artifact types
+  - Multi-message flow sequences
+  - Error cases and validation failures
+- **Validation Scripts:**
+  - `scripts/validate-examples.sh` (Bash/Unix)
+  - `scripts/validate-examples.ps1` (PowerShell/Windows)
+  - CI integration examples (GitHub Actions)
 
-**Examples:**
+### Context
 
-- `EXAMPLES/envelopes/` — Complete envelope examples
-- `EXAMPLES/intents/` — Intent payload examples
-- `EXAMPLES/flows/` — Multi-message flow sequences
+This release completes Layer 4 protocol specification, providing the foundation for:
 
-### Planned for v1.0.0
+- **Layer 5** (Prompts) — AI agent system prompts that implement protocol roles
+- **Layer 6** (Libraries) — SDK implementations in Python/TypeScript
+- **Layer 7** (UI) — CLI/GUI tools that consume protocol messages
 
-When protocol stabilizes, the first release will include:
+The protocol is transport-agnostic and can be implemented over HTTP APIs, file-based workflows, or
+event-driven architectures. See CONFORMANCE.md for implementation requirements.
 
-**Added:**
+### Design Decisions
 
-- Complete envelope specification with all required fields
-- Intent taxonomy covering all 13 loops
-- Lifecycle state machines for all artifact types
-- Flow specifications for all workflow patterns
-- Conformance test suite
+**Included in v1.0.0:**
 
-**Changed:**
+- All 4 core lifecycles (Hook, TU, Gate, View) — covers creation through export
+- 6 core workflow flows — covers primary collaboration patterns
+- Complete intent catalog — enables all Layer 0 loops
+- Conformance requirements — enables implementation validation
 
-- TBD based on stabilization feedback
+**Deferred to Future Releases:**
 
-**Deprecated:**
-
-- TBD based on stabilization feedback
-
-**Removed:**
-
-- TBD based on stabilization feedback
-
-**Fixed:**
-
-- TBD based on stabilization feedback
-
-**Security:**
-
-- TBD based on stabilization feedback
+- Additional loop flows (Story Spark, Style Tune-up, Art/Audio passes, Translation, Post-Mortem) —
+  follow established patterns, can be added in minor releases
+- Non-normative transport mappings (HTTP, files, events) — implementation guidance, not protocol
+  requirements
+- Performance benchmarks — implementation-specific, not protocol requirements
 
 ---
 
@@ -139,14 +192,15 @@ Example:
 
 ## Notes
 
-- Protocol specifications are currently evolving as Layer 4 approaches 100%
-- First formal release expected when Layer 4 stabilizes
-- See `03-schemas/CHANGELOG.md` for artifact schema version history
+- Protocol v1.0.0 released 2025-11-06
+- Layer 4 (Protocol) now at 100% completion
+- See `03-schemas/CHANGELOG.md` for artifact schema version history (current: `schemas-v0.2.0`)
 - See root `README.md` for overall layer completion status
+- Protocol and schema versions are independent; see "Relationship to Schema Versions" above
 
 ---
 
-**Changelog created:** 2025-11-06 **First protocol version:** TBD (expected: protocol-v1.0.0 when
-Layer 4 reaches 100%)
+**Changelog created:** 2025-11-06 **First release:** protocol-v1.0.0 (2025-11-06)
 
-[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/tree/main/04-protocol
+[Unreleased]: https://github.com/pvliesdonk/questfoundry-spec/compare/protocol-v1.0.0...HEAD
+[1.0.0]: https://github.com/pvliesdonk/questfoundry-spec/releases/tag/protocol-v1.0.0
