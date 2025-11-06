@@ -94,9 +94,11 @@ Player-facing content is protected:
 │ ├─ Protocol clients                                        │
 │ └─ Export engines                                          │
 ├─────────────────────────────────────────────────────────────┤
-│ Layer 5: Prompts (AI Agent Implementations)                │ 🚧 40% (frameworks ready)
-│ ├─ System prompts for 15 roles                             │
-│ ├─ Intent handlers                                         │
+│ Layer 5: Prompts (AI Agent Implementations)                │ ✅ 100% (loop-focused architecture)
+│ ├─ 13 loop playbooks (executable procedures)               │
+│ ├─ 15 role adapters (thin interfaces)                      │
+│ ├─ 15 full system prompts (standalone work)                │
+│ ├─ 31 intent handlers                                      │
 │ └─ Example conversations                                   │
 ├─────────────────────────────────────────────────────────────┤
 │ Layer 4: Protocol (Communication Rules)                    │ 🚧 85% (envelopes, intents done)
@@ -620,7 +622,7 @@ QuestFoundry's design is documented in **Architectural Decision Records (ADRs)**
 | Layer 2 (Dictionary) | ✅ Complete    | 95%        |
 | Layer 3 (Schemas)    | ✅ Complete    | 100%       |
 | Layer 4 (Protocol)   | ✅ Complete    | 95%        |
-| Layer 5 (Prompts)    | 🚧 In Progress | 85%        |
+| Layer 5 (Prompts)    | ✅ Complete    | 100%       |
 | Layer 6 (Libraries)  | 📋 Planned     | 0%         |
 | Layer 7 (UI)         | 📋 Planned     | 0%         |
 | Validation Tools     | ✅ Complete    | 100%       |

@@ -82,7 +82,7 @@ QuestFoundry is organized into **7 layers**, each with clear separation of conce
 | **2** | **Common Language** | Data dictionary, artifact templates        | ✅ 95%     | [`02-dictionary/README.md`](02-dictionary/README.md) |
 | **3** | **Schemas**         | JSON Schema specifications (Draft 2020-12) | ✅ 100%    | [`03-schemas/README.md`](03-schemas/README.md)       |
 | **4** | **Protocol**        | Message envelopes, intents, state machines | ✅ 95%     | [`04-protocol/README.md`](04-protocol/README.md)     |
-| **5** | **Prompts**         | AI agent system prompts                    | 🚧 85%     | [`05-prompts/README.md`](05-prompts/README.md)       |
+| **5** | **Prompts**         | AI agent system prompts                    | ✅ 100%    | [`05-prompts/README.md`](05-prompts/README.md)       |
 | **6** | **Libraries**       | Python SDK, validators, clients            | 📋 Planned | [`06-libraries/`](06-libraries/)                     |
 | **7** | **UI**              | CLI/GUI/Player-Narrator interfaces         | 📋 Planned | [`07-ui/`](07-ui/)                                   |
 
@@ -484,7 +484,7 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 | Layer 2 (Dictionary) | ✅ 95% complete  | All 21 artifacts, glossary, Phase 3-4 complete      |
 | Layer 3 (Schemas)    | ✅ 100% complete | 21 schemas (20 artifacts + envelope) validated      |
 | Layer 4 (Protocol)   | ✅ 95% complete  | Envelope, intents, lifecycles, flows, examples done |
-| Layer 5 (Prompts)    | 🚧 85% complete  | All 15 system prompts, shared resources, tests done |
+| Layer 5 (Prompts)    | ✅ 100% complete | Loop-focused architecture: 13 playbooks, 15 adapters, 15 full prompts |
 | Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                           |
 | Layer 7 (UI)         | 📋 Planned       | CLI, GUI, PN player                                 |
 | Validation Tools     | ✅ Complete      | `spec-tools` fully functional                       |
