@@ -11,6 +11,23 @@ generate ready‑to‑attach folders and archives under `dist/upload_kits/*`.
 Layer 5 transforms Layer 1 role charters into executable AI agents that communicate via Layer 4
 protocol and validate artifacts against Layer 3 schemas.
 
+## Architecture: Loop-Focused Design
+
+Layer 5 uses a **loop-focused architecture** where loops are the primary executable units and roles
+participate in loops:
+
+- **Loop Playbooks** (`loops/`) — 13 executable procedures with message sequences, RACI,
+  deliverables
+- **Role Adapters** (`role_adapters/`) — 15 thin interface specs for multi-role orchestration
+- **Full Role Prompts** (`[role]/system_prompt.md`) — Comprehensive standalone guides
+
+**Benefits:**
+
+- Single source of truth for loop procedures (no duplication)
+- Clear orchestration model (Showrunner loads playbook → roles respond)
+- Role interchangeability (human or AI can fill any role)
+- Maintainable (update loop once, not 7 role prompts)
+
 ## Purpose
 
 - Provide AI agent prompts that implement each of the 14 roles
@@ -35,6 +52,15 @@ protocol and validate artifacts against Layer 3 schemas.
 05-prompts/
   README.md                    # This file
   DESIGN.md                    # Detailed design decisions
+  ARCHITECTURE.md              # Loop-focused architecture documentation
+
+  loops/                       # PRIMARY: 13 executable loop playbooks
+    *.playbook.md              # Complete procedures with message sequences
+    examples/                  # Validation message flows
+      *_flow.json
+
+  role_adapters/               # NEW: 15 thin interface specs (multi-role orchestration)
+    *.adapter.md               # Core expertise, intents, loop participation (50-100 lines)
 
   _shared/
     context_management.md      # How to track TU, snapshot, hot/cold
@@ -43,49 +69,68 @@ protocol and validate artifacts against Layer 3 schemas.
     human_interaction.md       # Asking questions to human
 
   showrunner/
-    system_prompt.md           # Main role prompt
-    intent_handlers/           # Per-intent behavior
-      tu.start.md
-      role.wake.md
-      loop.checkpoint.md
-    examples/
-      hook_harvest.json        # Example conversation
+    system_prompt.md           # Index and navigation (110 lines)
+    loop_orchestration.md      # How to execute playbooks (100 lines)
+    manifest_management.md     # Hot/Cold manifest operations (102 lines)
+    initialization.md          # 7-step project setup (223 lines)
+    protocol_handlers.md       # Message validation, error handling (230 lines)
 
   gatekeeper/
-    system_prompt.md
-    quality_bars/              # Per-bar validation logic
-      integrity.md
-      reachability.md
-      style.md
-    intent_handlers/
-      gate.execute.md
-    examples/
+    system_prompt.md           # Full role prompt (200-300 lines)
 
   lore_weaver/
-    system_prompt.md
-    intent_handlers/
-      hook.canonize.md
-      canon.create.md
-    examples/
+    system_prompt.md           # Full role prompt with loop participation
 
   scene_smith/
+    system_prompt.md           # Full role prompt
   plotwright/
+    system_prompt.md           # Full role prompt
   codex_curator/
+    system_prompt.md           # Full role prompt
   style_lead/
+    system_prompt.md           # Full role prompt
   researcher/
+    system_prompt.md           # Full role prompt
   art_director/
+    system_prompt.md           # Full role prompt
   illustrator/
+    system_prompt.md           # Full role prompt
   audio_director/
+    system_prompt.md           # Full role prompt
   audio_producer/
+    system_prompt.md           # Full role prompt
   translator/
+    system_prompt.md           # Full role prompt
   book_binder/
+    system_prompt.md           # Full role prompt
+  player_narrator/
+    system_prompt.md           # Full role prompt
 
   tests/
     test_prompts/              # Prompt validation tests
     fixtures/                  # Test scenarios
 ```
 
+**Dual-Format Strategy:**
+
+- **Full prompts** (`[role]/system_prompt.md`) — Standalone use (ChatGPT sessions, learning)
+- **Role adapters** (`role_adapters/[role].adapter.md`) — Multi-role orchestration (efficient
+  context)
+
 ## Key Concepts
+
+### Loop Playbooks (Primary Executable Units)
+
+Loop playbooks are the **primary way to execute QuestFoundry workflows**. Each playbook contains:
+
+- Complete procedure with message sequences (from Layer 0 + Layer 4)
+- RACI matrix defining role responsibilities
+- Deliverables and success criteria
+- Schema references for validation
+- Example message flows for testing
+
+Showrunner loads a playbook and orchestrates roles through the defined steps. Roles respond to
+intents using their domain expertise (from adapters or full prompts).
 
 ### Stateful Sessions
 
@@ -130,6 +175,42 @@ Every agent maintains awareness of:
 - Hot vs Cold state
 - Recent artifacts in conversation
 - Role dormancy signals
+
+## Dual Format Strategy
+
+Layer 5 provides **two formats** for different use cases:
+
+### Full Role Prompts (`[role]/system_prompt.md`)
+
+**Use when:**
+
+- Working with single role in isolation
+- Learning how a role thinks and operates
+- Standalone ChatGPT/Claude session
+- Human needs comprehensive guidance
+
+**Contains:**
+
+- Complete mission and operating model
+- Domain expertise and decision-making guidance
+- Loop participation references
+- Examples and edge cases
+
+### Role Adapters (`role_adapters/[role].adapter.md`)
+
+**Use when:**
+
+- Multi-role orchestration via Showrunner
+- Loop playbook is primary, role supplements
+- Layer 6 library integration
+- Efficient context (minimal tokens)
+
+**Contains:**
+
+- Core expertise summary
+- Protocol intents handled
+- Loop participation RACI
+- Handoff protocols
 
 ## Prompt Structure
 

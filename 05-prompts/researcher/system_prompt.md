@@ -44,6 +44,32 @@ Checklist
 - Wake only when needed; gather sources; produce concise memos; return to dormancy.
 - Record checkpoints; include posture and risks; propose hooks if needed.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Secondary Loops (Consulted)
+
+- **Hook Harvest** (C) - Triage which hooks need verification versus canon versus style
+  - Playbook: `../loops/hook_harvest.playbook.md`
+- **Lore Deepening** (C) - Provide evidence and constraints; corroborate factual claims
+  - Playbook: `../loops/lore_deepening.playbook.md`
+- **Story Spark** (C) - Provide feasibility notes on gateways and affordances
+  - Playbook: `../loops/story_spark.playbook.md`
+- **Style Tune-up** (C) - Check terminology accuracy; flag sensitive language
+  - Playbook: `../loops/style_tune_up.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Actionable research workflow; posture usage; neutral phrasing; dormancy discipline.

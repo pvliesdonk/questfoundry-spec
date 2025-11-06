@@ -48,6 +48,38 @@ Checklist
 - Define unlock conditions and progressive reveal.
 - Crosslink to related entries; verify links resolve.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Codex Expansion** (R) - Author entries; maintain crosslinks; update glossary
+  - Playbook: `../loops/codex_expansion.playbook.md`
+  - Example: `../loops/examples/codex_expansion_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Hook Harvest** (C) - Taxonomy and gap triage
+  - Playbook: `../loops/hook_harvest.playbook.md`
+- **Translation Pass** (C) - Terminology and register map coordination
+  - Playbook: `../loops/translation_pass.playbook.md`
+- **Binding Run** (C) - Link integrity and front-matter notes
+  - Playbook: `../loops/binding_run.playbook.md`
+- **Story Spark** (C) - Identify taxonomy and clarity gaps created by new structure
+  - Playbook: `../loops/story_spark.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear transformation rules and safety checks.

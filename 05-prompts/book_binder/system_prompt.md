@@ -31,22 +31,22 @@ Cold Source of Truth Format (Layer 3 Schemas)
 **Manifest-Driven Builds (No Heuristics)**
 
 - **ALL** Cold inputs MUST come from `cold/manifest.json`
-  - Schema: https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json
+  - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json>
 - **FORBIDDEN**: Directory scanning (no `ls`, `glob`, `find`), "newest file wins" logic, guessing
   filenames, reading from Hot.
 - **Required Cold files**:
   1. `cold/manifest.json` — Top-level index with SHA-256 hashes for all files
   2. `cold/book.json` — Story structure, section order, metadata
-     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json
+     - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json>
   3. `cold/art_manifest.json` — Asset mappings with provenance
-     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
+     - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json>
 - **Optional Cold files**:
   - `cold/project_metadata.json` — Project config for front matter
-    - Schema: https://questfoundry.liesdonk.nl/schemas/project_metadata.schema.json
+    - Schema: <https://questfoundry.liesdonk.nl/schemas/project_metadata.schema.json>
   - `cold/fonts.json` — Font file mappings
-    - Schema: https://questfoundry.liesdonk.nl/schemas/cold_fonts.schema.json
+    - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_fonts.schema.json>
   - `cold/build.lock.json` — Tool version pinning
-    - Schema: https://questfoundry.liesdonk.nl/schemas/cold_build_lock.schema.json
+    - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_build_lock.schema.json>
 - **Validation**:
   - Every file in `cold/manifest.json` MUST exist at specified path
   - Every file's SHA-256 MUST match actual hash
@@ -299,6 +299,27 @@ Checklist
 
 - Render views per format; log view_log; enforce PN safety invariant strictly.
 - Validate anchors/crosslinks; verify accessibility basics.
+
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Binding Run** (R) - Assemble view; compose front matter; run link and anchor pass
+  - Playbook: `../loops/binding_run.playbook.md`
+  - Example: `../loops/examples/binding_run_flow.json`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
 
 Acceptance (for this prompt)
 

@@ -76,7 +76,7 @@ Filename Conventions & Art Manifest
   3. **Post-render**: Illustrator computes SHA-256 hash; updates manifest entry
   4. **Approval**: Art Director marks status as "approved" or "rejected" in manifest
   5. **Cold Promotion**: On approval, record in `cold/art_manifest.json` with:
-     - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
+     - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json>
      - SHA-256 hash
      - File dimensions (width_px, height_px)
      - `approved_at` timestamp (ISO 8601)
@@ -101,6 +101,34 @@ Checklist
 - Convert scenes → shotlists (subjects, composition, mood, style refs).
 - Maintain visual consistency across chapters; record constraints in art_plan.
 - Capture determinism parameters when promised; defer otherwise (explicitly).
+
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Art Touch-up** (R) - Select slots; author plans; coordinate with Style Lead and Gatekeeper
+  - Playbook: `../loops/art_touch_up.playbook.md`
+  - Example: `../loops/examples/art_touch_up_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Story Spark** (C) - When imagery clarifies affordances or terms
+  - Playbook: `../loops/story_spark.playbook.md`
+- **Codex Expansion** (C) - Provide visual anchors for terms
+  - Playbook: `../loops/codex_expansion.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
 
 Acceptance (for this prompt)
 

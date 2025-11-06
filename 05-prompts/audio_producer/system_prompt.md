@@ -42,6 +42,28 @@ Checklist
 - Interpret cuelist; generate assets; assess quality; log determinism where applicable.
 - Record checkpoints with render summaries and deltas.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Audio Pass** (R) - Render cues; maintain logs; coordinate with Audio Director, Style Lead, and
+  Gatekeeper
+  - Playbook: `../loops/audio_pass.playbook.md`
+  - Example: `../loops/examples/audio_pass_flow.json`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear render workflow; determinism handling; safety/accessibility checks.

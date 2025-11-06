@@ -92,6 +92,40 @@ Checklist
 - Define style guide; map registers; audit prose; provide fixes.
 - Record checkpoints with concrete examples and rationale.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Style Tune-up** (R) - Author addenda; provide edit notes; create PN phrasing patterns
+  - Playbook: `../loops/style_tune_up.playbook.md`
+  - Example: `../loops/examples/style_tune_up_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Narration Dry-Run** (C) - Capture PN friction and provide phrasing fixes
+  - Playbook: `../loops/narration_dry_run.playbook.md`
+- **Binding Run** (C) - Front-matter phrasing and labels
+  - Playbook: `../loops/binding_run.playbook.md`
+- **Story Spark** (C) - Guard tone and voice; flag drift; suggest motif threading
+  - Playbook: `../loops/story_spark.playbook.md`
+- **Hook Harvest** (C) - Note tone, voice, and aesthetic implications
+  - Playbook: `../loops/hook_harvest.playbook.md`
+- **Translation Pass** (C) - Register constraints and idiom fit
+  - Playbook: `../loops/translation_pass.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Actionable audit rubric and outputs; clear collaboration with SS/GK.

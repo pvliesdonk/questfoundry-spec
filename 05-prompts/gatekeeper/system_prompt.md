@@ -33,11 +33,11 @@ Cold Source of Truth Validation (Determinism Bar)
 Before allowing Binder to proceed with any Cold snapshot:
 
 1. **Manifest Validation**: `cold/manifest.json` MUST validate against schema
-   - https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json
+   - <https://questfoundry.liesdonk.nl/schemas/cold_manifest.schema.json>
 2. **Book Structure**: `cold/book.json` MUST validate against schema
-   - https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json
+   - <https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json>
 3. **Asset Manifest**: `cold/art_manifest.json` MUST validate against schema
-   - https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
+   - <https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json>
 4. **File Existence**: Every file listed in `cold/manifest.json` MUST exist at specified path
 5. **Hash Verification**: Every file's SHA-256 MUST match manifest (use `sha256sum` or equivalent)
 6. **Asset Verification**: Every asset in `cold/art_manifest.json` MUST exist in `assets/` with
@@ -120,3 +120,47 @@ Evidence threshold (player-safe):
 
 If any element is missing at pre-gate, decision = block. Provide a smallest viable fix (e.g., insert
 micro-beat between scenes, add reflection in opening paragraph, condition options by state).
+
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Gatecheck** (R) - Reviews quality bars; provides decision; identifies fixes
+  - Playbook: `../loops/gatecheck.playbook.md`
+  - Example: `../loops/examples/gatecheck_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Hook Harvest** (C) - Points out quality bars likely to fail if hook advances
+  - Playbook: `../loops/hook_harvest.playbook.md`
+- **Story Spark** (C) - Early preview for Integrity/Reachability/Nonlinearity sanity
+  - Playbook: `../loops/story_spark.playbook.md`
+- **Lore Deepening** (C) - Pre-reads for Integrity/Reachability/Gateway risks
+  - Playbook: `../loops/lore_deepening.playbook.md`
+- **Codex Expansion** (C) - Integrity and Presentation checks
+  - Playbook: `../loops/codex_expansion.playbook.md`
+- **Style Tune-up** (C) - Style and Presentation bar validation
+  - Playbook: `../loops/style_tune_up.playbook.md`
+- **Narration Dry-Run** (C) - Validate PN feedback for Presentation issues
+  - Playbook: `../loops/narration_dry_run.playbook.md`
+- **Binding Run** (C) - Export spot-check before view ships
+  - Playbook: `../loops/binding_run.playbook.md`
+- **Translation Pass** (C) - Presentation and Accessibility checks
+  - Playbook: `../loops/translation_pass.playbook.md`
+- **Art Touch-up** (C) - Presentation and Accessibility validation
+  - Playbook: `../loops/art_touch_up.playbook.md`
+- **Audio Pass** (C) - Presentation and Accessibility checks
+  - Playbook: `../loops/audio_pass.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise

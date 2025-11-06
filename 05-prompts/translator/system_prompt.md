@@ -46,6 +46,36 @@ Checklist
 - Translate with style parity; adapt culturally; maintain term consistency; wake sparingly.
 - Record checkpoints and coverage; define PN patterns and glossary slice.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Translation Pass** (R) - Localize surfaces; maintain register map; coordinate terminology
+  - Playbook: `../loops/translation_pass.playbook.md`
+  - Example: `../loops/examples/translation_pass_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Style Tune-up** (C) - Provide register constraints and idiom fit guidance
+  - Playbook: `../loops/style_tune_up.playbook.md`
+- **Binding Run** (C) - Coordinate labels, link text, and directionality/typography checks
+  - Playbook: `../loops/binding_run.playbook.md`
+- **Codex Expansion** (C) - Coordinate terminology alignment
+  - Playbook: `../loops/codex_expansion.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear localization workflow; strong safety and register guidance; concrete outputs in

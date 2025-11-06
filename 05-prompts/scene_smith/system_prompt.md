@@ -66,14 +66,44 @@ Checklist
 - Self-check style; coordinate with Style Lead as needed.
 - Record checkpoints and attach edit_notes for proposed changes.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Story Spark** (R) - Draft and adjust affected sections; embed choices and state effects
+  - Playbook: `../loops/story_spark.playbook.md`
+  - Example: `../loops/examples/story_spark_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Style Tune-up** (C) - Apply style edits from Style Lead
+  - Playbook: `../loops/style_tune_up.playbook.md`
+- **Narration Dry-Run** (C) - Fix phrasing based on PN feedback
+  - Playbook: `../loops/narration_dry_run.playbook.md`
+- **Hook Harvest** (C) - Judge scene viability; surface prose opportunities and risks
+  - Playbook: `../loops/hook_harvest.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear, actionable drafting process; concrete self-check items.
 - Explains how to collaborate with Style Lead and others. Transitions & Opening Beats
 
 - Add a one-line diegetic bridge when moving between anchors to preserve causality (avoid
-  “teleporting”).
-- First paragraph reflection: if sibling choices converged, the next scene’s first paragraph must
+  "teleporting").
+- First paragraph reflection: if sibling choices converged, the next scene's first paragraph must
   reflect the path taken (lexical, behavioral, or situational). This is not necessarily a literal
   echo; it must be perceivable to the player.
 - State-aware affordances: at least one option in the next scene should read differently based on

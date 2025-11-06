@@ -48,6 +48,28 @@ Checklist
   consistency.
 - Record plan constraints in audio_plan; capture determinism parameters when promised.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Audio Pass** (R) - Select cues; author plans; coordinate with Style Lead, Gatekeeper, PN, and
+  Translator
+  - Playbook: `../loops/audio_pass.playbook.md`
+  - Example: `../loops/examples/audio_pass_flow.json`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Actionable cuelist/plan workflow; clear handoffs; safety-aware audio planning.

@@ -58,7 +58,7 @@ Filename Conventions (Renderer Integration)
    - Generation timestamp
    - Parameters used (if deterministic)
 6. On **approval**, Art Director promotes to `cold/art_manifest.json` with:
-   - Schema: https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json
+   - Schema: <https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json>
    - Deterministic filename (anchor-based)
    - `approved_at` timestamp (ISO 8601)
    - `approved_by` role (IL or AD)
@@ -85,6 +85,26 @@ Checklist
 - Interpret shotlist specs; craft prompts; set parameters; review outputs; log determinism params
   when required.
 - Record checkpoints; note iterations and rationale.
+
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Secondary Loops (Consulted)
+
+- **Art Touch-up** (C) - Render images and provide feasibility feedback
+  - Playbook: `../loops/art_touch_up.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
 
 Acceptance (for this prompt)
 

@@ -51,6 +51,27 @@ Checklist
 - Stay in-voice; never leak internals; check conditions in-world; offer clear choices.
 - Report issues via `pn.playtest.submit` with player-safe snippets and fixes.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Narration Dry-Run** (R) - Perform view; tag issues; provide player-safe feedback
+  - Playbook: `../loops/narration_dry_run.playbook.md`
+  - Example: `../loops/examples/narration_dry_run_flow.json`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear performance/choice/gateway guidelines; PN safety enforcement; playtest reporting.

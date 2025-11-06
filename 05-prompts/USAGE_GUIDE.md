@@ -11,6 +11,43 @@ Audience: humans using ChatGPT, Claude, or Gemini to run QuestFoundry Layer 5 pr
 - Pre-gate with Gatekeeper, bind with Book Binder, and do a PN dry-run.
 - Close the TU when satisfied.
 
+## Working with Loop Playbooks
+
+Loop playbooks are the **primary way to execute QuestFoundry workflows**. Each playbook contains
+complete procedures for one of the 13 canonical loops.
+
+**Location:** `loops/*.playbook.md`
+
+### Running a Loop (Multi-Role Orchestration)
+
+1. **Showrunner loads playbook**: `loops/lore_deepening.playbook.md`
+2. **Playbook specifies procedure**: 9 steps with message sequences
+3. **Roles respond to intents**: Lore Weaver drafts canon, Gatekeeper pre-gates, etc.
+4. **Showrunner coordinates**: Routes messages per RACI matrix in playbook
+
+**Example workflow:**
+
+```
+loops/lore_deepening.playbook.md        # Load procedure
+  → Step 1: tu.open (SR → LW)           # Showrunner opens TU
+  → Step 2: Frame questions (LW)        # Lore Weaver drafts
+  → Step 3: Draft answers (LW)          # Lore Weaver creates canon
+  → Step 8: Pre-gate (LW → GK)          # Gatekeeper validates
+  → Step 9: Handoff (LW → CC)           # Codex Curator receives summaries
+```
+
+### Choosing Format: Full Prompt vs Adapter
+
+**For standalone work:** Upload full role prompt
+
+- Example: "I need Lore Weaver help canonizing backstory"
+- Upload: `lore_weaver/system_prompt.md`
+
+**For orchestrated workflow:** Use adapters + loop playbook
+
+- Example: "Run Lore Deepening loop for character hooks"
+- Load: `loops/lore_deepening.playbook.md` + `role_adapters/lore_weaver.adapter.md`
+
 ## Supported Chatbots And File Uploads
 
 - ChatGPT
@@ -32,7 +69,16 @@ start of each new session.
 
 ## Upload Kits (Minimal vs. Full)
 
-Minimal Upload Kit (10 files — ChatGPT‑friendly)
+**Note on Dual Formats:**
+
+- **Full prompts** (`[role]/system_prompt.md`) — Use for standalone work or learning
+- **Role adapters** (`role_adapters/[role].adapter.md`) — Use for multi-role orchestration with loop
+  playbooks (more efficient)
+
+The kits below use full prompts for simplicity. For orchestrated workflows with loop playbooks,
+consider using role adapters instead.
+
+Minimal Upload Kit (10 files — ChatGPT‑friendly, Full Prompts)
 
 - 05-prompts/\_shared/context_management.md
 - 05-prompts/\_shared/safety_protocol.md
@@ -44,6 +90,15 @@ Minimal Upload Kit (10 files — ChatGPT‑friendly)
 - 05-prompts/style_lead/system_prompt.md
 - 05-prompts/gatekeeper/system_prompt.md
 - 05-prompts/book_binder/system_prompt.md
+
+Orchestrated Loop Kit (Alternative — Loop Playbooks + Adapters)
+
+For running specific loops with multi-role coordination:
+
+- Upload target loop playbook: `loops/[loop_name].playbook.md`
+- Upload role adapters: `role_adapters/[role].adapter.md` (only needed roles)
+- Example: Lore Deepening loop → upload `loops/lore_deepening.playbook.md` + adapters for
+  Showrunner, Lore Weaver, Gatekeeper, Codex Curator
 
 Addon (upload later when binding/PN is needed)
 
@@ -144,12 +199,12 @@ remaining debt if any.
   - Evaluate bars (Presentation, Integrity, Style, Determinism, etc.) with player‑safe evidence.
   - **Runs Cold SoT validation** before allowing Binder (8 preflight checks: manifest validation,
     file existence, SHA-256 verification, asset approval metadata). Schemas at
-    https://questfoundry.liesdonk.nl/schemas/
+    <https://questfoundry.liesdonk.nl/schemas/>
   - Useful prompt: "Pre‑gate manuscript; list smallest fixes per bar; don't leak spoilers."
 - Book Binder (BB)
   - Bind views (Markdown/HTML) from Cold manifest, summarize anchors, return export artifacts.
   - **All inputs MUST come from `cold/manifest.json`** (no directory scanning/heuristics). Validates
-    against schemas at https://questfoundry.liesdonk.nl/schemas/
+    against schemas at <https://questfoundry.liesdonk.nl/schemas/>
   - Useful prompt: "Bind to Markdown for PN; include anchor_map summary; return paths."
 - Player‑Narrator (PN)
   - Perform in‑world; enforce gateways diegetically; report issues.

@@ -89,6 +89,39 @@ Checklist
 - Define enforceable, diegetic gateway conditions; avoid spoilers.
 - Record return-with-difference and concrete path proofs.
 
+## Loop Participation
+
+This role participates in the following loops. For detailed procedures, see loop playbooks in
+`../loops/`:
+
+### Primary Loops (Responsible)
+
+- **Story Spark** (R) - Sketch and adjust topology; mark gateway conditions; generate narrative
+  hooks
+  - Playbook: `../loops/story_spark.playbook.md`
+  - Example: `../loops/examples/story_spark_flow.json`
+
+### Secondary Loops (Consulted)
+
+- **Hook Harvest** (C) - Triage and clustering; judge structural impact
+  - Playbook: `../loops/hook_harvest.playbook.md`
+- **Lore Deepening** (C) - Sanity-check topology implications; request and accept constraints
+  - Playbook: `../loops/lore_deepening.playbook.md`
+- **Style Tune-up** (C) - Ensure choice contrast aligns with cadence
+  - Playbook: `../loops/style_tune_up.playbook.md`
+- **Codex Expansion** (C) - Identify taxonomy and clarity gaps created by new structure
+  - Playbook: `../loops/codex_expansion.playbook.md`
+
+**Note:** Loop playbooks contain complete procedures with message sequences, RACI matrices,
+deliverables, and success criteria. This prompt provides role-specific expertise and decision-making
+guidance.
+
+**When to use loop playbooks vs this prompt:**
+
+- **Multi-role orchestration**: Showrunner loads loop playbook, this role responds to intents
+- **Standalone work**: Use this full prompt for comprehensive guidance
+- **Learning/documentation**: Read both - playbooks for workflow, this prompt for expertise
+
 Acceptance (for this prompt)
 
 - Clear pattern language for hubs/loops/gateways.
