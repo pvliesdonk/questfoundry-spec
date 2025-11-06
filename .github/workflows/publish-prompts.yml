@@ -1,0 +1,466 @@
+name: Publish Prompts
+
+# Trigger on prompts version tags (e.g., prompts-v0.1.0)
+on:
+  push:
+    tags:
+      - 'prompts-v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install UV
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd spec-tools
+          uv sync
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          # Extract version from tag (prompts-v0.1.0 -> 0.1.0)
+          VERSION=${GITHUB_REF#refs/tags/prompts-v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "Prompts version: $VERSION"
+
+      - name: Verify version matches PROMPTS_VERSION.txt
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          FILE_VERSION=$(cat 05-prompts/PROMPTS_VERSION.txt | tr -d '[:space:]')
+          if [ "$VERSION" != "$FILE_VERSION" ]; then
+            echo "❌ Version mismatch!"
+            echo "Tag version: $VERSION"
+            echo "File version: $FILE_VERSION"
+            exit 1
+          fi
+          echo "✅ Version verified: $VERSION"
+
+      - name: Build all upload kits
+        run: |
+          python spec-tools/src/questfoundry_spec_tools/upload_kits.py
+          echo "✅ Kits built successfully"
+          ls -lh dist/upload_kits/*.zip
+
+      - name: Create prompts bundle
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          BUNDLE_NAME="questfoundry-prompts-v${VERSION}"
+
+          # Create bundle directory
+          mkdir -p "${BUNDLE_NAME}/kits"
+
+          # Copy all built kits
+          cp dist/upload_kits/*.zip "${BUNDLE_NAME}/kits/"
+
+          # Create README for bundle
+          cat > "${BUNDLE_NAME}/README.md" << 'EOF'
+          # QuestFoundry Prompts v$VERSION
+
+          Layer 5 system prompts for QuestFoundry AI roles, optimized for ChatGPT, Claude, and Gemini.
+
+          ## Contents
+
+          This bundle contains **14 upload kits** organized by usage mode and platform:
+
+          ### Orchestration Mode ⭐ **RECOMMENDED for Production**
+
+          **Complete Environment:**
+          - `orchestration-complete.zip` (36 files) - All loop playbooks + role adapters + showrunner modules
+
+          **Gemini Splits (10-file limit):**
+          - `gemini-orchestration-1-foundation.zip` (9 files) - Shared + showrunner + SR adapter
+          - `gemini-orchestration-2-playbooks.zip` (10 files) - Core loop playbooks
+          - `gemini-orchestration-3-playbooks-extra.zip` (3 files) - Additional loops
+          - `gemini-orchestration-4-adapters-core.zip` (10 files) - Core role adapters
+          - `gemini-orchestration-5-adapters-extra.zip` (4 files) - Optional role adapters
+
+          **Benefits:**
+          - 70% context reduction vs. standalone mode
+          - Single-source-of-truth loop procedures
+          - Role interchangeability
+          - Clear RACI matrix coordination
+
+          ### Standalone Mode (Traditional)
+
+          **Core Kits:**
+          - `minimal-standalone.zip` (10 files) - Quick start with core roles
+          - `optional-standalone.zip` (9 files) - Additional roles (PN, LW, CC, etc.)
+          - `full-standalone.zip` (23 files) - All role prompts + showrunner modules
+
+          **Gemini Splits (10-file limit):**
+          - `gemini-minimal-standalone.zip` (10 files) - Same as minimal
+          - `gemini-optional-standalone.zip` (9 files) - Same as optional
+          - `gemini-full-standalone-1.zip` (10 files) - Shared + showrunner + 1 role
+          - `gemini-full-standalone-2.zip` (10 files) - 10 role prompts
+          - `gemini-full-standalone-3.zip` (3 files) - 3 role prompts
+
+          **Best for:** Learning, single-role tasks, human-led exploration
+
+          ## Quick Start
+
+          ### ChatGPT / Claude
+
+          **Production workflow (orchestration):**
+          ```bash
+          # Download and extract
+          wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v$VERSION/orchestration-complete.zip
+
+          # Upload to ChatGPT/Claude and prompt:
+          "Load the Story Spark playbook from loops/ and execute it for a 3-scene mystery."
+          ```
+
+          **Learning (standalone):**
+          ```bash
+          # Download minimal kit
+          wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v$VERSION/minimal-standalone.zip
+
+          # Upload and prompt:
+          "You are Showrunner. Open a TU for a 3-5 scene manuscript."
+          ```
+
+          ### Gemini
+
+          **Production workflow (orchestration):**
+          ```bash
+          # Download all 5 orchestration splits
+          wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v$VERSION/gemini-orchestration-{1..5}-*.zip
+
+          # Upload in sequence: foundation → playbooks → adapters
+          # Then prompt: "Load Story Spark playbook and execute it."
+          ```
+
+          ## Platform Guidelines
+
+          - **ChatGPT:** Upload `orchestration-complete.zip` (single upload, 36 files)
+          - **Claude:** Upload `orchestration-complete.zip` or individual files (preferred for grounding)
+          - **Gemini:** Upload `gemini-orchestration-1` through `-5` in sequence (respects 10-file limit)
+
+          ## Architecture
+
+          Layer 5 uses a **loop-focused architecture** (commit 428140c) with two modes:
+
+          ### Orchestration Mode (AI-Coordinated)
+          - Showrunner loads loop playbook + role adapters
+          - Complete procedure in single playbook (single-source-of-truth)
+          - Efficient context usage (adapters: 50-100 lines vs full prompts: 200-300 lines)
+          - **Recommended for production workflows**
+
+          ### Standalone Mode (Human-Led)
+          - Full role prompts with domain expertise
+          - Human coordinates workflow via prompts
+          - **Recommended for learning and exploration**
+
+          ## Contents Detail
+
+          **15 AI Roles:**
+          - Core: Showrunner, Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder
+          - Expansion: Lore Weaver, Codex Curator, Player Narrator, Researcher
+          - Production: Art Director, Illustrator, Audio Director, Audio Producer, Translator
+
+          **13 Loop Playbooks:**
+          - Story development: Hook Harvest, Story Spark, Lore Deepening
+          - Quality: Gatecheck, Style Tune-up, Post-Mortem
+          - Production: Binding Run, Narration Dry-Run, Archive Snapshot
+          - Content: Codex Expansion, Art Touch-up, Audio Pass, Translation Pass
+
+          **4 Shared Patterns:**
+          - Context Management, Safety Protocol, Escalation Rules, Human Interaction
+
+          **5 Showrunner Modules:**
+          - system_prompt, loop_orchestration, manifest_management, initialization, protocol_handlers
+
+          ## Usage
+
+          ### Access Prompts Directly
+
+          **GitHub Raw URLs (always available):**
+
+          ```
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/main/05-prompts/showrunner/system_prompt.md
+          ```
+
+          **Pin to specific version:**
+
+          ```
+          https://raw.githubusercontent.com/pvliesdonk/questfoundry-spec/prompts-v$VERSION/05-prompts/showrunner/system_prompt.md
+          ```
+
+          ### Build Kits Locally
+
+          ```bash
+          # Clone repository
+          git clone https://github.com/pvliesdonk/questfoundry-spec.git
+          cd questfoundry-spec
+
+          # Build all kits
+          uv run qfspec-build-kits
+
+          # Output: dist/upload_kits/*.zip
+          ```
+
+          ## Documentation
+
+          - **Full Specification:** https://github.com/pvliesdonk/questfoundry-spec
+          - **Usage Guide:** https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/USAGE_GUIDE.md
+          - **Upload Kits Guide:** https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/upload_kits/README.md
+          - **Loop Playbooks:** https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts/loops
+
+          ## Version
+
+          **Prompts Version:** $VERSION
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Tag:** prompts-v$VERSION
+
+          **Compatible with:**
+          - schemas-v0.2.0 (Layer 3)
+          - protocol-v0.2.1 (Layer 4)
+
+          ## Design Principles
+
+          - **Loop-focused architecture** - Single-source-of-truth procedures
+          - **Dual-format strategy** - Full prompts for standalone, adapters for orchestration
+          - **Protocol-compliant** - Follows Layer 4 envelope v0.2.1
+          - **Player-safety enforced** - PN boundaries protected
+          - **Platform-optimized** - Kits for ChatGPT, Claude, Gemini constraints
+
+          ## License
+
+          See [LICENSE](https://github.com/pvliesdonk/questfoundry-spec/blob/main/LICENSE) in the main repository.
+          EOF
+
+          # Replace $VERSION in README
+          sed -i "s/\$VERSION/${VERSION}/g" "${BUNDLE_NAME}/README.md"
+
+          # Add version file
+          echo "$VERSION" > "${BUNDLE_NAME}/VERSION.txt"
+
+          # Copy changelog if exists
+          if [ -f "05-prompts/CHANGELOG.md" ]; then
+            cp 05-prompts/CHANGELOG.md "${BUNDLE_NAME}/"
+          fi
+
+          # Copy usage guide
+          if [ -f "05-prompts/USAGE_GUIDE.md" ]; then
+            cp 05-prompts/USAGE_GUIDE.md "${BUNDLE_NAME}/"
+          fi
+
+          # Copy upload kits README
+          if [ -f "05-prompts/upload_kits/README.md" ]; then
+            cp 05-prompts/upload_kits/README.md "${BUNDLE_NAME}/UPLOAD_KITS_README.md"
+          fi
+
+          # Create master bundle zip
+          zip -r "${BUNDLE_NAME}.zip" "${BUNDLE_NAME}/"
+
+          # Create checksum
+          sha256sum "${BUNDLE_NAME}.zip" > "${BUNDLE_NAME}.zip.sha256"
+
+          echo "✅ Bundle created: ${BUNDLE_NAME}.zip"
+          ls -lh "${BUNDLE_NAME}.zip"
+          echo ""
+          echo "📦 Contents:"
+          unzip -l "${BUNDLE_NAME}.zip" | head -50
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          REPO="pvliesdonk/questfoundry-spec"
+
+          cat > release_notes.md << 'EOF'
+          # QuestFoundry Prompts v$VERSION
+
+          Complete Layer 5 system prompts for AI-coordinated manuscript production.
+
+          ## 📦 What's Included
+
+          - **14 Upload Kits** for ChatGPT, Claude, and Gemini
+          - **15 AI Roles** with full prompts + role adapters
+          - **13 Loop Playbooks** for canonical workflows
+          - **5 Showrunner Modules** for orchestration
+          - **Complete Documentation** and usage guides
+
+          ## ⭐ Recommended: Orchestration Mode
+
+          **Download:** `orchestration-complete.zip` (36 files)
+
+          **Benefits:**
+          - 70% context reduction vs. standalone mode
+          - Single-source-of-truth loop procedures
+          - Clear RACI matrix coordination
+          - Role interchangeability
+
+          **Quick Start:**
+
+          ```bash
+          # Download kit
+          wget https://github.com/$REPO/releases/download/prompts-v$VERSION/orchestration-complete.zip
+
+          # Upload to ChatGPT/Claude and prompt:
+          "Load the Story Spark playbook from loops/ and execute it for a 3-scene mystery."
+          ```
+
+          ## 🔗 Access Methods
+
+          ### 1. Download Individual Kits
+
+          All 14 kits available as separate downloads below (organized by mode and platform).
+
+          ### 2. Download Complete Bundle
+
+          Download `questfoundry-prompts-v$VERSION.zip` for all kits + documentation in one archive.
+
+          ### 3. Raw GitHub URLs (Direct Access)
+
+          Access individual prompts directly:
+
+          ```bash
+          # Latest (main branch)
+          curl https://raw.githubusercontent.com/$REPO/main/05-prompts/showrunner/system_prompt.md
+
+          # This version (pinned)
+          curl https://raw.githubusercontent.com/$REPO/prompts-v$VERSION/05-prompts/showrunner/system_prompt.md
+          ```
+
+          ## 📋 Changelog
+
+          EOF
+
+          # Replace $VERSION and $REPO in release notes
+          sed -i "s/\$VERSION/${VERSION}/g" release_notes.md
+          sed -i "s|\$REPO|${REPO}|g" release_notes.md
+
+          # Add changelog content
+          if [ -f "05-prompts/CHANGELOG.md" ]; then
+            awk '/^## \[/{if(p)exit;p=1}p' 05-prompts/CHANGELOG.md >> release_notes.md
+          else
+            echo "Initial prompts release with loop-focused architecture." >> release_notes.md
+          fi
+
+          cat >> release_notes.md << 'EOF'
+
+          ## 🎯 Upload Kits Overview
+
+          ### Orchestration Mode ⭐ (Recommended)
+
+          **ChatGPT / Claude:**
+          - `orchestration-complete.zip` (36 files) - One-upload complete environment
+
+          **Gemini (10-file limit):**
+          - `gemini-orchestration-1-foundation.zip` (9 files)
+          - `gemini-orchestration-2-playbooks.zip` (10 files)
+          - `gemini-orchestration-3-playbooks-extra.zip` (3 files)
+          - `gemini-orchestration-4-adapters-core.zip` (10 files)
+          - `gemini-orchestration-5-adapters-extra.zip` (4 files)
+
+          ### Standalone Mode (Traditional)
+
+          **ChatGPT / Claude:**
+          - `minimal-standalone.zip` (10 files) - Quick start
+          - `optional-standalone.zip` (9 files) - Additional roles
+          - `full-standalone.zip` (23 files) - Complete standalone
+
+          **Gemini (10-file limit):**
+          - `gemini-minimal-standalone.zip` (10 files)
+          - `gemini-optional-standalone.zip` (9 files)
+          - `gemini-full-standalone-1/2/3.zip` (3 zips, 23 files total)
+
+          ## 🔄 Version Alignment
+
+          **Prompts Version:** v$VERSION
+          **Compatible with:**
+          - schemas-v0.2.0 (Layer 3)
+          - protocol-v0.2.1 (Layer 4)
+
+          ## 📖 Documentation
+
+          - **Full Specification:** https://github.com/$REPO
+          - **Usage Guide:** https://github.com/$REPO/blob/main/05-prompts/USAGE_GUIDE.md
+          - **Upload Kits Guide:** https://github.com/$REPO/blob/main/05-prompts/upload_kits/README.md
+          - **Loop Playbooks:** https://github.com/$REPO/tree/main/05-prompts/loops
+
+          ## ✅ SHA-256 Checksums
+
+          See asset files with `.sha256` extension for verification.
+
+          ---
+
+          **Prompts Version:** v$VERSION
+          **Release Date:** $(date +%Y-%m-%d)
+          **Git Commit:** ${GITHUB_SHA:0:7}
+          EOF
+
+          # Replace $VERSION and $REPO again in second part
+          sed -i "s/\$VERSION/${VERSION}/g" release_notes.md
+          sed -i "s|\$REPO|${REPO}|g" release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Prompts v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          files: |
+            questfoundry-prompts-v${{ steps.version.outputs.version }}.zip
+            questfoundry-prompts-v${{ steps.version.outputs.version }}.zip.sha256
+            dist/upload_kits/orchestration-complete.zip
+            dist/upload_kits/minimal-standalone.zip
+            dist/upload_kits/optional-standalone.zip
+            dist/upload_kits/full-standalone.zip
+            dist/upload_kits/gemini-orchestration-1-foundation.zip
+            dist/upload_kits/gemini-orchestration-2-playbooks.zip
+            dist/upload_kits/gemini-orchestration-3-playbooks-extra.zip
+            dist/upload_kits/gemini-orchestration-4-adapters-core.zip
+            dist/upload_kits/gemini-orchestration-5-adapters-extra.zip
+            dist/upload_kits/gemini-minimal-standalone.zip
+            dist/upload_kits/gemini-optional-standalone.zip
+            dist/upload_kits/gemini-full-standalone-1.zip
+            dist/upload_kits/gemini-full-standalone-2.zip
+            dist/upload_kits/gemini-full-standalone-3.zip
+          draft: false
+          prerelease: false
+          tag_name: ${{ steps.version.outputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          echo "## 🎉 Prompts Release Published!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** prompts-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Assets Created" >> $GITHUB_STEP_SUMMARY
+          echo "- \`questfoundry-prompts-v${VERSION}.zip\` (complete bundle)" >> $GITHUB_STEP_SUMMARY
+          echo "- 14 individual upload kits" >> $GITHUB_STEP_SUMMARY
+          echo "- SHA-256 checksums for verification" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### ⭐ Recommended Kit" >> $GITHUB_STEP_SUMMARY
+          echo "- **\`orchestration-complete.zip\`** (36 files) - Production workflows" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Access URLs" >> $GITHUB_STEP_SUMMARY
+          echo "- **GitHub Release:** https://github.com/${{ github.repository }}/releases/tag/prompts-v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Raw GitHub:** https://raw.githubusercontent.com/${{ github.repository }}/main/05-prompts/" >> $GITHUB_STEP_SUMMARY
+          echo "- **Pinned Version:** https://raw.githubusercontent.com/${{ github.repository }}/prompts-v${VERSION}/05-prompts/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📝 Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Test \`orchestration-complete.zip\` download and extraction" >> $GITHUB_STEP_SUMMARY
+          echo "2. Verify loop playbook execution in ChatGPT/Claude/Gemini" >> $GITHUB_STEP_SUMMARY
+          echo "3. Update main README with prompts release link" >> $GITHUB_STEP_SUMMARY
+          echo "4. Announce release in discussions" >> $GITHUB_STEP_SUMMARY
