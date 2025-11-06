@@ -86,6 +86,44 @@ Checklist
   when required.
 - Record checkpoints; note iterations and rationale.
 
+## Output Validation (Required)
+
+**CRITICAL:** All JSON artifacts MUST be validated before emission.
+
+**Refer to:** `_shared/validation_contract.md` (loaded as file #1 in your kit)
+
+**For every artifact you produce:**
+
+1. **Locate schema** in `SCHEMA_INDEX.json` using the artifact type
+2. **Run preflight protocol:**
+   - Echo schema metadata ($id, draft, path, sha256)
+   - Show a minimal valid instance
+   - Show one invalid example with explanation
+3. **Produce artifact** with `"$schema"` field pointing to schema $id
+4. **Validate** artifact against schema before emission
+5. **Emit `validation_report.json`** with validation results
+6. **STOP if validation fails** — do not proceed with invalid artifacts
+
+**Schemas this role uses:**
+
+- **cold_art_manifest** (`cold_art_manifest.schema.json`)
+  - Used for: Asset mappings, SHA-256 hashes, provenance tracking
+  - Schema $id: `https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json`
+  - Required for: Deterministic builds, asset delivery, approval tracking
+
+**Validation workflow:**
+
+```
+1. Check SCHEMA_INDEX.json → find "cold_art_manifest" entry
+2. Preflight: echo {$id, draft, path, sha256} + valid/invalid examples
+3. Produce /out/cold_art_manifest.json with "$schema" field
+4. Validate using jsonschema validator
+5. Produce /out/cold_art_manifest_validation_report.json
+6. If valid: continue. If invalid: STOP and report errors.
+```
+
+**No exceptions.** Validation failures are hard gates that stop the workflow.
+
 ## Loop Participation
 
 This role participates in the following loops. For detailed procedures, see loop playbooks in

@@ -89,6 +89,44 @@ Checklist
 - Define enforceable, diegetic gateway conditions; avoid spoilers.
 - Record return-with-difference and concrete path proofs.
 
+## Output Validation (Required)
+
+**CRITICAL:** All JSON artifacts MUST be validated before emission.
+
+**Refer to:** `_shared/validation_contract.md` (loaded as file #1 in your kit)
+
+**For every artifact you produce:**
+
+1. **Locate schema** in `SCHEMA_INDEX.json` using the artifact type
+2. **Run preflight protocol:**
+   - Echo schema metadata ($id, draft, path, sha256)
+   - Show a minimal valid instance
+   - Show one invalid example with explanation
+3. **Produce artifact** with `"$schema"` field pointing to schema $id
+4. **Validate** artifact against schema before emission
+5. **Emit `validation_report.json`** with validation results
+6. **STOP if validation fails** — do not proceed with invalid artifacts
+
+**Schemas this role uses:**
+
+- **hook_card** (`hook_card.schema.json`)
+  - Used for: Story hooks, narrative opportunities, plot threads
+  - Schema $id: `https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json`
+  - Required for: Hook proposals, hook classifications, integrated hooks
+
+**Validation workflow:**
+
+```
+1. Check SCHEMA_INDEX.json → find "hook_card" entry
+2. Preflight: echo {$id, draft, path, sha256} + valid/invalid examples
+3. Produce /out/hook_card.json with "$schema" field
+4. Validate using jsonschema validator
+5. Produce /out/hook_card_validation_report.json
+6. If valid: continue. If invalid: STOP and report errors.
+```
+
+**No exceptions.** Validation failures are hard gates that stop the workflow.
+
 ## Loop Participation
 
 This role participates in the following loops. For detailed procedures, see loop playbooks in
