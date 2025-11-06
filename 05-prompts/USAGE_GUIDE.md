@@ -177,11 +177,172 @@ Showrunner: if all bars are green, close the TU. Summarize outcomes, link artifa
 remaining debt if any.
 ```
 
+## Schema Validation Workflow
+
+**IMPORTANT:** Starting with prompts v0.2.0, schema validation is **mandatory** for all artifacts.
+
+### Why Validation Matters
+
+- **Quality Assurance:** Catches structural errors before they cascade
+- **Protocol Compliance:** Ensures artifacts follow Layer 3 specifications
+- **Tool Compatibility:** Guarantees downstream tools can process artifacts
+- **Traceability:** Provides validation evidence for every artifact
+
+### How Validation Works
+
+**Upload kits v0.2.0+ include:**
+1. `validation_contract.md` (file #1) - Non-negotiable validation requirements
+2. `SCHEMA_INDEX.json` (file #2) - Schema discovery with $id, paths, SHA-256 hashes
+3. Shared patterns and role prompts with validation checkpoints
+4. Loop playbooks with validation gates
+
+**Agent workflow:**
+1. **Preflight:** Agent reads schema from SCHEMA_INDEX.json, echoes back metadata
+2. **Production:** Agent produces artifact with `"$schema"` field
+3. **Validation:** Agent validates artifact against canonical schema
+4. **Evidence:** Agent produces `validation_report.json` alongside artifact
+5. **Gate:** If validation fails, agent STOPS and reports errors (hard gate)
+
+### Validation Contract (v0.2.0+)
+
+When you upload kits v0.2.0+, the validation contract is loaded FIRST (file #1). It requires:
+
+**For every JSON artifact:**
+- `"$schema"` field pointing to canonical schema $id
+- Validation against schema before emission
+- `validation_report.json` with validation evidence
+- STOP and report errors if validation fails
+
+**Example validation_report.json:**
+
+```json
+{
+  "artifact": "hook_card.json",
+  "schema": {
+    "$id": "https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json",
+    "draft": "2020-12",
+    "sha256": "a1b2c3..."
+  },
+  "validator": "jsonschema 4.17.3",
+  "timestamp": "2025-11-06T12:00:00Z",
+  "valid": true,
+  "errors": []
+}
+```
+
+### Prompting for Validation
+
+**Without validation enforcement (pre-v0.2.0):**
+```
+Plotwright: Draft a Hook Card for "mysterious letter clue"
+```
+
+**With validation enforcement (v0.2.0+):**
+```
+Plotwright: Draft a Hook Card for "mysterious letter clue"
+
+Validation requirements:
+1. Look up hook_card schema in SCHEMA_INDEX.json
+2. Echo schema metadata ($id, draft, sha256)
+3. Show minimal valid instance
+4. Produce artifact with "$schema" field
+5. Validate and produce validation_report.json
+6. If validation fails: STOP and show errors
+```
+
+**Or rely on upload kit (recommended):**
+
+Since v0.2.0 kits include `validation_contract.md` as file #1, agents automatically follow validation protocol. You can simply:
+
+```
+Plotwright: Draft a Hook Card for "mysterious letter clue"
+```
+
+Agent will automatically:
+- Look up schema
+- Run preflight
+- Validate before returning
+- Produce validation report
+- Stop if validation fails
+
+### File Ordering Importance
+
+**Kits v0.2.0+ load files in this order:**
+
+1. `validation_contract.md` ← Rules loaded FIRST
+2. `SCHEMA_INDEX.json` ← Discovery mechanism
+3. Shared patterns ← Cross-role standards
+4. Role-specific content ← Builds on foundation
+
+**Why this matters:** LLMs read uploaded files in order. Loading validation contract FIRST ensures agents see validation requirements BEFORE producing any outputs.
+
+### Checking Validation Evidence
+
+**After agent produces artifact, verify:**
+
+```
+Showrunner: Show me the validation report for the Hook Card
+```
+
+Agent should provide `hook_card_validation_report.json` showing:
+- `"valid": true` (passed validation)
+- Empty `"errors": []` array
+- Schema $id used
+- Timestamp
+
+**If validation failed:**
+- `"valid": false`
+- `"errors"` array with specific violations
+- Agent should have STOPPED before continuing loop
+
+### Gatekeeper Role Enhanced
+
+Gatekeeper now checks for validation evidence as **Quality Bar 8**:
+
+**Prompt:**
+```
+Gatekeeper: Run pre-gate on the TU. Include schema validation check.
+
+For each artifact:
+1. Verify "$schema" field present
+2. Verify validation_report.json exists
+3. Verify "valid": true
+4. Report any validation failures
+
+GATE RULE: REJECT TU if any artifact lacks validation evidence or failed validation.
+```
+
+### Migrating to v0.2.0 Validation
+
+**If using pre-v0.2.0 kits:**
+1. Download kits v0.2.0+ from releases
+2. Re-upload to ChatGPT/Claude/Gemini
+3. Validation is now automatic (no prompt changes needed)
+
+**If validation is missing:**
+- Check kit version (should include `validation_contract.md`)
+- Verify agent echoes schema during preflight
+- Verify `validation_report.json` produced with artifacts
+- If agent skips validation: upload v0.2.0 kit (has validation as file #1)
+
+### Schema Canonical URLs
+
+All schemas available at:
+```
+https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json
+```
+
+Agents fetch schemas from canonical URLs using SCHEMA_INDEX.json for discovery.
+
+**No need to upload schemas separately** - they're referenced by URL.
+
+---
+
 ## Role Cheat Sheets (What To Ask)
 
 - Showrunner (SR)
   - Open TU, wake/dormant roles, plan loops, run checkpoints.
-  - Useful prompt: “Open TU, propose plan, and wake PW/SS/ST for a 3–5 scene manuscript.”
+  - Useful prompt: "Open TU, propose plan, and wake PW/SS/ST for a 3–5 scene manuscript."
 - Plotwright (PW)
   - Propose outline, hubs/gateways, and nonlinearity constraints.
   - Useful prompt: “Draft a compact outline (3–5 scenes), note any gateways and consequences.”
