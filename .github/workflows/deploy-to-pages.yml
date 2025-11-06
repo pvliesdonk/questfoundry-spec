@@ -37,13 +37,115 @@ jobs:
           # The docs/ directory already contains the website
           # We just need to update the schemas and protocol subdirectories
 
-          # Update schemas (preserve existing docs/schemas/ structure)
+          # Update schemas
           echo "Updating schemas..."
           mkdir -p docs/schemas
           cp 03-schemas/*.json docs/schemas/
           echo "✅ Schemas updated in docs/schemas/"
 
-          # Create/update protocol directory
+          # Update docs/schemas/index.html with current schemas
+          # Preserve the existing style, update the content
+          cat > docs/schemas/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>QuestFoundry Schemas</title>
+            <style>
+              body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 20px;
+                line-height: 1.6;
+              }
+              h1 { color: #333; margin-bottom: 10px; }
+              .subtitle { color: #666; margin-bottom: 30px; }
+              ul { list-style: none; padding: 0; }
+              li {
+                margin: 8px 0;
+                padding: 12px;
+                background: #f8f9fa;
+                border-radius: 4px;
+              }
+              a {
+                color: #667eea;
+                text-decoration: none;
+                font-family: 'Courier New', monospace;
+                font-size: 0.95em;
+              }
+              a:hover { text-decoration: underline; }
+              .desc {
+                color: #666;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.9em;
+                margin-left: 8px;
+              }
+              .back { margin-top: 30px; }
+            </style>
+          </head>
+          <body>
+            <h1>QuestFoundry Schemas</h1>
+            <p class="subtitle">JSON Schema Draft 2020-12 definitions for QuestFoundry artifacts</p>
+
+            <h2>Core Artifacts (4)</h2>
+            <ul>
+              <li><a href="hook_card.schema.json">hook_card.schema.json</a> <span class="desc">Hook tracking and routing</span></li>
+              <li><a href="tu_brief.schema.json">tu_brief.schema.json</a> <span class="desc">Trace Unit (work unit) tracking</span></li>
+              <li><a href="canon_pack.schema.json">canon_pack.schema.json</a> <span class="desc">Canonical story facts</span></li>
+              <li><a href="gatecheck_report.schema.json">gatecheck_report.schema.json</a> <span class="desc">Quality validation reports</span></li>
+            </ul>
+
+            <h2>Content Artifacts (6)</h2>
+            <ul>
+              <li><a href="codex_entry.schema.json">codex_entry.schema.json</a> <span class="desc">Player-facing encyclopedia entries</span></li>
+              <li><a href="style_manifest.schema.json">style_manifest.schema.json</a> <span class="desc">Comprehensive style guide</span></li>
+              <li><a href="style_addendum.schema.json">style_addendum.schema.json</a> <span class="desc">Style and voice guidelines</span></li>
+              <li><a href="register_map.schema.json">register_map.schema.json</a> <span class="desc">Language register specifications</span></li>
+              <li><a href="edit_notes.schema.json">edit_notes.schema.json</a> <span class="desc">Editorial feedback and revisions</span></li>
+              <li><a href="research_memo.schema.json">research_memo.schema.json</a> <span class="desc">Factual research documentation</span></li>
+            </ul>
+
+            <h2>Asset Artifacts (5)</h2>
+            <ul>
+              <li><a href="art_plan.schema.json">art_plan.schema.json</a> <span class="desc">Illustration planning</span></li>
+              <li><a href="art_manifest.schema.json">art_manifest.schema.json</a> <span class="desc">Complete art asset inventory</span></li>
+              <li><a href="shotlist.schema.json">shotlist.schema.json</a> <span class="desc">Individual illustration specifications</span></li>
+              <li><a href="audio_plan.schema.json">audio_plan.schema.json</a> <span class="desc">Audio production planning</span></li>
+              <li><a href="cuelist.schema.json">cuelist.schema.json</a> <span class="desc">Audio cue specifications</span></li>
+            </ul>
+
+            <h2>Export & Project (5)</h2>
+            <ul>
+              <li><a href="view_log.schema.json">view_log.schema.json</a> <span class="desc">Export metadata and traceability</span></li>
+              <li><a href="front_matter.schema.json">front_matter.schema.json</a> <span class="desc">Book front matter</span></li>
+              <li><a href="language_pack.schema.json">language_pack.schema.json</a> <span class="desc">Localization translations</span></li>
+              <li><a href="pn_playtest_notes.schema.json">pn_playtest_notes.schema.json</a> <span class="desc">Player-Narrator playtest feedback</span></li>
+              <li><a href="project_metadata.schema.json">project_metadata.schema.json</a> <span class="desc">Project configuration</span></li>
+            </ul>
+
+            <h2>Cold Source of Truth (5)</h2>
+            <ul>
+              <li><a href="cold_manifest.schema.json">cold_manifest.schema.json</a> <span class="desc">Top-level Cold SoT index with SHA-256 hashes</span></li>
+              <li><a href="cold_book.schema.json">cold_book.schema.json</a> <span class="desc">Story structure and bibliographic metadata</span></li>
+              <li><a href="cold_art_manifest.schema.json">cold_art_manifest.schema.json</a> <span class="desc">Asset mappings with provenance</span></li>
+              <li><a href="cold_fonts.schema.json">cold_fonts.schema.json</a> <span class="desc">Font file mappings</span></li>
+              <li><a href="cold_build_lock.schema.json">cold_build_lock.schema.json</a> <span class="desc">Tool version pinning</span></li>
+            </ul>
+
+            <h2>Hot Discovery Space (1)</h2>
+            <ul>
+              <li><a href="hot_manifest.schema.json">hot_manifest.schema.json</a> <span class="desc">Master index for Hot discovery space</span></li>
+            </ul>
+
+            <p class="back"><a href="/">← Back to main page</a></p>
+          </body>
+          </html>
+          EOF
+          echo "✅ Updated docs/schemas/index.html with all schemas"
+
+          # Update protocol
           echo "Updating protocol..."
           mkdir -p docs/protocol
           cp 04-protocol/ENVELOPE.md docs/protocol/
@@ -55,9 +157,8 @@ jobs:
           cp -r 04-protocol/EXAMPLES docs/protocol/
           echo "✅ Protocol updated in docs/protocol/"
 
-          # Create protocol index if it doesn't exist
-          if [ ! -f "docs/protocol/index.html" ]; then
-            cat > docs/protocol/index.html << 'EOF'
+          # Update docs/protocol/index.html
+          cat > docs/protocol/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
           <head>
@@ -65,56 +166,79 @@ jobs:
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>QuestFoundry Protocol</title>
             <style>
-              body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-              h1 { color: #2c3e50; }
-              h2 { color: #34495e; margin-top: 30px; }
+              body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 20px;
+                line-height: 1.6;
+              }
+              h1 { color: #333; margin-bottom: 10px; }
+              .subtitle { color: #666; margin-bottom: 30px; }
+              h2 { color: #555; margin-top: 30px; }
               ul { list-style: none; padding: 0; }
-              li { margin: 8px 0; }
-              a { color: #2196F3; text-decoration: none; }
+              li {
+                margin: 8px 0;
+                padding: 12px;
+                background: #f8f9fa;
+                border-radius: 4px;
+              }
+              a {
+                color: #667eea;
+                text-decoration: none;
+                font-family: 'Courier New', monospace;
+                font-size: 0.95em;
+              }
               a:hover { text-decoration: underline; }
+              .desc {
+                color: #666;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 0.9em;
+                margin-left: 8px;
+              }
+              .back { margin-top: 30px; }
             </style>
           </head>
           <body>
             <h1>QuestFoundry Protocol v0.2.1</h1>
-            <p>Layer 4 protocol specifications for role-based collaboration.</p>
+            <p class="subtitle">Layer 4 protocol specifications for role-based collaboration</p>
 
             <h2>Core Specifications</h2>
             <ul>
-              <li><a href="ENVELOPE.md">ENVELOPE.md</a> - Message envelope specification</li>
-              <li><a href="INTENTS.md">INTENTS.md</a> - Complete intent catalog</li>
-              <li><a href="CONFORMANCE.md">CONFORMANCE.md</a> - Conformance requirements</li>
-              <li><a href="envelope.schema.json">envelope.schema.json</a> - Envelope JSON Schema</li>
+              <li><a href="ENVELOPE.md">ENVELOPE.md</a> <span class="desc">Message envelope specification</span></li>
+              <li><a href="INTENTS.md">INTENTS.md</a> <span class="desc">Complete intent catalog</span></li>
+              <li><a href="CONFORMANCE.md">CONFORMANCE.md</a> <span class="desc">Conformance requirements</span></li>
+              <li><a href="envelope.schema.json">envelope.schema.json</a> <span class="desc">Envelope JSON Schema</span></li>
             </ul>
 
             <h2>Lifecycle State Machines</h2>
             <ul>
-              <li><a href="LIFECYCLES/hooks.md">hooks.md</a> - Hook Card lifecycle (7 states)</li>
-              <li><a href="LIFECYCLES/tu.md">tu.md</a> - Trace Unit lifecycle (6 states)</li>
-              <li><a href="LIFECYCLES/gate.md">gate.md</a> - Gatecheck lifecycle (4 states)</li>
-              <li><a href="LIFECYCLES/view.md">view.md</a> - View/Export lifecycle (5 states)</li>
+              <li><a href="LIFECYCLES/hooks.md">hooks.md</a> <span class="desc">Hook Card lifecycle (7 states)</span></li>
+              <li><a href="LIFECYCLES/tu.md">tu.md</a> <span class="desc">Trace Unit lifecycle (6 states)</span></li>
+              <li><a href="LIFECYCLES/gate.md">gate.md</a> <span class="desc">Gatecheck lifecycle (4 states)</span></li>
+              <li><a href="LIFECYCLES/view.md">view.md</a> <span class="desc">View/Export lifecycle (5 states)</span></li>
             </ul>
 
             <h2>Workflow Message Sequences</h2>
             <ul>
-              <li><a href="FLOWS/hook_harvest.md">hook_harvest.md</a> - Hook creation and classification</li>
-              <li><a href="FLOWS/lore_deepening.md">lore_deepening.md</a> - Canon development</li>
-              <li><a href="FLOWS/codex_expansion.md">codex_expansion.md</a> - Player-safe knowledge base</li>
-              <li><a href="FLOWS/gatecheck.md">gatecheck.md</a> - Quality validation and merge</li>
-              <li><a href="FLOWS/binding_run.md">binding_run.md</a> - Export binding</li>
-              <li><a href="FLOWS/narration_dry_run.md">narration_dry_run.md</a> - PN playtesting</li>
+              <li><a href="FLOWS/hook_harvest.md">hook_harvest.md</a> <span class="desc">Hook creation and classification</span></li>
+              <li><a href="FLOWS/lore_deepening.md">lore_deepening.md</a> <span class="desc">Canon development</span></li>
+              <li><a href="FLOWS/codex_expansion.md">codex_expansion.md</a> <span class="desc">Player-safe knowledge base</span></li>
+              <li><a href="FLOWS/gatecheck.md">gatecheck.md</a> <span class="desc">Quality validation and merge</span></li>
+              <li><a href="FLOWS/binding_run.md">binding_run.md</a> <span class="desc">Export binding</span></li>
+              <li><a href="FLOWS/narration_dry_run.md">narration_dry_run.md</a> <span class="desc">PN playtesting</span></li>
             </ul>
 
             <h2>Examples and Validation</h2>
             <ul>
-              <li><a href="EXAMPLES/">EXAMPLES/</a> - Complete example message suite</li>
+              <li><a href="EXAMPLES/">EXAMPLES/</a> <span class="desc">Complete example message suite</span></li>
             </ul>
 
-            <p><a href="/">← Back to main page</a></p>
+            <p class="back"><a href="/">← Back to main page</a></p>
           </body>
           </html>
           EOF
-            echo "✅ Created docs/protocol/index.html"
-          fi
+          echo "✅ Updated docs/protocol/index.html"
 
           echo ""
           echo "📁 Pages deployment structure:"
@@ -122,16 +246,14 @@ jobs:
           echo "├── index.html (main website - preserved)"
           echo "├── architecture.md (preserved)"
           echo "├── CNAME (preserved)"
-          echo "├── schemas/ (updated)"
-          echo "│   └── *.schema.json"
-          echo "└── protocol/ (updated)"
-          echo "    ├── ENVELOPE.md"
-          echo "    ├── INTENTS.md"
-          echo "    ├── CONFORMANCE.md"
+          echo "├── schemas/ (UPDATED)"
+          echo "│   ├── index.html (regenerated with all 26 schemas)"
+          echo "│   └── *.schema.json (26 files)"
+          echo "└── protocol/ (UPDATED)"
+          echo "    ├── index.html (regenerated)"
+          echo "    ├── ENVELOPE.md, INTENTS.md, CONFORMANCE.md"
           echo "    ├── envelope.schema.json"
-          echo "    ├── LIFECYCLES/"
-          echo "    ├── FLOWS/"
-          echo "    └── EXAMPLES/"
+          echo "    ├── LIFECYCLES/, FLOWS/, EXAMPLES/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -157,6 +279,8 @@ jobs:
           echo "- **Protocol:** https://questfoundry.liesdonk.nl/protocol/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📝 What was updated" >> $GITHUB_STEP_SUMMARY
-          echo "- Updated schemas in \`docs/schemas/\`" >> $GITHUB_STEP_SUMMARY
-          echo "- Updated protocol in \`docs/protocol/\`" >> $GITHUB_STEP_SUMMARY
-          echo "- Preserved existing website (index.html, architecture.md, etc.)" >> $GITHUB_STEP_SUMMARY
+          echo "- Updated 26 schemas in \`docs/schemas/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Regenerated \`docs/schemas/index.html\` with all current schemas" >> $GITHUB_STEP_SUMMARY
+          echo "- Updated protocol specifications in \`docs/protocol/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Regenerated \`docs/protocol/index.html\` with current protocol files" >> $GITHUB_STEP_SUMMARY
+          echo "- Preserved main website (index.html, architecture.md, CNAME, etc.)" >> $GITHUB_STEP_SUMMARY
