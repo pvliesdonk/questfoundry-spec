@@ -138,7 +138,7 @@ We’ll draft these one by one to keep quality high.
 
 ---
 
-## Index (will fill as we draft)
+## Index
 
 - `charters/showrunner.md`
 - `charters/gatekeeper.md`
