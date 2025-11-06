@@ -338,17 +338,20 @@
       </div>
 
       <div class="version-box">
-        <h4>🤖 Layer 5: Prompts <span class="version-badge">v0.1.0</span></h4>
-        <p>15 AI roles, 13 loop playbooks, 14 upload kits for ChatGPT/Claude/Gemini.</p>
+        <h4>🤖 Layer 5: Prompts <span class="version-badge">v0.2.0</span></h4>
+        <p>15 AI roles, 13 loop playbooks, 14 upload kits for ChatGPT/Claude/Gemini. <strong>Now with mandatory schema validation enforcement.</strong></p>
         <div class="version-links">
-          <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.1.0" class="button button-version">Download v0.1.0</a>
+          <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.2.0" class="button button-version">Download v0.2.0</a>
           <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts" class="button button-secondary">View Source</a>
           <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/USAGE_GUIDE.md" class="button button-secondary">Usage Guide</a>
         </div>
         <p style="margin-top: 10px; font-size: 0.9em;">
           <strong>Featured kits:</strong>
-          <code>orchestration-complete.zip</code> (36 files, loop-focused),
-          <code>minimal-standalone.zip</code> (10 files, quick start)
+          <code>orchestration-complete.zip</code> (38 files, loop-focused),
+          <code>minimal-standalone.zip</code> (12 files, quick start)
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #d97706;">
+          <strong>⚠️ Breaking Change in v0.2.0:</strong> Schema validation now mandatory for all JSON artifacts. Agents must emit validation_report.json. See <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/CHANGELOG.md" style="color: #d97706; text-decoration: underline;">CHANGELOG</a> for migration notes.
         </p>
       </div>
 
@@ -465,6 +468,7 @@
       <h3>Layer 5: Prompts <span class="layer-status status-complete">✅ Complete</span></h3>
       <p><strong>AI agent implementations</strong> — System prompts for Claude/ChatGPT/Gemini.</p>
       <ul>
+        <li><strong>Schema Validation Enforcement (v0.2.0)</strong> — Mandatory validation contract, SCHEMA_INDEX.json, hard gates at role/loop/gatekeeper levels</li>
         <li><strong>Loop-Focused Architecture</strong> — 13 playbooks as single-source-of-truth procedures</li>
         <li><strong>Dual-Format Strategy</strong> — Full prompts (standalone) + role adapters (orchestration)</li>
         <li><strong>15 AI Roles</strong> — Complete system prompts with domain expertise and loop participation</li>
@@ -474,7 +478,7 @@
       </ul>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/tree/main/05-prompts" class="button button-secondary">Explore Layer 5</a>
       <a href="https://github.com/pvliesdonk/questfoundry-spec/blob/main/05-prompts/USAGE_GUIDE.md" class="button button-secondary">Usage Guide</a>
-      <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.1.0" class="button button-version">Download v0.1.0</a>
+      <a href="https://github.com/pvliesdonk/questfoundry-spec/releases/tag/prompts-v0.2.0" class="button button-version">Download v0.2.0</a>
 
       <h3>Layer 6: Libraries <span class="layer-status status-progress">🚧 In Development</span></h3>
       <p><strong>Python/TypeScript SDKs</strong> — Software libraries for tool builders.</p>
@@ -659,7 +663,7 @@ $ uv run qfspec-build-kits
         <strong>Current Versions:</strong>
         schemas-v0.2.0 |
         protocol-v0.2.1 |
-        prompts-v0.1.0
+        prompts-v0.2.0
       </p>
       <p>Last Updated: 2025-11-06</p>
       <p><a href="https://github.com/pvliesdonk/questfoundry-spec">GitHub</a> | <a href="getting-started.html">Get Started</a> | <a href="faq.html">FAQ</a></p>
