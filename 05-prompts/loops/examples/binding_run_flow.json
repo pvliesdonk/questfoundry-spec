@@ -354,7 +354,7 @@
           "agent": "bot:binder-v2"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "view.export.result",
         "context": {

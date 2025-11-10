@@ -356,7 +356,7 @@ writing, etc.)
   "id": "urn:uuid:ghi789...",
   "time": "2025-10-30T14:10:00Z",
   "sender": { "role": "SR", "agent": "human:alice" },
-  "receiver": { "role": "broadcast" },
+  "receiver": { "role": "*" },
   "intent": "hook.reject",
   "context": {
     "hot_cold": "hot",

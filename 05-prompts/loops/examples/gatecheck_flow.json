@@ -233,7 +233,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "merge.approve",
         "context": {

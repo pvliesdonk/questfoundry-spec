@@ -7,13 +7,10 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 
 ## Quick chooser (use-when → outcome)
 
-| Loop                        | Use when…                                                                      | Outcome                                                                            |
-| --------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| **Story Spark**             | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.                       |
-| **World Genesis**           | You want extensive worldbuilding **before** plot (canon-first approach).       | Canon packs + codex baseline + style anchors + constraint manifest for Plotwright. |
-| **Canon Transfer (Export)** | Project complete; export canon for sequel/shared universe.                     | Canon Transfer Package with invariant/mutable canon + codex + timeline + entities. |
-| **Canon Transfer (Import)** | Starting new project with imported canon from prior project.                   | Seeded Hot/Cold with imported canon; constraint docs for creative roles.           |
-| **Hook Harvest**            | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.          |
+| Loop                  | Use when…                                                                      | Outcome                                                                   |
+| --------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| **Story Spark**       | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.             |
+| **Hook Harvest**      | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops. |
 | **Lore Deepening**          | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.          |
 | **Codex Expansion**         | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                               |
 | **Style Tune-up**           | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                      |
@@ -32,27 +29,6 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 - **Goal**: meaningful nonlinearity (hubs/loops/gateways) with legible choices.
 - **Deliver**: topology delta; briefs; draft prose; hook list; pre-gate notes.
 - **Hand-off**: Hook Harvest → Lore Deepening → Style/Codex as needed.
-
-### World Genesis
-
-- **Goal**: build extensive worldbuilding **before** plot design (canon-first approach).
-- **Deliver**: canon packs (geography, magic, history, factions); codex baseline; style anchors;
-  timeline foundation; constraint manifest.
-- **Hand-off**: Story Spark (Plotwright works within canon constraints).
-
-### Canon Transfer (Export)
-
-- **Goal**: package project canon for export to sequel/shared universe.
-- **Deliver**: Canon Transfer Package (invariant/mutable canon, codex baseline, timeline, entity
-  registry).
-- **Hand-off**: Next project imports package via Canon Transfer (Import).
-
-### Canon Transfer (Import)
-
-- **Goal**: seed new project with imported canon from prior project.
-- **Deliver**: Invariant canon → Cold (immutable); mutable canon → Hot (extensible); constraint docs
-  for creative roles.
-- **Hand-off**: Story Spark (plot within imported canon constraints).
 
 ### Hook Harvest
 
@@ -135,12 +111,6 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 ---
 
 ## Links to full guides
-
-**Canon-Centric (New):**
-
-- `world_genesis.md` — Canon-first worldbuilding before plot
-- `canon_transfer_export.md` — Export canon for sequel/shared universe
-- `canon_transfer_import.md` — Import canon from prior project
 
 **Discovery:**
 

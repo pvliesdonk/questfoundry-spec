@@ -622,7 +622,7 @@ feedback
   "id": "urn:uuid:jkl012...",
   "time": "2025-10-30T20:10:00Z",
   "sender": { "role": "SR", "agent": "human:alice" },
-  "receiver": { "role": "broadcast" },
+  "receiver": { "role": "*" },
   "intent": "merge.approve",
   "context": {
     "hot_cold": "cold", // Now Cold after merge

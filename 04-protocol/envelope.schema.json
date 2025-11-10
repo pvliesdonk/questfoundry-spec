@@ -143,7 +143,7 @@
   "$defs": {
     "role_name": {
       "type": "string",
-      "description": "Role abbreviation from 02-dictionary/role_abbreviations.md (Layer 2)",
+      "description": "Role abbreviation from 02-dictionary/role_abbreviations.md (Layer 2), or '*' for broadcast",
       "enum": [
         "SR",
         "GK",
@@ -160,7 +160,7 @@
         "BB",
         "PN",
         "RS",
-        "broadcast"
+        "*"
       ]
     },
     "loop_name": {
