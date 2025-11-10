@@ -2,7 +2,10 @@
 
 > **Status:** ✅ **NEW ARTIFACT TYPE** (2025-11-10)
 >
-> **Use:** Record of **World Genesis** loop execution: tracks proactively created canon packs (geography, magic, history, factions), codex baseline, style anchors, and constraint manifest for downstream Story Spark. Enables **canon-first workflow** for epic fantasy, deep sci-fi, and rich worldbuilding.
+> **Use:** Record of **World Genesis** loop execution: tracks proactively created canon packs
+> (geography, magic, history, factions), codex baseline, style anchors, and constraint manifest for
+> downstream Story Spark. Enables **canon-first workflow** for epic fantasy, deep sci-fi, and rich
+> worldbuilding.
 
 ---
 
@@ -79,7 +82,8 @@ Themes Covered:
 <!-- Validation: Each canon pack must have: ID, Theme, Status (cold-merged), Summary -->
 <!-- Cross-artifact: Canon Pack IDs must reference actual canon_pack artifacts -->
 
-> **Canon packs generated proactively during World Genesis.** All merged to Cold as immutable baseline.
+> **Canon packs generated proactively during World Genesis.** All merged to Cold as immutable
+> baseline.
 
 ```
 
@@ -119,7 +123,8 @@ Canon Packs:
 <!-- Validation: Must include at least T0 (ancient past) and T2 (story "now"); T1 optional but recommended -->
 <!-- Cross-field: Timeline must be chronologically ordered -->
 
-> **Timeline anchors from World Genesis.** T0 = ancient past, T1 = recent history, T2 = story "now", T3+ available for Story Spark.
+> **Timeline anchors from World Genesis.** T0 = ancient past, T1 = recent history, T2 = story "now",
+> T3+ available for Story Spark.
 
 ```
 
@@ -151,7 +156,8 @@ T3+: Available for Story Events
 <!-- Validation: Must include: Name, Type (character/place/faction/item), Status, Description -->
 <!-- Cross-field: All entity references in canon packs must resolve to this registry -->
 
-> **Complete entity catalog from World Genesis.** Baseline for Story Spark; can be extended but not contradicted.
+> **Complete entity catalog from World Genesis.** Baseline for Story Spark; can be extended but not
+> contradicted.
 
 ```
 
@@ -198,7 +204,8 @@ Name                Function            Availability    Description
 <!-- Validation: Each entry must be spoiler-free, player-safe -->
 <!-- Cross-artifact: Codex Entry IDs must reference actual codex_entry artifacts -->
 
-> **Player-safe encyclopedia baseline.** Created during World Genesis; Story Spark will extend with plot-specific entries.
+> **Player-safe encyclopedia baseline.** Created during World Genesis; Story Spark will extend with
+> plot-specific entries.
 
 ```
 
@@ -239,7 +246,8 @@ Total Codex Entries: <count>
 <!-- Field: Style Anchors | Type: markdown | Required: yes | Voice/register/motifs defined during World Genesis -->
 <!-- Cross-artifact: Style Addendum ID must reference actual style_addendum artifact -->
 
-> **World voice and register.** Defined during World Genesis for Scene Smith to use during Story Spark.
+> **World voice and register.** Defined during World Genesis for Scene Smith to use during Story
+> Spark.
 
 ```
 
@@ -267,7 +275,8 @@ Motifs:
 <!-- Field: Constraint Manifest | Type: markdown-list | Required: yes | Clear rules for Story Spark -->
 <!-- Validation: Must include: Invariants (cannot change), Geography constraints, Magic constraints, Faction constraints -->
 
-> **Actionable rules for Story Spark.** What plot can/cannot do; what geography/magic/factions enable.
+> **Actionable rules for Story Spark.** What plot can/cannot do; what geography/magic/factions
+> enable.
 
 ```
 
@@ -380,7 +389,8 @@ Iteration 2:
 <!-- Field: Quality Bar Results | Type: markdown | Required: yes | Gatekeeper approval summary -->
 <!-- Validation: Must include pass/fail for applicable bars: Integrity, Style, Presentation -->
 
-> **Gatekeeper validation summary.** Applicable bars: Integrity, Style, Presentation (Reachability/Nonlinearity not applicable pre-plot).
+> **Gatekeeper validation summary.** Applicable bars: Integrity, Style, Presentation
+> (Reachability/Nonlinearity not applicable pre-plot).
 
 ```
 
@@ -583,30 +593,38 @@ Style Addendum: SA-001
 ## Common Errors
 
 **❌ Missing timeline anchor T2**
+
 - Wrong: Only T0 and T1 listed
 - Right: Must include T0 (past), T1 (recent), T2 (now)
 
 **❌ Canon sprawl (over-building)**
+
 - Wrong: 50 canon packs for a single project
 - Right: Heuristic: Stop when Plotwright's likely questions are answerable (5-10 packs for epic)
 
 **❌ Codex baseline contains spoilers**
+
 - Wrong: "House Vaelen will betray the kingdom in Act 3."
 - Right: "House Vaelen controls northern trade; known for shrewd negotiations."
 
 **❌ Constraint manifest lacks actionable guidance**
+
 - Wrong: "Magic is important."
-- Right: "Magic cannot resurrect the dead (metaphysical constraint); ley lines concentrate power (gate affordance)."
+- Right: "Magic cannot resurrect the dead (metaphysical constraint); ley lines concentrate power
+  (gate affordance)."
 
 **❌ Budget/scope mismatch**
+
 - Wrong: Budget = "minimal" but 10 canon packs with epic depth
 - Right: Budget = "epic" for 10+ packs; "minimal" for 1-2 packs
 
 **❌ Missing invariant counts**
+
 - Wrong: Canon pack summary says "Geography canon" with no invariant count
 - Right: "Geography — 12 kingdoms (5 invariants)"
 
 **❌ Entity registry incomplete**
+
 - Wrong: Canon references "House Vaelen trade routes" but routes not in Entity Registry
 - Right: All referenced entities must exist in registry
 
@@ -614,26 +632,27 @@ Style Addendum: SA-001
 
 ## Field Reference
 
-| Section | Field                    | Type          | Required | Constraint                                    |
-| ------- | ------------------------ | ------------- | -------- | --------------------------------------------- |
-| Header  | Project                  | string        | yes      | kebab-case slug                               |
-| Header  | TU                       | tu-id         | yes      | TU-YYYY-MM-DD-LW-WorldGenesis                 |
-| Header  | Completed                | date          | yes      | YYYY-MM-DD                                    |
-| Header  | Owner                    | role-name     | yes      | Fixed: Lore Weaver                            |
-| Header  | Scope                    | markdown      | yes      | 1-2 lines, themes covered                     |
-| Header  | Budget                   | enum          | yes      | minimal \| standard \| epic                   |
-| §1      | Worldbuilding Scope      | markdown-list | yes      | Minimum 2 themes; rationale + depth per theme |
-| §2      | Canon Packs Created      | array         | yes      | ID, Theme, Status, Summary, Invariants count  |
-| §3      | Timeline Foundation      | array         | yes      | T0/T1/T2 minimum; chronological order         |
-| §4      | Entity Registry          | object        | yes      | Places, Factions (Characters optional)        |
-| §5      | Codex Baseline           | array         | yes      | Minimum 5 entries; ID, Topic, Summary, Status |
-| §6      | Style Anchors            | markdown      | yes      | Style Addendum ID + voice/dialogue/motifs     |
-| §7      | Constraint Manifest      | markdown-list | yes      | Invariants, Affordances, Can/Cannot sections  |
-| §8      | Iteration Summary        | markdown      | yes      | Iterations, Duration, Issues, Status          |
-| §9      | Quality Bar Results      | markdown      | yes      | Gatekeeper approval (3 bars: I/S/P)           |
-| §10     | Downstream Handoffs      | markdown-list | yes      | Plotwright, Scene Smith, Lore, Curator, SR    |
-| §11     | Traceability             | markdown      | yes      | TU, Canon Packs, Codex, Style Addendum        |
+| Section | Field               | Type          | Required | Constraint                                    |
+| ------- | ------------------- | ------------- | -------- | --------------------------------------------- |
+| Header  | Project             | string        | yes      | kebab-case slug                               |
+| Header  | TU                  | tu-id         | yes      | TU-YYYY-MM-DD-LW-WorldGenesis                 |
+| Header  | Completed           | date          | yes      | YYYY-MM-DD                                    |
+| Header  | Owner               | role-name     | yes      | Fixed: Lore Weaver                            |
+| Header  | Scope               | markdown      | yes      | 1-2 lines, themes covered                     |
+| Header  | Budget              | enum          | yes      | minimal \| standard \| epic                   |
+| §1      | Worldbuilding Scope | markdown-list | yes      | Minimum 2 themes; rationale + depth per theme |
+| §2      | Canon Packs Created | array         | yes      | ID, Theme, Status, Summary, Invariants count  |
+| §3      | Timeline Foundation | array         | yes      | T0/T1/T2 minimum; chronological order         |
+| §4      | Entity Registry     | object        | yes      | Places, Factions (Characters optional)        |
+| §5      | Codex Baseline      | array         | yes      | Minimum 5 entries; ID, Topic, Summary, Status |
+| §6      | Style Anchors       | markdown      | yes      | Style Addendum ID + voice/dialogue/motifs     |
+| §7      | Constraint Manifest | markdown-list | yes      | Invariants, Affordances, Can/Cannot sections  |
+| §8      | Iteration Summary   | markdown      | yes      | Iterations, Duration, Issues, Status          |
+| §9      | Quality Bar Results | markdown      | yes      | Gatekeeper approval (3 bars: I/S/P)           |
+| §10     | Downstream Handoffs | markdown-list | yes      | Plotwright, Scene Smith, Lore, Curator, SR    |
+| §11     | Traceability        | markdown      | yes      | TU, Canon Packs, Codex, Style Addendum        |
 
-**Total fields: 28** (6 metadata, 7 content sections, 4 reference data, 4 validation, 7 traceability)
+**Total fields: 28** (6 metadata, 7 content sections, 4 reference data, 4 validation, 7
+traceability)
 
 ---

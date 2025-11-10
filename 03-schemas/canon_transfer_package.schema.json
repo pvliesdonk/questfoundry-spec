@@ -204,7 +204,7 @@
             "maxLength": 240
           }
         },
-        "required": ["anchor", "event"]
+        "required": ["anchor", "year", "event", "significance"]
       },
       "minItems": 2
     },
@@ -331,7 +331,7 @@
           }
         }
       },
-      "required": ["places", "factions"]
+      "required": ["characters", "places", "factions", "items"]
     },
     "downstream_constraints": {
       "type": "object",
@@ -426,7 +426,15 @@
           "$ref": "#/$defs/date_string"
         }
       },
-      "required": ["integrity", "presentation", "consistency", "schema_compliance", "status", "validated_by", "validation_date"]
+      "required": [
+        "integrity",
+        "presentation",
+        "consistency",
+        "schema_compliance",
+        "status",
+        "validated_by",
+        "validation_date"
+      ]
     },
     "lineage": {
       "type": "object",

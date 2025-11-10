@@ -63,6 +63,7 @@ Showrunner opens/updates a Trace Unit (TU): `tu-codex-<topic-or-batch>`.
 **Showrunner responsibility:**
 
 Before allowing any role-to-role handoff, verify:
+
 - Artifact file exists and has `"$schema"` field
 - validation_report.json exists
 - validation_report.json shows `"valid": true` with empty `"errors": []`

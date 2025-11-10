@@ -1,8 +1,11 @@
 # Playbook — Canon Transfer (Export)
 
-**Use when:** Project is complete and you want to **export canon** for a sequel, shared universe, or franchise continuation.
+**Use when:** Project is complete and you want to **export canon** for a sequel, shared universe, or
+franchise continuation.
 
-**Outcome:** A validated **Canon Transfer Package** artifact containing tagged canon (invariant/mutable), codex baseline, timeline anchors, and entity registry. Ready for import into a new project.
+**Outcome:** A validated **Canon Transfer Package** artifact containing tagged canon
+(invariant/mutable), codex baseline, timeline anchors, and entity registry. Ready for import into a
+new project.
 
 ---
 
@@ -38,7 +41,8 @@
 
 **Codex Curator (C)**
 
-5. **Codex baseline**: Identify player-safe entries for universe-wide transfer; mark as `inherited: true`.
+5. **Codex baseline**: Identify player-safe entries for universe-wide transfer; mark as
+   `inherited: true`.
 
 **Lore Weaver**
 

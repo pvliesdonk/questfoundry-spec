@@ -150,7 +150,9 @@ guidance.
 
 **Orchestration Responsibility:**
 
-As Showrunner, you must also verify that ALL roles produce validation_report.json alongside their artifacts. Before accepting any handoff, check that:
+As Showrunner, you must also verify that ALL roles produce validation_report.json alongside their
+artifacts. Before accepting any handoff, check that:
+
 - The artifact file exists
 - The validation_report.json exists
 - validation_report.json shows `"valid": true`

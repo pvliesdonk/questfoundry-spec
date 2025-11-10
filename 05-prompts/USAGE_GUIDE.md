@@ -74,11 +74,13 @@ loops/lore_deepening.playbook.md        # Load procedure
   - **Standalone:** Upload `minimal-standalone.zip` (10 files), add `optional-standalone.zip` later
 - **Claude**
   - No strict limit; handles multiple attachments well
-  - **Orchestration:** Upload `orchestration-complete.zip` or individual files (preferred for grounding)
+  - **Orchestration:** Upload `orchestration-complete.zip` or individual files (preferred for
+    grounding)
   - **Standalone:** Upload `minimal-standalone.zip` + `optional-standalone.zip`
 - **Gemini**
   - Limit: 10 files max per zip
-  - **Orchestration:** Upload `gemini-orchestration-1` through `-5` in sequence (5 zips, 36 files total)
+  - **Orchestration:** Upload `gemini-orchestration-1` through `-5` in sequence (5 zips, 36 files
+    total)
   - **Standalone:** Upload `gemini-minimal-standalone.zip` + `gemini-optional-standalone.zip`
 
 Tip: If your platform drops attachments between threads, reattach your kit at the start of each new
@@ -93,13 +95,16 @@ session.
 **Files:** `orchestration-complete.zip` (36 files) or `gemini-orchestration-1` through `-5` splits
 
 **Contains:**
+
 - 4 shared patterns (`_shared/*.md`)
 - 4 showrunner modules (system_prompt, loop_orchestration, manifest_management, protocol_handlers)
 - 13 loop playbooks (`loops/*.playbook.md`)
 - 15 role adapters (`role_adapters/*.adapter.md`)
 
 **Benefits:**
-- **70% context reduction** vs. standalone mode (adapters are 50-100 lines vs. full prompts at 200-300 lines)
+
+- **70% context reduction** vs. standalone mode (adapters are 50-100 lines vs. full prompts at
+  200-300 lines)
 - Single-source-of-truth loop procedures (1 playbook vs 7 role prompts for a loop)
 - Clear RACI matrix and role coordination
 - Role interchangeability (swap implementations without changing playbooks)
@@ -109,15 +114,18 @@ session.
 ### Standalone Mode (Traditional)
 
 **Minimal:** `minimal-standalone.zip` (10 files)
+
 - 4 shared patterns
 - 1 showrunner prompt
 - 5 core role prompts (Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder)
 
 **Optional Addon:** `optional-standalone.zip` (9 files)
+
 - Player Narrator, Lore Weaver, Codex Curator, Researcher
 - Art Director, Illustrator, Audio Director, Audio Producer, Translator
 
 **Full:** `full-standalone.zip` (23 files)
+
 - All shared patterns + all showrunner modules + all 15 role prompts
 
 **Best for:** Learning, single-role tasks, human-led exploration
@@ -191,12 +199,14 @@ remaining debt if any.
 ### How Validation Works
 
 **Upload kits v0.2.0+ include:**
+
 1. `validation_contract.md` (file #1) - Non-negotiable validation requirements
 2. `SCHEMA_INDEX.json` (file #2) - Schema discovery with $id, paths, SHA-256 hashes
 3. Shared patterns and role prompts with validation checkpoints
 4. Loop playbooks with validation gates
 
 **Agent workflow:**
+
 1. **Preflight:** Agent reads schema from SCHEMA_INDEX.json, echoes back metadata
 2. **Production:** Agent produces artifact with `"$schema"` field
 3. **Validation:** Agent validates artifact against canonical schema
@@ -208,6 +218,7 @@ remaining debt if any.
 When you upload kits v0.2.0+, the validation contract is loaded FIRST (file #1). It requires:
 
 **For every JSON artifact:**
+
 - `"$schema"` field pointing to canonical schema $id
 - Validation against schema before emission
 - `validation_report.json` with validation evidence
@@ -233,11 +244,13 @@ When you upload kits v0.2.0+, the validation contract is loaded FIRST (file #1).
 ### Prompting for Validation
 
 **Without validation enforcement (pre-v0.2.0):**
+
 ```
 Plotwright: Draft a Hook Card for "mysterious letter clue"
 ```
 
 **With validation enforcement (v0.2.0+):**
+
 ```
 Plotwright: Draft a Hook Card for "mysterious letter clue"
 
@@ -252,13 +265,15 @@ Validation requirements:
 
 **Or rely on upload kit (recommended):**
 
-Since v0.2.0 kits include `validation_contract.md` as file #1, agents automatically follow validation protocol. You can simply:
+Since v0.2.0 kits include `validation_contract.md` as file #1, agents automatically follow
+validation protocol. You can simply:
 
 ```
 Plotwright: Draft a Hook Card for "mysterious letter clue"
 ```
 
 Agent will automatically:
+
 - Look up schema
 - Run preflight
 - Validate before returning
@@ -274,7 +289,8 @@ Agent will automatically:
 3. Shared patterns ← Cross-role standards
 4. Role-specific content ← Builds on foundation
 
-**Why this matters:** LLMs read uploaded files in order. Loading validation contract FIRST ensures agents see validation requirements BEFORE producing any outputs.
+**Why this matters:** LLMs read uploaded files in order. Loading validation contract FIRST ensures
+agents see validation requirements BEFORE producing any outputs.
 
 ### Checking Validation Evidence
 
@@ -285,12 +301,14 @@ Showrunner: Show me the validation report for the Hook Card
 ```
 
 Agent should provide `hook_card_validation_report.json` showing:
+
 - `"valid": true` (passed validation)
 - Empty `"errors": []` array
 - Schema $id used
 - Timestamp
 
 **If validation failed:**
+
 - `"valid": false`
 - `"errors"` array with specific violations
 - Agent should have STOPPED before continuing loop
@@ -300,6 +318,7 @@ Agent should provide `hook_card_validation_report.json` showing:
 Gatekeeper now checks for validation evidence as **Quality Bar 8**:
 
 **Prompt:**
+
 ```
 Gatekeeper: Run pre-gate on the TU. Include schema validation check.
 
@@ -315,11 +334,13 @@ GATE RULE: REJECT TU if any artifact lacks validation evidence or failed validat
 ### Migrating to v0.2.0 Validation
 
 **If using pre-v0.2.0 kits:**
+
 1. Download kits v0.2.0+ from releases
 2. Re-upload to ChatGPT/Claude/Gemini
 3. Validation is now automatic (no prompt changes needed)
 
 **If validation is missing:**
+
 - Check kit version (should include `validation_contract.md`)
 - Verify agent echoes schema during preflight
 - Verify `validation_report.json` produced with artifacts
@@ -328,6 +349,7 @@ GATE RULE: REJECT TU if any artifact lacks validation evidence or failed validat
 ### Schema Canonical URLs
 
 All schemas available at:
+
 ```
 https://questfoundry.liesdonk.nl/schemas/{schema-name}.schema.json
 ```

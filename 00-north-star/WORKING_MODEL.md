@@ -193,32 +193,42 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 
 ## 12) Workflow Patterns (canon-centric alternatives)
 
-The standard workflow is **story-driven**: Story Spark generates hooks, Hook Harvest triages them, Lore Deepening canonizes them. This suits discovery-led authoring.
+The standard workflow is **story-driven**: Story Spark generates hooks, Hook Harvest triages them,
+Lore Deepening canonizes them. This suits discovery-led authoring.
 
 Two **canon-centric patterns** extend this model:
 
 ### Canon-First Workflow (World Genesis)
 
-**Use when:** Building extensive worldbuilding **before** plot design (epic fantasy, deep sci-fi, rich settings).
+**Use when:** Building extensive worldbuilding **before** plot design (epic fantasy, deep sci-fi,
+rich settings).
 
 **Flow:**
-1. **World Genesis** — Lore Weaver proactively creates canon packs (geography, magic, history, factions), codex baseline, style anchors, timeline foundation.
+
+1. **World Genesis** — Lore Weaver proactively creates canon packs (geography, magic, history,
+   factions), codex baseline, style anchors, timeline foundation.
 2. Then: **Story Spark** → Hook Harvest → Lore Deepening (story unfolds within canon constraints).
 
-**Key difference:** Lore Weaver works **proactively** (builds canon directly), not **reactively** (answers hooks).
+**Key difference:** Lore Weaver works **proactively** (builds canon directly), not **reactively**
+(answers hooks).
 
-**Scoping:** Minimal (1-2 hours), Standard (4-8 hours), Epic (20+ hours). Heuristic: stop when Plotwright's likely questions are answerable.
+**Scoping:** Minimal (1-2 hours), Standard (4-8 hours), Epic (20+ hours). Heuristic: stop when
+Plotwright's likely questions are answerable.
 
 ### Shared Universe Workflow (Canon Transfer)
 
 **Use when:** Starting a sequel or shared universe project; need canon baseline from prior project.
 
 **Flow:**
-1. **Canon Transfer (Export)** — At end of Project A, Lore Weaver tags canon as **invariant** (immutable), **mutable** (extensible), or **local** (exclude). Package exported.
-2. **Canon Transfer (Import)** — At start of Project B, invariant canon → Cold (cannot change); mutable canon → Hot (can extend).
+
+1. **Canon Transfer (Export)** — At end of Project A, Lore Weaver tags canon as **invariant**
+   (immutable), **mutable** (extensible), or **local** (exclude). Package exported.
+2. **Canon Transfer (Import)** — At start of Project B, invariant canon → Cold (cannot change);
+   mutable canon → Hot (can extend).
 3. Then: **Story Spark** → Hook Harvest → Lore Deepening (story honors imported invariants).
 
-**Key difference:** Project B inherits a **canon baseline** with clear rules on what can/cannot change.
+**Key difference:** Project B inherits a **canon baseline** with clear rules on what can/cannot
+change.
 
 ### Comparison
 

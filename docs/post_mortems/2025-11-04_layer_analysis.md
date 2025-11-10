@@ -233,8 +233,8 @@ tooling decisions.
 
 **Recommended Next Steps:**
 
-1. **Phase 1:** Create specification document (`spec-tools/validation/epub_validator.md`) ✅ (already in
-   proposal)
+1. **Phase 1:** Create specification document (`spec-tools/validation/epub_validator.md`) ✅
+   (already in proposal)
 2. **Phase 2:** Choose implementation approach:
    - Option A: Python with `lxml` + `zipfile` for EPUB parsing
    - Option B: Shell script with `unzip` + `xmllint` + `grep`

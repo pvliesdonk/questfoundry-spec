@@ -2,7 +2,8 @@
 
 **Audience:** Library authors (Layer 6) and UI/CLI developers (Layer 7).
 
-**Purpose:** Document the implementation requirements for **Canon Transfer** (shared universes) and **World Genesis** (canon-first worldbuilding) workflows introduced in this spec revision.
+**Purpose:** Document the implementation requirements for **Canon Transfer** (shared universes) and
+**World Genesis** (canon-first worldbuilding) workflows introduced in this spec revision.
 
 **Date:** 2025-11-10
 
@@ -17,6 +18,7 @@ Three new loops were added to support canon-centric workflows:
 3. **Canon Transfer (Import)** — Seed new project with imported canon
 
 These workflows introduce:
+
 - 2 new artifact types (with schemas)
 - 3 new protocol intents
 - New Hot/Cold merge patterns (invariant vs. mutable canon)
@@ -29,10 +31,12 @@ These workflows introduce:
 ### Layer 0 (North Star)
 
 **Modified:**
+
 - `WORKING_MODEL.md` — Added §12 "Workflow Patterns (canon-centric alternatives)"
 - `LOOPS/README.md` — Added 3 new loops to quick chooser
 
 **Added:**
+
 - `LOOPS/world_genesis.md` — Full loop spec for World Genesis
 - `LOOPS/canon_transfer_export.md` — Full loop spec for export
 - `LOOPS/canon_transfer_import.md` — Full loop spec for import
@@ -43,18 +47,21 @@ These workflows introduce:
 ### Layer 2 (Dictionary)
 
 **Added:**
+
 - `artifacts/canon_transfer_package.md` — Human-readable template for Canon Transfer Package
 - `artifacts/world_genesis_manifest.md` — Human-readable template for World Genesis Manifest
 
 ### Layer 3 (Schemas)
 
 **Added:**
+
 - `canon_transfer_package.schema.json` — JSON Schema for Canon Transfer Package
 - `world_genesis_manifest.schema.json` — JSON Schema for World Genesis Manifest
 
 ### Layer 4 (Protocol)
 
 **Modified:**
+
 - `INTENTS.md` — Added `canon.*` domain with 3 new intents:
   - `canon.transfer.export` (R: LW, A: SR, schema: `canon_transfer_package.schema.json`)
   - `canon.transfer.import` (R: LW, A: SR, schema: `canon_transfer_package.schema.json`)
@@ -63,6 +70,7 @@ These workflows introduce:
 ### Layer 5 (Prompts)
 
 **Added:**
+
 - 3 playbooks (see Layer 0 above)
 
 ---
@@ -78,11 +86,13 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 **Purpose:** Export canon from completed project as Canon Transfer Package.
 
 **Inputs:**
+
 - Current Cold snapshot (canon packs, codex entries, timeline, entity registry)
 - Tagging instructions (invariant/mutable/local per canon element)
 - Project metadata (title, slug, snapshot_id)
 
 **Processing:**
+
 1. Load all canon packs from Cold
 2. Tag each canon element as invariant (immutable), mutable (extensible), or local (exclude)
 3. Extract timeline anchors (T0/T1/T2)
@@ -92,11 +102,13 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 7. Run Gatekeeper validation (integrity, presentation, consistency, schema compliance)
 
 **Output:**
+
 - `canon_transfer_package_<project-slug>.json`
 - Gatekeeper report
 - TU record (`TU-<date>-LW-CanonTransferExport`)
 
 **Error conditions:**
+
 - Schema validation failure → return validation errors
 - Entity reference broken → return missing entity list
 - Codex spoilers detected → return affected entry IDs
@@ -107,11 +119,13 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 **Purpose:** Import Canon Transfer Package into new project.
 
 **Inputs:**
+
 - Canon Transfer Package (`canon_transfer_package_<source-project>.json`)
 - New project seed ideas (user's initial concept)
 - Project metadata (title, slug)
 
 **Processing:**
+
 1. Load and validate transfer package against schema
 2. **Conflict detection:** Compare imported invariant canon against project seed ideas
    - If conflict detected: escalate to Showrunner with resolution options (reject/revise/downgrade)
@@ -120,10 +134,12 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 5. Import timeline anchors (T0/T1/T2 from source; T3+ for new project)
 6. Import entity registry (mark entities with `source: <source-project>`)
 7. Import codex baseline (mark `inherited: true`, `source: <source-project>`)
-8. Generate constraint documentation for creative roles (invariants, mutables, timeline offsets, entity baseline)
+8. Generate constraint documentation for creative roles (invariants, mutables, timeline offsets,
+   entity baseline)
 9. Run Gatekeeper validation (integrity, conflict resolution, presentation, schema compliance)
 
 **Output:**
+
 - Cold canon packs (invariant canon, `cold-merged`)
 - Hot canon packs (mutable canon, `hot-accepted`)
 - Codex entries (inherited baseline, `cold-merged`)
@@ -134,6 +150,7 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 - TU record (`TU-<date>-LW-CanonTransferImport`)
 
 **Error conditions:**
+
 - Schema validation failure → return validation errors
 - Unresolved conflict with project seed → return conflict details + resolution options
 - Entity reference broken → return missing entity list
@@ -144,6 +161,7 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 **Purpose:** Execute World Genesis loop (proactive worldbuilding before plot).
 
 **Inputs:**
+
 - Project concept (genre, setting, scope)
 - Worldbuilding scope (user-defined themes: geography, magic, history, factions, etc.)
 - Worldbuilding budget (minimal 1-2h / standard 4-8h / epic 20+h)
@@ -151,6 +169,7 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 - Research constraints (if Researcher active: real-world inspirations)
 
 **Processing:**
+
 1. Frame the world (define scope per theme)
 2. **Lore Weaver (proactive mode):** Create canon packs for each theme:
    - Geography (regions, landmarks, travel times, invariants)
@@ -158,15 +177,19 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
    - History (timeline depth, major events, invariants)
    - Factions (powers, structures, rivalries, invariants)
    - Culture/Technology (optional: customs, tech baseline)
-3. **Researcher (optional):** Corroborate real-world inspirations; attach citations or mark `uncorroborated:<risk>`
+3. **Researcher (optional):** Corroborate real-world inspirations; attach citations or mark
+   `uncorroborated:<risk>`
 4. **Codex Curator:** Build codex baseline (player-safe entries, taxonomy, cross-links)
 5. **Style Lead:** Define style anchors (voice, dialogue patterns, motifs)
 6. **Gatekeeper validation:** Preview validation (Integrity, Style, Presentation)
-7. **Lore Weaver stabilization:** Loop until all themes covered, no contradictions, Gatekeeper approves
-8. Generate deliverables (canon packs, codex baseline, style addendum, timeline foundation, constraint manifest, entity registry)
+7. **Lore Weaver stabilization:** Loop until all themes covered, no contradictions, Gatekeeper
+   approves
+8. Generate deliverables (canon packs, codex baseline, style addendum, timeline foundation,
+   constraint manifest, entity registry)
 9. Assemble World Genesis Manifest (validate against `world_genesis_manifest.schema.json`)
 
 **Output:**
+
 - Canon packs (one per theme, `cold-merged` after gatecheck)
 - Codex baseline (player-safe entries)
 - Style addendum (world voice/register)
@@ -178,6 +201,7 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 - TU record (`TU-<date>-LW-WorldGenesis`)
 
 **Error conditions:**
+
 - Internal contradictions in genesis canon → return contradiction details
 - Codex spoilers → return affected entry IDs
 - Style drift → return inconsistency details
@@ -188,13 +212,16 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 Implement validators for:
 
 1. **`canon_transfer_package.schema.json`**
-   - Validate all required fields (metadata, invariant_canon, mutable_canon, codex_baseline, timeline_anchors, entity_registry)
+   - Validate all required fields (metadata, invariant_canon, mutable_canon, codex_baseline,
+     timeline_anchors, entity_registry)
    - Enforce string length constraints (10-600 chars for canon, 3-80 for IDs)
    - Validate enum values (entity types, mutability flags)
    - Validate array min/max items
 
 2. **`world_genesis_manifest.schema.json`**
-   - Validate all required fields (project_metadata, worldbuilding_scope, canon_packs_created, timeline_foundation, entity_registry, codex_baseline, style_anchors, constraint_manifest, iteration_summary)
+   - Validate all required fields (project_metadata, worldbuilding_scope, canon_packs_created,
+     timeline_foundation, entity_registry, codex_baseline, style_anchors, constraint_manifest,
+     iteration_summary)
    - Enforce iteration tracking structure (iteration_num, steps_completed, issues, result)
    - Validate stabilization status
 
@@ -221,6 +248,7 @@ Extend merge path logic to handle:
 Implement conflict detection for Canon Transfer (Import):
 
 **Algorithm:**
+
 1. Parse invariant canon rules from transfer package
 2. Parse project seed ideas (user input)
 3. For each invariant rule:
@@ -241,6 +269,7 @@ Implement conflict detection for Canon Transfer (Import):
 Implement entity registry CRUD operations:
 
 **Data model:**
+
 ```json
 {
   "characters": [
@@ -280,6 +309,7 @@ Implement entity registry CRUD operations:
 ```
 
 **Operations:**
+
 - **Create:** Add entities during World Genesis or Canon Transfer (Import)
 - **Read:** Query entity registry by name, type, source
 - **Update:** Extend entity details (only if mutable; block if from invariant canon)
@@ -290,6 +320,7 @@ Implement entity registry CRUD operations:
 Implement timeline anchor operations:
 
 **Data model:**
+
 ```json
 {
   "timeline_anchors": [
@@ -304,6 +335,7 @@ Implement timeline anchor operations:
 ```
 
 **Operations:**
+
 - **Import from source project:** T0/T1/T2 become baseline
 - **Extend for new project:** T3/T4/... for new events
 - **Document offsets:** Calculate and display timeline offsets between projects
@@ -314,29 +346,37 @@ Implement timeline anchor operations:
 Implement constraint documentation generator for Plotwright/Scene Smith:
 
 **Inputs:**
+
 - Invariant canon (list of immutable rules)
 - Mutable canon (list of extensible rules)
 - Timeline foundation (anchor offsets)
 - Entity registry baseline
 
 **Output:**
+
 ```markdown
 ## Invariants (CANNOT CHANGE)
+
 - [List of immutable rules with consequences]
 
 ## Mutables (CAN EXTEND)
+
 - [List of extensible rules with extension guidance and constraints]
 
 ## Timeline (extend from T3+)
+
 - [Timeline offsets and current anchor]
 
 ## Entities (baseline)
+
 - [List of inherited entities with status]
 
 ## You CAN:
+
 - [Bulleted list of allowed operations]
 
 ## You CANNOT:
+
 - [Bulleted list of forbidden operations with rationale]
 ```
 
@@ -351,6 +391,7 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
 **Purpose:** Start World Genesis loop (canon-first worldbuilding).
 
 **User flow:**
+
 1. User invokes command: `qf genesis` or `qf world-genesis`
 2. CLI prompts for:
    - Project concept (genre, setting, scope)
@@ -366,7 +407,8 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
    - "Building codex baseline..." (with spinner)
    - "Running Gatekeeper validation..." (with spinner)
 6. On completion:
-   - Display summary: "World Genesis complete. Created 5 canon packs, 24 codex entries, 1 style addendum."
+   - Display summary: "World Genesis complete. Created 5 canon packs, 24 codex entries, 1 style
+     addendum."
    - Display deliverables:
      - `world_genesis_manifest_<slug>.json`
      - List of canon packs created
@@ -374,6 +416,7 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
    - Prompt: "Ready to start Story Spark? (y/n)"
 
 **Error handling:**
+
 - Contradiction detected → Display details; prompt to revise or continue
 - Codex spoilers → Display affected entries; prompt to revise
 - Over-building warning → "Canon exceeds likely Plotwright needs. Continue? (y/n)"
@@ -383,11 +426,13 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
 **Purpose:** Export canon from completed project for sequel/shared universe.
 
 **User flow:**
+
 1. User invokes command: `qf export-canon` or `qf canon-export`
 2. CLI validates: Project must be complete (final Binding Run exists)
 3. CLI prompts for tagging:
    - Display all canon packs from Cold
-   - For each canon element, prompt: "Invariant (immutable) / Mutable (extensible) / Local (exclude)?"
+   - For each canon element, prompt: "Invariant (immutable) / Mutable (extensible) / Local
+     (exclude)?"
    - Provide quick-tag options: "Tag all as invariant", "Tag all as mutable", "Manual tagging"
 4. CLI extracts timeline, entity registry, codex baseline
 5. CLI invokes `canon.transfer.export` intent
@@ -397,12 +442,14 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
    - "Building entity registry..." (with spinner)
    - "Running Gatekeeper validation..." (with spinner)
 7. On completion:
-   - Display summary: "Canon export complete. Package contains 15 invariant rules, 8 mutable rules, 3 timeline anchors, 12 entities."
+   - Display summary: "Canon export complete. Package contains 15 invariant rules, 8 mutable rules,
+     3 timeline anchors, 12 entities."
    - Display deliverable: `canon_transfer_package_<project-slug>.json`
    - Display file size and location
    - Prompt: "Copy package path to clipboard? (y/n)"
 
 **Error handling:**
+
 - Entity reference broken → Display missing entities; prompt to add or exclude
 - Codex spoilers → Display affected entries; prompt to revise or exclude
 - Timeline conflicts → Display conflicts; prompt to reorder or exclude
@@ -412,6 +459,7 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
 **Purpose:** Import canon from prior project to seed new story.
 
 **User flow:**
+
 1. User invokes command: `qf import-canon` or `qf canon-import`
 2. CLI prompts for:
    - Canon Transfer Package path (file picker or manual input)
@@ -434,7 +482,8 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
    - "Generating constraint documentation..." (with spinner)
    - "Running Gatekeeper validation..." (with spinner)
 7. On completion:
-   - Display summary: "Canon import complete. 15 invariants → Cold, 8 mutables → Hot, timeline extends from Y+2."
+   - Display summary: "Canon import complete. 15 invariants → Cold, 8 mutables → Hot, timeline
+     extends from Y+2."
    - Display deliverables:
      - List of Cold canon packs (invariant)
      - List of Hot canon packs (mutable)
@@ -443,6 +492,7 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
    - Prompt: "Ready to start Story Spark? (y/n)"
 
 **Error handling:**
+
 - Schema validation failure → Display validation errors; prompt to fix package or cancel
 - Unresolved conflict → Block import; display conflict details; prompt for resolution
 - Timeline confusion → Display timeline offset errors; prompt to clarify
@@ -454,6 +504,7 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
 **Enhancement:** Add canon workflow options to project setup wizard.
 
 **Mockup:**
+
 ```
 QuestFoundry — New Project Setup
 
@@ -477,6 +528,7 @@ How do you want to start?
 **Purpose:** Visual interface for tagging canon elements during export.
 
 **Mockup:**
+
 ```
 Canon Export — Tagging
 
@@ -503,6 +555,7 @@ Tag: ○ Invariant (immutable)  ● Mutable (extensible)  ○ Local (exclude)
 **Purpose:** Visual interface for resolving import conflicts.
 
 **Mockup:**
+
 ```
 Canon Import — Conflict Detected
 
@@ -527,6 +580,7 @@ Resolution Options:
 **Purpose:** Display imported canon constraints for creative roles.
 
 **Mockup:**
+
 ```
 Canon Constraints — The Lighthouse Keeper (imported)
 
@@ -565,6 +619,7 @@ Canon Constraints — The Lighthouse Keeper (imported)
 Add status indicators for canon workflows:
 
 **Project status display:**
+
 ```
 Project: The Harbor Master
 Status: Canon imported from "The Lighthouse Keeper"
@@ -575,6 +630,7 @@ Ready for: Story Spark
 ```
 
 **Canon pack metadata display:**
+
 ```
 Canon Pack: CP-Geography-001
 Source: The Lighthouse Keeper
@@ -587,6 +643,7 @@ Status: cold-merged
 Add help topics for new commands:
 
 **Help text for `qf genesis`:**
+
 ```
 qf genesis — Start World Genesis loop
 
@@ -623,16 +680,19 @@ See also: qf help export-canon, qf help import-canon
 Ensure seamless transitions between canon workflows and standard flows:
 
 **World Genesis → Story Spark:**
+
 - Auto-populate Story Spark with constraint manifest
 - Display canon constraints in sidebar during topology design
 - Validate Story Spark output against invariants
 
 **Canon Import → Story Spark:**
+
 - Auto-populate Story Spark with imported constraint docs
 - Display inherited entities in sidebar for reference
 - Block Story Spark changes that violate imported invariants
 
 **Lore Deepening → Canon Export:**
+
 - Track which canon packs are export candidates
 - Suggest tagging based on hook sources (story-specific → local; universe-wide → invariant/mutable)
 
@@ -641,11 +701,13 @@ Ensure seamless transitions between canon workflows and standard flows:
 Extend Gatekeeper validation UI to handle:
 
 **New validation criteria for canon workflows:**
+
 - **Conflict resolution** (Canon Import only): No unresolved contradictions with project seed
 - **Timeline chronology** (all canon workflows): Anchors are ordered correctly
 - **Entity reference integrity** (all canon workflows): All references resolve to entity registry
 
 **Validation report enhancements:**
+
 ```
 Gatekeeper Report — Canon Transfer (Import)
 
@@ -666,6 +728,7 @@ Status: APPROVED
 ### Layer 6 Testing
 
 **Unit tests:**
+
 - Schema validators (valid/invalid packages)
 - Conflict detection algorithm (conflict/no-conflict cases)
 - Entity registry CRUD operations
@@ -673,6 +736,7 @@ Status: APPROVED
 - Constraint manifest generator
 
 **Integration tests:**
+
 - Full World Genesis flow (minimal/standard/epic budgets)
 - Full Canon Transfer (Export) flow (invariant/mutable/local tagging)
 - Full Canon Transfer (Import) flow (with/without conflicts)
@@ -682,6 +746,7 @@ Status: APPROVED
 ### Layer 7 Testing
 
 **UI/UX tests:**
+
 - Project initialization wizard (all 3 workflow options)
 - Canon tagging interface (keyboard/mouse navigation)
 - Conflict resolution dialog (all 3 resolution options)
@@ -689,6 +754,7 @@ Status: APPROVED
 - Command-line flows (all 3 commands with various inputs)
 
 **Edge cases:**
+
 - Empty timeline (no T0/T1/T2 in source project)
 - Massive entity registry (1000+ entities)
 - Conflicting invariants (multiple conflicts in single import)
@@ -699,14 +765,18 @@ Status: APPROVED
 ## Migration & Backward Compatibility
 
 **For existing projects:**
+
 - Projects without canon workflows: No impact; standard Story Spark flow unchanged
-- Projects with existing canon packs: Can retroactively export via `canon-export` command (all canon tagged as mutable by default; user refines)
+- Projects with existing canon packs: Can retroactively export via `canon-export` command (all canon
+  tagged as mutable by default; user refines)
 
 **For existing libraries:**
+
 - Layer 6: New intents are additive; existing intents unchanged
 - Hot/Cold merge logic: Extended, not replaced; existing merge paths still valid
 
 **For existing UI:**
+
 - Layer 7: New commands are additive; existing commands unchanged
 - Project initialization wizard: Enhanced with new options; default remains Story-Driven
 
@@ -715,16 +785,20 @@ Status: APPROVED
 ## Performance Considerations
 
 **World Genesis:**
-- Epic budget (20+ hours, 100+ codex entries) may require progress persistence (resume if interrupted)
+
+- Epic budget (20+ hours, 100+ codex entries) may require progress persistence (resume if
+  interrupted)
 - Canon pack creation should be parallelizable where possible
 - Codex baseline generation should be incremental (build taxonomy as entries are added)
 
 **Canon Transfer (Import):**
+
 - Large transfer packages (10+ MB) should stream validation (don't load entire JSON into memory)
 - Conflict detection should be batched (check all invariants before escalating to user)
 - Entity registry import should deduplicate entities (avoid redundant entries)
 
 **Canon Transfer (Export):**
+
 - Large Cold snapshots (1000+ canon packs) should paginate tagging UI (don't display all at once)
 - Entity registry extraction should index by reference (fast lookup)
 
@@ -732,27 +806,38 @@ Status: APPROVED
 
 ## Open Questions for Layer 6/7 Authors
 
-1. **Tagging UI:** Should canon element tagging support batch operations (e.g., "Tag all geography as invariant, all character arcs as local")? Or is per-element tagging sufficient?
+1. **Tagging UI:** Should canon element tagging support batch operations (e.g., "Tag all geography
+   as invariant, all character arcs as local")? Or is per-element tagging sufficient?
 
-2. **Conflict resolution:** Should Option C (downgrade invariant to mutable) trigger automated coordination with source project owner (e.g., email notification, shared workspace)? Or is manual coordination expected?
+2. **Conflict resolution:** Should Option C (downgrade invariant to mutable) trigger automated
+   coordination with source project owner (e.g., email notification, shared workspace)? Or is manual
+   coordination expected?
 
-3. **Entity registry deduplication:** If new project introduces an entity with the same name as an imported entity (e.g., both projects have "Guard Captain"), how should the UI handle this? Namespace by source project? Prompt for rename?
+3. **Entity registry deduplication:** If new project introduces an entity with the same name as an
+   imported entity (e.g., both projects have "Guard Captain"), how should the UI handle this?
+   Namespace by source project? Prompt for rename?
 
-4. **Timeline anchor visualization:** Would a timeline graph (T0 → T1 → T2 → T3 → ...) be helpful in the UI? Or is text-based display sufficient?
+4. **Timeline anchor visualization:** Would a timeline graph (T0 → T1 → T2 → T3 → ...) be helpful in
+   the UI? Or is text-based display sufficient?
 
-5. **World Genesis progress persistence:** If epic budget (20+ hours) is interrupted, should the loop support resume-from-checkpoint? Or is full re-run expected?
+5. **World Genesis progress persistence:** If epic budget (20+ hours) is interrupted, should the
+   loop support resume-from-checkpoint? Or is full re-run expected?
 
-6. **Export format:** Should Canon Transfer Packages support additional formats (YAML, TOML) beyond JSON? Or is JSON sufficient?
+6. **Export format:** Should Canon Transfer Packages support additional formats (YAML, TOML) beyond
+   JSON? Or is JSON sufficient?
 
-7. **Constraint manifest:** Should constraint documentation be version-controlled alongside canon packs? Or is it derived on-demand from current Cold state?
+7. **Constraint manifest:** Should constraint documentation be version-controlled alongside canon
+   packs? Or is it derived on-demand from current Cold state?
 
-8. **Role-based views:** Should constraint documentation have role-specific views (e.g., Plotwright sees affordances/constraints; Scene Smith sees entity details; Codex Curator sees taxonomy)?
+8. **Role-based views:** Should constraint documentation have role-specific views (e.g., Plotwright
+   sees affordances/constraints; Scene Smith sees entity details; Codex Curator sees taxonomy)?
 
 ---
 
 ## References
 
 **Normative:**
+
 - `00-north-star/WORKING_MODEL.md` (§12 Workflow Patterns)
 - `00-north-star/LOOPS/world_genesis.md`
 - `00-north-star/LOOPS/canon_transfer_export.md`
@@ -762,6 +847,7 @@ Status: APPROVED
 - `04-protocol/INTENTS.md`
 
 **Informative:**
+
 - `00-north-star/PLAYBOOKS/playbook_world_genesis.md`
 - `00-north-star/PLAYBOOKS/playbook_canon_transfer_export.md`
 - `00-north-star/PLAYBOOKS/playbook_canon_transfer_import.md`
@@ -770,6 +856,10 @@ Status: APPROVED
 
 ---
 
-**TL;DR for Layer 6:** Implement 3 new intent handlers (`canon.transfer.export`, `canon.transfer.import`, `canon.genesis.create`), 2 schema validators, conflict detection engine, entity registry/timeline management, and constraint manifest generator.
+**TL;DR for Layer 6:** Implement 3 new intent handlers (`canon.transfer.export`,
+`canon.transfer.import`, `canon.genesis.create`), 2 schema validators, conflict detection engine,
+entity registry/timeline management, and constraint manifest generator.
 
-**TL;DR for Layer 7:** Add 3 new commands (`genesis`, `export-canon`, `import-canon`), enhance project initialization wizard, implement canon tagging UI, conflict resolution dialog, and constraint documentation viewer.
+**TL;DR for Layer 7:** Add 3 new commands (`genesis`, `export-canon`, `import-canon`), enhance
+project initialization wizard, implement canon tagging UI, conflict resolution dialog, and
+constraint documentation viewer.

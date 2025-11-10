@@ -1,10 +1,11 @@
 # Canon Transfer (Export) — Package Canon for Shared Universes
 
-**Purpose**
-Export stabilized canon from a completed project as a **Canon Transfer Package**, enabling shared story universes, sequels, and franchise continuity. Invariant canon rules are preserved; mutable canon allows extension.
+**Purpose** Export stabilized canon from a completed project as a **Canon Transfer Package**,
+enabling shared story universes, sequels, and franchise continuity. Invariant canon rules are
+preserved; mutable canon allows extension.
 
-**Outcome**
-A validated **Canon Transfer Package** artifact ready for import into a new project, containing tagged canon (invariant/mutable), codex baseline, timeline anchors, and entity registry.
+**Outcome** A validated **Canon Transfer Package** artifact ready for import into a new project,
+containing tagged canon (invariant/mutable), codex baseline, timeline anchors, and entity registry.
 
 **See also:** `../WORKING_MODEL.md` §12 for workflow pattern comparison.
 
@@ -16,8 +17,9 @@ A validated **Canon Transfer Package** artifact ready for import into a new proj
 - User explicitly requests canon export for sequel/shared universe.
 - Preparing franchise foundation for multiple projects.
 
-**Activation**
-Showrunner opens a **Trace Unit (TU)** for the export and confirms which canon elements should be:
+**Activation** Showrunner opens a **Trace Unit (TU)** for the export and confirms which canon
+elements should be:
+
 - **Invariant** (must remain true in downstream projects)
 - **Mutable** (can be extended in downstream projects)
 - **Local** (project-specific; exclude from transfer)
@@ -66,11 +68,11 @@ Showrunner opens a **Trace Unit (TU)** for the export and confirms which canon e
      - **Local** — Story-specific (e.g., "Kestrel's personal arc resolution").
    - Create summary table:
 
-     | Canon Pack ID  | Theme       | Invariant Elements | Mutable Elements | Local Elements |
-     | -------------- | ----------- | ------------------ | ---------------- | -------------- |
-     | CP-001         | Geography   | 5                  | 2                | 0              |
-     | CP-002         | Factions    | 3                  | 4                | 2              |
-     | CP-003         | Metaphysics | 8                  | 1                | 0              |
+     | Canon Pack ID | Theme       | Invariant Elements | Mutable Elements | Local Elements |
+     | ------------- | ----------- | ------------------ | ---------------- | -------------- |
+     | CP-001        | Geography   | 5                  | 2                | 0              |
+     | CP-002        | Factions    | 3                  | 4                | 2              |
+     | CP-003        | Metaphysics | 8                  | 1                | 0              |
 
 2. **Tag Canon Elements**
    - For each canon pack:
@@ -143,7 +145,8 @@ Showrunner opens a **Trace Unit (TU)** for the export and confirms which canon e
 
 ## 6) Merge Path (summary)
 
-Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export package is a read-only artifact derived from finalized project canon.
+Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export package is a
+read-only artifact derived from finalized project canon.
 
 ---
 
@@ -162,9 +165,12 @@ Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export
 
 ## 8) Failure Modes & Remedies
 
-- **Invariant tagging unclear** → Lore Weaver consults Showrunner; defer ambiguous elements to mutable.
-- **Entity reference broken** → Add missing entity to registry or remove reference from invariant canon.
-- **Codex baseline contains spoilers** → Codex Curator revises to player-safe summary or excludes entry.
+- **Invariant tagging unclear** → Lore Weaver consults Showrunner; defer ambiguous elements to
+  mutable.
+- **Entity reference broken** → Add missing entity to registry or remove reference from invariant
+  canon.
+- **Codex baseline contains spoilers** → Codex Curator revises to player-safe summary or excludes
+  entry.
 - **Timeline conflicts** → Lore Weaver reorders anchors or removes conflicting anchor.
 - **Schema validation fails** → Fix package structure; re-validate.
 
@@ -172,16 +178,16 @@ Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export
 
 ## 9) RACI (quick)
 
-| Task                 | R           | A          | C          | I    |
-| -------------------- | ----------- | ---------- | ---------- | ---- |
-| Canon inventory      | Lore Weaver | Showrunner | Curator    | —    |
-| Tag canon elements   | Lore Weaver | Showrunner | —          | Plot |
-| Extract timeline     | Lore Weaver | —          | —          | —    |
-| Build entity registry| Lore Weaver | —          | —          | —    |
-| Codex baseline       | Curator     | Lore       | Gatekeeper | —    |
-| Package assembly     | Lore Weaver | Showrunner | —          | —    |
-| Validation           | Gatekeeper  | Showrunner | Lore       | All  |
-| Export finalization  | Showrunner  | Showrunner | Gatekeeper | All  |
+| Task                  | R           | A          | C          | I    |
+| --------------------- | ----------- | ---------- | ---------- | ---- |
+| Canon inventory       | Lore Weaver | Showrunner | Curator    | —    |
+| Tag canon elements    | Lore Weaver | Showrunner | —          | Plot |
+| Extract timeline      | Lore Weaver | —          | —          | —    |
+| Build entity registry | Lore Weaver | —          | —          | —    |
+| Codex baseline        | Curator     | Lore       | Gatekeeper | —    |
+| Package assembly      | Lore Weaver | Showrunner | —          | —    |
+| Validation            | Gatekeeper  | Showrunner | Lore       | All  |
+| Export finalization   | Showrunner  | Showrunner | Gatekeeper | All  |
 
 ---
 
@@ -198,24 +204,27 @@ Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export
 
 **Canon Inventory:**
 
-| Canon Pack         | Invariant                           | Mutable                      | Local                  |
-| ------------------ | ----------------------------------- | ---------------------------- | ---------------------- |
-| CP-001 (Geography) | Wormhole 3 collapsed (Y-18)         | Dock 7 layout (can expand)   | —                      |
-| CP-002 (Factions)  | Toll Syndicate structure (5 tiers)  | Member roster (can add)      | Kestrel's betrayal arc |
-| CP-003 (Physics)   | Wormhole mechanics (8 constraints)  | Plasma backflow rules        | —                      |
+| Canon Pack         | Invariant                          | Mutable                    | Local                  |
+| ------------------ | ---------------------------------- | -------------------------- | ---------------------- |
+| CP-001 (Geography) | Wormhole 3 collapsed (Y-18)        | Dock 7 layout (can expand) | —                      |
+| CP-002 (Factions)  | Toll Syndicate structure (5 tiers) | Member roster (can add)    | Kestrel's betrayal arc |
+| CP-003 (Physics)   | Wormhole mechanics (8 constraints) | Plasma backflow rules      | —                      |
 
 **Timeline Anchors:**
+
 - T0: Y-18 — Wormhole 3 collapse
 - T1: Y-5 — Union reforms after accident
 - T2: Y+0 — Current story state
 
 **Entity Registry:**
+
 - Characters: Kestrel Var (alive, status: reformed), Ena Roe (alive, status: promoted)
 - Places: Dock 7 (hub), Wormhole 3 (gate-defunct), Union Hall (landmark)
 - Factions: Toll Syndicate (active), Dock Workers Union (active)
 - Items: Union Token (visual badge), Plasma Scanner (inspection tool)
 
 **Codex Baseline:**
+
 - Entry: "Dock Inspections" (inherited, player-safe)
 - Entry: "Union Tokens" (inherited, player-safe)
 - Entry: "Wormhole Physics" (inherited, player-safe)
@@ -224,6 +233,7 @@ Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export
 **Package:** `canon_transfer_package_lighthouse-keeper.json`
 
 **Validation:**
+
 - ✅ Integrity: All entity references resolve
 - ✅ Presentation: No spoilers in invariant canon
 - ✅ Consistency: Timeline ordered correctly
@@ -235,5 +245,6 @@ Canon Transfer (Export) operates on **Cold** canon only (no Hot changes). Export
 
 ---
 
-**TL;DR**
-Tag project canon as invariant/mutable/local, extract timeline and entities, bundle with player-safe codex baseline, validate for integrity and presentation, export as reusable package for downstream sequels or shared universes.
+**TL;DR** Tag project canon as invariant/mutable/local, extract timeline and entities, bundle with
+player-safe codex baseline, validate for integrity and presentation, export as reusable package for
+downstream sequels or shared universes.

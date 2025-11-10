@@ -2,8 +2,7 @@
 
 **CRITICAL: This contract applies to ALL roles and ALL artifacts.**
 
-**Status:** Mandatory as of prompts v0.2.0
-**Applies to:** All JSON artifacts produced by any role
+**Status:** Mandatory as of prompts v0.2.0 **Applies to:** All JSON artifacts produced by any role
 **Enforcement:** Hard gate — validation failures STOP workflow
 
 ---
@@ -17,7 +16,8 @@ Every JSON artifact you produce MUST:
 3. **Produce `validation_report.json`** alongside the artifact
 4. **STOP and report errors** if validation fails (hard gate)
 
-**No exceptions.** If validation fails, DO NOT produce the artifact. Return the validation report and STOP.
+**No exceptions.** If validation fails, DO NOT produce the artifact. Return the validation report
+and STOP.
 
 ---
 
@@ -26,7 +26,9 @@ Every JSON artifact you produce MUST:
 **Schemas are indexed in `SCHEMA_INDEX.json`** (uploaded with this kit).
 
 The index provides for each schema:
-- **`$id`** — Canonical schema URL (e.g., `https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json`)
+
+- **`$id`** — Canonical schema URL (e.g.,
+  `https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json`)
 - **`path`** — Relative path in repo (e.g., `03-schemas/hook_card.schema.json`)
 - **`draft`** — JSON Schema draft version (e.g., `2020-12`)
 - **`sha256`** — Integrity checksum for the schema file
@@ -69,6 +71,7 @@ The index provides for each schema:
 5. **Only then proceed** with producing the actual artifact
 
 **Preflight confirms:**
+
 - You have the correct schema
 - You understand the schema structure
 - You can distinguish valid from invalid instances
@@ -80,6 +83,7 @@ The index provides for each schema:
 **When producing artifacts:**
 
 1. **Include `"$schema"` field** at the top level pointing to the schema's `$id` URL:
+
    ```json
    {
      "$schema": "https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json",
@@ -91,6 +95,7 @@ The index provides for each schema:
 2. **Validate before emission** using a JSON Schema validator (ajv, jsonschema, etc.)
 
 3. **Produce `validation_report.json`** with validation results:
+
    ```json
    {
      "artifact_path": "out/hook_card.json",
@@ -176,9 +181,11 @@ The index provides for each schema:
    https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json
    ```
 
-**Priority:** Use bundled schema if available (verified via SHA-256), otherwise fetch from GitHub Raw URL.
+**Priority:** Use bundled schema if available (verified via SHA-256), otherwise fetch from GitHub
+Raw URL.
 
 **DO NOT:**
+
 - Use schemas from untrusted sources
 - Use modified or local copies without verifying SHA-256
 - Use schemas with different `$id` URLs
@@ -187,7 +194,8 @@ The index provides for each schema:
 
 ## Role-Specific Validation Requirements
 
-Different roles produce different artifacts. Use `SCHEMA_INDEX.json` to identify which schemas apply to your role.
+Different roles produce different artifacts. Use `SCHEMA_INDEX.json` to identify which schemas apply
+to your role.
 
 **Example role-to-schema mappings:**
 
@@ -207,6 +215,7 @@ Different roles produce different artifacts. Use `SCHEMA_INDEX.json` to identify
 **Each loop playbook includes validation checkpoints.**
 
 When executing a loop:
+
 1. **Pre-loop:** Verify all required schemas are available via `SCHEMA_INDEX.json`
 2. **During loop:** Each role validates artifacts before handoff to next role
 3. **Post-loop:** Gatekeeper performs final validation audit before merge
@@ -217,11 +226,13 @@ When executing a loop:
 ### Checkpoint: Plotwright → Scene Smith Handoff
 
 **Plotwright MUST:**
+
 1. Validate outline.json against outline.schema.json
 2. Produce validation_report.json
 3. If validation fails: STOP and report to Showrunner
 
 **Scene Smith receives:**
+
 - outline.json (validated)
 - validation_report.json (proof of validation)
 ```
@@ -230,20 +241,21 @@ When executing a loop:
 
 ## Troubleshooting
 
-**Q: What if I can't access the schema?**
-**A:** STOP and report: "Cannot access schema at [URL]. Validation impossible. REFUSING TO PROCEED."
+**Q: What if I can't access the schema?** **A:** STOP and report: "Cannot access schema at [URL].
+Validation impossible. REFUSING TO PROCEED."
 
-**Q: What if the schema is ambiguous or has multiple versions?**
-**A:** Use the `$id` URL from `SCHEMA_INDEX.json` as the single source of truth.
+**Q: What if the schema is ambiguous or has multiple versions?** **A:** Use the `$id` URL from
+`SCHEMA_INDEX.json` as the single source of truth.
 
-**Q: What if I produce an artifact that I believe is correct but fails validation?**
-**A:** Validation failure is authoritative. DO NOT emit the artifact. Report the error and ask for guidance.
+**Q: What if I produce an artifact that I believe is correct but fails validation?** **A:**
+Validation failure is authoritative. DO NOT emit the artifact. Report the error and ask for
+guidance.
 
-**Q: Can I skip validation for "simple" artifacts?**
-**A:** NO. All artifacts require validation. No exceptions.
+**Q: Can I skip validation for "simple" artifacts?** **A:** NO. All artifacts require validation. No
+exceptions.
 
-**Q: What if validation is slow or resource-intensive?**
-**A:** Validation is mandatory regardless of performance impact. Budget time for validation in your workflow.
+**Q: What if validation is slow or resource-intensive?** **A:** Validation is mandatory regardless
+of performance impact. Budget time for validation in your workflow.
 
 ---
 
@@ -276,6 +288,4 @@ When executing a loop:
 
 **This contract is non-negotiable. Compliance is mandatory.**
 
-**Version:** 0.2.0
-**Effective Date:** 2025-11-06
-**Supersedes:** None (initial validation contract)
+**Version:** 0.2.0 **Effective Date:** 2025-11-06 **Supersedes:** None (initial validation contract)

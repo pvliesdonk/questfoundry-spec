@@ -133,7 +133,7 @@
             "maxLength": 240
           }
         },
-        "required": ["anchor", "events", "significance"]
+        "required": ["anchor", "year", "events", "significance"]
       },
       "minItems": 2
     },
@@ -262,7 +262,7 @@
           }
         }
       },
-      "required": ["places", "factions"]
+      "required": ["characters", "places", "factions", "items"]
     },
     "codex_baseline": {
       "type": "array",
@@ -531,7 +531,14 @@
           "maxLength": 400
         }
       },
-      "required": ["integrity", "style", "presentation", "status", "validated_by", "validation_date"]
+      "required": [
+        "integrity",
+        "style",
+        "presentation",
+        "status",
+        "validated_by",
+        "validation_date"
+      ]
     },
     "downstream_handoffs": {
       "type": "object",
@@ -630,7 +637,13 @@
           "maxLength": 400
         }
       },
-      "required": ["tu", "canon_pack_ids", "codex_entry_ids", "style_addendum_id", "snapshot_impact"]
+      "required": [
+        "tu",
+        "canon_pack_ids",
+        "codex_entry_ids",
+        "style_addendum_id",
+        "snapshot_impact"
+      ]
     }
   },
   "required": [

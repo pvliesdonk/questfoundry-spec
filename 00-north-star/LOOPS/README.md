@@ -7,21 +7,21 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 
 ## Quick chooser (use-when → outcome)
 
-| Loop                        | Use when…                                                                      | Outcome                                                                         |
-| --------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| **Story Spark**             | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.                    |
+| Loop                        | Use when…                                                                      | Outcome                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Story Spark**             | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.                       |
 | **World Genesis**           | You want extensive worldbuilding **before** plot (canon-first approach).       | Canon packs + codex baseline + style anchors + constraint manifest for Plotwright. |
 | **Canon Transfer (Export)** | Project complete; export canon for sequel/shared universe.                     | Canon Transfer Package with invariant/mutable canon + codex + timeline + entities. |
-| **Canon Transfer (Import)** | Starting new project with imported canon from prior project.                   | Seeded Hot/Cold with imported canon; constraint docs for creative roles.        |
-| **Hook Harvest**            | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.       |
-| **Lore Deepening**          | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.       |
-| **Codex Expansion**         | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                            |
-| **Style Tune-up**           | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                   |
-| **Art Touch-up**            | You want illustration **plans** and maybe renders.                             | Art Plan (+ optional renders & determinism logs) ready to merge or defer.       |
-| **Audio Pass**              | You want sound **plans** and maybe assets.                                     | Audio Plan (+ optional assets & reproducibility notes) ready to merge or defer. |
-| **Translation Pass**        | A language slice is needed (glossary or full surfaces).                        | Language Pack with glossary, register map, localized surfaces, coverage %.      |
-| **Binding Run**             | You must ship a **view** on Cold (MD/HTML/EPUB/PDF).                           | Export bundle stamped with snapshot ID + View Log.                              |
-| **Narration Dry-Run**       | PN should playtest the current view in-world.                                  | PN playtest notes → small follow-ups (style/codex/binder).                      |
+| **Canon Transfer (Import)** | Starting new project with imported canon from prior project.                   | Seeded Hot/Cold with imported canon; constraint docs for creative roles.           |
+| **Hook Harvest**            | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.          |
+| **Lore Deepening**          | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.          |
+| **Codex Expansion**         | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                               |
+| **Style Tune-up**           | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                      |
+| **Art Touch-up**            | You want illustration **plans** and maybe renders.                             | Art Plan (+ optional renders & determinism logs) ready to merge or defer.          |
+| **Audio Pass**              | You want sound **plans** and maybe assets.                                     | Audio Plan (+ optional assets & reproducibility notes) ready to merge or defer.    |
+| **Translation Pass**        | A language slice is needed (glossary or full surfaces).                        | Language Pack with glossary, register map, localized surfaces, coverage %.         |
+| **Binding Run**             | You must ship a **view** on Cold (MD/HTML/EPUB/PDF).                           | Export bundle stamped with snapshot ID + View Log.                                 |
+| **Narration Dry-Run**       | PN should playtest the current view in-world.                                  | PN playtest notes → small follow-ups (style/codex/binder).                         |
 
 ---
 
@@ -36,19 +36,22 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 ### World Genesis
 
 - **Goal**: build extensive worldbuilding **before** plot design (canon-first approach).
-- **Deliver**: canon packs (geography, magic, history, factions); codex baseline; style anchors; timeline foundation; constraint manifest.
+- **Deliver**: canon packs (geography, magic, history, factions); codex baseline; style anchors;
+  timeline foundation; constraint manifest.
 - **Hand-off**: Story Spark (Plotwright works within canon constraints).
 
 ### Canon Transfer (Export)
 
 - **Goal**: package project canon for export to sequel/shared universe.
-- **Deliver**: Canon Transfer Package (invariant/mutable canon, codex baseline, timeline, entity registry).
+- **Deliver**: Canon Transfer Package (invariant/mutable canon, codex baseline, timeline, entity
+  registry).
 - **Hand-off**: Next project imports package via Canon Transfer (Import).
 
 ### Canon Transfer (Import)
 
 - **Goal**: seed new project with imported canon from prior project.
-- **Deliver**: Invariant canon → Cold (immutable); mutable canon → Hot (extensible); constraint docs for creative roles.
+- **Deliver**: Invariant canon → Cold (immutable); mutable canon → Hot (extensible); constraint docs
+  for creative roles.
 - **Hand-off**: Story Spark (plot within imported canon constraints).
 
 ### Hook Harvest

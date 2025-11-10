@@ -1,22 +1,28 @@
 # Post-Mortem: Schema Enforcement and Validation Contract Failures
 
-**Date:** 2025-11-06
-**Scope:** Schema validation enforcement across all AI agent interactions
-**Status:** Root cause identified; systemic fixes proposed
-**Severity:** High - Schema non-compliance, validation bypass, structural drift
-**Incident Owner:** All roles (systemic issue), particularly Gatekeeper and protocol handlers
+**Date:** 2025-11-06 **Scope:** Schema validation enforcement across all AI agent interactions
+**Status:** Root cause identified; systemic fixes proposed **Severity:** High - Schema
+non-compliance, validation bypass, structural drift **Incident Owner:** All roles (systemic issue),
+particularly Gatekeeper and protocol handlers
 
 ---
 
 ## Executive Summary
 
-AI agents (including Claude) failed to consistently validate outputs against canonical JSON schemas despite schemas being present in the repository. Agents would either (a) not discover schemas, (b) use inferred structures instead of canonical ones, or (c) proceed without validation even when schemas were available.
+AI agents (including Claude) failed to consistently validate outputs against canonical JSON schemas
+despite schemas being present in the repository. Agents would either (a) not discover schemas, (b)
+use inferred structures instead of canonical ones, or (c) proceed without validation even when
+schemas were available.
 
-**Key Finding:** The presence of schemas is **necessary but insufficient**. Without explicit binding, gating, and enforcement instructions, agents treat schemas as **optional references** rather than **mandatory contracts**.
+**Key Finding:** The presence of schemas is **necessary but insufficient**. Without explicit
+binding, gating, and enforcement instructions, agents treat schemas as **optional references**
+rather than **mandatory contracts**.
 
-**Root Cause:** Missing validation contract specification in agent prompts; no enforcement gates; ambiguous schema discovery; lack of preflight validation requirements.
+**Root Cause:** Missing validation contract specification in agent prompts; no enforcement gates;
+ambiguous schema discovery; lack of preflight validation requirements.
 
-**Impact:** Outputs that appear valid but violate schema constraints; downstream tool failures; inability to guarantee schema conformance; protocol violations cascading through the system.
+**Impact:** Outputs that appear valid but violate schema constraints; downstream tool failures;
+inability to guarantee schema conformance; protocol violations cascading through the system.
 
 ---
 
@@ -131,6 +137,7 @@ AI agents (including Claude) failed to consistently validate outputs against can
 # Validation Contract
 
 ALL artifact outputs MUST:
+
 1. Validate against canonical JSON schema before emission
 2. Include "$schema" field pointing to schema $id
 3. Produce validation_report.json (even if empty errors array)
@@ -139,6 +146,7 @@ ALL artifact outputs MUST:
 ## Preflight Protocol
 
 Before producing any artifact:
+
 1. Read canonical schema
 2. Echo: {$id, draft, path, sha256}
 3. Show minimal valid instance
@@ -185,6 +193,7 @@ Before producing any artifact:
 ## Validation Protocol
 
 Before producing ANY JSON artifact:
+
 1. Locate canonical schema via SCHEMA_INDEX.json
 2. Verify: $id, draft, path, sha256
 3. Produce artifact with "$schema" field
@@ -195,6 +204,7 @@ Before producing ANY JSON artifact:
 ## Required Outputs
 
 For every artifact X.json:
+
 - X.json (artifact with "$schema" field)
 - X_validation_report.json (errors array, empty if valid)
 
@@ -227,6 +237,7 @@ HARD STOP on validation failure. Do not continue the loop.
 ## Schema Validation (Quality Bar 8)
 
 For ALL artifacts in the TU:
+
 1. Verify each artifact has "$schema" field
 2. Verify validation_report.json exists for each artifact
 3. Re-validate all artifacts against canonical schemas
@@ -273,13 +284,16 @@ For ALL artifacts in the TU:
 
 ```markdown
 VALIDATION CONTRACT:
+
 - Canonical schema: /03-schemas/hook_card.schema.json
 - Schema $id: https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json
 - Draft: 2020-12
 - SHA256: <paste hex>
 
 REQUIREMENTS:
-1. Preflight: read schema; reply with {$id, draft, path, sha256} + minimal valid instance + one invalid example
+
+1. Preflight: read schema; reply with {$id, draft, path, sha256} + minimal valid instance + one
+   invalid example
 2. Only produce outputs that validate. If validation fails: return report, STOP.
 3. Emit outputs:
    - /out/hook_card.json (with "$schema": "$id")
@@ -313,6 +327,7 @@ REQUIREMENTS:
 **A: Hard gates with STOP on validation failure.**
 
 The schema can be delivered any way, but:
+
 1. Must be explicitly named (path + $id + SHA)
 2. Must be bound to outputs ("use THIS schema")
 3. Must have hard gate ("STOP if validation fails")
@@ -406,19 +421,21 @@ The schema can be delivered any way, but:
 
 ## Conclusion
 
-Schema validation failures weren't due to missing schemas or agent inability—they were due to **missing enforcement contracts**. The fix isn't more schemas or better schemas; it's **explicit binding, hard gates, and mandatory evidence**.
+Schema validation failures weren't due to missing schemas or agent inability—they were due to
+**missing enforcement contracts**. The fix isn't more schemas or better schemas; it's **explicit
+binding, hard gates, and mandatory evidence**.
 
 With validation contracts in place:
+
 1. Agents know **which** schema to use (SCHEMA_INDEX.json)
 2. Agents know **how** to validate (preflight + validate + report)
 3. Agents know **when** to stop (validation failure = hard gate)
 4. Humans can verify **evidence** (validation_report.json for every artifact)
 
-**Next Step:** Create VALIDATION_CONTRACT.md and SCHEMA_INDEX.json, then update Layer 5 prompts with mandatory validation protocol.
+**Next Step:** Create VALIDATION_CONTRACT.md and SCHEMA_INDEX.json, then update Layer 5 prompts with
+mandatory validation protocol.
 
 ---
 
-**Post-Mortem Author:** Claude (Anthropic)
-**Reviewed By:** Peter van Liesdonk
-**Date:** 2025-11-06
+**Post-Mortem Author:** Claude (Anthropic) **Reviewed By:** Peter van Liesdonk **Date:** 2025-11-06
 **Status:** Approved - Implementation Pending

@@ -2,14 +2,17 @@
 
 > **Status:** ✅ **NEW ARTIFACT TYPE** (2025-11-10)
 >
-> **Use:** Package stabilized canon from a completed project for export to downstream projects (sequels, shared universes, franchise continuity). Invariant canon rules must be honored; mutable canon can be extended. Enables **Canon Transfer** workflow.
+> **Use:** Package stabilized canon from a completed project for export to downstream projects
+> (sequels, shared universes, franchise continuity). Invariant canon rules must be honored; mutable
+> canon can be extended. Enables **Canon Transfer** workflow.
 
 ---
 
 ## Normative references
 
 - Workflow: `../../00-north-star/WORKING_MODEL.md` (§12 Workflow Patterns)
-- Loops: `../../00-north-star/LOOPS/canon_transfer_export.md` · `../../00-north-star/LOOPS/canon_transfer_import.md`
+- Loops: `../../00-north-star/LOOPS/canon_transfer_export.md` ·
+  `../../00-north-star/LOOPS/canon_transfer_import.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Role briefs: `../briefs/lore_weaver.md` · `../briefs/codex_curator.md`
 
@@ -70,7 +73,8 @@ Purpose:            <why exported: sequel / shared universe / franchise baseline
 <!-- Validation: Each element must have: ID, Theme, Canon content, Rationale for immutability -->
 <!-- Cross-field: All entity references must resolve to Entity Registry (§6) -->
 
-> **Immutable in downstream projects.** These canon rules must remain true; violating them breaks continuity.
+> **Immutable in downstream projects.** These canon rules must remain true; violating them breaks
+> continuity.
 
 **Format (per invariant):**
 
@@ -109,7 +113,8 @@ _(Repeat per invariant canon element.)_
 <!-- Validation: Each element must have: ID, Theme, Canon content, Extension guidance -->
 <!-- Cross-field: All entity references must resolve to Entity Registry (§6) -->
 
-> **Extensible in downstream projects.** These canon rules can be detailed/extended but not contradicted.
+> **Extensible in downstream projects.** These canon rules can be detailed/extended but not
+> contradicted.
 
 **Format (per mutable):**
 
@@ -148,7 +153,8 @@ _(Repeat per mutable canon element.)_
 <!-- Validation: Each entry must be spoiler-free, player-safe, inherited flag set -->
 <!-- Cross-field: All cross-refs must resolve to other codex entries or Entity Registry -->
 
-> **Player-safe encyclopedia.** Inherited codex entries for downstream projects; mark as `source: <project-slug>`.
+> **Player-safe encyclopedia.** Inherited codex entries for downstream projects; mark as
+> `source: <project-slug>`.
 
 **Format (per entry):**
 
@@ -534,26 +540,32 @@ Package: canon_transfer_package_lighthouse-keeper.json
 ## Common Errors
 
 **❌ Entity reference broken**
+
 - Wrong: Invariant canon references "House Vaelen" but not in Entity Registry
 - Right: All entities in canon must exist in Entity Registry
 
 **❌ Timeline out of order**
+
 - Wrong: T2 (Y-5), T1 (Y-18), T0 (Y+0)
 - Right: T0 (Y-18), T1 (Y-5), T2 (Y+0) — chronological order
 
 **❌ Codex baseline contains spoilers**
+
 - Wrong: "Kestrel betrayed the Toll Syndicate in the final act."
 - Right: "Dock inspections are stricter than they used to be."
 
 **❌ Invariant/Mutable distinction unclear**
+
 - Wrong: Canon marked as invariant but with "can extend" guidance
 - Right: Invariant = immutable, Mutable = extensible
 
 **❌ Snapshot ID mismatch**
+
 - Wrong: Package says "v1.0" but source project snapshot is "v2.0"
 - Right: Snapshot ID must match source project's actual Cold tag
 
 **❌ Missing constraint documentation**
+
 - Wrong: No "You CAN/CANNOT" guidance for downstream
 - Right: Clear examples of allowed/forbidden changes
 
@@ -561,22 +573,22 @@ Package: canon_transfer_package_lighthouse-keeper.json
 
 ## Field Reference
 
-| Section | Field                    | Type          | Required | Constraint                                    |
-| ------- | ------------------------ | ------------- | -------- | --------------------------------------------- |
-| Header  | Source Project           | string        | yes      | kebab-case slug                               |
-| Header  | Export Date              | date          | yes      | YYYY-MM-DD                                    |
-| Header  | Snapshot ID              | string        | yes      | Matches source Cold tag                       |
-| Header  | Exported by              | role-name     | yes      | Fixed: Lore Weaver                            |
-| Header  | Package Version          | semver        | yes      | MAJOR.MINOR.PATCH                             |
-| §1      | Metadata                 | object        | yes      | Source project + export details               |
-| §2      | Invariant Canon          | array         | yes      | ID, Theme, Canon, Rationale, Consequences     |
-| §3      | Mutable Canon            | array         | yes      | ID, Theme, Canon, Extension, Constraints      |
-| §4      | Codex Baseline           | array         | yes      | Title, Topic, Text, Cross-Refs, Inherited     |
-| §5      | Timeline Anchors         | array         | yes      | T0/T1/T2 minimum; chronological order         |
-| §6      | Entity Registry          | object        | yes      | Characters, Places, Factions, Items           |
-| §7      | Downstream Constraints   | markdown-list | yes      | Invariants, Mutables, Timeline, Entity, Can/Cannot |
-| §8      | Validation Report        | markdown      | yes      | Gatekeeper approval (4 criteria)              |
-| §9      | Traceability             | markdown      | yes      | Export TU, Source Snapshot, Package file      |
+| Section | Field                  | Type          | Required | Constraint                                         |
+| ------- | ---------------------- | ------------- | -------- | -------------------------------------------------- |
+| Header  | Source Project         | string        | yes      | kebab-case slug                                    |
+| Header  | Export Date            | date          | yes      | YYYY-MM-DD                                         |
+| Header  | Snapshot ID            | string        | yes      | Matches source Cold tag                            |
+| Header  | Exported by            | role-name     | yes      | Fixed: Lore Weaver                                 |
+| Header  | Package Version        | semver        | yes      | MAJOR.MINOR.PATCH                                  |
+| §1      | Metadata               | object        | yes      | Source project + export details                    |
+| §2      | Invariant Canon        | array         | yes      | ID, Theme, Canon, Rationale, Consequences          |
+| §3      | Mutable Canon          | array         | yes      | ID, Theme, Canon, Extension, Constraints           |
+| §4      | Codex Baseline         | array         | yes      | Title, Topic, Text, Cross-Refs, Inherited          |
+| §5      | Timeline Anchors       | array         | yes      | T0/T1/T2 minimum; chronological order              |
+| §6      | Entity Registry        | object        | yes      | Characters, Places, Factions, Items                |
+| §7      | Downstream Constraints | markdown-list | yes      | Invariants, Mutables, Timeline, Entity, Can/Cannot |
+| §8      | Validation Report      | markdown      | yes      | Gatekeeper approval (4 criteria)                   |
+| §9      | Traceability           | markdown      | yes      | Export TU, Source Snapshot, Package file           |
 
 **Total fields: 24** (5 metadata, 6 canon sections, 4 reference data, 3 validation, 6 traceability)
 

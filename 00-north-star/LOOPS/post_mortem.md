@@ -64,7 +64,6 @@ invites all roles who participated in the work under review.
 ## 4) Procedure
 
 1. **Gather Data (Showrunner)**
-
    - Collect metrics from completed TUs:
      - Gate pass / conditional pass / block rates per loop
      - Most common bar failures (yellow/red by category)
@@ -74,20 +73,17 @@ invites all roles who participated in the work under review.
    - Pull gatecheck reports, playtest notes, incident logs.
 
 2. **Frame the Retrospective (Showrunner)**
-
    - Set scope: milestone, date range, or incident.
    - Emphasize blameless culture: focus on systems, not individuals.
    - Timebox session (60-90 minutes for major milestones).
 
 3. **Retrospective Session (All Roles)** Discuss four categories:
-
    - **What went well** (celebrate successes, effective practices).
    - **What went poorly** (pain points, blockers, inefficiencies).
    - **Surprising discoveries** (unexpected insights, emergent patterns).
    - **Improvements to try** (specific proposals for next cycle).
 
 4. **Identify Action Items (Showrunner + All)** For each improvement area, create an action item:
-
    - **Description**: Specific action to take.
    - **Owner**: Role responsible for implementation.
    - **Target**: Completion date or milestone.
@@ -95,7 +91,6 @@ invites all roles who participated in the work under review.
    - **Priority**: High / Medium / Low.
 
 5. **Update Best Practices (Showrunner)** Document new patterns or guidance in relevant layers:
-
    - Style patterns that reduced drift → Add to Style Lead guidance.
    - Pre-gate techniques that caught issues early → Add to Gatekeeper examples.
    - Hook formulation patterns that triaged cleanly → Add to Hook Harvest guide.
@@ -113,7 +108,6 @@ invites all roles who participated in the work under review.
 ## 5) Deliverables (Hot, then archived)
 
 - **Post-Mortem Report** (Markdown document), structured as:
-
   - **Title**: Post-Mortem: [Milestone/Incident Name]
   - **Date & Scope**: When conducted, what period/work reviewed.
   - **Participants**: Roles who contributed.

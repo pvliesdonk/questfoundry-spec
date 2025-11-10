@@ -174,7 +174,6 @@ See incident-specific playbooks below.
    ```
 
 5. **Remediation:**
-
    - If files missing → Restore from last approved snapshot
    - If hashes mismatch → Identify which file is correct (check approval time)
    - Update manifest with correct hashes
@@ -204,7 +203,6 @@ See incident-specific playbooks below.
 3. **Freeze and snapshot** (general protocol)
 
 4. **Reconstruct Cold SoT:**
-
    - Review approval history (git log, email, chat)
    - For each anchor, identify which asset was approved and when
    - Compute SHA-256 for approved assets
@@ -221,7 +219,6 @@ See incident-specific playbooks below.
    ```
 
 6. **Rebuild from Cold:**
-
    - Delete all previous build outputs
    - Run `binder:build --strict --cold-only`
    - Verify output matches expectations
@@ -252,7 +249,6 @@ See incident-specific playbooks below.
    ```
 
 3. **Determine approved version:**
-
    - Check `cold/art_manifest.json` for `approved_at` timestamp
    - Check `provenance.version` field
    - Cross-reference with approval records (git commits, messages)
@@ -316,7 +312,6 @@ See incident-specific playbooks below.
    ```
 
 4. **Re-establish relative paths:**
-
    - Binder should always use paths relative to project root
    - Never use absolute paths
    - Pandoc `--resource-path` should be `.:assets`
@@ -359,7 +354,6 @@ See incident-specific playbooks below.
    ```
 
 3. **Reconcile:**
-
    - For untracked files: Determine if they should be in manifest
    - For missing files: Restore from backup or mark as missing
    - Update `cold/art_manifest.json` to match reality

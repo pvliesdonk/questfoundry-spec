@@ -85,9 +85,9 @@ surfaces stamped with snapshot ID. No new content created; this reads Cold only.
 
 ## 8) RACI (micro)
 
-| Task               | R           | A          | C                       | I   |
-| ------------------ | ----------- | ---------- | ----------------------- | --- |
-| Snapshot & options | Showrunner  | Showrunner | Gatekeeper, PN          | All |
-| Assemble bundle    | Book Binder | Showrunner | Gatekeeper, Style       | PN  |
-| Spot-check         | Gatekeeper  | Showrunner | Binder, Style, PN       | All |
-| Distribution       | Showrunner  | Showrunner | Binder (archival), PN   | All |
+| Task               | R           | A          | C                     | I   |
+| ------------------ | ----------- | ---------- | --------------------- | --- |
+| Snapshot & options | Showrunner  | Showrunner | Gatekeeper, PN        | All |
+| Assemble bundle    | Book Binder | Showrunner | Gatekeeper, Style     | PN  |
+| Spot-check         | Gatekeeper  | Showrunner | Binder, Style, PN     | All |
+| Distribution       | Showrunner  | Showrunner | Binder (archival), PN | All |

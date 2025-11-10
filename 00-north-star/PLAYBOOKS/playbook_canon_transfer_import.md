@@ -1,8 +1,10 @@
 # Playbook — Canon Transfer (Import)
 
-**Use when:** Starting a new project (sequel, shared universe) and you have a **Canon Transfer Package** from a prior project to seed the canon baseline.
+**Use when:** Starting a new project (sequel, shared universe) and you have a **Canon Transfer
+Package** from a prior project to seed the canon baseline.
 
-**Outcome:** New project's Hot/Cold initialized with imported canon, timeline anchors, and codex baseline. Plotwright and Scene Smith receive clear constraint docs. Ready for Story Spark.
+**Outcome:** New project's Hot/Cold initialized with imported canon, timeline anchors, and codex
+baseline. Plotwright and Scene Smith receive clear constraint docs. Ready for Story Spark.
 
 ---
 
@@ -34,7 +36,8 @@
 
 3. **Conflict detection**:
    - Compare invariant canon against new project seed.
-   - If conflict: Escalate to Showrunner (reject import, revise seed, or downgrade invariant to mutable).
+   - If conflict: Escalate to Showrunner (reject import, revise seed, or downgrade invariant to
+     mutable).
 
 **Lore Weaver**
 
@@ -51,7 +54,8 @@
 
 **Codex Curator (C)**
 
-8. **Codex import**: Import inherited codex entries; mark as `inherited: true`, `source: <source-project>`.
+8. **Codex import**: Import inherited codex entries; mark as `inherited: true`,
+   `source: <source-project>`.
 9. **Flag gaps**: Identify where new project needs additional entries.
 
 **Lore Weaver**

@@ -1,8 +1,12 @@
 # Playbook — World Genesis
 
-**Use when:** Starting a project where extensive **worldbuilding comes before plot** (epic fantasy, deep sci-fi, rich settings). You want to build canon packs for geography, magic, history, and factions proactively, then Story Spark within those constraints.
+**Use when:** Starting a project where extensive **worldbuilding comes before plot** (epic fantasy,
+deep sci-fi, rich settings). You want to build canon packs for geography, magic, history, and
+factions proactively, then Story Spark within those constraints.
 
-**Outcome:** Stabilized canon packs in Cold covering scoped worldbuilding themes, player-safe codex baseline, style anchors, timeline foundation, and constraint manifest for Plotwright. Ready for Story Spark.
+**Outcome:** Stabilized canon packs in Cold covering scoped worldbuilding themes, player-safe codex
+baseline, style anchors, timeline foundation, and constraint manifest for Plotwright. Ready for
+Story Spark.
 
 ---
 
@@ -50,7 +54,8 @@
 
 **Researcher (C, optional)**
 
-7. **Factual grounding**: Corroborate real-world inspirations; attach citations or mark `uncorroborated:<risk>`.
+7. **Factual grounding**: Corroborate real-world inspirations; attach citations or mark
+   `uncorroborated:<risk>`.
 
 **Codex Curator (C)**
 
@@ -76,7 +81,8 @@
 
 **Lore Weaver**
 
-11. **Stabilization**: Loop iterates until all themes covered, no contradictions, Gatekeeper approves.
+11. **Stabilization**: Loop iterates until all themes covered, no contradictions, Gatekeeper
+    approves.
 
 ---
 
@@ -99,12 +105,14 @@
 
 **Epic Genesis (20+ hours):**
 
-- 10+ canon packs (detailed magic, 12 kingdoms, 500-year timeline, 8 factions, metaphysics, tech, culture).
+- 10+ canon packs (detailed magic, 12 kingdoms, 500-year timeline, 8 factions, metaphysics, tech,
+  culture).
 - 100+ codex entries.
 - Multiple style addenda (per region/faction voice).
 - Extensive timeline (50+ anchors).
 
-**Heuristic:** Stop when you can answer Plotwright's likely questions. Over-building risks unused canon.
+**Heuristic:** Stop when you can answer Plotwright's likely questions. Over-building risks unused
+canon.
 
 ---
 
@@ -145,11 +153,14 @@
 
 ## 8) Escape hatches
 
-- **Canon sprawl** (too much worldbuilding; delays story) → Set budget; defer non-critical themes to "extend during Lore Deepening."
-- **Internal contradictions** (geography conflicts with magic) → Lore Weaver revises; Gatekeeper blocks until resolved.
+- **Canon sprawl** (too much worldbuilding; delays story) → Set budget; defer non-critical themes to
+  "extend during Lore Deepening."
+- **Internal contradictions** (geography conflicts with magic) → Lore Weaver revises; Gatekeeper
+  blocks until resolved.
 - **Codex spoilers** → Codex Curator revises to player-safe summary.
 - **Style drift** → Style Lead flags inconsistencies; Lore Weaver harmonizes.
-- **Over-building** (unused canon) → Heuristic: Stop when Plotwright's likely questions are answerable.
+- **Over-building** (unused canon) → Heuristic: Stop when Plotwright's likely questions are
+  answerable.
 
 ---
 

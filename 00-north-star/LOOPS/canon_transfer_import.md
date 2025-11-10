@@ -1,10 +1,12 @@
 # Canon Transfer (Import) — Seed New Project with Shared Canon
 
-**Purpose**
-Import a **Canon Transfer Package** from a prior project to seed a new project with established canon, enabling sequels, shared universes, and franchise continuity. Invariant canon merges to Cold immediately; mutable canon seeds Hot for extension.
+**Purpose** Import a **Canon Transfer Package** from a prior project to seed a new project with
+established canon, enabling sequels, shared universes, and franchise continuity. Invariant canon
+merges to Cold immediately; mutable canon seeds Hot for extension.
 
-**Outcome**
-New project's Hot/Cold is initialized with imported canon, timeline anchors, and codex baseline. Plotwright and Scene Smith receive clear constraint documentation. Gatekeeper ensures no conflicts between imported canon and project seed ideas.
+**Outcome** New project's Hot/Cold is initialized with imported canon, timeline anchors, and codex
+baseline. Plotwright and Scene Smith receive clear constraint documentation. Gatekeeper ensures no
+conflicts between imported canon and project seed ideas.
 
 **See also:** `../WORKING_MODEL.md` §12 for workflow pattern comparison.
 
@@ -16,8 +18,8 @@ New project's Hot/Cold is initialized with imported canon, timeline anchors, and
 - User provides `canon_transfer_package_<source-project>.json` for import.
 - Building a sequel or shared universe story.
 
-**Activation**
-Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransferImport` and confirms import scope.
+**Activation** Showrunner opens a **Trace Unit (TU)** for the import:
+`TU-<date>-LW-CanonTransferImport` and confirms import scope.
 
 ---
 
@@ -79,11 +81,13 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 2. **Conflict Detection (Lore Weaver + Gatekeeper)**
    - Compare imported invariant canon against new project seed ideas.
    - Identify conflicts:
-     - Example conflict: Invariant says "Wormhole 3 collapsed in Y-18"; project seed wants to repair it.
+     - Example conflict: Invariant says "Wormhole 3 collapsed in Y-18"; project seed wants to repair
+       it.
    - If conflict detected:
      - **Option A**: Reject import (wrong canon baseline for this story).
      - **Option B**: Revise project seed (honor invariant; story cannot repair Wormhole 3).
-     - **Option C**: Downgrade invariant to mutable (allow repair; coordinate with source project owner).
+     - **Option C**: Downgrade invariant to mutable (allow repair; coordinate with source project
+       owner).
    - Escalate to Showrunner for resolution.
 
 3. **Merge Invariant Canon to Cold**
@@ -216,7 +220,8 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 ## 8) Failure Modes & Remedies
 
 - **Schema validation fails** → Fix package format; re-import.
-- **Conflict with project seed** → Escalate to Showrunner; choose Option A/B/C (reject, revise, downgrade).
+- **Conflict with project seed** → Escalate to Showrunner; choose Option A/B/C (reject, revise,
+  downgrade).
 - **Entity reference broken** → Add missing entity to registry or flag for Lore Deepening.
 - **Timeline confusion** → Document timeline offsets clearly; provide examples.
 - **Codex spoilers** → Codex Curator revises to player-safe or excludes entry.
@@ -226,24 +231,25 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 
 ## 9) RACI (quick)
 
-| Task                      | R           | A          | C          | I          |
-| ------------------------- | ----------- | ---------- | ---------- | ---------- |
-| Load transfer package     | Lore Weaver | Showrunner | —          | —          |
-| Conflict detection        | Lore Weaver | Showrunner | Gatekeeper | Plot       |
-| Merge invariant to Cold   | Lore Weaver | Showrunner | Gatekeeper | All        |
-| Seed mutable to Hot       | Lore Weaver | Showrunner | —          | All        |
-| Import timeline           | Lore Weaver | —          | —          | Plot/SS    |
-| Import entity registry    | Lore Weaver | —          | —          | Plot/SS    |
-| Codex import              | Curator     | Lore       | Gatekeeper | —          |
-| Constraint documentation  | Lore Weaver | Showrunner | Plot/SS    | All        |
-| Gatekeeper validation     | Gatekeeper  | Showrunner | Lore       | All        |
-| Showrunner approval       | Showrunner  | Showrunner | Gatekeeper | All        |
+| Task                     | R           | A          | C          | I       |
+| ------------------------ | ----------- | ---------- | ---------- | ------- |
+| Load transfer package    | Lore Weaver | Showrunner | —          | —       |
+| Conflict detection       | Lore Weaver | Showrunner | Gatekeeper | Plot    |
+| Merge invariant to Cold  | Lore Weaver | Showrunner | Gatekeeper | All     |
+| Seed mutable to Hot      | Lore Weaver | Showrunner | —          | All     |
+| Import timeline          | Lore Weaver | —          | —          | Plot/SS |
+| Import entity registry   | Lore Weaver | —          | —          | Plot/SS |
+| Codex import             | Curator     | Lore       | Gatekeeper | —       |
+| Constraint documentation | Lore Weaver | Showrunner | Plot/SS    | All     |
+| Gatekeeper validation    | Gatekeeper  | Showrunner | Lore       | All     |
+| Showrunner approval      | Showrunner  | Showrunner | Gatekeeper | All     |
 
 ---
 
 ## 10) Hand-offs
 
-- **To Story Spark**: Constraint documentation (invariants/mutables), timeline foundation, entity registry.
+- **To Story Spark**: Constraint documentation (invariants/mutables), timeline foundation, entity
+  registry.
 - **To Lore Deepening**: Mutable canon (can extend via hooks).
 - **To Codex Expansion**: Gap list (where new entries needed).
 
@@ -251,12 +257,13 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 
 ## 11) Example (miniature)
 
-**Source Project:** "The Lighthouse Keeper" (slug: `lighthouse-keeper`)
-**New Project:** "The Harbor Master" (slug: `harbor-master`)
+**Source Project:** "The Lighthouse Keeper" (slug: `lighthouse-keeper`) **New Project:** "The Harbor
+Master" (slug: `harbor-master`)
 
 **Import Package:** `canon_transfer_package_lighthouse-keeper.json`
 
 **1. Load Package:**
+
 - Metadata: source = "lighthouse-keeper", export_date = "2025-11-10", snapshot_id = "v1.0"
 - Invariant canon: Geography (Wormhole 3 collapsed), Factions (Toll structure)
 - Mutable canon: Dock 7 layout, Toll member roster
@@ -265,67 +272,80 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 - Entity registry: Kestrel (alive), Ena (alive), Dock 7 (hub), Toll Syndicate (faction)
 
 **2. Conflict Detection:**
+
 - New project seed: "Harbor master investigates wormhole repair efforts."
 - Conflict: Invariant says "Wormhole 3 irreparable"; seed wants repair.
-- **Resolution (Option B)**: Revise project seed: "Harbor master investigates FAILED wormhole repair attempts (honors invariant)."
+- **Resolution (Option B)**: Revise project seed: "Harbor master investigates FAILED wormhole repair
+  attempts (honors invariant)."
 
 **3. Merge Invariant to Cold:**
+
 - Canon Pack: "The Lighthouse Keeper — Geography (Invariant Canon)"
   - Canon: "Wormhole 3 collapsed in Y-18; irreparable with current technology."
   - Status: `cold-merged`, `immutable: true`
 
 **4. Seed Mutable to Hot:**
+
 - Canon Pack: "The Lighthouse Keeper — Factions (Mutable Canon)"
   - Canon: "Toll Syndicate has 5 tiers; member roster incomplete."
   - Status: `hot-accepted`, `immutable: false`
 
 **5. Import Timeline:**
+
 - T0 = Y-18 (Wormhole 3 collapse)
 - T1 = Y-5 (Union reforms)
 - T2 = Y+0 (Lighthouse Keeper ends)
 - **T3 = Y+2** (Harbor Master begins, 2 years later)
 
 **6. Import Entity Registry:**
+
 - Kestrel Var (alive, reformed, source: lighthouse-keeper)
 - Ena Roe (alive, promoted, source: lighthouse-keeper)
 - Dock 7 (hub, source: lighthouse-keeper)
 - Toll Syndicate (faction, 5 tiers, source: lighthouse-keeper)
 
 **7. Codex Import:**
+
 - Entry: "Dock Inspections" (inherited, source: lighthouse-keeper)
 - Entry: "Union Tokens" (inherited, source: lighthouse-keeper)
 - Entry: "Wormhole Physics" (inherited, source: lighthouse-keeper)
 - **Gap**: Need new entry for "Harbor Master role" (flag for Codex Expansion).
 
-**8. Constraint Documentation:**
-**Invariants (cannot change):**
+**8. Constraint Documentation:** **Invariants (cannot change):**
+
 - Wormhole 3 collapsed in Y-18 (irreparable)
 - Toll Syndicate has 5-tier hierarchy
 
 **Mutables (can extend):**
+
 - Toll member roster (can add new members)
 - Dock 7 layout (can expand)
 
 **Timeline (extend from T3+):**
+
 - Source project ends at Y+0
 - New project starts at Y+2
 
 **Entities (baseline):**
+
 - Kestrel Var (alive, reformed)
 - Ena Roe (alive, promoted)
 
 **You CAN:**
+
 - Add new Toll members
 - Expand Dock 7 geography
 - Introduce new characters
 - Explore failed repair attempts (honoring irreparability)
 
 **You CANNOT:**
+
 - Repair Wormhole 3 (violates invariant)
 - Change Toll hierarchy structure (violates invariant)
 - Contradict Kestrel/Ena fates (violates entity registry)
 
 **9. Gatekeeper Validation:**
+
 - ✅ Integrity: All entity references resolve
 - ✅ Conflict resolution: Seed revised to honor invariant
 - ✅ Presentation: Codex baseline is player-safe
@@ -335,9 +355,12 @@ Showrunner opens a **Trace Unit (TU)** for the import: `TU-<date>-LW-CanonTransf
 
 **11. TU:** `TU-2025-11-10-LW-CanonTransferImport`
 
-**12. Announce:** "Canon baseline imported from The Lighthouse Keeper. See constraint docs. Ready for Story Spark."
+**12. Announce:** "Canon baseline imported from The Lighthouse Keeper. See constraint docs. Ready
+for Story Spark."
 
 ---
 
-**TL;DR**
-Load transfer package, detect conflicts with project seed, merge invariant canon to Cold (immutable), seed mutable canon to Hot (extensible), import timeline/entities/codex, document constraints for creative roles, validate, and hand off to Story Spark for plot development within canon rules.
+**TL;DR** Load transfer package, detect conflicts with project seed, merge invariant canon to Cold
+(immutable), seed mutable canon to Hot (extensible), import timeline/entities/codex, document
+constraints for creative roles, validate, and hand off to Story Spark for plot development within
+canon rules.

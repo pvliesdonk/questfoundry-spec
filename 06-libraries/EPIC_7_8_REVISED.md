@@ -1,8 +1,8 @@
 # Epic 7 & 8 Implementation — Revised Architecture
 
-**Document Version:** 2.1 (2025-11-06)
-**Supersedes:** EPIC_7_UPDATES.md v1.0, EPIC_7_8_REVISED.md v2.0
-**Key Insight:** Hybrid architecture - **hardcoded loop structure** + **LLM-backed agents & Showrunner**
+**Document Version:** 2.1 (2025-11-06) **Supersedes:** EPIC_7_UPDATES.md v1.0, EPIC_7_8_REVISED.md
+v2.0 **Key Insight:** Hybrid architecture - **hardcoded loop structure** + **LLM-backed agents &
+Showrunner**
 
 ---
 
@@ -11,20 +11,31 @@
 **CRITICAL ARCHITECTURAL DECISION:**
 
 This is a **hybrid architecture** combining structure with intelligence:
-- **Loop structure = hardcoded** → Implement loop procedures as **Python classes** (from playbook specs)
+
+- **Loop structure = hardcoded** → Implement loop procedures as **Python classes** (from playbook
+  specs)
 - **Role agents = LLM-backed** → Agents provide domain expertise and make decisions
-- **Showrunner = LLM-backed orchestrator** → Makes strategic decisions on role waking and collaboration
+- **Showrunner = LLM-backed orchestrator** → Makes strategic decisions on role waking and
+  collaboration
 - **Playbooks = recommendations** → Showrunner usually follows them but can adapt to context
 
 **Key Insights:**
-1. **Playbooks don't need to be parsed at runtime** — Instead: Playbooks specify structure (what gets coded) + Prompts provide expertise (what LLM decides)
-2. **Showrunner controls execution** — Which agents to wake, when to allow collaboration, when loop stabilizes
-3. **Two-tier context architecture** — Showrunner knows lightweight registry of all loops (strategic) but only detailed context for current loop (tactical)
+
+1. **Playbooks don't need to be parsed at runtime** — Instead: Playbooks specify structure (what
+   gets coded) + Prompts provide expertise (what LLM decides)
+2. **Showrunner controls execution** — Which agents to wake, when to allow collaboration, when loop
+   stabilizes
+3. **Two-tier context architecture** — Showrunner knows lightweight registry of all loops
+   (strategic) but only detailed context for current loop (tactical)
 
 **Major Benefits:**
-- **Bounded flexibility:** Hardcoded loop structure ensures quality bars are met, while LLM-backed agents and Showrunner adapt execution to context
-- **Context efficiency:** ~97% reduction vs Layer 5 LLM-only approach (600 lines vs 10,000 lines per execution)
-- **Modularity:** Add new loops without changing Showrunner prompt; agents don't need to know all playbooks
+
+- **Bounded flexibility:** Hardcoded loop structure ensures quality bars are met, while LLM-backed
+  agents and Showrunner adapt execution to context
+- **Context efficiency:** ~97% reduction vs Layer 5 LLM-only approach (600 lines vs 10,000 lines per
+  execution)
+- **Modularity:** Add new loops without changing Showrunner prompt; agents don't need to know all
+  playbooks
 
 ---
 
@@ -33,6 +44,7 @@ This is a **hybrid architecture** combining structure with intelligence:
 ### What Gets Coded (Deterministic Structure)
 
 Implement in Python:
+
 - **Loop procedures** — Step sequences (step_1, step_2, ..., step_8)
 - **RACI recommendations** — Playbook-recommended role assignments per step
 - **Validation checkpoints** — Schema validation after each artifact generation
@@ -46,11 +58,13 @@ Implement in Python:
 **1. Role Agents (Domain Expertise)**
 
 Each agent is LLM-backed and loaded with:
+
 - Role adapter (orchestration mode) OR full prompt (standalone mode)
 - Shared patterns
 - Validation contract + schema index
 
 Agents:
+
 - Execute assigned tasks (draft topology, write prose, etc.)
 - Can **suggest collaborators** when they need help
 - Produce artifacts validated against schemas
@@ -58,6 +72,7 @@ Agents:
 **2. Showrunner (Strategic Orchestration)**
 
 The Showrunner is also LLM-backed and makes strategic decisions:
+
 - **Which role to wake** for each step (playbook recommends, Showrunner decides)
 - **Whether to approve collaboration** when agents suggest additional roles
 - **Which loop to run next** based on checkpoint review
@@ -69,7 +84,8 @@ The Showrunner is also LLM-backed and makes strategic decisions:
 
 ## Two-Tier Context Architecture
 
-A key advantage of hardcoded loops over Layer 5's LLM-only approach is **context efficiency**. The Showrunner doesn't need to know all 13 playbooks in detail—just enough to make strategic decisions.
+A key advantage of hardcoded loops over Layer 5's LLM-only approach is **context efficiency**. The
+Showrunner doesn't need to know all 13 playbooks in detail—just enough to make strategic decisions.
 
 ### Tier 1: Loop Registry (Strategic - Lightweight)
 
@@ -119,6 +135,7 @@ LOOP_REGISTRY = {
 **Size:** ~90 lines for all 13 loops
 
 **Used for:**
+
 - "Story Spark just completed. What loop should run next?"
 - "We have hook cards in the TU. Which loop can process them?"
 - "Is Style Tune Up an appropriate follow-up to Canon Weaving?"
@@ -208,6 +225,7 @@ class StorySparkLoop(Loop):
 **Size:** ~500 lines (detailed step descriptions, constraints, criteria)
 
 **Used for:**
+
 - "Which step should run next?"
 - "Can Plotwright revise topology based on Gatekeeper feedback?"
 - "Is this loop stable and ready to complete?"
@@ -218,6 +236,7 @@ class StorySparkLoop(Loop):
 ### Context Size Comparison
 
 **Layer 5 Approach (LLM-only Showrunner):**
+
 ```
 Showrunner LLM Context:
   - Showrunner system prompt: ~500 lines
@@ -229,6 +248,7 @@ Showrunner LLM Context:
 ```
 
 **Layer 6 Approach (Hardcoded loops + two-tier context):**
+
 ```
 Showrunner LLM Context:
   - Showrunner system prompt: ~500 lines
@@ -338,14 +358,14 @@ class Showrunner:
 
 ### Advantages Over Layer 5
 
-| Aspect | Layer 5 (LLM-only) | Layer 6 (Two-tier) |
-|--------|-------------------|-------------------|
-| **Context per execution** | ~10,000 lines | ~600-1,400 lines |
-| **Showrunner needs to know** | All 13 playbooks in detail | Registry + active loop only |
-| **Adding new loop** | Update Showrunner prompt | Add Loop subclass (auto-discovered) |
-| **Agent context** | Must understand all loops | Only receives task for current step |
-| **Modularity** | Monolithic (all or nothing) | Modular (loops independent) |
-| **Testing** | Hard (LLM interprets playbooks) | Easy (mock Showrunner decisions) |
+| Aspect                       | Layer 5 (LLM-only)              | Layer 6 (Two-tier)                  |
+| ---------------------------- | ------------------------------- | ----------------------------------- |
+| **Context per execution**    | ~10,000 lines                   | ~600-1,400 lines                    |
+| **Showrunner needs to know** | All 13 playbooks in detail      | Registry + active loop only         |
+| **Adding new loop**          | Update Showrunner prompt        | Add Loop subclass (auto-discovered) |
+| **Agent context**            | Must understand all loops       | Only receives task for current step |
+| **Modularity**               | Monolithic (all or nothing)     | Modular (loops independent)         |
+| **Testing**                  | Hard (LLM interprets playbooks) | Easy (mock Showrunner decisions)    |
 
 ### Example: Showrunner Deciding Next Loop
 
@@ -395,6 +415,7 @@ Reasoning:
 ### Example: Story Spark Loop
 
 **Playbook (`loops/story_spark.playbook.md`):**
+
 - Documents the procedure
 - Specifies message sequences
 - Defines RACI: Plotwright (R), Scene Smith (R), Style Lead (C), etc.
@@ -724,11 +745,15 @@ class StorySparkLoop(Loop):
 **Key Points:**
 
 1. **Loop provides step library** — Available steps defined as methods (step_1, step_2, ..., step_8)
-2. **Showrunner orchestrates execution** — Decides which step to run next, when to iterate, when loop stabilizes
-3. **Loops stabilize through iteration** — Not linear execution; steps can repeat until quality achieved
+2. **Showrunner orchestrates execution** — Decides which step to run next, when to iterate, when
+   loop stabilizes
+3. **Loops stabilize through iteration** — Not linear execution; steps can repeat until quality
+   achieved
 4. **Agents provide expertise** — LLM-backed roles execute tasks, can suggest collaboration
-5. **Playbooks provide recommendations** — Typical flow + role recommendations, but Showrunner decides
-6. **Loop goals bound scope** — Story Spark develops plot (can't change style), Style Tune Up refines tone (can't change plot)
+5. **Playbooks provide recommendations** — Typical flow + role recommendations, but Showrunner
+   decides
+6. **Loop goals bound scope** — Story Spark develops plot (can't change style), Style Tune Up
+   refines tone (can't change plot)
 7. **Type safe** — Python typing, structured data, not string parsing
 8. **Testable** — Mock LLM responses (agents + Showrunner), test step logic independently
 9. **Maintainable** — Change step logic by editing methods, not parsing markdown
@@ -829,51 +854,66 @@ class LoopContext:
 ### Playbook as Recommendation, Not Requirement
 
 **The Playbook Provides:**
+
 - **Recommended choreography** — Best-practice role assignments per step
 - **RACI matrix** — Responsible, Accountable, Consulted, Informed
 - **Message templates** — What information each role needs
 - **Validation checkpoints** — What to validate at each step
 
 **The Showrunner Decides:**
+
 - Which role to actually wake (usually follows playbook)
 - Whether to approve agent collaboration requests
 - When to deviate if context suggests a better approach
 
 **Bounds on Deviation:**
+
 - **Loop goal is fixed** — Story Spark develops plot, Style Tune Up refines tone, etc.
 - **Step library is fixed** — Available steps defined by loop class (can't invent new steps)
 - **Required steps must execute** — Core steps (e.g., step_1, step_7, step_8) must run at least once
 - **Validation checkpoints are mandatory** — All artifacts must validate against schemas
 - **Quality bars enforced** — Gatekeeper must approve before loop can complete
-- **Scope constraints enforced** — Story Spark can't update style guide, Style Tune Up can't change plot
+- **Scope constraints enforced** — Story Spark can't update style guide, Style Tune Up can't change
+  plot
 
 **But loops STABILIZE through iteration (not linear execution):**
+
 - Later agents can request earlier agents to revise work
 - Steps can execute multiple times until quality is achieved
 - Showrunner decides when loop has stabilized and is complete
 
 **Example Deviations & Iterations (Showrunner might choose):**
 
-1. **Efficiency:** Step 1 recommends Plotwright, but previous loop already had Plotwright draft topology → Showrunner: "Reuse existing draft, skip to step 2"
+1. **Efficiency:** Step 1 recommends Plotwright, but previous loop already had Plotwright draft
+   topology → Showrunner: "Reuse existing draft, skip to step 2"
 
-2. **Context-aware role selection:** Step 3 recommends Scene Smith, but topology changes are minimal → Showrunner: "Plotwright can handle prose for these small changes, no need to wake Scene Smith"
+2. **Context-aware role selection:** Step 3 recommends Scene Smith, but topology changes are minimal
+   → Showrunner: "Plotwright can handle prose for these small changes, no need to wake Scene Smith"
 
-3. **Collaboration control:** Plotwright suggests Lore Weaver collaboration in step 1 → Showrunner evaluates: "Topology changes don't touch established canon, deny collaboration request"
+3. **Collaboration control:** Plotwright suggests Lore Weaver collaboration in step 1 → Showrunner
+   evaluates: "Topology changes don't touch established canon, deny collaboration request"
 
-4. **Quality-driven reordering:** Step 5 recommends Style Lead, but previous checkpoint flagged tone issues → Showrunner: "Wake Style Lead early, before prose pass, to provide guidance upfront"
+4. **Quality-driven reordering:** Step 5 recommends Style Lead, but previous checkpoint flagged tone
+   issues → Showrunner: "Wake Style Lead early, before prose pass, to provide guidance upfront"
 
-5. **Revision cycle (STABILIZATION):** Gatekeeper (step 7) finds topology inconsistencies → Showrunner: "Go back to step_1_topology_draft, have Plotwright revise. Then re-run steps 2-7 with revised topology. Loop is NOT stable yet."
+5. **Revision cycle (STABILIZATION):** Gatekeeper (step 7) finds topology inconsistencies →
+   Showrunner: "Go back to step_1_topology_draft, have Plotwright revise. Then re-run steps 2-7 with
+   revised topology. Loop is NOT stable yet."
 
-6. **Iterative refinement:** Scene Smith (step 3) prose doesn't match Lore Weaver's feasibility notes (step 6) → Showrunner: "Return to step_3_prose_pass, have Scene Smith revise with Lore Weaver's input. Re-validate at step 7. Loop stabilizes when all agents are satisfied."
+6. **Iterative refinement:** Scene Smith (step 3) prose doesn't match Lore Weaver's feasibility
+   notes (step 6) → Showrunner: "Return to step_3_prose_pass, have Scene Smith revise with Lore
+   Weaver's input. Re-validate at step 7. Loop stabilizes when all agents are satisfied."
 
 **Stabilization Criteria (when loop completes):**
+
 - All required steps have executed at least once
 - All artifacts validate against schemas
 - Gatekeeper preview gate passes (step 7)
 - No pending revisions requested by any agent
 - Showrunner determines loop goal has been achieved
 
-**Result:** Playbook provides available steps and typical flow, Showrunner orchestrates execution adaptively (forward progress + revision cycles) until loop stabilizes.
+**Result:** Playbook provides available steps and typical flow, Showrunner orchestrates execution
+adaptively (forward progress + revision cycles) until loop stabilizes.
 
 ---
 
@@ -882,6 +922,7 @@ class LoopContext:
 ### 7.1: Prompt Bundling ✅ (Keep as planned)
 
 Still need to load prompts from resources:
+
 - Validation contract + schema index
 - Shared patterns
 - Role adapters (orchestration mode)
@@ -904,6 +945,7 @@ class PromptLoader:
 ### 7.2: Role Session ✅ (Keep as planned)
 
 Still need session management:
+
 - Track conversation history
 - Track TU context
 - Validation report tracking
@@ -915,6 +957,7 @@ Still need session management:
 ### 7.3: Prompt Executor ✅ (Keep as planned)
 
 Still need to execute prompts with LLM:
+
 - Load appropriate prompts (adapter vs full)
 - Execute with LLM provider
 - Parse response
@@ -926,8 +969,7 @@ Still need to execute prompts with LLM:
 
 ### 7.4: Role Interface ✅ (Simplified)
 
-**Old plan:** SessionManager with wake/dormant
-**New plan:** Role interface for loop execution
+**Old plan:** SessionManager with wake/dormant **New plan:** Role interface for loop execution
 
 ```python
 class Role:
@@ -1195,6 +1237,7 @@ class Loop(ABC):
 13. **Archive Snapshot** (`loops/archive_snapshot.py`)
 
 **For each loop:**
+
 - Extend `Loop` base class
 - Implement `get_required_roles()` from RACI matrix
 - Implement step methods (one per playbook step)
@@ -1314,6 +1357,7 @@ for step in steps:
 ```
 
 **Problems:**
+
 - Complex playbook parsing
 - Error-prone string manipulation
 - Hard to debug
@@ -1337,6 +1381,7 @@ result = await loop.execute(ctx)
 ```
 
 **Benefits:**
+
 - Simple, explicit code
 - Type safe (Python typing)
 - Easy to debug
@@ -1350,29 +1395,22 @@ result = await loop.execute(ctx)
 
 ### Removed / Simplified
 
-❌ **Remove:** PlaybookExecutor.parse_raci_matrix()
-❌ **Remove:** PlaybookExecutor.execute_step()
-❌ **Remove:** Dynamic playbook parsing
-❌ **Remove:** Complex step execution logic
+❌ **Remove:** PlaybookExecutor.parse_raci_matrix() ❌ **Remove:** PlaybookExecutor.execute_step()
+❌ **Remove:** Dynamic playbook parsing ❌ **Remove:** Complex step execution logic
 
-✅ **Simplify:** Loops are classes, not parsed documents
-✅ **Simplify:** Showrunner just instantiates loop classes
-✅ **Simplify:** No runtime playbook interpretation
+✅ **Simplify:** Loops are classes, not parsed documents ✅ **Simplify:** Showrunner just
+instantiates loop classes ✅ **Simplify:** No runtime playbook interpretation
 
 ### Added
 
-✅ **Add:** Loop base class
-✅ **Add:** 13 loop implementations (one per playbook)
-✅ **Add:** LoopContext for execution state
-✅ **Add:** LoopRegistry for loop discovery
+✅ **Add:** Loop base class ✅ **Add:** 13 loop implementations (one per playbook) ✅ **Add:**
+LoopContext for execution state ✅ **Add:** LoopRegistry for loop discovery
 
 ### Unchanged
 
-✅ **Keep:** Prompt loading (adapters, full prompts)
-✅ **Keep:** Role execution with LLM
-✅ **Keep:** Validation enforcement (v0.2.0)
-✅ **Keep:** Session management
-✅ **Keep:** Dual mode support (standalone vs orchestration)
+✅ **Keep:** Prompt loading (adapters, full prompts) ✅ **Keep:** Role execution with LLM ✅
+**Keep:** Validation enforcement (v0.2.0) ✅ **Keep:** Session management ✅ **Keep:** Dual mode
+support (standalone vs orchestration)
 
 ---
 
@@ -1477,16 +1515,19 @@ If you've already started implementing based on v1.0:
 **Key Decision:** Playbooks are **specifications**, not runtime documents.
 
 **Implementation:**
+
 - Code loop logic as Python classes (one per playbook)
 - Load role prompts into LLM for expertise
 - Hardcoded flow = simple, testable, maintainable
 
 **Result:**
+
 - Epic 7: Simpler (no playbook parsing)
 - Epic 8: Straightforward (code 13 loops from specs)
 - Better DX: Type safety, debugging, testing
 
 **Playbooks serve as:**
+
 - Specifications for loop implementations
 - Documentation for users
 - Validation references (message sequences, RACI)
