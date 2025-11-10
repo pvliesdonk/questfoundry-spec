@@ -11,13 +11,13 @@
 
 ## Executive Summary
 
-Three new loops were added to support canon-centric workflows:
+Three new canon-centric **workflow patterns** were added (documented in WORKING_MODEL.md §12):
 
-1. **World Genesis** — Proactive worldbuilding before plot design
+1. **World Genesis** — Proactive worldbuilding before plot design (runs Lore Deepening proactively)
 2. **Canon Transfer (Export)** — Package canon for sequel/shared universe reuse
 3. **Canon Transfer (Import)** — Seed new project with imported canon
 
-These workflows introduce:
+These workflow patterns introduce:
 
 - 2 new artifact types (with schemas)
 - 3 new protocol intents
@@ -33,16 +33,15 @@ These workflows introduce:
 **Modified:**
 
 - `WORKING_MODEL.md` — Added §12 "Workflow Patterns (canon-centric alternatives)"
-- `LOOPS/README.md` — Added 3 new loops to quick chooser
 
 **Added:**
 
-- `LOOPS/world_genesis.md` — Full loop spec for World Genesis
-- `LOOPS/canon_transfer_export.md` — Full loop spec for export
-- `LOOPS/canon_transfer_import.md` — Full loop spec for import
-- `PLAYBOOKS/playbook_world_genesis.md` — One-page playbook
-- `PLAYBOOKS/playbook_canon_transfer_export.md` — One-page playbook
-- `PLAYBOOKS/playbook_canon_transfer_import.md` — One-page playbook
+- `PLAYBOOKS/playbook_world_genesis.md` — One-page playbook for World Genesis pattern
+- `PLAYBOOKS/playbook_canon_transfer_export.md` — One-page playbook for export pattern
+- `PLAYBOOKS/playbook_canon_transfer_import.md` — One-page playbook for import pattern
+
+**Note:** Canon workflows are **patterns** (different orderings/uses of the 13 standard loops), not
+distinct loops themselves. They are documented in WORKING_MODEL.md §12 and guided by playbooks.
 
 ### Layer 2 (Dictionary)
 
@@ -158,7 +157,8 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 
 #### `canon.genesis.create`
 
-**Purpose:** Execute World Genesis loop (proactive worldbuilding before plot).
+**Purpose:** Execute World Genesis workflow pattern (proactive worldbuilding using Lore Deepening
+before plot).
 
 **Inputs:**
 
@@ -171,7 +171,8 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 **Processing:**
 
 1. Frame the world (define scope per theme)
-2. **Lore Weaver (proactive mode):** Create canon packs for each theme:
+2. **Lore Weaver (proactive mode):** Run Lore Deepening proactively (not reactively from hooks) to
+   create canon packs for each theme:
    - Geography (regions, landmarks, travel times, invariants)
    - Magic/Metaphysics (rules, limits, sources, invariants)
    - History (timeline depth, major events, invariants)
@@ -182,7 +183,7 @@ Implement handlers for the following intents (see `04-protocol/INTENTS.md`):
 4. **Codex Curator:** Build codex baseline (player-safe entries, taxonomy, cross-links)
 5. **Style Lead:** Define style anchors (voice, dialogue patterns, motifs)
 6. **Gatekeeper validation:** Preview validation (Integrity, Style, Presentation)
-7. **Lore Weaver stabilization:** Loop until all themes covered, no contradictions, Gatekeeper
+7. **Lore Weaver stabilization:** Iterate until all themes covered, no contradictions, Gatekeeper
    approves
 8. Generate deliverables (canon packs, codex baseline, style addendum, timeline foundation,
    constraint manifest, entity registry)
@@ -388,7 +389,8 @@ Implement constraint documentation generator for Plotwright/Scene Smith:
 
 #### Command: `genesis` or `world-genesis`
 
-**Purpose:** Start World Genesis loop (canon-first worldbuilding).
+**Purpose:** Start World Genesis workflow pattern (canon-first worldbuilding using Lore Deepening
+proactively).
 
 **User flow:**
 
@@ -645,11 +647,11 @@ Add help topics for new commands:
 **Help text for `qf genesis`:**
 
 ```
-qf genesis — Start World Genesis loop
+qf genesis — Start World Genesis workflow pattern
 
 Build detailed worldbuilding before plot design. Ideal for epic fantasy,
 deep sci-fi, and rich settings where extensive canon (geography, magic,
-history, factions) should be established proactively.
+history, factions) should be established proactively using Lore Deepening.
 
 Usage:
   qf genesis
@@ -839,18 +841,16 @@ Status: APPROVED
 **Normative:**
 
 - `00-north-star/WORKING_MODEL.md` (§12 Workflow Patterns)
-- `00-north-star/LOOPS/world_genesis.md`
-- `00-north-star/LOOPS/canon_transfer_export.md`
-- `00-north-star/LOOPS/canon_transfer_import.md`
 - `03-schemas/canon_transfer_package.schema.json`
 - `03-schemas/world_genesis_manifest.schema.json`
 - `04-protocol/INTENTS.md`
+- `02-dictionary/loop_names.md` (defines the 13 standard loops)
 
 **Informative:**
 
-- `00-north-star/PLAYBOOKS/playbook_world_genesis.md`
-- `00-north-star/PLAYBOOKS/playbook_canon_transfer_export.md`
-- `00-north-star/PLAYBOOKS/playbook_canon_transfer_import.md`
+- `00-north-star/PLAYBOOKS/playbook_world_genesis.md` (guides World Genesis pattern)
+- `00-north-star/PLAYBOOKS/playbook_canon_transfer_export.md` (guides export pattern)
+- `00-north-star/PLAYBOOKS/playbook_canon_transfer_import.md` (guides import pattern)
 - `02-dictionary/artifacts/canon_transfer_package.md`
 - `02-dictionary/artifacts/world_genesis_manifest.md`
 
