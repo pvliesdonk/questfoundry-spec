@@ -6,6 +6,8 @@ Import a **Canon Transfer Package** from a prior project to seed a new project w
 **Outcome**
 New project's Hot/Cold is initialized with imported canon, timeline anchors, and codex baseline. Plotwright and Scene Smith receive clear constraint documentation. Gatekeeper ensures no conflicts between imported canon and project seed ideas.
 
+**See also:** `../WORKING_MODEL.md` §12 for workflow pattern comparison.
+
 ---
 
 ## 1) Triggers (Showrunner)

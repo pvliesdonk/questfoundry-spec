@@ -8,7 +8,7 @@
 
 ## Normative references
 
-- Workflow: `../../00-north-star/CANON_WORKFLOWS.md`
+- Workflow: `../../00-north-star/WORKING_MODEL.md` (§12 Workflow Patterns)
 - Loops: `../../00-north-star/LOOPS/canon_transfer_export.md` · `../../00-north-star/LOOPS/canon_transfer_import.md`
 - Sources & trace: `../../00-north-star/SOURCES_OF_TRUTH.md` · `../../00-north-star/TRACEABILITY.md`
 - Role briefs: `../briefs/lore_weaver.md` · `../briefs/codex_curator.md`

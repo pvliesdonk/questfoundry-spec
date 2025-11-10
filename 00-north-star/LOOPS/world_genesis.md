@@ -6,6 +6,8 @@ Build deep, coherent worldbuilding **before** plot design. Lore Weaver proactive
 **Outcome**
 Stabilized canon packs in **Cold** covering scoped worldbuilding themes, player-safe codex baseline, style anchors for world voice, timeline foundation, and constraint manifest for Plotwright. Story development proceeds within established canon rules.
 
+**See also:** `../WORKING_MODEL.md` §12 for workflow pattern comparison.
+
 ---
 
 ## 1) Triggers (Showrunner)

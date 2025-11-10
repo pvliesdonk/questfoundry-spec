@@ -6,6 +6,8 @@ Export stabilized canon from a completed project as a **Canon Transfer Package**
 **Outcome**
 A validated **Canon Transfer Package** artifact ready for import into a new project, containing tagged canon (invariant/mutable), codex baseline, timeline anchors, and entity registry.
 
+**See also:** `../WORKING_MODEL.md` §12 for workflow pattern comparison.
+
 ---
 
 ## 1) Triggers (Showrunner)
