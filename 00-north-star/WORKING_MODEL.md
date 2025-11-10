@@ -235,7 +235,7 @@ change.
 | Aspect              | Story-Driven (Standard)     | Canon-First (World Genesis) | Shared Universe (Canon Transfer) |
 | ------------------- | --------------------------- | --------------------------- | -------------------------------- |
 | **Starting point**  | Story Spark → hooks         | World Genesis → canon       | Import prior project canon       |
-| **Lore Weaver**     | Reactive (answers hooks)    | Proactive (builds canon)    | Curator (exports/imports)        |
+| **Lore Weaver**     | Reactive (answers hooks)    | Proactive (builds canon)    | Tags, exports, and imports canon |
 | **When**            | Default                     | Before Story Spark          | Between projects                 |
 | **Canon source**    | Hooks from plot/scenes      | Direct worldbuilding        | Prior project's Cold canon       |
 | **Plot dependency** | Plot drives canon discovery | Canon constrains plot       | Plot honors imported canon       |

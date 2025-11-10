@@ -234,13 +234,13 @@ conflicts between imported canon and project seed ideas.
 | Task                     | R           | A          | C          | I       |
 | ------------------------ | ----------- | ---------- | ---------- | ------- |
 | Load transfer package    | Lore Weaver | Showrunner | —          | —       |
-| Conflict detection       | Lore Weaver | Showrunner | Gatekeeper | Plot    |
+| Conflict detection       | Lore Weaver | Showrunner | Gatekeeper | Plotwright    |
 | Merge invariant to Cold  | Lore Weaver | Showrunner | Gatekeeper | All     |
 | Seed mutable to Hot      | Lore Weaver | Showrunner | —          | All     |
-| Import timeline          | Lore Weaver | —          | —          | Plot/SS |
-| Import entity registry   | Lore Weaver | —          | —          | Plot/SS |
+| Import timeline          | Lore Weaver | —          | —          | Plotwright/SS |
+| Import entity registry   | Lore Weaver | —          | —          | Plotwright/SS |
 | Codex import             | Curator     | Lore       | Gatekeeper | —       |
-| Constraint documentation | Lore Weaver | Showrunner | Plot/SS    | All     |
+| Constraint documentation | Lore Weaver | Showrunner | Plotwright/SS    | All     |
 | Gatekeeper validation    | Gatekeeper  | Showrunner | Lore       | All     |
 | Showrunner approval      | Showrunner  | Showrunner | Gatekeeper | All     |
 

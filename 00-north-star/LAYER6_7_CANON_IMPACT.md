@@ -286,7 +286,7 @@ Implement entity registry CRUD operations:
       "name": "string (3-80 chars)",
       "type": "hub|gate|landmark|other",
       "geography": "string (20-400 chars)",
-      "source": "string"
+      "source": "string (project slug or 'world-genesis')"
     }
   ],
   "factions": [
@@ -294,7 +294,7 @@ Implement entity registry CRUD operations:
       "name": "string (3-80 chars)",
       "structure": "string (20-300 chars)",
       "influence": "string (20-300 chars)",
-      "source": "string"
+      "source": "string (project slug or 'world-genesis')"
     }
   ],
   "items": [
@@ -302,7 +302,7 @@ Implement entity registry CRUD operations:
       "name": "string (3-80 chars)",
       "function": "string (20-300 chars)",
       "availability": "string (10-160 chars)",
-      "source": "string"
+      "source": "string (project slug or 'world-genesis')"
     }
   ]
 }

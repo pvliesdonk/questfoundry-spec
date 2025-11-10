@@ -181,7 +181,7 @@ read-only artifact derived from finalized project canon.
 | Task                  | R           | A          | C          | I    |
 | --------------------- | ----------- | ---------- | ---------- | ---- |
 | Canon inventory       | Lore Weaver | Showrunner | Curator    | —    |
-| Tag canon elements    | Lore Weaver | Showrunner | —          | Plot |
+| Tag canon elements    | Lore Weaver | Showrunner | —          | Plotwright |
 | Extract timeline      | Lore Weaver | —          | —          | —    |
 | Build entity registry | Lore Weaver | —          | —          | —    |
 | Codex baseline        | Curator     | Lore       | Gatekeeper | —    |

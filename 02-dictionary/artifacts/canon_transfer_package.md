@@ -590,6 +590,6 @@ Package: canon_transfer_package_lighthouse-keeper.json
 | §8      | Validation Report      | markdown      | yes      | Gatekeeper approval (4 criteria)                   |
 | §9      | Traceability           | markdown      | yes      | Export TU, Source Snapshot, Package file           |
 
-**Total fields: 24** (5 metadata, 6 canon sections, 4 reference data, 3 validation, 6 traceability)
+**Total fields: 14** (5 metadata/header, 9 content sections)
 
 ---

@@ -652,7 +652,6 @@ Style Addendum: SA-001
 | §10     | Downstream Handoffs | markdown-list | yes      | Plotwright, Scene Smith, Lore, Curator, SR    |
 | §11     | Traceability        | markdown      | yes      | TU, Canon Packs, Codex, Style Addendum        |
 
-**Total fields: 28** (6 metadata, 7 content sections, 4 reference data, 4 validation, 7
-traceability)
+**Total fields: 17** (6 metadata/header, 11 content sections)
 
 ---

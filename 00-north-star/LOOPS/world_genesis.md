@@ -375,7 +375,7 @@ World Genesis operates in **Hot** during drafting. After Gatekeeper approval:
 
 | Task                  | R           | A          | C                 | I    |
 | --------------------- | ----------- | ---------- | ----------------- | ---- |
-| Frame world scope     | Lore Weaver | Showrunner | Style             | Plot |
+| Frame world scope     | Lore Weaver | Showrunner | Style             | Plotwright |
 | Draft genesis canon   | Lore Weaver | Showrunner | Researcher, Style | —    |
 | Factual grounding     | Researcher  | Showrunner | Lore              | —    |
 | Codex baseline        | Curator     | Lore       | Style             | —    |
