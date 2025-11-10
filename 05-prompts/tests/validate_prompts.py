@@ -103,11 +103,24 @@ def main() -> int:
         if isinstance(obj, list):
             _validate_sequence(obj, strict_mode, str(ex))
         elif isinstance(obj, dict):
-            ok, msg = (_full_validate(obj) if strict_mode else _structure_only(obj))
-            status = "PASS" if ok else "FAIL"
-            print(f"[{status}] envelope: {ex}")
-            if not ok:
-                failures.append(f"{ex}: {msg}")
+            # Check if this is a documentation wrapper (loop flow format)
+            if "messages" in obj and isinstance(obj.get("messages"), list):
+                # Extract envelopes from messages[].envelope
+                envelopes = []
+                for msg in obj["messages"]:
+                    if isinstance(msg, dict) and "envelope" in msg:
+                        envelopes.append(msg["envelope"])
+                if envelopes:
+                    _validate_sequence(envelopes, strict_mode, str(ex))
+                else:
+                    failures.append(f"{ex}: messages array found but no envelopes extracted")
+            else:
+                # Regular envelope validation
+                ok, msg = (_full_validate(obj) if strict_mode else _structure_only(obj))
+                status = "PASS" if ok else "FAIL"
+                print(f"[{status}] envelope: {ex}")
+                if not ok:
+                    failures.append(f"{ex}: {msg}")
         else:
             failures.append(f"{ex}: JSON must be object or array of objects")
 

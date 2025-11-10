@@ -59,8 +59,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-post-mortem-chapter3-2025-11-06",
-        "reply_to": null
+        "correlation_id": "corr-post-mortem-chapter3-2025-11-06"
       }
     },
     {
@@ -222,8 +221,7 @@
           }
         },
         "refs": ["TU-2025-11-06-SR02"],
-        "correlation_id": "corr-post-mortem-chapter3-2025-11-06",
-        "reply_to": null
+        "correlation_id": "corr-post-mortem-chapter3-2025-11-06"
       }
     }
   ]

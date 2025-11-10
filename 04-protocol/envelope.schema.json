@@ -159,7 +159,8 @@
         "TR",
         "BB",
         "PN",
-        "RS"
+        "RS",
+        "broadcast"
       ]
     },
     "loop_name": {

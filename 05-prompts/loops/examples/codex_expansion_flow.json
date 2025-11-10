@@ -62,8 +62,7 @@
           }
         },
         "refs": ["TU-2025-11-05-LW01", "HK-20251105-02"],
-        "correlation_id": "corr-codex-helion-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-codex-helion-2025-11-05"
       }
     },
     {
@@ -386,8 +385,7 @@
           }
         },
         "refs": ["TU-2025-11-05-CC01", "TU-2025-11-05-LW01", "HK-20251105-02"],
-        "correlation_id": "corr-codex-helion-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-codex-helion-2025-11-05"
       }
     },
     {

@@ -66,8 +66,7 @@
           }
         },
         "refs": ["TU-2025-11-05-PW01", "HK-20251104-08"],
-        "correlation_id": "corr-gatecheck-wormhole3-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-gatecheck-wormhole3-2025-11-05"
       }
     },
     {

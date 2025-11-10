@@ -22,7 +22,7 @@
         "intent": "tu.open",
         "context": {
           "hot_cold": "hot",
-          "tu": "TU-2025-11-05-AuD01",
+          "tu": "TU-2025-11-05-AUD01",
           "snapshot": "Cold @ 2025-11-05",
           "loop": "Audio Pass"
         },
@@ -33,7 +33,7 @@
         "payload": {
           "type": "tu_brief",
           "data": {
-            "id": "TU-2025-11-05-AuD01",
+            "id": "TU-2025-11-05-AUD01",
             "opened": "2025-11-05",
             "owner_a": "SR",
             "responsible_r": ["AuD"],
@@ -59,8 +59,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-audio-pass-dock7-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-audio-pass-dock7-2025-11-05"
       }
     },
     {
@@ -83,7 +82,7 @@
         "intent": "audio.plan",
         "context": {
           "hot_cold": "hot",
-          "tu": "TU-2025-11-05-AuD01",
+          "tu": "TU-2025-11-05-AUD01",
           "snapshot": "Cold @ 2025-11-05",
           "loop": "Audio Pass"
         },
@@ -107,7 +106,7 @@
             "spoiler_risk": "low"
           }
         },
-        "refs": ["TU-2025-11-05-AuD01"],
+        "refs": ["TU-2025-11-05-AUD01"],
         "correlation_id": "corr-audio-pass-dock7-2025-11-05",
         "reply_to": "urn:uuid:ap-tu-open-001"
       }
@@ -132,7 +131,7 @@
         "intent": "ack",
         "context": {
           "hot_cold": "hot",
-          "tu": "TU-2025-11-05-AuD01",
+          "tu": "TU-2025-11-05-AUD01",
           "snapshot": "Cold @ 2025-11-05",
           "loop": "Audio Pass"
         },
@@ -146,7 +145,7 @@
             "message": "Style approved; description is diegetic (no DAW/plugin talk); motifs match ('relay hum', 'hull echo'); PN confirms cue can be referenced in-world ('you hear distant machinery'); tone fits station decay mood"
           }
         },
-        "refs": ["TU-2025-11-05-AuD01"],
+        "refs": ["TU-2025-11-05-AUD01"],
         "correlation_id": "corr-audio-pass-dock7-2025-11-05",
         "reply_to": "urn:uuid:ap-plan-001"
       }
@@ -171,7 +170,7 @@
         "intent": "gate.pregate",
         "context": {
           "hot_cold": "hot",
-          "tu": "TU-2025-11-05-AuD01",
+          "tu": "TU-2025-11-05-AUD01",
           "snapshot": "Cold @ 2025-11-05",
           "loop": "Audio Pass"
         },
@@ -185,7 +184,7 @@
             "message": "Presentation green (no technique leak; diegetic); Style green (motifs and tone); Accessibility green (text equivalent and safety notes provided); plan ready for merge with deferred assets tag"
           }
         },
-        "refs": ["TU-2025-11-05-AuD01"],
+        "refs": ["TU-2025-11-05-AUD01"],
         "correlation_id": "corr-audio-pass-dock7-2025-11-05",
         "reply_to": "urn:uuid:ap-st-pn-check-001"
       }
@@ -210,7 +209,7 @@
         "intent": "merge.approve",
         "context": {
           "hot_cold": "cold",
-          "tu": "TU-2025-11-05-AuD01",
+          "tu": "TU-2025-11-05-AUD01",
           "snapshot": "Cold @ 2025-11-05",
           "loop": "Audio Pass"
         },
@@ -221,16 +220,15 @@
         "payload": {
           "type": "tu_brief",
           "data": {
-            "id": "TU-2025-11-05-AuD01",
+            "id": "TU-2025-11-05-AUD01",
             "deliverables": [
               "Audio plan for Dock 7 ambient soundscape merged to Cold with deferred:audio tag"
             ],
             "linkage": "Audio plan available for Binder exports; assets deferred until Audio Producer wakes; plan-only merge complete"
           }
         },
-        "refs": ["TU-2025-11-05-AuD01"],
-        "correlation_id": "corr-audio-pass-dock7-2025-11-05",
-        "reply_to": null
+        "refs": ["TU-2025-11-05-AUD01"],
+        "correlation_id": "corr-audio-pass-dock7-2025-11-05"
       }
     }
   ]

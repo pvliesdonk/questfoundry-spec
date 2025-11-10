@@ -55,8 +55,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-art-touchup-chapter3-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-art-touchup-chapter3-2025-11-05"
       }
     },
     {
@@ -227,8 +226,7 @@
           }
         },
         "refs": ["TU-2025-11-05-AD01"],
-        "correlation_id": "corr-art-touchup-chapter3-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-art-touchup-chapter3-2025-11-05"
       }
     }
   ]
