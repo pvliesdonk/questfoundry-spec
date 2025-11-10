@@ -5,6 +5,32 @@ All notable changes to Layer 5 prompts will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.3.0] - 2025-11-10
+
+### Added
+
+- **SCHEMA_INDEX.json Updates:**
+  - Added `canon_transfer_package` schema entry
+    - Path: `03-schemas/canon_transfer_package.schema.json`
+    - Roles: Lore Weaver
+    - Intents: `canon.transfer.export`, `canon.transfer.import`
+  - Added `world_genesis_manifest` schema entry
+    - Path: `03-schemas/world_genesis_manifest.schema.json`
+    - Roles: Lore Weaver
+    - Intents: `canon.genesis.create`
+  - Updated version to 0.3.0
+  - Updated generated date to 2025-11-10
+  - Total schemas: 28 (was 26)
+
+### Context
+
+This release adds schema index support for canon-centric workflows. The two new schemas enable Canon
+Transfer (export/import canon between projects for shared universes/sequels) and World Genesis
+(proactive worldbuilding before plot design). These schemas are now available to all prompts that
+reference SCHEMA_INDEX.json for validation and intent handling.
+
 ## [0.2.0] - 2025-11-06
 
 ### Added
