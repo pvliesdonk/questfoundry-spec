@@ -178,16 +178,16 @@ read-only artifact derived from finalized project canon.
 
 ## 9) RACI (quick)
 
-| Task                  | R           | A          | C          | I    |
-| --------------------- | ----------- | ---------- | ---------- | ---- |
-| Canon inventory       | Lore Weaver | Showrunner | Curator    | —    |
+| Task                  | R           | A          | C          | I          |
+| --------------------- | ----------- | ---------- | ---------- | ---------- |
+| Canon inventory       | Lore Weaver | Showrunner | Curator    | —          |
 | Tag canon elements    | Lore Weaver | Showrunner | —          | Plotwright |
-| Extract timeline      | Lore Weaver | —          | —          | —    |
-| Build entity registry | Lore Weaver | —          | —          | —    |
-| Codex baseline        | Curator     | Lore       | Gatekeeper | —    |
-| Package assembly      | Lore Weaver | Showrunner | —          | —    |
-| Validation            | Gatekeeper  | Showrunner | Lore       | All  |
-| Export finalization   | Showrunner  | Showrunner | Gatekeeper | All  |
+| Extract timeline      | Lore Weaver | —          | —          | —          |
+| Build entity registry | Lore Weaver | —          | —          | —          |
+| Codex baseline        | Curator     | Lore       | Gatekeeper | —          |
+| Package assembly      | Lore Weaver | Showrunner | —          | —          |
+| Validation            | Gatekeeper  | Showrunner | Lore       | All        |
+| Export finalization   | Showrunner  | Showrunner | Gatekeeper | All        |
 
 ---
 

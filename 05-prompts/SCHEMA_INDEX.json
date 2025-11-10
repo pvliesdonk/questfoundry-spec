@@ -52,13 +52,8 @@
       "path": "03-schemas/codex_entry.schema.json",
       "draft": "2020-12",
       "sha256": "feb229c6a2a3bf62fd0a363080f7efa30764a05b5ba7df64d02a1e4fecaced94",
-      "roles": [
-        "codex_curator"
-      ],
-      "intent": [
-        "codex.expand",
-        "codex.summarize"
-      ]
+      "roles": ["codex_curator"],
+      "intent": ["codex.expand", "codex.summarize"]
     },
     "cold_art_manifest": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/cold_art_manifest.schema.json",
@@ -67,12 +62,8 @@
       "path": "03-schemas/cold_art_manifest.schema.json",
       "draft": "2020-12",
       "sha256": "64cf6ec781fb632f6c6a4b6f1cac7e10a449273d6fd2661e11bf6f0ac34689d2",
-      "roles": [
-        "illustrator"
-      ],
-      "intent": [
-        "art.deliver"
-      ]
+      "roles": ["illustrator"],
+      "intent": ["art.deliver"]
     },
     "cold_book": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/cold_book.schema.json",
@@ -81,12 +72,8 @@
       "path": "03-schemas/cold_book.schema.json",
       "draft": "2020-12",
       "sha256": "1776287159324047fd533b8d952fe6db6fe343bf71af3bf6696bc7dbedb0e03e",
-      "roles": [
-        "book_binder"
-      ],
-      "intent": [
-        "bind.request"
-      ]
+      "roles": ["book_binder"],
+      "intent": ["bind.request"]
     },
     "cold_build_lock": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/cold_build_lock.schema.json",
@@ -115,12 +102,8 @@
       "path": "03-schemas/cold_manifest.schema.json",
       "draft": "2020-12",
       "sha256": "f779853018435dd38370334f775bd283e065d2a057d5b4455f03be9c7af66ab8",
-      "roles": [
-        "book_binder"
-      ],
-      "intent": [
-        "bind.request"
-      ]
+      "roles": ["book_binder"],
+      "intent": ["bind.request"]
     },
     "cuelist": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/cuelist.schema.json",
@@ -159,12 +142,8 @@
       "path": "03-schemas/gatecheck_report.schema.json",
       "draft": "2020-12",
       "sha256": "7e3b5fffabe3170cfc1a497dc3a989bb6dc673238bd865fc9b86230e44e870c1",
-      "roles": [
-        "gatekeeper"
-      ],
-      "intent": [
-        "gate.request"
-      ]
+      "roles": ["gatekeeper"],
+      "intent": ["gate.request"]
     },
     "hook_card": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/hook_card.schema.json",
@@ -173,14 +152,8 @@
       "path": "03-schemas/hook_card.schema.json",
       "draft": "2020-12",
       "sha256": "ba7352756407fe9193f11113f5106176b0d87244b3155fbcdca503a7156d3f16",
-      "roles": [
-        "plotwright"
-      ],
-      "intent": [
-        "hook.classify",
-        "hook.integrate",
-        "hook.propose"
-      ]
+      "roles": ["plotwright"],
+      "intent": ["hook.classify", "hook.integrate", "hook.propose"]
     },
     "hot_manifest": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/hot_manifest.schema.json",
@@ -189,9 +162,7 @@
       "path": "03-schemas/hot_manifest.schema.json",
       "draft": "2020-12",
       "sha256": "7aabacb4546e20a1f055926dc27625b58bc114d32d7e57a1017ef24091607979",
-      "roles": [
-        "showrunner"
-      ],
+      "roles": ["showrunner"],
       "intent": []
     },
     "language_pack": {
@@ -221,9 +192,7 @@
       "path": "03-schemas/project_metadata.schema.json",
       "draft": "2020-12",
       "sha256": "a878535f122b7ba68f3fc784f4757d706bba74d0e8722fc55e48c9ba65f59406",
-      "roles": [
-        "showrunner"
-      ],
+      "roles": ["showrunner"],
       "intent": []
     },
     "register_map": {
@@ -303,13 +272,8 @@
       "path": "03-schemas/canon_transfer_package.schema.json",
       "draft": "2020-12",
       "sha256": "cba14f35cd8b788ef9ee25b841945175b39b89cf003f4cb3201c8ee54a8aecd8",
-      "roles": [
-        "lore_weaver"
-      ],
-      "intent": [
-        "canon.transfer.export",
-        "canon.transfer.import"
-      ]
+      "roles": ["lore_weaver"],
+      "intent": ["canon.transfer.export", "canon.transfer.import"]
     },
     "world_genesis_manifest": {
       "$id": "https://questfoundry.liesdonk.nl/schemas/world_genesis_manifest.schema.json",
@@ -318,12 +282,8 @@
       "path": "03-schemas/world_genesis_manifest.schema.json",
       "draft": "2020-12",
       "sha256": "5775434231df8dbd65a519e88b07e73576310aa74e20ac515c104fa35701987b",
-      "roles": [
-        "lore_weaver"
-      ],
-      "intent": [
-        "canon.genesis.create"
-      ]
+      "roles": ["lore_weaver"],
+      "intent": ["canon.genesis.create"]
     }
   }
 }

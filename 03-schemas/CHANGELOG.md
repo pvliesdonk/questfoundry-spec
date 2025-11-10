@@ -35,8 +35,8 @@ This release adds complete schema support for canon-centric workflows: Canon Tra
 exporting stabilized canon from completed projects and importing it into new projects (with conflict
 detection for invariant vs. mutable canon rules), while World Genesis enables proactive
 worldbuilding before plot design. These workflows complement the standard story-driven flow by
-supporting shared universes, sequels, and epic fantasy/sci-fi projects requiring extensive
-upfront worldbuilding.
+supporting shared universes, sequels, and epic fantasy/sci-fi projects requiring extensive upfront
+worldbuilding.
 
 ## [0.2.0] - 2025-11-05
 

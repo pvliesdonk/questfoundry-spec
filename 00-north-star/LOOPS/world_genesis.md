@@ -373,16 +373,16 @@ World Genesis operates in **Hot** during drafting. After Gatekeeper approval:
 
 ## 9) RACI (quick)
 
-| Task                  | R           | A          | C                 | I    |
-| --------------------- | ----------- | ---------- | ----------------- | ---- |
+| Task                  | R           | A          | C                 | I          |
+| --------------------- | ----------- | ---------- | ----------------- | ---------- |
 | Frame world scope     | Lore Weaver | Showrunner | Style             | Plotwright |
-| Draft genesis canon   | Lore Weaver | Showrunner | Researcher, Style | —    |
-| Factual grounding     | Researcher  | Showrunner | Lore              | —    |
-| Codex baseline        | Curator     | Lore       | Style             | —    |
-| Style anchors         | Style Lead  | Showrunner | Lore              | SS   |
-| Gatekeeper preview    | Gatekeeper  | Showrunner | Lore              | All  |
-| Stabilization trigger | Showrunner  | Showrunner | Lore, Gatekeeper  | All  |
-| Merge to Cold         | Lore Weaver | Showrunner | Gatekeeper        | All  |
+| Draft genesis canon   | Lore Weaver | Showrunner | Researcher, Style | —          |
+| Factual grounding     | Researcher  | Showrunner | Lore              | —          |
+| Codex baseline        | Curator     | Lore       | Style             | —          |
+| Style anchors         | Style Lead  | Showrunner | Lore              | SS         |
+| Gatekeeper preview    | Gatekeeper  | Showrunner | Lore              | All        |
+| Stabilization trigger | Showrunner  | Showrunner | Lore, Gatekeeper  | All        |
+| Merge to Cold         | Lore Weaver | Showrunner | Gatekeeper        | All        |
 
 ---
 
