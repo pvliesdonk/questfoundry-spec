@@ -73,17 +73,18 @@ Intents follow the pattern: `<domain>.<verb>[.<subverb>]`
 
 ### 2.2 Domains
 
-| Domain  | Purpose                                    | Examples                                            |
-| ------- | ------------------------------------------ | --------------------------------------------------- |
-| `hook`  | Hook Card lifecycle operations             | `hook.create`, `hook.update_status`                 |
-| `tu`    | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`, `tu.checkpoint` |
-| `gate`  | Quality gate lifecycle operations          | `gate.report.submit`, `gate.decision`               |
-| `merge` | Cold merge operations                      | `merge.request`, `merge.approve`, `merge.reject`    |
-| `view`  | View/export operations                     | `view.export.request`, `view.export.result`         |
-| `pn`    | Player Narrator operations                 | `pn.playtest.submit`                                |
-| `human` | Human↔agent interactive prompts           | `human.question`, `human.response`                  |
-| `role`  | Wake/sleep control signals (orchestration) | `role.wake`, `role.dormant`                         |
-| (none)  | General-purpose operations                 | `ack`, `error`                                      |
+| Domain  | Purpose                                    | Examples                                                               |
+| ------- | ------------------------------------------ | ---------------------------------------------------------------------- |
+| `hook`  | Hook Card lifecycle operations             | `hook.create`, `hook.update_status`                                    |
+| `tu`    | Trace Unit lifecycle operations            | `tu.open`, `tu.update`, `tu.close`, `tu.checkpoint`                    |
+| `gate`  | Quality gate lifecycle operations          | `gate.report.submit`, `gate.decision`                                  |
+| `merge` | Cold merge operations                      | `merge.request`, `merge.approve`, `merge.reject`                       |
+| `canon` | Canon workflow operations                  | `canon.transfer.export`, `canon.transfer.import`, `canon.genesis.create` |
+| `view`  | View/export operations                     | `view.export.request`, `view.export.result`                            |
+| `pn`    | Player Narrator operations                 | `pn.playtest.submit`                                                   |
+| `human` | Human↔agent interactive prompts           | `human.question`, `human.response`                                     |
+| `role`  | Wake/sleep control signals (orchestration) | `role.wake`, `role.dormant`                                            |
+| (none)  | General-purpose operations                 | `ack`, `error`                                                         |
 
 ---
 
@@ -1045,7 +1046,10 @@ the outcome:
 | `view.bound`          | Export binding complete               | BB        | PN        | `view_log.schema.json`          |
 | `view.feedback`       | PN feedback                           | PN        | SR        | `pn_playtest_notes.schema.json` |
 | `view.publish`        | Publish view                          | SR/BB     | Broadcast | `view_log.schema.json`          |
-| `pn.playtest.submit`  | Submit PN playtest notes              | PN        | SR        | `pn_playtest_notes.schema.json` |
+| `pn.playtest.submit`      | Submit PN playtest notes                  | PN      | SR        | `pn_playtest_notes.schema.json`       |
+| `canon.transfer.export`   | Export canon transfer package             | LW      | SR        | `canon_transfer_package.schema.json`  |
+| `canon.transfer.import`   | Import canon transfer package             | LW      | SR        | `canon_transfer_package.schema.json`  |
+| `canon.genesis.create`    | Create World Genesis manifest            | LW      | SR        | `world_genesis_manifest.schema.json`  |
 
 ---
 
@@ -1059,6 +1063,7 @@ the outcome:
 | `tu.*`        | SR, Owner (A), GK (for `rework`)                             | Broadcast, GK, Owner     |
 | `gate.*`      | GK, SR (for `defer`)                                         | SR, Owner, Broadcast     |
 | `merge.*`     | SR (for `approve`), Owner (for `request`), GK (for `reject`) | Broadcast, Owner         |
+| `canon.*`     | LW (for `transfer.*`, `genesis.create`)                      | SR, Broadcast            |
 | `view.*`      | BB, SR, PN (for `feedback`)                                  | BB, PN, SR, Broadcast    |
 | `pn.*`        | PN                                                           | SR, Owner                |
 | `ack`         | Any                                                          | Any                      |
