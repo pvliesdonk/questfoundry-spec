@@ -36,4 +36,4 @@ jobs:
       - name: Validate prompts (scaffold)
         run: |
           python --version
-          python 05-prompts/tests/validate_prompts.py
+          uv run --directory spec-tools python ../05-prompts/tests/validate_prompts.py

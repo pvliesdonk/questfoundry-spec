@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-TOOLS_SRC = REPO_ROOT / "tools" / "src"
+TOOLS_SRC = REPO_ROOT / "spec-tools" / "src"
 sys.path.insert(0, str(TOOLS_SRC))
 
 from questfoundry_spec_tools.instance_validator import (
