@@ -7,18 +7,18 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 
 ## Quick chooser (use-when → outcome)
 
-| Loop                  | Use when…                                                                      | Outcome                                                                   |
-| --------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| **Story Spark**       | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.             |
-| **Hook Harvest**      | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops. |
-| **Lore Deepening**          | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.          |
-| **Codex Expansion**         | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                               |
-| **Style Tune-up**           | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                      |
-| **Art Touch-up**            | You want illustration **plans** and maybe renders.                             | Art Plan (+ optional renders & determinism logs) ready to merge or defer.          |
-| **Audio Pass**              | You want sound **plans** and maybe assets.                                     | Audio Plan (+ optional assets & reproducibility notes) ready to merge or defer.    |
-| **Translation Pass**        | A language slice is needed (glossary or full surfaces).                        | Language Pack with glossary, register map, localized surfaces, coverage %.         |
-| **Binding Run**             | You must ship a **view** on Cold (MD/HTML/EPUB/PDF).                           | Export bundle stamped with snapshot ID + View Log.                                 |
-| **Narration Dry-Run**       | PN should playtest the current view in-world.                                  | PN playtest notes → small follow-ups (style/codex/binder).                         |
+| Loop                  | Use when…                                                                      | Outcome                                                                         |
+| --------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| **Story Spark**       | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.                    |
+| **Hook Harvest**      | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.       |
+| **Lore Deepening**    | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.       |
+| **Codex Expansion**   | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                            |
+| **Style Tune-up**     | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                   |
+| **Art Touch-up**      | You want illustration **plans** and maybe renders.                             | Art Plan (+ optional renders & determinism logs) ready to merge or defer.       |
+| **Audio Pass**        | You want sound **plans** and maybe assets.                                     | Audio Plan (+ optional assets & reproducibility notes) ready to merge or defer. |
+| **Translation Pass**  | A language slice is needed (glossary or full surfaces).                        | Language Pack with glossary, register map, localized surfaces, coverage %.      |
+| **Binding Run**       | You must ship a **view** on Cold (MD/HTML/EPUB/PDF).                           | Export bundle stamped with snapshot ID + View Log.                              |
+| **Narration Dry-Run** | PN should playtest the current view in-world.                                  | PN playtest notes → small follow-ups (style/codex/binder).                      |
 
 ---
 
