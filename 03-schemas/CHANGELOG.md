@@ -7,6 +7,37 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-11-10
+
+### Added
+
+- **Canon Workflow Schemas:**
+  - `canon_transfer_package.schema.json` - Export/import validation for canon transfer between
+    projects (sequels, shared universes, franchise continuity)
+  - `world_genesis_manifest.schema.json` - World Genesis loop execution tracking for canon-first
+    worldbuilding workflows
+
+### Changed
+
+- **Schema Enhancements:**
+  - `canon_transfer_package.schema.json`: Added `year` to required fields in `timeline_anchors` for
+    chronology validation
+  - `canon_transfer_package.schema.json`: Required all 4 entity types (`characters`, `places`,
+    `factions`, `items`) in `entity_registry` for complete exports
+  - `world_genesis_manifest.schema.json`: Added `year` to required fields in `timeline_foundation`
+    for chronology validation
+  - `world_genesis_manifest.schema.json`: Required all 4 entity types in `entity_registry` for
+    complete world manifests
+
+### Context
+
+This release adds complete schema support for canon-centric workflows: Canon Transfer enables
+exporting stabilized canon from completed projects and importing it into new projects (with conflict
+detection for invariant vs. mutable canon rules), while World Genesis enables proactive
+worldbuilding before plot design. These workflows complement the standard story-driven flow by
+supporting shared universes, sequels, and epic fantasy/sci-fi projects requiring extensive
+upfront worldbuilding.
+
 ## [0.2.0] - 2025-11-05
 
 ### Added
