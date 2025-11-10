@@ -17,7 +17,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.open",
         "context": {
@@ -60,8 +60,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     },
     {
@@ -169,8 +168,7 @@
           }
         },
         "refs": ["HK-20251105-01", "TU-2025-11-05-SR01"],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     },
     {
@@ -278,8 +276,7 @@
           }
         },
         "refs": ["HK-20251105-02", "TU-2025-11-05-SR01"],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     },
     {
@@ -392,8 +389,7 @@
           }
         },
         "refs": ["HK-20251105-07", "TU-2025-11-05-SR01"],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     },
     {
@@ -449,7 +445,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "hook.reject",
         "context": {
@@ -494,8 +490,7 @@
           }
         },
         "refs": ["HK-20251105-14", "HK-20251103-08", "TU-2025-11-05-SR01"],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     },
     {
@@ -513,7 +508,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.update",
         "context": {
@@ -553,8 +548,7 @@
           }
         },
         "refs": ["TU-2025-11-05-SR01"],
-        "correlation_id": "corr-hook-harvest-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-hook-harvest-2025-11-05"
       }
     }
   ]

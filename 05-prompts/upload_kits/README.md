@@ -53,6 +53,7 @@ All kits now include **validation enforcement** infrastructure:
 **File ordering matters:** LLMs read files sequentially. validation_contract.md is always file #1.
 
 **Impact:**
+
 - Agents will validate all artifacts before handoff
 - Invalid artifacts cause workflow STOP (hard gate)
 - 0% → 100% validation compliance (expected)
@@ -67,11 +68,11 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 
 ### 1. Standalone Mode (Traditional Role-Based)
 
-**Who:** Single user working with individual roles
-**Context:** ~200-300 lines per role
-**Best for:** Learning, single-role tasks, human-led workflows
+**Who:** Single user working with individual roles **Context:** ~200-300 lines per role **Best
+for:** Learning, single-role tasks, human-led workflows
 
 **Files needed:**
+
 - `_shared/validation_contract.md` — Validation requirements (v0.2.0+)
 - `SCHEMA_INDEX.json` — Schema registry (v0.2.0+)
 - `_shared/*.md` (4 files) — Cross-role patterns
@@ -81,11 +82,12 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 
 ### 2. Orchestration Mode (Loop-Focused Architecture) ⭐ **RECOMMENDED**
 
-**Who:** Showrunner coordinating multiple roles via loop playbooks
-**Context:** ~500-1000 lines (1 playbook + 3-5 adapters + showrunner modules)
-**Best for:** Multi-role workflows, production runs, efficient orchestration
+**Who:** Showrunner coordinating multiple roles via loop playbooks **Context:** ~500-1000 lines (1
+playbook + 3-5 adapters + showrunner modules) **Best for:** Multi-role workflows, production runs,
+efficient orchestration
 
 **Files needed:**
+
 - `_shared/validation_contract.md` — Validation requirements (v0.2.0+)
 - `SCHEMA_INDEX.json` — Schema registry (v0.2.0+)
 - `_shared/*.md` (4 files) — Cross-role patterns
@@ -102,43 +104,51 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 ### Standalone Kits
 
 **minimal-standalone.zip** (12 files — ChatGPT/Claude friendly)
+
 - validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
 - 1 showrunner prompt
 - 5 core role prompts (Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder)
 
 **optional-standalone.zip** (9 files — addon roles)
+
 - Player Narrator, Lore Weaver, Codex Curator, Researcher
 - Art Director, Illustrator, Audio Director, Audio Producer, Translator
 
 **full-standalone.zip** (25 files — all roles + showrunner modules)
+
 - validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
-- 5 showrunner modules (system_prompt, loop_orchestration, manifest_management,
-  initialization, protocol_handlers)
+- 5 showrunner modules (system_prompt, loop_orchestration, manifest_management, initialization,
+  protocol_handlers)
 - 15 full role prompts
 
 ### Orchestration Kits ⭐ **RECOMMENDED**
 
 **orchestration-complete.zip** (38 files — complete loop-focused environment)
+
 - validation_contract.md + SCHEMA_INDEX.json (v0.2.0+)
 - 4 shared patterns
-- 4 showrunner modules (system_prompt, loop_orchestration, manifest_management,
-  protocol_handlers)
+- 4 showrunner modules (system_prompt, loop_orchestration, manifest_management, protocol_handlers)
 - 13 loop playbooks
 - 15 role adapters
 
 ### Gemini Splits (10-file limit per zip)
 
 **Standalone Mode:**
-1. `gemini-minimal-standalone.zip` (11 files) — validation files + minimal set (removed human_interaction.md to fit limit)
+
+1. `gemini-minimal-standalone.zip` (11 files) — validation files + minimal set (removed
+   human_interaction.md to fit limit)
 2. `gemini-optional-standalone.zip` (9 files) — Same as optional-standalone
-3. `gemini-full-standalone-1.zip` (10 files) — Validation + shared + showrunner modules + 1 role (removed human_interaction.md + initialization.md to fit limit)
+3. `gemini-full-standalone-1.zip` (10 files) — Validation + shared + showrunner modules + 1 role
+   (removed human_interaction.md + initialization.md to fit limit)
 4. `gemini-full-standalone-2.zip` (10 files) — 10 role prompts
 5. `gemini-full-standalone-3.zip` (3 files) — 3 role prompts
 
 **Orchestration Mode:** ⭐ **RECOMMENDED**
-1. `gemini-orchestration-1-foundation.zip` (10 files) — Validation + shared + showrunner modules + SR adapter (removed human_interaction.md to fit limit)
+
+1. `gemini-orchestration-1-foundation.zip` (10 files) — Validation + shared + showrunner modules +
+   SR adapter (removed human_interaction.md to fit limit)
 2. `gemini-orchestration-2-playbooks.zip` (10 files) — Core loop playbooks
 3. `gemini-orchestration-3-playbooks-extra.zip` (3 files) — Additional loops
 4. `gemini-orchestration-4-adapters-core.zip` (10 files) — Core role adapters
@@ -150,16 +160,19 @@ Layer 5 supports two primary usage modes introduced in commit 428140c:
 ## Platform Guidelines
 
 ### ChatGPT
+
 - **Limit:** 10 files per upload action (can repeat uploads or use zip)
 - **Recommendation:** Use `orchestration-complete.zip` for production workflows (single upload)
 - **Learning:** Use `minimal-standalone.zip` for quick start
 
 ### Claude
+
 - **Limit:** No strict limit; handles multiple attachments well
 - **Recommendation:** Upload `orchestration-complete.zip` or individual files from kit
 - **Tip:** Individual files preferred for better grounding
 
 ### Gemini
+
 - **Limit:** 10 files max per zip
 - **Recommendation:** Upload `gemini-orchestration-1` through `-5` in sequence
 - **Order:** Foundation first, then playbooks, then adapters
@@ -171,17 +184,18 @@ filenames stable for UI reference.
 
 ## Which Kit Should I Use?
 
-| Use Case                              | Recommended Kit(s)                         | Files | Platform     |
-| ------------------------------------- | ------------------------------------------ | ----- | ------------ |
-| Quick start / learning                | minimal-standalone                         | 10    | All          |
-| Single-role task                      | minimal-standalone (or specific role only) | 5-10  | All          |
-| **Production: Multi-role workflow**   | **orchestration-complete** ⭐             | **36**| **ChatGPT/Claude** |
-| **Production: Gemini**                | **gemini-orchestration-1 through -5** ⭐  | **36**| **Gemini**   |
-| Full project (human orchestrates)     | full-standalone                            | 23    | ChatGPT/Claude |
-| Full project (Gemini, human-led)      | gemini-full-standalone-1/2/3               | 23    | Gemini       |
-| Specific loop only                    | Custom selection from orchestration kit    | 7-15  | All          |
+| Use Case                            | Recommended Kit(s)                         | Files  | Platform           |
+| ----------------------------------- | ------------------------------------------ | ------ | ------------------ |
+| Quick start / learning              | minimal-standalone                         | 10     | All                |
+| Single-role task                    | minimal-standalone (or specific role only) | 5-10   | All                |
+| **Production: Multi-role workflow** | **orchestration-complete** ⭐              | **36** | **ChatGPT/Claude** |
+| **Production: Gemini**              | **gemini-orchestration-1 through -5** ⭐   | **36** | **Gemini**         |
+| Full project (human orchestrates)   | full-standalone                            | 23     | ChatGPT/Claude     |
+| Full project (Gemini, human-led)    | gemini-full-standalone-1/2/3               | 23     | Gemini             |
+| Specific loop only                  | Custom selection from orchestration kit    | 7-15   | All                |
 
 **⭐ Orchestration mode is recommended for production workflows** as it provides:
+
 - Single-source-of-truth loop procedures
 - Role interchangeability (swap implementations)
 - Efficient context usage (~70% reduction vs. full prompts)
@@ -251,6 +265,7 @@ collisions when extracting zips.
 `https://questfoundry.liesdonk.nl/schemas/`
 
 Gatekeeper and Book Binder prompts reference these schemas by URL for validation:
+
 - `cold_manifest.schema.json` — Top-level file index with SHA-256 hashes
 - `cold_book.schema.json` — Story structure, section order, metadata
 - `cold_art_manifest.schema.json` — Asset mappings with provenance tracking
@@ -267,6 +282,7 @@ format that prevents protocol violations (e.g., Adventure Bay Binder Breakdown).
 Located in `05-prompts/upload_kits/manifests/`:
 
 **Standalone:**
+
 - `chatgpt_minimal.list` → `minimal-standalone.zip`
 - `optional.list` → `optional-standalone.zip`
 - `full-standalone.list` → `full-standalone.zip`
@@ -275,6 +291,7 @@ Located in `05-prompts/upload_kits/manifests/`:
 - `gemini-full-standalone-1/2/3.list` → Gemini full splits
 
 **Orchestration:** ⭐
+
 - `orchestration-complete.list` → `orchestration-complete.zip`
 - `gemini-orchestration-1/2/3/4/5.list` → Gemini orchestration splits
 

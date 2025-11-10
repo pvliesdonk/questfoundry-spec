@@ -35,8 +35,8 @@ optional assets, gatecheck, and binding. Stamped with Cold snapshot ID.
 3. Generate narrative/scene hooks.
 4. Gatekeeper preview: Integrity, Reachability, Nonlinearity.
 
-**Hook Harvest (Showrunner R)**
-5. Triage hooks: `quick-win`, `needs-research`, `structure-impact`, `deferred`.
+**Hook Harvest (Showrunner R)** 5. Triage hooks: `quick-win`, `needs-research`, `structure-impact`,
+`deferred`.
 
 **Lore Deepening (Lore Weaver R)** 6. Convert accepted hooks into canon: backstories, timelines,
 metaphysics. 7. Coordinate with Plotwright if topology must adjust.
@@ -53,8 +53,8 @@ deferred). 13. Audio Director plans cues; Audio Producer creates assets (or defe
 **Stabilization & Gatecheck (Gatekeeper R)** 14. Cross-role review; resolve contradictions. 15. Run
 all Quality Bars; produce gatecheck note (pass/fail + remediation).
 
-**Merge Hot → Cold (Showrunner R)** 16. On pass, merge canon, codex, plans/assets to Cold. 17.
-Stamp Cold snapshot ID.
+**Merge Hot → Cold (Showrunner R)** 16. On pass, merge canon, codex, plans/assets to Cold. 17. Stamp
+Cold snapshot ID.
 
 **Binding Run (Book Binder R)** 18. Assemble export view from Cold snapshot. 19. Ensure
 accessibility and spoiler hygiene. 20. Record snapshot ID and options in front matter.
@@ -107,12 +107,12 @@ follow-up loops.
 
 ## 8) RACI (micro)
 
-| Task                | R                         | A          | C                              | I   |
-| ------------------- | ------------------------- | ---------- | ------------------------------ | --- |
-| Scope & activation  | Showrunner                | Showrunner | All role leads                 | All |
-| Story Spark         | Plotwright, Scene Smith   | Showrunner | Style, Lore, Gatekeeper        | All |
-| Hook triage         | Showrunner                | Showrunner | All generators                 | All |
-| Canon & codex       | Lore Weaver, Codex Curator | Showrunner | Plotwright, Style, Gatekeeper  | All |
-| Assets (optional)   | Art/Audio Directors       | Showrunner | Style, Gatekeeper              | All |
-| Gatecheck           | Gatekeeper                | Showrunner | All role leads                 | All |
-| Merge & export      | Showrunner, Book Binder   | Showrunner | Gatekeeper, PN                 | All |
+| Task               | R                          | A          | C                             | I   |
+| ------------------ | -------------------------- | ---------- | ----------------------------- | --- |
+| Scope & activation | Showrunner                 | Showrunner | All role leads                | All |
+| Story Spark        | Plotwright, Scene Smith    | Showrunner | Style, Lore, Gatekeeper       | All |
+| Hook triage        | Showrunner                 | Showrunner | All generators                | All |
+| Canon & codex      | Lore Weaver, Codex Curator | Showrunner | Plotwright, Style, Gatekeeper | All |
+| Assets (optional)  | Art/Audio Directors        | Showrunner | Style, Gatekeeper             | All |
+| Gatecheck          | Gatekeeper                 | Showrunner | All role leads                | All |
+| Merge & export     | Showrunner, Book Binder    | Showrunner | Gatekeeper, PN                | All |

@@ -1,23 +1,26 @@
 # Layer 7 Updates for Epic 7/8 Revised Architecture
 
-**Document Version:** 1.0 (2025-11-06)
-**Related:** `06-libraries/EPIC_7_8_REVISED.md` v2.2
+**Document Version:** 1.0 (2025-11-06) **Related:** `06-libraries/EPIC_7_8_REVISED.md` v2.2
 **Purpose:** Document how Layer 6 Epic 7/8 architecture changes affect Layer 7 CLI implementation
 
 ---
 
 ## Executive Summary
 
-The revised Layer 6 architecture (Epic 7 & 8) introduces significant changes that affect how Layer 7 (CLI) presents loop execution to users:
+The revised Layer 6 architecture (Epic 7 & 8) introduces significant changes that affect how Layer 7
+(CLI) presents loop execution to users:
 
 **Key Changes:**
+
 1. **Loop stabilization** — Loops iterate until stable (not single linear pass)
 2. **Showrunner orchestration** — LLM-backed Showrunner makes dynamic decisions
 3. **Revision cycles** — Later steps can trigger earlier step revisions
 4. **Loop goals** — Each loop has fixed scope boundaries
-5. **Two-tier context** — Showrunner knows all loops (registry) but detailed context only for active loop
+5. **Two-tier context** — Showrunner knows all loops (registry) but detailed context only for active
+   loop
 
 **Impact on Layer 7:**
+
 - **Epic 5 (Loop Execution)** — Progress indicators must handle iteration, not just linear steps
 - **Epic 7 (Quickstart)** — Loop sequencing is Showrunner-decided, not hardcoded
 - **User expectations** — Need to communicate stabilization, revision cycles clearly
@@ -31,32 +34,38 @@ This document analyzes which CLI epics need updates and recommends UX approaches
 ### Before (Original Plan)
 
 **Loop execution:**
+
 ```
 Story Spark: step_1 → step_2 → step_3 → ... → step_8 → DONE
 ```
+
 - Linear, one-pass execution
 - Steps execute in order
 - No iteration
 
 **Showrunner:**
+
 - Follows hardcoded playbooks
 - No strategic decision-making
 
 ### After (Epic 7/8 Revised v2.2)
 
 **Loop execution:**
+
 ```
 Story Spark:
   Iteration 1: step_1 → step_2 → step_3 → ... → step_7 (Gatekeeper BLOCKS)
   Iteration 2: step_1 (revise) → step_2 → step_3 → ... → step_7 (PASS)
   → step_8 → DONE (loop stabilized)
 ```
+
 - Iterative, convergence-based
 - Steps can execute multiple times
 - Showrunner decides which step runs next
 - Loop stabilizes when all quality criteria met
 
 **Showrunner:**
+
 - LLM-backed strategic orchestrator
 - Decides which role to wake for each step (playbook recommends, SR decides)
 - Approves/denies agent collaboration requests
@@ -64,6 +73,7 @@ Story Spark:
 - Decides when loop has stabilized
 
 **Loop scopes:**
+
 - Story Spark: Develops plot (cannot change style/art)
 - Style Tune Up: Refines tone (cannot change plot)
 - Art Touch Up: Polishes visuals (cannot change plot/prose)
@@ -75,6 +85,7 @@ Story Spark:
 ### Epic 5: Loop Execution (`qf run <loop-name>`)
 
 **Original Plan (from IMPLEMENTATION_PLAN.md):**
+
 ```bash
 $ qf run hook-harvest
 
@@ -91,6 +102,7 @@ Hook Harvest Loop
 **Assumption:** Single linear pass, progress shows steps completing in sequence.
 
 **New Reality:**
+
 - Loop can iterate multiple times
 - Steps can repeat (revision cycles)
 - Showrunner makes dynamic decisions
@@ -160,6 +172,7 @@ Next suggested loop: Hook Harvest
 ```
 
 **Key UX elements:**
+
 1. **Show iteration count** — User sees loop is refining, not stuck
 2. **Show Showrunner decisions** — Why did we go back? Clear communication
 3. **Show revision status** — "Revision" tag on repeated steps
@@ -169,12 +182,14 @@ Next suggested loop: Hook Harvest
 #### 5.2: Progress API Changes
 
 **Current assumption:**
+
 ```python
 # Linear progress
 progress.add_task("Running Hook Harvest...", total=None)
 ```
 
 **New requirement:**
+
 ```python
 # Support iteration and dynamic steps
 progress_tracker = LoopProgressTracker(console)
@@ -201,11 +216,13 @@ for iteration in loop_execution:
 #### 5.3: Implementation Updates
 
 **Files to modify:**
+
 - `src/qf/commands/run.py` — Add iteration tracking
 - `src/qf/formatting/progress.py` — Support iterative progress display
 - `src/qf/formatting/loop_summary.py` — Show iteration count, revision summary
 
 **New classes needed:**
+
 ```python
 class LoopProgressTracker:
     """Track progress of iterative loop execution."""
@@ -234,6 +251,7 @@ class LoopProgressTracker:
 ### Epic 7: Quickstart Workflow
 
 **Original Plan:**
+
 ```python
 # Hardcoded loop sequence
 loops = [
@@ -253,6 +271,7 @@ for loop in loops:
 **Assumption:** Fixed loop sequence, linear execution.
 
 **New Reality:**
+
 - Showrunner decides which loop runs next (from registry)
 - Loops can stabilize through multiple iterations
 - Each loop has a goal/scope (Story Spark = plot, not style)
@@ -290,6 +309,7 @@ while True:
 ```
 
 **UX Impact:**
+
 ```bash
 $ qf quickstart
 
@@ -316,6 +336,7 @@ Continue to Story Spark? [Y/n]:
 ```
 
 **Key UX elements:**
+
 1. **Show Showrunner decisions** — User understands why this loop is next
 2. **Show Showrunner reasoning** — "Hooks are ready to be developed..."
 3. **Suggest next loop** — User can see what's coming
@@ -324,6 +345,7 @@ Continue to Story Spark? [Y/n]:
 #### 7.2: Progress Tracking Update
 
 **Old assumption:**
+
 ```
 Completed:
   ✓ Hook Harvest
@@ -338,6 +360,7 @@ Pending:
 ```
 
 **New reality:**
+
 - Can't show "Pending" (Showrunner decides dynamically)
 - Can show "Suggested Next" from Showrunner
 
@@ -378,6 +401,7 @@ This loop will NOT:
 ```
 
 This helps users understand:
+
 - Why loops have focused goals
 - Why another loop might be needed for style/art
 - What to expect from this loop
@@ -385,10 +409,12 @@ This helps users understand:
 #### 7.4: Implementation Updates
 
 **Files to modify:**
+
 - `src/qf/commands/quickstart.py` — Remove hardcoded loop sequence, use Showrunner decisions
 - `src/qf/formatting/quickstart.py` — Show Showrunner reasoning, loop goals
 
 **New additions:**
+
 ```python
 def show_showrunner_decision(loop_name: str, reasoning: str):
     """Display Showrunner's loop selection decision."""
@@ -421,13 +447,16 @@ def show_loop_goal(loop_name: str, loop_metadata: dict):
 
 **Impact:** Minimal
 
-Asset generation is largely unaffected since it's about individual artifact generation, not loop orchestration. However:
+Asset generation is largely unaffected since it's about individual artifact generation, not loop
+orchestration. However:
 
 **Minor update needed:**
+
 - Show which loop generated an artifact (in artifact metadata)
 - Show iteration number if artifact was revised
 
 Example:
+
 ```bash
 $ qf show HOOK-001
 
@@ -451,10 +480,12 @@ TU:       TU-2025-11-06-HH01
 **Impact:** Minor
 
 Artifacts now have:
+
 - **Loop provenance** — Which loop created/revised them
 - **Iteration tracking** — Which iteration of the loop
 
 **Update needed:**
+
 ```bash
 $ qf show TU-2025-11-06-SS01
 
@@ -486,10 +517,12 @@ Artifacts Created:
 **Impact:** Minimal
 
 Gatecheck runs the same, but:
+
 - Users should understand gatecheck can trigger loop revision
 - Show context: "If gatecheck fails during loop, Showrunner will revise"
 
 Example:
+
 ```bash
 $ qf check
 
@@ -629,11 +662,13 @@ Quality: All bars passed
 ### Phase 1: Core Updates (Required)
 
 **Epic 5.1-5.3:** Loop execution with iteration support
+
 - Most critical change
 - Affects all loop execution UX
 - **Estimated effort:** 2-3 days additional work
 
 **Epic 7.1-7.2:** Dynamic quickstart sequencing
+
 - Removes hardcoded loop order
 - Uses Showrunner decisions
 - **Estimated effort:** 2-3 days additional work
@@ -641,24 +676,29 @@ Quality: All bars passed
 ### Phase 2: Enhanced UX (High value)
 
 **Loop goal communication:** Show what each loop does/doesn't do
+
 - Helps users understand scope boundaries
 - **Estimated effort:** 1 day
 
 **Showrunner decision visibility:** Show why Showrunner chose this role/loop
+
 - Transparency and debuggability
 - **Estimated effort:** 1 day
 
 ### Phase 3: Advanced Features (Nice to have)
 
 **Loop registry explorer:** `qf loops list/show`
+
 - Discoverability
 - **Estimated effort:** 1 day
 
 **Explain mode:** `qf run --explain`
+
 - Power users and debugging
 - **Estimated effort:** 1-2 days
 
 **Iteration summary:** Detailed iteration breakdown
+
 - Understanding and transparency
 - **Estimated effort:** 1 day
 
@@ -714,17 +754,20 @@ tests/
 ### New Test Scenarios
 
 **Loop iteration:**
+
 - Loop completes in 1 iteration (no revisions)
 - Loop requires 2 iterations (Gatekeeper blocks once)
 - Loop requires 3+ iterations (multiple revision cycles)
 
 **Showrunner decisions:**
+
 - Showrunner follows playbook recommendations
 - Showrunner overrides playbook (context-driven)
 - Showrunner approves collaboration
 - Showrunner denies collaboration
 
 **Quickstart sequencing:**
+
 - Showrunner suggests expected sequence
 - Showrunner adapts sequence based on results
 - User exits at checkpoint
@@ -733,12 +776,14 @@ tests/
 ### Mock Requirements
 
 Need mocked Showrunner that can:
+
 - Decide next role for step
 - Decide collaboration approval
 - Decide next loop in sequence
 - Decide when loop is stable
 
 Example mock:
+
 ```python
 class MockShowrunner:
     def __init__(self, scenario: str):
@@ -763,11 +808,11 @@ class MockShowrunner:
 ### User Guide Additions
 
 **New section:** "Understanding Loop Iterations"
+
 ```markdown
 # Understanding Loop Iterations
 
-Loops in QuestFoundry don't execute in a single pass. Instead,
-they **stabilize** through iteration:
+Loops in QuestFoundry don't execute in a single pass. Instead, they **stabilize** through iteration:
 
 1. Loop executes steps in sequence
 2. If quality issues found (e.g., Gatekeeper blocks):
@@ -780,30 +825,32 @@ they **stabilize** through iteration:
    - Gatekeeper approves
    - No pending revisions
 
-This ensures quality while remaining efficient (steps that
-don't need revision are reused).
+This ensures quality while remaining efficient (steps that don't need revision are reused).
 ```
 
 **New section:** "How Showrunner Makes Decisions"
+
 ```markdown
 # How Showrunner Makes Decisions
 
-The Showrunner is an LLM-backed orchestrator that makes
-strategic decisions:
+The Showrunner is an LLM-backed orchestrator that makes strategic decisions:
 
 **Deciding which role to wake:**
+
 - Playbook recommends a role for each step
 - Showrunner evaluates: playbook + context + project prefs
 - Usually follows playbook (best practices)
 - Can adapt when context suggests a better fit
 
 **Deciding which loop to run next:**
+
 - Showrunner knows all available loops (loop registry)
 - Evaluates: TU artifacts, completed loops, project goals
 - Suggests next loop with reasoning
 - You can accept or override
 
 **Deciding when loop is stable:**
+
 - Checks: all steps complete, validation passed, no issues
 - Continues iterating until stabilization criteria met
 ```
@@ -811,6 +858,7 @@ strategic decisions:
 ### Command Help Updates
 
 **`qf run` help text:**
+
 ```bash
 $ qf run --help
 
@@ -873,6 +921,7 @@ Options:
 **Original Layer 7 estimate:** 6-8 weeks (aggressive)
 
 **Additional effort from Epic 7/8 changes:**
+
 - Phase 1 (Core updates): +4-6 days
 - Phase 2 (Enhanced UX): +2 days
 - Phase 3 (Advanced features): +3-4 days (optional)
@@ -885,18 +934,23 @@ Options:
 
 ## Conclusion
 
-The Epic 7/8 revised architecture introduces **loop stabilization** and **Showrunner orchestration**, which significantly affect how Layer 7 presents loops to users.
+The Epic 7/8 revised architecture introduces **loop stabilization** and **Showrunner
+orchestration**, which significantly affect how Layer 7 presents loops to users.
 
 **Key CLI changes needed:**
+
 1. Progress indicators must handle iteration, not just linear steps
 2. Quickstart must use dynamic sequencing, not hardcoded order
 3. Users need to understand loop goals, stabilization, and Showrunner decisions
 
 **Good news:** These changes make the CLI more transparent and powerful:
+
 - Users see quality assurance in action (revision cycles)
 - Users understand Showrunner reasoning (not a black box)
 - Users can make informed decisions about which loops to run
 
-**Implementation is tractable:** Core updates add ~1 week to development, with optional enhancements adding another week for great UX.
+**Implementation is tractable:** Core updates add ~1 week to development, with optional enhancements
+adding another week for great UX.
 
-The revised architecture makes QuestFoundry more robust and the CLI more informative — a win for users.
+The revised architecture makes QuestFoundry more robust and the CLI more informative — a win for
+users.

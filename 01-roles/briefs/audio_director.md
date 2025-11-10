@@ -150,6 +150,5 @@ Pause and ping Showrunner if:
 
 ## 10) Metadata
 
-**Role:** Audio Director
-**Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>`
-**Most relevant loop guide:** `../../00-north-star/LOOPS/audio_pass.md`
+**Role:** Audio Director **Lineage:** TU `<tu-id>` · Edited: `<YYYY-MM-DD>` **Most relevant loop
+guide:** `../../00-north-star/LOOPS/audio_pass.md`

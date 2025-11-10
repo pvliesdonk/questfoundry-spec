@@ -196,7 +196,6 @@ EPUB Kobo Compatibility (Critical)
   ```
 
 - **Legacy NCX Navigation (EPUB2 Compat):**
-
   - Generate `toc.ncx` file alongside `nav.xhtml`
   - NCX structure:
 
@@ -224,7 +223,6 @@ EPUB Kobo Compatibility (Critical)
   - Reference in spine: `<spine toc="ncx">`
 
 - **EPUB Landmarks & Guide:**
-
   - Add ARIA landmarks in `nav.xhtml`:
 
     ```html

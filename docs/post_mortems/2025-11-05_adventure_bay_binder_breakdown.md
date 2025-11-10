@@ -41,25 +41,21 @@ ad-hoc rebuilds.
 ## Timeline
 
 1. **Story + images iterated successfully**
-
    - Cover approved
    - Several plates approved
    - **Gap:** No SHA-256 recorded at approval time
 
 2. **EPUB builds via Pandoc**
-
    - Resources not embedded → images missing on device
    - **Gap:** No preflight check for resource resolution
 
 3. **Manual EPUB/PDF attempts**
-
    - Partial success but order drift introduced
    - Stale assets introduced by heuristics
    - Environment resets dropped in-memory mappings
    - **Gap:** Multiple build paths without canonical source
 
 4. **User flags non-compliance**
-
    - Image order incorrect
    - Binder not honoring manifest
    - **Gap:** No automated validation gates
@@ -93,28 +89,23 @@ re-establish Cold SoT + manifest as the only source, the system:
 ### Contributing Factors
 
 1. **Environment volatility**
-
    - Working directory changed between builds
    - Prior artifacts garbage-collected or overwritten
    - Path resolution differed between builds
 
 2. **Missing hash discipline**
-
    - No SHA-256 recorded at illustration approval time
    - Impossible to prove using latest/correct files
 
 3. **Tooling fallbacks**
-
    - Pandoc resource resolution failed → manual packer
    - Manual packer didn't re-bind to manifest
 
 4. **Spec pressure vs. speed**
-
    - Bias toward "get a working EPUB now"
    - Defeated "manifest or bust" rule
 
 5. **Policy constraints**
-
    - Child likeness policy change (back view required)
    - Re-renders needed
    - Some "old" images lingered, increasing confusion
@@ -355,14 +346,12 @@ Allow rollback by reusing exact manifest and file set.
 ### Immediate (Week 1)
 
 - [ ] **#1** Finalize Cold SoT file format schemas
-
   - `cold_manifest.schema.json`
   - `cold_book.schema.json`
   - `cold_art_manifest.schema.json`
   - Location: `03-schemas/`
 
 - [ ] **#2** Create approval hook
-
   - On image approval: auto-write hash + rename file deterministically
   - Update `cold/art_manifest.json` immediately
 
@@ -374,12 +363,10 @@ Allow rollback by reusing exact manifest and file set.
 ### Short-term (Weeks 2-4)
 
 - [ ] **#4** Centralize Pandoc template
-
   - Pin `--resource-path`
   - Add CI test: open resulting EPUB on headless validator
 
 - [ ] **#5** Pin PDF compositor
-
   - WeasyPrint stylesheet
   - Section-per-page enforced
   - Cover full-bleed page 1
@@ -393,13 +380,11 @@ Allow rollback by reusing exact manifest and file set.
 ### Medium-term (Weeks 5-8)
 
 - [ ] **#7** Incident playbook
-
   - If build fails: (a) freeze Cold + manifests, (b) compute hashes, (c) never render/rename until
     hashes recorded
   - Location: `00-north-star/INCIDENT_RESPONSE.md`
 
 - [ ] **#8** Build artifact shipping
-
   - Ship `build.json` alongside EPUB/PDF
   - Include all inputs' SHA-256
 

@@ -17,7 +17,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.open",
         "context": {
@@ -63,8 +63,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-archive-chapter3-2025-11-06",
-        "reply_to": null
+        "correlation_id": "corr-archive-chapter3-2025-11-06"
       }
     },
     {
@@ -234,7 +233,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.update",
         "context": {
@@ -260,8 +259,7 @@
           }
         },
         "refs": ["TU-2025-11-06-SR03"],
-        "correlation_id": "corr-archive-chapter3-2025-11-06",
-        "reply_to": null
+        "correlation_id": "corr-archive-chapter3-2025-11-06"
       }
     }
   ]

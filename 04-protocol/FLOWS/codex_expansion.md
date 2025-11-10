@@ -119,7 +119,7 @@ canon with player-safe summaries
   "id": "urn:uuid:abc123...",
   "time": "2025-10-30T18:00:00Z",
   "sender": { "role": "SR", "agent": "human:alice" },
-  "receiver": { "role": "broadcast" },
+  "receiver": { "role": "*" },
   "intent": "tu.open",
   "context": {
     "hot_cold": "hot",
@@ -690,7 +690,7 @@ in the codex entry. Only player-safe context is included.
   "id": "urn:uuid:jkl012...",
   "time": "2025-10-30T20:00:00Z",
   "sender": { "role": "SR", "agent": "human:alice" },
-  "receiver": { "role": "broadcast" },
+  "receiver": { "role": "*" },
   "intent": "merge.approve",
   "context": {
     "hot_cold": "cold", // Now Cold after merge

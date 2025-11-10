@@ -2,8 +2,34 @@
 
 All notable changes to Layer 5 prompts will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.3.0] - 2025-11-10
+
+### Added
+
+- **SCHEMA_INDEX.json Updates:**
+  - Added `canon_transfer_package` schema entry
+    - Path: `03-schemas/canon_transfer_package.schema.json`
+    - Roles: Lore Weaver
+    - Intents: `canon.transfer.export`, `canon.transfer.import`
+  - Added `world_genesis_manifest` schema entry
+    - Path: `03-schemas/world_genesis_manifest.schema.json`
+    - Roles: Lore Weaver
+    - Intents: `canon.genesis.create`
+  - Updated version to 0.3.0
+  - Updated generated date to 2025-11-10
+  - Total schemas: 28 (was 26)
+
+### Context
+
+This release adds schema index support for canon-centric workflows. The two new schemas enable Canon
+Transfer (export/import canon between projects for shared universes/sequels) and World Genesis
+(proactive worldbuilding before plot design). These schemas are now available to all prompts that
+reference SCHEMA_INDEX.json for validation and intent handling.
 
 ## [0.2.0] - 2025-11-06
 
@@ -11,15 +37,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Schema Validation Enforcement (Complete Implementation)
 
-**BREAKING CHANGE:** Schema validation is now **mandatory** for all JSON artifacts. Agents producing artifacts without validation will be blocked at merge.
+**BREAKING CHANGE:** Schema validation is now **mandatory** for all JSON artifacts. Agents producing
+artifacts without validation will be blocked at merge.
 
-**Motivation:** Post-mortem analysis revealed that agents consistently failed to validate artifacts despite schemas being available. Root cause: Document existence ≠ agent compliance. Solution: Three-layer enforcement with file ordering and hard gates.
+**Motivation:** Post-mortem analysis revealed that agents consistently failed to validate artifacts
+despite schemas being available. Root cause: Document existence ≠ agent compliance. Solution:
+Three-layer enforcement with file ordering and hard gates.
 
 ---
 
 #### Phase 1: Validation Contract & Schema Index
 
 **Validation Contract** (`_shared/validation_contract.md`)
+
 - **Purpose:** Non-negotiable validation requirements for all roles
 - **Position:** File #1 in all upload kits (LLMs read files sequentially)
 - **Content:**
@@ -32,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Troubleshooting guide
 
 **Schema Index** (`SCHEMA_INDEX.json`)
+
 - **Purpose:** Canonical registry of all 26 Layer 3 schemas
 - **Position:** File #2 in all upload kits
 - **Content:** For each schema:
@@ -43,6 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `intent` - Protocol intents that use this schema
 
 **Index Generator** (`spec-tools/src/.../generate_schema_index.py`)
+
 - Automated SCHEMA_INDEX.json generation
 - Computes SHA-256 hashes for all schemas
 - Extracts metadata from schema files
@@ -51,6 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added to pyproject.toml
 
 **Upload Kit Updates:**
+
 - All 14 manifests updated to place validation files first
 - `upload_kits.py` updated to preserve manifest order in zips
 - File ordering enforced: validation_contract.md → SCHEMA_INDEX.json → other files
@@ -66,6 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **All 15 role system_prompts updated** with "Output Validation (Required)" section:
 
 **Roles with explicit schema mappings (6):**
+
 - **Plotwright** → hook_card
 - **Showrunner** → hot_manifest, project_metadata
   - Added orchestration responsibility: verify all roles produce validation_report.json
@@ -76,12 +110,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Illustrator** → cold_art_manifest
 
 **Roles with generic validation (9):**
+
 - Scene Smith, Style Lead, Lore Weaver, Player Narrator
 - Art Director, Audio Director, Audio Producer
 - Translator, Researcher
 - Instructed to check SCHEMA_INDEX.json for their schemas
 
 **Each validation section includes:**
+
 1. Reference to validation_contract.md (file #1)
 2. 6-step preflight/validation protocol
 3. Schema discovery instructions
@@ -97,12 +133,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **All 13 loop playbooks updated** with "Validation Requirements (All Artifacts)" section:
 
 **Updated playbooks:**
+
 - archive_snapshot, art_touch_up, audio_pass, binding_run
 - codex_expansion, gatecheck, hook_harvest, lore_deepening
 - narration_dry_run, post_mortem, story_spark, style_tune_up
 - translation_pass
 
 **Each validation section specifies:**
+
 1. Reference to validation_contract.md
 2. 7-step validation protocol for artifact-producing steps:
    - Producer looks up schema in SCHEMA_INDEX.json
@@ -128,12 +166,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **Requirements:**
 
 Before issuing ANY `gate.decision` with `pass`, Gatekeeper MUST verify:
+
 1. All JSON artifacts in TU have corresponding validation_report.json
 2. All validation_report.json files show `"valid": true`
 3. All validation_report.json files have empty `"errors": []`
 4. All artifacts have `"$schema"` field pointing to canonical schema $id
 
 **Validation Audit Protocol:**
+
 - 7-step audit for each artifact in TU
 - Check artifact has `"$schema"` field
 - Verify validation_report.json structure
@@ -141,12 +181,14 @@ Before issuing ANY `gate.decision` with `pass`, Gatekeeper MUST verify:
 - Provide specific remediation for each failed artifact
 
 **Hard Stops:**
+
 - Missing validation_report.json → BLOCK
 - `"valid": false` in validation_report.json → BLOCK
 - Non-empty `"errors"` array → BLOCK
 - Missing `"$schema"` field in artifact → BLOCK
 
 **Enforcement:**
+
 - List ALL artifacts with validation issues (not just first)
 - Provide clear remediation for each
 - Escalate to Showrunner with role assignments
@@ -158,10 +200,12 @@ Before issuing ANY `gate.decision` with `pass`, Gatekeeper MUST verify:
 ### Changed
 
 **Upload Kit File Counts:**
+
 - orchestration-complete.zip: 36 → 38 files (+validation_contract.md, +SCHEMA_INDEX.json)
 - full-standalone.zip: 23 → 25 files (+validation_contract.md, +SCHEMA_INDEX.json)
 - minimal-standalone.zip: 10 → 12 files (+validation_contract.md, +SCHEMA_INDEX.json)
-- gemini-orchestration-1-foundation.zip: 9 → 10 files (removed human_interaction.md to stay within limit)
+- gemini-orchestration-1-foundation.zip: 9 → 10 files (removed human_interaction.md to stay within
+  limit)
 - gemini-minimal-standalone.zip: 10 → 10 files (removed human_interaction.md)
 - gemini-full-standalone-1.zip: 10 → 10 files (removed human_interaction.md + initialization.md)
 
@@ -176,6 +220,7 @@ Before issuing ANY `gate.decision` with `pass`, Gatekeeper MUST verify:
 Critical insight: LLMs read uploaded files sequentially. File order determines agent behavior.
 
 **Enforced order in all kits:**
+
 1. validation_contract.md (file #1) ← Rules loaded FIRST
 2. SCHEMA_INDEX.json (file #2) ← Discovery mechanism
 3. Shared patterns ← Cross-role standards
@@ -220,17 +265,20 @@ Critical insight: LLMs read uploaded files sequentially. File order determines a
 ### Documentation Updates
 
 **USAGE_GUIDE.md:**
+
 - Added "Schema Validation Workflow" section (150+ lines)
 - Explains preflight protocol, validation workflow, file ordering importance
 - Provides validation examples and troubleshooting
 
 **Implementation Plan:**
+
 - `docs/post_mortems/2025-11-06_validation_enforcement_implementation_plan.md`
 - Complete 5-phase implementation plan (Phases 1-4 complete)
 - Critical file ordering rules
 - Success metrics and timeline
 
 **Post-Mortem:**
+
 - `docs/post_mortems/2025-11-06_schema_enforcement_and_validation_contracts.md`
 - Root cause analysis of validation failures
 - Proposed solutions and enforcement mechanisms
@@ -240,6 +288,7 @@ Critical insight: LLMs read uploaded files sequentially. File order determines a
 ### Success Criteria
 
 **Achieved:**
+
 - ✅ validation_contract.md created and placed as file #1
 - ✅ SCHEMA_INDEX.json generated with 26 schemas and SHA-256 hashes
 - ✅ All 15 role prompts updated with validation sections
@@ -255,6 +304,7 @@ Critical insight: LLMs read uploaded files sequentially. File order determines a
 ### Breaking Changes
 
 **BREAKING:** Schema validation is now mandatory. Agents producing artifacts without:
+
 - `"$schema"` field in artifacts
 - validation_report.json with `"valid": true`
 
@@ -270,11 +320,13 @@ Will be **blocked at merge** by Gatekeeper.
 
 #### Loop-Focused Architecture (commits a300224, 428140c)
 
-Complete transformation of Layer 5 from role-focused to loop-focused architecture, making loop playbooks the primary executable units.
+Complete transformation of Layer 5 from role-focused to loop-focused architecture, making loop
+playbooks the primary executable units.
 
 **13 Loop Playbooks** (`loops/*.playbook.md`)
 
 Each playbook contains complete procedures with:
+
 - Purpose and activation criteria
 - RACI matrix (from Layer 1)
 - Complete procedure with message sequences (Layer 0 + Layer 4)
@@ -284,6 +336,7 @@ Each playbook contains complete procedures with:
 - Validation examples with complete message flows
 
 **Playbooks by category:**
+
 - **Discovery:** Story Spark, Hook Harvest, Lore Deepening
 - **Refinement:** Codex Expansion, Style Tune-up
 - **Asset Production:** Art Touch-up, Audio Pass, Translation Pass
@@ -292,16 +345,20 @@ Each playbook contains complete procedures with:
 **15 Role Adapters** (`role_adapters/*.adapter.md`)
 
 Thin interface specs (50-100 lines each) optimized for multi-role orchestration:
+
 - Core expertise summary
 - Protocol intents handled (receives/sends)
 - Loop participation references
 - Efficient context usage
 
-**Roles:** Showrunner, Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder, Player Narrator, Lore Weaver, Codex Curator, Researcher, Art Director, Illustrator, Audio Director, Audio Producer, Translator
+**Roles:** Showrunner, Plotwright, Scene Smith, Style Lead, Gatekeeper, Book Binder, Player
+Narrator, Lore Weaver, Codex Curator, Researcher, Art Director, Illustrator, Audio Director, Audio
+Producer, Translator
 
 **Modular Showrunner** (5 focused modules)
 
 Split 213-line monolith into focused modules with single responsibility:
+
 - `system_prompt.md` (110 lines) - Index and navigation
 - `loop_orchestration.md` (100 lines) - Execute playbooks
 - `manifest_management.md` (102 lines) - Hot/Cold operations
@@ -313,6 +370,7 @@ Benefits: Clear navigation, cross-references, maintainability
 **Enhanced Role Prompts**
 
 All 15 full role prompts (200-300 lines each) enhanced with:
+
 - "Loop Participation" section
 - References to loop playbooks with relative paths
 - Preserved all existing domain expertise content
@@ -333,6 +391,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 **14 Upload Kits** for ChatGPT, Claude, and Gemini
 
 **Orchestration Mode** ⭐ (NEW - recommended for production)
+
 - `orchestration-complete.zip` (36 files)
   - 4 shared patterns
   - 4 showrunner modules
@@ -340,6 +399,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
   - 15 role adapters
 
 **Gemini Orchestration Splits** (10-file limit compliant)
+
 - `gemini-orchestration-1-foundation.zip` (9 files) - Shared + showrunner + SR adapter
 - `gemini-orchestration-2-playbooks.zip` (10 files) - Core loop playbooks
 - `gemini-orchestration-3-playbooks-extra.zip` (3 files) - Additional loops
@@ -347,11 +407,13 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 - `gemini-orchestration-5-adapters-extra.zip` (4 files) - Optional role adapters
 
 **Standalone Mode** (traditional)
+
 - `minimal-standalone.zip` (10 files) - Quick start with core roles
 - `optional-standalone.zip` (9 files) - Additional roles (PN, LW, CC, etc.)
 - `full-standalone.zip` (23 files) - All role prompts + showrunner modules
 
 **Gemini Standalone Splits** (10-file limit compliant)
+
 - `gemini-minimal-standalone.zip` (10 files)
 - `gemini-optional-standalone.zip` (9 files)
 - `gemini-full-standalone-1.zip` (10 files) - Shared + showrunner + 1 role
@@ -359,18 +421,21 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 - `gemini-full-standalone-3.zip` (3 files) - 3 role prompts
 
 **Build Tools**
+
 - `spec-tools/src/questfoundry_spec_tools/upload_kits.py` - Automated kit building
 - Preserves original directory structure in zips (prevents filename collisions)
 - Command: `uv run qfspec-build-kits`
 - Output: `dist/upload_kits/*.zip`
 
 **Documentation**
+
 - `upload_kits/README.md` - Complete kit descriptions, platform guidance, quick starts
 - `USAGE_GUIDE.md` - Updated to emphasize orchestration mode as recommended
 - Loop playbook workflow examples
 - Clear guidance on mode selection
 
 **Manifests** (10 new files in `05-prompts/upload_kits/manifests/`)
+
 - `orchestration-complete.list` (36 files)
 - `full-standalone.list` (23 files)
 - 8 Gemini split manifests (respecting 10-file limits)
@@ -380,6 +445,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Dual-Format Strategy
 
 **Orchestration Mode** (AI-coordinated) ⭐ **RECOMMENDED**
+
 - Showrunner loads loop playbook + role adapters
 - Single-source-of-truth procedures (1 playbook vs 7 role prompts)
 - 70% context reduction (adapters: 50-100 lines vs full prompts: 200-300 lines)
@@ -388,6 +454,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 - Clear RACI matrix and coordination
 
 **Standalone Mode** (human-led)
+
 - Full role prompts with complete domain expertise
 - Human coordinates workflow via prompts
 - Best for learning, exploration, single-role tasks
@@ -395,31 +462,37 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Architecture Benefits
 
 **Single Source of Truth**
+
 - Loop procedures defined once in playbook
 - Eliminates duplication across role prompts
 - Update loop once, all roles benefit
 
 **Maintainability**
+
 - Clear modular structure
 - Single responsibility per component
 - Easy to understand and update
 
 **Role Interchangeability**
+
 - Roles implement standard interface from adapters
 - Swap implementations without changing playbooks
 - Clear separation of concerns
 
 **Clear Orchestration**
+
 - Showrunner loads playbook and coordinates
 - Roles respond to protocol intents
 - RACI matrix defines responsibilities
 
 **Testability**
+
 - Validation examples for all 13 loops
 - Complete message flows included
 - Realistic payloads matching Layer 3 schemas
 
 **Efficient Context**
+
 - Adapters: 50-100 lines per role
 - Full prompts: 200-300 lines per role
 - Load only what's needed for specific loop
@@ -427,16 +500,19 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Platform Support
 
 **ChatGPT**
+
 - Single upload with `orchestration-complete.zip` (36 files)
 - Or `minimal-standalone.zip` (10 files) for quick start
 - Supports zips and individual files
 
 **Claude**
+
 - Handles multiple attachments well
 - Individual files preferred for better grounding
 - `orchestration-complete.zip` also supported
 
 **Gemini**
+
 - 10-file limit per zip respected
 - 5 orchestration splits or 5 standalone splits
 - Upload in sequence: foundation → playbooks → adapters
@@ -460,6 +536,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Shared Patterns
 
 4 cross-role patterns included in all kits:
+
 - `context_management.md` - Hot/Cold separation, snapshot references
 - `safety_protocol.md` - PN boundaries, content hygiene
 - `escalation_rules.md` - When to request human intervention
@@ -470,12 +547,14 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Upload Kit Build Process
 
 **Before:**
+
 - Flattened filenames (e.g., `showrunner.md`)
 - Filename collisions (multiple `system_prompt.md` files)
 - No orchestration kits
 - Manual zip creation
 
 **After:**
+
 - Preserves directory structure (e.g., `05-prompts/showrunner/system_prompt.md`)
 - No collisions when extracting zips
 - Automated orchestration kit building
@@ -484,11 +563,13 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 #### Documentation Focus
 
 **Before:**
+
 - Emphasized standalone mode
 - Role-focused workflows
 - Limited guidance on multi-role coordination
 
 **After:**
+
 - Emphasizes orchestration mode as recommended for production
 - Loop-focused workflows with clear procedures
 - Comprehensive guidance on mode selection
@@ -499,11 +580,13 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 **Total: 51 files changed across 3 commits**
 
 **Commit a300224 (Loop playbooks):**
+
 - 13 loop playbooks created
 - 13 validation example flows created
 - 26 files added
 
 **Commit 428140c (Dual formats):**
+
 - 15 role adapters created
 - 15 role prompts enhanced (Loop Participation sections)
 - 5 showrunner modules (4 new, 1 rewritten)
@@ -511,6 +594,7 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 - 38 files modified/created
 
 **Commit 426f2b9 (Upload kits):**
+
 - `upload_kits.py` rewritten (preserve directory structure)
 - `upload_kits/README.md` complete rewrite
 - `USAGE_GUIDE.md` updated (emphasize orchestration)
@@ -519,12 +603,13 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 
 ### Version Alignment
 
-**Prompts Version:** v0.1.0
-**Compatible with:**
+**Prompts Version:** v0.1.0 **Compatible with:**
+
 - schemas-v0.2.0 (Layer 3)
 - protocol-v0.2.1 (Layer 4)
 
 **Dependencies:**
+
 - Schemas: All validation via canonical URLs
 - Protocol: Envelope v0.2.1 for all messages
 - Layer 1: RACI matrices for all loops
@@ -560,7 +645,8 @@ All 15 full role prompts (200-300 lines each) enhanced with:
 
 ## Release Notes
 
-This is the **first versioned release** of Layer 5 prompts, representing the completion of the loop-focused architecture transformation across three major commits:
+This is the **first versioned release** of Layer 5 prompts, representing the completion of the
+loop-focused architecture transformation across three major commits:
 
 1. **a300224** - Added 13 loop playbooks as primary executable units
 2. **428140c** - Added dual-format strategy (full prompts + role adapters)
@@ -568,22 +654,22 @@ This is the **first versioned release** of Layer 5 prompts, representing the com
 
 ### Key Achievements
 
-✅ **Loop-focused architecture** - Single-source-of-truth procedures
-✅ **Dual-format strategy** - Full prompts for standalone, adapters for orchestration
-✅ **70% context reduction** - Efficient multi-role coordination
-✅ **14 upload kits** - Optimized for ChatGPT, Claude, Gemini
-✅ **Complete documentation** - Usage guides, architecture docs, examples
-✅ **Protocol compliance** - Layer 4 envelope v0.2.1
-✅ **Schema validation** - Layer 3 schemas v0.2.0
+✅ **Loop-focused architecture** - Single-source-of-truth procedures ✅ **Dual-format strategy** -
+Full prompts for standalone, adapters for orchestration ✅ **70% context reduction** - Efficient
+multi-role coordination ✅ **14 upload kits** - Optimized for ChatGPT, Claude, Gemini ✅ **Complete
+documentation** - Usage guides, architecture docs, examples ✅ **Protocol compliance** - Layer 4
+envelope v0.2.1 ✅ **Schema validation** - Layer 3 schemas v0.2.0
 
 ### Recommended Usage
 
 **For production workflows:** Use **orchestration mode** with `orchestration-complete.zip`
+
 - 70% context savings
 - Clear coordination via loop playbooks
 - Role interchangeability
 
 **For learning/exploration:** Use **standalone mode** with `minimal-standalone.zip`
+
 - Complete role prompts
 - Human-led workflows
 - Easier to understand
@@ -591,6 +677,7 @@ This is the **first versioned release** of Layer 5 prompts, representing the com
 ### Quick Start
 
 **ChatGPT/Claude:**
+
 ```bash
 # Download orchestration kit
 wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v0.1.0/orchestration-complete.zip
@@ -600,6 +687,7 @@ wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v
 ```
 
 **Gemini:**
+
 ```bash
 # Download all 5 orchestration splits
 wget https://github.com/pvliesdonk/questfoundry-spec/releases/download/prompts-v0.1.0/gemini-orchestration-{1..5}-*.zip

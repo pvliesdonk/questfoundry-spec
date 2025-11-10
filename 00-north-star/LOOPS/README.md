@@ -10,7 +10,7 @@ Gatekeeper checks. Pick one, run it, hand off cleanly, repeat. This page is your
 | Loop                  | Use when…                                                                      | Outcome                                                                         |
 | --------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | **Story Spark**       | You need to add/reshape plot topology (hubs, loops, gateways) and seed drafts. | Topology delta + section briefs & draft prose + fresh hooks.                    |
-| **Hook Harvest**      | You’ve got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.       |
+| **Hook Harvest**      | You've got scattered hooks from drafting/research and need order.              | Harvest Sheet: accepted/deferred/rejected hooks with owners & next loops.       |
 | **Lore Deepening**    | Accepted hooks must become **canon** (backstory, timeline, causality).         | Canon Pack + notes to Plotwright/Scene + player-safe summaries for Codex.       |
 | **Codex Expansion**   | Players need terms explained; new canon landed.                                | Player-safe Codex Pack + crosslink map; no spoilers.                            |
 | **Style Tune-up**     | Voice/register/motif drift is visible.                                         | Style Addendum + edit notes + pre-gate on Style/Presentation.                   |

@@ -1,15 +1,18 @@
 # Epic 7 Implementation Changes — Loop-Focused Architecture
 
-**Document Version:** 1.0 (2025-11-06)
-**Context:** Changes needed for Layer 6 Epic 7 based on commit 428140c and v0.2.0 validation enforcement
+**Document Version:** 1.0 (2025-11-06) **Context:** Changes needed for Layer 6 Epic 7 based on
+commit 428140c and v0.2.0 validation enforcement
 
 ---
 
 ## Executive Summary
 
-The original Epic 7 plan assumed a **role-focused architecture** where full role prompts were the primary executable units. Commit 428140c introduced a **loop-focused architecture** with dual usage modes (standalone and orchestration), and v0.2.0 added mandatory schema validation enforcement.
+The original Epic 7 plan assumed a **role-focused architecture** where full role prompts were the
+primary executable units. Commit 428140c introduced a **loop-focused architecture** with dual usage
+modes (standalone and orchestration), and v0.2.0 added mandatory schema validation enforcement.
 
-**Key Impact:** Epic 7 must now support **two distinct execution modes** with fundamentally different prompt loading and execution strategies.
+**Key Impact:** Epic 7 must now support **two distinct execution modes** with fundamentally
+different prompt loading and execution strategies.
 
 ---
 
@@ -18,12 +21,14 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 ### 1. Dual-Format Strategy (Two Usage Modes)
 
 **Standalone Mode** (traditional):
+
 - Full role prompts (200-300 lines each)
 - Single role works independently
 - Human-led workflows
 - Context: ~200-300 lines per role
 
 **Orchestration Mode** ⭐ (new, recommended):
+
 - Loop playbooks (primary) + role adapters (thin interfaces)
 - Showrunner coordinates multiple roles
 - Multi-role workflows
@@ -33,6 +38,7 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 ### 2. New Artifacts
 
 **Loop Playbooks** (`loops/*.playbook.md`) — 13 files:
+
 - Complete procedures with message sequences
 - RACI matrices
 - Deliverables and success criteria
@@ -40,6 +46,7 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 - **PRIMARY** executable units in orchestration mode
 
 **Role Adapters** (`role_adapters/*.adapter.md`) — 15 files:
+
 - Thin interface specs (50-100 lines)
 - Core expertise (3-5 bullet points)
 - Protocol intents handled
@@ -47,6 +54,7 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 - Used in orchestration mode
 
 **Modular Showrunner** (5 modules):
+
 - `system_prompt.md` (110 lines) — Index
 - `loop_orchestration.md` (100 lines) — Execute playbooks
 - `manifest_management.md` (102 lines) — Hot/Cold operations
@@ -54,6 +62,7 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 - `protocol_handlers.md` (230 lines) — Message handling
 
 **Validation Enforcement** (v0.2.0):
+
 - `_shared/validation_contract.md` — Mandatory validation requirements (file #1)
 - `SCHEMA_INDEX.json` — Schema registry with SHA-256 hashes (file #2)
 - All role prompts updated with validation sections
@@ -63,11 +72,13 @@ The original Epic 7 plan assumed a **role-focused architecture** where full role
 ### 3. Execution Model Change
 
 **OLD (role-focused):**
+
 ```
 Role Prompt (contains loop procedure) → LLM → Output
 ```
 
 **NEW (loop-focused):**
+
 ```
 Orchestration: Playbook (procedure) + Adapter (expertise) → LLM → Output
 Standalone:    Full Prompt (procedure + expertise) → LLM → Output
@@ -80,6 +91,7 @@ Standalone:    Full Prompt (procedure + expertise) → LLM → Output
 ### 7.1: Prompt Bundling
 
 **Original Plan:**
+
 ```python
 resources/
   prompts/
@@ -91,6 +103,7 @@ resources/
 ```
 
 **Problems:**
+
 1. ❌ Assumes single prompt per role (no adapters, playbooks)
 2. ❌ No concept of usage modes
 3. ❌ Doesn't handle modular showrunner
@@ -227,6 +240,7 @@ scene_smith_adapter = loader.load_adapter("scene_smith")
 ### 7.2: Role Session
 
 **Original Plan:**
+
 ```python
 class RoleSession:
     def __init__(self, role_name: str, tu_context: TUContext):
@@ -236,6 +250,7 @@ class RoleSession:
 ```
 
 **Problems:**
+
 1. ❌ No concept of standalone vs orchestration mode
 2. ❌ Doesn't handle playbook context
 3. ❌ Missing validation enforcement tracking
@@ -283,6 +298,7 @@ class RoleSession:
 ### 7.3: Prompt Executor
 
 **Original Plan:**
+
 ```python
 class PromptExecutor:
     def execute(self, role: str, ...) -> Response:
@@ -293,6 +309,7 @@ class PromptExecutor:
 ```
 
 **Problems:**
+
 1. ❌ Assumes single prompt per role
 2. ❌ Doesn't handle orchestration mode (playbook + adapters)
 3. ❌ Missing validation enforcement (preflight, validation_report.json)
@@ -370,6 +387,7 @@ class PromptExecutor:
 ### 7.4: Session Manager
 
 **Original Plan:**
+
 ```python
 class SessionManager:
     def wake_role(self, role: str, tu: TU) -> RoleSession:
@@ -381,6 +399,7 @@ class SessionManager:
 ```
 
 **Problems:**
+
 1. ❌ Doesn't distinguish between standalone and orchestration modes
 2. ❌ Missing playbook context tracking
 
@@ -549,11 +568,13 @@ class PlaybookResult:
 ## Epic 8 Changes: Orchestration
 
 **Original Epic 8:**
+
 - 8.1: Loop Definitions (define 11 loops in code)
 - 8.2: Checkpoint System
 - 8.3: Showrunner Core
 
 **Problems:**
+
 1. ❌ "Define loop structures from Layer 0" — WRONG, loops now defined in Layer 5 playbooks
 2. ❌ "11 targeted loops" — NOW 13 loop playbooks
 3. ❌ Assumed loops would be coded — NOW loops are markdown playbooks
@@ -649,6 +670,7 @@ class Showrunner:
 ## Testing Strategy
 
 **Standalone Mode:**
+
 ```python
 def test_standalone_execution():
     loader = PromptLoader()
@@ -670,6 +692,7 @@ def test_standalone_execution():
 ```
 
 **Orchestration Mode:**
+
 ```python
 def test_orchestration_execution():
     loader = PromptLoader()
@@ -695,6 +718,7 @@ def test_orchestration_execution():
 ## Context Size Comparison
 
 **Standalone Mode (old approach):**
+
 ```
 validation_contract.md       ~8KB
 SCHEMA_INDEX.json           ~15KB
@@ -705,6 +729,7 @@ Total: ~40KB (~10K tokens)
 ```
 
 **Orchestration Mode (new approach):**
+
 ```
 validation_contract.md           ~8KB
 SCHEMA_INDEX.json               ~15KB
@@ -739,11 +764,13 @@ Effective per-role cost: ~13KB (~3K tokens) = 70% reduction
 8. ✅ Context-aware execution
 
 **Epic 8 becomes simpler:**
+
 - Loops already defined in playbooks
 - Showrunner just executes playbooks
 - Checkpoint system as planned
 
 **Benefits of new approach:**
+
 - 70% context reduction in orchestration mode
 - Single source of truth for loop procedures
 - Role interchangeability

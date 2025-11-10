@@ -78,7 +78,9 @@ Target: GPT-5 (primary)
 
 **Finding your schemas:**
 
-Check `SCHEMA_INDEX.json` for schemas where `"roles"` includes your role name. Each schema entry provides:
+Check `SCHEMA_INDEX.json` for schemas where `"roles"` includes your role name. Each schema entry
+provides:
+
 - `$id` - Canonical schema URL for the `"$schema"` field
 - `draft` - JSON Schema draft version
 - `path` - Relative path to schema file

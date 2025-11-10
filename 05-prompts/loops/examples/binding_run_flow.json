@@ -48,8 +48,7 @@
           }
         },
         "refs": [],
-        "correlation_id": "corr-binding-chapter3-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-binding-chapter3-2025-11-05"
       }
     },
     {
@@ -355,7 +354,7 @@
           "agent": "bot:binder-v2"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "view.export.result",
         "context": {

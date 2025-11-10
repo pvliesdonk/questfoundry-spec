@@ -1,8 +1,7 @@
 # Implementation Plan: Schema Validation Enforcement
 
-**Date:** 2025-11-06
-**Status:** Implementation Blueprint
-**Linked From:** [Schema Enforcement Post-Mortem](./2025-11-06_schema_enforcement_and_validation_contracts.md)
+**Date:** 2025-11-06 **Status:** Implementation Blueprint **Linked From:**
+[Schema Enforcement Post-Mortem](./2025-11-06_schema_enforcement_and_validation_contracts.md)
 **Owner:** Specification Team
 
 ---
@@ -11,7 +10,8 @@
 
 **Problem:** Creating `VALIDATION_CONTRACT.md` doesn't force agents to read it.
 
-**Solution:** Validation contracts must be **embedded in uploaded files** in the **correct order**, not just referenced.
+**Solution:** Validation contracts must be **embedded in uploaded files** in the **correct order**,
+not just referenced.
 
 ---
 
@@ -30,6 +30,7 @@
 ```
 
 **Why this matters:**
+
 - LLMs read files in upload order
 - Early files set context for later files
 - Instructions in file #1 are "rules" for processing files #2-N
@@ -38,6 +39,7 @@
 ### Problem: Validation Instructions Come Too Late
 
 **Current state:**
+
 - Shared patterns loaded first ✅
 - BUT: No validation contract in shared patterns ❌
 - Role prompts loaded later
@@ -49,7 +51,7 @@
 
 ## Solution: Three-Layer Validation Embedding
 
-### Layer 1: Validation Contract in _shared/ (FIRST FILE)
+### Layer 1: Validation Contract in \_shared/ (FIRST FILE)
 
 **Create:** `05-prompts/_shared/validation_contract.md`
 
@@ -57,7 +59,7 @@
 
 **Content:**
 
-```markdown
+````markdown
 # Shared Pattern — Validation Contract
 
 **CRITICAL: This contract applies to ALL roles and ALL artifacts.**
@@ -76,6 +78,7 @@ Every JSON artifact you produce MUST:
 Schemas are indexed in `/SCHEMA_INDEX.json` (uploaded with this kit).
 
 For each artifact type, look up:
+
 - `$id`: Canonical schema URL
 - `path`: Local file path (if schema included)
 - `draft`: JSON Schema draft version
@@ -95,6 +98,8 @@ Before producing ANY artifact:
      "sha256": "..."
    }
    ```
+````
+
 3. **Show minimal valid instance** (1-2 required fields)
 4. **Show one invalid example** + why it fails
 5. **Only then proceed** with actual artifact
@@ -130,6 +135,7 @@ If `valid: false`, errors array contains validation failures.
 ## Hard Gate Enforcement
 
 **IF validation fails:**
+
 1. STOP immediately
 2. Return validation_report.json with errors
 3. DO NOT produce the artifact
@@ -137,6 +143,7 @@ If `valid: false`, errors array contains validation failures.
 5. ASK human for guidance
 
 **DO NOT:**
+
 - Produce "close enough" artifacts
 - Skip validation "just this once"
 - Assume structure without validating
@@ -145,21 +152,22 @@ If `valid: false`, errors array contains validation failures.
 ## Validation Tools
 
 Use one of:
+
 - **Python:** `jsonschema` library
 - **JavaScript:** `ajv` library
 - **CLI:** `qfspec-check-instance <schema> <artifact>`
 
 ## This Contract Supersedes
 
-If any role prompt or playbook contradicts this contract, **this contract wins**.
-Validation is non-negotiable across all roles and all workflows.
+If any role prompt or playbook contradicts this contract, **this contract wins**. Validation is
+non-negotiable across all roles and all workflows.
 
 ---
 
-**Loaded:** First shared pattern (file #1)
-**Applies to:** All subsequent files and all roles
+**Loaded:** First shared pattern (file #1) **Applies to:** All subsequent files and all roles
 **Enforcement:** Hard stops on validation failure
-```
+
+````
 
 **Manifest Update:**
 
@@ -171,7 +179,7 @@ Validation is non-negotiable across all roles and all workflows.
   05-prompts/_shared/escalation_rules.md
   05-prompts/_shared/human_interaction.md
   ...
-```
+````
 
 ### Layer 2: SCHEMA_INDEX.json in Kit Root
 
@@ -220,6 +228,7 @@ Validation is non-negotiable across all roles and all workflows.
 ```
 
 **Why in kit root:**
+
 - Loaded immediately after validation contract
 - Available before any role prompts
 - Single source of truth for all schemas
@@ -246,6 +255,7 @@ Validation is non-negotiable across all roles and all workflows.
 **Refer to:** `/05-prompts/_shared/validation_contract.md` (loaded first)
 
 For every artifact you produce:
+
 1. Look up schema in `/SCHEMA_INDEX.json`
 2. Run preflight (echo schema + show valid/invalid examples)
 3. Validate artifact before emission
@@ -253,6 +263,7 @@ For every artifact you produce:
 5. STOP if validation fails
 
 This role produces these artifact types:
+
 - [List artifact types this role creates]
 
 Refer to SCHEMA_INDEX.json for each schema's $id, draft, and hash.
@@ -274,6 +285,7 @@ Refer to SCHEMA_INDEX.json for each schema's $id, draft, and hash.
 7. Only then proceed to Step N+1
 
 **Artifacts:**
+
 - `/out/[artifact].json`
 - `/out/[artifact]_validation_report.json`
 ```
@@ -301,8 +313,7 @@ Refer to SCHEMA_INDEX.json for each schema's $id, draft, and hash.
 24-38. 05-prompts/role_adapters/*.adapter.md
 ```
 
-**Files added:** 2
-**Total files:** 38 (was 36)
+**Files added:** 2 **Total files:** 38 (was 36)
 
 **Gemini splits need redistribution:**
 
@@ -340,13 +351,16 @@ gemini-orchestration-1-foundation.list:
 ```
 
 **Minimal kit impact:**
+
 - Was: 10 files
 - Now: 12 files (add validation_contract + SCHEMA_INDEX)
 - **Exceeds ChatGPT 10-file limit by 2** ⚠️
 
-**Solution:** Merge validation_contract into one of the shared patterns, OR split into minimal-1 (10 files) + minimal-2 (2 files)
+**Solution:** Merge validation_contract into one of the shared patterns, OR split into minimal-1 (10
+files) + minimal-2 (2 files)
 
-**Recommendation:** Merge `validation_contract.md` content into `context_management.md` for minimal kits. Keep separate for orchestration kits.
+**Recommendation:** Merge `validation_contract.md` content into `context_management.md` for minimal
+kits. Keep separate for orchestration kits.
 
 ---
 
@@ -354,8 +368,10 @@ gemini-orchestration-1-foundation.list:
 
 ### New Manifests to Create
 
-1. `05-prompts/upload_kits/manifests/orchestration-complete-v2.list` (38 files, adds validation files)
-2. `05-prompts/upload_kits/manifests/gemini-orchestration-1-foundation-v2.list` (10 files, adds validation files)
+1. `05-prompts/upload_kits/manifests/orchestration-complete-v2.list` (38 files, adds validation
+   files)
+2. `05-prompts/upload_kits/manifests/gemini-orchestration-1-foundation-v2.list` (10 files, adds
+   validation files)
 3. Update all other manifests similarly
 
 ### Build Script Update
@@ -363,7 +379,8 @@ gemini-orchestration-1-foundation.list:
 **Update:** `spec-tools/src/questfoundry_spec_tools/upload_kits.py`
 
 **Changes:**
-1. Generate SCHEMA_INDEX.json from 03-schemas/*.json before building kits
+
+1. Generate SCHEMA_INDEX.json from 03-schemas/\*.json before building kits
 2. Compute SHA-256 for each schema
 3. Place validation_contract.md and SCHEMA_INDEX.json at top of manifest order
 4. Verify file count constraints (Gemini: ≤10)
@@ -457,7 +474,7 @@ gemini-orchestration-1-foundation.list:
 
 **Why:** Playbooks define procedures; adapters are called BY playbooks.
 
-**Enforcement:** In orchestration kits, loops/*.playbook.md before role_adapters/*.adapter.md
+**Enforcement:** In orchestration kits, loops/_.playbook.md before role_adapters/_.adapter.md
 
 ---
 
@@ -474,6 +491,7 @@ gemini-orchestration-1-foundation.list:
 ### Why This Works
 
 **Layered reinforcement:**
+
 1. **Upload order** puts contract first (can't miss it)
 2. **Role prompts** reference contract (reminder)
 3. **Loop playbooks** have checkpoints (workflow integration)
@@ -481,6 +499,7 @@ gemini-orchestration-1-foundation.list:
 5. **Tools** support format (technical enablement)
 
 **Failure modes addressed:**
+
 - ❌ "Didn't see the contract" → Contract is file #1, impossible to miss
 - ❌ "Forgot about validation" → Every loop has checkpoint reminders
 - ❌ "Validation is optional" → Hard gates with STOP enforcement
@@ -528,6 +547,7 @@ gemini-orchestration-1-foundation.list:
 **Impact:** Gemini limit is 10 files per zip; minimal kit was 10, now 12
 
 **Mitigation:**
+
 - Orchestration kits: Redistribute gemini-orchestration-1 to stay at 10 (done ✅)
 - Minimal kits: Merge validation_contract into context_management.md
 - Alternative: Split minimal kit into minimal-1 (10 files) + minimal-2 (2 files)
@@ -537,6 +557,7 @@ gemini-orchestration-1-foundation.list:
 **Impact:** Despite contract being file #1, agents proceed without validation
 
 **Mitigation:**
+
 - Add "CRITICAL:" prefix to validation_contract.md title
 - Use ALL CAPS for non-negotiable requirements
 - Add visual separators (===) around critical sections
@@ -548,6 +569,7 @@ gemini-orchestration-1-foundation.list:
 **Impact:** SHA-256 hashes don't match actual schemas
 
 **Mitigation:**
+
 - Generate SCHEMA_INDEX.json automatically in build script
 - Compute SHA-256s at build time (not manually)
 - Add CI check: verify SCHEMA_INDEX.json hashes match schema files
@@ -558,6 +580,7 @@ gemini-orchestration-1-foundation.list:
 **Impact:** Agents skip validation_report.json output
 
 **Mitigation:**
+
 - Validation contract explicitly requires BOTH artifact + report
 - Gatekeeper checks for presence of validation reports
 - spec-tools validates report format
@@ -602,16 +625,19 @@ gemini-orchestration-1-foundation.list:
 ### Q1: Should schemas themselves be included in upload kits?
 
 **Pros:**
+
 - Offline validation possible
 - No network dependency
 - Agents can read schema directly
 
 **Cons:**
+
 - Adds 18 files to kit (exceeds platform limits)
 - Redundant if canonical URLs work
 - Increases kit size significantly
 
 **Recommendation:**
+
 - **No** - Don't include schemas in kits
 - SCHEMA_INDEX.json references canonical URLs
 - Agents fetch from questfoundry.liesdonk.nl/schemas/
@@ -622,12 +648,14 @@ gemini-orchestration-1-foundation.list:
 **Scenario:** Agent has no access to Python jsonschema or JavaScript ajv
 
 **Mitigation:**
+
 1. Agent should ASK human to validate
 2. Agent produces artifact + note: "Validation pending, requires jsonschema"
 3. Gatekeeper rejects TU until validation confirmed
 4. Alternative: Agent uses $schema structure to do "best-effort" field checking
 
 **Recommendation:**
+
 - Contract says "IF you can validate, you MUST"
 - Contract says "IF you cannot validate, STOP and ASK human"
 - Never proceed without validation evidence
@@ -637,12 +665,14 @@ gemini-orchestration-1-foundation.list:
 **Scenario:** Schema v0.3.0 released, but kits have SCHEMA_INDEX pointing to v0.2.0
 
 **Mitigation:**
+
 - SCHEMA_INDEX.json includes version field for each schema
 - Agents use version specified in SCHEMA_INDEX (stable)
 - To upgrade: rebuild kits with updated SCHEMA_INDEX
 - Prompts reference "schemas-v0.2.0" explicitly (pin version)
 
 **Recommendation:**
+
 - Kits are versioned snapshots
 - prompts-v0.2.0 uses schemas-v0.2.0
 - prompts-v0.3.0 can use schemas-v0.3.0
@@ -655,6 +685,7 @@ gemini-orchestration-1-foundation.list:
 The key insight: **Validation contract must be loaded FIRST, not just exist somewhere**.
 
 Upload kit file ordering is critical:
+
 1. `validation_contract.md` - file #1 (non-negotiable rules)
 2. `SCHEMA_INDEX.json` - file #2 (discovery mechanism)
 3. Shared patterns - files #3-6 (cross-role standards)
@@ -662,10 +693,9 @@ Upload kit file ordering is critical:
 
 This ensures agents see validation requirements BEFORE producing any outputs.
 
-**Next Action:** Create `validation_contract.md` and test with ChatGPT to verify agents read and follow it.
+**Next Action:** Create `validation_contract.md` and test with ChatGPT to verify agents read and
+follow it.
 
 ---
 
-**Document Version:** 1.0
-**Last Updated:** 2025-11-06
-**Status:** Ready for Implementation
+**Document Version:** 1.0 **Last Updated:** 2025-11-06 **Status:** Ready for Implementation

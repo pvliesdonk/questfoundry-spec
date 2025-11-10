@@ -17,7 +17,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.open",
         "context": {
@@ -54,8 +54,7 @@
           }
         },
         "refs": ["HK-20251104-05"],
-        "correlation_id": "corr-story-spark-expansion-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-story-spark-expansion-2025-11-05"
       }
     },
     {
@@ -260,7 +259,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.update",
         "context": {
@@ -286,8 +285,7 @@
           }
         },
         "refs": ["TU-2025-11-05-PW01"],
-        "correlation_id": "corr-story-spark-expansion-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-story-spark-expansion-2025-11-05"
       }
     }
   ]

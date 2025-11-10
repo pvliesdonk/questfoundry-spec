@@ -39,25 +39,25 @@ items (owner + deadline), and updated best practices documentation.
 
 **All Roles (C)** 3. **Retrospective Session**: Discuss four categories:
 
-   - **What went well** (celebrate successes, effective practices).
-   - **What went poorly** (pain points, blockers, inefficiencies).
-   - **Surprising discoveries** (unexpected insights, emergent patterns).
-   - **Improvements to try** (specific proposals for next cycle).
+- **What went well** (celebrate successes, effective practices).
+- **What went poorly** (pain points, blockers, inefficiencies).
+- **Surprising discoveries** (unexpected insights, emergent patterns).
+- **Improvements to try** (specific proposals for next cycle).
 
 **Showrunner + All (R)** 4. **Identify Action Items**: For each improvement:
 
-   - Description (specific action).
-   - Owner (role responsible).
-   - Target (completion date/milestone).
-   - Success Criteria (how we'll know it worked).
-   - Priority (High/Medium/Low).
+- Description (specific action).
+- Owner (role responsible).
+- Target (completion date/milestone).
+- Success Criteria (how we'll know it worked).
+- Priority (High/Medium/Low).
 
 **Showrunner (R)** 5. **Update Best Practices**: Document new patterns in relevant layers:
 
-   - Style patterns → Style Lead guidance.
-   - Pre-gate techniques → Gatekeeper examples.
-   - Hook formulation patterns → Hook Harvest guide.
-   - Cold SoT compliance → Binder/Showrunner prompts.
+- Style patterns → Style Lead guidance.
+- Pre-gate techniques → Gatekeeper examples.
+- Hook formulation patterns → Hook Harvest guide.
+- Cold SoT compliance → Binder/Showrunner prompts.
 
 6. **Package Report**: Create structured Post-Mortem Report (see §4) and archive in
    `docs/post_mortems/`.
@@ -115,11 +115,11 @@ items (owner + deadline), and updated best practices documentation.
 
 ## 8) RACI (micro)
 
-| Task                  | R          | A          | C                             | I   |
-| --------------------- | ---------- | ---------- | ----------------------------- | --- |
-| Data gathering        | Showrunner | Showrunner | Gatekeeper, Binder, PN        | All |
-| Facilitate session    | Showrunner | Showrunner | —                             | All |
-| Contribute insights   | All Roles  | —          | —                             | —   |
-| Create action items   | Showrunner | Showrunner | All role leads                | All |
-| Update best practices | Showrunner | Showrunner | Relevant role leads           | All |
-| Track action items    | Showrunner | Showrunner | Action item owners            | All |
+| Task                  | R          | A          | C                      | I   |
+| --------------------- | ---------- | ---------- | ---------------------- | --- |
+| Data gathering        | Showrunner | Showrunner | Gatekeeper, Binder, PN | All |
+| Facilitate session    | Showrunner | Showrunner | —                      | All |
+| Contribute insights   | All Roles  | —          | —                      | —   |
+| Create action items   | Showrunner | Showrunner | All role leads         | All |
+| Update best practices | Showrunner | Showrunner | Relevant role leads    | All |
+| Track action items    | Showrunner | Showrunner | Action item owners     | All |

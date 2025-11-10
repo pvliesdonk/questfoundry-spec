@@ -7,6 +7,42 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-11-10
+
+### Added
+
+- **Canon Workflow Domain (`canon.*`):**
+  - New protocol domain for canon-centric workflow operations
+  - Enables canon transfer between projects and proactive worldbuilding
+
+- **New Intents:**
+  - `canon.transfer.export` - Export Canon Transfer Package from completed project
+    - Responsible: Lore Weaver, Approver: Showrunner
+    - Schema: `canon_transfer_package.schema.json`
+    - Packages stabilized canon as invariant (immutable) or mutable (extensible) for downstream
+      projects
+  - `canon.transfer.import` - Import Canon Transfer Package into new project
+    - Responsible: Lore Weaver, Approver: Showrunner
+    - Schema: `canon_transfer_package.schema.json`
+    - Includes conflict detection and resolution for invariant canon vs. project seed ideas
+  - `canon.genesis.create` - Create World Genesis Manifest
+    - Responsible: Lore Weaver, Approver: Showrunner
+    - Schema: `world_genesis_manifest.schema.json`
+    - Tracks proactive worldbuilding execution before Story Spark
+
+- **Authorization Matrix:**
+  - Added `canon.*` domain authorization entry
+  - Lore Weaver responsible for all canon workflow intents
+  - Showrunner approves; broadcasts to all roles
+
+### Context
+
+This release extends the protocol to support canon-centric workflows that complement the standard
+story-driven flow. Canon Transfer enables shared universes, sequels, and franchise continuity by
+exporting/importing canon between projects with clear invariant/mutable boundaries. World Genesis
+supports epic fantasy/sci-fi projects requiring extensive worldbuilding before plot design. All
+three intents integrate with existing Gatekeeper validation and TU traceability.
+
 ## [0.2.1] - 2025-11-06
 
 ### Summary

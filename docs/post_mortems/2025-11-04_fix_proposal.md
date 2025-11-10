@@ -438,7 +438,8 @@ Manual validation is error-prone; need automated checks to enforce policies.
 
 ### Proposed Fix
 
-**File:** Create `/spec-tools/validation/epub_validator.md` (specification for future implementation)
+**File:** Create `/spec-tools/validation/epub_validator.md` (specification for future
+implementation)
 
 ```markdown
 # EPUB Validator — CI/QA Gates
@@ -678,7 +679,7 @@ Book Binder should check `/resources/fonts/` and embed if present; otherwise use
 | **P1 High**     | Header Hygiene                                    | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Prevents process leakage   |
 | **P1 High**     | Choice UX Standardization                         | `book_binder/system_prompt.md`, `format.render.md`             | Low        | Improves reader UX         |
 | **P2 Medium**   | ID Normalization                                  | `book_binder/system_prompt.md`, `format.render.md`             | Medium     | Better Kobo compat         |
-| **P2 Medium**   | CI/QA Gates                                       | Create `/spec-tools/validation/epub_validator.md`                   | Medium     | Prevents regression        |
+| **P2 Medium**   | CI/QA Gates                                       | Create `/spec-tools/validation/epub_validator.md`              | Medium     | Prevents regression        |
 | **P3 Low**      | Font Embedding                                    | Create `/resources/fonts/README.md`, update `system_prompt.md` | Low        | Typography consistency     |
 
 ---

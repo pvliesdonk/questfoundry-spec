@@ -17,7 +17,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "tu.open",
         "context": {
@@ -65,8 +65,7 @@
           }
         },
         "refs": ["HK-20251105-01"],
-        "correlation_id": "corr-lore-deepening-kestrel-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-lore-deepening-kestrel-2025-11-05"
       }
     },
     {
@@ -462,8 +461,7 @@
           }
         },
         "refs": ["TU-2025-11-05-LW01", "HK-20251105-01"],
-        "correlation_id": "corr-lore-deepening-kestrel-2025-11-05",
-        "reply_to": null
+        "correlation_id": "corr-lore-deepening-kestrel-2025-11-05"
       }
     },
     {
@@ -481,7 +479,7 @@
           "agent": "human:alice"
         },
         "receiver": {
-          "role": "broadcast"
+          "role": "*"
         },
         "intent": "merge.approve",
         "context": {
