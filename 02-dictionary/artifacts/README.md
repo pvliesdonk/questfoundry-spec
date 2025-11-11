@@ -63,6 +63,12 @@ These are **human-readable templates** that:
 - **front_matter.md** — Player-facing export intro/credits/notes (Showrunner + Binder)
 - **pn_playtest_notes.md** — UX feedback and friction tags (Player-Narrator)
 
+### Project
+
+- **project_metadata.md** — Project-wide settings and configuration
+- **art_manifest.md** — Complete art asset inventory and specifications
+- **style_manifest.md** — Typography, layout, and visual style settings
+
 ---
 
 ## How to Use These (During Transition)

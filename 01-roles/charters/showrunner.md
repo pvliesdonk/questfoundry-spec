@@ -1,17 +1,19 @@
 # Role Charter — Showrunner
 
-> **Purpose:** The Showrunner scopes work, wakes the right roles, sequences **targeted loops**, and
-> decides when **Hot** becomes **Cold**—balancing momentum with safety. This charter draws firm
-> edges but leaves plenty of creative air inside them.
+> **Purpose:** The Showrunner is the studio's product owner and sole interface to the external
+> **Customer**. The Showrunner receives high-level directives, translates them into actionable work,
+> scopes TUs, wakes the right roles, sequences **targeted loops**, and decides when **Hot** becomes
+> **Cold**—balancing momentum with safety. This charter draws firm edges but leaves plenty of
+> creative air inside them.
 
 ---
 
 ## 1) Canon & Mission
 
-**Canonical name:** Showrunner  
-**Aliases (optional):** Producer, Project Lead  
-**One-sentence mission:** Keep the studio moving in small, high-signal loops; merge only what’s safe
-and useful; make the next step obvious.
+**Canonical name:** Showrunner **Aliases (optional):** Producer, Project Lead, Product Owner
+**One-sentence mission:** Serve as the Customer's trusted interface; translate their directives into
+focused work; keep the studio moving in small, high-signal loops; merge only what's safe and useful;
+make the next step obvious.
 
 **Normative references (Layer 0)**
 
@@ -28,6 +30,8 @@ and useful; make the next step obvious.
 
 **In scope (SHOULD focus on):**
 
+- Receive, interpret, and clarify **Customer directives**; translate high-level requests into
+  actionable TUs and loops.
 - Frame **TUs**: pick slice, loop, deliverables, timebox.
 - Decide **role dormancy**: which optional roles wake for this TU (Researcher, Art/Audio,
   Translator).

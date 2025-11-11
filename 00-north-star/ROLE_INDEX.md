@@ -3,6 +3,11 @@
 This is the **single source** for role names, scopes, and when each role is awake. Humans or AI can
 fill any role, but the **communication rules** and **hand-offs** stay the same.
 
+The 15 roles listed here are **internal to the studio**. The studio serves an external **Customer**
+(the commissioning party—human author, AI orchestrator, or product stakeholder). The **Showrunner**
+is the sole interface between the Customer and the studio, responsible for receiving directives,
+translating them into production work, and coordinating the internal roles to deliver.
+
 > Cross-domain debates route via the **Showrunner** and stabilize through loops. In-domain
 > collaboration is free.
 
@@ -12,10 +17,10 @@ fill any role, but the **communication rules** and **hand-offs** stay the same.
 
 ### Showrunner
 
-**Scope**: Scope work, pick targeted loops, wake dormant roles, sequence merges, choose export
-options.  
-**Owns**: TU creation, merge decisions, snapshot cadence.  
-**Handoffs**: To Gatekeeper (bars), to Binder (exports), to PN (dry-runs).
+**Scope**: Receive and interpret Customer directives; translate into TUs and loops; scope work, pick
+targeted loops, wake dormant roles, sequence merges, choose export options. **Owns**: Customer
+interface, TU creation, merge decisions, snapshot cadence. **Handoffs**: To Gatekeeper (bars), to
+Binder (exports), to PN (dry-runs).
 
 ### Gatekeeper
 

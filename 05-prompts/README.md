@@ -14,23 +14,32 @@ protocol and validate artifacts against Layer 3 schemas.
 ## Architecture: Loop-Focused Design
 
 Layer 5 uses a **loop-focused architecture** where loops are the primary executable units and roles
-participate in loops:
+participate in loops. This design choice reflects that QuestFoundry workflows are fundamentally
+**procedure-driven**: a "Lore Deepening" loop has a specific sequence (open TU → frame questions →
+draft canon → pre-gate → handoff to Codex Curator) that remains constant regardless of whether
+humans or AI fill the roles.
+
+By making loops the executable units, we achieve:
+
+- **Single source of truth**: Each loop procedure lives in one playbook, not duplicated across N
+  role prompts
+- **Clear coordination**: The Showrunner loads a playbook and orchestrates; roles respond with their
+  domain expertise
+- **Role interchangeability**: Swap human/AI implementations without changing the procedure
+- **Maintainability**: Update a loop once, not across 7 role prompts that participate in it
+
+The architecture provides three formats to support different use cases:
 
 - **Loop Playbooks** (`loops/`) — 13 executable procedures with message sequences, RACI,
   deliverables
-- **Role Adapters** (`role_adapters/`) — 15 thin interface specs for multi-role orchestration
-- **Full Role Prompts** (`[role]/system_prompt.md`) — Comprehensive standalone guides
-
-**Benefits:**
-
-- Single source of truth for loop procedures (no duplication)
-- Clear orchestration model (Showrunner loads playbook → roles respond)
-- Role interchangeability (human or AI can fill any role)
-- Maintainable (update loop once, not 7 role prompts)
+- **Role Adapters** (`role_adapters/`) — 15 thin interface specs (50-100 lines) for multi-role
+  orchestration
+- **Full Role Prompts** (`[role]/system_prompt.md`) — Comprehensive standalone guides (200-300
+  lines) for learning or solo work
 
 ## Purpose
 
-- Provide AI agent prompts that implement each of the 14 roles
+- Provide AI agent prompts that implement each of the 15 roles
 - Enable human/AI interchangeability for roles
 - Support stateful conversation sessions during active loops
 - Implement agent-to-human question/answer in interactive mode

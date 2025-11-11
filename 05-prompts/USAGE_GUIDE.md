@@ -1,6 +1,12 @@
 # Using Layer 5 Prompts To Produce Your First Manuscript — A Practical Guide
 
-Audience: humans using ChatGPT, Claude, or Gemini to run QuestFoundry Layer 5 prompts.
+**Audience:** Humans using ChatGPT, Claude, or Gemini to commission interactive manuscripts from the
+QuestFoundry studio.
+
+**Your role:** You are the **Customer**—the external stakeholder who provides high-level directives
+("create a mystery with three acts," "expand this backstory"). The **AI Showrunner** acts as your
+product owner, translating your directives into production work and coordinating the 15 internal
+studio roles to deliver your manuscript.
 
 ## Quick Start
 
@@ -10,10 +16,14 @@ Layer 5 supports **two usage modes**: Standalone (human-led) and **Orchestration
 
 Best for: **Production workflows with multiple roles**
 
+In this mode, you (the Customer) give directives to the AI Showrunner, which orchestrates the
+internal studio roles to execute your project.
+
 1. Choose a chatbot (ChatGPT, Claude, or Gemini)
 2. Upload `orchestration-complete.zip` (or Gemini splits: `gemini-orchestration-1` through `-5`)
-3. Prompt: "Load the Story Spark playbook from loops/ and execute it for a 3-scene mystery."
-4. Showrunner coordinates all roles via loop playbook (single-source-of-truth procedure)
+3. Give your directive: "Load the Story Spark playbook from loops/ and execute it for a 3-scene
+   mystery."
+4. The AI Showrunner coordinates all roles via loop playbook (single-source-of-truth procedure)
 5. Result: Gate-approved manuscript with full traceability
 
 **Why recommended?** 70% context reduction, clear coordination, role interchangeability.
@@ -22,12 +32,15 @@ Best for: **Production workflows with multiple roles**
 
 Best for: **Learning, single-role tasks, exploration**
 
+In this mode, you direct the AI Showrunner more manually, giving step-by-step guidance through the
+production process.
+
 1. Choose a chatbot (ChatGPT, Claude, or Gemini)
 2. Upload `minimal-standalone.zip` (10 files)
-3. Tell the bot to act as Showrunner and open a TU for your manuscript
-4. Wake Plotwright, Scene Smith, and Style Lead; iterate outline → scenes → style
-5. Pre-gate with Gatekeeper, bind with Book Binder, and do a PN dry-run
-6. Close the TU when satisfied
+3. Direct the bot: "Act as Showrunner and open a TU for my manuscript"
+4. Guide the work: "Wake Plotwright, Scene Smith, and Style Lead; iterate outline → scenes → style"
+5. Request quality checks: "Pre-gate with Gatekeeper, bind with Book Binder, do a PN dry-run"
+6. Complete the work: "Close the TU when satisfied"
 
 ## Working with Loop Playbooks
 

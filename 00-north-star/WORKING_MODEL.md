@@ -8,6 +8,15 @@ Truth.
 
 ## 1) Operating Overview
 
+The QuestFoundry studio produces interactive manuscripts for an external **Customer** (the
+commissioning party, whether human author or AI orchestrator). The Customer provides high-level
+directives ("create a mystery with three acts," "expand this character's backstory," "localize to
+Spanish"). The **Showrunner** acts as the studio's product owner and sole point of contact with the
+Customer—interpreting those directives, translating them into actionable work units (Trace Units),
+and coordinating the studio's 15 internal roles to deliver.
+
+Inside the studio:
+
 - **Showrunner** sets scope, activates roles and loops, and owns stabilization cadence.
 - **Gatekeeper** enforces quality bars before merging Hot → Cold.
 - Creative roles work in **Hot SoT** (drafts, proposals, hooks). Accepted changes stabilize and

@@ -272,10 +272,22 @@ See `LIFECYCLES/view.md` for snapshot enforcement, PN safety rules, and export v
 
 **Changelog:** See [`CHANGELOG.md`](./CHANGELOG.md) for detailed version history and release notes.
 
-**Future Work:**
+**Incomplete Coverage:**
 
-Additional loop flows (Story Spark, Style Tune-up, Art/Audio passes, Translation, Post-Mortem) will
-follow the established patterns and may be added in minor releases (v1.1.0+) as needed.
+Layer 4 currently documents **6 of 13 loop flows** (Hook Harvest, Lore Deepening, Codex Expansion,
+Gatecheck, Binding Run, Narration Dry-Run). The following loop flows are **not yet documented** and
+should be added to complete the protocol specification:
+
+- Story Spark
+- Style Tune-up
+- Art Touch-up
+- Audio Pass
+- Translation Pass
+- Full Production Run
+- Post-Mortem
+
+These missing flows follow the same envelope and intent patterns as the documented flows. Until
+documented, implementers should extrapolate from existing flow patterns and Layer 0 loop guides.
 
 ## Continuous Integration
 

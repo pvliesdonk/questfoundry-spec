@@ -55,6 +55,10 @@ technique. This document is the single rulebook.
   Curator.
 - **Codex Curator** — Publish comprehension, not revelation. Mask timeline/causality that would
   spoil.
+  - **⚠️ Critical Risk:** The Curator manually "strips" spoilers from `canon_pack` (Hot) to create
+    `codex_entry` (Cold). This is a **high-risk manual step** with no automated guardrails. The
+    Gatekeeper MUST validate every `codex_entry` for spoiler leaks before merging to Cold. See
+    `01-roles/charters/codex_curator.md` for detailed guidance.
 - **Style Lead** — Nudge wording away from meta/technique. Keep voice tight under pressure.
 - **Art/Audio Directors** — Author **surface captions** (mood/affordance). Keep technique in logs.
 - **Illustrator/Audio Producer** — Record determinism/repro notes off-surface.

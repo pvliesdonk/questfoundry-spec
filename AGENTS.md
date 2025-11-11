@@ -2,97 +2,123 @@
 
 ## Assistant Rules
 
-**Your fundamental responsibility:** Remember you are a senior engineer and have a
-serious responsibility to be clear, factual, think step by step and be systematic,
-express expert opinion, and make use of the user’s attention wisely.
+**Your fundamental responsibility:** Remember you are a senior engineer and have a serious
+responsibility to be clear, factual, think step by step and be systematic, express expert opinion,
+and make use of the user’s attention wisely.
 
-**Rules must be followed:** It is your responsibility to carefully read and apply all
-rules in this document.
+**Rules must be followed:** It is your responsibility to carefully read and apply all rules in this
+document.
 
 Therefore:
 
-- Be concise. State answers or responses directly, without extra commentary.
-  Or (if it is clear) directly do what is asked.
-- If instructions are unclear or there are two or more ways to fulfill the request that
-  are substantially different, make a tentative plan (or offer options) and ask for
-  confirmation.
-- If you can think of a much better approach that the user requests, be sure to mention
-  it. It’s your responsibility to suggest approaches that lead to better, simpler
-  solutions.
-- Give thoughtful opinions on better/worse approaches, but NEVER say “great idea!”
-  or “good job” or other compliments, encouragement, or non-essential banter.
-  Your job is to give expert opinions and to solve problems, not to motivate the user.
-- Avoid gratuitous enthusiasm or generalizations.
-  Instead, specifically say what you’ve done, e.g., "I’ve added types, including
-  generics, to all the methods in `Foo` and fixed all linter errors."
+- Be concise. State answers or responses directly, without extra commentary. Or (if it is clear)
+  directly do what is asked.
+- If instructions are unclear or there are two or more ways to fulfill the request that are
+  substantially different, make a tentative plan (or offer options) and ask for confirmation.
+- If you can think of a much better approach that the user requests, be sure to mention it. It’s
+  your responsibility to suggest approaches that lead to better, simpler solutions.
+- Give thoughtful opinions on better/worse approaches, but NEVER say “great idea!” or “good job” or
+  other compliments, encouragement, or non-essential banter. Your job is to give expert opinions and
+  to solve problems, not to motivate the user.
+- Avoid gratuitous enthusiasm or generalizations. Instead, specifically say what you’ve done, e.g.,
+  "I’ve added types, including generics, to all the methods in `Foo` and fixed all linter errors."
 
-## Project Context (Placeholder)
+## Project Context
 
-**Note:** This section is a placeholder. Please update it with project-specific
-details when applying this template.
+QuestFoundry is a **layered specification** for collaborative interactive fiction authoring. This
+repository contains the SPECIFICATION itself (Layers 0-5), not implementation code.
 
-### Typical File Structure (Astral UV Project)
+### Repository Structure
 
 ```
 .
-├── docs/                 # Documentation (architecture, design, epics)
-├── src/                  # Main Python source code
-├── tests/                # Pytest tests
-├── .gitignore
-├── pyproject.toml        # Dependencies and uv/ruff configuration
-├── README.md
-└── AGENTS.md             # <-- This file (global rules)
+├── 00-north-star/       # Layer 0: Foundational principles, loops, quality bars
+├── 01-roles/            # Layer 1: 15 studio roles (charters, briefs)
+├── 02-dictionary/       # Layer 2: Common language (artifacts, taxonomies, glossary)
+├── 03-schemas/          # Layer 3: JSON schemas (26 schemas, validation)
+├── 04-protocol/         # Layer 4: Communication protocol (intents, lifecycles, flows)
+├── 05-prompts/          # Layer 5: AI agent prompts (loop playbooks, role prompts)
+├── spec-tools/          # Python validation tools (see spec-tools/AGENTS.md)
+├── README.md            # Overview of the entire specification
+└── AGENTS.md            # <-- This file (specification editing rules)
 ```
 
-### Key Files
+### Essential Reading (Start Here)
 
-- **`pyproject.toml`**: Defines all dependencies, project metadata, and `uv` scripts.
-- **`README.md`**: Project overview for human contributors.
-- **`docs/`**: Canonical source for all project documentation.
-- **`src/`**: Main application code.
-- **`tests/`**: Test suite.
+**Layer 0 (Foundational Principles):**
 
-## Documentation Guidelines
+- `README.md` — Overview of all layers and quick start
+- `00-north-star/WORKING_MODEL.md` — How the studio operates (Customer → Showrunner → Roles)
+- `00-north-star/ROLE_INDEX.md` — The 15 internal roles
+- `00-north-star/QUALITY_BARS.md` — The 8 quality criteria (Gatekeeper enforces these)
+- `00-north-star/LOOPS/README.md` — The 12 production loops
+- `00-north-star/SOURCES_OF_TRUTH.md` — Hot vs Cold (discovery vs canon)
+- `00-north-star/SPOILER_HYGIENE.md` — Player-safety rules
 
-The `docs/` directory is the canonical source for all project documentation. You are
-responsible for creating, updating, and referencing these documents as part of your
-work.
+**Layer Overviews (Read in Order):**
 
-When new features, design decisions, or epics are planned or implemented, update
-or create the relevant artifacts in this directory.
+- `01-roles/README.md` — Roles layer (who does what)
+- `02-dictionary/README.md` — Common language layer (artifact structures)
+- `03-schemas/README.md` — JSON schemas layer (machine validation)
+- `04-protocol/README.md` — Protocol layer (message envelopes, intents, lifecycles)
+- `05-prompts/README.md` — AI agent prompts layer (loop-focused architecture)
+- `05-prompts/USAGE_GUIDE.md` — How to use the AI agents (Customer → AI Showrunner)
 
-### Key Documentation Artifacts
+**When Working on Specific Layers:**
 
-- **`docs/architecture.md`**: For high-level system structure, components, and interactions.
-- **`docs/roadmap.md`**: For tracking high-level features and future epic-level work.
-- **`docs/design/`**: For detailed "Design Docs" or "Architecture Decision Records" (ADRs) before implementing a complex feature.
-- **`docs/spec/`**: For formal specifications of protocols, APIs, or data models.
-- **`docs/epics/`**: For "Epic Summaries," implementation plans, and context for a specific body of work.
+- **Roles**: Read the charter in `01-roles/charters/<role>.md`
+- **Artifacts**: Find template in `02-dictionary/artifacts/<artifact>.md`
+- **Schemas**: See schema in `03-schemas/<artifact>.schema.json`
+- **Protocol**: See intent definitions in `04-protocol/INTENTS.md`
+- **Loops**: See playbook in `05-prompts/loops/<loop>.playbook.md`
+
+### Key Architectural Principles
+
+1. **Human-Centric Design**: Layer 2 (human-readable) is the source of truth; Layer 3 (schemas) is
+   derived
+2. **Customer/Showrunner Model**: External Customer gives directives → AI Showrunner orchestrates 15
+   internal roles
+3. **Loop-Focused**: Loops are the executable units; roles participate in loops
+4. **Hot/Cold**: Hot = discovery/drafts/spoilers; Cold = canon/player-safe/export-ready
+5. **8 Quality Bars**: Gatekeeper validates all Cold merges against 8 criteria
+
+## Specification Editing Guidelines
+
+When editing specification files:
+
+1. **Layer Boundaries**: Respect the separation of concerns:
+   - L0 = principles, policies, quality bars
+   - L1 = role definitions (who)
+   - L2 = artifact structures (what)
+   - L3 = JSON schemas (machine validation)
+   - L4 = protocol (how roles communicate)
+   - L5 = AI prompts (executable agents)
+
+2. **L2 is Source of Truth**: When L2 (human-readable templates) conflicts with L3 (schemas), L2
+   wins. Schemas are derived from L2.
+
+3. **Hot vs Cold**: Never leak spoilers or internals from Hot to Cold surfaces. See
+   `SPOILER_HYGIENE.md`.
+
+4. **Cross-References**: When changing a concept, update all layers that reference it.
+
+5. **Architecture Decision Records**: Document significant design decisions in `DECISIONS/ADR-*.md`.
 
 ## Markdown Guidelines
 
-- All Markdown files (`*.md`) should be linted and formatted.
-- This ensures consistency in `README.md`, `CHANGELOG.md`, and all files in `docs/`.
-- Use the project's formatting tools (typically `ruff`).
-
-  ```shell
-  # Check formatting and lint Markdown
-  uv run ruff check .
-  
-  # Auto-format Markdown
-  uv run ruff format .
-  ```
+- All Markdown files (`*.md`) should follow consistent formatting.
+- Use standard Markdown conventions.
+- Run Prettier or similar formatters to ensure consistency.
 
 ## Commit, Branch, and PR Workflow
 
 ### Conventional Commits
 
-- Use Conventional Commits for every commit:
-  `type(scope)!: subject`
+- Use Conventional Commits for every commit: `type(scope)!: subject`
 - **Allowed `type`:** `feat`, `fix`, `refactor`, `chore`, `docs`, `test`, `ci`, `build`,`perf`.
 - **`scope`:** Use concise, project-specific scopes (e.g., `models`, `cli`, `protocol`).
 - **Subject:** Use imperative, present-tense.
-- **Body:** Use when needed to explain *why*.
+- **Body:** Use when needed to explain _why_.
 
 ### Commit Granularity
 
@@ -102,7 +128,8 @@ or create the relevant artifacts in this directory.
 ### Branching Strategy
 
 - **Default:** One branch per epic. Naming: `epic/<key>-<slug>`.
-- **Agent Exception:** Agent-specific prefixes (e.g., `claude/`) are permitted if the tool enforces them.
+- **Agent Exception:** Agent-specific prefixes (e.g., `claude/`) are permitted if the tool enforces
+  them.
 
 ### PR Policy and CI Gate
 
@@ -116,128 +143,24 @@ or create the relevant artifacts in this directory.
 
 ### Definition of Done (per epic/PR)
 
-- All CI checks green (`uv run ...` commands run clean).
-- Code and docs updated.
+- All specification documentation is clear and internally consistent.
+- Cross-references are updated across all affected layers.
+- Markdown formatting is consistent.
 - Review performed and feedback addressed.
 
-## Python Coding Guidelines
+## Python Coding Guidelines (spec-tools)
 
-These rules apply to all Python code (`*.py`) in this repository.
+This repository contains the QuestFoundry **specification** (Layers 0-5). Python validation tools
+live in `spec-tools/`.
 
-### Python Version
+**For Python development guidelines**, see:
 
-Write for Python 3.11-3.13. Do NOT write code to support earlier versions.
-Always use modern Python practices, including full type annotations and generics.
+- [`spec-tools/AGENTS.md`](spec-tools/AGENTS.md) — Python coding standards for validation tools
 
-### Project Setup and Developer Workflows
+The `spec-tools/` directory contains:
 
-- **ALWAYS use uv** for running all code and managing dependencies.
-- Never use direct `pip` or `python` commands.
-- Use modern `uv` commands: `uv sync`, `uv run ...`, `uv add`.
+- Schema validators (`qfspec-validate-schemas`, `qfspec-validate-artifact`)
+- Build tools (`qfspec-build-kits`)
+- Test suite for validation logic
 
-- Use the following commands to ensure quality:
-
-  ```shell
-  # Install/sync all dependencies:
-  uv sync
-  
-  # Run linting (ruff) and type checking (mypy):
-  uv run ruff check .
-  uv run mypy
-  
-  # Run tests:
-  uv run pytest
-  
-  # Auto-format code
-  uv run ruff format .
-  ```
-
-- To see test output for individual tests, run:
-  `uv run pytest -s tests/some/file.py`
-
-- You must verify there are zero linter warnings/errors or test failures before
-  considering any task complete.
-
-### General Development Practices
-
-- Be sure to resolve pyright/mypy linter errors as you develop.
-- If type checker errors are hard to resolve, you may add a comment `# pyright: ignore`
-  to disable warnings or errors *only* if you know they are not a real problem
-  and are difficult to fix.
-- DO NOT globally disable lint or type checker rules without confirmation.
-- Never change an existing comment, pydoc, or a log statement, unless it is directly
-  related to the fix or the user has asked for a cleanup.
-  Do not drop existing comments when editing code!
-
-### Coding Conventions and Imports
-
-- Always use full, absolute imports: `from toplevel_pkg.module1.modlule2 import ...`
-- DO NOT use relative imports: `from .module1.module2 import ...`
-- Be sure to import types from `collections.abc` or `typing_extensions` where appropriate.
-  (e.g., `from collections.abc import Callable, Coroutine`)
-- Use `typing_extensions` for `@override` (to support Python 3.11).
-- Add `from __future__ import annotations` on files with types whenever applicable.
-- Use `pathlib.Path` instead of strings for paths.
-  Use `Path(filename).read_text()` instead of `with open(...)`.
-
-### Use Modern Python Practices
-
-- ALWAYS use `@override` decorators (from `typing_extensions`) when overriding methods.
-
-### Testing
-
-- Place tests in the `tests/` directory.
-- For simple tests, prefer inline functions in the original code file below a `## Tests`
-  comment. Inline tests should NOT import pytest.
-- DO NOT write one-off test code in throwaway files.
-- DO NOT put `if __name__ == "__main__":` for quick testing.
-- Just write `assert x == 5`. Do NOT write `assert x == 5, "x should be 5"`.
-- DO NOT write trivial tests (e.g., asserting a constant's value or simple Pydantic instantiation).
-- NEVER write `assert False`. Use `raise AssertionError("Some explanation")` instead.
-- DO NOT use pytest fixtures (like parameterization) unless absolutely necessary.
-
-### Types and Type Annotations
-
-- Use modern union syntax: `str | None` (NOT `Optional[str]`).
-- Use `dict[str]` (NOT `Dict[str]`), `list[str]` (NOT `List[str]`), etc.
-- Never use/import `Optional` for new code.
-
-### Guidelines for Literal Strings
-
-- For multi-line strings, ALWAYS use `textwrap.dedent` to make them readable.
-  Example:
-
-  ```python
-  from textwrap import dedent
-  
-  markdown_content = dedent("""
-      # Title 1
-      Some text.
-      """).strip()
-  ```
-
-### Guidelines for Comments
-
-- Comments should be EXPLANATORY: Explain *WHY*, not *WHAT*.
-- Comments should be CONCISE.
-- DO NOT use comments to state obvious things. (e.g., `if self.failed == 0: # All successful`).
-
-### Guidelines for Docstrings
-
-- Use concise pydoc strings with triple quotes on their own lines.
-- Use `backticks` around variable names and inline code.
-- Docstrings should explain rationale or pitfalls, not obvious details from types/names.
-- Avoid obvious or repetitive docstrings.
-- Do NOT list args and return values if they’re obvious from the signature.
-- Public/exported functions/methods SHOULD have concise docstrings.
-- Internal/local functions/methods DO NOT need docstrings unless their purpose is not obvious.
-
-### General Clean Coding Practices
-
-- Avoid writing trivial wrapper or delegation functions.
-- If a function does not use a parameter, use `# pyright: ignore[reportUnusedParameter]` to suppress the linter warning.
-
-### Guidelines for Backward Compatibility
-
-- If a change to an API or library will break backward compatibility, MENTION THIS.
-- DO NOT implement backward-compatibility code unless explicitly confirmed.
+If working on the Python tools, follow the guidelines in `spec-tools/AGENTS.md`.
