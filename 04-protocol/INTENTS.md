@@ -432,9 +432,9 @@ Envelope Requirements:
 
 Example Envelope: `04-protocol/EXAMPLES/role.dormant.json`
 
-## 5. Hook Lifecycle Intents
+## 8. Hook Lifecycle Intents
 
-### 5.1 `hook.create` — Create Hook
+### 8.1 `hook.create` — Create Hook
 
 **Purpose:** Create a new Hook Card in `proposed` state.
 
@@ -473,7 +473,7 @@ Example Envelope: `04-protocol/EXAMPLES/role.dormant.json`
 
 ---
 
-### 5.2 `hook.update_status` — Update Hook Status
+### 8.2 `hook.update_status` — Update Hook Status
 
 **Purpose:** Transition a Hook Card to a new state (e.g., `proposed` → `accepted`).
 
@@ -529,9 +529,9 @@ the target state:
 
 ---
 
-## 6. TU (Trace Unit) Lifecycle Intents
+## 9. TU (Trace Unit) Lifecycle Intents
 
-### 6.1 `tu.open` — Open Trace Unit
+### 9.1 `tu.open` — Open Trace Unit
 
 **Purpose:** Create and open a new Trace Unit in `hot-proposed` state, then transition to
 `stabilizing`.
@@ -575,7 +575,7 @@ the target state:
 
 ---
 
-### 6.2 `tu.update` — Update Trace Unit
+### 9.2 `tu.update` — Update Trace Unit
 
 **Purpose:** Update a TU's state during its lifecycle (e.g., adding deliverables, submitting for
 gatecheck).
@@ -627,7 +627,7 @@ gatecheck).
 
 ---
 
-### 6.3 `tu.close` — Close Trace Unit (Merge to Cold)
+### 9.3 `tu.close` — Close Trace Unit (Merge to Cold)
 
 **Purpose:** Complete TU lifecycle by merging to Cold snapshot (transition to `cold-merged`).
 
@@ -666,9 +666,9 @@ gatecheck).
 
 ---
 
-## 7. Gate (Gatecheck) Lifecycle Intents
+## 10. Gate (Gatecheck) Lifecycle Intents
 
-### 7.1 `gate.report.submit` — Submit Gatecheck Report
+### 10.1 `gate.report.submit` — Submit Gatecheck Report
 
 **Purpose:** Submit a gatecheck report (pre-gate or full gatecheck) for a TU or View.
 
@@ -720,7 +720,7 @@ gatecheck).
 
 ---
 
-### 7.2 `gate.decision` — Gatecheck Decision
+### 10.2 `gate.decision` — Gatecheck Decision
 
 **Purpose:** Final gatecheck decision: pass, conditional pass, or block.
 
@@ -770,9 +770,9 @@ the outcome:
 
 ---
 
-## 8. Merge Lifecycle Intents
+## 11. Merge Lifecycle Intents
 
-### 8.1 `merge.request` — Request Cold Merge
+### 11.1 `merge.request` — Request Cold Merge
 
 **Purpose:** Request approval to merge Hot changes to Cold snapshot.
 
@@ -810,7 +810,7 @@ the outcome:
 
 ---
 
-### 8.2 `merge.approve` — Approve Cold Merge
+### 11.2 `merge.approve` — Approve Cold Merge
 
 **Purpose:** Approve merge to Cold after successful gatecheck.
 
@@ -849,7 +849,7 @@ the outcome:
 
 ---
 
-### 8.3 `merge.reject` — Reject Cold Merge
+### 11.3 `merge.reject` — Reject Cold Merge
 
 **Purpose:** Reject merge to Cold after failed gatecheck; require rework.
 
@@ -885,9 +885,9 @@ the outcome:
 
 ---
 
-## 9. View/Export Lifecycle Intents
+## 12. View/Export Lifecycle Intents
 
-### 9.1 `view.export.request` — Request View Export
+### 12.1 `view.export.request` — Request View Export
 
 **Purpose:** Request export binding for a Cold snapshot.
 
@@ -927,7 +927,7 @@ the outcome:
 
 ---
 
-### 9.2 `view.export.result` — Export Result
+### 12.2 `view.export.result` — Export Result
 
 **Purpose:** Deliver bound export artifacts after successful binding.
 
@@ -971,9 +971,9 @@ the outcome:
 
 ---
 
-## 10. PN (Player Narrator) Playtest Intent
+## 13. PN (Player Narrator) Playtest Intent
 
-### 10.1 `pn.playtest.submit` — Submit PN Playtest Notes
+### 13.1 `pn.playtest.submit` — Submit PN Playtest Notes
 
 **Purpose:** Deliver PN dry-run playtest feedback after consuming a bound view.
 
@@ -1016,9 +1016,9 @@ the outcome:
 
 ---
 
-## 11. Intent Summary Table
+## 14. Intent Summary Table
 
-### 11.1 All Intents by Domain
+### 14.1 All Intents by Domain
 
 | Intent                  | Purpose                               | Sender    | Receiver  | Payload Schema                       |
 | ----------------------- | ------------------------------------- | --------- | --------- | ------------------------------------ |
@@ -1053,9 +1053,9 @@ the outcome:
 
 ---
 
-## 12. Authorization Matrix
+## 15. Authorization Matrix
 
-### 12.1 Role-Based Authorization
+### 15.1 Role-Based Authorization
 
 | Intent Domain | Allowed Senders                                              | Typical Receivers        |
 | ------------- | ------------------------------------------------------------ | ------------------------ |
@@ -1080,7 +1080,7 @@ the outcome:
 
 ---
 
-## 13. Cross-References
+## 16. Cross-References
 
 ### Layer 0/1 Policy
 
@@ -1113,9 +1113,9 @@ the outcome:
 
 ---
 
-## 14. Forward Compatibility
+## 17. Forward Compatibility
 
-### 14.1 Unknown Intents
+### 17.1 Unknown Intents
 
 Receivers SHOULD reject unknown intents unless explicitly configured to accept them (e.g., for
 testing or extensibility).
@@ -1134,7 +1134,7 @@ testing or extensibility).
 }
 ```
 
-### 14.2 Intent Versioning
+### 17.2 Intent Versioning
 
 Intents MAY be versioned via protocol version (e.g., `protocol.version = "2.0.0"` adds new intents).
 Minor version changes MAY add intents; major version changes MAY remove or change intent semantics.
@@ -1146,7 +1146,7 @@ Minor version changes MAY add intents; major version changes MAY remove or chang
 
 ---
 
-## 15. Implementation Checklist
+## 18. Implementation Checklist
 
 For implementers of intent handling systems:
 

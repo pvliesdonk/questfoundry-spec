@@ -31,7 +31,13 @@ confidence—clearly, concisely, and without spoilers.
 - Publish **Codex Packs**: entries with **Overview → Usage → Context → See also → Notes → Lineage**
   (player-safe).
 - Maintain a **crosslink map** so readers can hop between related concepts without dead ends.
-- Translate **Lore Weaver’s player-safe summaries** into entries; never add hidden causality.
+- Translate **Lore Weaver's player-safe summaries** into entries; never add hidden causality.
+  - **⚠️ Critical Validation Point:** This translation from `canon_pack` (Hot, spoiler-level) to
+    `codex_entry` (Cold, player-safe) is a **high-risk manual step**. The Curator must strip all
+    spoilers, hidden allegiances, timeline reveals, and causality that would change how a reader
+    perceives choices. The **Gatekeeper MUST validate every codex entry** for spoiler leaks before
+    merging to Cold. This is not automated—it requires human judgment and explicit Gatekeeper
+    approval. See `../../00-north-star/SPOILER_HYGIENE.md` for redlines and examples.
 - Align terminology across **manuscript, PN phrasing, captions, and translations** (with
   Style/Translator).
 - Identify **gaps** (missing anchors, ambiguous terms) and propose hooks.
