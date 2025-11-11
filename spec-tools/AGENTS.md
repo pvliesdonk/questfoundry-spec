@@ -1,6 +1,7 @@
 # Agent Guidelines (spec-tools)
 
 > **Parent Guidelines:** See [`../AGENTS.md`](../AGENTS.md) for:
+>
 > - Universal assistant rules (clarity, conciseness, expert opinions)
 > - QuestFoundry specification context (Layers 0-5, architectural principles)
 > - Commit conventions and branch workflow
@@ -53,8 +54,8 @@ These rules apply to all Python code (`*.py`) in `spec-tools/`.
 
 ### Python Version
 
-Write for Python 3.11-3.13. Do NOT write code to support earlier versions.
-Always use modern Python practices, including full type annotations and generics.
+Write for Python 3.11-3.13. Do NOT write code to support earlier versions. Always use modern Python
+practices, including full type annotations and generics.
 
 ### Project Setup and Developer Workflows
 
@@ -67,45 +68,42 @@ Always use modern Python practices, including full type annotations and generics
   ```shell
   # Install/sync all dependencies:
   uv sync
-  
+
   # Run linting (ruff) and type checking (mypy):
   uv run ruff check .
   uv run mypy
-  
+
   # Run tests:
   uv run pytest
-  
+
   # Auto-format code
   uv run ruff format .
   ```
 
-- To see test output for individual tests, run:
-  `uv run pytest -s tests/some/file.py`
+- To see test output for individual tests, run: `uv run pytest -s tests/some/file.py`
 
-- You must verify there are zero linter warnings/errors or test failures before
-  considering any task complete.
+- You must verify there are zero linter warnings/errors or test failures before considering any task
+  complete.
 
 ### General Development Practices
 
 - Be sure to resolve pyright/mypy linter errors as you develop.
-- If type checker errors are hard to resolve, you may add a comment `# pyright: ignore`
-  to disable warnings or errors *only* if you know they are not a real problem
-  and are difficult to fix.
+- If type checker errors are hard to resolve, you may add a comment `# pyright: ignore` to disable
+  warnings or errors _only_ if you know they are not a real problem and are difficult to fix.
 - DO NOT globally disable lint or type checker rules without confirmation.
-- Never change an existing comment, pydoc, or a log statement, unless it is directly
-  related to the fix or the user has asked for a cleanup.
-  Do not drop existing comments when editing code!
+- Never change an existing comment, pydoc, or a log statement, unless it is directly related to the
+  fix or the user has asked for a cleanup. Do not drop existing comments when editing code!
 
 ### Coding Conventions and Imports
 
 - Always use full, absolute imports: `from toplevel_pkg.module1.module2 import ...`
 - DO NOT use relative imports: `from .module1.module2 import ...`
-- Be sure to import types from `collections.abc` or `typing_extensions` where appropriate.
-  (e.g., `from collections.abc import Callable, Coroutine`)
+- Be sure to import types from `collections.abc` or `typing_extensions` where appropriate. (e.g.,
+  `from collections.abc import Callable, Coroutine`)
 - Use `typing_extensions` for `@override` (to support Python 3.11).
 - Add `from __future__ import annotations` on files with types whenever applicable.
-- Use `pathlib.Path` instead of strings for paths.
-  Use `Path(filename).read_text()` instead of `with open(...)`.
+- Use `pathlib.Path` instead of strings for paths. Use `Path(filename).read_text()` instead of
+  `with open(...)`.
 
 ### Use Modern Python Practices
 
@@ -114,8 +112,8 @@ Always use modern Python practices, including full type annotations and generics
 ### Testing
 
 - Place tests in the `tests/` directory.
-- For simple tests, prefer inline functions in the original code file below a `## Tests`
-  comment. Inline tests should NOT import pytest.
+- For simple tests, prefer inline functions in the original code file below a `## Tests` comment.
+  Inline tests should NOT import pytest.
 - DO NOT write one-off test code in throwaway files.
 - DO NOT put `if __name__ == "__main__":` for quick testing.
 - Just write `assert x == 5`. Do NOT write `assert x == 5, "x should be 5"`.
@@ -131,12 +129,11 @@ Always use modern Python practices, including full type annotations and generics
 
 ### Guidelines for Literal Strings
 
-- For multi-line strings, ALWAYS use `textwrap.dedent` to make them readable.
-  Example:
+- For multi-line strings, ALWAYS use `textwrap.dedent` to make them readable. Example:
 
   ```python
   from textwrap import dedent
-  
+
   markdown_content = dedent("""
       # Title 1
       Some text.
@@ -145,7 +142,7 @@ Always use modern Python practices, including full type annotations and generics
 
 ### Guidelines for Comments
 
-- Comments should be EXPLANATORY: Explain *WHY*, not *WHAT*.
+- Comments should be EXPLANATORY: Explain _WHY_, not _WHAT_.
 - Comments should be CONCISE.
 - DO NOT use comments to state obvious things. (e.g., `if self.failed == 0: # All successful`).
 
@@ -162,7 +159,8 @@ Always use modern Python practices, including full type annotations and generics
 ### General Clean Coding Practices
 
 - Avoid writing trivial wrapper or delegation functions.
-- If a function does not use a parameter, use `# pyright: ignore[reportUnusedParameter]` to suppress the linter warning.
+- If a function does not use a parameter, use `# pyright: ignore[reportUnusedParameter]` to suppress
+  the linter warning.
 
 ### Guidelines for Backward Compatibility
 

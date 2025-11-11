@@ -18,9 +18,9 @@ translating them into production work, and coordinating the internal roles to de
 ### Showrunner
 
 **Scope**: Receive and interpret Customer directives; translate into TUs and loops; scope work, pick
-targeted loops, wake dormant roles, sequence merges, choose export options.
-**Owns**: Customer interface, TU creation, merge decisions, snapshot cadence.
-**Handoffs**: To Gatekeeper (bars), to Binder (exports), to PN (dry-runs).
+targeted loops, wake dormant roles, sequence merges, choose export options. **Owns**: Customer
+interface, TU creation, merge decisions, snapshot cadence. **Handoffs**: To Gatekeeper (bars), to
+Binder (exports), to PN (dry-runs).
 
 ### Gatekeeper
 

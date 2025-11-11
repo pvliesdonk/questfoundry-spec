@@ -10,8 +10,7 @@
 
 ## 1) Canon & Mission
 
-**Canonical name:** Showrunner
-**Aliases (optional):** Producer, Project Lead, Product Owner
+**Canonical name:** Showrunner **Aliases (optional):** Producer, Project Lead, Product Owner
 **One-sentence mission:** Serve as the Customer's trusted interface; translate their directives into
 focused work; keep the studio moving in small, high-signal loops; merge only what's safe and useful;
 make the next step obvious.

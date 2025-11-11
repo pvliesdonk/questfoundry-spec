@@ -21,8 +21,8 @@ humans or AI fill the roles.
 
 By making loops the executable units, we achieve:
 
-- **Single source of truth**: Each loop procedure lives in one playbook, not duplicated across N role
-  prompts
+- **Single source of truth**: Each loop procedure lives in one playbook, not duplicated across N
+  role prompts
 - **Clear coordination**: The Showrunner loads a playbook and orchestrates; roles respond with their
   domain expertise
 - **Role interchangeability**: Swap human/AI implementations without changing the procedure
@@ -34,8 +34,8 @@ The architecture provides three formats to support different use cases:
   deliverables
 - **Role Adapters** (`role_adapters/`) — 15 thin interface specs (50-100 lines) for multi-role
   orchestration
-- **Full Role Prompts** (`[role]/system_prompt.md`) — Comprehensive standalone guides (200-300 lines)
-  for learning or solo work
+- **Full Role Prompts** (`[role]/system_prompt.md`) — Comprehensive standalone guides (200-300
+  lines) for learning or solo work
 
 ## Purpose
 

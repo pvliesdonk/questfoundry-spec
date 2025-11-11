@@ -57,10 +57,10 @@ JSON Schema Draft 2020-12 with:
 
 ## Validation Feedback Process
 
-**Architectural Risk:** The L2→L3 translation boundary is a deliberate design choice that prioritizes
-human readability (Layer 2 templates) over machine validation (Layer 3 schemas). This creates a
-governance challenge: **how do schema validation failures get surfaced and corrected in the
-human-readable Layer 2 source?**
+**Architectural Risk:** The L2→L3 translation boundary is a deliberate design choice that
+prioritizes human readability (Layer 2 templates) over machine validation (Layer 3 schemas). This
+creates a governance challenge: **how do schema validation failures get surfaced and corrected in
+the human-readable Layer 2 source?**
 
 ### When Validation Fails
 

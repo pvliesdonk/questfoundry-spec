@@ -4,7 +4,8 @@
 comprehensive role information, see:
 
 - **Role definitions and responsibilities**: [`01-roles/charters/`](../01-roles/charters/)
-- **Role abbreviations**: [`02-dictionary/role_abbreviations.md`](../02-dictionary/role_abbreviations.md)
+- **Role abbreviations**:
+  [`02-dictionary/role_abbreviations.md`](../02-dictionary/role_abbreviations.md)
 - **Loop participation (RACI)**: Each loop playbook in [`loops/`](./loops/) contains a complete RACI
   matrix
 
@@ -42,30 +43,38 @@ SR controls role activation; roles may be set dormant between loops.
 ### Key Protocol Intents by Role
 
 **Showrunner (SR):**
+
 - `human.question`, `human.response` — Customer interface
 - `tu.open`, `tu.update`, `tu.checkpoint`, `tu.close` — TU lifecycle
 - `role.wake`, `role.dormant` — Role orchestration
 
 **Gatekeeper (GK):**
+
 - `gate.report.submit`, `gate.decision` — Quality bar validation
 
 **Book Binder (BB):**
+
 - `view.export.request`, `view.export.result` — Export operations
 
 **Art/Illustrator (AD/IL):**
+
 - Produces: `art_plan`, `shotlist` artifacts
 
 **Audio (AuD/AuP):**
+
 - Produces: `audio_plan`, `cuelist` artifacts
 
 **Translator (TR):**
+
 - Produces: `language_pack`, `register_map` artifacts
 
 **Player-Narrator (PN):**
+
 - `pn.playtest.submit` — Playtest feedback (Cold only, player_safe=true)
 
 ### LLM Requirements
 
 - **Most roles**: JSON mode, low temperature (0.2-0.5) for consistency
 - **PN surfaces**: Strict safety enforcement (Cold data only, player_safe=true)
-- **Creative roles** (PW, SS, ST, LW): May benefit from slightly higher temperature (0.5-0.7) for variety
+- **Creative roles** (PW, SS, ST, LW): May benefit from slightly higher temperature (0.5-0.7) for
+  variety
