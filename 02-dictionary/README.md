@@ -3,7 +3,7 @@
 > **Status:** ✅ **ACTIVE — Phase 3 enrichment complete (2025-10-30)**
 >
 > Layer 2 defines the common language used across all roles and loops. Phase 3 (completed
-> 2025-10-30) enriched all 17 artifact templates with inline field constraints, validation rules,
+> 2025-10-30) enriched all 20 artifact templates with inline field constraints, validation rules,
 > and common error examples to support Layer 3 schema generation.
 >
 > This layer contains taxonomies, field registry, glossary, and artifact templates that form the
@@ -141,7 +141,7 @@ Once Layer 2 drafting begins:
 - ✅ Parked documents migrated
 - ✅ Taxonomies complete (`taxonomies.md` with 8 sections)
 - ✅ Field registry complete (`field_registry.md`)
-- ✅ All 17 artifact templates enriched with constraints (Phase 3, 2025-10-29/30)
+- ✅ All 20 artifact templates enriched with constraints (Phase 3, 2025-10-29/30)
 - ✅ Cross-references updated (loop_names.md, role_abbreviations.md)
 - ✅ Conventions documented (choice_integrity.md)
 - ✅ Cross-layer consistency review complete (2025-11-06)

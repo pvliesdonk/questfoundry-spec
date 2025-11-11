@@ -37,11 +37,11 @@ QuestFoundry is a **complete specification** for a collaborative interactive fic
 studio. It defines:
 
 - **15 roles** (Showrunner, Gatekeeper, Plotwright, Scene Smith, Lore Weaver, etc.)
-- **17 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
-- **21 JSON schemas** for machine-readable validation
+- **20 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
+- **26 JSON schemas** for machine-readable validation
 - **Communication protocol** with state machines for workflows
 - **AI agent prompts** implementing roles for Claude/ChatGPT/Gemini
-- **Quality bars** ensuring integrity, reachability, style consistency
+- **8 quality bars** ensuring integrity, reachability, style consistency, accessibility
 
 The specification is deliberately **layered** for clarity, testability, and traceability.
 
@@ -169,7 +169,7 @@ QuestFoundry defines **15 roles** that can be played by humans or AI agents:
 
 See [`00-north-star/ROLE_INDEX.md`](00-north-star/ROLE_INDEX.md) for the complete directory.
 
-### 📦 The 17 Artifact Types
+### 📦 The 20 Artifact Types
 
 All work in QuestFoundry produces **structured artifacts** with JSON schemas:
 
@@ -227,9 +227,9 @@ hot-proposed → stabilizing → gatecheck → cold-merged
 
 See [`00-north-star/SOURCES_OF_TRUTH.md`](00-north-star/SOURCES_OF_TRUTH.md) for details.
 
-### 🎯 The 7 Quality Bars
+### 🎯 The 8 Quality Bars
 
-Before anything merges to Cold, **Gatekeeper** validates against 7 criteria:
+Before anything merges to Cold, **Gatekeeper** validates against 8 criteria:
 
 1. **Integrity** — No dead references, valid IDs
 2. **Reachability** — Keystones reachable from start
@@ -237,7 +237,8 @@ Before anything merges to Cold, **Gatekeeper** validates against 7 criteria:
 4. **Gateways** — Coherent diegetic checks
 5. **Style** — Voice/register/motifs consistent
 6. **Determinism** — Promised for assets when needed
-7. **Presentation** — No spoilers on player surfaces, accessibility baseline
+7. **Presentation** — No spoilers on player surfaces
+8. **Accessibility** — Navigation clear, alt text present, sensory considerations
 
 See [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) for full criteria.
 
@@ -247,7 +248,7 @@ See [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) for full cr
 
 ### 🎬 Micro-Loops (Targeted Work Cycles)
 
-QuestFoundry organizes work into **11 focused loops**:
+QuestFoundry organizes work into **12 focused loops**:
 
 **Discovery:**
 
@@ -277,6 +278,10 @@ QuestFoundry organizes work into **11 focused loops**:
 **Full Cycle:**
 
 - **Full Production Run** — Orchestrates all loops
+
+**Reflection:**
+
+- **Post-Mortem** — Retrospective and lessons learned
 
 Detailed guides: [`00-north-star/LOOPS/`](00-north-star/LOOPS/) Quick playbooks:
 [`00-north-star/PLAYBOOKS/`](00-north-star/PLAYBOOKS/)
@@ -479,10 +484,10 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 
 | Component            | Status           | Notes                                                                  |
 | -------------------- | ---------------- | ---------------------------------------------------------------------- |
-| Layer 0 (North Star) | ✅ 100% complete | 13 loops with full guides + playbook one-pagers, 8 quality bars        |
+| Layer 0 (North Star) | ✅ 100% complete | 12 loops with full guides + 15 playbook one-pagers, 8 quality bars     |
 | Layer 1 (Roles)      | ✅ 100% complete | All 15 charters, 15 briefs, interfaces complete                        |
 | Layer 2 (Dictionary) | ✅ 100% complete | All 20 artifacts enriched, glossary, taxonomies, cross-refs complete   |
-| Layer 3 (Schemas)    | ✅ 100% complete | 21 schemas (20 artifacts + envelope) validated                         |
+| Layer 3 (Schemas)    | ✅ 100% complete | 26 schemas (20 artifacts + 6 system schemas) validated                 |
 | Layer 4 (Protocol)   | ✅ 100% complete | protocol-v1.0.0: 4 lifecycles, 6 flows, intents, conformance, examples |
 | Layer 5 (Prompts)    | ✅ 100% complete | Loop-focused architecture: 13 playbooks, 15 adapters, 15 full prompts  |
 | Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                                              |
