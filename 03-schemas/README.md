@@ -9,10 +9,11 @@
 ✅ **COMPLETE** — All schemas generated and validated
 
 - **Current version:** `schemas-v0.2.0` (2025-11-05)
-- **Total schemas:** 26 JSON Schema files (Draft 2020-12)
-  - 20 artifact schemas (from Layer 2 templates)
-  - 6 system schemas (Cold SoT manifests, Hot manifest, envelope)
+- **Total schemas:** 28 JSON Schema files (Draft 2020-12)
+  - 22 artifact schemas (from Layer 2 templates)
+  - 6 system schemas (5 Cold SoT manifests + 1 Hot manifest)
 - **Source:** Layer 2 artifact templates in `02-dictionary/artifacts/*.md`
+- **Note:** Protocol envelope schema (`envelope.schema.json`) lives in `04-protocol/`, not here
 - **Validation:** All schemas pass JSON Schema Draft 2020-12 meta-validation
 - **Published:** Canonical URLs at `https://questfoundry.liesdonk.nl/schemas/`
 
@@ -135,9 +136,9 @@ See `hook_card.schema.json` for a complete reference example.
 
 ---
 
-## Schema Index (26 Total)
+## Schema Index (28 Total)
 
-### Artifact Schemas (20)
+### Artifact Schemas (22)
 
 **Core Workflow:**
 
@@ -147,6 +148,7 @@ See `hook_card.schema.json` for a complete reference example.
 **Creation & Content:**
 
 - ✅ `canon_pack.schema.json` — Canonical story facts
+- ✅ `canon_transfer_package.schema.json` — Canon import/export for cross-project sharing
 - ✅ `codex_entry.schema.json` — Player-facing encyclopedia
 - ✅ `style_addendum.schema.json` — Style and voice guidelines
 - ✅ `edit_notes.schema.json` — Editorial feedback
@@ -174,6 +176,7 @@ See `hook_card.schema.json` for a complete reference example.
 **Project Metadata:**
 
 - ✅ `project_metadata.schema.json` — Project configuration
+- ✅ `world_genesis_manifest.schema.json` — World-building foundation (Layer 0 kickoff)
 - ✅ `art_manifest.schema.json` — Complete art asset inventory
 - ✅ `style_manifest.schema.json` — Typography and style settings
 
@@ -191,9 +194,8 @@ See `hook_card.schema.json` for a complete reference example.
 
 - ✅ `hot_manifest.schema.json` — Master index for Hot discovery space
 
-**Protocol:**
-
-- ✅ `envelope.schema.json` — Message envelope structure (Layer 4)
+> **Note:** The protocol envelope schema (`envelope.schema.json`) lives in `04-protocol/`, not in
+> this directory.
 
 ---
 

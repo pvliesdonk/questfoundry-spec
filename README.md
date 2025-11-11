@@ -37,9 +37,9 @@ QuestFoundry is a **complete specification** for a collaborative interactive fic
 studio. It defines:
 
 - **15 roles** (Showrunner, Gatekeeper, Plotwright, Scene Smith, Lore Weaver, etc.)
-- **20 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
-- **26 JSON schemas** for machine-readable validation
-- **Communication protocol** with state machines for workflows
+- **22 artifact types** (Hook Cards, Trace Units, Canon Packs, Codex Entries, etc.)
+- **28 JSON schemas** (22 artifact + 6 system) for machine-readable validation
+- **Communication protocol** with state machines and message envelopes
 - **AI agent prompts** implementing roles for Claude/ChatGPT/Gemini
 - **8 quality bars** ensuring integrity, reachability, style consistency, accessibility
 
@@ -248,7 +248,8 @@ See [`00-north-star/QUALITY_BARS.md`](00-north-star/QUALITY_BARS.md) for full cr
 
 ### 🎬 Micro-Loops (Targeted Work Cycles)
 
-QuestFoundry organizes work into **12 focused loops**:
+QuestFoundry organizes work into **12 focused loops** (Layer 5 includes 13 playbooks—the 12 loops
+below plus a standalone Gatecheck playbook):
 
 **Discovery:**
 
@@ -302,7 +303,7 @@ Detailed guides: [`00-north-star/LOOPS/`](00-north-star/LOOPS/) Quick playbooks:
 
 ### Schema Validation
 
-All 21 schemas conform to **JSON Schema Draft 2020-12** and are validated with `qfspec-validate`:
+All 28 schemas conform to **JSON Schema Draft 2020-12** and are validated with `qfspec-validate`:
 
 ```bash
 cd spec-tools
@@ -404,10 +405,10 @@ questfoundry-spec/
 │   ├── briefs/             # Agent briefs for each role
 │   └── interfaces/         # Role interaction patterns
 ├── 02-dictionary/          # Layer 2: Common language (human-level)
-│   ├── artifacts/          # 17 artifact templates (markdown)
+│   ├── artifacts/          # 22 artifact templates (markdown)
 │   └── glossary.md         # Terminology reference
 ├── 03-schemas/             # Layer 3: JSON Schema specifications
-│   ├── *.schema.json       # 21 JSON schemas (Draft 2020-12)
+│   ├── *.schema.json       # 28 JSON schemas (Draft 2020-12)
 │   └── README.md           # Schema generation guide
 ├── 04-protocol/            # Layer 4: Communication protocol
 │   ├── ENVELOPE.md         # Message format spec
@@ -486,8 +487,8 @@ This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for
 | -------------------- | ---------------- | ---------------------------------------------------------------------- |
 | Layer 0 (North Star) | ✅ 100% complete | 12 loops with full guides + 15 playbook one-pagers, 8 quality bars     |
 | Layer 1 (Roles)      | ✅ 100% complete | All 15 charters, 15 briefs, interfaces complete                        |
-| Layer 2 (Dictionary) | ✅ 100% complete | All 20 artifacts enriched, glossary, taxonomies, cross-refs complete   |
-| Layer 3 (Schemas)    | ✅ 100% complete | 26 schemas (20 artifacts + 6 system schemas) validated                 |
+| Layer 2 (Dictionary) | ✅ 100% complete | All 22 artifacts enriched, glossary, taxonomies, cross-refs complete   |
+| Layer 3 (Schemas)    | ✅ 100% complete | 28 schemas (22 artifacts + 6 system schemas) validated                 |
 | Layer 4 (Protocol)   | ✅ 100% complete | protocol-v1.0.0: 4 lifecycles, 6 flows, intents, conformance, examples |
 | Layer 5 (Prompts)    | ✅ 100% complete | Loop-focused architecture: 13 playbooks, 15 adapters, 15 full prompts  |
 | Layer 6 (Libraries)  | 📋 Planned       | SDK for Python/TypeScript                                              |
