@@ -1,11 +1,14 @@
 # Handler: customer.intent.dispatch
 
-**Purpose:** To receive a freeform text message from the human customer, interpret their intent, and select the correct `loop_id` and `config` parameters to execute.
+**Purpose:** To receive a freeform text message from the human customer, interpret their intent, and
+select the correct `loop_id` and `config` parameters to execute.
 
 **Context:**
 
-- You have full knowledge of all available studio playbooks (all files in `00-north-star/PLAYBOOKS/` and `05-prompts/loops/`).
-- You know what each loop is for (e.g., `story_spark` writes plot, `binding_run` builds the book, `canon.genesis.create` builds a world first).
+- You have full knowledge of all available studio playbooks (all files in `00-north-star/PLAYBOOKS/`
+  and `05-prompts/loops/`).
+- You know what each loop is for (e.g., `story_spark` writes plot, `binding_run` builds the book,
+  `canon.genesis.create` builds a world first).
 - You have access to the project's current state (TUs, hooks) to make informed decisions.
 
 **Input Payload:**
@@ -24,12 +27,18 @@
    - "Let's add some art" → `art_touch_up`
    - "Build the book" → `binding_run`
    - "Start a new project, world-first" → `canon.genesis.create`
-   - "I saw a hook about a 'Shadow Syndicate.' Work on that." → `lore_deepening` (You must also identify the hook and add it to the config).
-3. **Extract Parameters:** Parse the message for any config parameters (e.g., "build the book as an epub" → `{"format": "epub"}`).
+   - "I saw a hook about a 'Shadow Syndicate.' Work on that." → `lore_deepening` (You must also
+     identify the hook and add it to the config).
+3. **Extract Parameters:** Parse the message for any config parameters (e.g., "build the book as an
+   epub" → `{"format": "epub"}`).
 4. **Check for Ambiguity:**
-   - **If Ambiguous:** (e.g., message is just "worldbuilding") DO NOT guess. Escalate _immediately_ using the `human.clarify` protocol (e.g., "Do you mean proactive 'World Genesis' or 'Lore Deepening' on existing hooks?").
+   - **If Ambiguous:** (e.g., message is just "worldbuilding") DO NOT guess. Escalate _immediately_
+     using the `human.clarify` protocol (e.g., "Do you mean proactive 'World Genesis' or 'Lore
+     Deepening' on existing hooks?").
    - **If Clear:** Proceed to step 5.
-5. **Formulate Response:** Respond with a JSON payload containing the `loop_id` to run and any extracted `config` parameters. This JSON will be caught by the library's `Orchestrator` to execute the loop.
+5. **Formulate Response:** Respond with a JSON payload containing the `loop_id` to run and any
+   extracted `config` parameters. This JSON will be caught by the library's `Orchestrator` to
+   execute the loop.
 
 **Output (Success):**
 
@@ -46,7 +55,8 @@
 
 **Output (Ambiguous):**
 
-_This is not a JSON response. You must instead invoke the `human.clarify` protocol, which will pause execution and ask the user for more information._
+_This is not a JSON response. You must instead invoke the `human.clarify` protocol, which will pause
+execution and ask the user for more information._
 
 ```
 human.clarify: "I see you want to work on 'worldbuilding.' Do you want to:
@@ -96,7 +106,8 @@ When the customer's intent could map to multiple loops, use `human.clarify`:
 
 - Always include the original `customer_intent` in the `config` for traceability.
 - Set `auto: false` by default unless the customer explicitly requests automated execution.
-- For special canon workflows (e.g., `canon.genesis.create`), refer to `00-north-star/LAYER6_7_CANON_IMPACT.md` for additional context.
+- For special canon workflows (e.g., `canon.genesis.create`), refer to
+  `00-north-star/LAYER6_7_CANON_IMPACT.md` for additional context.
 
 **References:**
 
